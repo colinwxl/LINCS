@@ -1,0 +1,50 @@
+:global {
+  @import 'variables';
+  @import 'form';
+
+  html {
+    box-sizing: border-box;
+  }
+
+  html,
+  body {
+    // background-color: $light-gray;
+    font-family: $font-family;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  * {
+    box-sizing: inherit;
+
+    &::before,
+    &::after {
+      box-sizing: inherit;
+    }
+  }
+
+  .h1,
+  .h2,
+  .h3,
+  .h4,
+  .h5,
+  .h6,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-weight: 600;
+  }
+
+  footer {
+    background-color: $dark-brand;
+    color: $white;
+    height: $footer-height - 40px;
+    margin-top: 40px;
+    position: relative;
+    width: 100%;
+  }
+}
