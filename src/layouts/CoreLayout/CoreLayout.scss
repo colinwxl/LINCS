@@ -1,0 +1,11 @@
+@import '../../styles/variables';
+
+.wrapper {
+  margin-bottom: -$footer-height;
+  min-height: 100%;
+  position: relative;
+}
+
+.footer-push {
+  height: $footer-height;
+}

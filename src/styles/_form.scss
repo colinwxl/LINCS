@@ -1,0 +1,33 @@
+@import 'variables';
+
+.login-form {
+  min-width: 300px;
+}
+
+.label-group {
+  display: flex;
+  justify-content: space-between;
+
+}
+
+.error {
+  color: $orange;
+  font-style: italic;
+}
+
+.form-buttons {
+  float: right;
+}
+
+.submit-btn {
+  background-color: $brand-primary;
+  border-color: $brand-primary;
+  color: $white;
+  margin-left: 5px;
+
+  &:hover,
+  &:focus {
+    background-color: $brand-primary-dark;
+    border-color: darken($brand-primary-dark, 10);
+  }
+}
