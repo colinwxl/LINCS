@@ -1,0 +1,13 @@
+
+.wrapper {
+  h2 {
+    margin-bottom: 1rem;
+    margin-top: 3rem;
+  }
+}
+
+.title {
+  @media (min-width: 544px) {
+    font-size: 3rem;
+  }
+}

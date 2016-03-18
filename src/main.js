@@ -8,7 +8,7 @@ import Modal from 'react-modal';
 import makeRoutes from './routes';
 import Root from 'containers/Root';
 import configureStore from 'store/configureStore';
-import { attemptLoginFromToken } from 'actions/auth';
+// import { attemptLoginFromToken } from 'actions/auth';
 
 const historyConfig = { basename: '/LINCS' };
 const browserHistory = useRouterHistory(createBrowserHistory)(historyConfig);
@@ -22,10 +22,10 @@ const history = syncHistoryWithStore(browserHistory, store, {
 const routes = makeRoutes(store);
 
 // Attempt to login user from token if it exists
-const token = localStorage.getItem('token');
-if (token) {
-  store.dispatch(attemptLoginFromToken(token));
-}
+// const token = localStorage.getItem('token');
+// if (token) {
+//   store.dispatch(attemptLoginFromToken(token));
+// }
 
 const mountNode = document.getElementById('root');
 

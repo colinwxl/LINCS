@@ -6,9 +6,8 @@
   100% { opacity: 1; transform: translate3d(0, 0, 0); }
 }
 
-.wrapper {
-  margin-top: -2rem;
-}
+// .wrapper {
+// }
 
 .banner {
   background-image: linear-gradient(
@@ -36,7 +35,7 @@
   }
 }
 
-.banner-inner {
+.animated {
   animation: from-bottom .5s ease-in-out;
 }
 
@@ -58,7 +57,7 @@
 }
 
 .btn-discover,
-.btn-analyze {
+.btn-td {
   border-color: $yellow;
   color: $yellow;
   font-size: 1.25rem;
@@ -141,5 +140,14 @@
   @media (min-width: 768px) {
     font-size: 1.5rem;
     max-width: 80%;
+  }
+}
+
+.tools {
+  margin-bottom: 1rem;
+  text-align: center;
+
+  img {
+    height: 163px;
   }
 }

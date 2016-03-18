@@ -1,0 +1,52 @@
+@import 'variables';
+
+.wrapper {
+  h2 {
+    margin-top: 2rem;
+  }
+}
+
+// .content {
+//
+// }
+
+.intro,
+.header,
+.center-info {
+  margin-bottom: 1rem;
+}
+
+.intro,
+.center-info {
+  padding-bottom: 1rem;
+}
+
+.title {
+  @media (min-width: 544px) {
+    font-size: 3rem;
+  }
+}
+
+.header {
+  p {
+    font-style: italic;
+  }
+}
+
+.center-info {
+  h5,
+  p,
+  a {
+    margin-bottom: 0;
+  }
+}
+
+.dtoxs {
+  ol {
+    padding-left: 1rem;
+
+    li {
+      margin-bottom: 1rem;
+    }
+  }
+}
