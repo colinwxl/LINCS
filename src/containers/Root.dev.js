@@ -1,16 +1,21 @@
 import React, { PropTypes } from 'react';
 import { Provider } from 'react-redux';
 import { Router } from 'react-router';
+
 import DevTools from 'containers/DevTools';
+import Footer from 'components/Footer';
+
+const scrollToTop = () => window.scrollTo(0, 0);
 
 export default function Root(props) {
   return (
     <Provider store={props.store}>
       <div style={{ height: '100%' }}>
-        <Router history={props.history}>
+        <Router onUpdate={scrollToTop} history={props.history}>
           {props.routes}
         </Router>
         <DevTools />
+        <Footer />
       </div>
     </Provider>
   );

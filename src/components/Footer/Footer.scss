@@ -1,0 +1,31 @@
+@import 'variables';
+
+.footer {
+  background-color: $gray;
+  color: $white;
+  height: $footer-height - 40px;
+  margin-top: 40px;
+  position: relative;
+  width: 100%;
+}
+
+.divider {
+  height: 3px;
+  z-index: 1;
+
+  span {
+    height: 3px;
+  }
+}
+
+.green {
+  background-color: $green;
+}
+
+.teal {
+  background-color: $teal;
+}
+
+.orange {
+  background-color: $orange;
+}

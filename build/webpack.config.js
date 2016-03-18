@@ -19,6 +19,7 @@ const webpackConfig = {
     root: paths.base(config.dirClient),
     extensions: ['', '.js', '.jsx'],
   },
+  debug: true,
   module: {},
 };
 // ------------------------------------

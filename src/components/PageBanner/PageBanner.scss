@@ -1,0 +1,48 @@
+@import 'variables';
+
+.wrapper {
+  background-color: $brand-primary-dark;
+  color: $brand-primary-light;
+  margin-bottom: 1.5rem;
+  padding: 2rem .9375rem;
+  text-align: center;
+
+  @media (min-width: 544px) {
+    margin-bottom: 3rem;
+    padding-bottom: 4rem;
+    padding-top: 4rem;
+    text-align: left;
+  }
+
+  h1 {
+    color: $white;
+    font-size: 3rem;
+    font-weight: 400;
+
+    @media (min-width: 768px) {
+      font-size: 4rem;
+    }
+  }
+
+  p {
+    font-size: 1.25rem;
+    font-weight: 300;
+    margin-bottom: 0;
+
+    @media (min-width: 768px) {
+      font-size: 1.5rem;
+    }
+  }
+}
+
+.inner {
+  align-items: center;
+  display: flex;
+}
+
+.logo {
+  height: auto;
+  max-height: 150px;
+  max-width: 100%;
+  width: 100% \9;
+}

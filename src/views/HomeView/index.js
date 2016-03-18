@@ -3,7 +3,8 @@ import { Link } from 'react-router';
 import { push } from 'react-router-redux';
 import { connect } from 'react-redux';
 
-import Cube from 'components/Cube';
+// import Cube from 'components/Cube';
+import BarGraph from 'components/BarGraph';
 import { loginUser } from 'actions/auth';
 import styles from './HomeView.scss';
 
@@ -18,24 +19,24 @@ export class HomeView extends Component {
     return (
       <div className={styles.wrapper}>
         <div className={styles.banner}>
-          <div className={`container ${styles['banner-inner']}`}>
-            <Cube animated />
+          <div className={`container ${styles.animated}`}>
+            <img src={require('./cube.png')} alt="NIH LINCS Program" />
             <p className={styles.lead}>
               LINCS aims to create a network-based understanding of biology by cataloging changes
               in gene expression and other cellular processes that occur when cells are exposed
               to a variety of perturbing agents.
             </p>
             <Link
-              to="/discover"
+              to="/data/discover"
               className={`btn btn-outline-inverse btn-lg ${styles['btn-discover']}`}
             >
               Discover LINCS Data
             </Link>
             <Link
-              to="/analyze"
-              className={`btn btn-outline-inverse btn-lg ${styles['btn-analyze']}`}
+              to="/data/tools-databases"
+              className={`btn btn-outline-inverse btn-lg ${styles['btn-td']}`}
             >
-              View Tools & Apps
+              Apps & Workflows
             </Link>
           </div>
         </div>
@@ -48,10 +49,11 @@ export class HomeView extends Component {
             </p>
             <div className="row">
               <div className="col-sm-6 m-b-3">
+                <BarGraph />
                 <h4>Categorized and Curated Data</h4>
                 <p>
-                  Browse through the over 60 LINCS datasets, including the assays, cell lines, and
-                  perturbagens they consist of.
+                  Browse through the over 60 LINCS datasets, including both the metadata and
+                  the raw data generated.
                 </p>
                 <Link
                   to="/discover#categories"
@@ -61,11 +63,20 @@ export class HomeView extends Component {
                 </Link>
               </div>
               <div className="col-sm-6 m-b-3">
-                <h4>Title about LINCS tools</h4>
+                <div className={`${styles.tools} ${styles.animated}`}>
+                  <img src={require('./responsive.png')} alt="responsive" />
+                </div>
+                <h4>Tools for All Platforms</h4>
                 <p>
-                  LINCS tools. LINCS tools. LINCS tools. LINCS tools. LINCS tools.
-                  LINCS tools.
+                  Analyze gene lists or query LINCS databases with a vast array of tools on all
+                  platforms.
                 </p>
+                <Link
+                  to="/tools#analysis"
+                  className={`btn btn-outline ${styles['btn-lincs']}`}
+                >
+                  View Analysis Tools
+                </Link>
               </div>
             </div>
           </div>

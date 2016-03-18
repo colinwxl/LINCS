@@ -1,0 +1,67 @@
+@import 'variables';
+
+.wrapper {
+  @media (min-width: 768px) {
+    padding-left: 1rem;
+  }
+
+  a {
+
+    &:focus,
+    &:hover {
+      text-decoration: none;
+    }
+  }
+}
+
+.link {
+  color: $darker-gray;
+  display: block;
+  padding: .25rem .75rem;
+}
+
+.nav-item:first-child {
+  margin-top: 0;
+}
+
+.active {
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+
+  .inner-nav {
+    display: block;
+  }
+
+  .link {
+    color: $darker-gray;
+    font-weight: 600;
+  }
+}
+
+$generic-link-color: #014c8c;
+
+.inner-nav {
+  display: none;
+}
+
+.inner-link {
+  color: darken($gray, 25);
+  display: block;
+  font-size: 90%;
+  padding: .25rem .75rem;
+}
+
+.inner-active {
+  a {
+    background-color: transparent;
+    color: $darker-gray;
+    font-weight: 600;
+
+    &:focus,
+    &:hover {
+      background-color: transparent;
+      color: $darker-gray;
+      font-weight: 600;
+    }
+  }
+}

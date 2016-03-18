@@ -39,7 +39,7 @@ $cube-border: #84add5;
   text-transform: uppercase;
 
   div {
-    box-shadow: inset 0 0 1px $cube-border;
+    border: 1px solid $cube-border;
     height: 15px;
     width: 15px;
   }

@@ -13,69 +13,58 @@ export class Navigation extends Component {
     this.props.logoutAndRedirect();
   };
 
-  get navItems() {
-    const { auth: { user, isAuthenticated } } = this.props;
-    if (isAuthenticated) {
-      return (
-        <ul className="nav navbar-nav pull-xs-right">
-          <li className="nav-item">
-            <Link className={styles.link} to="/about">
-              About
-            </Link>
-          </li>
-          <li className="nav-item">
-            <Link className={styles.link} to="/user/profile">
-              {user.name}
-            </Link>
-          </li>
-          <li className="nav-item">
-            <Link className={styles.link} to="/user/cart">
-              Cart
-            </Link>
-          </li>
-          <li className="nav-item">
-            <a
-              className={`${styles.link} ${styles['logout-btn']}`}
-              onClick={this._handleLogOut}
-            >
-              Logout
-            </a>
-          </li>
-        </ul>
-      );
-    }
-    return (
-      <ul className="nav navbar-nav pull-xs-right">
-        <li className="nav-item">
-          <Link className={styles.link} to="/about">
-            About
-          </Link>
-        </li>
-        <li className="nav-item">
-          <Link className={styles.link} to="/register">Register</Link>
-        </li>
-        <li className="nav-item">
-          <Link className={styles.link} to="/login">Login</Link>
-        </li>
-      </ul>
-    );
-  }
   render() {
+    const { auth: { isAuthenticated } } = this.props;
     return (
-      <nav className={cn(['navbar', 'navbar-light', 'bg-faded', styles['main-nav']])}>
+      <header
+        className={cn(['navbar', 'navbar-light', 'bg-faded', styles['main-nav']])}
+        role="banner"
+      >
         <div className="container">
-          <button
-            type="button" className="navbar-toggler hidden-sm-up"
-            data-toggle="collapse" data-target="#main-navbar"
-          >
-            &#9776;
-          </button>
-          <div className="collapse navbar-toggleable-xs" id="main-navbar">
-            <Link className="navbar-brand" to="/">NIH LINCS Program</Link>
-            {this.navItems}
+          <div className="clearfix">
+            <button
+              className="navbar-toggler pull-xs-right hidden-md-up"
+              type="button"
+              data-toggle="collapse"
+              data-target="#main-navbar"
+            >
+              ☰
+            </button>
+            <Link className="navbar-brand hidden-md-up" to="/">
+              NIH LINCS Program
+            </Link>
+          </div>
+          <div className="collapse navbar-toggleable-sm" id="main-navbar">
+            <Link className="navbar-brand hidden-sm-down" to="/">NIH LINCS Program</Link>
+            <nav className="nav navbar-nav pull-md-right">
+              <Link className={styles.link} to="/centers">
+                Centers
+              </Link>
+              <Link className={styles.link} to="/data">
+                Data
+              </Link>
+              <Link className={styles.link} to="/community">
+                Community
+              </Link>
+              <Link className={styles.link} to="/publications">
+                Publications
+              </Link>
+              <Link className={styles.link} to="/news">
+                News
+              </Link>
+              {
+                isAuthenticated &&
+                <a
+                  className={`${styles.link} ${styles['logout-btn']}`}
+                  onClick={this._handleLogOut}
+                >
+                  Logout
+                </a>
+              }
+            </nav>
           </div>
         </div>
-      </nav>
+      </header>
     );
   }
 }
