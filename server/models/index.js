@@ -1,5 +1,10 @@
 export User from './User';
 
+export FundingOpportunity from './FundingOpportunity';
+export Webinar from './Webinar';
+export Workshop from './Workshop';
+export Symposium from './Symposium';
+
 export cDNA from './cDNA';
 export CellLine from './CellLine';
 export Dataset from './Dataset';

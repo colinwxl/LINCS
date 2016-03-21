@@ -1,0 +1,42 @@
+@import 'variables';
+
+.wrapper {
+
+  h2 {
+    margin-top: 2rem;
+  }
+}
+
+.playlist {
+  margin-bottom: 1rem;
+  text-align: center;
+  width: 100%;
+
+  iframe {
+    height: auto;
+    max-width: 100%;
+
+    @media (min-width: 768px) {
+      height: 350px;
+      width: 623px;
+    }
+  }
+}
+
+.webinar {
+  border-bottom: 1px solid $gray;
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+
+  h5,
+  p {
+    margin-bottom: 0;
+  }
+}
+
+.webinars {
+
+  .webinar:last-child {
+    border-bottom: 0;
+  }
+}

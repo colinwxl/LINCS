@@ -3,9 +3,10 @@ import { routerReducer as router } from 'react-router-redux';
 import { reducer as formReducer } from 'redux-form';
 import merge from 'lodash/merge';
 import auth from './auth';
+import community from './community';
 import pendingRequests from './pendingRequests';
 import * as AuthActionTypes from 'actions/auth';
-import * as EntityActionTypes from 'actions/entities';
+// import * as EntityActionTypes from 'actions/entities';
 
 // Updates an entity cache in response to any action with response.entities.
 function entities(state = { experiments: {}, compounds: {} }, action) {
@@ -16,22 +17,10 @@ function entities(state = { experiments: {}, compounds: {} }, action) {
   return state;
 }
 
-// Updates error message to notify about the failed fetches.
-function errorMessage(state = null, action) {
-  const { type, error } = action;
-
-  if (type === EntityActionTypes.RESET_ERROR_MESSAGE) {
-    return null;
-  } else if (error) {
-    return action.error;
-  }
-  return state;
-}
-
 export default combineReducers({
   entities,
+  community,
   pendingRequests,
-  errorMessage,
   router,
   auth,
   form: formReducer.plugin({
@@ -45,14 +34,6 @@ export default combineReducers({
             errorStatus: action.payload.status,
             errorText: action.payload.statusText,
           };
-        default:
-          return state;
-      }
-    },
-    AddCompound: (state, action) => {
-      switch (action.type) {
-        case EntityActionTypes.ADD_COMPOUND_SUCCESS:
-          return undefined;
         default:
           return state;
       }
