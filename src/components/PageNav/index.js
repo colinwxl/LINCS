@@ -3,11 +3,42 @@ import { Link } from 'react-router';
 
 import styles from './PageNav.scss';
 
+const communityRoute = '/community';
 const centersRoute = '/centers';
 const dsgcRoute = `${centersRoute}/data-and-signature-generating-centers`;
 
 export default class PageNav extends Component {
-  get navItems() {
+  get communityNavItems() {
+    return [
+      {
+        title: 'Overview',
+        route: `${communityRoute}/overview`,
+        children: [],
+      },
+      {
+        title: 'Funding Opportunities',
+        route: `${communityRoute}/funding-opportunities`,
+        children: [],
+      },
+      {
+        title: 'LINCS Consortium Meetings',
+        route: `${communityRoute}/consortium-meetings`,
+        children: [],
+      },
+      {
+        title: 'Webinars',
+        route: `${communityRoute}/webinars`,
+        children: [],
+      },
+      {
+        title: 'Workshops and Symposia',
+        route: `${communityRoute}/workshops-and-symposia`,
+        children: [],
+      },
+    ];
+  }
+
+  get centerNavItems() {
     return [
       {
         title: 'Overview',
@@ -48,14 +79,16 @@ export default class PageNav extends Component {
       },
     ];
   }
+
   render() {
-    const { mainPage, subPage } = this.props;
+    const { mainPage, subPage, isCommunityPage } = this.props;
+    const navItems = isCommunityPage ? this.communityNavItems : this.centerNavItems;
     return (
       <div className={`col-md-3 col-md-push-9 ${styles.wrapper}`}>
         <div className={styles.wrapper}>
           <nav>
             {
-              this.navItems.map((navObj, index) => {
+              navItems.map((navObj, index) => {
                 let navClasses = styles['nav-item'];
                 if (navObj.title === mainPage) {
                   navClasses = `${styles['nav-item']} ${styles.active}`;
@@ -99,4 +132,5 @@ export default class PageNav extends Component {
 PageNav.propTypes = {
   mainPage: PropTypes.string.isRequired,
   subPage: PropTypes.string,
+  isCommunityPage: PropTypes.bool,
 };

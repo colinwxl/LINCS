@@ -1,4 +1,4 @@
-import * as EntityActionTypes from 'actions/entities';
+import * as CommunityActionTypes from 'actions/community';
 
 const initPendingState = {
   isPending: false,
@@ -6,25 +6,13 @@ const initPendingState = {
 
 export default function (state = initPendingState, action) {
   switch (action.type) {
-    case EntityActionTypes.COMPOUND_REQUEST:
-    case EntityActionTypes.COMPOUNDS_REQUEST:
-    case EntityActionTypes.EXPERIMENT_REQUEST:
-    case EntityActionTypes.EXPERIMENTS_REQUEST:
-    case EntityActionTypes.ADD_COMPOUND_REQUEST:
+    case CommunityActionTypes.FUNDING_OPPS_REQUEST:
       return {
         ...state,
         isPending: true,
       };
-    case EntityActionTypes.COMPOUND_SUCCESS:
-    case EntityActionTypes.COMPOUNDS_SUCCESS:
-    case EntityActionTypes.EXPERIMENT_SUCCESS:
-    case EntityActionTypes.EXPERIMENTS_SUCCESS:
-    case EntityActionTypes.ADD_COMPOUND_SUCCESS:
-    case EntityActionTypes.COMPOUND_FAILURE:
-    case EntityActionTypes.COMPOUNDS_FAILURE:
-    case EntityActionTypes.EXPERIMENT_FAILURE:
-    case EntityActionTypes.EXPERIMENTS_FAILURE:
-    case EntityActionTypes.ADD_COMPOUND_FAILURE:
+    case CommunityActionTypes.FUNDING_OPPS_SUCCESS:
+    case CommunityActionTypes.FUNDING_OPPS_FAILURE:
       return {
         ...state,
         isPending: false,

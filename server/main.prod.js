@@ -23,7 +23,7 @@ require('./routes').default(app);
 // Serving ~/dist by default. Ideally these files should be served by
 // the web server and not the app server, but this helps to demo the
 // server in production.
-app.use(convert(mount('/L1000', serve(paths.base(config.dirDist)))));
+app.use(mount('/LINCS', serve(paths.base(config.dirDist))));
 
 // This rewrites all other routes requests to the root /index.html file
 // (ignoring file requests). If you want to implement isomorphic

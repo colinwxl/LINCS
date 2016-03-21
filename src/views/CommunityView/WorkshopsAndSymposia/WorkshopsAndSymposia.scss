@@ -1,0 +1,47 @@
+@import 'variables';
+
+.wrapper {
+
+  h2 {
+    margin-top: 2rem;
+  }
+
+  h2:first-child {
+    margin-top: 0;
+  }
+}
+
+.workshop,
+.symposium {
+  border-bottom: 1px solid $gray;
+  margin-bottom: 2rem;
+  padding-bottom: 2rem;
+
+  p,
+  ul {
+    margin-bottom: 0;
+  }
+}
+
+.workshops {
+
+  .workshop:last-child {
+    border-bottom: 0;
+  }
+}
+
+.symposia {
+
+  .symposium:last-child {
+    border-bottom: 0;
+  }
+}
+
+.header {
+  margin-bottom: 1rem;
+
+  h5,
+  p {
+    margin-bottom: 0;
+  }
+}

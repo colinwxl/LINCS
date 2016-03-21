@@ -13,6 +13,8 @@ export default class HMSLINCS extends Component {
         <PageBanner
           title="HMS LINCS"
           subTitle="The Harvard Medical School LINCS Center."
+          imgSrc={require('./hms-lincs.png')}
+          imgAlt="HMS LINCS Logo"
         />
         <div className="container">
           <div className="row">

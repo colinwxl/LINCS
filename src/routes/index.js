@@ -5,8 +5,7 @@ import CoreLayout from 'layouts/CoreLayout';
 import HomeView from 'views/HomeView';
 
 // Centers
-import CentersOverView from 'views/CentersView/Overview';
-
+import CentersOverview from 'views/CentersView/Overview';
 // DSGCs
 import DSGCs from 'views/CentersView/DSGCs';
 import DToxS from 'views/CentersView/DSGCs/DToxS';
@@ -15,12 +14,17 @@ import LINCSTranscriptomics from 'views/CentersView/DSGCs/LINCSTranscriptomics';
 import LINCSPCCSE from 'views/CentersView/DSGCs/LINCSPCCSE';
 import MEPLINCS from 'views/CentersView/DSGCs/MEPLINCS';
 import NeuroLINCS from 'views/CentersView/DSGCs/NeuroLINCS';
-
 // DCIC
 import DCIC from 'views/CentersView/DCIC';
-
 // LINCS Phase One
 import PhaseOne from 'views/CentersView/PhaseOne';
+
+// Community
+import CommunityOverview from 'views/CommunityView/Overview';
+import FundingOpportunities from 'views/CommunityView/FundingOpportunities';
+import ConsortiumMeetings from 'views/CommunityView/ConsortiumMeetings';
+import Webinars from 'views/CommunityView/Webinars';
+import WorkshopsAndSymposia from 'views/CommunityView/WorkshopsAndSymposia';
 
 import AnalyzeView from 'views/AnalyzeView';
 import DiscoverView from 'views/DiscoverView';
@@ -32,7 +36,7 @@ export default (/* store */) => (
   <Route path="/" component={CoreLayout}>
     <IndexRoute component={HomeView} />
     <Redirect from="/centers" to="/centers/overview" />
-    <Route path="/centers/overview" component={CentersOverView} />
+    <Route path="/centers/overview" component={CentersOverview} />
     <Route path="/centers/data-and-signature-generating-centers" component={DSGCs} />
     <Route path="/centers/data-and-signature-generating-centers/dtoxs" component={DToxS} />
     <Route path="/centers/data-and-signature-generating-centers/hms-lincs" component={HMSLINCS} />
@@ -51,6 +55,12 @@ export default (/* store */) => (
     />
     <Route path="/centers/dcic" component={DCIC} />
     <Route path="/centers/phase-one" component={PhaseOne} />
+    <Redirect from="/community" to="/community/overview" />
+    <Route path="/community/overview" component={CommunityOverview} />
+    <Route path="/community/funding-opportunities" component={FundingOpportunities} />
+    <Route path="/community/consortium-meetings" component={ConsortiumMeetings} />
+    <Route path="/community/webinars" component={Webinars} />
+    <Route path="/community/workshops-and-symposia" component={WorkshopsAndSymposia} />
     <Route path="/analyze" component={AnalyzeView} />
     <Route path="/discover" component={DiscoverView} />
     <Route path="/register" component={RegisterView} />
