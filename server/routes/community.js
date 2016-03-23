@@ -15,7 +15,7 @@ const router = new Router({
 
 router.get('/opportunities', async (ctx) => {
   try {
-    ctx.body = await FundingOpportunity.find({}).lean().exec();
+    ctx.body = await FundingOpportunity.fetchAll();
   } catch (e) {
     debug(e);
     ctx.throw(500, 'An error occurred obtaining datasets.');
@@ -24,7 +24,8 @@ router.get('/opportunities', async (ctx) => {
 
 router.get('/webinars', async (ctx) => {
   try {
-    ctx.body = await Webinar.find({}).lean().exec();
+    const webinars = await Webinar.fetchAll();
+    ctx.body = webinars.toJSON();
   } catch (e) {
     debug(e);
     ctx.throw(500, 'An error occurred obtaining datasets.');
@@ -33,7 +34,7 @@ router.get('/webinars', async (ctx) => {
 
 router.get('/workshops', async (ctx) => {
   try {
-    ctx.body = await Workshop.find({}).lean().exec();
+    ctx.body = await Workshop.fetchAll();
   } catch (e) {
     debug(e);
     ctx.throw(500, 'An error occurred obtaining datasets.');
@@ -42,7 +43,7 @@ router.get('/workshops', async (ctx) => {
 
 router.get('/symposia', async (ctx) => {
   try {
-    ctx.body = await Symposium.find({}).lean().exec();
+    ctx.body = await Symposium.fetchAll();
   } catch (e) {
     debug(e);
     ctx.throw(500, 'An error occurred obtaining datasets.');
