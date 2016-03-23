@@ -15,7 +15,8 @@ const router = new Router({
 
 router.get('/opportunities', async (ctx) => {
   try {
-    ctx.body = await FundingOpportunity.fetchAll();
+    const opps = await FundingOpportunity.forge().fetchAll();
+    ctx.body = opps.toJSON();
   } catch (e) {
     debug(e);
     ctx.throw(500, 'An error occurred obtaining datasets.');
@@ -24,7 +25,7 @@ router.get('/opportunities', async (ctx) => {
 
 router.get('/webinars', async (ctx) => {
   try {
-    const webinars = await Webinar.fetchAll();
+    const webinars = await Webinar.forge().fetchAll();
     ctx.body = webinars.toJSON();
   } catch (e) {
     debug(e);
@@ -34,7 +35,8 @@ router.get('/webinars', async (ctx) => {
 
 router.get('/workshops', async (ctx) => {
   try {
-    ctx.body = await Workshop.fetchAll();
+    const shops = await Workshop.forge().fetchAll();
+    ctx.body = shops.toJSON();
   } catch (e) {
     debug(e);
     ctx.throw(500, 'An error occurred obtaining datasets.');
@@ -43,7 +45,8 @@ router.get('/workshops', async (ctx) => {
 
 router.get('/symposia', async (ctx) => {
   try {
-    ctx.body = await Symposium.fetchAll();
+    const symposia = await Symposium.forge().fetchAll();
+    ctx.body = symposia.toJSON();
   } catch (e) {
     debug(e);
     ctx.throw(500, 'An error occurred obtaining datasets.');

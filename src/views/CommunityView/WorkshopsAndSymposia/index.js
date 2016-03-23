@@ -75,7 +75,7 @@ export class WorkshopsAndSymposia extends Component {
                 <h2>Symposia</h2>
                 { symposia.length === 0 && <p>No symposia available</p>}
                 {
-                  symposia.map((sym) => {
+                  symposia.map((sym, index) => {
                     const links = sym.keyLinks;
                     const startDate = formatDate(new Date(sym.startDate));
                     let endDate;
@@ -83,7 +83,7 @@ export class WorkshopsAndSymposia extends Component {
                       endDate = formatDate(new Date(sym.endDate));
                     }
                     return (
-                      <div className={styles.symposium}>
+                      <div key={index} className={styles.symposium}>
                         <div className={styles.header}>
                           <h5>{sym.title}</h5>
                           {
