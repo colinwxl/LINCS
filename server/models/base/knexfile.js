@@ -1,4 +1,4 @@
-export default {
+module.exports = {
   development: {
     client: 'mysql',
     debug: true,
@@ -6,8 +6,7 @@ export default {
       host: '127.0.0.1',
       port: '3306',
       database: 'lincs',
-      user: 'mgm',
-      password: 'Husky',
+      user: 'root',
       charset: 'utf8',
     },
     migrations: {

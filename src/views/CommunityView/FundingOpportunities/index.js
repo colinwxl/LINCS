@@ -20,11 +20,11 @@ export class FundingOpportunities extends Component {
   }
 
   generateOppElems(oppsArr) {
-    return oppsArr.map((opp) => {
+    return oppsArr.map((opp, i) => {
       const dates = opp.keyDates;
       const links = opp.keyLinks;
       return (
-        <div className={styles.opp}>
+        <div key={i} className={styles.opp}>
           <h5>{opp.title}</h5>
           <p>{opp.description}</p>
           <h6>Dates</h6>

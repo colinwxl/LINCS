@@ -1,5 +1,5 @@
-import bookshelf from '../bookshelf';
+import lincsBookshelf from './base';
 
-export default bookshelf.Model.extend({
+export default lincsBookshelf.Model.extend({
   tableName: 'webinars',
 });
