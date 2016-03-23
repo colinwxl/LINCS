@@ -1,17 +1,8 @@
-import mongoose, { Schema } from 'mongoose';
+import bookshelf from '../bookshelf';
 
-const schema = new Schema({
-  title: { type: String, required: true },
-  subTitle: String,
-  description: String,
-  location: { type: String, required: true },
-  startDate: { type: Date, required: true },
-  endDate: Date,
-  keyLinks: Schema.Types.Mixed,
+export default bookshelf.Model.extend({
+  tableName: 'symposia',
 });
-
-// const Symposium = mongoose.model('Symposium', schema, 'symposia');
-export default mongoose.model('Symposium', schema, 'symposia');
 
 /* eslint max-len:0 */
 //

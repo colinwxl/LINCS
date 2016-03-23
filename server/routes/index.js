@@ -1,10 +1,10 @@
 import Boom from 'boom';
 
-import dsRouter from './datasets';
+// import dsRouter from './datasets';
 import communityRouter from './community';
 
 export default (app) => {
-  [dsRouter, communityRouter].forEach(router => {
+  [communityRouter].forEach(router => {
     /* eslint new-cap:0 */
     app
     .use(router.routes())

@@ -1,18 +1,5 @@
-import mongoose, { Schema } from 'mongoose';
+import bookshelf from '../bookshelf';
 
-const foSchema = new Schema({
-  title: { type: String, required: true },
-  description: { type: String, required: true },
-  date: { type: Date, required: true },
-  keyDates: {
-    release: Date,
-    open: Date,
-    due: Date,
-    review: Date,
-    announced: Date,
-    start: Date,
-  },
-  keyLinks: Schema.Types.Mixed,
+export default bookshelf.Model.extend({
+  tableName: 'funding_opportunities',
 });
-
-export default mongoose.model('FundingOpportunity', foSchema, 'fundingOpportunities');

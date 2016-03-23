@@ -1,13 +1,5 @@
-import mongoose, { Schema } from 'mongoose';
+import bookshelf from '../bookshelf';
 
-const webinarSchema = new Schema({
-  title: { type: String, required: true },
-  date: { type: Date, required: true },
-  presenter: {
-    name: String,
-    affiliation: String,
-    url: String,
-  },
+export default bookshelf.Model.extend({
+  tableName: 'webinars',
 });
-
-export default mongoose.model('Webinar', webinarSchema, 'webinars');
