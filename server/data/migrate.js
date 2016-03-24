@@ -48,13 +48,27 @@ function createTable(tableName) {
 }
 
 const tableNames = _.keys(schema);
+const dropPromises = tableNames.map((tableName) => {
+  debug(`Dropping table ${tableName} if it exists...`);
+  return knex.schema.dropTableIfExists(tableName);
+});
+const createPromises = tableNames.map((tableName) => createTable(tableName));
+
 Promise
-  .all(tableNames.map((tableName) => createTable(tableName)))
+  .all(dropPromises)
   .then(() => {
-    debug('Tables created!!');
-    process.exit(0);
+    Promise
+      .all(createPromises)
+      .then(() => {
+        debug('Tables created!!');
+        process.exit(0);
+      })
+      .catch((e) => {
+        debug(e);
+        process.exit(1);
+      });
   })
-  .catch((e) => {
+  .catch(e => {
     debug(e);
     process.exit(1);
   });
