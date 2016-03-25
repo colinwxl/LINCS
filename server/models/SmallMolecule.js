@@ -1,10 +1,12 @@
 import lincsBookshelf from './base';
 
+// Require file to ensure it's been loaded for relationship with Bookshelf
+require('./Dataset');
 const model = lincsBookshelf.Model.extend({
   tableName: 'small_molecules',
   // Relations
-  datasets: function() {
-    this.belongsToMany('Dataset');
+  datasets() {
+    return this.belongsToMany('Dataset');
   },
 });
 

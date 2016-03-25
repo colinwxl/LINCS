@@ -3,12 +3,12 @@ import generateKnex from 'knex';
 const knexConfig = {
   development: {
     client: 'mysql',
-    debug: true,
     connection: {
-      host: '127.0.0.1',
-      port: '3306',
+      host: 'amp.pharm.mssm.edu',
       database: 'lincs',
-      user: 'root',
+      user: 'mike',
+      password: 'Husky',
+      insecureAuth: true,
       charset: 'utf8',
     },
     migrations: {
@@ -33,13 +33,12 @@ const knexConfig = {
   production: {
     client: 'mysql',
     connection: {
+      host: 'amp.pharm.mssm.edu',
       database: 'lincs',
-      user: 'mgm',
+      user: 'mike',
       password: 'Husky',
-    },
-    pool: {
-      min: 2,
-      max: 10,
+      insecureAuth: true,
+      charset: 'utf8',
     },
     migrations: {
       tableName: 'knex_migrations',

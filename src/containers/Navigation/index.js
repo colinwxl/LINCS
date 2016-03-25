@@ -43,6 +43,9 @@ export class Navigation extends Component {
               <Link className={styles.link} to="/data">
                 Data
               </Link>
+              <Link className={styles.link} to="/applications">
+                Apps
+              </Link>
               <Link className={styles.link} to="/community">
                 Community
               </Link>
