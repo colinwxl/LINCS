@@ -1,5 +1,13 @@
 'use strict';
 
+var _extends2 = require('babel-runtime/helpers/extends');
+
+var _extends3 = _interopRequireDefault(_extends2);
+
+var _keys = require('babel-runtime/core-js/object/keys');
+
+var _keys2 = _interopRequireDefault(_keys);
+
 var _promise = require('babel-runtime/core-js/promise');
 
 var _promise2 = _interopRequireDefault(_promise);
@@ -11,6 +19,10 @@ var _debug3 = _interopRequireDefault(_debug2);
 var _lodash = require('lodash');
 
 var _lodash2 = _interopRequireDefault(_lodash);
+
+var _moment = require('moment');
+
+var _moment2 = _interopRequireDefault(_moment);
 
 var _Dataset = require('../models/Dataset');
 
@@ -60,60 +72,31 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var debug = (0, _debug3.default)('app:server:data:seed');
 
-function findSms(lincsIds) {
-  return lincsIds.map(function (id) {
-    if (allSmallMolecules.hasOwnProperty(id)) {
-      return allSmallMolecules[id];
-    }
-    return { lincs_id: id };
-  });
-}
-
 function saveDataset(dsObj, smIds, tissueIds, diseaseIds, cellIds) {
-  return new _promise2.default(function (resolve) {
-    _Dataset.Dataset.forge(dsObj).save().then(function (dsModel) {
-      if (smIds.length) {
-        dsModel.smallMolecules().attach(smIds);
-      }
-      if (tissueIds.length) {
-        dsModel.tissues().attach(tissueIds);
-      }
-      if (diseaseIds.length) {
-        dsModel.diseases().attach(diseaseIds);
-      }
-      if (cellIds.length) {
-        dsModel.cells().attach(cellIds);
-      }
-    }).then(function () {
-      return resolve();
-    }).catch(function (e) {
-      debug(e);
-      process.exit(1);
-    });
+  return _Dataset.Dataset.forge(dsObj).save().then(function (dsModel) {
+    if (smIds.length) {
+      dsModel.smallMolecules().attach(smIds);
+    }
+    if (tissueIds.length) {
+      dsModel.tissues().attach(tissueIds);
+    }
+    if (diseaseIds.length) {
+      dsModel.diseases().attach(diseaseIds);
+    }
+    if (cellIds.length) {
+      dsModel.cells().attach(cellIds);
+    }
   });
 }
 
 function save(Model, obj, returnId) {
-  return new _promise2.default(function (resolve, reject) {
-    Model.forge(obj).save().then(function (model) {
-      if (returnId) {
-        resolve(model.id);
-      }
-      resolve(model);
-    }).catch(function (e) {
-      // Only time this fails is if a lincs_id already exists.
-      if (!obj.hasOwnProperty('lincs_id') || !obj.lincs_id) {
-        reject(e);
-        return;
-      }
-      debug(obj.lincs_id);
-      Model.where({ lincs_id: obj.lincs_id }).fetch().then(function (model) {
-        if (returnId) {
-          resolve(model.id);
-        }
-        resolve(model);
-      });
-    });
+  return Model.forge(obj).save().then(function (model) {
+    if (returnId) {
+      return model.id;
+    }
+    return model;
+  }).catch(function (e) {
+    return debug(e);
   });
 }
 
@@ -124,11 +107,14 @@ function saveMultiple(Model, objArr, returnIds) {
 }
 
 function saveAllSmallMolecules() {
-  var proms = [];
+  debug('Inserting ' + (0, _keys2.default)(_smallMolecules2.default).length + ' small molecules.');
+  var sms = [];
   _lodash2.default.each(_smallMolecules2.default, function (obj) {
-    proms.push(save(_SmallMolecule.SmallMolecule, obj));
+    sms.push((0, _extends3.default)({}, obj, {
+      created_at: (0, _moment2.default)().toDate()
+    }));
   });
-  return _promise2.default.all(proms);
+  return _serverConf.knex.insert(sms).into('small_molecules');
 }
 
 function findSmallMolecules(lincsIds) {
@@ -136,30 +122,18 @@ function findSmallMolecules(lincsIds) {
     return _promise2.default.resolve([]);
   }
   return _promise2.default.all(lincsIds.map(function (id) {
-    return _SmallMolecule.SmallMolecule.where({ lincs_id: id }).fetch().then(function (model) {
-      return model.id;
+    return new _promise2.default(function (resolve) {
+      _SmallMolecule.SmallMolecule.where({ lincs_id: id }).fetch().then(function (model) {
+        return resolve(model.id);
+      });
     });
   }));
 }
 
-_serverConf.knex.raw('select 1+1 as result').then(function () {
-  var promises = [];
-
-  _symposia2.default.forEach(function (obj) {
-    return promises.push(save(_Symposium.Symposium, obj));
-  });
-  _workshops2.default.forEach(function (obj) {
-    return promises.push(save(_Workshop.Workshop, obj));
-  });
-  _webinars2.default.forEach(function (obj) {
-    return promises.push(save(_Webinar.Webinar, obj));
-  });
-  _fundingOpportunities2.default.forEach(function (obj) {
-    return promises.push(save(_FundingOpportunity.FundingOpportunity, obj));
-  });
-
+function buildDatasets() {
+  debug('There are ' + _datasets2.default.length + ' datasets to insert.');
+  var proms = [];
   var dsSaved = 0;
-
   _datasets2.default.forEach(function (ds) {
     var tissueNames = ds.tissues.length ? ds.tissues.map(function (name) {
       return { name: name };
@@ -170,29 +144,48 @@ _serverConf.knex.raw('select 1+1 as result').then(function () {
     var cellNames = ds.cells.length ? ds.cells.map(function (name) {
       return { name: name };
     }) : [];
-    promises.push(saveAllSmallMolecules().then(function () {
-      debug('All small molecules saved.');
-      findSmallMolecules(ds.smIds).then(function (smIds) {
-        debug('Small molecules saved.');
-        saveMultiple(_Tissue.Tissue, tissueNames, true).then(function (tissueIds) {
-          debug('Tissues saved.');
-          saveMultiple(_Disease.Disease, diseaseNames, true).then(function (diseaseIds) {
-            debug('Diseases saved.');
-            saveMultiple(_Cell.Cell, cellNames, true).then(function (cellIds) {
-              debug('Cells saved');
-              saveDataset(_lodash2.default.pick(ds, _Dataset.Dataset.prototype.permittedAttributes()), smIds, tissueIds, diseaseIds, cellIds).then(function () {
-                dsSaved++;
-                debug(dsSaved + ' datasets saved.');
-              });
-            });
-          });
-        });
+    proms.push(_promise2.default.all([findSmallMolecules(ds.smIds), saveMultiple(_Tissue.Tissue, tissueNames, true), saveMultiple(_Disease.Disease, diseaseNames, true), saveMultiple(_Cell.Cell, cellNames, true)]).then(function (meta) {
+      var smIds = meta[0];
+      debug(smIds);
+      var tissueIds = meta[1];
+      debug(tissueIds);
+      var diseaseIds = meta[2];
+      debug(diseaseIds);
+      var cellIds = meta[3];
+      debug(cellIds);
+      saveDataset(_lodash2.default.pick(ds, _Dataset.Dataset.prototype.permittedAttributes()), smIds, tissueIds, diseaseIds, cellIds).then(function () {
+        dsSaved++;
+        debug(dsSaved + ' datasets saved.');
       });
     }));
   });
+  return _promise2.default.all(proms);
+}
 
+_serverConf.knex.raw('select 1+1 as result').then(function () {
   debug('Connection successful.');
-  debug('There are ' + _datasets2.default.length + ' datasets to insert.');
+  var promises = [];
+
+  _symposia2.default.forEach(function (obj) {
+    promises.push(save(_Symposium.Symposium, obj));
+  });
+  _workshops2.default.forEach(function (obj) {
+    promises.push(save(_Workshop.Workshop, obj));
+  });
+  _webinars2.default.forEach(function (obj) {
+    promises.push(save(_Webinar.Webinar, obj));
+  });
+  _fundingOpportunities2.default.forEach(function (obj) {
+    promises.push(save(_FundingOpportunity.FundingOpportunity, obj));
+  });
+
+  promises.push(saveAllSmallMolecules().then(function () {
+    debug('All small molecules saved.');
+    buildDatasets().then(function () {
+      debug('Datasets inserted');
+    });
+  }));
+
   _promise2.default.all(promises).then(function () {
     debug('Database seeded.');
     process.exit(0);

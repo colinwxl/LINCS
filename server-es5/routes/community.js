@@ -69,10 +69,9 @@ router.get('/opportunities', function () {
         }
       }
     }, _callee, undefined, [[0, 7]]);
-  })),
-      _this = undefined;
+  }));
   return function (_x) {
-    return ref.apply(_this, arguments);
+    return ref.apply(this, arguments);
   };
 }());
 
@@ -107,10 +106,9 @@ router.get('/webinars', function () {
         }
       }
     }, _callee2, undefined, [[0, 7]]);
-  })),
-      _this = undefined;
+  }));
   return function (_x2) {
-    return ref.apply(_this, arguments);
+    return ref.apply(this, arguments);
   };
 }());
 
@@ -145,10 +143,9 @@ router.get('/workshops', function () {
         }
       }
     }, _callee3, undefined, [[0, 7]]);
-  })),
-      _this = undefined;
+  }));
   return function (_x3) {
-    return ref.apply(_this, arguments);
+    return ref.apply(this, arguments);
   };
 }());
 
@@ -183,10 +180,9 @@ router.get('/symposia', function () {
         }
       }
     }, _callee4, undefined, [[0, 7]]);
-  })),
-      _this = undefined;
+  }));
   return function (_x4) {
-    return ref.apply(_this, arguments);
+    return ref.apply(this, arguments);
   };
 }());
 
