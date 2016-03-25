@@ -1,10 +1,8 @@
 /* eslint no-param-reassign:0 */
-import {
-  FundingOpportunity,
-  Webinar,
-  Workshop,
-  Symposium,
-} from '../models';
+import { FundingOpportunity } from '../models/FundingOpportunity';
+import { Webinar } from '../models/Webinar';
+import { Workshop } from '../models/Workshop';
+import { Symposium } from '../models/Symposium';
 import Router from 'koa-router';
 import _debug from 'debug';
 const debug = _debug('app:server:routes:community');

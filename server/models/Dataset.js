@@ -1,19 +1,24 @@
 import lincsBookshelf from './base';
 
+// Require files to ensure they've been loaded for relationship with Bookshelf
+require('./Cell');
+require('./Tissue');
+require('./SmallMolecule');
+require('./Disease');
 const model = lincsBookshelf.Model.extend({
   tableName: 'datasets',
   // Relations
-  cells: function() {
-    this.belongsToMany('Cell', 'cells_datasets');
+  cells() {
+    return this.belongsToMany('Cell', 'cells_datasets');
   },
-  tissues: function() {
-    this.belongsToMany('Tissue', 'tissues_datasets');
+  tissues() {
+    return this.belongsToMany('Tissue', 'tissues_datasets');
   },
-  smallMolecules: function() {
-    this.belongsToMany('SmallMolecule', 'small_molecules_datasets');
+  smallMolecules() {
+    return this.belongsToMany('SmallMolecule', 'small_molecules_datasets');
   },
-  diseases: function() {
-    this.belongsToMany('Disease', 'diseases_datasets');
+  diseases() {
+    return this.belongsToMany('Disease', 'diseases_datasets');
   },
 });
 

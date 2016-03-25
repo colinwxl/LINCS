@@ -1,3 +1,5 @@
+/* eslint no-console:0 */
+import path from 'path';
 import Koa from 'koa';
 import historyApiFallback from 'koa-connect-history-api-fallback';
 import convert from 'koa-convert';
@@ -7,9 +9,7 @@ import cors from 'koa-cors';
 import bodyParser from 'koa-bodyparser';
 import compress from 'koa-compress';
 import logger from 'koa-logger';
-import config from '../config';
 
-const paths = config.utilsPaths;
 const app = new Koa();
 
 app.use(convert(cors()));
@@ -20,16 +20,14 @@ app.use(convert(compress()));
 // Require routes
 require('./routes').default(app);
 
-// Serving ~/dist by default. Ideally these files should be served by
-// the web server and not the app server, but this helps to demo the
-// server in production.
-app.use(mount('/LINCS', serve(paths.base(config.dirDist))));
 
-// This rewrites all other routes requests to the root /index.html file
-// (ignoring file requests). If you want to implement isomorphic
-// rendering, you'll want to remove this middleware.
-app.use(convert(historyApiFallback({
-  verbose: false,
-})));
+// Static server - serve all files from static folder to /LINCS
+const stat = new Koa();
+console.log('Serving static files from:', path.join(__dirname, 'dist'));
+stat.use(convert(serve(path.join(__dirname, 'dist'))));
+app.use(mount('/LINCS', stat));
 
-export default app;
+app.use(convert(historyApiFallback({ verbose: false })));
+
+app.listen(3000);
+console.log('App is listening on port 3000.');

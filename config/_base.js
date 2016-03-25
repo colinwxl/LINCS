@@ -29,7 +29,7 @@ const config = {
   compilerHashType: 'hash',
   compilerFailOnWarning: false,
   compilerQuiet: false,
-  compilerPublicPath: '',
+  compilerPublicPath: '/LINCS/',
   compilerStats: {
     chunks: false,
     chunkModules: false,

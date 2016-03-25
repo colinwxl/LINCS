@@ -7,7 +7,7 @@ import webpackHMRMiddleware from './middleware/webpack-hmr';
 import historyApiFallback from 'koa-connect-history-api-fallback';
 import mount from 'koa-mount';
 import serve from 'koa-static';
-// import _debug from 'debug';
+import _debug from 'debug';
 import cors from 'koa-cors';
 import bodyParser from 'koa-bodyparser';
 import compress from 'koa-compress';
@@ -15,7 +15,7 @@ import logger from 'koa-logger';
 import config from '../config';
 import makeRoutes from './routes';
 
-// const debug = _debug('app:server');
+const debug = _debug('app:server');
 const paths = config.utilsPaths;
 const app = new Koa();
 
@@ -27,9 +27,7 @@ app.use(convert(compress()));
 // Bootstrap routes
 makeRoutes(app);
 
-app.use(convert(historyApiFallback({
-  verbose: false,
-})));
+app.use(convert(historyApiFallback({ verbose: false })));
 
 // ------------------------------------
 // Apply Webpack HMR Middleware
@@ -47,4 +45,5 @@ const stat = new Koa();
 stat.use(convert(serve(paths.client('static'))));
 app.use(mount('/LINCS', stat));
 
-export default app;
+app.listen(3000);
+debug('App is running on port 3000.');

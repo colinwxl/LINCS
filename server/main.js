@@ -1,5 +1,39 @@
-if (process.env.NODE_ENV === 'production') {
-  module.exports = require('./main.prod');
-} else {
-  module.exports = require('./main.dev');
-}
+// if (process.env.NODE_ENV === 'production') {
+//   module.exports = require('./main.prod');
+// } else {
+//   module.exports = require('./main.dev');
+// }
+
+/* eslint no-console:0 */
+import path from 'path';
+import Koa from 'koa';
+import historyApiFallback from 'koa-connect-history-api-fallback';
+import convert from 'koa-convert';
+import serve from 'koa-static';
+import mount from 'koa-mount';
+import cors from 'koa-cors';
+import bodyParser from 'koa-bodyparser';
+import compress from 'koa-compress';
+import logger from 'koa-logger';
+
+const app = new Koa();
+
+app.use(convert(cors()));
+app.use(convert(bodyParser()));
+app.use(convert(logger()));
+app.use(convert(compress()));
+
+// Require routes
+require('./routes').default(app);
+
+
+// Static server - serve all files from static folder to /LINCS
+const stat = new Koa();
+console.log('Serving static files from:', path.join(__dirname, 'dist'));
+stat.use(convert(serve(path.join(__dirname, 'dist'))));
+app.use(mount('/LINCS', stat));
+
+app.use(convert(historyApiFallback({ verbose: false })));
+
+app.listen(3000);
+console.log('App is listening on port 3000.');

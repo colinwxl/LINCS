@@ -17,6 +17,26 @@ lincsBookshelf.Model = lincsBookshelf.Model.extend({
     return _.keys(schema[this.tableName]);
   },
   // defaults: () => ({}),
+  snakeCase: function snakeCase(attributes) {
+    const self = this;
+    const attrs = {};
+    _.each(attributes, (value, key) => {
+      if (schema[self.tableName].hasOwnProperty(key)) {
+        attrs[_.snakeCase(key)] = value;
+      }
+    });
+    return attrs;
+  },
+  camelCase: function camelCase(attributes) {
+    const self = this;
+    const attrs = {};
+    _.each(attributes, (value, key) => {
+      if (schema[self.tableName].hasOwnProperty(key)) {
+        attrs[_.camelCase(key)] = value;
+      }
+    });
+    return attrs;
+  },
   stringifyObjects: function stringifyObjects(attributes) {
     const self = this;
     const attrs = attributes;
@@ -69,12 +89,14 @@ lincsBookshelf.Model = lincsBookshelf.Model.extend({
   },
   format(attributes) {
     let attrs = attributes;
+    attrs = this.snakeCase(attrs);
     attrs = this.stringifyObjects(attrs);
     attrs = this.fixDates(attrs);
     return attrs;
   },
   parse(attributes) {
     let attrs = attributes;
+    attrs = this.camelCase(attrs);
     attrs = this.stringsToObjects(attrs);
     attrs = this.fixDates(attrs);
     attrs = this.fixBools(attrs);
