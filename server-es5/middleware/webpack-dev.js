@@ -60,9 +60,12 @@ exports.default = function (compiler, publicPath) {
         }
       }, _callee, this);
     }));
-    return function koaWebpackDevMiddleware(_x, _x2) {
+
+    function koaWebpackDevMiddleware(_x, _x2) {
       return ref.apply(this, arguments);
-    };
+    }
+
+    return koaWebpackDevMiddleware;
   }();
 };
 

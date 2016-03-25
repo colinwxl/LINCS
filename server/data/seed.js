@@ -1,5 +1,6 @@
 import _debug from 'debug';
 import _ from 'lodash';
+import moment from 'moment';
 
 import { Dataset } from '../models/Dataset';
 import { Workshop } from '../models/Workshop';
@@ -20,66 +21,34 @@ import { knex } from '../serverConf';
 
 const debug = _debug('app:server:data:seed');
 
-function findSms(lincsIds) {
-  return lincsIds.map(id => {
-    if (allSmallMolecules.hasOwnProperty(id)) {
-      return allSmallMolecules[id];
-    }
-    return { lincs_id: id };
-  });
-}
-
 function saveDataset(dsObj, smIds, tissueIds, diseaseIds, cellIds) {
-  return new Promise((resolve) => {
-    Dataset
-      .forge(dsObj)
-      .save()
-      .then(dsModel => {
-        if (smIds.length) {
-          dsModel.smallMolecules().attach(smIds);
-        }
-        if (tissueIds.length) {
-          dsModel.tissues().attach(tissueIds);
-        }
-        if (diseaseIds.length) {
-          dsModel.diseases().attach(diseaseIds);
-        }
-        if (cellIds.length) {
-          dsModel.cells().attach(cellIds);
-        }
-      })
-      .then(() => resolve())
-      .catch(e => {
-        debug(e);
-        process.exit(1);
-      });
-  });
+  return Dataset
+    .forge(dsObj)
+    .save()
+    .then(dsModel => {
+      if (smIds.length) {
+        dsModel.smallMolecules().attach(smIds);
+      }
+      if (tissueIds.length) {
+        dsModel.tissues().attach(tissueIds);
+      }
+      if (diseaseIds.length) {
+        dsModel.diseases().attach(diseaseIds);
+      }
+      if (cellIds.length) {
+        dsModel.cells().attach(cellIds);
+      }
+    });
 }
 
 function save(Model, obj, returnId) {
-  return new Promise((resolve, reject) => {
-    Model.forge(obj).save()
-      .then(model => {
-        if (returnId) {
-          resolve(model.id);
-        }
-        resolve(model);
-      })
-      .catch(e => {
-        // Only time this fails is if a lincs_id already exists.
-        if (!obj.hasOwnProperty('lincs_id') || !obj.lincs_id) {
-          reject(e);
-          return;
-        }
-        debug(obj.lincs_id);
-        Model.where({ lincs_id: obj.lincs_id }).fetch().then(model => {
-          if (returnId) {
-            resolve(model.id);
-          }
-          resolve(model);
-        });
-      });
-  });
+  return Model.forge(obj).save().then(model => {
+    if (returnId) {
+      return model.id;
+    }
+    return model;
+  })
+  .catch(e => debug(e));
 }
 
 function saveMultiple(Model, objArr, returnIds) {
@@ -89,11 +58,15 @@ function saveMultiple(Model, objArr, returnIds) {
 }
 
 function saveAllSmallMolecules() {
-  const proms = [];
+  debug(`Inserting ${Object.keys(smallMolecules).length} small molecules.`);
+  const sms = [];
   _.each(smallMolecules, (obj) => {
-    proms.push(save(SmallMolecule, obj));
+    sms.push({
+      ...obj,
+      created_at: moment().toDate(),
+    });
   });
-  return Promise.all(proms);
+  return knex.insert(sms).into('small_molecules');
 }
 
 function findSmallMolecules(lincsIds) {
@@ -101,61 +74,80 @@ function findSmallMolecules(lincsIds) {
     return Promise.resolve([]);
   }
   return Promise.all(lincsIds.map(id =>
-    SmallMolecule.where({ lincs_id: id }).fetch().then(model => model.id)
+    new Promise((resolve) => {
+      SmallMolecule.where({ lincs_id: id }).fetch().then(model => resolve(model.id));
+    })
   ));
 }
 
-knex.raw('select 1+1 as result').then(() => {
-  const promises = [];
-
-  symposia.forEach(obj => promises.push(save(Symposium, obj)));
-  workshops.forEach(obj => promises.push(save(Workshop, obj)));
-  webinars.forEach(obj => promises.push(save(Webinar, obj)));
-  fundingOpportunities.forEach(obj => promises.push(save(FundingOpportunity, obj)));
-
-
+function buildDatasets() {
+  debug(`There are ${datasets.length} datasets to insert.`);
+  const proms = [];
   let dsSaved = 0;
-
   datasets.forEach((ds) => {
     const tissueNames = ds.tissues.length ? ds.tissues.map(name => ({ name })) : [];
     const diseaseNames = ds.diseases.length ? ds.diseases.map(name => ({ name })) : [];
     const cellNames = ds.cells.length ? ds.cells.map(name => ({ name })) : [];
-    promises.push(
-      saveAllSmallMolecules()
-        .then(() => {
-          debug('All small molecules saved.');
-          findSmallMolecules(ds.smIds)
-            .then(smIds => {
-              debug('Small molecules saved.');
-              saveMultiple(Tissue, tissueNames, true)
-                .then(tissueIds => {
-                  debug('Tissues saved.');
-                  saveMultiple(Disease, diseaseNames, true)
-                    .then(diseaseIds => {
-                      debug('Diseases saved.');
-                      saveMultiple(Cell, cellNames, true)
-                        .then(cellIds => {
-                          debug('Cells saved');
-                          saveDataset(
-                            _.pick(ds, Dataset.prototype.permittedAttributes()),
-                            smIds,
-                            tissueIds,
-                            diseaseIds,
-                            cellIds
-                          ).then(() => {
-                            dsSaved++;
-                            debug(`${dsSaved} datasets saved.`);
-                          });
-                        });
-                    });
-                });
-            });
+    proms.push(
+      Promise.all([
+        findSmallMolecules(ds.smIds),
+        saveMultiple(Tissue, tissueNames, true),
+        saveMultiple(Disease, diseaseNames, true),
+        saveMultiple(Cell, cellNames, true),
+      ])
+        .then(meta => {
+          const smIds = meta[0];
+          debug(smIds);
+          const tissueIds = meta[1];
+          debug(tissueIds);
+          const diseaseIds = meta[2];
+          debug(diseaseIds);
+          const cellIds = meta[3];
+          debug(cellIds);
+          saveDataset(
+            _.pick(ds, Dataset.prototype.permittedAttributes()),
+            smIds,
+            tissueIds,
+            diseaseIds,
+            cellIds
+          ).then(() => {
+            dsSaved++;
+            debug(`${dsSaved} datasets saved.`);
+          });
         })
     );
   });
+  return Promise.all(proms);
+}
 
+knex.raw('select 1+1 as result').then(() => {
   debug('Connection successful.');
-  debug(`There are ${datasets.length} datasets to insert.`);
+  const promises = [];
+
+  symposia.forEach(obj => {
+    promises.push(save(Symposium, obj));
+  });
+  workshops.forEach(obj => {
+    promises.push(save(Workshop, obj));
+  });
+  webinars.forEach(obj => {
+    promises.push(save(Webinar, obj));
+  });
+  fundingOpportunities.forEach(obj => {
+    promises.push(save(FundingOpportunity, obj));
+  });
+
+  promises.push(
+    saveAllSmallMolecules()
+      .then(() => {
+        debug('All small molecules saved.');
+        buildDatasets()
+          .then(() => {
+            debug('Datasets inserted');
+          });
+      })
+  );
+
   Promise
     .all(promises)
     .then(() => {

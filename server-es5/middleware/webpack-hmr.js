@@ -45,9 +45,12 @@ exports.default = function (compiler, opts) {
         }
       }, _callee, this);
     }));
-    return function koaWebpackHMR(_x, _x2) {
+
+    function koaWebpackHMR(_x, _x2) {
       return ref.apply(this, arguments);
-    };
+    }
+
+    return koaWebpackHMR;
   }();
 };
 

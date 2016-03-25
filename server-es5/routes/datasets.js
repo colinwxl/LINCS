@@ -61,10 +61,9 @@ router.get('/', function () {
         }
       }
     }, _callee, undefined, [[0, 6]]);
-  })),
-      _this = undefined;
+  }));
   return function (_x) {
-    return ref.apply(_this, arguments);
+    return ref.apply(this, arguments);
   };
 }());
 
@@ -96,10 +95,9 @@ router.get('/:id', function () {
         }
       }
     }, _callee2, undefined, [[0, 6]]);
-  })),
-      _this = undefined;
+  }));
   return function (_x2) {
-    return ref.apply(_this, arguments);
+    return ref.apply(this, arguments);
   };
 }());
 

@@ -25,7 +25,7 @@ var debug = (0, _debug3.default)('app:server:data:migrate');
 function createTable(tableName) {
   debug('Creating table ' + tableName + '...');
   return _serverConf.knex.schema.createTable(tableName, function (table) {
-    var column = undefined;
+    var column = void 0;
     var columnKeys = _lodash2.default.keys(_schema2.default[tableName]);
     columnKeys.forEach(function (key) {
       if (_schema2.default[tableName][key].type === 'text' && _schema2.default[tableName][key].hasOwnProperty('fieldtype')) {
