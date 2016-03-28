@@ -4,10 +4,10 @@ const knexConfig = {
   development: {
     client: 'mysql',
     connection: {
-      host: 'amp.pharm.mssm.edu',
+      // host: 'amp.pharm.mssm.edu',
       database: 'lincs',
-      user: 'mike',
-      password: 'Husky',
+      user: 'root',
+      // password: 'Husky',
       insecureAuth: true,
       charset: 'utf8',
     },
