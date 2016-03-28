@@ -1,6 +1,8 @@
+
 :global {
   @import 'variables';
   @import 'form';
+  @import 'react-big-calendar/lib/css/react-big-calendar.css';
 
   html {
     box-sizing: border-box;

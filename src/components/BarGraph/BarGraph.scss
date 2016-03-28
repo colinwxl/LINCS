@@ -41,7 +41,7 @@ $graph-height: 200px;
 .graph {
   height: 200px;
   margin: -36px auto 0;
-  width: 50%;
+  width: 100%;
 }
 
 .bars {
@@ -49,7 +49,7 @@ $graph-height: 200px;
   height: $graph-height;
   padding: 1% 0 1% 1%;
   position: absolute;
-  width: 47%;
+  width: 92%;
   z-index: 10;
 }
 

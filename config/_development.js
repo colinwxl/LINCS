@@ -2,7 +2,7 @@
 // to fix this issue:
 // http://stackoverflow.com/questions/34133808/webpack-ots-parsing-error-loading-fonts/34133809#34133809
 export default (config) => ({
-  // compilerPublicPath: `http://${config.serverHost}:${config.serverPort}/`,
+  compilerPublicPath: `http://${config.serverHost}:${config.serverPort}/`,
   proxy: {
     enabled: false,
     options: {
