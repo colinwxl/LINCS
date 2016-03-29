@@ -4,9 +4,9 @@ import handleResponse from 'utils/handleResponse';
 let API_ROOT = '';
 
 if (process.env.NODE_ENV === 'production') {
-  API_ROOT = 'http://amp.pharm.mssm.edu/L1000/api/v1/';
+  API_ROOT = 'http://amp.pharm.mssm.edu/LINCS/api/v1/';
 } else {
-  API_ROOT = 'http://localhost:3000/L1000/api/v1/';
+  API_ROOT = 'http://localhost:3000/LINCS/api/v1/';
 }
 
 // Fetches an API response and normalizes the result JSON according to schema.
@@ -36,20 +36,35 @@ function callApi(endpoint, schema, body) {
 }
 
 // Normalize JSON response using normalizr
-const compoundSchema = new Schema('compounds', { idAttribute: '_id' });
-const experimentSchema = new Schema('experiments', { idAttribute: '_id' });
-experimentSchema.define({ compounds: arrayOf(compoundSchema) });
+const cellSchema = new Schema('cells', { idAttribute: 'id' });
+const tissueSchema = new Schema('tissues', { idAttribute: 'id' });
+const diseaseSchema = new Schema('diseases', { idAttribute: 'id' });
+const smallMoleculeSchema = new Schema('smallMolecules', { idAttribute: 'id' });
+const datasetSchema = new Schema('datasets', { idAttribute: 'id' });
 
-// compoundSchema.define({
-//   experiment: experimentSchema,
+datasetSchema.define({
+  cells: arrayOf(cellSchema),
+  tissues: arrayOf(tissueSchema),
+  diseases: arrayOf(diseaseSchema),
+  smallMolecules: arrayOf(smallMoleculeSchema),
+});
+
+// smallMoleculeSchema.define({
+//   experiment: datasetSchema,
 // });
 
 // Schemas for API responses.
 export const Schemas = {
-  EXPERIMENT: experimentSchema,
-  EXPERIMENT_ARRAY: arrayOf(experimentSchema),
-  COMPOUND: compoundSchema,
-  COMPOUND_ARRAY: arrayOf(compoundSchema),
+  DATASET: datasetSchema,
+  CELL: cellSchema,
+  TISSUE: tissueSchema,
+  DISEASE: diseaseSchema,
+  SMALL_MOLECULE: smallMoleculeSchema,
+  DATASET_ARRAY: arrayOf(datasetSchema),
+  CELL_ARRAY: arrayOf(cellSchema),
+  TISSUE_ARRAY: arrayOf(tissueSchema),
+  DISEASE_ARRAY: arrayOf(diseaseSchema),
+  SMALL_MOLECULE_ARRAY: arrayOf(smallMoleculeSchema),
 };
 
 export const CALL_API = Symbol('Call API');

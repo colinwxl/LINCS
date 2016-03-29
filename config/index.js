@@ -28,4 +28,6 @@ if (hasOverridesFile) {
   debug(`No configuration overrides found for NODE_ENV "${config.env}"`);
 }
 
-export default Object.assign({}, config, overrides);
+const finalConfig = Object.assign({}, config, overrides);
+
+export default finalConfig;

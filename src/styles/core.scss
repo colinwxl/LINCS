@@ -1,11 +1,16 @@
+// scss-lint:disable VendorPrefix
+
 
 :global {
   @import 'variables';
   @import 'form';
-  @import 'react-big-calendar/lib/css/react-big-calendar.css';
+  @import 'calendar';
 
   html {
     box-sizing: border-box;
+    font-family: sans-serif;
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
   }
 
   html,
@@ -15,6 +20,11 @@
     height: 100%;
     margin: 0;
     padding: 0;
+  }
+
+  body {
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
   }
 
   * {
@@ -39,5 +49,24 @@
   h5,
   h6 {
     font-weight: 600;
+  }
+
+  footer,
+  .footer-push {
+    height: 468px;
+
+    @media (min-width: 992px) {
+      height: 448px;
+    }
+  }
+
+  .site-wrap {
+    margin-bottom: -468px;
+    min-height: 100%;
+    position: relative;
+
+    @media (min-width: 992px) {
+      margin-bottom: -448px;
+    }
   }
 }

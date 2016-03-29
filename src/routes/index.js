@@ -27,7 +27,7 @@ import Webinars from 'views/CommunityView/Webinars';
 import WorkshopsAndSymposia from 'views/CommunityView/WorkshopsAndSymposia';
 
 import AnalyzeView from 'views/AnalyzeView';
-import DiscoverView from 'views/DiscoverView';
+import DataView from 'views/DataView';
 import RegisterView from 'views/RegisterView';
 import LoginView from 'views/LoginView';
 import NotFoundView from 'views/NotFoundView';
@@ -62,7 +62,7 @@ export default (/* store */) => (
     <Route path="/community/webinars" component={Webinars} />
     <Route path="/community/workshops-and-symposia" component={WorkshopsAndSymposia} />
     <Route path="/analyze" component={AnalyzeView} />
-    <Route path="/discover" component={DiscoverView} />
+    <Route path="/data" component={DataView} />
     <Route path="/register" component={RegisterView} />
     <Route path="/login" component={LoginView} />
     <Route path="*" component={NotFoundView} />

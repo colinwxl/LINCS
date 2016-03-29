@@ -5,16 +5,13 @@ import { connect } from 'react-redux';
 
 // import Cube from 'components/Cube';
 import Calendar from 'containers/Calendar';
+import Twitter from 'containers/Twitter';
 import BarGraph from 'components/BarGraph';
 import { loginUser } from 'actions/auth';
 import styles from './HomeView.scss';
 
-const mapStateToProps = (state) => ({
-  entities: state.entities,
-});
+const mapStateToProps = ({ twitter }) => ({ twitter });
 
-// TODO: Make a stateless function once completed. Leave for now to enable hot-reloading.
-/* eslint react/prefer-stateless-function:0 */
 export class HomeView extends Component {
   render() {
     return (
@@ -91,7 +88,7 @@ export class HomeView extends Component {
               <div className="col-sm-8">
                 <h2 className={styles.title}>LINCS Centers</h2>
                 <p className={styles['section-lead']}>
-                  Learn more about the centers that make up the LINCS consortium
+                  Learn more about the centers that make up the LINCS consortium.
                 </p>
                 <Link
                   to="/centers"
@@ -109,16 +106,21 @@ export class HomeView extends Component {
         <div className={styles.section}>
           <div className="container">
             <div className="row">
-              <div className="col-xs-12">
-                <h2 className={styles.title}>Events</h2>
+              <div className="col-xs-12 m-b-2">
+                <h2 className={styles.title}>Events & Updates</h2>
+                <p className={styles['section-lead']}>
+                  View upcoming LINCS webinars, workshops, and symposia,
+                  or <a href="https://twitter.com/BD2KLINCSDCIC/lists/lincs" target="_blank">follow LINCS centers and labs on Twitter</a> for
+                  the latest information.
+                </p>
               </div>
             </div>
             <div className="row">
-              <div className="col-sm-8">
+              <div className="col-xs-12 col-lg-8">
                 <Calendar />
               </div>
-              <div className="col-sm-4">
-                <h4>Twitter</h4>
+              <div className="col-xs-12 col-lg-4">
+                <Twitter />
               </div>
             </div>
           </div>
@@ -130,7 +132,7 @@ export class HomeView extends Component {
 
 HomeView.propTypes = {
   loginUser: PropTypes.func,
-  entities: PropTypes.object,
+  twitter: PropTypes.object,
   push: PropTypes.func.isRequired,
 };
 

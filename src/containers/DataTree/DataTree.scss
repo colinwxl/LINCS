@@ -1,0 +1,32 @@
+.tree-view {
+  overflow-y: hidden;
+}
+
+.tree-view-item {
+// immediate child of .tree-view, for styling convenience
+}
+
+// style for the children nodes container
+.tree-view-children {
+  margin-left: 1rem;
+}
+
+.tree-view-children-collapsed {
+  height: 0;
+}
+
+.tree-view-arrow {
+  cursor: pointer;
+  display: inline-block;
+  margin-right: .5rem;
+  user-select: none;
+
+  &::after {
+    content: '▾';
+  }
+}
+
+// rotate the triangle to close it
+.tree-view-arrow-collapsed {
+  transform: rotate(-90deg);
+}

@@ -13,7 +13,7 @@ export default function BarGraph(/* props */) {
           </div>
           <div className={styles['bar-group']}>
             <div className={`${styles.bar} ${styles['bar-4']}`} style={{ height: '76%' }} />
-            <div className={`${styles.bar} ${styles['bar-5']}`} style={{ height: '86%' }} />
+            <div className={`${styles.bar} ${styles['bar-5']}`} style={{ height: '46%' }} />
             <div className={`${styles.bar} ${styles['bar-6']}`} style={{ height: '22%' }} />
           </div>
           <div className={styles['bar-group']}>

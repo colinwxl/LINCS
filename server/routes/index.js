@@ -1,10 +1,13 @@
 import Boom from 'boom';
 
-import dsRouter from './datasets';
-import communityRouter from './community';
+import ds from './datasets';
+import comm from './community';
+import pn from './pubsNews';
+import health from './health';
+import twitter from './twitter';
 
 export default (app) => {
-  [dsRouter, communityRouter].forEach(router => {
+  [ds, comm, pn, health, twitter].forEach(router => {
     /* eslint new-cap:0 */
     app
     .use(router.routes())
