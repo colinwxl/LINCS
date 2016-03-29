@@ -1,0 +1,43 @@
+@import 'variables';
+
+.header {
+  margin-bottom: .5rem;
+
+  h3 {
+    line-height: 3rem;
+    margin: 0;
+  }
+}
+
+.left,
+.right {
+  display: inline-block;
+
+  &::before {
+    color: $brand-primary-dark;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 4rem;
+    font-weight: 400;
+    height: 2.5rem;
+    line-height: 2.5rem;
+    vertical-align: middle;
+    width: 2.5rem;
+  }
+}
+
+.left {
+
+  &::before {
+    content: '\2039';
+  }
+}
+
+.right {
+  float: right;
+  text-align: right;
+
+  &::before {
+    content: '\203a';
+  }
+}

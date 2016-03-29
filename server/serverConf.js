@@ -1,13 +1,14 @@
 import generateKnex from 'knex';
+import Twitter from 'twit';
 
 const knexConfig = {
   development: {
     client: 'mysql',
     connection: {
-      // host: 'amp.pharm.mssm.edu',
+      host: 'amp.pharm.mssm.edu',
       database: 'lincs',
-      user: 'root',
-      // password: 'Husky',
+      user: 'mike',
+      password: 'Husky',
       insecureAuth: true,
       charset: 'utf8',
     },
@@ -48,3 +49,10 @@ const knexConfig = {
 
 export const secret = 'LINCSnewwenSCNIL';
 export const knex = generateKnex(knexConfig[process.env.NODE_ENV]);
+export const Twit = new Twitter({
+  consumer_key: 'vk0Wmxbn6xC8WDfJQCQezpQBf',
+  consumer_secret: 'uBG7moBgtPSJo068Q7GSvU5exP1TeFh7OHihzrloOdEXqI7NWw',
+  access_token: '2875718830-NSXVvLNoEOI3WS6umvG2SCmfiyf1v7JFcKM9SGA',
+  access_token_secret: 'oloDBhGh317E1VzhaF2jfAgrirnv8oSXaHRq3Gi0cqOFl',
+  timeout_ms: 60 * 1000,
+});

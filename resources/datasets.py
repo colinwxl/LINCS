@@ -7,19 +7,23 @@ with open('datasets.csv', 'rU') as data:
     reader = csv.reader(data, skipinitialspace=False, delimiter=",")
     dsArr = [row for row in reader if any(row)]
 for dsRow in dsArr:
+    if 'Dataset ID' in dsRow[0]:
+        continue
     ds = {
-        'lincsId': dsRow[0],
-        'centerDatasetId': dsRow[1] if dsRow[1] else None,
-        'centerName': dsRow[2],
-        'assayCategory': dsRow[3],
-        'assay': dsRow[4],
-        'fullAssayName': dsRow[12],
-        'dateFromCenter': dsRow[6] if dsRow[6] else None,
-        'tissues': dsRow[7].split(',') if dsRow[7] else [],
-        'cells': dsRow[8].split(',') if dsRow[8] else [],
-        'smIds': dsRow[9].split(',') if dsRow[9] else [],
-        'diseases': dsRow[10].split(',') if dsRow[10] else [],
-        'description': dsRow[11] if dsRow[11] else ''
+        'lincs_id': dsRow[0],
+        'center_name': dsRow[1],
+        'classification': dsRow[2],
+        'assay': dsRow[3],
+        'method': dsRow[4],
+        'physical_detection': dsRow[5],
+        'date_updated': dsRow[6] if dsRow[6] else None,
+        'date_retrieved': dsRow[7] if dsRow[7] else None,
+        'tissues': [x.strip() for x in dsRow[8].split(',')] if dsRow[8] else [],
+        'cells': [x.strip() for x in dsRow[9].split(',')] if dsRow[9] else [],
+        'smIds': [x.strip() for x in dsRow[10].split(',')] if dsRow[10] else [],
+        'diseases': [x.strip() for x in dsRow[11].split(',')] if dsRow[11] else [],
+        'description': dsRow[12] if dsRow[12] else '',
+        'full_assay_name': dsRow[13]
     }
     datasets.append(ds)
 

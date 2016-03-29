@@ -50,7 +50,10 @@ function createTable(tableName) {
 const tableNames = _.keys(schema);
 const dropPromises = tableNames.map((tableName) => {
   debug(`Dropping table ${tableName} if it exists...`);
-  return knex.schema.dropTableIfExists(tableName);
+  return knex
+    .raw('SET foreign_key_checks = 0;')
+    .then(() => knex.schema.dropTableIfExists(tableName))
+    .then(() => knex.raw('SET foreign_key_checks = 1;'));
 });
 const createPromises = tableNames.map((tableName) => createTable(tableName));
 

@@ -4,5 +4,4 @@ dist/**
 *.spec.js
 src/index.html
 
-**/seed/datasets.js
-**/seed/smallMolecules.js
+seed/**

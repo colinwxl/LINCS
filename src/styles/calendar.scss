@@ -1,0 +1,66 @@
+@import 'variables';
+
+// scss-lint:disable all
+.flexContainer {
+  max-width: 100%;
+  width: 100%;
+  border-top: 1px solid $brand-primary-dark;
+  border-left: 1px solid $brand-primary-dark;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.flexColumn {
+  display: flex;
+  width: 14.2857142857%;
+  border-bottom: 1px solid $brand-primary-dark;
+  border-right: 1px solid $brand-primary-dark;
+  flex: 0 1 auto;
+  justify-content: center;
+}
+
+.day.inactive {
+  background-color: #f8f8f8;
+  color: #ccc;
+}
+
+.day.today {
+  background-color: #fcf8e3;
+}
+
+.day .inner-grid {
+  width: 100%;
+  position: relative;
+}
+
+.day .event-slot {
+  position: relative;
+  margin: 0.5rem 0;
+  min-height: 28px;
+  font-size: 14px;
+}
+
+.day .event-slot.event {
+  background: $brand-primary-dark;
+  color: $brand-primary-dark;
+  white-space: nowrap;
+  text-indent: -10000px;
+  cursor: pointer;
+}
+
+.day .event-slot .event-title {
+  position: absolute;
+  top: 3.5px;
+  left: 0.5rem;
+  z-index: 100;
+  color: #fff;
+  z-index: 1;
+  overflow: visible;
+  text-indent: 0;
+}
+
+.day .date {
+  padding: 0.25rem 0.5rem;
+  text-align: right;
+}

@@ -1,9 +1,10 @@
 @import 'variables';
 
+$hover-color: #cacaca;
+
 .footer {
-  background-color: $gray;
+  background-color: $dark-purple;
   color: $white;
-  height: $footer-height - 40px;
   margin-top: 40px;
   position: relative;
   width: 100%;
@@ -28,4 +29,51 @@
 
 .orange {
   background-color: $orange;
+}
+
+.content {
+  padding: 3rem 0 1rem;
+
+  h5 {
+    margin-bottom: 1rem;
+  }
+
+  ul {
+    list-style: none;
+    margin-bottom: 2rem;
+    padding: 0;
+  }
+
+  a {
+    color: $white;
+    cursor: pointer;
+    font-weight: 500;
+
+    &:hover {
+      color: $hover-color;
+      text-decoration: none;
+    }
+  }
+
+  p {
+    font-weight: 400;
+  }
+
+  hr {
+    background: $purple;
+    border: 0;
+    height: 1px;
+    margin-bottom: 2rem;
+  }
+}
+
+.copy {
+  padding-left: 0;
+}
+
+.credit {
+  padding-right: 0;
+  a {
+    font-weight: 600;
+  }
 }

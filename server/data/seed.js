@@ -7,12 +7,15 @@ import { Disease } from '../models/Disease';
 import { Tissue } from '../models/Tissue';
 import { Cell } from '../models/Cell';
 import { SmallMolecule } from '../models/SmallMolecule';
+import { Publication } from '../models/Publication';
+import { CompTool } from '../models/CompTool';
 import smallMolecules from '../../seed/smallMolecules';
 import symposia from '../../seed/symposia';
 import workshops from '../../seed/workshops';
 import webinars from '../../seed/webinars';
 import fundingOpportunities from '../../seed/fundingOpportunities';
 import datasets from '../../seed/datasets';
+import publications from '../../seed/publications';
 import { knex } from '../serverConf';
 
 const debug = _debug('app:server:data:seed');
@@ -145,33 +148,50 @@ knex.raw('select 1+1 as result').then(() => {
   debug('Connection successful.');
   const promises = [];
   const created = moment().toDate();
-  // const syms = symposia.map(obj => ({ ...obj, created_at: created }));
-  // const shops = workshops.map(obj => ({ ...obj, created_at: created }));
-  // const webs = webinars.map(obj => ({ ...obj, created_at: created }));
-  // const opps = fundingOpportunities.map(obj => ({ ...obj, created_at: created }));
+  const syms = symposia.map(obj => ({ ...obj, created_at: created }));
+  const shops = workshops.map(obj => ({ ...obj, created_at: created }));
+  const webs = webinars.map(obj => ({ ...obj, created_at: created }));
+  const opps = fundingOpportunities.map(obj => ({ ...obj, created_at: created }));
   const pubs = publications.map(obj => ({ ...obj, created_at: created }));
 
-  // promises.push(knex.insert(syms).into('symposia'));
-  // promises.push(knex.insert(shops).into('workshops'));
-  // promises.push(knex.insert(webs).into('webinars'));
-  // promises.push(knex.insert(opps).into('funding_opportunities'));
-  promises.push(knex.insert(pubs).into('publications'));
+  promises.push(knex.insert(syms).into('symposia'));
+  promises.push(knex.insert(shops).into('workshops'));
+  promises.push(knex.insert(webs).into('webinars'));
+  promises.push(knex.insert(opps).into('funding_opportunities'));
+  promises.push(
+    Promise.all(pubs.map(obj => {
+      if (obj.comp_tools) {
+        return Promise
+          .all(obj.comp_tools.map(tool => CompTool.forge(tool).save().then(model => model.id)))
+          .then(toolIds => {
+            const pub = _.pick(obj, Publication.prototype.permittedAttributes());
+            Publication.forge(pub).save().then(pubModel => {
+              if (toolIds.length) {
+                pubModel.compTools().attach(toolIds);
+              }
+            });
+          });
+      }
+      debug(obj);
+      return Promise.resolve(obj);
+    }))
+  );
 
-  // promises.push(
-  //   new Promise((resolve) => {
-  //     insertSmallMolecules()
-  //       .then(() => {
-  //         insertEntities()
-  //           .then(() => {
-  //             buildDatasets()
-  //               .then(() => {
-  //                 debug('Datasets inserted');
-  //                 resolve();
-  //               });
-  //           });
-  //       });
-  //   })
-  // );
+  promises.push(
+    new Promise((resolve) => {
+      insertSmallMolecules()
+        .then(() => {
+          insertEntities()
+            .then(() => {
+              buildDatasets()
+                .then(() => {
+                  debug('Datasets inserted');
+                  resolve();
+                });
+            });
+        });
+    })
+  );
 
   Promise
     .all(promises)

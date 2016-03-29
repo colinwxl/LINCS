@@ -1,9 +1,6 @@
 import Koa from 'koa';
 import convert from 'koa-convert';
 import webpack from 'webpack';
-import webpackConfig from '../build/webpack.config';
-import webpackDevMiddleware from './middleware/webpack-dev';
-import webpackHMRMiddleware from './middleware/webpack-hmr';
 import historyApiFallback from 'koa-connect-history-api-fallback';
 import mount from 'koa-mount';
 import serve from 'koa-static';
@@ -12,8 +9,11 @@ import cors from 'koa-cors';
 import bodyParser from 'koa-bodyparser';
 import compress from 'koa-compress';
 import logger from 'koa-logger';
+
 import config from '../config';
-import makeRoutes from './routes';
+import webpackConfig from '../build/webpack.config';
+import webpackDevMiddleware from './middleware/webpack-dev';
+import webpackHMRMiddleware from './middleware/webpack-hmr';
 
 const debug = _debug('app:server');
 const paths = config.utilsPaths;
@@ -25,7 +25,7 @@ app.use(convert(logger()));
 app.use(convert(compress()));
 
 // Bootstrap routes
-makeRoutes(app);
+require('./routes').default(app);
 
 app.use(convert(historyApiFallback({ verbose: false })));
 

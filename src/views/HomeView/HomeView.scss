@@ -106,8 +106,8 @@
   }
 
   @media (min-width: 768px) {
-    padding-bottom: 6rem;
-    padding-top: 6rem;
+    padding-bottom: 10rem;
+    padding-top: 10rem;
   }
 
   h4 {
@@ -144,6 +144,7 @@
   text-align: center;
 
   img {
-    height: 208px;
+    height: auto;
+    width: 100%;
   }
 }

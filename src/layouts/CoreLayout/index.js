@@ -3,16 +3,16 @@ import 'bootstrap/scss/bootstrap.scss';
 import 'styles/core.scss';
 import React from 'react';
 import Navigation from 'containers/Navigation';
-import coreStyles from './CoreLayout.scss';
+// import coreStyles from './CoreLayout.scss';
 
 function CoreLayout({ children }) {
   return (
-    <div className={coreStyles.wrapper}>
+    <div className="site-wrap">
       <Navigation />
       <div className="view-container">
         {children}
       </div>
-      <div className={coreStyles['footer-push']} />
+      <div className="footer-push" />
     </div>
   );
 }

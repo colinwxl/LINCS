@@ -37,7 +37,9 @@ const config = {
   },
   compilerVendor: [
     'history',
+    'moment',
     'react',
+    'react-event-calendar',
     'react-modal',
     'react-redux',
     'react-router',

@@ -2,13 +2,15 @@
 export default {
   datasets: {
     id: { type: 'increments', nullable: false, primary: true },
-    date_from_center: { type: 'dateTime', nullable: true },
     description: { type: 'text', maxlength: 16777215, fieldtype: 'medium', nullable: true },
     full_assay_name: { type: 'text', maxlength: 65535, nullable: true },
-    center_dataset_id: { type: 'string', maxlength: 255, nullable: true },
+    center_name: { type: 'string', maxlength: 255, nullable: false },
     assay: { type: 'string', maxlength: 255, nullable: false },
-    lincs_id: { type: 'string', maxlength: 20, nullable: false },
-    assay_category: { type: 'string', maxlength: 255, nullable: false },
+    method: { type: 'string', maxlength: 255, nullable: false },
+    classification: { type: 'string', maxlength: 255, nullable: false },
+    physical_detection: { type: 'string', maxlength: 255, nullable: false },
+    lincs_id: { type: 'string', maxlength: 20, nullable: true },
+    date_retrieved: { type: 'dateTime', nullable: true },
     created_at: { type: 'dateTime', nullable: false },
     updated_at: { type: 'dateTime', nullable: true },
   },
@@ -120,6 +122,7 @@ export default {
   comp_tools: {
     id: { type: 'increments', nullable: false, primary: true },
     name: { type: 'string', maxlength: 255, nullable: true },
+    description: { type: 'text', maxlength: 16777215, fieldtype: 'medium', nullable: true },
     url: { type: 'string', maxlength: 255, nullable: true },
   },
   comp_tools_publications: {

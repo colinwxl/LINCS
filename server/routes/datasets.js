@@ -1,8 +1,11 @@
 /* eslint no-param-reassign:0 */
-import { Dataset } from '../models/Dataset';
 import Router from 'koa-router';
+// import omit from 'lodash/omit';
+
 import _debug from 'debug';
 const debug = _debug('app:server:routes:datasets');
+
+import { Dataset } from '../models/Dataset';
 
 const router = new Router({
   prefix: '/LINCS/api/v1/datasets',
@@ -10,7 +13,7 @@ const router = new Router({
 
 router.get('/', async (ctx) => {
   try {
-    ctx.body = await Dataset.fetchAll({
+    let datasets = await Dataset.fetchAll({
       withRelated: [
         'cells',
         'tissues',
@@ -18,6 +21,8 @@ router.get('/', async (ctx) => {
         'diseases',
       ],
     });
+    datasets = datasets.toJSON();
+    ctx.body = datasets;
   } catch (e) {
     debug(e);
     ctx.throw(500, 'An error occurred obtaining datasets.');
