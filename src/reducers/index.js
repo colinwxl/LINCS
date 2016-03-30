@@ -11,11 +11,11 @@ import * as AuthActionTypes from 'actions/auth';
 
 // Updates an entity cache in response to any action with response.entities.
 const initialEntities = {
-  datasets: [],
-  cells: [],
-  tissues: [],
-  diseases: [],
-  smallMolecules: [],
+  datasets: {},
+  cells: {},
+  tissues: {},
+  diseases: {},
+  smallMolecules: {},
 };
 function entities(state = initialEntities, action) {
   const { response } = action;

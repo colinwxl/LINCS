@@ -11,7 +11,13 @@ const mapStateToProps = (state) => ({
 export class DataView extends Component {
   render() {
     return (
-      <DataTree />
+      <div className="container">
+        <div className="row">
+          <div className="col-xs-12">
+            <DataTree />
+          </div>
+        </div>
+      </div>
     );
   }
 }

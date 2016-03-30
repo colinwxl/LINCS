@@ -6,6 +6,19 @@ datasets = []
 with open('datasets.csv', 'rU') as data:
     reader = csv.reader(data, skipinitialspace=False, delimiter=",")
     dsArr = [row for row in reader if any(row)]
+
+with open('Small_Molecule_Metadata_LDS-1191.txt', 'rU') as data:
+    reader = csv.reader(data, skipinitialspace=False, delimiter="\t")
+    lds1191 = [row[1] for row in reader if any(row)]
+
+with open('Small_Molecule_Metadata_LDS-1194.txt', 'rU') as data:
+    reader = csv.reader(data, skipinitialspace=False, delimiter="\t")
+    lds1194 = [row[1] for row in reader if any(row)]
+
+with open('Small_Molecule_Metadata_LDS-1195.txt', 'rU') as data:
+    reader = csv.reader(data, skipinitialspace=False, delimiter="\t")
+    lds1195 = [row[1] for row in reader if any(row)]
+
 for dsRow in dsArr:
     if 'Dataset ID' in dsRow[0]:
         continue
@@ -25,7 +38,15 @@ for dsRow in dsArr:
         'description': dsRow[12] if dsRow[12] else '',
         'full_assay_name': dsRow[13]
     }
+    if ds['lincs_id'] == 'LDS-1191':
+        ds['smIds'] = lds1191;
+    elif ds['lincs_id'] == 'LDS-1194':
+        ds['smIds'] = lds1194;
+    elif ds['lincs_id'] == 'LDS-1195':
+        ds['smIds'] = lds1195;
+
     datasets.append(ds)
 
-with open('datasets.json', 'w+') as out:
-    json.dump(datasets, out)
+with open('../seed/datasets.js', 'w+') as out:
+    string = json.dumps(datasets)
+    out.write('module.exports = ' + string)

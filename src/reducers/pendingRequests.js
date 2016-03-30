@@ -1,8 +1,10 @@
 import * as CommunityActionTypes from 'actions/community';
 import * as TwitterActionTypes from 'actions/twitter';
+import * as EntityActionTypes from 'actions/entities';
 
 const initPendingState = {
-  isPending: false,
+  otherPending: false,
+  datasetsPending: false,
 };
 
 export default function (state = initPendingState, action) {
@@ -11,7 +13,12 @@ export default function (state = initPendingState, action) {
     case TwitterActionTypes.USER_TIMELINE_REQUEST:
       return {
         ...state,
-        isPending: true,
+        otherPending: true,
+      };
+    case EntityActionTypes.DATASETS_REQUEST:
+      return {
+        ...state,
+        datasetsPending: true,
       };
     case TwitterActionTypes.USER_TIMELINE_SUCCESS:
     case TwitterActionTypes.USER_TIMELINE_FAILURE:
@@ -20,6 +27,12 @@ export default function (state = initPendingState, action) {
       return {
         ...state,
         isPending: false,
+      };
+    case EntityActionTypes.DATASETS_SUCCESS:
+    case EntityActionTypes.DATASETS_FAILURE:
+      return {
+        ...state,
+        datasetsPending: false,
       };
     default:
       return state;

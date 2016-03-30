@@ -11,14 +11,8 @@ const model = lincsBookshelf.Model.extend({
   cells() {
     return this.belongsToMany('Cell', 'cells_datasets');
   },
-  tissues() {
-    return this.belongsToMany('Tissue', 'tissues_datasets');
-  },
   smallMolecules() {
     return this.belongsToMany('SmallMolecule', 'small_molecules_datasets');
-  },
-  diseases() {
-    return this.belongsToMany('Disease', 'diseases_datasets');
   },
 });
 

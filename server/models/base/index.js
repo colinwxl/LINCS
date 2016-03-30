@@ -82,7 +82,11 @@ lincsBookshelf.Model = lincsBookshelf.Model.extend({
           && schema[self.tableName].hasOwnProperty(key)
           && schema[self.tableName][key].type === 'dateTime') {
           // convert dateTime value into a native javascript Date object
-        attrs[key] = moment(value).toDate();
+        if (value.indexOf && value.indexOf('/') !== -1) {
+          attrs[key] = moment(value, 'MM/DD/YYYY').toDate();
+        } else {
+          attrs[key] = moment(value).toDate();
+        }
       }
     });
     return attrs;

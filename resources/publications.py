@@ -34,5 +34,6 @@ for doc in pubs.find({}):
         pub['comp_tools'].append(tool)
     pubsOut.append(pub)
 
-with open('publications.json', 'w+') as out:
-    json.dump(pubsOut, out)
+with open('../seed/publications.js', 'w+') as out:
+    string = json.dumps(pubsOut)
+    out.write('module.exports = ' + string)
