@@ -54,5 +54,6 @@ with open('Small_Molecule_Metadata_LDS-1195.txt', 'rU') as data:
     addSms(smArr)
 
 
-with open('smallMolecules.json', 'w+') as out:
-    json.dump(allSms, out)
+with open('../seed/smallMolecules.js', 'w+') as out:
+    string = json.dumps(allSms)
+    out.write('module.exports = ' + string)

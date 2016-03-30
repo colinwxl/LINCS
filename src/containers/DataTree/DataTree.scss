@@ -1,9 +1,13 @@
+@import 'variables';
+
 .tree-view {
   overflow-y: hidden;
 }
 
 .tree-view-item {
 // immediate child of .tree-view, for styling convenience
+  // border: 1px solid $brand-primary-dark;
+  // padding: 2rem 1rem;
 }
 
 // style for the children nodes container
@@ -29,4 +33,11 @@
 // rotate the triangle to close it
 .tree-view-arrow-collapsed {
   transform: rotate(-90deg);
+}
+
+.node {
+}
+
+.outer-node {
+  font-size: 1.5rem;
 }

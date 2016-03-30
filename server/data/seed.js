@@ -10,6 +10,7 @@ import { SmallMolecule } from '../models/SmallMolecule';
 import { Publication } from '../models/Publication';
 import { CompTool } from '../models/CompTool';
 import smallMolecules from '../../seed/smallMolecules';
+import cellLines from '../../seed/cellLines';
 import symposia from '../../seed/symposia';
 import workshops from '../../seed/workshops';
 import webinars from '../../seed/webinars';
@@ -20,19 +21,13 @@ import { knex } from '../serverConf';
 
 const debug = _debug('app:server:data:seed');
 
-function saveDataset(dsObj, smIds, tissueIds, diseaseIds, cellIds) {
+function saveDataset(dsObj, smIds, cellIds) {
   return Dataset
     .forge(dsObj)
     .save()
     .then(dsModel => {
       if (smIds.length) {
         dsModel.smallMolecules().attach(smIds);
-      }
-      if (tissueIds.length) {
-        dsModel.tissues().attach(tissueIds);
-      }
-      if (diseaseIds.length) {
-        dsModel.diseases().attach(diseaseIds);
       }
       if (cellIds.length) {
         dsModel.cells().attach(cellIds);
@@ -76,70 +71,134 @@ function findEntities(Model, entityNames) {
     .then(results => results.map(result => result.id));
 }
 
-function insertEntities() {
+function findCells(cellNames) {
+  if (!cellNames.length) {
+    return Promise.resolve([]);
+  }
+  return new Promise((resolve, reject) => {
+    knex
+      .select('id')
+      .from('cells')
+      .whereIn('name', cellNames)
+      .then(results => {
+        knex
+          .select('cell_id')
+          .from('synonyms')
+          .whereIn('name', cellNames)
+          .then(moreResults => {
+            const allIds = _.union(
+              results.map(res => res.id),
+              moreResults.map(res => res.cell_id)
+            );
+            debug(allIds);
+            resolve(allIds);
+          })
+          .catch(e => reject(e));
+      })
+      .catch(e => reject(e));
+  });
+}
+
+function insertTissuesAndDiseases() {
   let tissues = [];
   let diseases = [];
-  let cells = [];
-  datasets.forEach(ds => {
-    ds.tissues.forEach(name => {
-      if (tissues.indexOf(name) === -1) {
-        tissues.push(name);
-      }
-    });
-    ds.diseases.forEach(name => {
-      if (diseases.indexOf(name) === -1) {
-        diseases.push(name);
-      }
-    });
-    ds.cells.forEach(name => {
-      if (cells.indexOf(name) === -1) {
-        cells.push(name);
-      }
-    });
+  cellLines.forEach(cl => {
+    const tissue = cl.organ_tissue;
+    const disease = cl.disease;
+    if (!!tissue && tissues.indexOf(tissue) === -1) {
+      tissues.push(tissue);
+    }
+    if (!!disease && diseases.indexOf(disease) === -1) {
+      diseases.push(disease);
+    }
   });
   const created = moment().toDate();
   tissues = tissues.map(name => ({ name, created_at: created }));
   diseases = diseases.map(name => ({ name, created_at: created }));
-  cells = cells.map(name => ({ name, created_at: created }));
+  debug(`Inserting ${tissues.length} tissues and ${diseases.length} diseases.`);
   return Promise.all([
-    knex.insert(tissues).into('tissues'),
+    knex.insert(tissues).into('organs_tissues'),
     knex.insert(diseases).into('diseases'),
-    knex.insert(cells).into('cells'),
   ]);
 }
 
+function insertCellLines() {
+  debug(`Inserting ${cellLines.length} cells.`);
+  return Promise.all(cellLines.map(cl =>
+    new Promise((resolve, reject) => {
+      const tissue = cl.organ_tissue || '';
+      const disease = cl.disease || '';
+      const synonyms = cl.synonyms || [];
+      findEntities(Tissue, [tissue])
+        .then(tissueIds => {
+          findEntities(Disease, [disease])
+            .then(diseaseIds => {
+              const cell = _.pick(cl, Cell.prototype.permittedAttributes());
+              Cell.forge(cell).save().then((clModel) => {
+                if (tissueIds.length) {
+                  clModel.tissues().attach(tissueIds);
+                }
+                if (diseaseIds.length) {
+                  clModel.diseases().attach(diseaseIds);
+                }
+                if (!synonyms.length) {
+                  resolve();
+                  return;
+                }
+                const syns = synonyms.map(name => ({
+                  name,
+                  cell_id: clModel.id,
+                  created_at: moment().toDate(),
+                }));
+                knex.insert(syns).into('synonyms')
+                .then(() => resolve())
+                .catch(e => {
+                  debug(e);
+                  reject(e);
+                });
+              });
+            })
+            .catch(e => {
+              debug(e);
+              reject(e);
+            });
+        })
+        .catch(e => {
+          debug(e);
+          reject(e);
+        });
+    })
+  ));
+}
+
 function buildDatasets() {
-  debug(`There are ${datasets.length} datasets to insert.`);
-  let dsSaved = 0;
+  debug(`Inserting ${datasets.length} datasets.`);
   return Promise.all(datasets.map(ds =>
-    new Promise((resolve) => {
+    new Promise((resolve, reject) => {
       findSmallMolecules(ds.smIds)
         .then(smIds =>
-          findEntities(Tissue, ds.tissues)
-            .then(tissueIds =>
-              findEntities(Disease, ds.diseases)
-                .then(diseaseIds =>
-                  findEntities(Cell, ds.cells)
-                    .then(cellIds => {
-                      saveDataset(
-                        _.pick(ds, Dataset.prototype.permittedAttributes()),
-                        smIds,
-                        tissueIds,
-                        diseaseIds,
-                        cellIds
-                      ).then(() => {
-                        dsSaved++;
-                        debug(`${dsSaved} datasets saved.`);
-                        resolve();
-                      });
-                    })
-                    .catch(e => debug(e))
-                )
-                .catch(e => debug(e))
-            )
-            .catch(e => debug(e))
+          findCells(ds.cells)
+            .then(cellIds => {
+              if (ds.name === 'Kinativ') {
+                debug(cellIds);
+              }
+              saveDataset(
+                _.pick(ds, Dataset.prototype.permittedAttributes()),
+                smIds,
+                cellIds
+              ).then(() => {
+                resolve();
+              });
+            })
+            .catch(e => {
+              debug(e);
+              reject(e);
+            })
         )
-        .catch(e => debug(e));
+        .catch(e => {
+          debug(e);
+          reject(e);
+        });
     })
   ));
 }
@@ -178,17 +237,39 @@ knex.raw('select 1+1 as result').then(() => {
   );
 
   promises.push(
-    new Promise((resolve) => {
+    new Promise((resolve, reject) => {
       insertSmallMolecules()
         .then(() => {
-          insertEntities()
+          debug('Small molecules inserted.');
+          insertTissuesAndDiseases()
             .then(() => {
-              buildDatasets()
+              debug('Tissues and diseases inserted.');
+              insertCellLines()
                 .then(() => {
-                  debug('Datasets inserted');
-                  resolve();
+                  debug('Cells inserted.');
+                  buildDatasets()
+                    .then(() => {
+                      debug('Datasets inserted.');
+                      resolve();
+                    })
+                    .catch(e => {
+                      reject(e);
+                      debug(e);
+                    });
+                })
+                .catch(e => {
+                  reject(e);
+                  debug(e);
                 });
+            })
+            .catch(e => {
+              reject(e);
+              debug(e);
             });
+        })
+        .catch(e => {
+          reject(e);
+          debug(e);
         });
     })
   );
@@ -196,7 +277,7 @@ knex.raw('select 1+1 as result').then(() => {
   Promise
     .all(promises)
     .then(() => {
-      debug('Database seeded.');
+      debug('Database seeded successfully.');
       process.exit(0);
     })
     .catch(e => {

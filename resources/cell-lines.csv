@@ -1,0 +1,181 @@
+Cell Line ,LINCS ID,Reference Source,Organ/Tissue,Disease
+184A1,LCL-2080,ATCC,breast,normal
+184B5,LCL-2081,ATCC,breast,normal
+5637;5637(LCL-1702),LCL-1702,ATCC,urinary bladder,transitional cell carcinoma
+600MPE,LCL-2073,H.S. Smith (California Pacific Medical Center),breast,carcinoma
+647-V,LCL-1708,Leibniz Institute DSMZ-German Collection of Microorganisms and Cell Cultures,urinary bladder,transitional cell carcinoma
+A375;A-375,LCL-1235,ATCC,skin,melanoma
+A375.S2,LCL-1231,ATCC,skin,melanoma
+A549,LCL-1601,ATCC,lung, non-small cell lung carcinoma
+A673,LCL-1410,ECACC,muscle,rhabdomyosarcoma
+AGS,LCL-1893,ATCC,stomach,gastric adenocarcinoma
+AU565;AU-565,LCL-1462,ATCC,breast, adenocarcinoma
+BCWM.1,LCL-2094,Steven Treon (Dana Farber Cancer Center),blood, lymphoplasmacytic lymphoma
+BPH-1,LCL-2095,Leibniz Institute DSMZ-German Collection of Microorganisms and Cell Cultures,prostate, male reproductive benign neoplasm
+BT-20,LCL-1476,ATCC,breast, breast carcinoma
+BT-474,LCL-1308,ATCC,breast,invasive ductal carcinoma
+BT-483,LCL-1309,ATCC,breast, ductal carcinoma
+BT-549,LCL-1310,ATCC,breast, ductal carcinoma
+C32,LCL-1238,ATCC,skin,melanoma
+Ca Ski;CaSki,LCL-1541,ATCC,cervix, cervical squamous cell carcinoma
+Ca9-22,LCL-2033,Japanese Collection of Research Bioresources Cell Bank (JCRB),head & neck,gum cancer
+CAL-51,LCL-1472,Leibniz Institute DSMZ-German Collection of Microorganisms and Cell Cultures,breast, breast carcinoma
+Calu-1,LCL-1580,ATCC,lung,lung squamous cell carcinoma
+Calu-3,LCL-1631,ATCC,lung, lung adenocarcinoma
+CAMA-1,LCL-1466,ATCC,breast, adenocarcinoma
+COLO 858,LCL-1242,European Collection of Cell Cultures (ECACC),skin,melanoma
+COLO-679,LCL-1232,"Cell Bank, RIKEN BioResource Center",skin,melanoma
+COLO-800,LCL-1233,European Collection of Cell Cultures (ECACC),skin,melanoma
+COR-L23,LCL-1780,ECACC,lung,lung large cell carcinoma
+DU4475,LCL-1323,ATCC,breast, ductal carcinoma
+DV-90,LCL-1636,DSMZ,lung,lung adenocarcinoma
+EFO-27,LCL-1521,DSMZ,ovary,ovary adenocarcinoma
+FU97,LCL-1894,Japanese Collection of Research Bioresources Cell Bank (JCRB),stomach, stomach carcinoma
+HA1E,LCL-2090,Broad Institute,kidney,immmortalized normal
+HCC-15,LCL-1604,DSMZ,lung,non-small cell lung carcinoma
+HCC1143,LCL-1329,ATCC,breast,invasive ductal carcinoma
+HCC1187,LCL-1324,ATCC,breast,invasive ductal carcinoma
+HCC1395;HCC-1395,LCL-1330,ATCC,breast,invasive ductal carcinoma
+HCC1419;HCC-1419,LCL-1314,ATCC,breast,invasive ductal carcinoma
+HCC1428;HCC-1428,LCL-1467,ATCC,breast, adenocarcinoma
+HCC1500,LCL-1325,ATCC,breast,invasive ductal carcinoma
+HCC1569;HCC-1569,LCL-1480,ATCC,breast,breast metaplastic carcinoma
+HCC1599,LCL-1326,ATCC,breast, ductal carcinoma
+HCC1806;HCC-1806,LCL-1960,ATCC,breast,acantholytic variant squamous cell breast carcinoma
+HCC1937;HCC-1937,LCL-1331,ATCC,breast,invasive ductal carcinoma
+HCC1954;HCC-1954,LCL-1332,ATCC,breast,invasive ductal carcinoma
+HCC202;HCC-202,LCL-1333,ATCC,breast,invasive ductal carcinoma
+HCC2157,LCL-1327,ATCC,breast, ductal carcinoma
+HCC2185,LCL-2074,Adi Gazdar (University of Texas-Southwestern Medical Center),breast,carcinoma
+HCC2218,LCL-1328,ATCC,breast, ductal carcinoma
+HCC3153,LCL-2075,Adi Gazdar (University of Texas-Southwestern Medical Center),breast,carcinoma
+HCC38;HCC-38,LCL-1334,ATCC,breast, primary ductal carcinoma
+HCC38,LCL-1334,ATCC,breast,invasive ductal carcinoma
+HCC515,LCL-2084,Broad Institute,lung,NSCLC
+HCC70;HCC-70,LCL-1335,ATCC,breast,invasive ductal carcinoma
+HCT 116,LCL-1161,ECACC,intestine,colon carcinoma
+HEC-1,LCL-1496,Japanese Collection of Research Bioresources Cell Bank (JCRB),uterus,endometrial adenocarcinoma
+HeLa,LCL-1512,ATCC,cervix, cervical adenocarcinoma
+HeLa ICRP,LCL-2096,Jeremie Roux (Harvard Medical School),cervix, cervical adenocarcinoma
+HeLa ICRP Bcl-2-mCherry,LCL-2097,Jeremie Roux (Harvard Medical School),cervix, cervical adenocarcinoma
+HeLa ICRP Bcl-XL-mCherry,LCL-2098,Jeremie Roux (Harvard Medical School),cervix, cervical adenocarcinoma
+HeLa ICRP FLIP-L-mCherry,LCL-2099,Jeremie Roux (Harvard Medical School),cervix, cervical adenocarcinoma
+HeLa ICRP FLIP-S-mCherry,LCL-2100,Jeremie Roux (Harvard Medical School),cervix, cervical adenocarcinoma
+Hep G2,LCL-1925,ATCC,liver,hepatocellular carcinoma
+HL-60,LCL-1054,ATCC,blood,acute myeloid leukemia
+HLF,LCL-1938,Japanese Collection of Research Bioresources Cell Bank (JCRB),liver,hepatocellular carcinoma
+HME1;hTERT-HME1,LCL-2083,ATCC,breast,normal
+Hs 578T,LCL-1315,ATCC,breast,invasive ductal carcinoma
+HT-29,LCL-1180,ATCC,intestine,colorectal adenocarcinoma
+HT115,LCL-1162,ECACC,intestine,colon carcinoma
+Huh7,LCL-1926,JHSF,liver,hepatocellular carcinoma
+HUTU-80;HuTu 80,LCL-1150,ATCC,intestine, duodenum adenocarcinoma
+IA-LM,LCL-1778,"Cell Bank, RIKEN BioResource Center",lung, lung large cell carcinoma
+Ishikawa,LCL-1497,European Collection of Cell Cultures (ECACC),uterus, uterine cancer
+Ishikawa (Heraklio) 02 ER-,LCL-1498,European Collection of Cell Cultures (ECACC),uterus,endometrial adenocarcinoma
+IST-MEL1,LCL-1234,Interlab Cell Line Collection (ICLC),skin,melanoma
+JHH-6,LCL-1923,Japanese Collection of Research Bioresources Cell Bank (JCRB),liver, hepatocellular carcinoma
+K2,LCL-2091,Hensin Tsao (Masschusetts General Hospital),skin, malignant melanoma
+KATO III,LCL-2003,ATCC,stomach, gastric signet ring cell adenocarcinoma
+KMRC-20,LCL-1755,Japanese Collection of Research Bioresources Cell Bank (JCRB),kidney,carcinoma
+KYSE-140,LCL-1547,Leibniz Institute DSMZ-German Collection of Microorganisms and Cell Cultures,esophagus,squamous cell carcinoma
+KYSE-150,LCL-1548,Leibniz Institute DSMZ-German Collection of Microorganisms and Cell Cultures,esophagus,squamous cell carcinoma
+KYSE-180,LCL-1549,Leibniz Institute DSMZ-German Collection of Microorganisms and Cell Cultures,esophagus,squamous cell carcinoma
+KYSE-450,LCL-1550,Leibniz Institute DSMZ-German Collection of Microorganisms and Cell Cultures,esophagus,squamous cell carcinoma
+LNCaP,LCL-1298,ATCC,prostate,carcinoma
+LNZTA3WT4;LNZTA3p53WT4; WT4,LCL-1345,ATCC,brain, glioblastoma
+LoVo,LCL-1181,ATCC,intestine,colon adenocarcinoma
+LOXIMVI,LCL-1276,"DTP, DCTD Tumor Repository, National Cancer Institute",skin,melanoma
+LY2,LCL-2076,Mark Lippman (National Cancer Institute),breast,Invasive ductal carcinoma
+MB 157,LCL-1484,ATCC,breast, breast carcinoma
+MCF 10A,LCL-2085,ATCC,breast,fibrocystic disease
+MCF 10F,LCL-2102,ATCC,breast,fibrocystic disease
+MCF10A,LCL-2085,ATCC,breast,fibrocystic disease
+MCF12A,LCL-2082,ATCC,breast,normal
+MCF7,LCL-1460,ATCC,breast, adenocarcinoma
+MDA-MB-134-VI,LCL-1316,ATCC,breast, ductal carcinoma
+MDA-MB-157,LCL-1916,ATCC,breast, breast medullary carcinoma
+MDA-MB-175-VII,LCL-1317,ATCC,breast, ductal carcinoma
+MDA-MB-231;MDAMB231; MDA-MB231,LCL-1461,ATCC,breast, adenocarcinoma
+MDA-MB-361,LCL-1468,ATCC,breast, adenocarcinoma
+MDA-MB-415,LCL-1469,ATCC,breast, adenocarcinoma
+MDA-MB-435S,LCL-1307,ATCC,skin, malignant melanoma
+MDA-MB-436,LCL-1470,ATCC,breast, adenocarcinoma
+MDA-MB-453,LCL-1485,ATCC,breast, breast carcinoma
+MDA-MB-468,LCL-1471,ATCC,breast, adenocarcinoma
+MDST8,LCL-1164,ECACC,intestine,colon carcinoma
+MMAC-SF,LCL-1277,"Cell Bank, RIKEN BioResource Center",skin, malignant melanoma
+MT-3,LCL-1473,Leibniz Institute DSMZ-German Collection of Microorganisms and Cell Cultures,breast, breast carcinoma
+MWCL.1,,not available,blood, lymphoplasmacytic lymphoma
+MX1,LCL-2072,"DTP, DCTD Tumor Repository (National Cancer Institute)",breast,
+MZ7-mel,LCL-1279,Thomas Woelfel (Johannes Gutenberg University Mainz),skin, malignant melanoma
+N2586,LPC-1007,"Cell Applications, Inc",synovium,
+N2645,LPC-1008,"Cell Applications, Inc",synovium,
+N2759,LPC-1009,"Cell Applications, Inc",synovium,
+NCI-H1648;H1648,LCL-1632,ATCC,lung, lung adenocarcinoma
+NCI-H1651;H1651,LCL-1633,ATCC,lung, lung adenocarcinoma
+NCI-H1694,LCL-1841,ATCC,lung,lung small cell carcinoma
+NCI-H1703;H1651,LCL-1582,ATCC,lung, lung squamous cell carcinoma
+NCI-H1836,LCL-1842,ATCC,lung,lung small cell carcinoma
+NCI-H1915;H1651,LCL-1598,ATCC,lung, non-small cell lung carcinoma
+NCI-H2023;H2023,LCL-1599,ATCC,lung, non-small cell lung carcinoma
+NCI-H2073,LCL-1649,ATCC,lung,lung adenocarcinoma
+NCI-H596,LCL-1786,ATCC,lung,adenosquamous cell lung carcinoma
+NCI-H716,LCL-1339,Sanger,intestine,cecum adenocarcinoma
+NCI-H810;H810,LCL-1670,ATCC,lung, lung adenocarcinoma
+NGP,LCL-2103,Creative Bioarray,nervous system, neuroblastoma
+NOMO-1,LCL-1074,Sanger,blood,
+PC-3;PC3,LCL-1299,ATCC,prostate, Prostate adenocarcinoma
+PC-9,LCL-1630,European Collection of Cell Cultures (ECACC),lung, adenocarcinoma
+PE/CA-PJ15,LCL-1212,European Collection of Cell Cultures (ECACC),head & neck,squamous cell carcinoma
+PL4,LCL-1098,Cyril Benes (Massachusetts General Hospital),pancreas,carcinoma
+Cardiomyocytes  Line A,LPC-1001,PromoCell ,heart,
+Cardiomyocytes  Line B,LPC-1002,PromoCell ,heart,
+Cardiomyocytes  Line D,LPC-1003,PromoCell ,heart,
+Cardiomyocytes  Line E,LPC-1004,PromoCell ,heart,
+RA1869,LPC-1010,"Cell Applications, Inc",synovium,rheumatoid arthritis
+RA1931,LPC-1011,"Cell Applications, Inc",synovium,rheumatoid arthritis
+RA2159,LPC-1012,"Cell Applications, Inc",synovium,rheumatoid arthritis
+RA2708,LPC-1013,"Cell Applications, Inc",synovium,rheumatoid arthritis
+Ramos (RA 1),LCL-1097,ATCC,blood,
+RMG-I,LCL-1805,JHSF,ovary,ovarian clear cell adenocarcinoma
+RVH-421,LCL-1255,Leibniz Institute DSMZ-German Collection of Microorganisms and Cell Cultures,skin, malignant melanoma
+SH-SY5Y,LCL-2000,ATCC,nervous system,neuroblastoma
+SJCRH30;RC13; RMS 13; SJRH30,LCL-1408,ATCC,muscle, rhabdomyosarcoma
+SK-BR-3;SKBr3,LCL-1475,ATCC,breast, breast carcinoma
+SK-LMS-1,LCL-1286,ATCC,uterus, Leiomyosarcoma
+SK-LU-1,LCL-1659,ECACC,lung,lung adenocarcinoma
+SK-MEL-1,LCL-1265,ATCC,skin,melanoma
+SK-MES;SK-MES-1; SK MES 1,LCL-1583,ATCC,lung, lung squamous cell carcinoma
+SK-OV-3,LCL-1517,ATCC,ovary, ovarian adenocarcinoma
+SKMEL28,LCL-2092,ATCC,skin, malignant melanoma
+SNB75,LCL-1346,"DTP, DCTD Tumor Repository, National Cancer Institute",brain, glioblastoma
+SNG-M,LCL-1503,JHSF,uterus,endometrial adenocarcinoma
+SUM1315MO2,LCL-2066,University of Michigan (http://www.cancer.med.umich.edu/breast_cell/Production/index.html),breast,
+SUM149PT,LCL-2067,Asterand (http://solutions.asterand.com/SUM-149PT-p/cl%20sum-149pt.htm),breast,
+SUM159PT,LCL-2068,Asterand (http://solutions.asterand.com/SUM-159PT-p/cl%20sum-159pt.htm),breast,
+SUM185PE,LCL-2069,Asterand (http://solutions.asterand.com/SUM-185PE-p/cl%20sum-185pe.htm),breast,
+SUM225CWN,LCL-2070,Asterand (http://solutions.asterand.com),breast,
+SUM229PE,LCL-2065,Asterand (http://solutions.asterand.com/SUM-229PE-p/cl%20sum-229pe.htm),breast,
+SUM52PE,LCL-2071,Asterand (http://solutions.asterand.com/SUM-52PE-p/cl%20sum-52pe.htm),breast,
+SW-948,LCL-1187,ATCC,intestine,colon adenocarcinoma
+SW527;SW 527; SW-527,LCL-1474,ATCC,breast, breast carcinoma
+SW620;SW-620,LCL-1157,ATCC,intestine,adenocarcinoma
+T24,LCL-1709,ATCC,urinary bladder,transitional cell carcinoma
+T47D,LCL-1486,ATCC,breast, breast carcinoma
+T47DKBLUC,LCL-2064,ATCC,breast,
+THP-1,LCL-1072,ATCC,blood,acute myeloid leukemia
+TYK-nu,LCL-1700,JHSF,ovary,ovarian carcinoma
+U-2 OS,LCL-1431,ATCC,bone,osteosarcoma
+U-87 MG,LCL-1364,ATCC,brain, glioblastoma
+U-937,LCL-1125,ATCC,lymphatic system, diffuse large B-cell lymphoma
+UACC-812,LCL-1319,ATCC,breast,invasive ductal carcinoma
+UACC-893,LCL-1320,ATCC,breast,invasive ductal carcinoma
+VCaP,LCL-1147,ATCC,prostate,prostate carcinoma
+WiDr,LCL-1169,ATCC,intestine,adenocarcinoma
+WM-115,LCL-1260,ATCC,skin, malignant melanoma
+WM1552C,LCL-1261,ATCC,skin,melanoma
+WSU-DLCL2,LCL-1954,DSMZ,lymphatic system,B-cell lymphocytic neoplasm
+ZR-75-1,LCL-1321,ATCC,breast,invasive ductal carcinoma
+ZR-75-30,LCL-1322,ATCC,breast,invasive ductal carcinoma
+ZR75B,LCL-2077,Mark Lippman (National Cancer Institute),breast,

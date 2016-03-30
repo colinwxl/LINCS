@@ -17,6 +17,8 @@ export default {
   cells: {
     id: { type: 'increments', nullable: false, primary: true },
     name: { type: 'string', maxlength: 255, nullable: false },
+    lincs_id: { type: 'string', maxlength: 20, nullable: true },
+    source: { type: 'string', maxlength: 255, nullable: false },
     created_at: { type: 'dateTime', nullable: false },
     updated_at: { type: 'dateTime', nullable: true },
   },
@@ -31,10 +33,28 @@ export default {
     created_at: { type: 'dateTime', nullable: false },
     updated_at: { type: 'dateTime', nullable: true },
   },
-  tissues_datasets: {
+  cells_tissues: {
     id: { type: 'increments', nullable: false, primary: true },
+    cell_id: { type: 'integer', nullable: false, unsigned: true, references: 'cells.id' },
     tissue_id: { type: 'integer', nullable: false, unsigned: true, references: 'tissues.id' },
-    dataset_id: { type: 'integer', nullable: false, unsigned: true, references: 'datasets.id' },
+  },
+  diseases: {
+    id: { type: 'increments', nullable: false, primary: true },
+    name: { type: 'string', maxlength: 255, nullable: false },
+    created_at: { type: 'dateTime', nullable: false },
+    updated_at: { type: 'dateTime', nullable: true },
+  },
+  cells_diseases: {
+    id: { type: 'increments', nullable: false, primary: true },
+    cell_id: { type: 'integer', nullable: false, unsigned: true, references: 'cells.id' },
+    disease_id: { type: 'integer', nullable: false, unsigned: true, references: 'diseases.id' },
+  },
+  synonyms: {
+    id: { type: 'increments', nullable: false, primary: true },
+    name: { type: 'string', maxlength: 255, nullable: false },
+    cell_id: { type: 'integer', nullable: false, unsigned: true, references: 'cells.id' },
+    created_at: { type: 'dateTime', nullable: false },
+    updated_at: { type: 'dateTime', nullable: true },
   },
   small_molecules: {
     id: { type: 'increments', nullable: false, primary: true },
@@ -52,17 +72,6 @@ export default {
   small_molecules_datasets: {
     id: { type: 'increments', nullable: false, primary: true },
     small_molecule_id: { type: 'integer', nullable: false, unsigned: true, references: 'small_molecules.id' },
-    dataset_id: { type: 'integer', nullable: false, unsigned: true, references: 'datasets.id' },
-  },
-  diseases: {
-    id: { type: 'increments', nullable: false, primary: true },
-    name: { type: 'string', maxlength: 255, nullable: false },
-    created_at: { type: 'dateTime', nullable: false },
-    updated_at: { type: 'dateTime', nullable: true },
-  },
-  diseases_datasets: {
-    id: { type: 'increments', nullable: false, primary: true },
-    disease_id: { type: 'integer', nullable: false, unsigned: true, references: 'diseases.id' },
     dataset_id: { type: 'integer', nullable: false, unsigned: true, references: 'datasets.id' },
   },
   funding_opportunities: {
