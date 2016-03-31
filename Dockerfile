@@ -4,7 +4,7 @@ ENV SOURCE_DIR /usr/src
 RUN mkdir -p $SOURCE_DIR && cd $SOURCE_DIR
 WORKDIR $SOURCE_DIR
 
-ENV NODE_ENV development
+ENV NODE_ENV production
 ENV DEBUG app:*
 
 COPY package.json $SOURCE_DIR/
