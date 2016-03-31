@@ -26,6 +26,10 @@
   }
 }
 
+.justify {
+  text-align: justify;
+}
+
 .animated {
   animation: from-bottom .5s ease-in-out;
 }
@@ -74,14 +78,24 @@
 $button-color: $red;
 // $button-color: $brand-secondary-dark;
 
+.center {
+  text-align: center;
+  width: 100%;
+}
+
 .btn-lincs {
-  background-color: $button-color;
-  border-color: $button-color;
-  color: $white;
+  border-color: $brand-primary;
+  color: $brand-primary;
+  margin-bottom: 1rem;
+  margin-top: .5rem;
+
+  @media (max-width: 544px) {
+    width: 100%;
+  }
 
   &:hover {
-    background-color: darken($button-color, 10);
-    border-color: darken($button-color, 10);
+    background-color: $brand-primary;
+    border-color: $brand-primary;
     color: $white;
   }
 }
@@ -103,11 +117,6 @@ $button-color: $red;
   line-height: 1.5;
   margin-bottom: 1rem;
   padding: 1rem;
-  text-align: center;
-
-  @media (min-width: 544px) {
-    text-align: left;
-  }
 
   h4 {
     color: $darker-gray;
@@ -120,6 +129,11 @@ $button-color: $red;
   color: $darker-gray;
   font-size: 2rem;
   font-weight: 400;
+  text-align: center;
+
+  @media (min-width: 544px) {
+    text-align: left;
+  }
 }
 
 .sub-title {
@@ -176,8 +190,20 @@ $button-color: $red;
   text-align: center;
 
   img {
-    fill: $brand-primary-light;
     height: 2rem;
     width: auto;
   }
+}
+
+.ajay {
+  float: right;
+  height: 150px;
+  margin-left: 1rem;
+  max-width: 100%;
+  width: auto;
+}
+
+.logo {
+  max-width: 100%;
+  width: auto;
 }

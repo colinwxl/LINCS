@@ -11,11 +11,10 @@ for row in clArr:
     if 'Cell Line' in row[0]:
         continue
     cl = {
-        'lincs_id': row[1] if row[1] else None,
-        'source': row[2] if row[2] else None,
-        'organ_tissue': row[3] if row[3] else None,
-        'disease': row[4] if row[4] else None
-
+        'lincs_id': row[1].strip() if row[1] else None,
+        'source': row[2].strip() if row[2] else None,
+        'tissue': row[3].strip() if row[3] else None,
+        'disease': row[4].strip() if row[4] else None
     }
     if ';' in row[0]:
         names = [x.strip() for x in row[0].split(';')]

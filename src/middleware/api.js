@@ -42,10 +42,13 @@ const diseaseSchema = new Schema('diseases', { idAttribute: 'id' });
 const smallMoleculeSchema = new Schema('smallMolecules', { idAttribute: 'id' });
 const datasetSchema = new Schema('datasets', { idAttribute: 'id' });
 
-datasetSchema.define({
-  cells: arrayOf(cellSchema),
+cellSchema.define({
   tissues: arrayOf(tissueSchema),
   diseases: arrayOf(diseaseSchema),
+});
+
+datasetSchema.define({
+  cells: arrayOf(cellSchema),
   smallMolecules: arrayOf(smallMoleculeSchema),
 });
 
