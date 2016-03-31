@@ -1,15 +1,18 @@
 import React from 'react';
-import { Link } from 'react-router';
+import { a } from 'react-router';
 
 import styles from './Footer.scss';
 
-const dataRoute = '/data';
-const appsWorkflowsRoute = '/apps-workflows';
+const base = '/LINCS';
+const dataRoute = `${base}/data`;
+const appsWorkflowsRoute = `${base}/apps-workflows`;
 
-const centersRoute = '/centers';
+const centersRoute = `${base}/centers`;
 const dsgcRoute = `${centersRoute}/data-and-signature-generating-centers`;
 
 const mailLink = 'mailto:michael.mcdermott@mssm.edu?Subject=[Comments regarding lincsproject.org]';
+
+// Can't use react-router link here because this component is outside of the <Router />
 
 export default function Footer(/* props */) {
   return (
@@ -27,28 +30,28 @@ export default function Footer(/* props */) {
             <h5>Centers</h5>
             <ul>
               <li>
-                <Link to={`${centersRoute}/overview`}>Overview</Link>
+                <a href={`${centersRoute}/overview`}>Overview</a>
               </li>
               <li>
-                <Link to={`${centersRoute}/dcic`}>BD2K-LINCS DCIC</Link>
+                <a href={`${centersRoute}/dcic`}>BD2K-LINCS DCIC</a>
               </li>
               <li>
-                <Link to={`${dsgcRoute}/hms-lincs`}>HMS LINCS</Link>
+                <a href={`${dsgcRoute}/hms-lincs`}>HMS LINCS</a>
               </li>
               <li>
-                <Link to={`${dsgcRoute}/dtoxs`}>DToxS</Link>
+                <a href={`${dsgcRoute}/dtoxs`}>DToxS</a>
               </li>
               <li>
-                <Link to={`${dsgcRoute}/lincs-pccse`}>LINCS Proteomics</Link>
+                <a href={`${dsgcRoute}/lincs-pccse`}>LINCS Proteomics</a>
               </li>
               <li>
-                <Link to={`${dsgcRoute}/lincs-transcriptomics`}>LINCS Transcriptomics</Link>
+                <a href={`${dsgcRoute}/lincs-transcriptomics`}>LINCS Transcriptomics</a>
               </li>
               <li>
-                <Link to={`${dsgcRoute}/mep-lincs`}>MEP LINCS</Link>
+                <a href={`${dsgcRoute}/mep-lincs`}>MEP LINCS</a>
               </li>
               <li>
-                <Link to={`${dsgcRoute}/neurolincs`}>NeuroLINCS</Link>
+                <a href={`${dsgcRoute}/neurolincs`}>NeuroLINCS</a>
               </li>
             </ul>
           </div>
@@ -56,16 +59,16 @@ export default function Footer(/* props */) {
             <h5>Data</h5>
             <ul>
               <li>
-                <Link to={`${dataRoute}/releases`}>Releases</Link>
+                <a href={`${dataRoute}/releases`}>Releases</a>
               </li>
               <li>
-                <Link to={`${dataRoute}/release-policy`}>Release Policy</Link>
+                <a href={`${dataRoute}/release-policy`}>Release Policy</a>
               </li>
               <li>
-                <Link to={`${dataRoute}/standards`}>Standards</Link>
+                <a href={`${dataRoute}/standards`}>Standards</a>
               </li>
               <li>
-                <Link to={`${appsWorkflowsRoute}`}>Apps & Workflows</Link>
+                <a href={`${appsWorkflowsRoute}`}>Apps & Workflows</a>
               </li>
             </ul>
           </div>
@@ -73,16 +76,16 @@ export default function Footer(/* props */) {
             <h5>Announcements</h5>
             <ul>
               <li>
-                <Link to="/publications">Publications</Link>
+                <a href={`${base}/publications`}>Publications</a>
               </li>
               <li>
-                <Link to="/news">News</Link>
+                <a href={`${base}/news`}>News</a>
               </li>
               <li>
-                <Link to="/community/webinars">Webinars</Link>
+                <a href={`${base}/community/webinars`}>Webinars</a>
               </li>
               <li>
-                <Link to="/community/workshops-and-symposia">Workshops and Symposia</Link>
+                <a href={`${base}/community/workshops-and-symposia`}>Workshops and Symposia</a>
               </li>
             </ul>
           </div>

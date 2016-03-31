@@ -8,7 +8,7 @@
     "npm": "^3.0.0"
   },
   "scripts": {
-    "build:docker": "npm run server-es5 && npm run deploy && docker build -t 146.203.54.165:5000/lincs .",
+    "build:docker": "npm run server-es5 && npm run deploy && docker build -t 146.203.54.165:5000/lincs . && rm -rf server-es5",
     "clean": "rm -rf dist",
     "compile": "babel-node bin/compile",
     "deploy": "better-npm-run deploy",
@@ -53,6 +53,13 @@
       "command": "npm run server-es5 && node --max-old-space-size=15360 server-es5/data/seed && rm -rf server-es5",
       "env": {
         "NODE_ENV": "development",
+        "DEBUG": "app:*"
+      }
+    },
+    "seed:prod": {
+      "command": "npm run server-es5 && node --max-old-space-size=15360 server-es5/data/seed && rm -rf server-es5",
+      "env": {
+        "NODE_ENV": "production",
         "DEBUG": "app:*"
       }
     },
