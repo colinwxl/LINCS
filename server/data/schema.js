@@ -130,13 +130,23 @@ export default {
   },
   comp_tools: {
     id: { type: 'increments', nullable: false, primary: true },
-    name: { type: 'string', maxlength: 255, nullable: true },
+    name: { type: 'string', maxlength: 255, nullable: false },
     description: { type: 'text', maxlength: 16777215, fieldtype: 'medium', nullable: true },
     url: { type: 'string', maxlength: 255, nullable: true },
   },
   comp_tools_publications: {
     id: { type: 'increments', nullable: false, primary: true },
     comp_tool_id: { type: 'integer', nullable: false, unsigned: true, references: 'comp_tools.id' },
+    publication_id: { type: 'integer', nullable: false, unsigned: true, references: 'publications.id' },
+  },
+  authors: {
+    id: { type: 'increments', nullable: false, primary: true },
+    name: { type: 'string', maxlength: 255, nullable: false },
+    url: { type: 'string', maxlength: 255, nullable: true },
+  },
+  authors_publications: {
+    id: { type: 'increments', nullable: false, primary: true },
+    author_id: { type: 'integer', nullable: false, unsigned: true, references: 'authors.id' },
     publication_id: { type: 'integer', nullable: false, unsigned: true, references: 'publications.id' },
   },
   publications: {

@@ -21,44 +21,46 @@ export class FundingOpportunities extends Component {
 
   generateOppElems(oppsArr) {
     return oppsArr.map((opp, i) => {
-      const dates = opp.keyDates;
-      const links = opp.keyLinks;
+      const {
+        title, description, releaseDate, openDate, dueDate, reviewDate,
+        announcedDate, startDate, keyLinks,
+      } = opp;
       return (
         <div key={i} className={styles.opp}>
-          <h5>{opp.title}</h5>
-          <p>{opp.description}</p>
+          <h5>{title}</h5>
+          <p>{description}</p>
           <h6>Dates</h6>
           <ul>
             {
-              dates && dates.release &&
-              <li>Release Date: {formatDate(dates.release)}</li>
+              releaseDate &&
+              <li>Release Date: {formatDate(releaseDate)}</li>
             }
             {
-              dates && dates.open &&
-              <li>Open Date (earliest submission): {formatDate(dates.open)}</li>
+              openDate &&
+              <li>Open Date (earliest submission): {formatDate(openDate)}</li>
             }
             {
-              dates && dates.due &&
-              <li>Application Due Date: {formatDate(dates.due)}</li>
+              dueDate &&
+              <li>Application Due Date: {formatDate(dueDate)}</li>
             }
             {
-              dates && dates.review &&
-              <li>Application Review: {formatDate(dates.review)}</li>
+              reviewDate &&
+              <li>Application Review: {formatDate(reviewDate)}</li>
             }
             {
-              dates && dates.announced &&
-              <li>Decision Announcement: {formatDate(dates.announced)}</li>
+              announcedDate &&
+              <li>Decision Announcement: {formatDate(announcedDate)}</li>
             }
             {
-              dates && dates.start &&
-              <li>Earliest Start Date: {formatDate(dates.start)}</li>
+              startDate &&
+              <li>Earliest Start Date: {formatDate(startDate)}</li>
             }
           </ul>
-          {!!links && Object.keys(links).length && <h6>Links</h6>}
+          {!!keyLinks && Object.keys(keyLinks).length && <h6>Links</h6>}
           <ul>
             {
-              !!links && Object.keys(links).map((linkTitle) =>
-                <li><a href={links[linkTitle]}>{linkTitle}</a></li>
+              !!keyLinks && Object.keys(keyLinks).map((linkTitle, index) =>
+                <li key={`link ${index}`}><a href={keyLinks[linkTitle]}>{linkTitle}</a></li>
               )
             }
           </ul>

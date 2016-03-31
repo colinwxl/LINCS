@@ -1,5 +1,6 @@
 import lincsBookshelf from './base';
 
+require('./Publication');
 const model = lincsBookshelf.Model.extend({
   tableName: 'comp_tools',
   publications() {

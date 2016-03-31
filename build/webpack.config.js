@@ -51,6 +51,11 @@ webpackConfig.output = {
 // ------------------------------------
 webpackConfig.plugins = [
   new webpack.DefinePlugin(config.globals),
+  new webpack.ProvidePlugin({
+    $: 'jquery',
+    jQuery: 'jquery',
+    'window.Tether': 'tether',
+  }),
   new HtmlWebpackPlugin({
     template: paths.client('index.html'),
     hash: false,

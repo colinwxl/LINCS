@@ -1,5 +1,7 @@
 // Import styles
-import 'bootstrap/scss/bootstrap.scss';
+import 'jquery';
+import 'tether';
+import 'bootstrap';
 import 'styles/core.scss';
 import React from 'react';
 import Navigation from 'containers/Navigation';

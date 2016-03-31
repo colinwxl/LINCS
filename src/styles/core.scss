@@ -1,7 +1,7 @@
 // scss-lint:disable VendorPrefix
 
-
 :global {
+  @import 'vendor/bootstrap/bootstrap';
   @import 'variables';
   @import 'form';
   @import 'calendar';
@@ -68,5 +68,9 @@
     @media (min-width: 992px) {
       margin-bottom: -448px;
     }
+  }
+
+  .view-container {
+    margin-bottom: 2rem;
   }
 }

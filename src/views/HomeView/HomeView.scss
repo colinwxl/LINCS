@@ -12,21 +12,12 @@
 .banner {
   background-image: linear-gradient(
     135deg,
-    $brand-primary-dark,
-    $brand-primary
+    $brand-primary,
+    $brand-primary-light
   );
   padding: 3rem .9375rem 2rem;
   position: relative;
   text-align: center;
-
-  @media (min-width: 544px) {
-    padding-bottom: 2rem;
-    padding-top: 8rem;
-  }
-
-  @media (min-width: 768px) {
-    padding-bottom: 4rem;
-  }
 
   img {
     height: 167px;
@@ -80,34 +71,42 @@
   }
 }
 
+$button-color: $red;
+// $button-color: $brand-secondary-dark;
+
 .btn-lincs {
-  border-color: $brand-primary-dark;
-  color: $brand-primary-dark;
+  background-color: $button-color;
+  border-color: $button-color;
+  color: $white;
 
   &:hover {
-    background-color: $brand-primary-dark;
-    border-color: $brand-primary-dark;
+    background-color: darken($button-color, 10);
+    border-color: darken($button-color, 10);
     color: $white;
   }
 }
 
+.content {
+  background-color: $light-gray;
+  margin-bottom: -2rem;
+  padding-bottom: 2rem;
+  padding-top: 2rem;
+}
+
 .section {
   background-color: $white;
-  border-top: 1px solid $gray;
+  border: 1px solid;
+  border-color: #e5e6e9 #dfe0e4 #d0d1d5;
+  border-radius: 3px;
   color: $dark-gray;
   font-size: 1rem;
   line-height: 1.5;
-  padding-bottom: 3rem;
-  padding-top: 3rem;
+  margin-bottom: 1rem;
+  padding: 1rem;
   text-align: center;
 
   @media (min-width: 544px) {
     text-align: left;
-  }
-
-  @media (min-width: 768px) {
-    padding-bottom: 10rem;
-    padding-top: 10rem;
   }
 
   h4 {
@@ -121,11 +120,11 @@
   color: $darker-gray;
   font-size: 2rem;
   font-weight: 400;
-  margin-bottom: .5rem;
+}
 
-  @media (min-width: 768px) {
-    font-size: 2.5rem;
-  }
+.sub-title {
+  margin-bottom: 1rem;
+  margin-top: 2rem;
 }
 
 .section-lead {
@@ -146,5 +145,38 @@
   img {
     height: auto;
     width: 100%;
+  }
+}
+
+.panel-group {
+  margin-bottom: 2rem;
+
+  h5 {
+    margin-top: 1rem;
+  }
+}
+
+.group {
+  margin-bottom: 1rem;
+
+  h6,
+  h5,
+  p,
+  a {
+    margin-bottom: 0;
+  }
+}
+
+.publications {
+  margin-bottom: 2rem;
+}
+
+.twitter-bird {
+  margin-bottom: 1rem;
+  text-align: center;
+
+  img {
+    height: 2rem;
+    width: auto;
   }
 }

@@ -12,7 +12,7 @@ const router = new Router({
 
 router.get('/timeline', async (ctx) => {
   try {
-    const opts = { slug: 'LINCS', owner_screen_name: 'BD2KLINCSDCIC', count: 5 };
+    const opts = { slug: 'LINCS', owner_screen_name: 'BD2KLINCSDCIC', count: 20 };
     const response = await Twit.get('lists/statuses', opts);
     ctx.body = camelize(response.data);
   } catch (e) {

@@ -10,8 +10,12 @@ const router = new Router({
 
 router.get('/publications', async (ctx) => {
   try {
-    const opps = await Publication.forge().fetchAll();
-    ctx.body = opps.toJSON();
+    const pubs = await Publication.forge().fetchAll({
+      withRelated: [
+        'authors',
+      ],
+    });
+    ctx.body = pubs.toJSON();
   } catch (e) {
     debug(e);
     ctx.throw(500, 'An error occurred obtaining datasets.');
