@@ -1,5 +1,4 @@
 import React from 'react';
-import { a } from 'react-router';
 
 import styles from './Footer.scss';
 
@@ -12,8 +11,7 @@ const dsgcRoute = `${centersRoute}/data-and-signature-generating-centers`;
 
 const mailLink = 'mailto:michael.mcdermott@mssm.edu?Subject=[Comments regarding lincsproject.org]';
 
-// Can't use react-router link here because this component is outside of the <Router />
-
+// Can't use react-router { Link } here because this component is outside of the <Router />
 export default function Footer(/* props */) {
   return (
     <footer className={styles.footer}>
