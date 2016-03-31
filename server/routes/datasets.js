@@ -16,8 +16,10 @@ router.get('/', async (ctx) => {
     let datasets = await Dataset.fetchAll({
       withRelated: [
         'cells',
+        'cells.tissues',
+        'cells.diseases',
         'cells.synonyms',
-        // 'smallMolecules',
+        'smallMolecules',
       ],
     });
     datasets = datasets.toJSON({ omitPivot: !!ctx.query.omitPivot });

@@ -1,24 +1,22 @@
 import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 import each from 'lodash/each';
-import union from 'lodash/union';
 
 import styles from '../DataTree.scss';
 import Tree from '../Tree';
 import IndividualCellTree from '../CellTree/IndividualCellTree';
 
 const mapStateToProps = ({ entities }) => ({
-  datasets: entities.datasets,
+  cells: entities.cells,
   diseases: entities.diseases,
 });
 
 export function IndividualDiseaseTree(props) {
-  const { datasets, diseases, diseaseId } = props;
+  const { cells, diseases, diseaseId } = props;
   const diseaseTree = { collapsed: true, cellIds: [] };
-  each(datasets, (ds) => {
-    const { cells } = ds;
-    if (ds.diseases.indexOf(parseInt(diseaseId, 10)) !== -1) {
-      diseaseTree.cellIds = union(diseaseTree.cellIds, cells);
+  each(cells, (cell) => {
+    if (cell.diseases.indexOf(parseInt(diseaseId, 10)) !== -1) {
+      diseaseTree.cellIds.push(cell.id);
     }
   });
   const disease = diseases[diseaseId];
@@ -35,7 +33,7 @@ export function IndividualDiseaseTree(props) {
 }
 
 IndividualDiseaseTree.propTypes = {
-  datasets: PropTypes.object,
+  cells: PropTypes.object,
   diseases: PropTypes.object,
   diseaseId: PropTypes.string,
 };

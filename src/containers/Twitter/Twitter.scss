@@ -1,3 +1,5 @@
+@import 'vendor/bootstrap/variables';
+
 $link-color: #0275d8;
 
 .link {
@@ -29,6 +31,7 @@ $link-color: #0275d8;
 }
 
 .time {
+  color: $text-muted;
   font-size: .9rem;
   font-style: italic;
 }

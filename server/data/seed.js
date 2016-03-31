@@ -103,7 +103,7 @@ function insertTissuesAndDiseases() {
   let tissues = [];
   let diseases = [];
   cellLines.forEach(cl => {
-    const tissue = cl.organ_tissue;
+    const tissue = cl.tissue;
     const disease = cl.disease;
     if (!!tissue && tissues.indexOf(tissue) === -1) {
       tissues.push(tissue);
@@ -117,7 +117,7 @@ function insertTissuesAndDiseases() {
   diseases = diseases.map(name => ({ name, created_at: created }));
   debug(`Inserting ${tissues.length} tissues and ${diseases.length} diseases.`);
   return Promise.all([
-    knex.insert(tissues).into('organs_tissues'),
+    knex.insert(tissues).into('tissues'),
     knex.insert(diseases).into('diseases'),
   ]);
 }
@@ -126,7 +126,7 @@ function insertCellLines() {
   debug(`Inserting ${cellLines.length} cells.`);
   return Promise.all(cellLines.map(cl =>
     new Promise((resolve, reject) => {
-      const tissue = cl.organ_tissue || '';
+      const tissue = cl.tissue || '';
       const disease = cl.disease || '';
       const synonyms = cl.synonyms || [];
       findEntities(Tissue, [tissue])

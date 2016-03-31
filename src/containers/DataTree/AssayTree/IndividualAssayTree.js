@@ -4,6 +4,7 @@ import each from 'lodash/each';
 
 import styles from '../DataTree.scss';
 import Tree from '../Tree';
+import DatasetTree from '../DatasetTree';
 
 const mapStateToProps = (state) => ({
   datasets: state.entities.datasets,
@@ -40,7 +41,11 @@ export function IndividualAssayTree(props) {
   label = <span className={styles.node}>{name}</span>;
   return (
     <Tree nodeLabel={label} defaultCollapsed>
-      {assayTree.datasets.map((ds, index) => <p key={index}>{ds.id}</p>)}
+      {
+        assayTree.datasets.map((ds, index) =>
+          <DatasetTree key={`dataset ${index}`} datasetId={ds.id} />
+        )
+      }
     </Tree>
   );
 }

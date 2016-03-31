@@ -4,9 +4,10 @@ import { connect } from 'react-redux';
 import { loadDatasets } from 'actions/entities';
 import styles from './DataTree.scss';
 import AssayTree from './AssayTree';
-import CellTree from './CellTree';
+// import CellTree from './CellTree';
 import CenterTree from './CenterTree';
 import DiseaseTree from './DiseaseTree';
+import DateTree from './DateTree';
 
 export default class DataTree extends Component {
   componentWillMount = () => {
@@ -16,10 +17,11 @@ export default class DataTree extends Component {
   render() {
     return (
       <div className={styles.wrapper}>
-        <CellTree />
+        {/* <CellTree /> */}
         <AssayTree />
         <CenterTree />
         <DiseaseTree />
+        <DateTree />
       </div>
     );
   }
