@@ -45,7 +45,7 @@ $graph-height: 200px;
 }
 
 .bars {
-  border-bottom: 2px solid $brand-primary-dark;
+  border-bottom: 2px solid $brand-primary;
   height: $graph-height;
   padding: 1% 0 1% 1%;
   position: absolute;
@@ -63,7 +63,7 @@ $graph-height: 200px;
   .bar {
     @include bar-animation($default-delay, height);
     background-color: $brand-primary;
-    border: 1px solid $brand-primary-dark;
+    border: 1px solid $brand-primary;
     border-radius: 3px 3px 0 0;
     bottom: 0;
     cursor: default;

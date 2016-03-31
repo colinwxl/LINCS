@@ -73,16 +73,16 @@ export default function Footer(/* props */) {
             <h5>Announcements</h5>
             <ul>
               <li>
-                <Link to={`${dataRoute}/releases`}>Releases</Link>
+                <Link to="/publications">Publications</Link>
               </li>
               <li>
-                <Link to={`${dataRoute}/release-policy`}>Release Policy</Link>
+                <Link to="/news">News</Link>
               </li>
               <li>
-                <Link to={`${dataRoute}/standards`}>Standards</Link>
+                <Link to="/community/webinars">Webinars</Link>
               </li>
               <li>
-                <Link to={`${appsWorkflowsRoute}`}>Apps & Workflows</Link>
+                <Link to="/community/workshops-and-symposia">Workshops and Symposia</Link>
               </li>
             </ul>
           </div>

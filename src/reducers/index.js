@@ -5,6 +5,7 @@ import merge from 'lodash/merge';
 import auth from './auth';
 import community from './community';
 import twitter from './twitter';
+import pubsNews from './pubsNews';
 import pendingRequests from './pendingRequests';
 import * as AuthActionTypes from 'actions/auth';
 // import * as EntityActionTypes from 'actions/entities';
@@ -28,6 +29,7 @@ function entities(state = initialEntities, action) {
 export default combineReducers({
   entities,
   community,
+  pubsNews,
   twitter,
   pendingRequests,
   router,

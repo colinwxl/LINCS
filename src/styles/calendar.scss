@@ -4,8 +4,8 @@
 .flexContainer {
   max-width: 100%;
   width: 100%;
-  border-top: 1px solid $brand-primary-dark;
-  border-left: 1px solid $brand-primary-dark;
+  border-top: 1px solid $brand-primary;
+  border-left: 1px solid $brand-primary;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -14,8 +14,8 @@
 .flexColumn {
   display: flex;
   width: 14.2857142857%;
-  border-bottom: 1px solid $brand-primary-dark;
-  border-right: 1px solid $brand-primary-dark;
+  border-bottom: 1px solid $brand-primary;
+  border-right: 1px solid $brand-primary;
   flex: 0 1 auto;
   justify-content: center;
 }
@@ -42,8 +42,8 @@
 }
 
 .day .event-slot.event {
-  background: $brand-primary-dark;
-  color: $brand-primary-dark;
+  background: $brand-primary;
+  color: $brand-primary;
   white-space: nowrap;
   text-indent: -10000px;
   cursor: pointer;

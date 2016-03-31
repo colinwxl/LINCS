@@ -8,25 +8,99 @@ import { fetchTimeline } from 'actions/twitter';
 
 const mapStateToProps = ({ twitter }) => ({ twitter });
 
-function humanDate(date) {
-  return moment(date).fromNow();
-}
-
 export class Twitter extends Component {
   componentWillMount() {
     this.props.fetchTimeline();
   }
 
+  _humanDate(date) {
+    const d = new Date(date);
+    return moment(d).fromNow();
+  }
+
+  _rawTweetHtml(status) {
+    const { text, entities } = status;
+    let tweetHtml = unEscape(text);
+    entities.urls.forEach(urlObj => {
+      // urlObj.url is a url that exists in text. Replace it with an actual url.
+      tweetHtml = tweetHtml.replace(
+        urlObj.url,
+        `<a href="${urlObj.url}" target="_blank">${urlObj.displayUrl}</a>`,
+      );
+    });
+    entities.hashtags.forEach(hashtagObj => {
+      // Replace all hashtags with a link to the hashtag search
+      tweetHtml = tweetHtml.replace(
+        `#${hashtagObj.text}`,
+        `<span class="${styles.link}">#</span><a href="https://twitter.com/hashtag/${hashtagObj.text}?src=hash" target="_blank">${hashtagObj.text}</a>`,
+      );
+    });
+
+    entities.userMentions.forEach(mentionObj => {
+      // Replace all hashtags with a link to the hashtag search
+      tweetHtml = tweetHtml.replace(
+        `@${mentionObj.screenName}`,
+        `<span class="${styles.link}">@</span><a href="https://twitter.com/${mentionObj.screenName}" target="_blank">${mentionObj.screenName}</a>`,
+      );
+    });
+    // Other https://t.co/... urls occur at the end of the tweet and
+    // refer to images so remove them.
+    const urlRegex = new RegExp('https:\/\/t\.co\/[0-9a-z]*', 'ig');
+    tweetHtml = tweetHtml.replace(urlRegex, '');
+    return { __html: tweetHtml };
+  }
+
   render() {
+    const { twitter } = this.props;
+    const timeline = twitter.timeline;
+    if (!timeline.length || twitter.isFetching) {
+      return <h3>Loading...</h3>;
+    }
+    // Allow 3 tweets from one user
+    const usersInTweets = {};
+    const tweets = [];
+    for (let i = 0; i < timeline.length; i++) {
+      const status = timeline[i];
+      const { screenName } = status.user;
+      if (usersInTweets[screenName]) {
+        usersInTweets[screenName]++;
+      } else {
+        usersInTweets[screenName] = 1;
+      }
+      if (usersInTweets[screenName] < 4) {
+        tweets.push(status);
+      }
+      // Only use 5 tweets
+      if (tweets.length === 5) {
+        break;
+      }
+    }
     return (
       <div className={styles.wrapper}>
         {
-          this.props.twitter.timeline.map((status, index) =>
-            <div key={index} className={styles.status}>
-              <p>{unEscape(status.text)}</p>
-              <p>{humanDate(status.created_at)}</p>
-            </div>
-          )
+          tweets.map(status => {
+            const { id, createdAt, user } = status;
+            return (
+              <div className="container">
+                <div className="row">
+                  <div className="col-xs-12">
+                    <div className={`clearfix ${styles.tweeter}`}>
+                      <img
+                        src={user.profileImageUrlHttps}
+                        className={styles.avatar}
+                        alt="User's Twitter avatar"
+                      />
+                      <a href={user.url} target="_blank">{user.name}</a>
+                    </div>
+                    <div key={id} className={styles.status}>
+                      <p dangerouslySetInnerHTML={this._rawTweetHtml(status)} />
+                      <p className={styles.time}>{this._humanDate(createdAt)}</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            );
+          })
         }
       </div>
     );

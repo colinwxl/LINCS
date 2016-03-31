@@ -1235,4 +1235,143 @@ module.exports = [{
   "comp_tools": [],
   "doi": "10.1038/nmeth.1600",
   "volume": "8"
+}, {
+  "pmc_id": "PMC4456804",
+  "year_published": 2015,
+  "pm_id": "26048415",
+  "article_name": "Abstraction for data integration: Fusing mammalian molecular, cellular and phenotype big datasets for better knowledge extraction.",
+  "authors": ["Rouillard AD", "Wang Z", "Ma’ayan A"],
+  "issue": "",
+  "readout_assay": [],
+  "pp_pages": "104-19",
+  "journal_name": "Computational Biology and Chemistry",
+  "comp_tools": [],
+  "doi": "",
+  "volume": "58"
+}, {
+  "pmc_id": "PMC4587398",
+  "year_published": 2015,
+  "pm_id": "26399630",
+  "article_name": "Highly multiplexed imaging of single cells using a high-throughput cyclic immunofluorescence method.",
+  "authors": ["Lin JR", "Fallahi-Sichani M", "Sorger PK"],
+  "issue": "",
+  "readout_assay": [],
+  "pp_pages": "8390",
+  "journal_name": "Nature Communications",
+  "comp_tools": [{
+    "name": "Data exploration website",
+    "url": "http://lincs.hms.harvard.edu/lin-natcommun-2015/"
+  }],
+  "doi": "",
+  "volume": "6"
+}, {
+  "pmc_id": "PMC4737646",
+  "year_published": 2015,
+  "pm_id": "26848405",
+  "article_name": "Principal Angle Enrichment Analysis (PAEA): Dimensionally reduced multivariate gene set enrichment analysis tool.",
+  "authors": ["Clark NR", "Szymkiewicz M", "Wang Z", "Monteiro CD", "Jones MR", "Ma’ayan A"],
+  "issue": "",
+  "readout_assay": [],
+  "pp_pages": "256-262",
+  "journal_name": "Proceedings (IEEE Int Conf Bioinformatics Biomed)",
+  "comp_tools": [{
+    "name": "PAEA",
+    "url": "http://amp.pharm.mssm.edu/PAEA/"
+  }],
+  "doi": "",
+  "volume" : ""
+}, {
+  "pmc_id": "PMC4657038",
+  "year_published": 2015,
+  "pm_id": "26596901",
+  "article_name": "Large-scale computational screening identifies first in class multitarget inhibitor of EGFR kinase and BRD4.",
+  "authors": ["Allen BK", "Mehta S", "Ember SW", "Schonbrunn E", "Ayad N", "Schurer SC"],
+  "issue": "",
+  "readout_assay": [],
+  "pp_pages": "16924",
+  "journal_name": "Scientific Reports",
+  "comp_tools": [],
+  "doi": "",
+  "volume": "5"
+}, {
+  "pmc_id": "",
+  "year_published": 2016,
+  "pm_id": "26821783",
+  "article_name": "A three-groups model for high-throughput survival screens.",
+  "authors": ["Shaby BA", "Skibinski G", "Ando M", "LaDow ES", "Finkbeiner S"],
+  "issue": "",
+  "readout_assay": [],
+  "pp_pages": "",
+  "journal_name": "Biometrics",
+  "comp_tools": [],
+  "doi": "",
+  "volume": ""
+}, {
+  "pmc_id": "",
+  "year_published": 2016,
+  "pm_id": "",
+  "article_name": "Cell freezing protocol optimized for ATAC-Seq on motor neurons derived from human induced pluripotent stem cells.",
+  "authors": ["Milani P", "Escalante-Chong R", "Shelley BC", "Patel-Murray NL", "Xin X", "Adam M", "Mandefro B", "Sareen D", "Svendsen CN", "Fraenkel E"],
+  "issue": "",
+  "readout_assay": [],
+  "pp_pages": "",
+  "journal_name": "bioRxiv",
+  "comp_tools": [],
+  "doi": "10.1101/036798",
+  "volume": ""
+}, {
+  "pmc_id": "PMC4707261",
+  "year_published": 2016,
+  "pm_id": "26793058",
+  "article_name": "Spinal muscular atrophy patient iPSC-derived motor neurons have reduced expression of proteins important in neuronal development.",
+  "authors": ["Fuller HR", "Mandefro B", "Shirran SL", "Gross AR", "Kaus AS", "Botting CH", "Morris GE", "Sareen D"],
+  "issue": "",
+  "readout_assay": [],
+  "pp_pages": "506",
+  "journal_name": "Frontiers in Cellular Neuroscience",
+  "comp_tools": [],
+  "doi": "",
+  "volume": "9"
+}, {
+  "pmc_id": "",
+  "year_published": 2016,
+  "pm_id": "26912667",
+  "article_name": "Reduced-representation phosphosignatures measured by quantitative targeted MS capture cellular states and enable large-scale comparison of drug-induced phenotypes.",
+  "authors": ["Abelin JG", "Patel J", "Lu X", "Feeney CM", "Fagbami L, et al"],
+  "issue": "",
+  "readout_assay": [],
+  "pp_pages": "",
+  "journal_name": "Molecular and Cellular Proteomics",
+  "comp_tools": [],
+  "doi": "",
+  "volume": ""
+}, {
+  "pmc_id": "",
+  "year_published": 2016,
+  "pm_id": "",
+  "article_name": "A posterior probability approach for gene regulatory network inference in genetic perturbation data.",
+  "authors": ["Young CW", "Yeung KY", "Raftery AE"],
+  "issue": "",
+  "readout_assay": [],
+  "pp_pages": "",
+  "journal_name": "",
+  "comp_tools": [],
+  "doi": "",
+  "arXiv": "arXiv:1603.04835",
+  "volume": ""
+}, {
+  "pmc_id": "PMC4456804",
+  "year_published": 2015,
+  "pm_id": "26048415",
+  "article_name": "Dynamics of the discovery process of protein-protein interactions from low content studies. ",
+  "authors": ["Wang Z", "Clark NC", "Ma’ayan A"],
+  "issue": "1",
+  "readout_assay": [],
+  "pp_pages": "26",
+  "journal_name": "BMC Systems Biology",
+  "comp_tools": [{
+    "name": "Custom code"
+  }],
+  "doi": "",
+  "volume": "9"
 }]

@@ -27,7 +27,7 @@
 
   &:hover,
   &:focus {
-    background-color: $brand-primary-dark;
-    border-color: darken($brand-primary-dark, 10);
+    background-color: $brand-primary;
+    border-color: darken($brand-primary, 10);
   }
 }

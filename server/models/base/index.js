@@ -100,8 +100,8 @@ lincsBookshelf.Model = lincsBookshelf.Model.extend({
   },
   parse(attributes) {
     let attrs = attributes;
-    attrs = this.camelCase(attrs);
     attrs = this.stringsToObjects(attrs);
+    attrs = this.camelCase(attrs);
     attrs = this.fixDates(attrs);
     attrs = this.fixBools(attrs);
     return attrs;
