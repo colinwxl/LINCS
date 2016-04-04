@@ -20,6 +20,8 @@ export function AssayClassTree(props) {
     }
   });
 
+  assayClassTree.methods.sort();
+
   let label = <span className={styles['loading-node']}>Loading...</span>;
   if (assayClassTree.methods.length === 0) {
     return <Tree nodeLabel={label} defaultCollapsed />;

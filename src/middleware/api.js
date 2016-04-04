@@ -14,7 +14,8 @@ if (process.env.NODE_ENV === 'production') {
 function callApi(endpoint, schema, body) {
   const fullUrl = (endpoint.indexOf(API_ROOT) === -1) ? API_ROOT + endpoint : endpoint;
 
-  let apiPromise = fetch(fullUrl);
+  let apiPromise;
+
   if (body) {
     const token = localStorage.getItem('token');
     apiPromise = fetch(fullUrl, {
@@ -27,6 +28,8 @@ function callApi(endpoint, schema, body) {
       },
       body: JSON.stringify(body),
     });
+  } else {
+    apiPromise = fetch(fullUrl);
   }
   return apiPromise
     .then(response => handleResponse(response))
