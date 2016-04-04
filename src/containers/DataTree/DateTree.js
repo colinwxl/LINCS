@@ -5,7 +5,7 @@ import moment from 'moment';
 
 import styles from './DataTree.scss';
 import Tree from './Tree';
-import DatasetTree from './DatasetTree';
+import Dataset from './Dataset';
 
 function getMonthName(monthIndex) {
   if (monthIndex > 11) {
@@ -66,12 +66,13 @@ export function DateTree(props) {
   dates.forEach(dateObj => {
     dateObj.months.sort((a, b) => b - a);
   });
+
   let label = <span className={styles['loading-node']}>Loading...</span>;
-  if (Object.keys(dateDatasetMap).length === 0) {
+  if (dates.length === 0) {
     return <Tree nodeLabel={label} defaultCollapsed />;
   }
 
-  label = <span className={styles['outer-node']}>By Initial Release Date</span>;
+  label = <span className={styles.node}>By Initial Release Date</span>;
   return (
     <Tree nodeLabel={label} defaultCollapsed>
       {
@@ -87,7 +88,7 @@ export function DateTree(props) {
                     <Tree key={`month ${index}`} nodeLabel={monthLabel} defaultCollapsed>
                       {
                         dsArr.map(dsId =>
-                          <DatasetTree key={dsId} datasetId={dsId} />
+                          <Dataset key={dsId} datasetId={dsId} />
                         )
                       }
                     </Tree>

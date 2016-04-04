@@ -23,7 +23,7 @@ export function AssayTree(props) {
     return <Tree nodeLabel={label} defaultCollapsed />;
   }
 
-  label = <span className={`${styles.node} ${styles['outer-node']}`}>By Center</span>;
+  label = <span className={`${styles.node} ${styles.node}`}>By Center</span>;
   return (
     <Tree nodeLabel={label} defaultCollapsed>
       {

@@ -39,4 +39,14 @@ router.get('/:id', async (ctx) => {
   }
 });
 
+router.post('/counts/increment', async (ctx) => {
+  debug(ctx.request.body);
+  try {
+    ctx.body = await Dataset.fetch({ id: ctx.params.id });
+  } catch (e) {
+    debug(e);
+    ctx.throw(500, 'An error occurred obtaining datasets.');
+  }
+});
+
 export default router;
