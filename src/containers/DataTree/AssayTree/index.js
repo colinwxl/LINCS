@@ -18,6 +18,9 @@ export function AssayTree(props) {
       assayClasses.push(ds.classification);
     }
   });
+
+  assayClasses.sort();
+
   let label = <span className={styles['loading-node']}>Loading...</span>;
   if (Object.keys(datasets).length === 0) {
     return <Tree nodeLabel={label} defaultCollapsed />;

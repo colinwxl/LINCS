@@ -18,6 +18,8 @@ export function AssayTree(props) {
     }
   });
 
+  centerNames.sort();
+
   let label = <span className={styles['loading-node']}>Loading...</span>;
   if (centerNames.length === 0) {
     return <Tree nodeLabel={label} defaultCollapsed />;

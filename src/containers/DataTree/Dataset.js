@@ -1,5 +1,6 @@
 import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
+import moment from 'moment';
 // import each from 'lodash/each';
 import styles from './DataTree.scss';
 
@@ -38,8 +39,26 @@ export function Dataset(props) {
   const links = getIconLinks(ds);
   return (
     <div className={styles.dataset}>
-      <p>Dataset with id: {ds.id}</p>
+      <div className={styles['ds-header']}>
+        <div className="row">
+          <div className="col-xs-6">
+            <h5>{ds.method}</h5>
+            <p><em>{ds.centerName}</em></p>
+          </div>
+          <div className="col-xs-6">
+            <p className="text-muted pull-xs-right">
+              <em>Retrieved on {moment(ds.dateRetrieved).format('MMM Do, YYYY')}</em>
+            </p>
+          </div>
+        </div>
+        <p>{ds.description}</p>
+      </div>
       <div className={styles.links}>
+        <a href={ds.sourceLink} target="_blank">
+          <i className="fa fa-home fa-2x" />
+          <br />
+          <span>View at Source</span>
+        </a>
         {
           links.useSlicr &&
           <a

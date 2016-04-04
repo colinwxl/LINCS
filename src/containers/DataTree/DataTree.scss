@@ -74,7 +74,7 @@
   color: $white;
   display: inline-block;
   float: right;
-  font-size: 75%;
+  font-size: 85%;
   font-weight: 700;
   line-height: 1;
   padding: .25em .4em;
@@ -86,6 +86,16 @@
 .dataset {
   border: 1px solid $gray;
   padding: .5rem 1rem;
+
+}
+
+.ds-header {
+  margin-bottom: 1rem;
+
+  h5,
+  p {
+    margin-bottom: 0;
+  }
 }
 
 .links {
@@ -94,6 +104,8 @@
 
   a {
     color: $brand-primary-light;
+    margin-left: .5rem;
+    margin-right: .5rem;
     text-align: center;
 
     i,
@@ -110,5 +122,15 @@
       color: $brand-primary;
       text-decoration: none;
     }
+  }
+}
+
+.center {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+
+  i {
+    font-size: 1.5rem;
   }
 }
