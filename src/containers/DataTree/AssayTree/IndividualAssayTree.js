@@ -1,53 +1,75 @@
-import React, { PropTypes } from 'react';
+import React, { PropTypes, Component } from 'react';
 import { connect } from 'react-redux';
 import each from 'lodash/each';
 
+import { incrementDatasetClicks } from 'actions/entities';
 import styles from '../DataTree.scss';
 import Tree from '../Tree';
-import DatasetTree from '../DatasetTree';
+import Dataset from '../Dataset';
 
 const mapStateToProps = (state) => ({
   datasets: state.entities.datasets,
 });
 
-export function IndividualAssayTree(props) {
-  const { datasets, assayName, methodName, cellId, centerName } = props;
-  const assayTree = { collapsed: true, datasets: [] };
-  each(datasets, (ds) => {
-    const { cells, assay, method } = ds;
-    if ((assayName && assay === assayName) || (methodName && method === methodName)) {
-      if (cellId && cells.indexOf(parseInt(cellId, 10)) !== -1) {
-        assayTree.datasets.push(ds);
-      } else if (centerName && ds.centerName === centerName) {
-        assayTree.datasets.push(ds);
-      } else if (!centerName && !cellId) {
-        assayTree.datasets.push(ds);
-      }
+export class IndividualAssayTree extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      collapsed: true,
+    };
+  }
+
+  _handleClick = () => {
+    const collapsed = !this.state.collapsed;
+    if (!collapsed) {
+      const dsIds = this.childDatasets.map(ds => ds.id);
+      this.props.incrementDatasetClicks(dsIds);
     }
-  });
-
-  let label = <span className={styles['loading-node']}>Loading...</span>;
-  if (assayTree.datasets.length === 0) {
-    return <Tree nodeLabel={label} defaultCollapsed />;
+    this.setState({ collapsed });
   }
 
-  let name = '';
-  if (assayName) {
-    name = assayName;
-  } else if (methodName) {
-    name = methodName;
-  }
-
-  label = <span className={styles.node}>{name}</span>;
-  return (
-    <Tree nodeLabel={label} defaultCollapsed>
-      {
-        assayTree.datasets.map((ds, index) =>
-          <DatasetTree key={`dataset ${index}`} datasetId={ds.id} />
-        )
+  render() {
+    const { datasets, assayName, methodName, cellId, centerName } = this.props;
+    const childDatasets = [];
+    each(datasets, (ds) => {
+      const { cells, assay, method } = ds;
+      if ((assayName && assay === assayName) || (methodName && method === methodName)) {
+        if (cellId && cells.indexOf(parseInt(cellId, 10)) !== -1) {
+          childDatasets.push(ds);
+        } else if (centerName && ds.centerName === centerName) {
+          childDatasets.push(ds);
+        } else if (!centerName && !cellId) {
+          childDatasets.push(ds);
+        }
       }
-    </Tree>
-  );
+    });
+
+    // Set this.childDatasets so we can increment their counts when clicked.
+    this.childDatasets = childDatasets;
+
+    let label = <span className={styles['loading-node']}>Loading...</span>;
+    if (childDatasets.length === 0) {
+      return <Tree nodeLabel={label} defaultCollapsed />;
+    }
+
+    let name = '';
+    if (assayName) {
+      name = assayName;
+    } else if (methodName) {
+      name = methodName;
+    }
+
+    label = <span className={styles.node}>{name}</span>;
+    return (
+      <Tree nodeLabel={label} onClick={this._handleClick} collapsed={this.state.collapsed}>
+        {
+          childDatasets.map((ds, index) =>
+            <Dataset key={`dataset ${index}`} datasetId={ds.id} cellId={cellId} />
+          )
+        }
+      </Tree>
+    );
+  }
 }
 
 IndividualAssayTree.propTypes = {
@@ -56,6 +78,9 @@ IndividualAssayTree.propTypes = {
   methodName: PropTypes.string,
   cellId: PropTypes.number,
   centerName: PropTypes.string,
+  incrementDatasetClicks: PropTypes.func,
 };
 
-export default connect(mapStateToProps, {})(IndividualAssayTree);
+export default connect(mapStateToProps, {
+  incrementDatasetClicks,
+})(IndividualAssayTree);

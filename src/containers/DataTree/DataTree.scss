@@ -2,21 +2,36 @@
 
 .tree-view {
   overflow-y: hidden;
+
+  @media (min-width: 600px) {
+    max-width: 600px;
+  }
 }
 
 .tree-view-item {
-// immediate child of .tree-view, for styling convenience
-  // border: 1px solid $brand-primary;
-  // padding: 2rem 1rem;
+  // immediate child of .tree-view, for styling convenience
+  align-items: center;
+  border: 1px solid $gray;
+  display: flex;
+  justify-content: space-between;
+  padding: .5rem 1rem;
 }
 
 // style for the children nodes container
 .tree-view-children {
   margin-left: 1rem;
+  max-height: 5000px;
+  overflow-y: hidden;
+  transition-duration: .5s;
+  transition-property: all;
+  transition-timing-function: ease-in;
 }
 
 .tree-view-children-collapsed {
-  height: 0;
+  max-height: 0;
+  transition-duration: .3s;
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0, 1, .5, 1);
 }
 
 .tree-view-arrow {
@@ -33,11 +48,67 @@
 // rotate the triangle to close it
 .tree-view-arrow-collapsed {
   transform: rotate(-90deg);
+  transition-duration: .3s;
 }
 
-.node {
+// .node {
+// }
+
+.tree-wrap,
+.outer-tree-wrap {
+  display: flex;
+  justify-content: space-between;
+}
+
+.tree-wrap {
+  // border: 1px solid $gray;
 }
 
 .outer-node {
   font-size: 1.5rem;
+}
+
+.count {
+  background-color: $dark-gray;
+  border-radius: .5rem;
+  color: $white;
+  display: inline-block;
+  float: right;
+  font-size: 75%;
+  font-weight: 700;
+  line-height: 1;
+  padding: .25em .4em;
+  text-align: center;
+  vertical-align: baseline;
+  white-space: nowrap;
+}
+
+.dataset {
+  border: 1px solid $gray;
+  padding: .5rem 1rem;
+}
+
+.links {
+  display: flex;
+  justify-content: center;
+
+  a {
+    color: $brand-primary-light;
+    text-align: center;
+
+    i,
+    span {
+      text-align: center;
+      width: 100%;
+    }
+
+    img {
+      margin-bottom: 1px;
+    }
+
+    &:hover {
+      color: $brand-primary;
+      text-decoration: none;
+    }
+  }
 }

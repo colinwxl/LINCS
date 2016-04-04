@@ -4,6 +4,10 @@ export const DATASETS_REQUEST = 'DATASETS_REQUEST';
 export const DATASETS_SUCCESS = 'DATASETS_SUCCESS';
 export const DATASETS_FAILURE = 'DATASETS_FAILURE';
 
+export const INCREMENT_DATASET_CLICKS_REQUEST = 'INCREMENT_DATASET_CLICKS_REQUEST';
+export const INCREMENT_DATASET_CLICKS_SUCCESS = 'INCREMENT_DATASET_CLICKS_SUCCESS';
+export const INCREMENT_DATASET_CLICKS_FAILURE = 'INCREMENT_DATASET_CLICKS_FAILURE';
+
 function fetchDatasets() {
   return {
     [CALL_API]: {
@@ -24,5 +28,22 @@ export function loadDatasets() {
       return null;
     }
     return dispatch(fetchDatasets());
+  };
+}
+
+export function incrementDatasetClicks(datasetIds) {
+  return (dispatch) => {
+    dispatch({
+      [CALL_API]: {
+        types: [
+          INCREMENT_DATASET_CLICKS_REQUEST,
+          INCREMENT_DATASET_CLICKS_SUCCESS,
+          INCREMENT_DATASET_CLICKS_FAILURE,
+        ],
+        endpoint: 'datasets/counts/increment',
+        schema: Schemas.DATASET_ARRAY,
+        body: { datasetIds },
+      },
+    });
   };
 }

@@ -11,6 +11,8 @@ export default {
     physical_detection: { type: 'string', maxlength: 255, nullable: false },
     lincs_id: { type: 'string', maxlength: 20, nullable: true },
     date_retrieved: { type: 'dateTime', nullable: true },
+    clicks: { type: 'integer', nullable: false, defaultTo: 0 },
+    source_link: { type: 'text', maxlength: 2000, nullable: true },
     created_at: { type: 'dateTime', nullable: false },
     updated_at: { type: 'dateTime', nullable: true },
   },

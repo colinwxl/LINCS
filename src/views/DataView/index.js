@@ -2,7 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 
 import DataTree from 'containers/DataTree';
-// import styles from './DataView.scss';
+import styles from './DataView.scss';
 
 const mapStateToProps = (state) => ({
   entities: state.entities,
@@ -11,10 +11,12 @@ const mapStateToProps = (state) => ({
 export class DataView extends Component {
   render() {
     return (
-      <div className="container">
-        <div className="row">
-          <div className="col-xs-12">
-            <DataTree />
+      <div className={styles.wrapper}>
+        <div className="container">
+          <div className="row">
+            <div className="col-xs-12">
+              <DataTree />
+            </div>
           </div>
         </div>
       </div>

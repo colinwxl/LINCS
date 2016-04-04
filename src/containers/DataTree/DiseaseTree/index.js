@@ -11,17 +11,17 @@ const mapStateToProps = ({ entities }) => ({
 
 export function DiseaseTree(props) {
   const { diseases } = props;
-
+  const diseaseKeys = Object.keys(diseases);
   let label = <span className={styles['loading-node']}>Loading...</span>;
-  if (Object.keys(diseases).length === 0) {
+  if (diseaseKeys.length === 0) {
     return <Tree nodeLabel={label} defaultCollapsed />;
   }
 
-  label = <span className={`${styles.node} ${styles['outer-node']}`}>By Disease</span>;
+  label = <span className={`${styles.node} ${styles.node}`}>By Disease</span>;
   return (
     <Tree nodeLabel={label} defaultCollapsed>
       {
-        Object.keys(diseases).map((diseaseId, index) =>
+        diseaseKeys.map((diseaseId, index) =>
           <IndividualDiseaseTree key={index} diseaseId={diseaseId} />
         )
       }

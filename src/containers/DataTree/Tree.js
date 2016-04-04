@@ -42,11 +42,23 @@ export default class Tree extends Component {
       />
     );
 
+    const hasChildren = !!children && children.length;
+
     return (
       <div className={styles['tree-view']}>
         <div className={`${styles['tree-view-item']} ${itemClassName}`}>
-          {arrow}
-          {nodeLabel}
+          <div>
+            {hasChildren && arrow}
+            {
+              hasChildren
+              ? nodeLabel
+              : <i className="fa fa-circle-o-notch fa-spin" />
+            }
+          </div>
+          {
+            hasChildren &&
+            <span className={styles.count}>{children.length}</span>
+          }
         </div>
         <div className={containerClassName}>
           {children}
