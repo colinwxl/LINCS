@@ -1,0 +1,76 @@
+@import 'variables';
+
+.pub {
+  margin-bottom: 1.5rem;
+
+  h6,
+  h5,
+  p,
+  a {
+    margin-bottom: 0;
+  }
+
+  a {
+
+    &:hover {
+      color: $brand-primary;
+    }
+  }
+}
+
+.filter {
+  h5 {
+    margin-bottom: 1rem;
+  }
+}
+
+.label {
+  font-weight: bold;
+  width: 100%;
+}
+
+.cat {
+  border-radius: .25rem;
+  color: $white;
+  display: inline-block;
+  font-size: 75%;
+  font-weight: 700;
+  line-height: 1;
+  margin-right: .25rem;
+  padding: .25em .4em;
+  text-align: center;
+  vertical-align: baseline;
+  white-space: nowrap;
+}
+
+.cat-ad {
+  background-color: $dark-red;
+}
+
+.cat-da {
+  background-color: darken($teal, 5);
+}
+
+.cat-dg {
+  background-color: $green;
+}
+
+.cat-di {
+  background-color: darken($orange, 5);
+}
+
+.cat-ds {
+  background-color: $brand-secondary-dark;
+}
+
+.cat-sg {
+  background-color: $brand-primary;
+}
+
+.cat-sd {
+  background-color: $red;
+}
+
+.cat-review {
+  background-color: $brand-primary-light;
+}

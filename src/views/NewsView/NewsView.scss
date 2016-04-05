@@ -1,0 +1,28 @@
+.wrapper {
+
+  img {
+    margin-bottom: 1rem;
+    max-width: 100%;
+    width: auto;
+  }
+}
+
+.inline-img-left {
+  float: left;
+  margin-right: 1rem;
+}
+
+.youtube {
+  text-align: center;
+  width: 100%;
+
+  iframe {
+    height: 250px;
+    width: 100%;
+
+    @media (min-width: 550px) {
+      height: 281px;
+      width: 500px;
+    }
+  }
+}

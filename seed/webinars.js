@@ -5,8 +5,8 @@ module.exports = [
     title: 'Biomedical Data Integration Toward Quality Healthcare Delivery',
     presenter_name: 'Qian Zhu, PhD',
     presenter_affiliation: 'University of Maryland, Baltimore County',
-    presenter_url: '',
-    url: '',
+    presenter_url: null,
+    url: null,
     date: new Date('2015-08-11T06:00:00.000Z'),
   },
   {
@@ -85,7 +85,7 @@ module.exports = [
     title: 'Leveraging Experimental Models to Advance Our Understanding of Cancer',
     presenter_name: 'Laura Heiser PhD',
     presenter_affiliation: 'Oregon Health and Science University, MEP LINCS',
-    presenter_url: '',
+    presenter_url: null,
     url: 'https://www.youtube.com/watch?v=9KM7inVCLoc',
     date: new Date('2015-02-24T06:00:00.000Z'),
   },
@@ -150,7 +150,7 @@ module.exports = [
     presenter_name: 'Jing Li, PhD',
     presenter_affiliation: 'Case Western Reserve University',
     presenter_url: 'https://sites.google.com/a/case.edu/jingli/',
-    url: '',
+    url: null,
     date: new Date('2015-08-25T06:00:00.000Z'),
   },
   {
@@ -158,7 +158,7 @@ module.exports = [
     presenter_name: 'Stephen Piccolo, PhD',
     presenter_affiliation: 'Brigham Young University',
     presenter_url: 'https://piccolo.byu.edu',
-    url: '',
+    url: null,
     date: new Date('2015-09-08T06:00:00.000Z'),
   },
 ];

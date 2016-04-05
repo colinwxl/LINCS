@@ -15,21 +15,18 @@ router.get('/publications', async (ctx) => {
         'authors',
       ],
     });
-    ctx.body = pubs.toJSON();
+    // Omit pivot by default
+    const includePivot = !!ctx.query.includePivot;
+    ctx.body = pubs.toJSON({ omitPivot: !includePivot });
   } catch (e) {
     debug(e);
     ctx.throw(500, 'An error occurred obtaining datasets.');
   }
 });
 
-// router.get('/news', async (ctx) => {
-//   try {
-//     const webinars = await Webinar.forge().fetchAll();
-//     ctx.body = webinars.toJSON();
-//   } catch (e) {
-//     debug(e);
-//     ctx.throw(500, 'An error occurred obtaining datasets.');
-//   }
-// });
+// News need to exist in database first
+router.get('/news', async (ctx) => {
+  ctx.body = [];
+});
 
 export default router;
