@@ -13,7 +13,7 @@ export default class Overview extends Component {
       <div className={styles.wrapper}>
         <PageBanner
           title="Centers"
-          subTitle="Information about the 6 centers that make up the LINCS Consortium, their universities, PI's, staff, and more."
+          subTitle=""
         />
         <div className="container">
           <div className="row">
@@ -22,9 +22,10 @@ export default class Overview extends Component {
               <h1 className={styles.title}>Overview</h1>
               <p>
                 The LINCS program is implemented in two parts: pilot phase 1 (FY 2010) and the
-                continuation of the program in production phase 2. This part of the program consists
-                primarily of LINCS Data and Signature Generation Centers. Phase 2 will also synergize
-                with the efforts of the <a title="Big Data to Knowledge" href="http://bd2k.nih.gov/#sthash.UHtPu2rQ.dpbs" target="_blank">NIH Big Data to Knowledge (BD2K)</a> program.
+                continuation of the program in production phase 2. The program currently supports
+                LINCS Data and Signature Generation Centers and coordinates with the NIH Big Data
+                to Knowledge (BD2K) initiative through the BD2K-LINCS Data Integration and
+                Coordination Center.
               </p>
               <h2>LINCS Production Phase 2</h2>
               <h5>LINCS Data and Signature Generation Centers</h5>
