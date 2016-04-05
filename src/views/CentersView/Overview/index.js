@@ -11,10 +11,7 @@ export default class Overview extends Component {
   render() {
     return (
       <div className={styles.wrapper}>
-        <PageBanner
-          title="Centers"
-          subTitle=""
-        />
+        <PageBanner title="Centers" subTitle="" />
         <div className="container">
           <div className="row">
             <PageNav mainPage="Overview" />

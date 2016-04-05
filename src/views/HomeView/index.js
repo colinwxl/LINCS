@@ -17,6 +17,10 @@ export class HomeView extends Component {
 
   render() {
     const { publications } = this.props;
+    publications.sort((a, b) => {
+      const result = a.yearPublished < b.yearPublished;
+      return result ? 1 : -1;
+    });
     return (
       <div className={styles.wrapper}>
         <div className={styles.banner}>

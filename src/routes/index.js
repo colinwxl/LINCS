@@ -26,8 +26,12 @@ import ConsortiumMeetings from 'views/CommunityView/ConsortiumMeetings';
 import Webinars from 'views/CommunityView/Webinars';
 import WorkshopsAndSymposia from 'views/CommunityView/WorkshopsAndSymposia';
 
+// PubsNews
+import PublicationsView from 'views/PublicationsView';
+import NewsView from 'views/NewsView';
+
 import AnalyzeView from 'views/AnalyzeView';
-import DataView from 'views/DataView';
+import Data from 'views/DataView';
 import RegisterView from 'views/RegisterView';
 import LoginView from 'views/LoginView';
 import NotFoundView from 'views/NotFoundView';
@@ -35,6 +39,7 @@ import NotFoundView from 'views/NotFoundView';
 export default (/* store */) => (
   <Route path="/" component={CoreLayout}>
     <IndexRoute component={HomeView} />
+
     <Redirect from="/centers" to="/centers/overview" />
     <Route path="/centers/overview" component={CentersOverview} />
     <Route path="/centers/data-and-signature-generating-centers" component={DSGCs} />
@@ -55,16 +60,23 @@ export default (/* store */) => (
     />
     <Route path="/centers/dcic" component={DCIC} />
     <Route path="/centers/phase-one" component={PhaseOne} />
+
     <Redirect from="/community" to="/community/overview" />
     <Route path="/community/overview" component={CommunityOverview} />
     <Route path="/community/funding-opportunities" component={FundingOpportunities} />
     <Route path="/community/consortium-meetings" component={ConsortiumMeetings} />
     <Route path="/community/webinars" component={Webinars} />
     <Route path="/community/workshops-and-symposia" component={WorkshopsAndSymposia} />
+
+    <Route path="/publications" component={PublicationsView} />
+    <Route path="/news" component={NewsView} />
+
     <Route path="/analyze" component={AnalyzeView} />
-    <Route path="/data" component={DataView} />
+    <Route path="/data" component={Data} />
+
     <Route path="/register" component={RegisterView} />
     <Route path="/login" component={LoginView} />
+
     <Route path="*" component={NotFoundView} />
   </Route>
 );

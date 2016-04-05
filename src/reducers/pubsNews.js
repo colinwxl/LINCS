@@ -13,6 +13,7 @@ const initialState = {
 export default (state = initialState, action) => {
   switch (action.type) {
     case PubsNewsActionTypes.PUBLICATIONS_REQUEST:
+    case PubsNewsActionTypes.NEWS_REQUEST:
       return {
         ...state,
         isFetching: true,
@@ -25,7 +26,15 @@ export default (state = initialState, action) => {
         publications: action.payload,
         error: null,
       };
+    case PubsNewsActionTypes.NEWS_SUCCESS:
+      return {
+        ...state,
+        isFetching: false,
+        news: action.payload,
+        error: null,
+      };
     case PubsNewsActionTypes.PUBLICATIONS_FAILURE:
+    case PubsNewsActionTypes.NEWS_FAILURE:
       return {
         ...state,
         isFetching: false,
