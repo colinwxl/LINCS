@@ -3,9 +3,9 @@ import { connect } from 'react-redux';
 
 import { loadDatasets } from 'actions/entities';
 import AssayTree from './AssayTree';
-// import CellTree from './CellTree';
 import CenterTree from './CenterTree';
-import DiseaseTree from './DiseaseTree';
+import TissueCellTree from './TissueCellTree';
+// import DiseaseTree from './DiseaseTree';
 import DateTree from './DateTree';
 
 export default class DataTree extends Component {
@@ -16,10 +16,10 @@ export default class DataTree extends Component {
   render() {
     return (
       <div className="col-lg-8 col-lg-offset-2">
-        {/* <CellTree /> */}
         <AssayTree />
         <CenterTree />
-        <DiseaseTree />
+        <TissueCellTree />
+        {/* <DiseaseTree /> */}
         <DateTree />
       </div>
     );

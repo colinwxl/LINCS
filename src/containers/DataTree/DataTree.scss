@@ -22,7 +22,7 @@
   margin-left: 1rem;
   max-height: 5000px;
   overflow-y: hidden;
-  transition-duration: .5s;
+  transition-duration: .8s;
   transition-property: all;
   transition-timing-function: ease-in;
 }
@@ -81,48 +81,6 @@
   text-align: center;
   vertical-align: baseline;
   white-space: nowrap;
-}
-
-.dataset {
-  border: 1px solid $gray;
-  padding: .5rem 1rem;
-
-}
-
-.ds-header {
-  margin-bottom: 1rem;
-
-  h5,
-  p {
-    margin-bottom: 0;
-  }
-}
-
-.links {
-  display: flex;
-  justify-content: center;
-
-  a {
-    color: $brand-primary-light;
-    margin-left: .5rem;
-    margin-right: .5rem;
-    text-align: center;
-
-    i,
-    span {
-      text-align: center;
-      width: 100%;
-    }
-
-    img {
-      margin-bottom: 1px;
-    }
-
-    &:hover {
-      color: $brand-primary;
-      text-decoration: none;
-    }
-  }
 }
 
 .center {
