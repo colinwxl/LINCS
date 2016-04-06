@@ -100,6 +100,7 @@
     "classnames": "^2.2.3",
     "crypto": "0.0.3",
     "debug": "^2.2.0",
+    "elasticsearch": "^11.0.0",
     "extend": "^3.0.0",
     "history": "^2.0.0-rc2",
     "jquery": "^2.2.2",

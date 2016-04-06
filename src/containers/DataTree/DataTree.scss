@@ -11,9 +11,11 @@
 .tree-view-item {
   // immediate child of .tree-view, for styling convenience
   align-items: center;
+  background-color: $white;
   border: 1px solid $gray;
   display: flex;
   justify-content: space-between;
+  margin-bottom: .15rem;
   padding: .5rem 1rem;
 }
 

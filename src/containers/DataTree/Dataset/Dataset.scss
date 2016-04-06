@@ -1,12 +1,14 @@
 @import 'variables';
 
 .dataset {
-  border: 1px solid $gray;
+  background-color: $white;
+  border: 1px solid;
+  border-color: $gray-border-top $gray-border-side $gray-border-bottom;
+  margin-bottom: .15rem;
   padding: .5rem 1rem;
 }
 
 .ds-header {
-  margin-bottom: 1rem;
 
   h5,
   p {
@@ -15,21 +17,25 @@
 }
 
 .info-date {
-  color: $dark-gray;
   float: right;
   font-size: 80%;
 }
 
 .links {
   display: flex;
-  justify-content: center;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+
+  a,
+  span {
+    font-size: 90%;
+  }
 
   a {
     color: $brand-primary-light;
     cursor: pointer;
-    margin-left: .5rem;
-    margin-right: .5rem;
     text-align: center;
+
 
     i,
     span {
@@ -46,11 +52,20 @@
       text-decoration: none;
     }
   }
+
+  a:first-child {
+    margin-left: 0;
+  }
 }
 
 .creator,
 .description {
   font-size: 90%;
+}
+
+.creator {
+  color: $teal;
+  font-weight: 600;
 }
 
 // Modal

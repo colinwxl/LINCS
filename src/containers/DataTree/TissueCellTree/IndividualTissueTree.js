@@ -35,7 +35,7 @@ export function IndividualTissueTree(props) {
 IndividualTissueTree.propTypes = {
   cells: PropTypes.object,
   tissues: PropTypes.object,
-  tissueId: PropTypes.string,
+  tissueId: PropTypes.number,
 };
 
 export default connect(mapStateToProps, {})(IndividualTissueTree);
