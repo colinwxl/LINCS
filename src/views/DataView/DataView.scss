@@ -1,3 +1,105 @@
+@import 'variables';
+
 .wrapper {
-  padding-top: 2rem;
+  background-color: $light-gray;
+  margin-bottom: -2rem;
+  padding-bottom: 2rem;
+}
+
+// .header {
+//   color: $darker-gray;
+//   font-size: 2rem;
+//   font-weight: 400;
+//   text-align: center;
+//
+//   @media (min-width: 544px) {
+//     text-align: left;
+//   }
+// }
+
+.banner {
+  background-color: $brand-primary;
+  color: $white;
+  margin-bottom: 1.5rem;
+  padding: 2rem .9375rem;
+  text-align: center;
+
+  @media (min-width: 544px) {
+    margin-bottom: 3rem;
+    padding-bottom: 4rem;
+    padding-top: 4rem;
+    text-align: left;
+  }
+
+  h1 {
+    color: $white;
+    font-size: 3rem;
+    font-weight: 400;
+    margin-right: 4rem;
+
+    @media (min-width: 768px) {
+      font-size: 4rem;
+    }
+  }
+}
+
+.inner {
+  align-items: center;
+  display: flex;
+}
+
+.search {
+  flex-grow: 10;
+  width: auto;
+
+  ::-webkit-input-placeholder {
+    color: $white;
+  }
+
+  ::-moz-placeholder {
+    color: $white;
+    opacity: 1;
+  }
+
+  ::-moz-placeholder {
+    color: $white;
+    opacity: 1;
+  }
+
+  :-ms-input-placeholder {
+    color: $white;
+  }
+}
+
+.search-form {
+  position: relative;
+}
+
+.submit {
+  background-position: 50% 50%;
+  background-size: 16px 16px;
+  border-left: 1px solid $light-gray;
+  height: 2.777em;
+  text-indent: -9999em;
+  width: 70px;
+}
+
+.search-bar {
+  input {
+    background-color: transparent;
+    border: 1px solid $light-gray;
+    border-radius: 0;
+    color: $white;
+    display: block;
+    margin: 0 0 20px;
+    outline: 0;
+    padding: 5px;
+    padding-left: 15px;
+    width: 100%;
+
+    @media (min-width: 768px) {
+      height: 3rem;
+      margin: 0;
+    }
+  }
 }

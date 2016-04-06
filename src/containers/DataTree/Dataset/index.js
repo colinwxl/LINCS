@@ -61,10 +61,10 @@ export class Dataset extends Component {
           <div className="row">
             <div className="col-xs-8">
               <h5>{ds.method}</h5>
-              <p className={styles.creator}><em>{ds.centerName}</em></p>
+              <p className={styles.creator}>{ds.centerName}</p>
             </div>
             <div className="col-xs-4">
-              <p className={styles['info-date']}>
+              <p className={`text-muted ${styles['info-date']}`}>
                 <em>{moment(ds.dateRetrieved).format('MMM Do, YYYY')}</em>
               </p>
             </div>
@@ -73,56 +73,49 @@ export class Dataset extends Component {
         </div>
         <div className={styles.links}>
           <a onClick={this._openCitationsModal}>
-            <i className="fa fa-files-o fa-2x" />
-            <br />
-            <span>Export Citations</span>
+            Export Citations
           </a>
           <CitationsModal
             isOpen={this.state.isModalOpen}
             datasetId={ds.id}
             onModalClose={this._closeCitationsModal}
           />
+          <span>&nbsp;-&nbsp;</span>
           <a href={ds.sourceLink} target="_blank">
-            <i className="fa fa-home fa-2x" />
-            <br />
-            <span>View at Source</span>
+            View at Source
           </a>
+          {links.useSlicr && <span>&nbsp;-&nbsp;</span>}
           {
             links.useSlicr &&
             <a
               href={`http://amp.pharm.mssm.edu/Slicr/#/search/${cell ? cell.name : ''}`}
               target="_blank"
             >
-              <i className="fa fa-pie-chart fa-2x" />
-              <br />
-              <span>Analyze with Slicr</span>
+              Analyze with Slicr
             </a>
           }
+          {links.usePiLINCS && <span>&nbsp;-&nbsp;</span>}
           {
             links.usePiLINCS &&
             <a href="http://eh3.uc.edu/pilincs" target="_blank">
-              <i className="fa fa-cube fa-2x" />
-              <br />
-              <span>Analysis with piLINCS</span>
+              Analysis with piLINCS
             </a>
           }
+          {links.useMosaic && <span>&nbsp;-&nbsp;</span>}
           {
             links.useMosaic &&
             <a href="http://amp.pharm.mssm.edu/p100mosaic" target="_blank">
-              <i className="fa fa-th-large fa-2x" />
-              <br />
-              <span>Analyze with P100 Mosaic</span>
+              P100 Mosaic
             </a>
           }
+          {links.useILINCS && <span>&nbsp;-&nbsp;</span>}
           {
             links.useILINCS &&
             <a
               href={`http://eh3.uc.edu/GenomicsPortals/DatasetLandingPage.do?data_set=${ds.lincsId}`}
               target="_blank"
             >
-              <i className="fa fa-info-circle fa-2x" />
-              <br />
-              <span>Analyze with iLINCS</span>
+              Analyze with iLINCS
             </a>
           }
         </div>

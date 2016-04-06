@@ -1,5 +1,6 @@
 import generateKnex from 'knex';
 import Twitter from 'twit';
+import elasticSearch from 'elasticsearch';
 
 const knexConfig = {
   development: {
@@ -46,6 +47,17 @@ const knexConfig = {
     },
   },
 };
+
+export const esClient = new elasticSearch.Client({
+  hosts: [
+    '146.203.54.74:31000',
+    '146.203.54.165:31000',
+    '146.203.54.92:31000',
+  ],
+  requestTimeout: 1000000,
+  sniffOnConnectionFault: true,
+  log: process.env.NODE_ENV === 'production' ? undefined : 'trace',
+});
 
 export const secret = 'LINCSnewwenSCNIL';
 export const knex = generateKnex(knexConfig[process.env.NODE_ENV]);
