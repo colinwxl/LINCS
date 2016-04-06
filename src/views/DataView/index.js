@@ -30,7 +30,7 @@ export class DataView extends Component {
       <div className={styles.wrapper}>
         <div className={styles.banner}>
           <div className={`container ${styles.inner}`}>
-            <h1>Data</h1>
+            <h1>LINCS Datasets</h1>
             {/* <div className={styles.search}>
               <form
                 className={styles['search-form']}

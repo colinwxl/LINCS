@@ -16,6 +16,7 @@ export default class Overview extends Component {
           <div className="row">
             <PageNav mainPage="Overview" />
             <div className="col-md-9 col-md-pull-3">
+              <img src={require('./centers-map.png')} alt="Map of LINCS Centers" />
               <h1 className={styles.title}>Overview</h1>
               <p>
                 The LINCS program is implemented in two parts: pilot phase 1 (FY 2010) and the
