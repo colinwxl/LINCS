@@ -88,9 +88,8 @@ LoVo,LCL-1181,ATCC,intestine,colon adenocarcinoma
 LOXIMVI,LCL-1276,"DTP, DCTD Tumor Repository, National Cancer Institute",skin,melanoma
 LY2,LCL-2076,Mark Lippman (National Cancer Institute),breast,Invasive ductal carcinoma
 MB 157,LCL-1484,ATCC,breast, breast carcinoma
-MCF 10A,LCL-2085,ATCC,breast,fibrocystic disease
-MCF 10F,LCL-2102,ATCC,breast,fibrocystic disease
-MCF10A,LCL-2085,ATCC,breast,fibrocystic disease
+MCF10F,LCL-2102,ATCC,breast,fibrocystic disease
+MCF10A;MCF 10A,LCL-2085,ATCC,breast,fibrocystic disease
 MCF12A,LCL-2082,ATCC,breast,normal
 MCF7,LCL-1460,ATCC,breast, adenocarcinoma
 MDA-MB-134-VI,LCL-1316,ATCC,breast, ductal carcinoma
