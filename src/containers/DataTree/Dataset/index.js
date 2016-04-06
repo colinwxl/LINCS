@@ -72,8 +72,8 @@ export class Dataset extends Component {
           <p className={styles.description}>{ds.description}</p>
         </div>
         <div className={styles.links}>
-          <a onClick={this._openCitationsModal}>
-            Cite this dataset
+          <a href={ds.sourceLink} target="_blank">
+            View at source
           </a>
           <CitationsModal
             isOpen={this.state.isModalOpen}
@@ -81,9 +81,14 @@ export class Dataset extends Component {
             onModalClose={this._closeCitationsModal}
           />
           <span>&nbsp;-&nbsp;</span>
-          <a href={ds.sourceLink} target="_blank">
-            View at source
+          <a href={`/LINCS/api/v1/datasets/${datasetId}/download`}>
+            Download data package
           </a>
+          <span>&nbsp;-&nbsp;</span>
+          <a onClick={this._openCitationsModal}>
+            Cite this dataset
+          </a>
+
           {links.useSlicr && <span>&nbsp;-&nbsp;</span>}
           {
             links.useSlicr &&
