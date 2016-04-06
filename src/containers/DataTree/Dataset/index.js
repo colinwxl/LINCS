@@ -73,7 +73,7 @@ export class Dataset extends Component {
         </div>
         <div className={styles.links}>
           <a onClick={this._openCitationsModal}>
-            Export Citations
+            Cite this dataset
           </a>
           <CitationsModal
             isOpen={this.state.isModalOpen}
@@ -82,7 +82,7 @@ export class Dataset extends Component {
           />
           <span>&nbsp;-&nbsp;</span>
           <a href={ds.sourceLink} target="_blank">
-            View at Source
+            View at source
           </a>
           {links.useSlicr && <span>&nbsp;-&nbsp;</span>}
           {
