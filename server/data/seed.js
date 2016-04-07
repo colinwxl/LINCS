@@ -9,7 +9,7 @@ import { Cell } from '../models/Cell';
 import { SmallMolecule } from '../models/SmallMolecule';
 import { Author } from '../models/Author';
 import { Publication } from '../models/Publication';
-import { CompTool } from '../models/CompTool';
+import tools from '../../seed/tools';
 import smallMolecules from '../../seed/smallMolecules';
 import cellLines from '../../seed/cellLines';
 import symposia from '../../seed/symposia';
@@ -208,45 +208,32 @@ function insertPublications() {
   const pubs = publications.map(obj => ({ ...obj, created_at: created }));
   let authors = [];
   const toolNames = [];
-  const compTools = [];
   pubs.forEach(obj => {
     authors = _.union(authors, obj.authors);
-    obj.comp_tools.forEach(tool => {
+    obj.tools.forEach(tool => {
       const { name } = tool;
       if (toolNames.indexOf(name) === -1) {
         toolNames.push(name);
-        compTools.push(tool);
       }
     });
   });
-  const compToolIdMap = {};
   const authorIdMap = {};
   return new Promise((resolve, reject) => {
-    Promise.all(compTools.map(tool =>
-      CompTool.forge(tool).save().then(model => (compToolIdMap[tool.name] = model.id))
-    ))
+    Promise.all(authors.map(name => {
+      const author = { name, created_at: created };
+      return Author.forge(author).save().then(model => (authorIdMap[name] = model.id));
+    }))
     .then(() => {
-      Promise.all(authors.map(name => {
-        const author = { name, created_at: created };
-        return Author.forge(author).save().then(model => (authorIdMap[name] = model.id));
+      Promise.all(pubs.map(obj => {
+        const pub = _.pick(obj, Publication.prototype.permittedAttributes());
+        return Publication.forge(pub).save().then(pubModel => {
+          const authorIds = obj.authors.map(name => authorIdMap[name]);
+          if (authorIds.length) {
+            pubModel.authors().attach(authorIds);
+          }
+        });
       }))
-      .then(() => {
-        Promise.all(pubs.map(obj => {
-          const pub = _.pick(obj, Publication.prototype.permittedAttributes());
-          return Publication.forge(pub).save().then(pubModel => {
-            const authorIds = obj.authors.map(name => authorIdMap[name]);
-            if (authorIds.length) {
-              pubModel.authors().attach(authorIds);
-            }
-            const toolIds = obj.comp_tools.map(tool => compToolIdMap[tool.name]);
-            if (toolIds.length) {
-              pubModel.compTools().attach(toolIds);
-            }
-          });
-        }))
-        .then(() => resolve())
-        .catch(e => reject(e));
-      })
+      .then(() => resolve())
       .catch(e => reject(e));
     })
     .catch(e => reject(e));
@@ -266,6 +253,7 @@ knex.raw('select 1+1 as result').then(() => {
   promises.push(knex.insert(shops).into('workshops'));
   promises.push(knex.insert(webs).into('webinars'));
   promises.push(knex.insert(opps).into('funding_opportunities'));
+  promises.push(knex.insert(tools).into('tools'));
   promises.push(insertPublications());
 
   promises.push(

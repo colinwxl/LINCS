@@ -50,9 +50,8 @@ const knexConfig = {
 
 export const esClient = new elasticSearch.Client({
   hosts: [
-    '146.203.54.74:31000',
-    '146.203.54.165:31000',
-    '146.203.54.92:31000',
+    '146.203.54.131:31000',
+    '146.203.54.193:31000',
   ],
   requestTimeout: 1000000,
   sniffOnConnectionFault: true,

@@ -7,7 +7,7 @@ module.exports = [{
   "issue": "1",
   "pp_pages": "26",
   "journal_name": "BMC Systems Biology",
-  "comp_tools": [{
+  "tools": [{
     "name": "Custom code"
   }],
   "doi": "10.1186/s12918-015-0173-z",
@@ -30,7 +30,7 @@ module.exports = [{
   "issue": null,
   "pp_pages": null,
   "journal_name": "Bioinformatics",
-  "comp_tools": [{
+  "tools": [{
     "url": "http://amp.pharm.mssm.edu/g2e/",
     "name": "GEO2Enrichr",
     "description": "A web application and two browser extensions (one for Chrome and another for Firefox) designed to ease the extraction of signatures from studies posted on the Gene Expression Omnibus (GEO) database. These signatures are then submitted to Enrichr, a gene signature search engine containing over 70,000 annotated signatures, for downstream functional analysis."
@@ -58,7 +58,7 @@ module.exports = [{
   "issue": "3",
   "pp_pages": "797",
   "journal_name": "Molecular Systems Biology ",
-  "comp_tools": [{
+  "tools": [{
     "name": "Data exploration website",
     "url": "http://lincs.hms.harvard.edu/fallahi-sichani-molsystbiol-2015/"
   }],
@@ -82,7 +82,7 @@ module.exports = [{
   "issue": "Database issue",
   "pp_pages": "D512-20",
   "journal_name": "Nucleic Acids Research",
-  "comp_tools": [{
+  "tools": [{
     "name": "PhosphoSitePlus",
     "url": "http://www.phosphosite.org/"
   }],
@@ -106,7 +106,7 @@ module.exports = [{
   "issue": "12",
   "pp_pages": "e1003943",
   "journal_name": "PLoS Computational Biology",
-  "comp_tools": [{
+  "tools": [{
     "name": "Custom code"
   }],
   "doi": "10.1371/journal.pcbi.1003943",
@@ -129,7 +129,7 @@ module.exports = [{
   "issue": "22",
   "pp_pages": "3289-90",
   "journal_name": "Bioinformatics",
-  "comp_tools": [{
+  "tools": [{
     "name": "LINCS Drug/Cell-line Browser",
     "url": "http://www.maayanlab.net/LINCS/DCB/"
   }],
@@ -153,7 +153,7 @@ module.exports = [{
   "issue": "4",
   "pp_pages": "844-56",
   "journal_name": "Cell",
-  "comp_tools": [],
+  "tools": [],
   "doi": "10.1016/j.cell.2014.10.032",
   "other_link": null,
   "volume": "159",
@@ -174,7 +174,7 @@ module.exports = [{
   "issue": "10",
   "pp_pages": "2210-6",
   "journal_name": "ACS Chemical Biology",
-  "comp_tools": [{
+  "tools": [{
     "name": "Lincscloud P100 API",
     "url": "http://api.lincscloud.org/p100"
   }],
@@ -198,7 +198,7 @@ module.exports = [{
   "issue": "10",
   "pp_pages": "1007-8",
   "journal_name": "Nature Biotechnology",
-  "comp_tools": [{
+  "tools": [{
     "name": "CellNet",
     "url": "http://cellnet.hms.harvard.edu/"
   }],
@@ -222,7 +222,7 @@ module.exports = [{
   "issue": null,
   "pp_pages": "342",
   "journal_name": "Frontiers in Genetics",
-  "comp_tools": [{
+  "tools": [{
     "name": "LIFE",
     "url": "http://life.ccs.miami.edu/life/"
   }],
@@ -246,7 +246,7 @@ module.exports = [{
   "issue": "9",
   "pp_pages": "4205-10",
   "journal_name": "Journal of Proteome Research",
-  "comp_tools": [{
+  "tools": [{
     "name": "Lincscloud P100 API",
     "url": "http://api.lincscloud.org/p100"
   }],
@@ -270,7 +270,7 @@ module.exports = [{
   "issue": "9",
   "pp_pages": "450-60",
   "journal_name": "Trends in Pharmacological Sciences",
-  "comp_tools": [{
+  "tools": [{
     "name": "Review of multiple tools and databases"
   }],
   "doi": "10.1016/j.tips.2014.07.001",
@@ -293,7 +293,7 @@ module.exports = [{
   "issue": null,
   "pp_pages": "e524",
   "journal_name": "PeerJ",
-  "comp_tools": [{
+  "tools": [{
     "name": "LIFE",
     "url": "http://life.ccs.miami.edu/life/"
   }],
@@ -317,7 +317,7 @@ module.exports = [{
   "issue": null,
   "pp_pages": "W449-60",
   "journal_name": "Nucleic Acids Research",
-  "comp_tools": [{
+  "tools": [{
     "name": "LINCS Canvas Browser",
     "url": "http://www.maayanlab.net/LINCS/LCB"
   }],
@@ -341,7 +341,7 @@ module.exports = [{
   "issue": "Suppl 1 Proceedings of the Bio-Ontologies Spec Interest G",
   "pp_pages": "S5",
   "journal_name": "Journal of Biomedical Semantics",
-  "comp_tools": [{
+  "tools": [{
     "name": "LIFE",
     "url": "http://life.ccs.miami.edu/life/"
   }],
@@ -365,7 +365,7 @@ module.exports = [{
   "issue": "3",
   "pp_pages": "991-8",
   "journal_name": "IEEE Journal of Biomedical and Health Informatics",
-  "comp_tools": [{
+  "tools": [{
     "name": "CellIA"
   }],
   "doi": "10.1109/JBHI.2013.2281915",
@@ -388,7 +388,7 @@ module.exports = [{
   "issue": null,
   "pp_pages": "20",
   "journal_name": "BMC Biology",
-  "comp_tools": [{
+  "tools": [{
     "name": "Data exploration website",
     "url": "http://lincs.hms.harvard.edu/fallahi-sichani-molsystbiol-2015/"
   }],
@@ -412,7 +412,7 @@ module.exports = [{
   "issue": "5",
   "pp_pages": "803-816",
   "journal_name": "Journal of Biomolecular Screening",
-  "comp_tools": [{
+  "tools": [{
     "name": "LIFE",
     "url": "http://life.ccs.miami.edu/life/"
   }],
@@ -436,7 +436,7 @@ module.exports = [{
   "issue": "9",
   "pp_pages": "4666-74",
   "journal_name": "Analytical Chemistry",
-  "comp_tools": [],
+  "tools": [],
   "doi": "10.1021/ac303478g",
   "other_link": null,
   "volume": "85",
@@ -457,7 +457,7 @@ module.exports = [{
   "issue": null,
   "pp_pages": "128",
   "journal_name": "BMC Bioinformatics",
-  "comp_tools": [{
+  "tools": [{
     "name": "Enrichr",
     "url": "http://amp.pharm.mssm.edu/Enrichr"
   }],
@@ -481,7 +481,7 @@ module.exports = [{
   "issue": "Web Server issue",
   "pp_pages": "W218-24",
   "journal_name": "Nucleic Acids Research",
-  "comp_tools": [{
+  "tools": [{
     "name": "UCSC Interaction Browser"
   }],
   "doi": "10.1093/nar/gkt473",
@@ -504,7 +504,7 @@ module.exports = [{
   "issue": "9",
   "pp_pages": "e1003198",
   "journal_name": "PLoS Computational Biology",
-  "comp_tools": [{
+  "tools": [{
     "name": "TREG",
     "url": "http://genomicsportals.org/"
   }],
@@ -528,7 +528,7 @@ module.exports = [{
   "issue": "4",
   "pp_pages": "309-11",
   "journal_name": "Clinical Pharmacology and Therapeutics",
-  "comp_tools": [],
+  "tools": [],
   "doi": "10.1038/clpt.2012.219",
   "other_link": null,
   "volume": "93",
@@ -549,7 +549,7 @@ module.exports = [{
   "issue": null,
   "pp_pages": "e35",
   "journal_name": "CPT: Pharmacometrics and Systems Pharmacology",
-  "comp_tools": [],
+  "tools": [],
   "doi": "10.1038/psp.2013.11",
   "other_link": null,
   "volume": "2",
@@ -570,7 +570,7 @@ module.exports = [{
   "issue": "8",
   "pp_pages": "2574-86",
   "journal_name": "Cancer Research",
-  "comp_tools": [],
+  "tools": [],
   "doi": "10.1158/0008-5472.CAN-12-1702",
   "other_link": null,
   "volume": "73",
@@ -591,7 +591,7 @@ module.exports = [{
   "issue": "11",
   "pp_pages": "708-14",
   "journal_name": "Nature Chemical Biology",
-  "comp_tools": [{
+  "tools": [{
     "name": "Data exploration website",
     "url": "http://lincs.hms.harvard.edu/fallahi-sichani-molsystbiol-2015/"
   }],
@@ -615,7 +615,7 @@ module.exports = [{
   "issue": "7478",
   "pp_pages": "138-42",
   "journal_name": "Nature",
-  "comp_tools": [{
+  "tools": [{
     "name": "KS Query and GSEA"
   }],
   "doi": "10.1038/nature12688",
@@ -638,7 +638,7 @@ module.exports = [{
   "issue": "4",
   "pp_pages": "2548-56",
   "journal_name": "Analytical Chemistry",
-  "comp_tools": [{
+  "tools": [{
     "name": "MATLAB scripts"
   }],
   "doi": "10.1021/ac400082e",
@@ -661,7 +661,7 @@ module.exports = [{
   "issue": "294",
   "pp_pages": "ra84",
   "journal_name": "Science Signaling",
-  "comp_tools": [{
+  "tools": [{
     "name": "Data exploration website",
     "url": "http://lincs.hms.harvard.edu/fallahi-sichani-molsystbiol-2015/"
   }],
@@ -685,7 +685,7 @@ module.exports = [{
   "issue": "21",
   "pp_pages": "2757-64",
   "journal_name": "Bioinformatics",
-  "comp_tools": [{
+  "tools": [{
     "name": "TieDIE",
     "url": "https://sysbiowiki.soe.ucsc.edu/tiedie"
   }],
@@ -709,7 +709,7 @@ module.exports = [{
   "issue": "6134",
   "pp_pages": "1238303",
   "journal_name": "Science",
-  "comp_tools": [{
+  "tools": [{
     "name": "KS Query"
   }],
   "doi": "10.1126/science",
@@ -732,7 +732,7 @@ module.exports = [{
   "issue": "1",
   "pp_pages": "27-38",
   "journal_name": "Journal of Chemical Information Modeling",
-  "comp_tools": [{
+  "tools": [{
     "name": "LIFE",
     "url": "http://life.ccs.miami.edu/life/"
   }],
@@ -756,7 +756,7 @@ module.exports = [{
   "issue": "12",
   "pp_pages": "e80832",
   "journal_name": "PLoS One",
-  "comp_tools": [{
+  "tools": [{
     "name": "KIEP",
     "url": "http://ctsb.is.wfubmc.edu/itNETZ/KIEP.html"
   }],
@@ -780,7 +780,7 @@ module.exports = [{
   "issue": "15",
   "pp_pages": "1872-8",
   "journal_name": "Bioinformatics",
-  "comp_tools": [{
+  "tools": [{
     "name": "Network2Canvas",
     "url": "http://www.maayanlab.net/N2C"
   }],
@@ -804,7 +804,7 @@ module.exports = [{
   "issue": "9",
   "pp_pages": "1062-71",
   "journal_name": "Journal of Biomolecular Screening",
-  "comp_tools": [],
+  "tools": [],
   "doi": "10.1177/1087057113493804",
   "other_link": null,
   "volume": "18",
@@ -825,7 +825,7 @@ module.exports = [{
   "issue": null,
   "pp_pages": "1-10",
   "journal_name": "Sensors and Actuators B, Chemical",
-  "comp_tools": [],
+  "tools": [],
   "doi": null,
   "other_link": null,
   "volume": "188",
@@ -846,7 +846,7 @@ module.exports = [{
   "issue": "38",
   "pp_pages": "9779-88",
   "journal_name": "Biomaterials",
-  "comp_tools": [],
+  "tools": [],
   "doi": "10.1016/j.biomaterials.2013.09.031",
   "other_link": null,
   "volume": "34",
@@ -867,7 +867,7 @@ module.exports = [{
   "issue": "7391",
   "pp_pages": "570-5",
   "journal_name": "Nature",
-  "comp_tools": [],
+  "tools": [],
   "doi": "10.1038/nature11005",
   "other_link": null,
   "volume": "483",
@@ -888,7 +888,7 @@ module.exports = [{
   "issue": "2",
   "pp_pages": "121-6",
   "journal_name": "Nature Genetics",
-  "comp_tools": [],
+  "tools": [],
   "doi": "10.1038/ng.1054",
   "other_link": null,
   "volume": "44",
@@ -909,7 +909,7 @@ module.exports = [{
   "issue": "11",
   "pp_pages": "e49198",
   "journal_name": "PLoS One",
-  "comp_tools": [{
+  "tools": [{
     "name": "BAO",
     "url": "http://bioportal.bioontology.org/ontologies/1533"
   }],
@@ -933,7 +933,7 @@ module.exports = [{
   "issue": "1",
   "pp_pages": "140-54",
   "journal_name": "Chemistry and Biology",
-  "comp_tools": [],
+  "tools": [],
   "doi": "10.1016/j.chembiol.2011.11.010",
   "other_link": null,
   "volume": "19",
@@ -954,7 +954,7 @@ module.exports = [{
   "issue": "23",
   "pp_pages": "5025-33",
   "journal_name": "Lab on a Chip",
-  "comp_tools": [],
+  "tools": [],
   "doi": "10.1039/c2lc40309a",
   "other_link": null,
   "volume": "12",
@@ -975,7 +975,7 @@ module.exports = [{
   "issue": "6",
   "pp_pages": "487-93",
   "journal_name": "Nature Methods",
-  "comp_tools": [{
+  "tools": [{
     "name": "SDCubes",
     "url": "https://github.com/sorgerlab/SDCube_API"
   }],
@@ -999,7 +999,7 @@ module.exports = [{
   "issue": "189",
   "pp_pages": "mr7",
   "journal_name": "Science Signaling ",
-  "comp_tools": [],
+  "tools": [],
   "doi": "10.1126/scisignal.2002212",
   "other_link": null,
   "volume": "4",
@@ -1020,7 +1020,7 @@ module.exports = [{
   "issue": null,
   "pp_pages": "104-19",
   "journal_name": "Computational Biology and Chemistry",
-  "comp_tools": [],
+  "tools": [],
   "doi": null,
   "other_link": null,
   "volume": "58",
@@ -1041,7 +1041,7 @@ module.exports = [{
   "issue": null,
   "pp_pages": "8390",
   "journal_name": "Nature Communications",
-  "comp_tools": [{
+  "tools": [{
     "name": "Data exploration website",
     "url": "http://lincs.hms.harvard.edu/lin-natcommun-2015/"
   }],
@@ -1065,7 +1065,7 @@ module.exports = [{
   "issue": null,
   "pp_pages": "256-262",
   "journal_name": "Proceedings (IEEE Int Conf Bioinformatics Biomed)",
-  "comp_tools": [{
+  "tools": [{
     "name": "PAEA",
     "url": "http://amp.pharm.mssm.edu/PAEA/"
   }],
@@ -1089,7 +1089,7 @@ module.exports = [{
   "issue": null,
   "pp_pages": "16924",
   "journal_name": "Scientific Reports",
-  "comp_tools": [],
+  "tools": [],
   "doi": null,
   "other_link": null,
   "volume": "5",
@@ -1110,7 +1110,7 @@ module.exports = [{
   "issue": null,
   "pp_pages": null,
   "journal_name": "Biometrics",
-  "comp_tools": [],
+  "tools": [],
   "doi": null,
   "other_link": null,
   "volume": null,
@@ -1131,7 +1131,7 @@ module.exports = [{
   "issue": null,
   "pp_pages": null,
   "journal_name": "bioRxiv",
-  "comp_tools": [],
+  "tools": [],
   "doi": "10.1101/036798",
   "other_link": null,
   "volume": null,
@@ -1152,7 +1152,7 @@ module.exports = [{
   "issue": null,
   "pp_pages": "506",
   "journal_name": "Frontiers in Cellular Neuroscience",
-  "comp_tools": [],
+  "tools": [],
   "doi": null,
   "other_link": null,
   "volume": "9",
@@ -1173,7 +1173,7 @@ module.exports = [{
   "issue": null,
   "pp_pages": null,
   "journal_name": "Molecular and Cellular Proteomics",
-  "comp_tools": [],
+  "tools": [],
   "doi": null,
   "other_link": null,
   "volume": null,
@@ -1194,7 +1194,7 @@ module.exports = [{
   "issue": null,
   "pp_pages": null,
   "journal_name": null,
-  "comp_tools": [],
+  "tools": [],
   "doi": null,
   "other_link": "http://arxiv.org/abs/1603.04835",
   "volume": null,
