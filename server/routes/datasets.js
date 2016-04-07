@@ -45,7 +45,7 @@ router.get('/search', async (ctx) => {
   const resp = await esClient.search({
     index: 'datasets',
     type: 'dataset',
-    size: 100,
+    size: ctx.query.limit || 100,
     fields: ['_id'],
     body: {
       query: {
