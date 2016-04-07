@@ -8,6 +8,7 @@ import moment from 'moment';
 import _debug from 'debug';
 const debug = _debug('app:server:routes:datasets');
 
+import { esClient } from '../serverConf';
 import { Dataset } from '../models/Dataset';
 
 const router = new Router({
@@ -20,9 +21,7 @@ router.get('/', async (ctx) => {
     withRelated = ctx.query.include.split(',');
   }
   try {
-    let datasets = await Dataset.fetchAll({
-      withRelated,
-    });
+    let datasets = await Dataset.fetchAll({ withRelated });
     // Omit pivot by default
     const includePivot = !!ctx.query.includePivot;
     datasets = datasets.toJSON({ omitPivot: !includePivot });
@@ -33,17 +32,39 @@ router.get('/', async (ctx) => {
   }
 });
 
-router.get('/:id', async (ctx) => {
-  try {
-    let dataset = await Dataset.where('id', ctx.params.id).fetch();
-    // Omit pivot by default
-    const includePivot = !!ctx.query.includePivot;
-    dataset = dataset.toJSON({ omitPivot: !includePivot });
-    ctx.body = dataset;
-  } catch (e) {
-    debug(e);
-    ctx.throw(500, 'An error occurred obtaining datasets.');
+
+router.get('/search', async (ctx) => {
+  if (!ctx.query.q || ctx.query.q === '') {
+    ctx.throw(400, 'Query parameter q required for search.');
   }
+  const includePivot = !!ctx.query.includePivot;
+  let withRelated = [];
+  if (ctx.query.include) {
+    withRelated = ctx.query.include.split(',');
+  }
+  const resp = await esClient.search({
+    index: 'datasets',
+    type: 'dataset',
+    size: 100,
+    fields: ['_id'],
+    body: {
+      query: {
+        multi_match: {
+          fields: [
+            'full_assay_name', 'description', 'center_name', 'assay',
+            'method', 'classification', 'physical_detection', 'lincs_id',
+          ],
+          query: ctx.query.q,
+          type: 'phrase_prefix',
+          max_expansions: 10,
+          use_dis_max: false,
+        },
+      },
+    },
+  });
+  const ids = resp.hits.hits.map(doc => parseInt(doc._id, 10));
+  const dsModels = await Dataset.query(qb => qb.whereIn('id', ids)).fetchAll({ withRelated });
+  ctx.body = dsModels.toJSON({ omitPivot: !includePivot });
 });
 
 // ctx.request.body.datasetIds is an array of dataset ids whose clicks need to be incremented.
@@ -151,6 +172,19 @@ function generateBIB(ds) {
     stream.on('finish', () => resolve({ filePath, fileName }));
   });
 }
+
+router.get('/:id', async (ctx) => {
+  try {
+    let dataset = await Dataset.where('id', ctx.params.id).fetch();
+    // Omit pivot by default
+    const includePivot = !!ctx.query.includePivot;
+    dataset = dataset.toJSON({ omitPivot: !includePivot });
+    ctx.body = dataset;
+  } catch (e) {
+    debug(e);
+    ctx.throw(500, 'An error occurred obtaining datasets.');
+  }
+});
 
 router.get('/:id/reference/:refType', async (ctx) => {
   const dsModel = await Dataset.where('id', ctx.params.id).fetch();

@@ -1,14 +1,14 @@
 import lincsBookshelf from './base';
 
 require('./Author');
-require('./CompTool');
+require('./Tool');
 const model = lincsBookshelf.Model.extend({
   tableName: 'publications',
   authors() {
     return this.belongsToMany('Author', 'authors_publications');
   },
   compTools() {
-    return this.belongsToMany('CompTool', 'comp_tools_publications');
+    return this.belongsToMany('Tool', 'tools_publications');
   },
 });
 const coll = lincsBookshelf.Collection.extend({ model });

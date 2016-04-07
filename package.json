@@ -15,6 +15,7 @@
     "dev": "better-npm-run dev",
     "dev:nw": "npm run dev -- --nw",
     "dev:no-debug": "npm run dev -- --no_debug",
+    "elastic": "better-npm-run elastic",
     "server-es5": "rm -rf server-es5 && babel server --out-dir server-es5",
     "flow:check": "babel-node bin/flow-check",
     "lint": "eslint . ./",
@@ -39,6 +40,13 @@
       "command": "npm run clean && npm run compile",
       "env": {
         "NODE_ENV": "production",
+        "DEBUG": "app:*"
+      }
+    },
+    "elastic": {
+      "command": "babel-node server/data/elastic",
+      "env": {
+        "NODE_ENV": "development",
         "DEBUG": "app:*"
       }
     },
