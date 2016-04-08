@@ -107,8 +107,8 @@ router.post('/clicks/increment', async (ctx) => {
 function generateRIS(ds) {
   return new Promise(resolve => {
     const dateRetrieved = moment(ds.dateRetrieved);
-    const fileName = `${ds.method.replace(/\s/g, '_')}-${ds.lincsId}.ris`;
-    const filePath = path.join(__dirname, '/', fileName);
+    const filename = `${ds.method.replace(/\s/g, '_')}-${ds.lincsId}.ris`;
+    const filePath = path.join(__dirname, '/', filename);
     const stream = fs.createWriteStream(filePath);
     stream.write('TY  - DATA\n');
     stream.write(`AU  - ${ds.centerName}\n`);
@@ -125,15 +125,15 @@ function generateRIS(ds) {
     stream.write(`UR  - ${ds.sourceLink}\n`);
     stream.write(`ER  - \n`);
     stream.end();
-    stream.on('finish', () => resolve({ filePath, fileName }));
+    stream.on('finish', () => resolve({ filePath, filename }));
   });
 }
 
 function generateENW(ds) {
   return new Promise(resolve => {
     const dateRetrieved = moment(ds.dateRetrieved);
-    const fileName = `${ds.method.replace(/\s/g, '_')}-${ds.lincsId}.enw`;
-    const filePath = path.join(__dirname, '/', fileName);
+    const filename = `${ds.method.replace(/\s/g, '_')}-${ds.lincsId}.enw`;
+    const filePath = path.join(__dirname, '/', filename);
     const stream = fs.createWriteStream(filePath);
     stream.write('%0 Dataset\n');
     stream.write(`%A ${ds.centerName}\n`);
@@ -146,15 +146,15 @@ function generateENW(ds) {
     stream.write(`%M ${ds.lincsId}\n`);
     stream.write(`%U ${ds.sourceLink}\n`);
     stream.end();
-    stream.on('finish', () => resolve({ filePath, fileName }));
+    stream.on('finish', () => resolve({ filePath, filename }));
   });
 }
 
 function generateBIB(ds) {
   return new Promise(resolve => {
     const year = moment(ds.dateRetrieved).format('YYYY');
-    const fileName = `${ds.method.replace(/\s/g, '_')}-${ds.lincsId}.bib`;
-    const filePath = path.join(__dirname, '/', fileName);
+    const filename = `${ds.method.replace(/\s/g, '_')}-${ds.lincsId}.bib`;
+    const filePath = path.join(__dirname, '/', filename);
     const stream = fs.createWriteStream(filePath);
     stream.write(`@unpublished{${ds.centerName.replace(/\s/g, '_')}${year},\n`);
     stream.write(`author="${ds.centerName}",\n`);
@@ -169,7 +169,7 @@ function generateBIB(ds) {
     stream.write(`note="Unpublished dataset, LINCS ID: ${ds.lincsId}"\n`);
     stream.write(`}\n\n`);
     stream.end();
-    stream.on('finish', () => resolve({ filePath, fileName }));
+    stream.on('finish', () => resolve({ filePath, filename }));
   });
 }
 
@@ -186,23 +186,47 @@ router.get('/:id', async (ctx) => {
   }
 });
 
+router.get('/:id/download', async (ctx) => {
+  try {
+    let dataset = await Dataset.where('id', ctx.params.id).fetch();
+    dataset = dataset.toJSON();
+    let filename = `${dataset.lincsId}-${dataset.classification}-${dataset.method}.tar.gz`;
+    let filePath = path.join(__dirname, 'files', 'datasets', `${dataset.lincsId}.tar.gz`);
+    if (dataset.method === 'KINOMEScan') {
+      filename = `${dataset.classification}-${dataset.method}.tar.gz`;
+      filePath = path.join(__dirname, 'files', 'datasets', 'KINOMEScan.zip');
+    } else if (dataset.method === 'KiNativ') {
+      filename = `${dataset.classification}-${dataset.method}.tar.gz`;
+      filePath = path.join(__dirname, 'files', 'datasets', 'KiNativ.zip');
+    }
+    ctx.set('Content-disposition', `attachment; filename=${filename}`);
+    await send(ctx, filePath);
+    if (!ctx.status) {
+      ctx.throw(500, 'An error occurred generating the ris file.');
+    }
+  } catch (e) {
+    debug(e);
+    ctx.throw(500, 'An error occurred obtaining datasets.');
+  }
+});
+
 router.get('/:id/reference/:refType', async (ctx) => {
   const dsModel = await Dataset.where('id', ctx.params.id).fetch();
   const dataset = dsModel.toJSON();
   let fPath;
   let fName;
   if (ctx.params.refType === 'ris') {
-    const { filePath, fileName } = await generateRIS(dataset);
+    const { filePath, filename } = await generateRIS(dataset);
     fPath = filePath;
-    fName = fileName;
+    fName = filename;
   } else if (ctx.params.refType === 'enw') {
-    const { filePath, fileName } = await generateENW(dataset);
+    const { filePath, filename } = await generateENW(dataset);
     fPath = filePath;
-    fName = fileName;
+    fName = filename;
   } else if (ctx.params.refType === 'bib') {
-    const { filePath, fileName } = await generateBIB(dataset);
+    const { filePath, filename } = await generateBIB(dataset);
     fPath = filePath;
-    fName = fileName;
+    fName = filename;
   }
   ctx.set('Content-disposition', `attachment; filename=${fName}`);
   await send(ctx, fPath);
