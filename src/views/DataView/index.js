@@ -1,7 +1,12 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router';
 
+import handleResponse from 'utils/handleResponse';
 import DataTree from 'containers/DataTree';
+import Dataset from 'containers/Dataset';
+import PageBanner from 'components/PageBanner';
+import PageNav from 'components/PageNav';
 import styles from './DataView.scss';
 
 const mapStateToProps = (state) => ({
@@ -13,6 +18,7 @@ export class DataView extends Component {
     super(props);
     this.state = {
       q: '',
+      searchResultIds: [],
       showSearchResults: false,
     };
   }
@@ -21,46 +27,91 @@ export class DataView extends Component {
     this.setState({ q: e.target.value });
   }
 
-  _handleFormSubmit = () => {
-    // const { q } = this.state;
+  _handleSubmit = (e) => {
+    e.preventDefault();
+    fetch(`/LINCS/api/v1/datasets/search?q=${this.state.q}`)
+      .then(response => handleResponse(response))
+      .then(response => response.json())
+      .then(datasets => {
+        this.setState({
+          searchResultIds: datasets.map(ds => ds.id),
+          showSearchResults: true,
+        });
+      });
+  }
+
+  _backToTreeView = () => {
+    this.setState({
+      showSearchResults: false,
+    });
   }
 
   render() {
     return (
       <div className={styles.wrapper}>
-        <div className={styles.banner}>
-          <div className={`container ${styles.inner}`}>
-            <h1>LINCS Datasets</h1>
-            {/* <div className={styles.search}>
-              <form
-                className={styles['search-form']}
-                itemProp="potentialAction"
-                itemScope=""
-                itemType="http://schema.org/SearchAction"
-                onSubmit={this._handleFormSubmit}
-              >
-                <div className={styles['search-bar']}>
-                  <input
-                    name="q"
-                    value={this.state.q}
-                    onChange={this._handleSearch}
-                    type="search"
-                    id="site-search"
-                    placeholder="Search datasets"
-                    autoCapitalize="off"
-                    itemProp="query-input"
-                    autoComplete="off"
+        <PageBanner title="LINCS Datasets" />
+        <div className="container">
+          <div className="row">
+            <PageNav mainPage="Overview" isDataPage />
+            <div className="col-md-9 col-md-pull-3">
+              <h2 className={styles.title}>Introduction</h2>
+              <p>
+                The <Link to="/centers/data-and-signature-generating-centers">
+                  LINCS Data and Signature Generation Centers
+                </Link> produce
+                a variety of data for the library. For such data to be standardized,
+                integrated, and coordinated in a manner that promotes consistency
+                and allows comparison across different cell types, assays and conditions,
+                the <Link to="/centers/dcic">BD2K-LINCS DCIC</Link> together with the DSGCs
+                develop and employ data standards.
+              </p>
+              <form onSubmit={this._handleSubmit}>
+                <div className={styles.search}>
+                  <div className={styles['search-bar']}>
+                    <div style={{ position: 'relative' }}>
+                      <input
+                        name="q"
+                        value={this.state.q}
+                        onChange={this._handleSearch}
+                        type="search"
+                        placeholder="Search LINCS datasets"
+                        autoCapitalize="off"
+                        itemProp="query-input"
+                        autoComplete="off"
+                      />
+                    </div>
+                  </div>
+                  <button
+                    style={{ backgroundImage: `url(${require('./ico-search.svg')})` }}
+                    className={`btn ${styles.submit}`}
+                    type="submit"
                   />
                 </div>
               </form>
-            </div>
-            <input className={styles.submit} type="submit" /> */}
-          </div>
-        </div>
-        <div className="container">
-          <div className="row">
-            <div className="col-xs-12">
-              {!this.state.showSearchResults && <DataTree />}
+              <div className="row">
+                <div className="col-xs-12">
+                  {
+                    !this.state.showSearchResults
+                    ? <DataTree />
+                    : (
+                      <div className={styles['search-results']}>
+                        <a onClick={this._backToTreeView}>{'<'} Back to Tree View</a>
+                        <h4>
+                          {this.state.searchResultIds.length} results found
+                          for <span className={styles.query}>{this.state.q}</span>
+                        </h4>
+                        <div className={styles.datasets}>
+                          {
+                            this.state.searchResultIds.map(id =>
+                              <Dataset key={id} className={styles.dataset} datasetId={id} />
+                            )
+                          }
+                        </div>
+                      </div>
+                    )
+                  }
+                </div>
+              </div>
             </div>
           </div>
         </div>

@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import moment from 'moment';
 // import each from 'lodash/each';
 //
+import { loadDatasets } from 'actions/entities';
 import styles from './Dataset.scss';
 import CitationsModal from './CitationsModal';
 
@@ -42,6 +43,10 @@ export class Dataset extends Component {
     };
   }
 
+  componentWillMount() {
+    this.props.loadDatasets();
+  }
+
   _openCitationsModal = () => {
     this.setState({ isModalOpen: true });
   }
@@ -51,12 +56,12 @@ export class Dataset extends Component {
   }
 
   render() {
-    const { cells, cellId, datasets, datasetId } = this.props;
+    const { cells, cellId, className, datasets, datasetId } = this.props;
     const ds = datasets[datasetId];
     const cell = cells[cellId];
     const links = getIconLinks(ds);
     return (
-      <div className={styles.dataset}>
+      <div className={`${styles.dataset} ${className}`}>
         <div className={styles['ds-header']}>
           <div className="row">
             <div className="col-xs-8">
@@ -132,9 +137,13 @@ export class Dataset extends Component {
 Dataset.propTypes = {
   cells: PropTypes.object,
   cellId: PropTypes.number,
+  className: PropTypes.string,
   datasets: PropTypes.object,
   datasetId: PropTypes.number,
+  loadDatasets: PropTypes.func,
   incrementDatasetClicks: PropTypes.func,
 };
 
-export default connect(mapStateToProps, {})(Dataset);
+export default connect(mapStateToProps, {
+  loadDatasets,
+})(Dataset);

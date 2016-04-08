@@ -16,7 +16,6 @@ export default class Overview extends Component {
           <div className="row">
             <PageNav mainPage="Overview" />
             <div className="col-md-9 col-md-pull-3">
-              <img src={require('./centers-map.png')} alt="Map of LINCS Centers" />
               <h1 className={styles.title}>Overview</h1>
               <p>
                 The LINCS program is implemented in two parts: pilot phase 1 (FY 2010) and the
@@ -25,6 +24,7 @@ export default class Overview extends Component {
                 to Knowledge (BD2K) initiative through the BD2K-LINCS Data Integration and
                 Coordination Center.
               </p>
+              <img src={require('./centers-map.png')} alt="Map of LINCS Centers" />
               <h2>LINCS Production Phase 2</h2>
               <h5>LINCS Data and Signature Generation Centers</h5>
               <p>

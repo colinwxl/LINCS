@@ -3,41 +3,12 @@ import { Link } from 'react-router';
 
 import styles from './PageNav.scss';
 
-const communityRoute = '/community';
 const centersRoute = '/centers';
 const dsgcRoute = `${centersRoute}/data-and-signature-generating-centers`;
+const communityRoute = '/community';
+const dataRoute = '/data';
 
 export default class PageNav extends Component {
-  get communityNavItems() {
-    return [
-      {
-        title: 'Overview',
-        route: `${communityRoute}/overview`,
-        children: [],
-      },
-      {
-        title: 'Funding Opportunities',
-        route: `${communityRoute}/funding-opportunities`,
-        children: [],
-      },
-      {
-        title: 'LINCS Consortium Meetings',
-        route: `${communityRoute}/consortium-meetings`,
-        children: [],
-      },
-      {
-        title: 'Webinars',
-        route: `${communityRoute}/webinars`,
-        children: [],
-      },
-      {
-        title: 'Workshops and Symposia',
-        route: `${communityRoute}/workshops-and-symposia`,
-        children: [],
-      },
-    ];
-  }
-
   get centerNavItems() {
     return [
       {
@@ -80,9 +51,70 @@ export default class PageNav extends Component {
     ];
   }
 
+  get communityNavItems() {
+    return [
+      {
+        title: 'Overview',
+        route: `${communityRoute}/overview`,
+        children: [],
+      },
+      {
+        title: 'Funding Opportunities',
+        route: `${communityRoute}/funding-opportunities`,
+        children: [],
+      },
+      {
+        title: 'LINCS Consortium Meetings',
+        route: `${communityRoute}/consortium-meetings`,
+        children: [],
+      },
+      {
+        title: 'Webinars',
+        route: `${communityRoute}/webinars`,
+        children: [],
+      },
+      {
+        title: 'Workshops and Symposia',
+        route: `${communityRoute}/workshops-and-symposia`,
+        children: [],
+      },
+    ];
+  }
+
+  get dataNavItems() {
+    return [
+      {
+        title: 'Overview',
+        route: `${dataRoute}/overview`,
+        children: [],
+      },
+      {
+        title: 'Releases',
+        route: `${dataRoute}/releases`,
+        children: [],
+      },
+      {
+        title: 'Release Policy',
+        route: `${dataRoute}/release-policy`,
+        children: [],
+      },
+      {
+        title: 'Standards',
+        route: `${dataRoute}/standards`,
+        children: [],
+      },
+    ];
+  }
+
   render() {
-    const { mainPage, subPage, isCommunityPage } = this.props;
-    const navItems = isCommunityPage ? this.communityNavItems : this.centerNavItems;
+    const { mainPage, subPage, isCommunityPage, isDataPage } = this.props;
+    let navItems = this.centerNavItems;
+    if (isCommunityPage) {
+      navItems = this.communityNavItems;
+    }
+    if (isDataPage) {
+      navItems = this.dataNavItems;
+    }
     return (
       <div className={`col-md-3 col-md-push-9 ${styles.wrapper}`}>
         <div className={styles.wrapper}>
@@ -133,4 +165,5 @@ PageNav.propTypes = {
   mainPage: PropTypes.string.isRequired,
   subPage: PropTypes.string,
   isCommunityPage: PropTypes.bool,
+  isDataPage: PropTypes.bool,
 };
