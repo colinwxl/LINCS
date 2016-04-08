@@ -32,7 +32,7 @@ export class HomeView extends Component {
               to a variety of perturbing agents.
             </p>
             <Link
-              to="/data/discover"
+              to="/data"
               className={`btn btn-outline-inverse btn-lg ${styles['btn-discover']}`}
             >
               Discover LINCS Data
