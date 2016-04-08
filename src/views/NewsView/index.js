@@ -51,17 +51,6 @@ export default class NewsView extends Component {
                   />
                 </div>
               </div>
-              <div className={styles['news-group']}>
-                <h2>LINCS Outreach Meeting 2016 - Video Archive</h2>
-                <p className="text-muted"><em>Posted on March 23rd, 2016 by Sherry Jenkins</em></p>
-                <div className={styles.youtube}>
-                  <iframe
-                    src="https://www.youtube.com/embed/MwJoLfc_LuM?list=PLQw7KTnzkpXdpO1WMpW8fJeriqZEuFR1i"
-                    frameBorder="0"
-                    allowFullScreen
-                  />
-                </div>
-              </div>
             </div>
           </div>
         </div>

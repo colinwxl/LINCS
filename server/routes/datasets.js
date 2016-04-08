@@ -186,18 +186,23 @@ router.get('/:id', async (ctx) => {
   }
 });
 
+
+// Only
 router.get('/:id/download', async (ctx) => {
+  if (process.env.NODE_ENV !== 'production') {
+    ctx.throw(400, 'Datasets can only be downloaded in production.');
+  }
   try {
     let dataset = await Dataset.where('id', ctx.params.id).fetch();
     dataset = dataset.toJSON();
     let filename = `${dataset.lincsId}-${dataset.classification}-${dataset.method}.tar.gz`;
-    let filePath = path.join(__dirname, 'files', 'datasets', `${dataset.lincsId}.tar.gz`);
+    let filePath = `/usr/src/dist/files/datasets/${dataset.lincsId}.tar.gz`;
     if (dataset.method === 'KINOMEScan') {
       filename = `${dataset.classification}-${dataset.method}.tar.gz`;
-      filePath = path.join(__dirname, 'files', 'datasets', 'KINOMEScan.zip');
+      filePath = '/usr/src/dist/files/datasets/KINOMEScan.zip';
     } else if (dataset.method === 'KiNativ') {
       filename = `${dataset.classification}-${dataset.method}.tar.gz`;
-      filePath = path.join(__dirname, 'files', 'datasets', 'KiNativ.zip');
+      filePath = '/usr/src/dist/files/datasets/KiNativ.zip';
     }
     ctx.set('Content-disposition', `attachment; filename=${filename}`);
     await send(ctx, filePath);

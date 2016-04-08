@@ -5,7 +5,7 @@ import moment from 'moment';
 
 import styles from './DataTree.scss';
 import Tree from './Tree';
-import Dataset from './Dataset';
+import Dataset from 'containers/Dataset';
 
 function getMonthName(monthIndex) {
   if (monthIndex > 11) {

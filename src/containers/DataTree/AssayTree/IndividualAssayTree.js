@@ -5,7 +5,7 @@ import each from 'lodash/each';
 import { incrementDatasetClicks } from 'actions/entities';
 import styles from '../DataTree.scss';
 import Tree from '../Tree';
-import Dataset from '../Dataset';
+import Dataset from 'containers/Dataset';
 
 const mapStateToProps = (state) => ({
   datasets: state.entities.datasets,
