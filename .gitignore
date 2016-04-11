@@ -6,5 +6,4 @@ dist/
 coverage/
 server-es5/
 
-
 **/serverConf.js

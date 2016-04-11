@@ -9,7 +9,10 @@ import makeRoutes from './routes';
 import Root from 'containers/Root';
 import configureStore from 'store/configureStore';
 // import { attemptLoginFromToken } from 'actions/auth';
+<<<<<<< HEAD
 import { loadDatasets } from 'actions/entities';
+=======
+>>>>>>> 63245816f13db8e9ffd73634b0f858a48a5ba3e1
 
 const historyConfig = { basename: '/LINCS' };
 const browserHistory = useRouterHistory(createBrowserHistory)(historyConfig);
@@ -28,9 +31,12 @@ const routes = makeRoutes(store);
 //   store.dispatch(attemptLoginFromToken(token));
 // }
 
+<<<<<<< HEAD
 // Load datasets to speed up loading of tree later
 store.dispatch(loadDatasets());
 
+=======
+>>>>>>> 63245816f13db8e9ffd73634b0f858a48a5ba3e1
 const mountNode = document.getElementById('root');
 
 // Let react-modal know where our app is mounted.

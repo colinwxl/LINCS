@@ -18,8 +18,8 @@ function getMonthName(monthIndex) {
   ][monthIndex];
 }
 
-const mapStateToProps = (state) => ({ datasets: state.entities.datasets });
 
+const mapStateToProps = (state) => ({ datasets: state.entities.datasets });
 export class DateTree extends Component {
   constructor(props) {
     super(props);

@@ -1,60 +1,59 @@
+// scss-lint:disable
+
 @import 'variables';
 
 .wrapper {
-  background-color: $brand-primary;
-  color: $white;
-  margin-bottom: 1.5rem;
-  padding: 2rem .9375rem;
+  margin-bottom: -2rem;
+  padding-bottom: 2rem;
+}
+
+.title {
+  color: $darker-gray;
+  font-size: 2rem;
+  font-weight: 400;
   text-align: center;
 
   @media (min-width: 544px) {
-    margin-bottom: 3rem;
-    padding-bottom: 4rem;
-    padding-top: 4rem;
     text-align: left;
-  }
-
-  h1 {
-    color: $white;
-    font-size: 3rem;
-    font-weight: 400;
-
-    @media (min-width: 768px) {
-      font-size: 4rem;
-    }
-  }
-
-  p {
-    font-size: 1.25rem;
-    font-weight: 300;
-    margin-bottom: 0;
-
-    @media (min-width: 768px) {
-      font-size: 1.5rem;
-    }
   }
 }
 
-.flex,
 .search {
   align-items: center;
   display: flex;
-  justify-content: center;
-}
-
-.logo {
-  height: auto;
-  max-height: 150px;
-  max-width: 100%;
-  width: 100% \9;
-}
-
-.search {
   max-width: 600px;
 }
 
+.search,
+.search-results {
+  margin: 0 auto 2rem;
+}
+
+.search-results {
+  max-width: 800px;
+
+  a {
+    cursor: pointer;
+  }
+
+  h4 {
+    font-weight: 400;
+    margin-bottom: 1rem;
+    text-align: center;
+  }
+}
+
+.dataset {
+  margin-bottom: .5rem;
+}
+
+.query {
+  color: $teal;
+  font-weight: bold;
+}
+
 .search-bar {
-  background-color: transparent;
+  background-color: $white;
   border: 1px solid $gray;
   border-radius: 0;
   flex-grow: 10;
@@ -63,7 +62,6 @@
   position: relative;
 
   input {
-    background-color: transparent;
     border: 0;
     font-size: 1rem;
     height: 26px;
@@ -78,14 +76,18 @@
 }
 
 .submit {
-  background-color: transparent;
+  background-color: $teal;
   background-position: 50% 50%;
   background-repeat: no-repeat;
   background-size: 18px 18px;
   border-bottom-left-radius: 0;
   border-top-left-radius: 0;
-  cursor: pointer;
+  cursor: default;
   height: 38px;
   text-indent: -9999em;
   width: 38px;
+
+  &:hover {
+    background-color: darken($teal, 5);
+  }
 }

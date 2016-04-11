@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React, { PropTypes, Component } from 'react';
 import { connect } from 'react-redux';
 import { push } from 'react-router-redux';
@@ -77,6 +78,35 @@ export class PageBanner extends Component {
       </div>
     );
   }
+=======
+import React, { PropTypes } from 'react';
+
+import styles from './PageBanner.scss';
+
+export default function PageBanner({ title, subTitle, imgSrc, imgAlt }) {
+  return (
+    <div className={styles.wrapper}>
+      <div className={`container ${styles.inner}`}>
+        <div className="row">
+          <div className="col-md-8">
+            <h1>{title}</h1>
+            <p>{subTitle}</p>
+          </div>
+          {
+            !!imgSrc && !!imgSrc.length &&
+            <div className="col-md-4 text-xs-center">
+              <img
+                className={styles.logo}
+                src={imgSrc}
+                alt={imgAlt && imgAlt.length ? imgAlt : 'Logo'}
+              />
+            </div>
+          }
+        </div>
+      </div>
+    </div>
+  );
+>>>>>>> 63245816f13db8e9ffd73634b0f858a48a5ba3e1
 }
 
 PageBanner.propTypes = {
@@ -84,9 +114,13 @@ PageBanner.propTypes = {
   subTitle: PropTypes.string,
   imgSrc: PropTypes.string,
   imgAlt: PropTypes.string,
+<<<<<<< HEAD
   searchQuery: PropTypes.string,
   includeSearchBar: PropTypes.bool,
   push: PropTypes.func,
 };
 
 export default connect(null, { push })(PageBanner);
+=======
+};
+>>>>>>> 63245816f13db8e9ffd73634b0f858a48a5ba3e1

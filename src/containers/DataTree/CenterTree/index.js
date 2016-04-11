@@ -5,6 +5,7 @@ import styles from '../DataTree.scss';
 import Tree from '../Tree';
 import IndividualCenterTree from './IndividualCenterTree';
 
+
 export default function CenterTree(props) {
   const centerNames = [];
   each(props.entities.datasets, (ds) => {
@@ -26,6 +27,7 @@ export default function CenterTree(props) {
       {
         centerNames.map((centerName, index) =>
           <IndividualCenterTree key={index} entities={props.entities} centerName={centerName} />
+
         )
       }
     </Tree>
