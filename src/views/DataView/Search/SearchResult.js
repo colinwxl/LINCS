@@ -1,15 +1,13 @@
 import React, { PropTypes, Component } from 'react';
 import { connect } from 'react-redux';
 import moment from 'moment';
-// import each from 'lodash/each';
-//
+
 import { loadDatasets } from 'actions/entities';
-import styles from './Dataset.scss';
+import styles from './Search.scss';
 import CitationsModal from 'components/CitationsModal';
 
 const mapStateToProps = ({ entities }) => ({
   cells: entities.cells,
-  datasets: entities.datasets,
 });
 
 function getIconLinks(ds) {
@@ -35,16 +33,12 @@ function getIconLinks(ds) {
   };
 }
 
-export class Dataset extends Component {
+export class SearchResult extends Component {
   constructor(props) {
     super(props);
     this.state = {
       isModalOpen: false,
     };
-  }
-
-  componentWillMount() {
-    this.props.loadDatasets();
   }
 
   _openCitationsModal = () => {
@@ -56,12 +50,11 @@ export class Dataset extends Component {
   }
 
   render() {
-    const { cells, cellId, className, datasets, datasetId } = this.props;
-    const ds = datasets[datasetId];
-    const cell = cells[cellId];
+    const ds = this.props.dataset;
+    const cells = ds.cells.map(cellId => this.props.cells[cellId]);
     const links = getIconLinks(ds);
     return (
-      <div className={`${styles.dataset} ${className}`}>
+      <div className={styles.dataset}>
         <div className={styles['ds-header']}>
           <div className="row">
             <div className="col-xs-8">
@@ -86,7 +79,7 @@ export class Dataset extends Component {
             onModalClose={this._closeCitationsModal}
           />
           <span>&nbsp;-&nbsp;</span>
-          <a href={`/LINCS/api/v1/datasets/${datasetId}/download`}>
+          <a href={`/LINCS/api/v1/datasets/${ds.id}/download`}>
             Download data package
           </a>
           <span>&nbsp;-&nbsp;</span>
@@ -98,7 +91,7 @@ export class Dataset extends Component {
           {
             links.useSlicr &&
             <a
-              href={`http://amp.pharm.mssm.edu/Slicr/#/search/${cell ? cell.name : ''}`}
+              href={`http://amp.pharm.mssm.edu/Slicr/#/search/${cells.join(',')}`}
               target="_blank"
             >
               Analyze with Slicr
@@ -134,16 +127,11 @@ export class Dataset extends Component {
   }
 }
 
-Dataset.propTypes = {
+SearchResult.propTypes = {
   cells: PropTypes.object,
-  cellId: PropTypes.number,
-  className: PropTypes.string,
-  datasets: PropTypes.object,
-  datasetId: PropTypes.number,
+  dataset: PropTypes.object,
   loadDatasets: PropTypes.func,
   incrementDatasetClicks: PropTypes.func,
 };
 
-export default connect(mapStateToProps, {
-  loadDatasets,
-})(Dataset);
+export default connect(mapStateToProps, { loadDatasets })(SearchResult);

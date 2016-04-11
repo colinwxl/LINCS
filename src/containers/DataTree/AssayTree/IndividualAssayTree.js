@@ -7,10 +7,6 @@ import styles from '../DataTree.scss';
 import Tree from '../Tree';
 import Dataset from 'containers/Dataset';
 
-const mapStateToProps = (state) => ({
-  datasets: state.entities.datasets,
-});
-
 export class IndividualAssayTree extends Component {
   constructor(props) {
     super(props);
@@ -29,9 +25,9 @@ export class IndividualAssayTree extends Component {
   }
 
   render() {
-    const { datasets, assayName, methodName, cellId, centerName } = this.props;
+    const { entities, assayName, methodName, cellId, centerName } = this.props;
     const childDatasets = [];
-    each(datasets, (ds) => {
+    each(entities.datasets, (ds) => {
       const { cells, assay, method } = ds;
       if ((assayName && assay === assayName) || (methodName && method === methodName)) {
         if (cellId && cells.indexOf(parseInt(cellId, 10)) !== -1) {
@@ -73,7 +69,7 @@ export class IndividualAssayTree extends Component {
 }
 
 IndividualAssayTree.propTypes = {
-  datasets: PropTypes.object,
+  entities: PropTypes.object,
   assayName: PropTypes.string,
   methodName: PropTypes.string,
   cellId: PropTypes.number,
@@ -81,6 +77,6 @@ IndividualAssayTree.propTypes = {
   incrementDatasetClicks: PropTypes.func,
 };
 
-export default connect(mapStateToProps, {
+export default connect(null, {
   incrementDatasetClicks,
 })(IndividualAssayTree);

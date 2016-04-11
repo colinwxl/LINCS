@@ -35,9 +35,58 @@
   }
 }
 
+.flex,
+.search {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
 .logo {
   height: auto;
   max-height: 150px;
   max-width: 100%;
   width: 100% \9;
+}
+
+
+.search {
+  max-width: 600px;
+}
+
+.search-bar {
+  background-color: transparent;
+  border: 1px solid $gray;
+  border-radius: 0;
+  flex-grow: 10;
+  height: 38px;
+  padding: 6px 9px 0;
+  position: relative;
+
+  input {
+    background-color: transparent;
+    border: 0;
+    font-size: 1rem;
+    height: 26px;
+    left: 0;
+    line-height: 26px;
+    margin: 0;
+    outline: none;
+    padding: 0;
+    position: absolute;
+    width: 100%;
+  }
+}
+
+.submit {
+  background-color: transparent;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-size: 18px 18px;
+  border-bottom-left-radius: 0;
+  border-top-left-radius: 0;
+  cursor: pointer;
+  height: 38px;
+  text-indent: -9999em;
+  width: 38px;
 }

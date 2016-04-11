@@ -8,19 +8,23 @@ import TissueCellTree from './TissueCellTree';
 // import DiseaseTree from './DiseaseTree';
 import DateTree from './DateTree';
 
-export default class DataTree extends Component {
-  componentWillMount = () => {
+const mapStateToProps = (state) => ({
+  entities: state.entities,
+});
+
+export class DataTree extends Component {
+  componentDidMount = () => {
     this.props.loadDatasets();
   }
 
   render() {
     return (
       <div className="col-lg-8 col-lg-offset-2">
-        <AssayTree />
-        <CenterTree />
-        <TissueCellTree />
-        {/* <DiseaseTree /> */}
-        <DateTree />
+        <AssayTree entities={this.props.entities} />
+        <CenterTree entities={this.props.entities} />
+        <TissueCellTree entities={this.props.entities} />
+        {/* <DiseaseTree entities={this.props.entities} /> */}
+        <DateTree entities={this.props.entities} />
       </div>
     );
   }
@@ -28,6 +32,7 @@ export default class DataTree extends Component {
 
 DataTree.propTypes = {
   loadDatasets: PropTypes.func.isRequired,
+  entities: PropTypes.object,
 };
 
-export default connect(null, { loadDatasets })(DataTree);
+export default connect(mapStateToProps, { loadDatasets })(DataTree);

@@ -7,7 +7,7 @@ import rootReducer from 'reducers';
 import api from 'middleware/api';
 
 export default function configureStore(config: Object): Object {
-  const { history } = config;
+  const { browserHistory } = config;
   const initialState = config.initialState || {};
 
   // Compose final middleware and use devtools
@@ -20,7 +20,7 @@ export default function configureStore(config: Object): Object {
     rootReducer,
     initialState,
     compose(
-      applyMiddleware(thunk, api, routerMiddleware(history)),
+      applyMiddleware(thunk, api, routerMiddleware(browserHistory)),
       devTools
     )
   );

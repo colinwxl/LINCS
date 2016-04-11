@@ -1,19 +1,14 @@
 import React, { PropTypes } from 'react';
-import { connect } from 'react-redux';
 import each from 'lodash/each';
 
 import styles from '../DataTree.scss';
 import Tree from '../Tree';
 import IndividualAssayTree from './IndividualAssayTree';
 
-const mapStateToProps = (state) => ({
-  datasets: state.entities.datasets,
-});
-
-export function AssayClassTree(props) {
-  const { datasets, assayClass } = props;
+export default function AssayClassTree(props) {
+  const { entities, assayClass } = props;
   const assayClassTree = { collapsed: true, methods: [] };
-  each(datasets, (ds) => {
+  each(entities.datasets, (ds) => {
     const { classification, method } = ds;
     if (assayClass === classification && assayClassTree.methods.indexOf(method) === -1) {
       assayClassTree.methods.push(method);
@@ -32,7 +27,7 @@ export function AssayClassTree(props) {
     <Tree nodeLabel={label} defaultCollapsed>
       {
         assayClassTree.methods.map((methodName, index) =>
-          <IndividualAssayTree key={index} methodName={methodName} />
+          <IndividualAssayTree key={index} entities={entities} methodName={methodName} />
         )
       }
     </Tree>
@@ -40,8 +35,6 @@ export function AssayClassTree(props) {
 }
 
 AssayClassTree.propTypes = {
-  datasets: PropTypes.object,
+  entities: PropTypes.object,
   assayClass: PropTypes.string,
 };
-
-export default connect(mapStateToProps, {})(AssayClassTree);

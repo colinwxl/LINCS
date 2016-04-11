@@ -1,16 +1,11 @@
 import React, { PropTypes } from 'react';
-import { connect } from 'react-redux';
 
 import styles from '../DataTree.scss';
 import Tree from '../Tree';
 import IndividualTissueTree from './IndividualTissueTree';
 
-const mapStateToProps = ({ entities }) => ({
-  tissues: entities.tissues,
-});
-
-export function TissueCellTree(props) {
-  const { tissues } = props;
+export default function TissueCellTree(props) {
+  const tissues = props.entities.tissues;
 
   let label = <span className={styles['loading-node']}>Loading...</span>;
   if (Object.keys(tissues).length === 0) {
@@ -22,7 +17,11 @@ export function TissueCellTree(props) {
     <Tree nodeLabel={label} defaultCollapsed>
       {
         Object.keys(tissues).map((tissueId, index) =>
-          <IndividualTissueTree key={index} tissueId={parseInt(tissueId, 10)} />
+          <IndividualTissueTree
+            key={index}
+            entities={props.entities}
+            tissueId={parseInt(tissueId, 10)}
+          />
         )
       }
     </Tree>
@@ -30,7 +29,5 @@ export function TissueCellTree(props) {
 }
 
 TissueCellTree.propTypes = {
-  tissues: PropTypes.object,
+  entities: PropTypes.object,
 };
-
-export default connect(mapStateToProps, {})(TissueCellTree);

@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react';
 import Modal from 'react-modal';
 
-import styles from './Dataset.scss';
+import styles from './CitationsModal.scss';
 
 const modalStyles = {
   overlay: {

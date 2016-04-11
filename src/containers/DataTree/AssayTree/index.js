@@ -1,19 +1,14 @@
 import React, { PropTypes } from 'react';
-import { connect } from 'react-redux';
 import each from 'lodash/each';
 
 import styles from '../DataTree.scss';
 import Tree from '../Tree';
 import AssayClassTree from './AssayClassTree';
 
-const mapStateToProps = (state) => ({
-  datasets: state.entities.datasets,
-});
-
-export function AssayTree(props) {
-  const { datasets } = props;
+export default function AssayTree(props) {
+  const { entities } = props;
   const assayClasses = [];
-  each(datasets, (ds) => {
+  each(entities.datasets, (ds) => {
     if (assayClasses.indexOf(ds.classification) === -1) {
       assayClasses.push(ds.classification);
     }
@@ -22,7 +17,7 @@ export function AssayTree(props) {
   assayClasses.sort();
 
   let label = <span className={styles['loading-node']}>Loading...</span>;
-  if (Object.keys(datasets).length === 0) {
+  if (Object.keys(entities.datasets).length === 0) {
     return <Tree nodeLabel={label} defaultCollapsed />;
   }
 
@@ -31,7 +26,7 @@ export function AssayTree(props) {
     <Tree nodeLabel={label} defaultCollapsed>
       {
         assayClasses.map((assayClass, index) =>
-          <AssayClassTree key={index} assayClass={assayClass} />
+          <AssayClassTree key={index} entities={entities} assayClass={assayClass} />
         )
       }
     </Tree>
@@ -39,8 +34,5 @@ export function AssayTree(props) {
 }
 
 AssayTree.propTypes = {
-  datasets: PropTypes.object,
-  cells: PropTypes.object,
+  entities: PropTypes.object,
 };
-
-export default connect(mapStateToProps, {})(AssayTree);

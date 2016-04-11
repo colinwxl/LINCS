@@ -1,0 +1,19 @@
+// scss-lint:disable
+
+@import 'variables';
+
+.wrapper {
+  margin-bottom: -2rem;
+  padding-bottom: 2rem;
+}
+
+.title {
+  color: $darker-gray;
+  font-size: 2rem;
+  font-weight: 400;
+  text-align: center;
+
+  @media (min-width: 544px) {
+    text-align: left;
+  }
+}

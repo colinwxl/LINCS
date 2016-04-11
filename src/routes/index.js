@@ -26,12 +26,18 @@ import ConsortiumMeetings from 'views/CommunityView/ConsortiumMeetings';
 import Webinars from 'views/CommunityView/Webinars';
 import WorkshopsAndSymposia from 'views/CommunityView/WorkshopsAndSymposia';
 
+// Data
+import DataOverview from 'views/DataView/Overview';
+import DataReleases from 'views/DataView/Releases';
+import DataStandards from 'views/DataView/Standards';
+import DataSearch from 'views/DataView/Search';
+import DataReleasePolicy from 'views/DataView/ReleasePolicy';
+
 // PubsNews
 import PublicationsView from 'views/PublicationsView';
 import NewsView from 'views/NewsView';
 
 import AnalyzeView from 'views/AnalyzeView';
-import Data from 'views/DataView';
 import RegisterView from 'views/RegisterView';
 import LoginView from 'views/LoginView';
 import NotFoundView from 'views/NotFoundView';
@@ -68,11 +74,18 @@ export default (/* store */) => (
     <Route path="/community/webinars" component={Webinars} />
     <Route path="/community/workshops-and-symposia" component={WorkshopsAndSymposia} />
 
+    <Redirect from="/data" to="/data/overview" />
+    <Route path="/data/overview" component={DataOverview} />
+    <Route path="/data/releases" component={DataReleases} />
+    <Route path="/data/standards" component={DataStandards} />
+    <Route path="/data/search" component={DataSearch} />
+    <Route path="/data/release-policy" component={DataReleasePolicy} />
+
+
     <Route path="/publications" component={PublicationsView} />
     <Route path="/news" component={NewsView} />
 
     <Route path="/analyze" component={AnalyzeView} />
-    <Route path="/data" component={Data} />
 
     <Route path="/register" component={RegisterView} />
     <Route path="/login" component={LoginView} />

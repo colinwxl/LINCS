@@ -1,20 +1,14 @@
 import React, { PropTypes } from 'react';
-import { connect } from 'react-redux';
 import each from 'lodash/each';
 
 import styles from '../DataTree.scss';
 import Tree from '../Tree';
 import IndividualAssayTree from '../AssayTree/IndividualAssayTree';
 
-const mapStateToProps = ({ entities }) => ({
-  datasets: entities.datasets,
-  cells: entities.cells,
-});
-
-export function IndividualCenterTree(props) {
-  const { datasets, centerName } = props;
+export default function IndividualCenterTree(props) {
+  const { entities, centerName } = props;
   const centerTree = { collapsed: true, assays: [] };
-  each(datasets, (ds) => {
+  each(entities.datasets, (ds) => {
     const { assay } = ds;
     if (centerName === ds.centerName && centerTree.assays.indexOf(assay) === -1) {
       centerTree.assays.push(assay);
@@ -25,7 +19,12 @@ export function IndividualCenterTree(props) {
     <Tree nodeLabel={label} defaultCollapsed>
       {
         centerTree.assays.map((assayName, index) =>
-          <IndividualAssayTree key={index} assayName={assayName} centerName={centerName} />
+          <IndividualAssayTree
+            key={index}
+            entities={entities}
+            assayName={assayName}
+            centerName={centerName}
+          />
         )
       }
     </Tree>
@@ -33,9 +32,6 @@ export function IndividualCenterTree(props) {
 }
 
 IndividualCenterTree.propTypes = {
-  datasets: PropTypes.object,
-  cells: PropTypes.object,
+  entities: PropTypes.object,
   centerName: PropTypes.string,
 };
-
-export default connect(mapStateToProps, {})(IndividualCenterTree);

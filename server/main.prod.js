@@ -20,7 +20,6 @@ app.use(convert(compress()));
 // Require routes
 require('./routes').default(app);
 
-
 // Static server - serve all files from static folder to /LINCS
 const stat = new Koa();
 console.log('Serving static files from:', path.join(__dirname, 'dist'));
