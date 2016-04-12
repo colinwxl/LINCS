@@ -3,6 +3,7 @@ const debug = _debug('app:server:data:elastic');
 
 import { esClient } from '../serverConf';
 import { Dataset } from '../models/Dataset';
+import { Cell } from '../models/Cell';
 
 function indexDatasets() {
   debug('Indexing datasets');
@@ -15,7 +16,7 @@ function indexDatasets() {
         Promise.all(datasets.map(ds =>
           new Promise((res, rej) => {
             esClient.index({
-              index: 'datasets',
+              index: 'lincs',
               type: 'dataset',
               id: ds.id,
               body: {
@@ -43,8 +44,42 @@ function indexDatasets() {
   });
 }
 
-const datasetSettings = {
-  index: 'datasets',
+function indexCells() {
+  debug('Indexing cells');
+  return new Promise((resolve, reject) => {
+    Cell
+      .forge()
+      .fetchAll()
+      .then(cellModels => cellModels.toJSON())
+      .then(cells => {
+        Promise.all(cells.map(cell =>
+          new Promise((res, rej) => {
+            esClient.index({
+              index: 'lincs',
+              type: 'cell',
+              id: cell.id,
+              body: {
+                name: cell.name,
+                lincs_id: cell.lincsId,
+                source: cell.source,
+              },
+            }, (err, resp) => {
+              if (err) {
+                rej(err);
+              } else {
+                res(resp);
+              }
+            });
+          })
+        ))
+        .then(() => resolve())
+        .catch(e => reject(e));
+      });
+  });
+}
+
+const lincsSettings = {
+  index: 'lincs',
   analysis: {
     filter: {
       autocomplete_filter: {
@@ -67,7 +102,7 @@ const datasetSettings = {
 };
 
 const datasetMapping = {
-  index: 'datasets',
+  index: 'lincs',
   type: 'dataset',
   body: {
     dataset: {
@@ -117,16 +152,50 @@ const datasetMapping = {
   },
 };
 
-esClient.indices.delete({ index: 'datasets' }, () => {
-  esClient.indices.create({ index: 'datasets' }, () => {
-    esClient.indices.close({ index: 'datasets' }, () => {
-      esClient.indices.putSettings(datasetSettings, () => {
-        esClient.indices.open({ index: 'datasets' }, () => {
+const cellMapping = {
+  index: 'lincs',
+  type: 'cell',
+  body: {
+    cell: {
+      properties: {
+        name: {
+          type: 'string',
+          // index_analyzer: 'autocomplete',
+          // search_analyzer: 'standard',
+        },
+        lincs_id: {
+          type: 'string',
+          // index_analyzer: 'autocomplete',
+          // search_analyzer: 'standard',
+        },
+        source: {
+          type: 'string',
+          // index_analyzer: 'autocomplete',
+          // search_analyzer: 'standard',
+        },
+      },
+    },
+  },
+};
+
+
+esClient.indices.delete({ index: '_all' }, () => {
+  esClient.indices.create({ index: 'lincs' }, () => {
+    esClient.indices.close({ index: 'lincs' }, () => {
+      esClient.indices.putSettings(lincsSettings, () => {
+        esClient.indices.open({ index: 'lincs' }, () => {
           esClient.indices.putMapping(datasetMapping, () => {
             indexDatasets()
               .then(() => {
                 debug('Datasets indexed.');
-                process.exit(0);
+                esClient.indices.putMapping(cellMapping, () => {
+                  indexCells()
+                    .then(() => {
+                      debug('Cells indexed.');
+                      process.exit(0);
+                    })
+                    .catch(() => process.exit(1));
+                });
               })
               .catch(() => process.exit(1));
           });

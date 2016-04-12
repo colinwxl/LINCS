@@ -38,20 +38,15 @@ router.get('/search', async (ctx) => {
     ctx.throw(400, 'Query parameter q required for search.');
   }
   const includePivot = !!ctx.query.includePivot;
-  let withRelated = [];
-  if (ctx.query.include) {
-    withRelated = ctx.query.include.split(',');
-  }
   const resp = await esClient.search({
-    index: 'datasets',
-    type: 'dataset',
+    index: 'lincs',
     size: ctx.query.limit || 100,
     fields: ['_id'],
     body: {
       query: {
         multi_match: {
           fields: [
-            'full_assay_name', 'description', 'center_name', 'assay',
+            'name', 'source', 'full_assay_name', 'description', 'center_name', 'assay',
             'method', 'classification', 'physical_detection', 'lincs_id',
           ],
           query: ctx.query.q,
@@ -62,9 +57,32 @@ router.get('/search', async (ctx) => {
       },
     },
   });
-  const ids = resp.hits.hits.map(doc => parseInt(doc._id, 10));
-  const dsModels = await Dataset.query(qb => qb.whereIn('id', ids)).fetchAll({ withRelated });
-  ctx.body = dsModels.toJSON({ omitPivot: !includePivot });
+
+  // Result from elasticsearch has objects with
+  // { _id: 1, type: 'dataset' } and { _id: 2, type: 'cell' }
+  // Split results to find all dsIds and cellIds
+  const dsIds = [];
+  const cellIds = [];
+  resp.hits.hits.forEach(doc => {
+    const id = parseInt(doc._id, 10);
+    if (doc._type === 'dataset') {
+      dsIds.push(id);
+    } else if (doc._type === 'cell') {
+      cellIds.push(id);
+    }
+  });
+  // Fetch all datasets. May change later if a specific query is available
+  const dsModels = await Dataset.fetchAll({ withRelated: ['cells'] });
+  const datasets = dsModels.toJSON({ omitPivot: !includePivot });
+  // Send all datasets where dataset.id is in dsIds or one of the cells in the
+  // dataset has an id that is in cellIds.
+  ctx.body = datasets.filter(ds => {
+    if (dsIds.indexOf(ds.id) !== -1) {
+      return true;
+    }
+    const dsCellIds = ds.cells.map(cell => cell.id);
+    return cellIds.some((id) => dsCellIds.indexOf(id) >= 0);
+  });
 });
 
 // ctx.request.body.datasetIds is an array of dataset ids whose clicks need to be incremented.

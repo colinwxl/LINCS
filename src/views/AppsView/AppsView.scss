@@ -1,0 +1,20 @@
+@import 'variables';
+
+.categories {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+.category-check {
+  background-color: $teal;
+  border-color: $teal;
+  color: $white;
+}
+
+.active {
+  background-color: darken($teal, 8);
+  background-image: none;
+  border-color: darken($teal, 10);
+  color: $white;
+}
