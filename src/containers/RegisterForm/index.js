@@ -38,7 +38,7 @@ const validate = values => {
     errors.password = 'Password does not contain a number.';
   } else if (values.password.search(/[a-zA-Z]/) === -1) {
     errors.password = 'Password does not contain a letter';
-  } else if (values.password.search(/[^a-zA-Z0-9\!\@\#\$\%\^\&\*\(\)\_\+]/) !== -1) {
+  } else if (values.password.search(/[^a-zA-Z0-9!@#\$%\^&\*\(\)_\+]/) !== -1) {
     errors.password = 'Password contains a bad character. Make sure only proper characters ' +
       'are used.';
   }

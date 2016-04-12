@@ -24,6 +24,7 @@ export class PageBanner extends Component {
   render() {
     const { title, subTitle, imgSrc, imgAlt, includeSearchBar } = this.props;
     const hasImage = !!imgSrc && imgSrc.length;
+    const alt = imgAlt && imgAlt.length ? imgAlt : 'Logo';
     return (
       <div className={styles.wrapper}>
         <div className={`container ${styles.inner}`}>
@@ -38,7 +39,7 @@ export class PageBanner extends Component {
                 <img
                   className={styles.logo}
                   src={imgSrc}
-                  alt={imgAlt && imgAlt.length ? imgAlt : 'Logo'}
+                  alt={alt}
                 />
               </div>
             }

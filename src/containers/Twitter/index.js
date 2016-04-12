@@ -45,7 +45,7 @@ export class Twitter extends Component {
     });
     // Other https://t.co/... urls occur at the end of the tweet and
     // refer to images so remove them.
-    const urlRegex = new RegExp('https:\/\/t\.co\/[0-9a-z]*', 'ig');
+    const urlRegex = new RegExp('https://t.co/[0-9a-z]*', 'ig');
     tweetHtml = tweetHtml.replace(urlRegex, '');
     return { __html: tweetHtml };
   }
