@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import createBrowserHistory from 'history/lib/createBrowserHistory';
+import createHashHistory from 'history/lib/createHashHistory';
 import { useRouterHistory } from 'react-router';
 import { syncHistoryWithStore } from 'react-router-redux';
 import Modal from 'react-modal';
@@ -11,8 +11,8 @@ import configureStore from 'store/configureStore';
 // import { attemptLoginFromToken } from 'actions/auth';
 import { loadDatasets } from 'actions/entities';
 
-const historyConfig = { basename: '/LINCS' };
-const browserHistory = useRouterHistory(createBrowserHistory)(historyConfig);
+const historyConfig = { queryKey: false, basename: '/LINCS' };
+const browserHistory = useRouterHistory(createHashHistory)(historyConfig);
 const initialState = window.__INITIAL_STATE__;
 const store = configureStore({ initialState, browserHistory });
 const history = syncHistoryWithStore(browserHistory, store, {

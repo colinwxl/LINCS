@@ -26,7 +26,6 @@ import ConsortiumMeetings from 'views/CommunityView/ConsortiumMeetings';
 import Webinars from 'views/CommunityView/Webinars';
 import WorkshopsAndSymposia from 'views/CommunityView/WorkshopsAndSymposia';
 
-<<<<<<< HEAD
 // Data
 import DataOverview from 'views/DataView/Overview';
 import DataReleases from 'views/DataView/Releases';
@@ -34,17 +33,11 @@ import DataStandards from 'views/DataView/Standards';
 import DataSearch from 'views/DataView/Search';
 import DataReleasePolicy from 'views/DataView/ReleasePolicy';
 
-=======
->>>>>>> 63245816f13db8e9ffd73634b0f858a48a5ba3e1
 // PubsNews
 import PublicationsView from 'views/PublicationsView';
 import NewsView from 'views/NewsView';
 
 import AnalyzeView from 'views/AnalyzeView';
-<<<<<<< HEAD
-=======
-import Data from 'views/DataView';
->>>>>>> 63245816f13db8e9ffd73634b0f858a48a5ba3e1
 import RegisterView from 'views/RegisterView';
 import LoginView from 'views/LoginView';
 import NotFoundView from 'views/NotFoundView';
@@ -54,55 +47,47 @@ export default (/* store */) => (
     <IndexRoute component={HomeView} />
 
     <Redirect from="/centers" to="/centers/overview" />
-    <Route path="/centers/overview" component={CentersOverview} />
-    <Route path="/centers/data-and-signature-generating-centers" component={DSGCs} />
-    <Route path="/centers/data-and-signature-generating-centers/dtoxs" component={DToxS} />
-    <Route path="/centers/data-and-signature-generating-centers/hms-lincs" component={HMSLINCS} />
+    <Route path="centers/overview" component={CentersOverview} />
+    <Route path="centers/data-and-signature-generating-centers" component={DSGCs} />
+    <Route path="centers/data-and-signature-generating-centers/dtoxs" component={DToxS} />
+    <Route path="centers/data-and-signature-generating-centers/hms-lincs" component={HMSLINCS} />
     <Route
-      path="/centers/data-and-signature-generating-centers/lincs-transcriptomics"
+      path="centers/data-and-signature-generating-centers/lincs-transcriptomics"
       component={LINCSTranscriptomics}
     />
     <Route
-      path="/centers/data-and-signature-generating-centers/lincs-pccse"
+      path="centers/data-and-signature-generating-centers/lincs-pccse"
       component={LINCSPCCSE}
     />
-    <Route path="/centers/data-and-signature-generating-centers/mep-lincs" component={MEPLINCS} />
+    <Route path="centers/data-and-signature-generating-centers/mep-lincs" component={MEPLINCS} />
     <Route
-      path="/centers/data-and-signature-generating-centers/neurolincs"
+      path="centers/data-and-signature-generating-centers/neurolincs"
       component={NeuroLINCS}
     />
-    <Route path="/centers/dcic" component={DCIC} />
-    <Route path="/centers/phase-one" component={PhaseOne} />
+    <Route path="centers/dcic" component={DCIC} />
+    <Route path="centers/phase-one" component={PhaseOne} />
 
     <Redirect from="/community" to="/community/overview" />
-    <Route path="/community/overview" component={CommunityOverview} />
-    <Route path="/community/funding-opportunities" component={FundingOpportunities} />
-    <Route path="/community/consortium-meetings" component={ConsortiumMeetings} />
-    <Route path="/community/webinars" component={Webinars} />
-    <Route path="/community/workshops-and-symposia" component={WorkshopsAndSymposia} />
+    <Route path="community/overview" component={CommunityOverview} />
+    <Route path="community/funding-opportunities" component={FundingOpportunities} />
+    <Route path="community/consortium-meetings" component={ConsortiumMeetings} />
+    <Route path="community/webinars" component={Webinars} />
+    <Route path="community/workshops-and-symposia" component={WorkshopsAndSymposia} />
 
-<<<<<<< HEAD
     <Redirect from="/data" to="/data/overview" />
-    <Route path="/data/overview" component={DataOverview} />
-    <Route path="/data/releases" component={DataReleases} />
-    <Route path="/data/standards" component={DataStandards} />
-    <Route path="/data/search" component={DataSearch} />
-    <Route path="/data/release-policy" component={DataReleasePolicy} />
+    <Route path="data/overview" component={DataOverview} />
+    <Route path="data/releases" component={DataReleases} />
+    <Route path="data/standards" component={DataStandards} />
+    <Route path="data/search" component={DataSearch} />
+    <Route path="data/release-policy" component={DataReleasePolicy} />
 
+    <Route path="publications" component={PublicationsView} />
+    <Route path="news" component={NewsView} />
 
-=======
->>>>>>> 63245816f13db8e9ffd73634b0f858a48a5ba3e1
-    <Route path="/publications" component={PublicationsView} />
-    <Route path="/news" component={NewsView} />
+    <Route path="analyze" component={AnalyzeView} />
 
-    <Route path="/analyze" component={AnalyzeView} />
-<<<<<<< HEAD
-=======
-    <Route path="/data" component={Data} />
->>>>>>> 63245816f13db8e9ffd73634b0f858a48a5ba3e1
-
-    <Route path="/register" component={RegisterView} />
-    <Route path="/login" component={LoginView} />
+    <Route path="register" component={RegisterView} />
+    <Route path="login" component={LoginView} />
 
     <Route path="*" component={NotFoundView} />
   </Route>

@@ -28,7 +28,9 @@ export default function Releases(/* props */) {
               tools</Link> developed by the <Link to="/centers/dcic">BD2K-LINCS Data
               Coordination and Integration Center</Link>.
             </p>
-            <DataTree />
+            <div className="col-lg-10 col-lg-offset-1">
+              <DataTree />
+            </div>
           </div>
         </div>
       </div>

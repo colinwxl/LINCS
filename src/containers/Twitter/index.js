@@ -81,7 +81,7 @@ export class Twitter extends Component {
           tweets.map(status => {
             const { id, createdAt, user } = status;
             return (
-              <div className="container">
+              <div key={id} className="container">
                 <div className="row">
                   <div className="col-xs-12">
                     <div className={`clearfix ${styles.tweeter}`}>

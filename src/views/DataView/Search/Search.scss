@@ -5,6 +5,15 @@
   margin: 0 auto 2rem;
 }
 
+.search-loading {
+  text-align: center;
+  width: 100%;
+
+  i {
+    color: $teal;
+  }
+}
+
 .search-results {
   max-width: 1000px;
 

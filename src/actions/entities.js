@@ -29,8 +29,10 @@ export function loadDatasets(include) {
     const { datasets } = state.entities;
     const { datasetsPending } = state.pendingRequests;
     if ((datasets && Object.keys(datasets).length) || datasetsPending) {
+      console.log('Datasets exist');
       return null;
     }
+    console.log('Fetching datasets.');
     return dispatch(fetchDatasets(include));
   };
 }

@@ -4,4 +4,4 @@ dist/**
 *.spec.js
 src/index.html
 
-seed/**
+seed/*.js

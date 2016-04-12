@@ -6,7 +6,6 @@
   ],
   "plugins": ["transform-runtime"],
   "ignore": [
-    "./server/data/seed/datasets.js",
-    "./server/data/seed/smallMolecules.js",
+    "./seed/*.js",
   ]
 }

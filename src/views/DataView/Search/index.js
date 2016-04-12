@@ -8,20 +8,20 @@ import PageBanner from 'components/PageBanner';
 import styles from './Search.scss';
 
 const mapStateToProps = (state) => ({
-  entities: state.entities,
+  datasets: state.entities.datasets,
 });
 // export function Search(/* props */) {
 export class Search extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      isSearching: false,
       q: '',
       searchResultIds: [],
-      showSearchResults: false,
     };
   }
 
-  componentDidMount() {
+  componentWillMount() {
     this.props.loadDatasets();
     this._findResults(this.props.location.query.q);
   }
@@ -31,36 +31,50 @@ export class Search extends Component {
   }
 
   _findResults = (query) => {
+    this.setState({ isSearching: true });
     fetch(`/LINCS/api/v1/datasets/search?q=${query}`)
       .then(response => handleResponse(response))
       .then(response => response.json())
       .then(datasets => {
         this.setState({
           searchResultIds: datasets.map(ds => ds.id),
-          showSearchResults: true,
+          isSearching: false,
         });
       });
   }
 
   render() {
     const searchQ = this.props.location.query.q;
-    const { datasets } = this.props.entities;
-    const { searchResultIds } = this.state;
+    const { datasets } = this.props;
+    const { searchResultIds, isSearching } = this.state;
     return (
       <div className={styles.wrapper}>
         <PageBanner title="Search Results" includeSearchBar searchQuery={searchQ} />
         <div className="container">
           <div className="row">
             <div className="col-xs-12">
-              <div className={styles['search-results']}>
-                <h4>
-                  {searchResultIds.length} results found
-                  for <span className={styles.query}>{searchQ}</span>
-                </h4>
-                <div className={styles.datasets}>
-                  {searchResultIds.map(id => <SearchResult key={id} dataset={datasets[id]} />)}
-                </div>
-              </div>
+                {
+                  isSearching
+                  ? (
+                    <div className={styles['search-loading']}>
+                      <i className="fa fa-circle-o-notch fa-spin fa-2x" />
+                    </div>
+                  )
+                  : (
+                    <div className={styles['search-results']}>
+                      <h4>
+                        {searchResultIds.length} results found
+                        for <span className={styles.query}>{searchQ}</span>
+                      </h4>
+                      <div className={styles.datasets}>
+                        {
+                          searchResultIds.map(id =>
+                          <SearchResult key={id} dataset={datasets[id]} />)
+                        }
+                      </div>
+                    </div>
+                  )
+                }
             </div>
           </div>
         </div>
@@ -70,7 +84,7 @@ export class Search extends Component {
 }
 
 Search.propTypes = {
-  entities: PropTypes.object,
+  datasets: PropTypes.object,
   location: PropTypes.object,
   loadDatasets: PropTypes.func,
 };

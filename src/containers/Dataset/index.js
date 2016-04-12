@@ -5,11 +5,7 @@ import moment from 'moment';
 //
 import { loadDatasets } from 'actions/entities';
 import styles from './Dataset.scss';
-<<<<<<< HEAD
 import CitationsModal from 'components/CitationsModal';
-=======
-import CitationsModal from './CitationsModal';
->>>>>>> 63245816f13db8e9ffd73634b0f858a48a5ba3e1
 
 const mapStateToProps = ({ entities }) => ({
   cells: entities.cells,

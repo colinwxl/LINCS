@@ -128,7 +128,7 @@ export class DateTree extends Component {
 
 DateTree.propTypes = {
   datasets: PropTypes.object,
-  incrementDatasetClicks: PropTypes.object,
+  incrementDatasetClicks: PropTypes.func,
 };
 
 export default connect(mapStateToProps, {

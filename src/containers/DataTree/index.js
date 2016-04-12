@@ -19,7 +19,7 @@ export class DataTree extends Component {
 
   render() {
     return (
-      <div className="col-lg-8 col-lg-offset-2">
+      <div>
         <AssayTree entities={this.props.entities} />
         <CenterTree entities={this.props.entities} />
         <TissueCellTree entities={this.props.entities} />
