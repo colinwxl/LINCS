@@ -44,7 +44,7 @@ export class Navigation extends Component {
                 Data
               </Link>
               <Link className={styles.link} to="/applications">
-                Apps
+                Applications
               </Link>
               <Link className={styles.link} to="/community">
                 Community

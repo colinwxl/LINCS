@@ -46,7 +46,6 @@ $hover-color: #cacaca;
   a {
     color: $white;
     cursor: pointer;
-    font-weight: 500;
 
     &:hover {
       color: $hover-color;
@@ -72,6 +71,7 @@ $hover-color: #cacaca;
 
 .credit {
   padding-right: 0;
+
   a {
     font-weight: 600;
   }

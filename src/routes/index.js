@@ -37,7 +37,7 @@ import DataReleasePolicy from 'views/DataView/ReleasePolicy';
 import PublicationsView from 'views/PublicationsView';
 import NewsView from 'views/NewsView';
 
-import AnalyzeView from 'views/AnalyzeView';
+import AppsView from 'views/AppsView';
 import RegisterView from 'views/RegisterView';
 import LoginView from 'views/LoginView';
 import NotFoundView from 'views/NotFoundView';
@@ -84,7 +84,7 @@ export default (/* store */) => (
     <Route path="publications" component={PublicationsView} />
     <Route path="news" component={NewsView} />
 
-    <Route path="analyze" component={AnalyzeView} />
+    <Route path="applications" component={AppsView} />
 
     <Route path="register" component={RegisterView} />
     <Route path="login" component={LoginView} />
