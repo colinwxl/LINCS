@@ -80,9 +80,10 @@
       }
     },
     "start:prod": {
-      "command": "node dist/server",
+      "command": "node dist/main",
       "env": {
-        "NODE_ENV": "production"
+        "NODE_ENV": "production",
+        "DEBUG": "app:*"
       }
     },
     "test": {

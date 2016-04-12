@@ -96,43 +96,43 @@ export default class ConsortiumMeetings extends Component {
               <h2>Previous Years</h2>
               <div className={styles['info-flex']}>
                 <div>
-                  <Link to="/files/LINCS-2014-Consortium-Meeting-Agenda.pdf">
+                  <a href="/LINCS/files/LINCS-2014-Consortium-Meeting-Agenda.pdf">
                     <img
                       className={styles['img-bordered']}
                       src={require('./2014-cover.png')}
                       alt="2014 Consortium Meeting Agenda"
                     />
-                  </Link>
+                  </a>
                 </div>
                 <div className={styles.right}>
                   <div className={styles['info-block']}>
-                    <Link to="/files/LINCS-2014-Consortium-Meeting-Agenda.pdf">
+                    <a href="/LINCS/files/LINCS-2014-Consortium-Meeting-Agenda.pdf">
                       2014 Consortium Meeting
-                    </Link>
+                    </a>
                     <p>October 27, NCI, Rockville, MD</p>
                   </div>
                   <div className={styles['info-block']}>
-                    <Link to="/">
+                    <a href="/LINCS">
                       2013 Consortium Meeting
-                    </Link>
+                    </a>
                     <p>November 18-19, Broad Institute, Cambridge, MA</p>
                   </div>
                   <div className={styles['info-block']}>
-                    <Link to="/files/LINCSDataForum2013.pdf">
+                    <a href="/LINCS/files/LINCSDataForum2013.pdf">
                       LINCS Data Forum 2013
-                    </Link>
+                    </a>
                     <p>March 20-21, Harvard Medical School, Boston, MA</p>
                   </div>
                   <div className={styles['info-block']}>
-                    <Link to="/files/LINCS-2012-Consortium-Meeting-Agenda.pdf">
+                    <a href="/LINCS/files/LINCS-2012-Consortium-Meeting-Agenda.pdf">
                       2012 Consortium Meeting
-                    </Link>
+                    </a>
                     <p>November 15-16, NIH, Bethesda, MD</p>
                   </div>
                   <div className={styles['info-block']}>
-                    <Link to="/files/LINCS 2011 Consortia Meeting Agenda final.pdf">
+                    <a href="/LINCS/files/LINCS 2011 Consortia Meeting Agenda final.pdf">
                       2011 Consortium Meeting
-                    </Link>
+                    </a>
                     <p>October 27-28, Rockville, MD</p>
                   </div>
                 </div>

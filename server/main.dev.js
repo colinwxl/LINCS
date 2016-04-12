@@ -27,7 +27,7 @@ app.use(convert(compress()));
 // Bootstrap routes
 require('./routes').default(app);
 
-app.use(convert(historyApiFallback({ verbose: false })));
+app.use(convert(historyApiFallback({ verbose: true })));
 
 // ------------------------------------
 // Apply Webpack HMR Middleware
