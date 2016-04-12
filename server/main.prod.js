@@ -27,8 +27,8 @@ app.use(convert(historyApiFallback({
 
 // Static server - serve all files from static folder to /LINCS
 const stat = new Koa();
-console.log('Serving static files from:', path.join(__dirname, ''));
-stat.use(convert(serve(path.join(__dirname, ''))));
+console.log('Serving static files from:', path.join(__dirname, 'dist'));
+stat.use(convert(serve(path.join(__dirname, 'dist'))));
 app.use(mount('/LINCS', stat));
 
 app.listen(3000);
