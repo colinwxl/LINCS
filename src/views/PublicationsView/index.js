@@ -70,7 +70,7 @@ export class PublicationsView extends Component {
     publications = publications.filter(this._filterCategories);
     return (
       <div className={styles.wrapper}>
-        <PageBanner title="Publications" subTitle="" />
+        <PageBanner title="LINCS Publications" subTitle="" />
         <div className="container">
           <div className="row">
             <div className={`col-md-3 col-md-push-9 ${styles.filter}`}>

@@ -12,7 +12,7 @@ export default class Overview extends Component {
     return (
       <div className={styles.wrapper}>
         <PageBanner
-          title="Community"
+          title="LINCS Community"
           subTitle=""
         />
         <div className="container">
