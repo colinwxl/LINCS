@@ -7,11 +7,12 @@ import IndividualAssayTree from './IndividualAssayTree';
 
 export default function AssayClassTree(props) {
   const { entities, assayClass } = props;
-  const assayClassTree = { collapsed: true, methods: [] };
+  const assayClassTree = { collapsed: true, methods: [], datasets: [] };
   each(entities.datasets, (ds) => {
     const { classification, method } = ds;
     if (assayClass === classification && assayClassTree.methods.indexOf(method) === -1) {
       assayClassTree.methods.push(method);
+      assayClassTree.datasets.push(ds);
     }
   });
 
@@ -27,7 +28,11 @@ export default function AssayClassTree(props) {
     <Tree nodeLabel={label} defaultCollapsed>
       {
         assayClassTree.methods.map((methodName, index) =>
-          <IndividualAssayTree key={index} entities={entities} methodName={methodName} />
+          <IndividualAssayTree
+            key={index}
+            datasets={assayClassTree.datasets}
+            methodName={methodName}
+          />
         )
       }
     </Tree>

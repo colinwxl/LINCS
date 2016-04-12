@@ -1,83 +1,42 @@
-import React, { PropTypes, Component } from 'react';
-import { connect } from 'react-redux';
-import { push } from 'react-router-redux';
+import React, { PropTypes } from 'react';
 
+import SearchBar from 'components/SearchBar';
 import styles from './PageBanner.scss';
 
-export class PageBanner extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      q: props.searchQuery || '',
-    };
-  }
-
-  _handleSearch = (e) => {
-    this.setState({ q: e.target.value });
-  }
-
-  _handleSubmit = (e) => {
-    e.preventDefault();
-    this.props.push(`/data/search?q=${this.state.q}`);
-  }
-
-  render() {
-    const { title, subTitle, imgSrc, imgAlt, includeSearchBar } = this.props;
-    const hasImage = !!imgSrc && imgSrc.length;
-    const alt = imgAlt && imgAlt.length ? imgAlt : 'Logo';
-    return (
-      <div className={styles.wrapper}>
-        <div className={`container ${styles.inner}`}>
-          <div className={`row ${styles.flex}`}>
-            <div className={includeSearchBar ? 'col-md-7' : 'col-md-8'}>
-              <h1>{title}</h1>
-              <p>{subTitle}</p>
-            </div>
-            {
-              hasImage &&
-              <div className="col-md-4 text-xs-center">
-                <img
-                  className={styles.logo}
-                  src={imgSrc}
-                  alt={alt}
-                />
-              </div>
-            }
-            { includeSearchBar &&
-              <div className="col-md-5">
-                <form onSubmit={this._handleSubmit}>
-                  <div className={styles.search}>
-                    <div className={styles['search-bar']}>
-                      <div style={{ position: 'relative' }}>
-                        <input
-                          name="q"
-                          value={this.state.q}
-                          onChange={this._handleSearch}
-                          type="search"
-                          placeholder="Search LINCS datasets"
-                          autoCapitalize="off"
-                          itemProp="query-input"
-                          autoComplete="off"
-                        />
-                      </div>
-                    </div>
-                    <button
-                      style={{ backgroundImage: `url(${require('./ico-search.svg')})` }}
-                      className={`btn ${styles.submit}`}
-                      type="submit"
-                    />
-                  </div>
-                </form>
-              </div>
-            }
-            {
-              !hasImage && !includeSearchBar && <div className="col-md-4"></div>
-            }
+export default function PageBanner(props) {
+  const { title, subTitle, imgSrc, imgAlt, includeSearchBar } = props;
+  const hasImage = !!imgSrc && imgSrc.length;
+  const alt = imgAlt && imgAlt.length ? imgAlt : 'Logo';
+  return (
+    <div className={styles.wrapper}>
+      <div className={`container ${styles.inner}`}>
+        <div className={`row ${styles.flex}`}>
+          <div className={includeSearchBar ? 'col-md-7' : 'col-md-8'}>
+            <h1>{title}</h1>
+            <p>{subTitle}</p>
           </div>
+          {
+            hasImage &&
+            <div className="col-md-4 text-xs-center">
+              <img
+                className={styles.logo}
+                src={imgSrc}
+                alt={alt}
+              />
+            </div>
+          }
+          { includeSearchBar &&
+            <div className="col-md-5">
+              <SearchBar darkBg query={props.searchQuery || ''} />
+            </div>
+          }
+          {
+            !hasImage && !includeSearchBar && <div className="col-md-4"></div>
+          }
         </div>
       </div>
-    );
-  }
+    </div>
+  );
 }
 
 PageBanner.propTypes = {
@@ -87,7 +46,4 @@ PageBanner.propTypes = {
   imgAlt: PropTypes.string,
   searchQuery: PropTypes.string,
   includeSearchBar: PropTypes.bool,
-  push: PropTypes.func,
 };
-
-export default connect(null, { push })(PageBanner);

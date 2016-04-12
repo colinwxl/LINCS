@@ -1,6 +1,5 @@
 import React, { PropTypes, Component } from 'react';
 import { connect } from 'react-redux';
-import each from 'lodash/each';
 
 import { incrementDatasetClicks } from 'actions/entities';
 import styles from '../DataTree.scss';
@@ -25,9 +24,9 @@ export class IndividualAssayTree extends Component {
   }
 
   render() {
-    const { entities, assayName, methodName, cellId, centerName } = this.props;
+    const { datasets, assayName, methodName, cellId, centerName } = this.props;
     const childDatasets = [];
-    each(entities.datasets, (ds) => {
+    datasets.forEach((ds) => {
       const { cells, assay, method } = ds;
       if ((assayName && assay === assayName) || (methodName && method === methodName)) {
         if (cellId && cells.indexOf(parseInt(cellId, 10)) !== -1) {
@@ -69,7 +68,7 @@ export class IndividualAssayTree extends Component {
 }
 
 IndividualAssayTree.propTypes = {
-  entities: PropTypes.object,
+  datasets: PropTypes.object,
   assayName: PropTypes.string,
   methodName: PropTypes.string,
   cellId: PropTypes.number,

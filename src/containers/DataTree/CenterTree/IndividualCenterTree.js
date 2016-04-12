@@ -1,17 +1,17 @@
 import React, { PropTypes } from 'react';
-import each from 'lodash/each';
 
 import styles from '../DataTree.scss';
 import Tree from '../Tree';
 import IndividualAssayTree from '../AssayTree/IndividualAssayTree';
 
 export default function IndividualCenterTree(props) {
-  const { entities, centerName } = props;
-  const centerTree = { collapsed: true, assays: [] };
-  each(entities.datasets, (ds) => {
+  const { datasets, centerName } = props;
+  const centerTree = { collapsed: true, assays: [], datasets: [] };
+  datasets.forEach((ds) => {
     const { assay } = ds;
     if (centerName === ds.centerName && centerTree.assays.indexOf(assay) === -1) {
       centerTree.assays.push(assay);
+      centerTree.datasets.push(ds);
     }
   });
   const label = <span className={styles.node}>{centerName}</span>;
@@ -21,7 +21,7 @@ export default function IndividualCenterTree(props) {
         centerTree.assays.map((assayName, index) =>
           <IndividualAssayTree
             key={index}
-            entities={entities}
+            datasets={centerTree.datasets}
             assayName={assayName}
             centerName={centerName}
           />
@@ -32,6 +32,6 @@ export default function IndividualCenterTree(props) {
 }
 
 IndividualCenterTree.propTypes = {
-  entities: PropTypes.object,
+  datasets: PropTypes.array,
   centerName: PropTypes.string,
 };

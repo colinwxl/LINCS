@@ -4,12 +4,13 @@ import { Link } from 'react-router';
 import DataTree from 'containers/DataTree';
 import PageBanner from 'components/PageBanner';
 import PageNav from 'components/PageNav';
+import SearchBar from 'components/SearchBar';
 import styles from './Releases.scss';
 
 export default function Releases(/* props */) {
   return (
     <div className={styles.wrapper}>
-      <PageBanner title="Data Releases" includeSearchBar />
+      <PageBanner title="Data Releases" />
       <div className="container">
         <div className="row">
           <PageNav mainPage="Releases" isDataPage />
@@ -29,6 +30,9 @@ export default function Releases(/* props */) {
               Coordination and Integration Center</Link>.
             </p>
             <div className="col-lg-10 col-lg-offset-1">
+              <div className={styles['search-wrap']}>
+                <SearchBar />
+              </div>
               <DataTree />
             </div>
           </div>

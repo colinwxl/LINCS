@@ -49,7 +49,7 @@ export class Search extends Component {
     const { searchResultIds, isSearching } = this.state;
     return (
       <div className={styles.wrapper}>
-        <PageBanner title="Search Results" includeSearchBar searchQuery={searchQ} />
+        <PageBanner title="LINCS Datasets" includeSearchBar searchQuery={searchQ} />
         <div className="container">
           <div className="row">
             <div className="col-xs-12">

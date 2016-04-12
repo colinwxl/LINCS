@@ -74,7 +74,7 @@ export default (/* store */) => (
     <Route path="community/webinars" component={Webinars} />
     <Route path="community/workshops-and-symposia" component={WorkshopsAndSymposia} />
 
-    <Redirect from="/data" to="/data/overview" />
+    <Redirect from="/data" to="/data/releases" />
     <Route path="data/overview" component={DataOverview} />
     <Route path="data/releases" component={DataReleases} />
     <Route path="data/standards" component={DataStandards} />
