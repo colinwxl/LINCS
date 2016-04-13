@@ -33,7 +33,7 @@ export class SearchBar extends Component {
                   value={this.state.q}
                   onChange={this._handleSearch}
                   type="search"
-                  placeholder="Search LINCS datasets"
+                  placeholder="Search datasets (ex. MCF7, Vandetanib, HMS, L1000)"
                   autoCapitalize="off"
                   itemProp="query-input"
                   autoComplete="off"

@@ -11,12 +11,12 @@ export default class Overview extends Component {
   render() {
     return (
       <div className={styles.wrapper}>
-        <PageBanner title="LINCS Consortium" subTitle="" />
+        <PageBanner title="The LINCS Consortium" />
         <div className="container">
           <div className="row">
             <PageNav mainPage="Overview" />
             <div className="col-md-9 col-md-pull-3">
-              <h1 className={styles.title}>LINCS Consortium Overview</h1>
+              <h1 className={styles.title}>Overview</h1>
               <p>
                 The LINCS consortium is an NIH Common Fund program that supports six Data
                 and Signature Generation Centers (DSGCs) and the BD2K-LINCS Data Integration
@@ -24,6 +24,7 @@ export default class Overview extends Component {
                 the completion of pilot phase I in fiscal year 2013.
               </p>
               <img src={require('./centers-map.png')} alt="Map of LINCS Centers" />
+              {/* <div className="visme_d" data-url="g7mx1v40-3-2" data-w="855" data-h="585" /> */}
               <h2>LINCS Production Phase II</h2>
               <h5>LINCS Data and Signature Generation Centers</h5>
               <p>

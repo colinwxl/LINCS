@@ -6,7 +6,7 @@ import PageBanner from 'components/PageBanner';
 export default function NewsView() {
   return (
     <div className={styles.wrapper}>
-      <PageBanner title="News" />
+      <PageBanner title="LINCS News" />
       <div className="container">
         <div className="row">
           <div className="col-xl-10 col-xl-offset-1">

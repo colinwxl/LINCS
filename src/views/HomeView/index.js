@@ -176,15 +176,14 @@ export class HomeView extends Component {
                     respond to various genetic and environmental stressors, the LINCS project will
                     help us gain a more detailed understanding of cell pathways and aid efforts to
                     develop therapies that might restore perturbed pathways and networks to their
-                    normal states.
-                  </p>
-                  <p className={styles.justify}>
-                    The LINCS website is a source of information for the research community and
+                    normal states. The LINCS website is a source of information for the research
+                    community and
                     general public about the LINCS project. The website contains details about the
                     assays, cell types, and perturbagens currently part of the library, as well as
                     links to participating sites, the data releases from the sites, and software
                     that can be used for analyzing the data.
                   </p>
+                  <Link to="/centers">Learn More</Link>
                 </div>
                 <div className={styles.section}>
                   <h3 className={styles.title}>Recent Publications</h3>

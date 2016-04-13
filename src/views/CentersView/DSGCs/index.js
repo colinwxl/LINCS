@@ -14,8 +14,8 @@ export default class DSGCs extends Component {
     return (
       <div className={styles.wrapper}>
         <PageBanner
-          title="DSGCs"
-          subTitle="The LINCS centers responsible for the generation of raw data and signatures."
+          title="LINCS Data and Signature Generation Centers (DSGCs)"
+          subTitle="The DSGCs produce data and signatures by profiling the response of human cell lines to many exogenous and endogenous perturbations."
         />
         <div className="container">
           <div className="row">

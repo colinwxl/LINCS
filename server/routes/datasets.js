@@ -46,13 +46,13 @@ router.get('/search', async (ctx) => {
       query: {
         multi_match: {
           fields: [
-            'name', 'source', 'full_assay_name', 'description', 'center_name', 'assay',
-            'method', 'classification', 'physical_detection', 'lincs_id',
+            'name^2', 'source', 'lincs_id', 'pubchem_cid', 'full_assay_name', 'description',
+            'center_name', 'assay', 'method', 'classification', 'physical_detection',
           ],
           query: ctx.query.q,
           type: 'phrase_prefix',
           max_expansions: 10,
-          use_dis_max: false,
+          operator: 'and',
         },
       },
     },
@@ -63,25 +63,36 @@ router.get('/search', async (ctx) => {
   // Split results to find all dsIds and cellIds
   const dsIds = [];
   const cellIds = [];
+  const smIds = [];
   resp.hits.hits.forEach(doc => {
     const id = parseInt(doc._id, 10);
     if (doc._type === 'dataset') {
       dsIds.push(id);
     } else if (doc._type === 'cell') {
       cellIds.push(id);
+    } else if (doc._type === 'smallmolecule') {
+      smIds.push(id);
     }
   });
   // Fetch all datasets. May change later if a specific query is available
-  const dsModels = await Dataset.fetchAll({ withRelated: ['cells'] });
+  const dsModels = await Dataset
+    .fetchAll({
+      withRelated: ['cells', 'smallMolecules'],
+    });
   const datasets = dsModels.toJSON({ omitPivot: !includePivot });
-  // Send all datasets where dataset.id is in dsIds or one of the cells in the
-  // dataset has an id that is in cellIds.
+  // Send all datasets where dataset.id is in dsIds,
+  // one of the cells in the dataset has an id that is in cellIds, or
+  // one the small molecules in the dataset has an id that is in smIds.
   ctx.body = datasets.filter(ds => {
     if (dsIds.indexOf(ds.id) !== -1) {
       return true;
     }
     const dsCellIds = ds.cells.map(cell => cell.id);
-    return cellIds.some((id) => dsCellIds.indexOf(id) >= 0);
+    if (cellIds.some((id) => dsCellIds.indexOf(id) !== -1)) {
+      return true;
+    }
+    const dsSmIds = ds.smallMolecules.map(sm => sm.id);
+    return smIds.some((id) => dsSmIds.indexOf(id) !== -1);
   });
 });
 
@@ -216,10 +227,10 @@ router.get('/:id/download', async (ctx) => {
     let filename = `${dataset.lincsId}-${dataset.classification}-${dataset.method}.tar.gz`;
     let filePath = `/usr/src/dist/files/datasets/${dataset.lincsId}.tar.gz`;
     if (dataset.method === 'KINOMEScan') {
-      filename = `${dataset.classification}-${dataset.method}.tar.gz`;
+      filename = `${dataset.classification}-KINOMEScan.tar.gz`;
       filePath = '/usr/src/dist/files/datasets/KINOMEScan.zip';
     } else if (dataset.method === 'KiNativ') {
-      filename = `${dataset.classification}-${dataset.method}.tar.gz`;
+      filename = `${dataset.classification}-KiNativ.tar.gz`;
       filePath = '/usr/src/dist/files/datasets/KiNativ.zip';
     }
     ctx.set('Content-disposition', `attachment; filename=${filename}`);

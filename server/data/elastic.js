@@ -4,78 +4,83 @@ const debug = _debug('app:server:data:elastic');
 import { esClient } from '../serverConf';
 import { Dataset } from '../models/Dataset';
 import { Cell } from '../models/Cell';
+import { SmallMolecule } from '../models/SmallMolecule';
+
+const bulkBuffer = [];
 
 function indexDatasets() {
   debug('Indexing datasets');
-  return new Promise((resolve, reject) => {
-    Dataset
-      .forge()
-      .fetchAll()
-      .then(dsModels => dsModels.toJSON())
-      .then(datasets => {
-        Promise.all(datasets.map(ds =>
-          new Promise((res, rej) => {
-            esClient.index({
-              index: 'lincs',
-              type: 'dataset',
-              id: ds.id,
-              body: {
-                full_assay_name: ds.fullAssayName,
-                description: ds.description,
-                center_name: ds.centerName,
-                assay: ds.assay,
-                method: ds.method,
-                classification: ds.classification,
-                physical_detection: ds.physicalDetection,
-                lincs_id: ds.lincsId,
-              },
-            }, (err, resp) => {
-              if (err) {
-                rej(err);
-              } else {
-                res(resp);
-              }
-            });
-          })
-        ))
-        .then(() => resolve())
-        .catch(e => reject(e));
+  return Dataset
+    .forge()
+    .fetchAll()
+    .then(dsModels => dsModels.toJSON())
+    .then(datasets => {
+      datasets.forEach(ds => {
+        bulkBuffer.push({
+          index: {
+            _index: 'lincs',
+            _type: 'dataset',
+            _id: ds.id,
+          },
+        }, {
+          full_assay_name: ds.fullAssayName,
+          description: ds.description,
+          center_name: ds.centerName,
+          assay: ds.assay,
+          method: ds.method,
+          classification: ds.classification,
+          physical_detection: ds.physicalDetection,
+          lincs_id: ds.lincsId,
+        });
       });
-  });
+    });
 }
 
 function indexCells() {
   debug('Indexing cells');
-  return new Promise((resolve, reject) => {
-    Cell
-      .forge()
-      .fetchAll()
-      .then(cellModels => cellModels.toJSON())
-      .then(cells => {
-        Promise.all(cells.map(cell =>
-          new Promise((res, rej) => {
-            esClient.index({
-              index: 'lincs',
-              type: 'cell',
-              id: cell.id,
-              body: {
-                name: cell.name,
-                lincs_id: cell.lincsId,
-                source: cell.source,
-              },
-            }, (err, resp) => {
-              if (err) {
-                rej(err);
-              } else {
-                res(resp);
-              }
-            });
-          })
-        ))
-        .then(() => resolve())
-        .catch(e => reject(e));
+  return Cell
+    .forge()
+    .fetchAll()
+    .then(cellModels => cellModels.toJSON())
+    .then(cells => {
+      cells.forEach(cell => {
+        bulkBuffer.push({
+          index: {
+            _index: 'lincs',
+            _type: 'cell',
+            _id: cell.id,
+          },
+        }, {
+          name: cell.name,
+          lincs_id: cell.lincsId,
+          source: cell.source,
+        });
       });
-  });
+    });
+}
+
+function indexSms() {
+  debug('Indexing small molecules.');
+  return SmallMolecule
+    .forge()
+    .fetchAll()
+    .then(smModels => smModels.toJSON())
+    .then(sms => {
+      sms.forEach(sm => {
+        bulkBuffer.push({
+          index: {
+            _index: 'lincs',
+            _type: 'smallmolecule',
+            _id: sm.id,
+          },
+        }, {
+          name: sm.name,
+          lincs_id: sm.lincsId,
+          source: sm.source,
+          pubchem_cid: sm.pubchemCid,
+        });
+      });
+    });
 }
 
 const lincsSettings = {
@@ -178,6 +183,37 @@ const cellMapping = {
   },
 };
 
+const smMapping = {
+  index: 'lincs',
+  type: 'smallmolecule',
+  body: {
+    smallmolecule: {
+      properties: {
+        name: {
+          type: 'string',
+          // index_analyzer: 'autocomplete',
+          // search_analyzer: 'standard',
+        },
+        source: {
+          type: 'string',
+          // index_analyzer: 'autocomplete',
+          // search_analyzer: 'standard',
+        },
+        lincs_id: {
+          type: 'string',
+          // index_analyzer: 'autocomplete',
+          // search_analyzer: 'standard',
+        },
+        pubchem_cid: {
+          type: 'string',
+          // index_analyzer: 'autocomplete',
+          // search_analyzer: 'standard',
+        },
+      },
+    },
+  },
+};
+
 
 esClient.indices.delete({ index: '_all' }, () => {
   esClient.indices.create({ index: 'lincs' }, () => {
@@ -187,12 +223,16 @@ esClient.indices.delete({ index: '_all' }, () => {
           esClient.indices.putMapping(datasetMapping, () => {
             indexDatasets()
               .then(() => {
-                debug('Datasets indexed.');
                 esClient.indices.putMapping(cellMapping, () => {
                   indexCells()
                     .then(() => {
-                      debug('Cells indexed.');
-                      process.exit(0);
+                      esClient.indices.putMapping(smMapping, () => {
+                        indexSms()
+                          .then(() => {
+                            esClient.bulk({ body: bulkBuffer }, () => process.exit(0));
+                          })
+                          .catch(() => process.exit(1));
+                      });
                     })
                     .catch(() => process.exit(1));
                 });

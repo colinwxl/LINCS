@@ -9,7 +9,6 @@ export default function IndividualCellTree(props) {
   const { entities, datasets, cells, cellId } = props;
   const cellTree = { collapsed: true, assays: [], datasets: [] };
   if (datasets) {
-    console.log(datasets);
     datasets.forEach((ds) => {
       const { assay } = ds;
       if (ds.cells.indexOf(parseInt(cellId, 10)) !== -1 && cellTree.assays.indexOf(assay) === -1) {

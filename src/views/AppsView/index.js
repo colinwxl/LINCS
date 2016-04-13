@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 
 import PageBanner from 'components/PageBanner';
+import ExpWorkflows from './ExpWorkflows';
+import CompBioWorkflows from './CompBioWorkflows';
 import styles from './AppsView.scss';
 
 export default class AppsView extends Component {
@@ -46,8 +48,10 @@ export default class AppsView extends Component {
                   For a Computational Biologist
                 </label>
               </div>
+              {isExp ? <ExpWorkflows /> : <CompBioWorkflows />}
               <h2>Applications</h2>
               <div className={styles.tools}>
+
               </div>
             </div>
           </div>

@@ -31,36 +31,31 @@
     font-size: 90%;
   }
 
-  a {
-    color: $brand-primary-light;
-    cursor: pointer;
-    text-align: center;
-
-
-    i,
-    span {
-      text-align: center;
-      width: 100%;
-    }
-
-    img {
-      margin-bottom: 1px;
-    }
-
-    &:hover {
-      color: $brand-primary;
-      text-decoration: none;
-    }
-  }
-
   a:first-child {
     margin-left: 0;
+  }
+}
+
+.btn-link {
+  border: 1px solid $brand-primary;
+  color: $brand-primary;
+  margin-left: .5rem;
+  padding: .15rem .375rem;
+
+  &:hover {
+    background-color: $brand-primary;
+    border-color: darken($brand-primary, 2);
+    color: $white;
   }
 }
 
 .creator,
 .description {
   font-size: 90%;
+}
+
+.description {
+  margin-bottom: .5rem;
 }
 
 .creator {

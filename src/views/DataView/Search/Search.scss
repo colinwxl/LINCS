@@ -1,6 +1,7 @@
 @import 'variables';
 
 .search,
+.search-loading,
 .search-results {
   margin: 0 auto 2rem;
 }
@@ -9,13 +10,23 @@
   text-align: center;
   width: 100%;
 
+  h4 {
+    font-weight: 400;
+    margin-bottom: 2rem;
+  }
+
   i {
     color: $teal;
+    margin-bottom: 2rem;
   }
 }
 
+.search-loading,
 .search-results {
   max-width: 1000px;
+}
+
+.search-results {
 
   a {
     cursor: pointer;
@@ -33,6 +44,7 @@
   font-weight: bold;
 }
 
+.placeholder,
 .dataset {
   background-color: $white;
   border: 1px solid;
@@ -41,8 +53,82 @@
   padding: .5rem 1rem;
 }
 
-.ds-header {
 
+// https://css-tricks.com/css3-progress-bars/
+
+@keyframes move {
+  0% {
+    background-position: 0 0;
+  }
+
+  100% {
+    background-position: 50px 50px;
+  }
+}
+
+$loading-gray: rgba(255, 255, 255, .5);
+
+.meter {
+  margin: .3rem 0;
+  position: relative;
+
+  span {
+    background-color: darken($light-gray, 2);
+    display: block;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+
+    &::after {
+      animation: move 3s linear infinite;
+      background-image: linear-gradient(
+        -45deg,
+        $loading-gray 25%,
+        transparent 25%,
+        $loading-gray 75%,
+        transparent 75%,
+        transparent
+      );
+      background-size: 50px 50px;
+      border-bottom-left-radius: 20px;
+      border-bottom-right-radius: 8px;
+      border-top-left-radius: 20px;
+      border-top-right-radius: 8px;
+      bottom: 0;
+      content: '';
+      left: 0;
+      overflow: hidden;
+      position: absolute;
+      right: 0;
+      top: 0;
+      z-index: 1;
+    }
+  }
+}
+
+.meter-title {
+  height: 1.1rem;
+}
+
+.meter-subtitle {
+  height: .9rem;
+}
+
+.meter-desc {
+  height: .9rem;
+}
+
+.meter-links {
+  height: .9rem;
+}
+
+.meter-date {
+  height: .8rem;
+}
+
+////////////////////////////////
+
+.ds-header {
   h5,
   p {
     margin-bottom: 0;
@@ -64,36 +150,31 @@
     font-size: 90%;
   }
 
-  a {
-    color: $brand-primary-light;
-    cursor: pointer;
-    text-align: center;
-
-
-    i,
-    span {
-      text-align: center;
-      width: 100%;
-    }
-
-    img {
-      margin-bottom: 1px;
-    }
-
-    &:hover {
-      color: $brand-primary;
-      text-decoration: none;
-    }
-  }
-
   a:first-child {
     margin-left: 0;
+  }
+}
+
+.btn-link {
+  border: 1px solid $brand-primary;
+  color: $brand-primary;
+  margin-left: .5rem;
+  padding: .15rem .375rem;
+
+  &:hover {
+    background-color: $brand-primary;
+    border-color: darken($brand-primary, 2);
+    color: $white;
   }
 }
 
 .creator,
 .description {
   font-size: 90%;
+}
+
+.description {
+  margin-bottom: .5rem;
 }
 
 .creator {

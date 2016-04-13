@@ -1,9 +1,11 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
+import range from 'lodash/range';
 
 import { loadDatasets } from 'actions/entities';
 import handleResponse from 'utils/handleResponse';
 import SearchResult from './SearchResult';
+import ResultPlaceholder from './ResultPlaceholder';
 import PageBanner from 'components/PageBanner';
 import styles from './Search.scss';
 
@@ -57,7 +59,12 @@ export class Search extends Component {
                   isSearching
                   ? (
                     <div className={styles['search-loading']}>
-                      <i className="fa fa-circle-o-notch fa-spin fa-2x" />
+                      <h4>
+                        Searching for <span className={styles.query}>{searchQ}</span>...
+                      </h4>
+                      <div className={styles.placeholders}>
+                        {range(4).map((index) => <ResultPlaceholder key={index} />)}
+                      </div>
                     </div>
                   )
                   : (

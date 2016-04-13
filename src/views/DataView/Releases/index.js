@@ -10,7 +10,7 @@ import styles from './Releases.scss';
 export default function Releases(/* props */) {
   return (
     <div className={styles.wrapper}>
-      <PageBanner title="Data Releases" />
+      <PageBanner title="LINCS Data Releases" />
       <div className="container">
         <div className="row">
           <PageNav mainPage="Releases" isDataPage />
@@ -25,7 +25,7 @@ export default function Releases(/* props */) {
               consortium <Link to="/data/release-policy">data release policy</Link>. The
               visualized summaries provide unified access with links to the data, metadata
               and QC documentation hosted on the respective DSGCs’ web portals. Some of these
-              released datasets are also linked to <Link to="/tools">analysis
+              released datasets are also linked to <Link to="/applications">analysis
               tools</Link> developed by the <Link to="/centers/dcic">BD2K-LINCS Data
               Coordination and Integration Center</Link>.
             </p>
