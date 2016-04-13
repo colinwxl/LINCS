@@ -68,7 +68,7 @@ export class IndividualAssayTree extends Component {
 }
 
 IndividualAssayTree.propTypes = {
-  datasets: PropTypes.object,
+  datasets: PropTypes.array,
   assayName: PropTypes.string,
   methodName: PropTypes.string,
   cellId: PropTypes.number,

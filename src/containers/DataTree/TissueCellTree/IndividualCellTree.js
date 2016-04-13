@@ -1,20 +1,32 @@
 import React, { PropTypes } from 'react';
+import each from 'lodash/each';
 
 import styles from '../DataTree.scss';
 import Tree from '../Tree';
 import IndividualAssayTree from '../AssayTree/IndividualAssayTree';
 
 export default function IndividualCellTree(props) {
-  const { datasets, cells, cellId } = props;
+  const { entities, datasets, cells, cellId } = props;
   const cellTree = { collapsed: true, assays: [], datasets: [] };
-  datasets.forEach((ds) => {
-    const { assay } = ds;
-    if (ds.cells.indexOf(parseInt(cellId, 10)) !== -1 && cellTree.assays.indexOf(assay) === -1) {
-      cellTree.assays.push(assay);
-      cellTree.datasets.push(ds);
-    }
-  });
-  const cell = cells[cellId];
+  if (datasets) {
+    console.log(datasets);
+    datasets.forEach((ds) => {
+      const { assay } = ds;
+      if (ds.cells.indexOf(parseInt(cellId, 10)) !== -1 && cellTree.assays.indexOf(assay) === -1) {
+        cellTree.assays.push(assay);
+        cellTree.datasets.push(ds);
+      }
+    });
+  } else {
+    each(entities.datasets, (ds) => {
+      const { assay } = ds;
+      if (ds.cells.indexOf(parseInt(cellId, 10)) !== -1 && cellTree.assays.indexOf(assay) === -1) {
+        cellTree.assays.push(assay);
+        cellTree.datasets.push(ds);
+      }
+    });
+  }
+  const cell = !!entities ? entities.cells[cellId] : cells[cellId];
   const label = <span className={styles.node}>{cell.name}</span>;
   return (
     <Tree nodeLabel={label} defaultCollapsed>
@@ -33,6 +45,7 @@ export default function IndividualCellTree(props) {
 }
 
 IndividualCellTree.propTypes = {
+  entities: PropTypes.object,
   datasets: PropTypes.array,
   cells: PropTypes.object,
   cellId: PropTypes.number,

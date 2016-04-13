@@ -6,51 +6,44 @@ import styles from './AppsView.scss';
 export default class AppsView extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      category: 'biologist',
-    };
+    this.state = { category: 'exp' };
   }
 
-  _handleBiologistClicked = () => {
-    this.setState({ category: 'biologist' });
-  }
-
-  _handleBioinfClicked = () => {
-    this.setState({ category: 'bioinformatician' });
-  }
+  _handleExpClicked = () => { this.setState({ category: 'exp' }); }
+  _handleCompBioClicked = () => { this.setState({ category: 'compBio' }); }
 
   render() {
-    const isBiologist = this.state.category === 'biologist';
-    const isBioinf = this.state.category === 'bioinformatician';
+    const isExp = this.state.category === 'exp';
+    const isCompBio = this.state.category === 'compBio';
     return (
       <div className={styles.wrapper}>
-        <PageBanner title="Workflows & Applications" />
+        <PageBanner title="LINCS Workflows & Applications" />
         <div className="container">
           <div className="row">
             <div className="col-xs-12">
               <h2>Workflows</h2>
               <div className={`btn-group ${styles.categories}`} data-toggle="buttons">
                 <label
-                  onClick={this._handleBiologistClicked}
-                  className={`btn ${styles['category-check']} ${isBiologist ? styles.active : ''}`}
+                  onClick={this._handleExpClicked}
+                  className={`btn ${styles['category-check']} ${isExp ? styles.active : ''}`}
                 >
                   <input
                     type="radio"
-                    name="biologist"
-                    defaultChecked={isBiologist}
+                    name="exp"
+                    defaultChecked={isExp}
                   />
-                  For a Biologist
+                  For an Experimentalist
                 </label>
                 <label
-                  onClick={this._handleBioinfClicked}
-                  className={`btn ${styles['category-check']} ${isBioinf ? styles.active : ''}`}
+                  onClick={this._handleCompBioClicked}
+                  className={`btn ${styles['category-check']} ${isCompBio ? styles.active : ''}`}
                 >
                   <input
                     type="radio"
-                    name="bioinformatician"
-                    defaultChecked={isBioinf}
+                    name="compBio"
+                    defaultChecked={isCompBio}
                   />
-                  For a Bioinformatician
+                  For a Computational Biologist
                 </label>
               </div>
               <h2>Applications</h2>

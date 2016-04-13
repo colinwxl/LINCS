@@ -7,11 +7,17 @@ export default function PageBanner(props) {
   const { title, subTitle, imgSrc, imgAlt, includeSearchBar } = props;
   const hasImage = !!imgSrc && imgSrc.length;
   const alt = imgAlt && imgAlt.length ? imgAlt : 'Logo';
+  let titleClass = 'col-xs-12';
+  if (includeSearchBar) {
+    titleClass = 'col-md-7';
+  } else if (hasImage) {
+    titleClass = 'col-md-8';
+  }
   return (
     <div className={styles.wrapper}>
       <div className={`container ${styles.inner}`}>
         <div className={`row ${styles.flex}`}>
-          <div className={includeSearchBar ? 'col-md-7' : 'col-md-8'}>
+          <div className={titleClass}>
             <h1>{title}</h1>
             <p>{subTitle}</p>
           </div>
@@ -29,9 +35,6 @@ export default function PageBanner(props) {
             <div className="col-md-5">
               <SearchBar darkBg query={props.searchQuery || ''} />
             </div>
-          }
-          {
-            !hasImage && !includeSearchBar && <div className="col-md-4"></div>
           }
         </div>
       </div>

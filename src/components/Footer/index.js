@@ -89,15 +89,21 @@ export default function Footer(/* props */) {
           </div>
           <div className="col-xs-12 col-sm-3">
             <h5>Contact</h5>
-            <ul>
+            <ul className={styles.icons}>
               <li>
-                <a href="https://twitter.com/BD2KLINCSDCIC">Twitter</a>
+                <a href="https://twitter.com/BD2KLINCSDCIC">
+                  <i className="fa fa-twitter fa-2x" />
+                </a>
+                <a href="https://www.youtube.com/channel/UC88h_MIO1LP7Jv52VQ4qKkg">
+                  <i className="fa fa-youtube-square fa-2x" />
+                </a>
+                <a href={mailLink}>
+                  <i className="fa fa-envelope-o fa-2x" />
+                </a>
               </li>
               <li>
-                <a href="https://www.youtube.com/channel/UC88h_MIO1LP7Jv52VQ4qKkg">Youtube</a>
               </li>
               <li>
-                <a href={mailLink}>Email</a>
               </li>
             </ul>
           </div>

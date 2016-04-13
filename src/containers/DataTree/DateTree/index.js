@@ -4,9 +4,9 @@ import each from 'lodash/each';
 import moment from 'moment';
 
 import { incrementDatasetClicks } from 'actions/entities';
-import styles from './DataTree.scss';
-import Tree from './Tree';
-import Dataset from 'containers/Dataset';
+import styles from '../DataTree.scss';
+import Tree from '../Tree';
+import MonthTree from './MonthTree';
 
 function getMonthName(monthIndex) {
   if (monthIndex > 11) {
@@ -28,11 +28,10 @@ export class DateTree extends Component {
     };
   }
 
-  _handleClick = () => {
+  _handleClick = (datasetIds) => {
     const collapsed = !this.state.collapsed;
     if (!collapsed) {
-      const dsIds = this.childDatasets.map(ds => ds.id);
-      this.props.incrementDatasetClicks(dsIds);
+      this.props.incrementDatasetClicks(datasetIds);
     }
     this.setState({ collapsed });
   }
@@ -46,7 +45,7 @@ export class DateTree extends Component {
     // Dates only contains years and months that exist in the dateDatasetMap so this is essentially
     // a way to sort the keys of dateDatasetMap to ensure that we can sort the years and
     // months in the proper order in the tree.
-    each(this.props.datasets, (ds) => {
+    each(this.props.entities.datasets, (ds) => {
       const date = moment(ds.dateRetrieved);
       const month = date.month();
       const year = date.year();
@@ -99,23 +98,15 @@ export class DateTree extends Component {
             return (
               <Tree key={`year ${i}`} nodeLabel={yearLabel} defaultCollapsed>
                 {
-                  dateObj.months.map((month, index) => {
-                    const monthLabel = <span className={styles.node}>{getMonthName(month)}</span>;
-                    const dsArr = dateDatasetMap[dateObj.year][month];
-                    return (
-                      <Tree
-                        key={`month ${index}`}
-                        nodeLabel={monthLabel}
-                        collapsed={this.state.collapsed}
-                      >
-                        {
-                          dsArr.map(dsId =>
-                            <Dataset key={dsId} datasetId={dsId} />
-                          )
-                        }
-                      </Tree>
-                    );
-                  })
+                  dateObj.months.map((month, index) =>
+                    <MonthTree
+                      key={`month ${index}`}
+                      datasetIds={dateDatasetMap[dateObj.year][month]}
+                      monthName={getMonthName(month)}
+                      onClick={this._handleClick}
+                      collapsed={this.state.collapsed}
+                    />
+                  )
                 }
               </Tree>
             );
@@ -127,7 +118,7 @@ export class DateTree extends Component {
 }
 
 DateTree.propTypes = {
-  datasets: PropTypes.object,
+  entities: PropTypes.object,
   incrementDatasetClicks: PropTypes.func,
 };
 

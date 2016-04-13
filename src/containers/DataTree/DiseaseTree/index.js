@@ -1,15 +1,12 @@
 import React, { PropTypes } from 'react';
-import each from 'lodash/each';
 
 import styles from '../DataTree.scss';
 import Tree from '../Tree';
 import IndividualDiseaseTree from './IndividualDiseaseTree';
 
 export default function DiseaseTree(props) {
-  const diseases = [];
-  each(props.entities.diseases, (disease, diseaseId) => {
-    diseases.push({ id: diseaseId, name: disease.name });
-  });
+  const disObj = props.entities.diseases;
+  const diseases = Object.keys(disObj).map(id => ({ id, name: disObj[id].name }));
 
   diseases.sort((a, b) => {
     const result = a.name.toLowerCase() > b.name.toLowerCase();

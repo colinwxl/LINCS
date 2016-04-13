@@ -8,7 +8,9 @@ import IndividualCenterTree from './IndividualCenterTree';
 
 export default function CenterTree(props) {
   const centerNames = [];
+  const datasets = [];
   each(props.entities.datasets, (ds) => {
+    datasets.push(ds);
     if (centerNames.indexOf(ds.centerName) === -1) {
       centerNames.push(ds.centerName);
     }
@@ -26,8 +28,11 @@ export default function CenterTree(props) {
     <Tree nodeLabel={label} defaultCollapsed>
       {
         centerNames.map((centerName, index) =>
-          <IndividualCenterTree key={index} entities={props.entities} centerName={centerName} />
-
+          <IndividualCenterTree
+            key={index}
+            datasets={datasets}
+            centerName={centerName}
+          />
         )
       }
     </Tree>

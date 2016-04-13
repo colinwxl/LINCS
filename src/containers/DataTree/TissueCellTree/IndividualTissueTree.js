@@ -13,8 +13,8 @@ export default function IndividualTissueTree(props) {
       diseaseTree.cellIds.push(cell.id);
     }
   });
-  const disease = entities.tissues[tissueId];
-  const label = <span className={styles.node}>{disease.name}</span>;
+  const tissue = entities.tissues[tissueId];
+  const label = <span className={styles.node}>{tissue.name}</span>;
   return (
     <Tree nodeLabel={label} defaultCollapsed>
       {

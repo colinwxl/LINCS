@@ -11,21 +11,20 @@ export default class Overview extends Component {
   render() {
     return (
       <div className={styles.wrapper}>
-        <PageBanner title="Centers" subTitle="" />
+        <PageBanner title="LINCS Consortium" subTitle="" />
         <div className="container">
           <div className="row">
             <PageNav mainPage="Overview" />
             <div className="col-md-9 col-md-pull-3">
-              <h1 className={styles.title}>Overview</h1>
+              <h1 className={styles.title}>LINCS Consortium Overview</h1>
               <p>
-                The LINCS program is implemented in two parts: pilot phase 1 (FY 2010) and the
-                continuation of the program in production phase 2. The program currently supports
-                LINCS Data and Signature Generation Centers and coordinates with the NIH Big Data
-                to Knowledge (BD2K) initiative through the BD2K-LINCS Data Integration and
-                Coordination Center.
+                The LINCS consortium is an NIH Common Fund program that supports six Data
+                and Signature Generation Centers (DSGCs) and the BD2K-LINCS Data Integration
+                and Coordination Center. The LINCS program is currently in phase II after
+                the completion of pilot phase I in fiscal year 2013.
               </p>
               <img src={require('./centers-map.png')} alt="Map of LINCS Centers" />
-              <h2>LINCS Production Phase 2</h2>
+              <h2>LINCS Production Phase II</h2>
               <h5>LINCS Data and Signature Generation Centers</h5>
               <p>
                 The <Link title="Data and Signature Generation Centers" to="/centers/data-and-signature-generating-centers">LINCS Data and Signature Generation Centers</Link> are
@@ -49,7 +48,7 @@ export default class Overview extends Component {
                 and Administration (CCA) that supports and manages the Center’s goals and
                 deliverables, and coordinates activities across the LINCS and BD2K programs.
               </p>
-              <h2>LINCS Pilot Phase 1 (fiscal year completion 2013)</h2>
+              <h2>LINCS Pilot Phase I (fiscal year completion 2013)</h2>
               <p>
                 The <Link title="LINCS Pilot Phase 1" to="/centers/phase-one">LINCS Pilot Phase 1</Link> was
                 composed of 10 centers: two data production/analysis centers, that generated data for
