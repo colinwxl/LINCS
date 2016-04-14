@@ -16,7 +16,7 @@ export default class PhaseOne extends Component {
         />
         <div className="container">
           <div className="row">
-            <PageNav mainPage="Pilot Phase 1 Centers" />
+            <PageNav mainPage="Pilot Phase I Centers" />
             <div className="col-md-9 col-md-pull-3">
               <p>
                 The pilot phase of the program was completed in fiscal year 2013 and focused on

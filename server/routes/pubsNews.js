@@ -1,6 +1,11 @@
 /* eslint no-param-reassign:0 */
-import { Publication } from '../models/Publication';
 import Router from 'koa-router';
+import send from 'koa-sendfile';
+import path from 'path';
+import fs from 'fs';
+
+import { Publication } from '../models/Publication';
+
 import _debug from 'debug';
 const debug = _debug('app:server:routes:pubsNews');
 
@@ -10,11 +15,7 @@ const router = new Router({
 
 router.get('/publications', async (ctx) => {
   try {
-    const pubs = await Publication.forge().fetchAll({
-      withRelated: [
-        'authors',
-      ],
-    });
+    const pubs = await Publication.forge().fetchAll({ withRelated: ['authors'] });
     // Omit pivot by default
     const includePivot = !!ctx.query.includePivot;
     ctx.body = pubs.toJSON({ omitPivot: !includePivot });
@@ -22,6 +23,167 @@ router.get('/publications', async (ctx) => {
     debug(e);
     ctx.throw(500, 'An error occurred obtaining datasets.');
   }
+});
+
+function generateRIS(pub) {
+  return new Promise(resolve => {
+    const firstAuthorLastName = pub.authors[0].name.split(' ')[0];
+    const id = `${firstAuthorLastName}${pub.yearPublished}`;
+    let filename = `${id}.ris`;
+    if (!!pub.pmId) {
+      filename = `${id}-${pub.pmId}.ris`;
+    } else if (!!pub.pmcId) {
+      filename = `${id}-${pub.pmcId}.ris`;
+    } else if (!!pub.doi) {
+      filename = `${id}-${encodeURIComponent(pub.doi)}.ris`;
+    }
+    const filePath = path.join(__dirname, '/', filename);
+    const stream = fs.createWriteStream(filePath);
+    stream.write('TY  - JOUR\n');
+    pub.authors.forEach(author => stream.write(`AU  - ${author.name}\n`));
+    stream.write(`PY  - ${pub.yearPublished}\n`);
+    stream.write(`DA  - ${pub.yearPublished}//\n`);
+    stream.write(`TI  - ${pub.articleName}\n`);
+    stream.write(`T2  - ${pub.journalName}\n`);
+    if (!!pub.ppPages) {
+      if (pub.ppPages.toString().indexOf('-') !== -1) {
+        stream.write(`SP  - ${pub.ppPages.split('-')[0]}\n`);
+        stream.write(`EP  - ${pub.ppPages.split('-')[1]}\n`);
+      } else {
+        stream.write(`SP  - ${pub.ppPages}\n`);
+        stream.write(`EP  - ${pub.ppPages}\n`);
+      }
+    }
+    stream.write(`VL  - ${pub.volume}\n`);
+    if (!!pub.issue) {
+      stream.write(`IS  - ${pub.issue}\n`);
+    }
+    stream.write(`AB  - ${pub.abstract}\n`);
+    if (!!pub.doi) {
+      stream.write(`DO  - ${pub.doi}\n`);
+    }
+    stream.write(`ID  - ${id}\n`);
+    stream.write(`ER  - \n`);
+    stream.end();
+    stream.on('finish', () => resolve({ filePath, filename }));
+  });
+}
+
+function generateENW(pub) {
+  return new Promise(resolve => {
+    const firstAuthorLastName = pub.authors[0].name.split(' ')[0];
+    const id = `${firstAuthorLastName}${pub.yearPublished}`;
+    let filename = `${id}.ris`;
+    if (!!pub.pmId) {
+      filename = `${id}-${pub.pmId}.ris`;
+    } else if (!!pub.pmcId) {
+      filename = `${id}-${pub.pmcId}.ris`;
+    } else if (!!pub.doi) {
+      filename = `${id}-${encodeURIComponent(pub.doi)}.enw`;
+    }
+    const filePath = path.join(__dirname, '/', filename);
+    const stream = fs.createWriteStream(filePath);
+    stream.write('%0 Journal Article\n');
+    stream.write(`%T ${pub.articleName}\n`);
+    pub.authors.forEach(author => stream.write(`%A ${author.name}\n`));
+    stream.write(`%J ${pub.journalName}\n`);
+    stream.write(`%D ${pub.yearPublished}\n`);
+    stream.write(`%V ${pub.volume}\n`);
+    if (!!pub.issue) {
+      stream.write(`%N ${pub.issue}\n`);
+    }
+    stream.write(`%F ${id}\n`);
+    stream.write(`%X ${pub.abstract}\n`);
+    stream.write('%9 journal article\n');
+    if (!!pub.doi) {
+      stream.write(`%R ${pub.doi}\n`);
+      stream.write(`%U http://dx.doi.org/${pub.doi}\n`);
+    } else if (!!pub.pmId) {
+      stream.write(`%U http://www.ncbi.nlm.nih.gov/pubmed/${pub.pmId}\n`);
+    } else if (!!pub.pmcId) {
+      stream.write(`%U http://www.ncbi.nlm.nih.gov/pmc/articles/${pub.pmcId}\n`);
+    } else if (!!pub.otherLink) {
+      stream.write(`%U ${pub.otherLink}\n`);
+    }
+    if (!!pub.ppPages) {
+      stream.write(`%P ${pub.ppPages}\n`);
+    }
+    stream.end();
+    stream.on('finish', () => resolve({ filePath, filename }));
+  });
+}
+
+function generateBIB(pub) {
+  return new Promise(resolve => {
+    const firstAuthorLastName = pub.authors[0].name.split(' ')[0];
+    const id = `${firstAuthorLastName}${pub.yearPublished}`;
+    let filename = `${id}.ris`;
+    if (!!pub.pmId) {
+      filename = `${id}-${pub.pmId}.ris`;
+    } else if (!!pub.pmcId) {
+      filename = `${id}-${pub.pmcId}.ris`;
+    } else if (!!pub.doi) {
+      filename = `${id}-${encodeURIComponent(pub.doi)}.bib`;
+    }
+    const filePath = path.join(__dirname, '/', filename);
+    const stream = fs.createWriteStream(filePath);
+    stream.write(`@Article{${id}\n`);
+    stream.write(`author="${pub.authors.map(a => a.name).join(' and ')}",\n`);
+    stream.write(`title="${pub.articleName}",\n`);
+    stream.write(`journal="${pub.journalName}",\n`);
+    stream.write(`year="${pub.yearPublished}",\n`);
+    stream.write(`volume="${pub.volume}",\n`);
+    if (!!pub.issue) {
+      stream.write(`number="${pub.issue}",\n`);
+    }
+    if (!!pub.ppPages) {
+      stream.write(`pages="${pub.ppPages}",\n`);
+    }
+    stream.write(`abstract="${pub.abstract}",\n`);
+    if (!!pub.doi) {
+      stream.write(`doi="${pub.doi}",\n`);
+    }
+    if (!!pub.doi) {
+      stream.write(`url="http://dx.doi.org/${pub.doi}"\n`);
+    } else if (!!pub.pmId) {
+      stream.write(`url="http://www.ncbi.nlm.nih.gov/pubmed/${pub.pmId}"\n`);
+    } else if (!!pub.pmcId) {
+      stream.write(`url="http://www.ncbi.nlm.nih.gov/pmc/articles/${pub.pmcId}"\n`);
+    } else if (!!pub.otherLink) {
+      stream.write(`url="${pub.otherLink}"\n`);
+    } else {
+      stream.write(`url=""\n`);
+    }
+    stream.write('}');
+    stream.end();
+    stream.on('finish', () => resolve({ filePath, filename }));
+  });
+}
+
+router.get('/publications/:id/reference/:refType', async (ctx) => {
+  const pubModel = await Publication.where('id', ctx.params.id).fetch({ withRelated: ['authors'] });
+  const publication = pubModel.toJSON();
+  let fPath;
+  let fName;
+  if (ctx.params.refType === 'ris') {
+    const { filePath, filename } = await generateRIS(publication);
+    fPath = filePath;
+    fName = filename;
+  } else if (ctx.params.refType === 'enw') {
+    const { filePath, filename } = await generateENW(publication);
+    fPath = filePath;
+    fName = filename;
+  } else if (ctx.params.refType === 'bib') {
+    const { filePath, filename } = await generateBIB(publication);
+    fPath = filePath;
+    fName = filename;
+  }
+  ctx.set('Content-disposition', `attachment; filename=${fName}`);
+  await send(ctx, fPath);
+  if (!ctx.status) {
+    ctx.throw(500, 'An error occurred generating the ris file.');
+  }
+  fs.unlinkSync(fPath);
 });
 
 // News need to exist in database first

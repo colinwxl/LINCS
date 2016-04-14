@@ -1,7 +1,8 @@
 module.exports = [{
+  "abstract": "BACKGROUND: Thousands of biological and biomedical investigators study of the functional role of single genes and their protein products in normal physiology and in disease. The findings from these studies are reported in research articles that stimulate new research. It is now established that a complex regulatory networks's is controlling human cellular fate, and this community of researchers are continually unraveling this network topology. Attempts to integrate results from such accumulated knowledge resulted in literature-based protein-protein interaction networks (PPINs) and pathway databases. These databases are widely used by the community to analyze new data collected from emerging genome-wide studies with the assumption that the data within these literature-based databases is the ground truth and contain no biases. While suspicion for research focus biases is growing, a concrete proof for it is still missing. It is difficult to prove because the real PPINs are mostly unknown. RESULTS: Here we analyzed the longitudinal discovery process of literature-based mammalian and yeast PPINs to observe that these networks are discovered non-uniformly. The pattern of discovery is related to a theoretical concept proposed by Kauffman called \"expanding the adjacent possible\". We introduce a network discovery model which explicitly includes the space of possibilities in the form of a true underlying PPIN. CONCLUSIONS: Our model strongly suggests that research focus biases exist in the observed discovery dynamics of these networks. In summary, more care should be placed when using PPIN databases for analysis of newly acquired data, and when considering prior knowledge when designing new experiments.",
   "pmc_id": "PMC4456804",
   "year_published": 2015,
-  "pm_id": "260484152",
+  "pm_id": "26048415",
   "article_name": "Dynamics of the discovery process of protein-protein interactions from low content studies.",
   "authors": ["Wang Z", "Clark NC", "Ma'ayan A"],
   "issue": "1",
@@ -22,25 +23,27 @@ module.exports = [{
   "software_development": true,
   "review": false,
 }, {
+  "abstract": "MOTIVATION: Identification of differentially expressed genes is an important step in extracting knowledge from gene expression profiling studies. The raw expression data from microarray and other high-throughput technologies is deposited into the Gene Expression Omnibus (GEO) and served as Simple Omnibus Format in Text (SOFT) files. However, to extract and analyze differentially expressed genes from GEO requires significant computational skills. RESULTS: Here we introduce GEO2Enrichr, a browser extension for extracting differentially expressed gene sets from GEO and analyzing those sets with Enrichr, an independent gene set enrichment analysis tool containing over 70 000 annotated gene sets organized into 75 gene-set libraries. GEO2Enrichr adds JavaScript code to GEO web-pages; this code scrapes user selected accession numbers and metadata, and then, with one click, users can submit this information to a web-server application that downloads the SOFT files, parses, cleans and normalizes the data, identifies the differentially expressed genes, and then pipes the resulting gene lists to Enrichr for downstream functional analysis. GEO2Enrichr opens a new avenue for adding functionality to major bioinformatics resources such GEO by integrating tools and resources without the need for a plug-in architecture. Importantly, GEO2Enrichr helps researchers to quickly explore hypotheses with little technical overhead, lowering the barrier of entry for biologists by automating data processing steps needed for knowledge extraction from the major repository GEO. AVAILABILITY AND IMPLEMENTATION: GEO2Enrichr is an open source tool, freely available for installation as browser extensions at the Chrome Web Store and FireFox Add-ons. Documentation and a browser independent web application can be found at http://amp.pharm.mssm.edu/g2e/.",
   "pmc_id": null,
   "year_published": 2015,
   "pm_id": "25971742",
   "article_name": "GEO2Enrichr: browser extension and server app to extract gene sets from GEO and analyze them for biological functions.",
   "authors": ["Gundersen GW", "Jones MR", "Rouillard AD", "Kou Y", "Monteiro CD", "Feldmann AS", "Hu KS", "Ma'ayan A"],
-  "issue": null,
-  "pp_pages": null,
+  "issue": "18",
+  "pp_pages": "3060-2",
   "journal_name": "Bioinformatics",
   "tools": [{
     "url": "http://amp.pharm.mssm.edu/g2e/",
     "name": "GEO2Enrichr",
     "description": "A web application and two browser extensions (one for Chrome and another for Firefox) designed to ease the extraction of signatures from studies posted on the Gene Expression Omnibus (GEO) database. These signatures are then submitted to Enrichr, a gene signature search engine containing over 70,000 annotated signatures, for downstream functional analysis."
   }, {
+    "abstract": "",
     "name": "Enrichr",
     "url": "http://amp.pharm.mssm.edu/Enrichr"
   }],
   "doi": "pii:btv297",
   "other_link": null,
-  "volume": null,
+  "volume": "31",
   "assay_development": false,
   "data_analysis": true,
   "data_generation": false,
@@ -50,6 +53,7 @@ module.exports = [{
   "software_development": true,
   "review": false,
 }, {
+  "abstract": "Drugs that inhibit RAF/MEK signaling, such as vemurafenib, elicit profound but often temporary anti-tumor responses in patients with BRAF(V) (600E) melanoma. Adaptive responses to RAF/MEK inhibition occur on a timescale of hours to days, involve homeostatic responses that reactivate MAP kinase signaling and compensatory mitogenic pathways, and attenuate the anti-tumor effects of RAF/MEK inhibitors. We profile adaptive responses across a panel of melanoma cell lines using multiplex biochemical measurement, single-cell assays, and statistical modeling and show that adaptation involves at least six signaling cascades that act to reduce drug potency (IC50) and maximal effect (i.e., Emax ≪ 1). Among these cascades, we identify a role for JNK/c-Jun signaling in vemurafenib adaptation and show that RAF and JNK inhibitors synergize in cell killing. This arises because JNK inhibition prevents a subset of cells in a cycling population from becoming quiescent upon vemurafenib treatment, thereby reducing drug Emax. Our findings demonstrate the breadth and diversity of adaptive responses to RAF/MEK inhibition and a means to identify which steps in a signaling cascade are most predictive of phenotypic response.",
   "pmc_id": "PMC4380931",
   "year_published": 2015,
   "pm_id": "25814555",
@@ -57,7 +61,7 @@ module.exports = [{
   "authors": ["Fallahi-Sichani M", "Moerke NJ", "Niepel M", "Zhang T", "Gray NS", "Sorger PK"],
   "issue": "3",
   "pp_pages": "797",
-  "journal_name": "Molecular Systems Biology ",
+  "journal_name": "Molecular Systems Biology",
   "tools": [{
     "name": "Data exploration website",
     "url": "http://lincs.hms.harvard.edu/fallahi-sichani-molsystbiol-2015/"
@@ -74,6 +78,7 @@ module.exports = [{
   "software_development": false,
   "review": false,
 }, {
+  "abstract": "PhosphoSitePlus(®) (PSP, http://www.phosphosite.org/), a knowledgebase dedicated to mammalian post-translational modifications (PTMs), contains over 330,000 non-redundant PTMs, including phospho, acetyl, ubiquityl and methyl groups. Over 95% of the sites are from mass spectrometry (MS) experiments. In order to improve data reliability, early MS data have been reanalyzed, applying a common standard of analysis across over 1,000,000 spectra. Site assignments with P > 0.05 were filtered out. Two new downloads are available from PSP. The 'Regulatory sites' dataset includes curated information about modification sites that regulate downstream cellular processes, molecular functions and protein-protein interactions. The 'PTMVar' dataset, an intersect of missense mutations and PTMs from PSP, identifies over 25,000 PTMVars (PTMs Impacted by Variants) that can rewire signaling pathways. The PTMVar data include missense mutations from UniPROTKB, TCGA and other sources that cause over 2000 diseases or syndromes (MIM) and polymorphisms, or are associated with hundreds of cancers. PTMVars include 18 548 phosphorlyation sites, 3412 ubiquitylation sites, 2316 acetylation sites, 685 methylation sites and 245 succinylation sites.",
   "pmc_id": "PMC4383998",
   "year_published": 2015,
   "pm_id": "25514926",
@@ -98,6 +103,7 @@ module.exports = [{
   "software_development": true,
   "review": false,
 }, {
+  "abstract": "Reconstructing regulatory and signaling response networks is one of the major goals of systems biology. While several successful methods have been suggested for this task, some integrating large and diverse datasets, these methods have so far been applied to reconstruct a single response network at a time, even when studying and modeling related conditions. To improve network reconstruction we developed MT-SDREM, a multi-task learning method which jointly models networks for several related conditions. In MT-SDREM, parameters are jointly constrained across the networks while still allowing for condition-specific pathways and regulation. We formulate the multi-task learning problem and discuss methods for optimizing the joint target function. We applied MT-SDREM to reconstruct dynamic human response networks for three flu strains: H1N1, H5N1 and H3N2. Our multi-task learning method was able to identify known and novel factors and genes, improving upon prior methods that model each condition independently. The MT-SDREM networks were also better at identifying proteins whose removal affects viral load indicating that joint learning can still lead to accurate, condition-specific, networks. Supporting website with MT-SDREM implementation: http://sb.cs.cmu.edu/mtsdrem.",
   "pmc_id": "PMC4270428",
   "year_published": 2014,
   "pm_id": "25522349",
@@ -121,6 +127,7 @@ module.exports = [{
   "software_development": true,
   "review": false,
 }, {
+  "abstract": "Recently, several high profile studies collected cell viability data from panels of cancer cell lines treated with many drugs applied at different concentrations. Such drug sensitivity data for cancer cell lines provide suggestive treatments for different types and subtypes of cancer. Visualization of these datasets can reveal patterns that may not be obvious by examining the data without such efforts. Here we introduce Drug/Cell-line Browser (DCB), an online interactive HTML5 data visualization tool for interacting with three of the recently published datasets of cancer cell lines/drug-viability studies. DCB uses clustering and canvas visualization of the drugs and the cell lines, as well as a bar graph that summarizes drug effectiveness for the tissue of origin or the cancer subtypes for single or multiple drugs. DCB can help in understanding drug response patterns and prioritizing drug/cancer cell line interactions by tissue of origin or cancer subtype.",
   "pmc_id": "PMC4221125",
   "year_published": 2014,
   "pm_id": "25100688",
@@ -145,6 +152,7 @@ module.exports = [{
   "software_development": true,
   "review": false,
 }, {
+  "abstract": "Wnt signaling plays a critical role in embryonic development, and genetic aberrations in this network have been broadly implicated in colorectal cancer. We find that the Wnt receptor Frizzled2 (Fzd2) and its ligands Wnt5a/b are elevated in metastatic liver, lung, colon, and breast cancer cell lines and in high-grade tumors and that their expression correlates with markers of epithelial-mesenchymal transition (EMT). Pharmacologic and genetic perturbations reveal that Fzd2 drives EMT and cell migration through a previously unrecognized, noncanonical pathway that includes Fyn and Stat3. A gene signature regulated by this pathway predicts metastasis and overall survival in patients. We have developed an antibody to Fzd2 that reduces cell migration and invasion and inhibits tumor growth and metastasis in xenografts. We propose that targeting this pathway could provide benefit for patients with tumors expressing high levels of Fzd2 and Wnt5a/b.",
   "pmc_id": "PMC4243058",
   "year_published": 2014,
   "pm_id": "25417160",
@@ -166,6 +174,7 @@ module.exports = [{
   "software_development": false,
   "review": false,
 }, {
+  "abstract": "Despite being extensively characterized structurally and biochemically, the functional role of histone deacetylase 8 (HDAC8) has remained largely obscure due in part to a lack of known cellular substrates. Herein, we describe an unbiased approach using chemical tools in conjunction with sophisticated proteomics methods to identify novel non-histone nuclear substrates of HDAC8, including the tumor suppressor ARID1A. These newly discovered substrates of HDAC8 are involved in diverse biological processes including mitosis, transcription, chromatin remodeling, and RNA splicing and may help guide therapeutic strategies that target the function of HDAC8.",
   "pmc_id": "PMC4201337",
   "year_published": 2014,
   "pm_id": "25089360",
@@ -190,6 +199,7 @@ module.exports = [{
   "software_development": false,
   "review": false,
 }, {
+  "abstract": "Recipes for generating pure populations of specific cell types are undergoing rapid development for a diversity of applications, from cell therapies to disease modeling and drug screening. The main approaches used are differentiation of pluripotent stem cells, reprogramming of somatic cells to induced pluripotent stem cells and transdifferentiation of one type of somatic cell to another.",
   "pmc_id": "PMC4274604",
   "year_published": 2014,
   "pm_id": "25299921",
@@ -214,6 +224,7 @@ module.exports = [{
   "software_development": false,
   "review": true,
 }, {
+  "abstract": "The Library of Integrated Network-based Cellular Signatures (LINCS) project is a large-scale coordinated effort to build a comprehensive systems biology reference resource. The goals of the program include the generation of a very large multidimensional data matrix and informatics and computational tools to integrate, analyze, and make the data readily accessible. LINCS data include genome-wide transcriptional signatures, biochemical protein binding profiles, cellular phenotypic response profiles and various other datasets for a wide range of cell model systems and molecular and genetic perturbations. Here we present a partial survey of this data facilitated by data standards and in particular a robust compound standardization workflow; we integrated several types of LINCS signatures and analyzed the results with a focus on mechanism of action (MoA) and chemical compounds. We illustrate how kinase targets can be related to disease models and relevant drugs. We identified some fundamental trends that appear to link Kinome binding profiles and transcriptional signatures to chemical information and biochemical binding profiles to transcriptional responses independent of chemical similarity. To fill gaps in the datasets we developed and applied predictive models. The results can be interpreted at the systems level as demonstrated based on a large number of signaling pathways. We can identify clear global relationships, suggesting robustness of cellular responses to chemical perturbation. Overall, the results suggest that chemical similarity is a useful measure at the systems level, which would support phenotypic drug optimization efforts. With this study we demonstrate the potential of such integrated analysis approaches and suggest prioritizing further experiments to fill the gaps in the current data.",
   "pmc_id": "PMC4179751",
   "year_published": 2014,
   "pm_id": "25324859",
@@ -238,6 +249,7 @@ module.exports = [{
   "software_development": true,
   "review": false,
 }, {
+  "abstract": "Panorama is a web application for storing, sharing, analyzing, and reusing targeted assays created and refined with Skyline,1 an increasingly popular Windows client software tool for targeted proteomics experiments. Panorama allows laboratories to store and organize curated results contained in Skyline documents with fine-grained permissions, which facilitates distributed collaboration and secure sharing of published and unpublished data via a web-browser interface. It is fully integrated with the Skyline workflow and supports publishing a document directly to a Panorama server from the Skyline user interface. Panorama captures the complete Skyline document information content in a relational database schema. Curated results published to Panorama can be aggregated and exported as chromatogram libraries. These libraries can be used in Skyline to pick optimal targets in new experiments and to validate peak identification of target peptides. Panorama is open-source and freely available. It is distributed as part of LabKey Server,2 an open source biomedical research data management system. Laboratories and organizations can set up Panorama locally by downloading and installing the software on their own servers. They can also request freely hosted projects on https://panoramaweb.org , a Panorama server maintained by the Department of Genome Sciences at the University of Washington.",
   "pmc_id": "PMC4156235",
   "year_published": 2014,
   "pm_id": "25102069",
@@ -262,6 +274,7 @@ module.exports = [{
   "software_development": true,
   "review": false,
 }, {
+  "abstract": "Data sets from recent large-scale projects can be integrated into one unified puzzle that can provide new insights into how drugs and genetic perturbations applied to human cells are linked to whole-organism phenotypes. Data that report how drugs affect the phenotype of human cell lines and how drugs induce changes in gene and protein expression in human cell lines can be combined with knowledge about human disease, side effects induced by drugs, and mouse phenotypes. Such data integration efforts can be achieved through the conversion of data from the various resources into single-node-type networks, gene-set libraries, or multipartite graphs. This approach can lead us to the identification of more relationships between genes, drugs, and phenotypes as well as benchmark computational and experimental methods. Overall, this lean 'Big Data' integration strategy will bring us closer toward the goal of realizing personalized medicine.",
   "pmc_id": "PMC4153537",
   "year_published": 2014,
   "pm_id": "25109570",
@@ -285,6 +298,7 @@ module.exports = [{
   "software_development": false,
   "review": true,
 }, {
+  "abstract": "Bioinformatics and computer aided drug design rely on the curation of a large number of protocols for biological assays that measure the ability of potential drugs to achieve a therapeutic effect. These assay protocols are generally published by scientists in the form of plain text, which needs to be more precisely annotated in order to be useful to software methods. We have developed a pragmatic approach to describing assays according to the semantic definitions of the BioAssay Ontology (BAO) project, using a hybrid of machine learning based on natural language processing, and a simplified user interface designed to help scientists curate their data with minimum effort. We have carried out this work based on the premise that pure machine learning is insufficiently accurate, and that expecting scientists to find the time to annotate their protocols manually is unrealistic. By combining these approaches, we have created an effective prototype for which annotation of bioassay text within the domain of the training set can be accomplished very quickly. Well-trained annotations require single-click user approval, while annotations from outside the training set domain can be identified using the search feature of a well-designed user interface, and subsequently used to improve the underlying models. By drastically reducing the time required for scientists to annotate their assays, we can realistically advocate for semantic annotation to become a standard part of the publication process. Once even a small proportion of the public body of bioassay data is marked up, bioinformatics researchers can begin to construct sophisticated and useful searching and analysis algorithms that will provide a diverse and powerful set of tools for drug discovery researchers.",
   "pmc_id": "PMC4137659",
   "year_published": 2014,
   "pm_id": "25165633",
@@ -309,6 +323,7 @@ module.exports = [{
   "software_development": false,
   "review": false,
 }, {
+  "abstract": "For the Library of Integrated Network-based Cellular Signatures (LINCS) project many gene expression signatures using the L1000 technology have been produced. The L1000 technology is a cost-effective method to profile gene expression in large scale. LINCS Canvas Browser (LCB) is an interactive HTML5 web-based software application that facilitates querying, browsing and interrogating many of the currently available LINCS L1000 data. LCB implements two compacted layered canvases, one to visualize clustered L1000 expression data, and the other to display enrichment analysis results using 30 different gene set libraries. Clicking on an experimental condition highlights gene-sets enriched for the differentially expressed genes from the selected experiment. A search interface allows users to input gene lists and query them against over 100 000 conditions to find the top matching experiments. The tool integrates many resources for an unprecedented potential for new discoveries in systems biology and systems pharmacology. The LCB application is available at http://www.maayanlab.net/LINCS/LCB. Customized versions will be made part of the http://lincscloud.org and http://lincs.hms.harvard.edu websites.",
   "pmc_id": "PMC4086130",
   "year_published": 2014,
   "pm_id": "24906883",
@@ -333,6 +348,7 @@ module.exports = [{
   "software_development": true,
   "review": false,
 }, {
+  "abstract": "The lack of established standards to describe and annotate biological assays and screening outcomes in the domain of drug and chemical probe discovery is a severe limitation to utilize public and proprietary drug screening data to their maximum potential. We have created the BioAssay Ontology (BAO) project (http://bioassayontology.org) to develop common reference metadata terms and definitions required for describing relevant information of low-and high-throughput drug and probe screening assays and results. The main objectives of BAO are to enable effective integration, aggregation, retrieval, and analyses of drug screening data. Since we first released BAO on the BioPortal in 2010 we have considerably expanded and enhanced BAO and we have applied the ontology in several internal and external collaborative projects, for example the BioAssay Research Database (BARD). We describe the evolution of BAO with a design that enables modeling complex assays including profile and panel assays such as those in the Library of Integrated Network-based Cellular Signatures (LINCS). One of the critical questions in evolving BAO is the following: how can we provide a way to efficiently reuse and share among various research projects specific parts of our ontologies without violating the integrity of the ontology and without creating redundancies. This paper provides a comprehensive answer to this question with a description of a methodology for ontology modularization using a layered architecture. Our modularization approach defines several distinct BAO components and separates internal from external modules and domain-level from structural components. This approach facilitates the generation/extraction of derived ontologies (or perspectives) that can suit particular use cases or software applications. We describe the evolution of BAO related to its formal structures, engineering approaches, and content to enable modeling of complex assays and integration with other ontologies and datasets.",
   "pmc_id": "PMC4108877",
   "year_published": 2014,
   "pm_id": "25093074",
@@ -357,6 +373,7 @@ module.exports = [{
   "software_development": false,
   "review": false,
 }, {
+  "abstract": "",
   "pmc_id": "PMC3990667",
   "year_published": 2014,
   "pm_id": "24058034",
@@ -380,6 +397,7 @@ module.exports = [{
   "software_development": false,
   "review": false,
 }, {
+  "abstract": "BACKGROUND: Soluble growth factors present in the microenvironment play a major role in tumor development, invasion, metastasis, and responsiveness to targeted therapies. While the biochemistry of growth factor-dependent signal transduction has been studied extensively in individual cell types, relatively little systematic data are available across genetically diverse cell lines. RESULTS: We describe a quantitative and comparative dataset focused on immediate-early signaling that regulates the AKT (AKT1/2/3) and ERK (MAPK1/3) pathways in a canonical panel of well-characterized breast cancer lines. We also provide interactive web-based tools to facilitate follow-on analysis of the data. Our findings show that breast cancers are diverse with respect to ligand sensitivity and signaling biochemistry. Surprisingly, triple negative breast cancers (TNBCs; which express low levels of ErbB2, progesterone and estrogen receptors) are the most broadly responsive to growth factors and HER2amp cancers (which overexpress ErbB2) the least. The ratio of ERK to AKT activation varies with ligand and subtype, with a systematic bias in favor of ERK in hormone receptor positive (HR+) cells. The factors that correlate with growth factor responsiveness depend on whether fold-change or absolute activity is considered the key biological variable, and they differ between ERK and AKT pathways. CONCLUSIONS: Responses to growth factors are highly diverse across breast cancer cell lines, even within the same subtype. A simple four-part heuristic suggests that diversity arises from variation in receptor abundance, an ERK/AKT bias that depends on ligand identity, a set of factors common to all receptors that varies in abundance or activity with cell line, and an \"indirect negative regulation\" by ErbB2. This analysis sets the stage for the development of a mechanistic and predictive model of growth factor signaling in diverse cancer lines. Interactive tools for looking up these results and downloading raw data are available at http://lincs.hms.harvard.edu/niepel-bmcbiol-2014/.",
   "pmc_id": "PMC4234128",
   "year_published": 2014,
   "pm_id": "24655548",
@@ -404,6 +422,7 @@ module.exports = [{
   "software_development": false,
   "review": false,
 }, {
+  "abstract": "The National Institutes of Health Library of Integrated Network-based Cellular Signatures (LINCS) program is generating extensive multidimensional data sets, including biochemical, genome-wide transcriptional, and phenotypic cellular response signatures to a variety of small-molecule and genetic perturbations with the goal of creating a sustainable, widely applicable, and readily accessible systems biology knowledge resource. Integration and analysis of diverse LINCS data sets depend on the availability of sufficient metadata to describe the assays and screening results and on their syntactic, structural, and semantic consistency. Here we report metadata specifications for the most important molecular and cellular components and recommend them for adoption beyond the LINCS project. We focus on the minimum required information to model LINCS assays and results based on a number of use cases, and we recommend controlled terminologies and ontologies to annotate assays with syntactic consistency and semantic integrity. We also report specifications for a simple annotation format (SAF) to describe assays and screening results based on our metadata specifications with explicit controlled vocabularies. SAF specifically serves to programmatically access and exchange LINCS data as a prerequisite for a distributed information management infrastructure. We applied the metadata specifications to annotate large numbers of LINCS cell lines, proteins, and small molecules. The resources generated and presented here are freely available.",
   "pmc_id": null,
   "year_published": 2014,
   "pm_id": "24518066",
@@ -428,6 +447,7 @@ module.exports = [{
   "software_development": true,
   "review": false,
 }, {
+  "abstract": "",
   "pmc_id": "PMC3771683",
   "year_published": 2013,
   "pm_id": "23607489",
@@ -449,6 +469,7 @@ module.exports = [{
   "software_development": false,
   "review": false,
 }, {
+  "abstract": "BACKGROUND: System-wide profiling of genes and proteins in mammalian cells produce lists of differentially expressed genes/proteins that need to be further analyzed for their collective functions in order to extract new knowledge. Once unbiased lists of genes or proteins are generated from such experiments, these lists are used as input for computing enrichment with existing lists created from prior knowledge organized into gene-set libraries. While many enrichment analysis tools and gene-set libraries databases have been developed, there is still room for improvement. RESULTS: Here, we present Enrichr, an integrative web-based and mobile software application that includes new gene-set libraries, an alternative approach to rank enriched terms, and various interactive visualization approaches to display enrichment results using the JavaScript library, Data Driven Documents (D3). The software can also be embedded into any tool that performs gene list analysis. We applied Enrichr to analyze nine cancer cell lines by comparing their enrichment signatures to the enrichment signatures of matched normal tissues. We observed a common pattern of up regulation of the polycomb group PRC2 and enrichment for the histone mark H3K27me3 in many cancer cell lines, as well as alterations in Toll-like receptor and interlukin signaling in K562 cells when compared with normal myeloid CD33+ cells. Such analyses provide global visualization of critical differences between normal tissues and cancer cell lines but can be applied to many other scenarios. CONCLUSIONS: Enrichr is an easy to use intuitive enrichment analysis web-based tool providing various types of visualization summaries of collective functions of gene lists. Enrichr is open source and freely available online at: http://amp.pharm.mssm.edu/Enrichr.",
   "pmc_id": "PMC3637064",
   "year_published": 2013,
   "pm_id": "23586463",
@@ -473,6 +494,7 @@ module.exports = [{
   "software_development": true,
   "review": false,
 }, {
+  "abstract": "High-throughput data sets such as genome-wide protein-protein interactions, protein-DNA interactions and gene expression data have been published for several model systems, especially for human cancer samples. The University of California, Santa Cruz (UCSC) Interaction Browser (http://sysbio.soe.ucsc.edu/nets) is an online tool for biologists to view high-throughput data sets simultaneously for the analysis of functional relationships between biological entities. Users can access several public interaction networks and functional genomics data sets through the portal as well as upload their own networks and data sets for analysis. Users can navigate through correlative relationships for focused sets of genes belonging to biological pathways using a standard web browser. Using a new visual modality called the CircleMap, multiple 'omics' data sets can be viewed simultaneously within the context of curated, predicted, directed and undirected regulatory interactions. The Interaction Browser provides an integrative viewing of biological networks based on the consensus of many observations about genes and their products, which may provide new insights about normal and disease processes not obvious from any isolated data set.",
   "pmc_id": "PMC3692096",
   "year_published": 2013,
   "pm_id": "23748957",
@@ -496,6 +518,7 @@ module.exports = [{
   "software_development": true,
   "review": false,
 }, {
+  "abstract": "Identifying transcription factors (TF) involved in producing a genome-wide transcriptional profile is an essential step in building mechanistic model that can explain observed gene expression data. We developed a statistical framework for constructing genome-wide signatures of TF activity, and for using such signatures in the analysis of gene expression data produced by complex transcriptional regulatory programs. Our framework integrates ChIP-seq data and appropriately matched gene expression profiles to identify True REGulatory (TREG) TF-gene interactions. It provides genome-wide quantification of the likelihood of regulatory TF-gene interaction that can be used to either identify regulated genes, or as genome-wide signature of TF activity. To effectively use ChIP-seq data, we introduce a novel statistical model that integrates information from all binding \"peaks\" within 2 Mb window around a gene's transcription start site (TSS), and provides gene-level binding scores and probabilities of regulatory interaction. In the second step we integrate these binding scores and regulatory probabilities with gene expression data to assess the likelihood of True REGulatory (TREG) TF-gene interactions. We demonstrate the advantages of TREG framework in identifying genes regulated by two TFs with widely different distribution of functional binding events (ERα and E2f1). We also show that TREG signatures of TF activity vastly improve our ability to detect involvement of ERα in producing complex diseases-related transcriptional profiles. Through a large study of disease-related transcriptional signatures and transcriptional signatures of drug activity, we demonstrate that increase in statistical power associated with the use of TREG signatures makes the crucial difference in identifying key targets for treatment, and drugs to use for treatment. All methods are implemented in an open-source R package treg. The package also contains all data used in the analysis including 494 TREG binding profiles based on ENCODE ChIP-seq data. The treg package can be downloaded at http://GenomicsPortals.org.",
   "pmc_id": "PMC3764016",
   "year_published": 2013,
   "pm_id": "24039560",
@@ -520,6 +543,7 @@ module.exports = [{
   "software_development": true,
   "review": false,
 }, {
+  "abstract": "The wealth of genomic information currently available to researchers and clinicians has dramatically changed the way some diseases are defined. However, leveraging this information is a major challenge, in part because previously established concepts and tools used for research and development are largely inadequate. Using the example of cancer genomics, this article focuses on systems-biology approaches to inform the development of personalized medicine.",
   "pmc_id": "PMC3609407",
   "year_published": 2013,
   "pm_id": "23321554",
@@ -541,6 +565,7 @@ module.exports = [{
   "software_development": false,
   "review": true,
 }, {
+  "abstract": "Genome-wide expression data from tumors and cell lines in breast cancer, together with drug response of cell lines, open prospects for integrative analyses that can lead to better personalized therapy. Drug responses and expression data collected from cell lines and tumors were used to generate tripartite networks connecting clusters of patients to cell lines and cell lines to drugs, to connect drugs to patients. Various approaches were applied to connect cell lines to tumor clusters: a standard method that uses a biomarker gene set, and new methods that compute metasignatures for transcription factors and histone modifications given upregulated genes in cell lines or tumors. The results from the metasignature analysis identify two major clusters of patients: one enriched for active histone marks and one for repressive marks. The tumors enriched for activation marks are correlated with poor prognosis. Overall, the analyses suggest new patient clustering, discover dysregulated pathways, and recommend individualized use of drugs to treat subsets of patients.CPT: Pharmacometrics & Systems Pharmacology (2013) 2, e35; doi:10.1038/psp.2013.11; advance online publication 27 March 2013.",
   "pmc_id": "PMC3615534",
   "year_published": 2013,
   "pm_id": "23836026",
@@ -562,6 +587,7 @@ module.exports = [{
   "software_development": false,
   "review": false,
 }, {
+  "abstract": "mTOR is a highly conserved serine/threonine protein kinase that serves as a central regulator of cell growth, survival, and autophagy. Deregulation of the PI3K/Akt/mTOR signaling pathway occurs commonly in cancer and numerous inhibitors targeting the ATP-binding site of these kinases are currently undergoing clinical evaluation. Here, we report the characterization of Torin2, a second-generation ATP-competitive inhibitor that is potent and selective for mTOR with a superior pharmacokinetic profile to previous inhibitors. Torin2 inhibited mTORC1-dependent T389 phosphorylation on S6K (RPS6KB1) with an EC(50) of 250 pmol/L with approximately 800-fold selectivity for cellular mTOR versus phosphoinositide 3-kinase (PI3K). Torin2 also exhibited potent biochemical and cellular activity against phosphatidylinositol-3 kinase-like kinase (PIKK) family kinases including ATM (EC(50), 28 nmol/L), ATR (EC(50), 35 nmol/L), and DNA-PK (EC(50), 118 nmol/L; PRKDC), the inhibition of which sensitized cells to Irradiation. Similar to the earlier generation compound Torin1 and in contrast to other reported mTOR inhibitors, Torin2 inhibited mTOR kinase and mTORC1 signaling activities in a sustained manner suggestive of a slow dissociation from the kinase. Cancer cell treatment with Torin2 for 24 hours resulted in a prolonged block in negative feedback and consequent T308 phosphorylation on Akt. These effects were associated with strong growth inhibition in vitro. Single-agent treatment with Torin2 in vivo did not yield significant efficacy against KRAS-driven lung tumors, but the combination of Torin2 with mitogen-activated protein/extracellular signal-regulated kinase (MEK) inhibitor AZD6244 yielded a significant growth inhibition. Taken together, our findings establish Torin2 as a strong candidate for clinical evaluation in a broad number of oncologic settings where mTOR signaling has a pathogenic role.",
   "pmc_id": "PMC3760004",
   "year_published": 2013,
   "pm_id": "23436801",
@@ -583,6 +609,7 @@ module.exports = [{
   "software_development": false,
   "review": false,
 }, {
+  "abstract": "Large-scale analysis of cellular response to anticancer drugs typically focuses on variation in potency (half-maximum inhibitory concentration, (IC50)), assuming that it is the most important difference between effective and ineffective drugs or sensitive and resistant cells. We took a multiparametric approach involving analysis of the slope of the dose-response curve, the area under the curve and the maximum effect (Emax). We found that some of these parameters vary systematically with cell line and others with drug class. For cell-cycle inhibitors, Emax often but not always correlated with cell proliferation rate. For drugs targeting the Akt/PI3K/mTOR pathway, dose-response curves were unusually shallow. Classical pharmacology has no ready explanation for this phenomenon, but single-cell analysis showed that it correlated with significant and heritable cell-to-cell variability in the extent of target inhibition. We conclude that parameters other than potency should be considered in the comparative analysis of drug response, particularly at clinically relevant concentrations near and above the IC50.",
   "pmc_id": "PMC3947796",
   "year_published": 2013,
   "pm_id": "24013279",
@@ -607,6 +634,7 @@ module.exports = [{
   "software_development": false,
   "review": false,
 }, {
+  "abstract": "Malignant melanomas harbouring point mutations (Val600Glu) in the serine/threonine-protein kinase BRAF (BRAF(V600E)) depend on RAF-MEK-ERK signalling for tumour cell growth. RAF and MEK inhibitors show remarkable clinical efficacy in BRAF(V600E) melanoma; however, resistance to these agents remains a formidable challenge. Global characterization of resistance mechanisms may inform the development of more effective therapeutic combinations. Here we carried out systematic gain-of-function resistance studies by expressing more than 15,500 genes individually in a BRAF(V600E) melanoma cell line treated with RAF, MEK, ERK or combined RAF-MEK inhibitors. These studies revealed a cyclic-AMP-dependent melanocytic signalling network not previously associated with drug resistance, including G-protein-coupled receptors, adenyl cyclase, protein kinase A and cAMP response element binding protein (CREB). Preliminary analysis of biopsies from BRAF(V600E) melanoma patients revealed that phosphorylated (active) CREB was suppressed by RAF-MEK inhibition but restored in relapsing tumours. Expression of transcription factors activated downstream of MAP kinase and cAMP pathways also conferred resistance, including c-FOS, NR4A1, NR4A2 and MITF. Combined treatment with MAPK-pathway and histone-deacetylase inhibitors suppressed MITF expression and cAMP-mediated resistance. Collectively, these data suggest that oncogenic dysregulation of a melanocyte lineage dependency can cause resistance to RAF-MEK-ERK inhibition, which may be overcome by combining signalling- and chromatin-directed therapeutics.",
   "pmc_id": "PMC4098832",
   "year_published": 2013,
   "pm_id": "24185007",
@@ -630,6 +658,7 @@ module.exports = [{
   "software_development": false,
   "review": false,
 }, {
+  "abstract": "Secreted proteins dictate a range of cellular functions in human health and disease. Because of the high degree of cellular heterogeneity and, more importantly, polyfunctionality of individual cells, there is an unmet need to simultaneously measure an array of proteins from single cells and to rapidly assay a large number of single cells (more than 1000) in parallel. We describe a simple bioanalytical assay platform consisting of a large array of subnanoliter microchambers integrated with high-density antibody barcode microarrays for highly multiplexed protein detection from over a thousand single cells in parallel. This platform has been tested for both cell lines and complex biological samples such as primary cells from patients. We observed distinct heterogeneity among the single cell secretomic signatures that, for the first time, can be directly correlated to the cells' physical behavior such as migration. Compared to the state-of-the-art protein secretion assay such as ELISpot and emerging microtechnology-enabled assays, our approach offers both high throughput and high multiplicity. It also has a number of clinician-friendly features such as ease of operation, low sample consumption, and standardized data analysis, representing a potentially transformative tool for informative monitoring of cellular function and immunity in patients.",
   "pmc_id": "PMC3589817",
   "year_published": 2013,
   "pm_id": "23339603",
@@ -653,6 +682,7 @@ module.exports = [{
   "software_development": false,
   "review": false,
 }, {
+  "abstract": "Identifying factors responsible for variation in drug response is essential for the effective use of targeted therapeutics. We profiled signaling pathway activity in a collection of breast cancer cell lines before and after stimulation with physiologically relevant ligands, which revealed the variability in network activity among cells of known genotype and molecular subtype. Despite the receptor-based classification of breast cancer subtypes, we found that the abundance and activity of signaling proteins in unstimulated cells (basal profile), as well as the activity of proteins in stimulated cells (signaling profile), varied within each subtype. Using a partial least-squares regression approach, we constructed models that significantly predicted sensitivity to 23 targeted therapeutics. For example, one model showed that the response to the growth factor receptor ligand heregulin effectively predicted the sensitivity of cells to drugs targeting the cell survival pathway mediated by PI3K (phosphoinositide 3-kinase) and Akt, whereas the abundance of Akt or the mutational status of the enzymes in the pathway did not. Thus, basal and signaling protein profiles may yield new biomarkers of drug sensitivity and enable the identification of appropriate therapies in cancers characterized by similar functional dysregulation of signaling networks.",
   "pmc_id": "PMC3845839",
   "year_published": 2013,
   "pm_id": "24065145",
@@ -677,6 +707,7 @@ module.exports = [{
   "software_development": false,
   "review": false,
 }, {
+  "abstract": "MOTIVATION: Identifying the cellular wiring that connects genomic perturbations to transcriptional changes in cancer is essential to gain a mechanistic understanding of disease initiation, progression and ultimately to predict drug response. We have developed a method called Tied Diffusion Through Interacting Events (TieDIE) that uses a network diffusion approach to connect genomic perturbations to gene expression changes characteristic of cancer subtypes. The method computes a subnetwork of protein-protein interactions, predicted transcription factor-to-target connections and curated interactions from literature that connects genomic and transcriptomic perturbations. RESULTS: Application of TieDIE to The Cancer Genome Atlas and a breast cancer cell line dataset identified key signaling pathways, with examples impinging on MYC activity. Interlinking genes are predicted to correspond to essential components of cancer signaling and may provide a mechanistic explanation of tumor character and suggest subtype-specific drug targets.",
   "pmc_id": "PMC3799471",
   "year_published": 2013,
   "pm_id": "23986566",
@@ -701,6 +732,7 @@ module.exports = [{
   "software_development": true,
   "review": false,
 }, {
+  "abstract": "The ribosome is centrally situated to sense metabolic states, but whether its activity, in turn, coherently rewires transcriptional responses is unknown. Here, through integrated chemical-genetic analyses, we found that a dominant transcriptional effect of blocking protein translation in cancer cells was inactivation of heat shock factor 1 (HSF1), a multifaceted transcriptional regulator of the heat-shock response and many other cellular processes essential for anabolic metabolism, cellular proliferation, and tumorigenesis. These analyses linked translational flux to the regulation of HSF1 transcriptional activity and to the modulation of energy metabolism. Targeting this link with translation initiation inhibitors such as rocaglates deprived cancer cells of their energy and chaperone armamentarium and selectively impaired the proliferation of both malignant and premalignant cells with early-stage oncogenic lesions.",
   "pmc_id": "PMC3959726",
   "year_published": 2013,
   "pm_id": "23869022",
@@ -724,6 +756,7 @@ module.exports = [{
   "software_development": false,
   "review": false,
 }, {
+  "abstract": "Large corpora of kinase small molecule inhibitor data are accessible to public sector research from thousands of journal article and patent publications. These data have been generated employing a wide variety of assay methodologies and experimental procedures by numerous laboratories. Here we ask the question how applicable these heterogeneous data sets are to predict kinase activities and which characteristics of the data sets contribute to their utility. We accessed almost 500,000 molecules from the Kinase Knowledge Base (KKB) and after rigorous aggregation and standardization generated over 180 distinct data sets covering all major groups of the human kinome. To assess the value of the data sets, we generated hundreds of classification and regression models. Their rigorous cross-validation and characterization demonstrated highly predictive classification and quantitative models for the majority of kinase targets if a minimum required number of active compounds or structure-activity data points were available. We then applied the best classifiers to compounds most recently profiled in the NIH Library of Integrated Network-based Cellular Signatures (LINCS) program and found good agreement of profiling results with predicted activities. Our results indicate that, although heterogeneous in nature, the publically accessible data sets are exceedingly valuable and well suited to develop highly accurate predictors for practical Kinome-wide virtual screening applications and to complement experimental kinase profiling.",
   "pmc_id": "PMC3569091",
   "year_published": 2013,
   "pm_id": "23259810",
@@ -748,10 +781,11 @@ module.exports = [{
   "software_development": false,
   "review": false,
 }, {
+  "abstract": "Substantial effort in recent years has been devoted to analyzing data based large-scale biological networks, which provide valuable insight into the topologies of complex biological networks but are rarely context specific and cannot be used to predict the responses of cell signaling proteins to specific ligands or compounds. In this work, we proposed a novel strategy to investigate kinase inhibitor induced pathway signatures by integrating multiplex data in Library of Integrated Network-based Cellular Signatures (LINCS), e.g. KINOMEscan data and cell proliferation/mitosis imaging data. Using this strategy, we first established a PC9 cell line specific pathway model to investigate the pathway signatures in PC9 cell line when perturbed by a small molecule kinase inhibitor GW843682. This specific pathway revealed the role of PI3K/AKT in modulating the cell proliferation process and the absence of two anti-proliferation links, which indicated a potential mechanism of abnormal expansion in PC9 cell number. Incorporating the pathway model for side effects on primary human hepatocytes, it was used to screen 27 kinase inhibitors in LINCS database and PF02341066, known as Crizotinib, was finally suggested with an optimal concentration 4.6 uM to suppress PC9 cancer cell expansion while avoiding severe damage to primary human hepatocytes. Drug combination analysis revealed that the synergistic effect region can be predicted straightforwardly based on a threshold which is an inherent property of each kinase inhibitor. Furthermore, this integration strategy can be easily extended to other specific cell lines to be a powerful tool for drug screen before clinical trials.",
   "pmc_id": "PMC3855094",
   "year_published": 2013,
   "pm_id": "24339888",
-  "article_name": "Systematically studying kinase inhibitor induced signaling network signature by integrating both therapeutic and side effects. ",
+  "article_name": "Systematically studying kinase inhibitor induced signaling network signature by integrating both therapeutic and side effects.",
   "authors": ["Shao H", "Peng T", "Ji Z", "Su J", "Zhou X"],
   "issue": "12",
   "pp_pages": "e80832",
@@ -772,6 +806,7 @@ module.exports = [{
   "software_development": false,
   "review": false,
 }, {
+  "abstract": "MOTIVATION: Networks are vital to computational systems biology research, but visualizing them is a challenge. For networks larger than ∼100 nodes and ∼200 links, ball-and-stick diagrams fail to convey much information. To address this, we developed Network2Canvas (N2C), a web application that provides an alternative way to view networks. N2C visualizes networks by placing nodes on a square toroidal canvas. The network nodes are clustered on the canvas using simulated annealing to maximize local connections where a node's brightness is made proportional to its local fitness. The interactive canvas is implemented in HyperText Markup Language (HTML)5 with the JavaScript library Data-Driven Documents (D3). We applied N2C to visualize 30 canvases made from human and mouse gene-set libraries and 6 canvases made from the Food and Drug Administration (FDA)-approved drug-set libraries. Given lists of genes or drugs, enriched terms are highlighted on the canvases, and their degree of clustering is computed. Because N2C produces visual patterns of enriched terms on canvases, a trained eye can detect signatures instantly. In summary, N2C provides a new flexible method to visualize large networks and can be used to perform and visualize gene-set and drug-set enrichment analyses.",
   "pmc_id": "PMC3712222",
   "year_published": 2013,
   "pm_id": "23749960",
@@ -796,6 +831,7 @@ module.exports = [{
   "software_development": true,
   "review": false,
 }, {
+  "abstract": "Cancer cells can be drug resistant due to genetic variation at multiple steps in the drug response pathway, including drug efflux pumping, target mutation, and blunted apoptotic response. These are not discriminated by conventional cell survival assays. Here, we report a rapid and convenient high-content cell-imaging assay that measures multiple physiological changes in cells responding to antimitotic small-molecule drugs. Our one-step, no-wash assay uses three dyes to stain living cells and is much more accurate for scoring weakly adherent mitotic and apoptotic cells than conventional antibody-based assays. We profiled responses of 33 cell lines to 8 antimitotic drugs at multiple concentrations and time points using this assay and deposited our data and assay protocols into a public database (http://lincs.hms.harvard.edu/). Our data discriminated between alternative mechanisms that compromise drug sensitivity to paclitaxel and revealed an unexpected bell-shaped dose-response curve for BI2536, a highly selective inhibitor of Polo-like kinases. Our approach can be generalized, is scalable, and should therefore facilitate identification of molecular biomarkers for mechanisms of drug insensitivity in high-throughput screens and other assays.",
   "pmc_id": "PMC3783590",
   "year_published": 2013,
   "pm_id": "23788527",
@@ -817,6 +853,7 @@ module.exports = [{
   "software_development": false,
   "review": false,
 }, {
+  "abstract": "",
   "pmc_id": "PMC3782379",
   "year_published": 2013,
   "pm_id": "24078772",
@@ -838,10 +875,11 @@ module.exports = [{
   "software_development": false,
   "review": false,
 }, {
+  "abstract": "",
   "pmc_id": "PMC3878311",
   "year_published": 2013,
   "pm_id": "24090834",
-  "article_name": "A dual sensor for real-time monitoring of glucose and oxygen. ",
+  "article_name": "A dual sensor for real-time monitoring of glucose and oxygen.",
   "authors": ["Zhang L", "Su F", "Buizer S", "Lu H", "Gao W", "Tian Y", "Meldrum D"],
   "issue": "38",
   "pp_pages": "9779-88",
@@ -859,6 +897,7 @@ module.exports = [{
   "software_development": false,
   "review": false,
 }, {
+  "abstract": "Clinical responses to anticancer therapies are often restricted to a subset of patients. In some cases, mutated cancer genes are potent biomarkers for responses to targeted agents. Here, to uncover new biomarkers of sensitivity and resistance to cancer therapeutics, we screened a panel of several hundred cancer cell lines--which represent much of the tissue-type and genetic diversity of human cancers--with 130 drugs under clinical and preclinical investigation. In aggregate, we found that mutated cancer genes were associated with cellular response to most currently available cancer drugs. Classic oncogene addiction paradigms were modified by additional tissue-specific or expression biomarkers, and some frequently mutated genes were associated with sensitivity to a broad range of therapeutic agents. Unexpected relationships were revealed, including the marked sensitivity of Ewing's sarcoma cells harbouring the EWS (also known as EWSR1)-FLI1 gene translocation to poly(ADP-ribose) polymerase (PARP) inhibitors. By linking drug activity to the functional complexity of cancer genomes, systematic pharmacogenomic profiling in cancer cell lines provides a powerful biomarker discovery platform to guide rational cancer therapeutic strategies.",
   "pmc_id": "PMC3349233",
   "year_published": 2012,
   "pm_id": "22460902",
@@ -880,6 +919,7 @@ module.exports = [{
   "software_development": false,
   "review": false,
 }, {
+  "abstract": "To make full use of research data, the bioscience community needs to adopt technologies and reward mechanisms that support interoperability and promote the growth of an open 'data commoning' culture. Here we describe the prerequisites for data commoning and present an established and growing ecosystem of solutions using the shared 'Investigation-Study-Assay' framework to support that vision.",
   "pmc_id": "PMC3428019",
   "year_published": 2012,
   "pm_id": "22281772",
@@ -901,6 +941,7 @@ module.exports = [{
   "software_development": false,
   "review": false,
 }, {
+  "abstract": "Huge amounts of high-throughput screening (HTS) data for probe and drug development projects are being generated in the pharmaceutical industry and more recently in the public sector. The resulting experimental datasets are increasingly being disseminated via publically accessible repositories. However, existing repositories lack sufficient metadata to describe the experiments and are often difficult to navigate by non-experts. The lack of standardized descriptions and semantics of biological assays and screening results hinder targeted data retrieval, integration, aggregation, and analyses across different HTS datasets, for example to infer mechanisms of action of small molecule perturbagens. To address these limitations, we created the BioAssay Ontology (BAO). BAO has been developed with a focus on data integration and analysis enabling the classification of assays and screening results by concepts that relate to format, assay design, technology, target, and endpoint. Previously, we reported on the higher-level design of BAO and on the semantic querying capabilities offered by the ontology-indexed triple store of HTS data. Here, we report on our detailed design, annotation pipeline, substantially enlarged annotation knowledgebase, and analysis results. We used BAO to annotate assays from the largest public HTS data repository, PubChem, and demonstrate its utility to categorize and analyze diverse HTS results from numerous experiments. BAO is publically available from the NCBO BioPortal at http://bioportal.bioontology.org/ontologies/1533. BAO provides controlled terminology and uniform scope to report probe and drug discovery screening assays and results. BAO leverages description logic to formalize the domain knowledge and facilitate the semantic integration with diverse other resources. As a consequence, BAO offers the potential to infer new knowledge from a corpus of assay results, for example molecular mechanisms of action of perturbagens.",
   "pmc_id": "PMC3498356",
   "year_published": 2012,
   "pm_id": "23155465",
@@ -925,6 +966,7 @@ module.exports = [{
   "software_development": true,
   "review": false,
 }, {
+  "abstract": "",
   "pmc_id": "PMC3270411",
   "year_published": 2012,
   "pm_id": "22284361",
@@ -946,6 +988,7 @@ module.exports = [{
   "software_development": false,
   "review": false,
 }, {
+  "abstract": "High-content cellomic analysis is a powerful tool for rapid screening of cellular responses to extracellular cues and examination of intracellular signal transduction pathways at the single-cell level. In conjunction with microfluidics technology that provides unique advantages in sample processing and precise control of fluid delivery, it holds great potential to transform lab-on-a-chip systems for high-throughput cellular analysis. However, high-content imaging instruments are expensive, sophisticated, and not readily accessible. Herein, we report on a laser scanning cytometry approach that exploits a bench-top microarray scanner as an end-point reader to perform rapid and automated fluorescence imaging of cells cultured on a chip. Using high-content imaging analysis algorithms, we demonstrated multiplexed measurements of morphometric and proteomic parameters from all single cells. Our approach shows the improvement of both sensitivity and dynamic range by two orders of magnitude as compared to conventional epifluorescence microscopy. We applied this technology to high-throughput analysis of mesenchymal stem cells on an extracellular matrix protein array and characterization of heterotypic cell populations. This work demonstrates the feasibility of a laser microarray scanner for high-content cellomic analysis and opens up new opportunities to conduct informative cellular analysis and cell-based screening in the lab-on-a-chip systems.",
   "pmc_id": null,
   "year_published": 2012,
   "pm_id": "22991099",
@@ -967,6 +1010,7 @@ module.exports = [{
   "software_development": false,
   "review": false,
 }, {
+  "abstract": "Whereas genomic data are universally machine-readable, data from imaging, multiplex biochemistry, flow cytometry and other cell- and tissue-based assays usually reside in loosely organized files of poorly documented provenance. This arises because the relational databases used in genomic research are difficult to adapt to rapidly evolving experimental designs, data formats and analytic algorithms. Here we describe an adaptive approach to managing experimental data based on semantically typed data hypercubes (SDCubes) that combine hierarchical data format 5 (HDF5) and extensible markup language (XML) file types. We demonstrate the application of SDCube-based storage using ImageRail, a software package for high-throughput microscopy. Experimental design and its day-to-day evolution, not rigid standards, determine how ImageRail data are organized in SDCubes. We applied ImageRail to collect and analyze drug dose-response landscapes in human cell lines at single-cell resolution.",
   "pmc_id": "PMC3105758",
   "year_published": 2011,
   "pm_id": "21516115",
@@ -991,6 +1035,7 @@ module.exports = [{
   "software_development": true,
   "review": false,
 }, {
+  "abstract": "Computational analyses of systematic measurements on the states and activities of signaling proteins (as captured by phosphoproteomic data, for example) have the potential to uncover uncharacterized protein-protein interactions and to identify the subset that are important for cellular response to specific biological stimuli. However, inferring mechanistically plausible protein signaling networks (PSNs) from phosphoproteomics data is a difficult task, owing in part to the lack of sufficiently comprehensive experimental measurements, the inherent limitations of network inference algorithms, and a lack of standards for assessing the accuracy of inferred PSNs. A case study in which 12 research groups inferred PSNs from a phosphoproteomics data set demonstrates an assessment of inferred PSNs on the basis of the accuracy of their predictions. The concurrent prediction of the same previously unreported signaling interactions by different participating teams suggests relevant validation experiments and establishes a framework for combining PSNs inferred by multiple research groups into a composite PSN. We conclude that crowdsourcing the construction of PSNs-that is, outsourcing the task to the interested community-may be an effective strategy for network inference.",
   "pmc_id": "PMC3465072",
   "year_published": 2011,
   "pm_id": "21900204",
@@ -998,7 +1043,7 @@ module.exports = [{
   "authors": ["Prill RJ", "Saez-Rodriguez J", "Alexopoulos LG", "Sorger PK", "Stolovitzky G"],
   "issue": "189",
   "pp_pages": "mr7",
-  "journal_name": "Science Signaling ",
+  "journal_name": "Science Signaling",
   "tools": [],
   "doi": "10.1126/scisignal.2002212",
   "other_link": null,
@@ -1012,18 +1057,19 @@ module.exports = [{
   "software_development": false,
   "review": true,
 }, {
+  "abstract": "With advances in genomics, transcriptomics, metabolomics and proteomics, and more expansive electronic clinical record monitoring, as well as advances in computation, we have entered the Big Data era in biomedical research. Data gathering is growing rapidly while only a small fraction of this data is converted to useful knowledge or reused in future studies. To improve this, an important concept that is often overlooked is data abstraction. To fuse and reuse biomedical datasets from diverse resources, data abstraction is frequently required. Here we summarize some of the major Big Data biomedical research resources for genomics, proteomics and phenotype data, collected from mammalian cells, tissues and organisms. We then suggest simple data abstraction methods for fusing this diverse but related data. Finally, we demonstrate examples of the potential utility of such data integration efforts, while warning about the inherit biases that exist within such data.",
   "pmc_id": "PMC4675694",
   "year_published": 2015,
   "pm_id": "26101093",
   "article_name": "Abstraction for data integration: Fusing mammalian molecular, cellular and phenotype big datasets for better knowledge extraction.",
   "authors": ["Rouillard AD", "Wang Z", "Ma’ayan A"],
   "issue": null,
-  "pp_pages": "104-19",
+  "pp_pages": "123-38",
   "journal_name": "Computational Biology and Chemistry",
   "tools": [],
   "doi": null,
   "other_link": null,
-  "volume": "58",
+  "volume": "59 Pt B",
   "assay_development": false,
   "data_analysis": true,
   "data_generation": false,
@@ -1033,6 +1079,7 @@ module.exports = [{
   "software_development": false,
   "review": true,
 }, {
+  "abstract": "Single-cell analysis reveals aspects of cellular physiology not evident from population-based studies, particularly in the case of highly multiplexed methods such as mass cytometry (CyTOF) able to correlate the levels of multiple signalling, differentiation and cell fate markers. Immunofluorescence (IF) microscopy adds information on cell morphology and the microenvironment that are not obtained using flow-based techniques, but the multiplicity of conventional IF is limited. This has motivated development of imaging methods that require specialized instrumentation, exotic reagents or proprietary protocols that are difficult to reproduce in most laboratories. Here we report a public-domain method for achieving high multiplicity single-cell IF using cyclic immunofluorescence (CycIF), a simple and versatile procedure in which four-colour staining alternates with chemical inactivation of fluorophores to progressively build a multichannel image. Because CycIF uses standard reagents and instrumentation and is no more expensive than conventional IF, it is suitable for high-throughput assays and screening applications.",
   "pmc_id": "PMC4587398",
   "year_published": 2015,
   "pm_id": "26399630",
@@ -1057,6 +1104,7 @@ module.exports = [{
   "software_development": false,
   "review": false,
 }, {
+  "abstract": "Gene set analysis of differential expression, which identifies collectively differentially expressed gene sets, has become an important tool for biology. The power of this approach lies in its reduction of the dimensionality of the statistical problem and its incorporation of biological interpretation by construction. Many approaches to gene set analysis have been proposed, but benchmarking their performance in the setting of real biological data is difficult due to the lack of a gold standard. In a previously published work we proposed a geometrical approach to differential expression which performed highly in benchmarking tests and compared well to the most popular methods of differential gene expression. As reported, this approach has a natural extension to gene set analysis which we call Principal Angle Enrichment Analysis (PAEA). PAEA employs dimensionality reduction and a multivariate approach for gene set enrichment analysis. However, the performance of this method has not been assessed nor its implementation as a web-based tool. Here we describe new benchmarking protocols for gene set analysis methods and find that PAEA performs highly. The PAEA method is implemented as a user-friendly web-based tool, which contains 70 gene set libraries and is freely available to the community.",
   "pmc_id": "PMC4737646",
   "year_published": 2015,
   "pm_id": "26848405",
@@ -1071,7 +1119,7 @@ module.exports = [{
   }],
   "doi": null,
   "other_link": null,
-  "volume" : null,
+  "volume" : 2015,
   "assay_development": false,
   "data_analysis": true,
   "data_generation": false,
@@ -1081,6 +1129,7 @@ module.exports = [{
   "software_development": true,
   "review": false,
 }, {
+  "abstract": "Inhibition of cancer-promoting kinases is an established therapeutic strategy for the treatment of many cancers, although resistance to kinase inhibitors is common. One way to overcome resistance is to target orthogonal cancer-promoting pathways. Bromo and Extra-Terminal (BET) domain proteins, which belong to the family of epigenetic readers, have recently emerged as promising therapeutic targets in multiple cancers. The development of multitarget drugs that inhibit kinase and BET proteins therefore may be a promising strategy to overcome tumor resistance and prolong therapeutic efficacy in the clinic. We developed a general computational screening approach to identify novel dual kinase/bromodomain inhibitors from millions of commercially available small molecules. Our method integrated machine learning using big datasets of kinase inhibitors and structure-based drug design. Here we describe the computational methodology, including validation and characterization of our models and their application and integration into a scalable virtual screening pipeline. We screened over 6 million commercially available compounds and selected 24 for testing in BRD4 and EGFR biochemical assays. We identified several novel BRD4 inhibitors, among them a first in class dual EGFR-BRD4 inhibitor. Our studies suggest that this computational screening approach may be broadly applicable for identifying dual kinase/BET inhibitors with potential for treating various cancers.",
   "pmc_id": "PMC4657038",
   "year_published": 2015,
   "pm_id": "26596901",
@@ -1102,6 +1151,7 @@ module.exports = [{
   "software_development": false,
   "review": false,
 }, {
+  "abstract": "Amyotrophic lateral sclerosis (ALS) is a neurodegenerative condition characterized by the progressive deterioration of motor neurons in the cortex and spinal cord. Using an automated robotic microscope platform that enables the longitudinal tracking of thousands of single neurons, we examine the effects a large library of compounds on modulating the survival of primary neurons expressing a mutation known to cause ALS. The goal of our analysis is to identify the few potentially beneficial compounds among the many assayed, the vast majority of which do not extend neuronal survival. This resembles the large-scale simultaneous inference scenario familiar from microarray analysis, but transferred to the survival analysis setting due to the novel experimental setup. We apply a three-component mixture model to censored survival times of thousands of individual neurons subjected to hundreds of different compounds. The shrinkage induced by our model significantly improves performance in simulations relative to performing treatment-wise survival analysis and subsequent multiple testing adjustment. Our analysis identified compounds that provide insight into potential novel therapeutic strategies for ALS.",
   "pmc_id": null,
   "year_published": 2016,
   "pm_id": "26821783",
@@ -1113,7 +1163,7 @@ module.exports = [{
   "tools": [],
   "doi": null,
   "other_link": null,
-  "volume": null,
+  "volume": "[Epub ahead of print]",
   "assay_development": false,
   "data_analysis": true,
   "data_generation": false,
@@ -1123,6 +1173,7 @@ module.exports = [{
   "software_development": false,
   "review": false,
 }, {
+  "abstract": "In recent years, the assay for transposase-accessible chromatin using sequencing (ATAC-Seq) has become a fundamental tool of epigenomic research. However, it has proven difficult to perform this technique on frozen samples because freezing cells before extracting nuclei impairs nuclear integrity and alters chromatin structure. We describe a protocol for freezing cells that is compatible with ATAC-Seq, producing results that compare well with those generated from fresh cells. We found that while flash-frozen samples are not suitable for ATAC-Seq, the assay is successful with slow-cooled cryopreserved samples. Using this method, we were able to isolate high quality, intact nuclei, and we verified that epigenetic results from fresh and cryopreserved samples agree quantitatively. We developed our protocol on a disease-relevant cell type, namely motor neurons differentiated from induced pluripotent stem cells from a patient affected by spinal muscular atrophy.",
   "pmc_id": null,
   "year_published": 2016,
   "pm_id": null,
@@ -1134,7 +1185,7 @@ module.exports = [{
   "tools": [],
   "doi": "10.1101/036798",
   "other_link": null,
-  "volume": null,
+  "volume": "[preprint]",
   "assay_development": true,
   "data_analysis": true,
   "data_generation": true,
@@ -1144,6 +1195,7 @@ module.exports = [{
   "software_development": false,
   "review": false,
 }, {
+  "abstract": "Spinal muscular atrophy (SMA) is an inherited neuromuscular disease primarily characterized by degeneration of spinal motor neurons, and caused by reduced levels of the SMN protein. Previous studies to understand the proteomic consequences of reduced SMN have mostly utilized patient fibroblasts and animal models. We have derived human motor neurons from type I SMA and healthy controls by creating their induced pluripotent stem cells (iPSCs). Quantitative mass spectrometry of these cells revealed increased expression of 63 proteins in control motor neurons compared to respective fibroblasts, whereas 30 proteins were increased in SMA motor neurons vs. their fibroblasts. Notably, UBA1 was significantly decreased in SMA motor neurons, supporting evidence for ubiquitin pathway defects. Subcellular distribution of UBA1 was predominantly cytoplasmic in SMA motor neurons in contrast to nuclear in control motor neurons; suggestive of neurodevelopmental abnormalities. Many of the proteins that were decreased in SMA motor neurons, including beta III-tubulin and UCHL1, were associated with neurodevelopment and differentiation. These neuron-specific consequences of SMN depletion were not evident in fibroblasts, highlighting the importance of iPSC technology. The proteomic profiles identified here provide a useful resource to explore the molecular consequences of reduced SMN in motor neurons, and for the identification of novel biomarker and therapeutic targets for SMA.",
   "pmc_id": "PMC4707261",
   "year_published": 2016,
   "pm_id": "26793058",
@@ -1165,6 +1217,7 @@ module.exports = [{
   "software_development": false,
   "review": false,
 }, {
+  "abstract": "Profiling posttranslational modifications represents an alternative dimension to gene expression data in characterizing cellular processes. Many cellular responses to drugs are mediated by changes in cellular phosphosignaling. We sought to develop a common platform on which phosphosignaling responses could be profiled across thousands of samples, and created a targeted MS assay that profiles a reduced-representation set of phosphopeptides that we show to be strong indicators of responses to chemical perturbagens. To develop the assay, we investigated the coordinate regulation of phosphosites in samples derived from three cell lines treated with 26 different bioactive small molecules. Phosphopeptide analytes were selected from these discovery studies by clustering and picking 1 to 2 proxy members from each cluster. A quantitative, targeted PRM assay was developed to directly measure 96 reduced-representation probes. Sample processing for proteolytic digestion, protein quantification, peptide desalting, and phosphopeptide enrichment have been fully automated, making possible the simultaneous processing of 96 samples in only 3 days, with a plate phosphopeptide enrichment variance of 12%. This highly reproducible process allowed ~95% of the reduced-representation phosphopeptide probes to be detected in ~200 samples. The performance of the assay was evaluated by measuring the probes in new samples generated under treatment conditions from discovery experiments, recapitulating the observations of deeper experiments using a fraction of the analytical effort. We measured these probes in new experiments varying the treatments, cell types, and timepoints to demonstrate generalizability. We demonstrated that the assay is sensitive to disruptions in common signaling pathways (e.g. MAPK, PI3K/mTOR, and CDK). The high-throughput, reduced-representation phosphoproteomics assay provides a platform for the comparison of perturbations across a range of biological conditions, suitable for profiling thousands of samples. We believe the assay will prove highly useful for classification of known and novel drug and genetic mechanisms through comparison of phosphoproteomic signatures.",
   "pmc_id": null,
   "year_published": 2016,
   "pm_id": "26912667",
@@ -1176,7 +1229,7 @@ module.exports = [{
   "tools": [],
   "doi": null,
   "other_link": null,
-  "volume": null,
+  "volume": "[Epub ahead of print]",
   "assay_development": true,
   "data_analysis": true,
   "data_generation": true,
@@ -1186,18 +1239,19 @@ module.exports = [{
   "software_development": false,
   "review": false,
 }, {
+  "abstract": "Inferring gene regulatory networks is an important problem in systems biology. However, these networks can be hard to infer from experimental data because of the inherent variability in biological data as well as the large number of genes involved. We propose a fast, simple method for inferring regulatory relationships between genes from knockdown experiments in the NIH LINCS dataset by calculating posterior probabilities, incorporating prior information. We show that the method is able to find previously identified edges from TRANSFAC and JASPAR and discuss the merits and limitations of this approach.",
   "pmc_id": null,
   "year_published": 2016,
   "pm_id": null,
   "article_name": "A posterior probability approach for gene regulatory network inference in genetic perturbation data.",
   "authors": ["Young CW", "Yeung KY", "Raftery AE"],
   "issue": null,
-  "pp_pages": null,
-  "journal_name": null,
+  "pp_pages": "1603.04835",
+  "journal_name": "arXiv",
   "tools": [],
   "doi": null,
   "other_link": "http://arxiv.org/abs/1603.04835",
-  "volume": null,
+  "volume": "arXiv",
   "assay_development": false,
   "data_analysis": true,
   "data_generation": false,

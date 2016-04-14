@@ -13,6 +13,8 @@ export default class LINCSPCCSE extends Component {
         <PageBanner
           title="LINCS PCCSE"
           subTitle="The LINCS Proteomic Characterization Center for Signaling and Epigenetics at the Broad Institute in Cambridge, MA."
+          imgSrc={require('./lincs-pccse.png')}
+          imgAlt="LINCS PCCSE Logo"
         />
         <div className="container">
           <div className="row">

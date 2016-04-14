@@ -177,6 +177,7 @@ export default {
   publications: {
     id: { type: 'increments', nullable: false, primary: true },
     journal_name: { type: 'string', maxlength: 255, nullable: true },
+    abstract: { type: 'text', maxlength: 16777215, fieldtype: 'medium', nullable: false },
     pp_pages: { type: 'string', maxlength: 255, nullable: true },
     issue: { type: 'string', maxlength: 255, nullable: true },
     volume: { type: 'string', maxlength: 255, nullable: true },

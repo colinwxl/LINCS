@@ -51,7 +51,7 @@ export default class Overview extends Component {
               </p>
               <h2>LINCS Pilot Phase I (fiscal year completion 2013)</h2>
               <p>
-                The <Link title="LINCS Pilot Phase 1" to="/centers/phase-one">LINCS Pilot Phase 1</Link> was
+                The <Link title="LINCS Pilot Phase I" to="/centers/phase-one">LINCS Pilot Phase I</Link> was
                 composed of 10 centers: two data production/analysis centers, that generated data for
                 the LINCS matrix, four centers dedicated to developing technology to complement and
                 facilitate the collection of cellular signatures, and four centers that developed

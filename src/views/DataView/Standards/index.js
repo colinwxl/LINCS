@@ -12,9 +12,9 @@ export default function Standards(/* props */) {
         <div className="row">
           <PageNav mainPage="Standards" isDataPage />
           <div className="col-md-9 col-md-pull-3">
-            <h2>LINCS Phase 2 Extended Metadata Standards</h2>
+            <h2>LINCS Phase II Extended Metadata Standards</h2>
             <p>
-              In LINCS Production Phase 2, the <strong>LINCS Data Working Group (DWG) is
+              In LINCS Production Phase II, the <strong>LINCS Data Working Group (DWG) is
               currently developing extended metadata specifications</strong> describing
               LINCS reagents, assays and experiments. Annotations for the perturbagens
               (small molecules, siRNA, growth factors and other ligands), cells, and some
@@ -54,7 +54,7 @@ export default function Standards(/* props */) {
                 Other reagents</a> (Released 8-14-15)
               </li>
             </ul>
-            <h2>LINCS Pilot Phase 1 Metadata Standards</h2>
+            <h2>LINCS Pilot Phase I Metadata Standards</h2>
             <p>
               The documents below annotate reagents outside the context of the experiments in
               which they were used. For example, the small molecules standards do not include

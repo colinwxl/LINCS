@@ -28,35 +28,52 @@ export default class Overview extends Component {
                 use approaches like webinars, courses, training seminars, challenges, workshops and
                 symposia to create an active LINCS community.
               </p>
-              <h2>Molecular Medicine Tri-Conference 2016</h2>
-              <p>
-                On March 8, 2016, as part of the BD2K-LINCS DCIC’s community outreach efforts,
-                Avi Ma’ayan PhD and Stephan Schurer PhD will present in
-                the <a href="http://www.triconference.com/Informatics/">Informatics channel</a> at
-                the Molecular Medicine Tri-Conference 2016 in San Francisco, CA.
-              </p>
-              <div className={styles['info-block']}>
-                <h5>Bioinformatics for Big Data</h5>
-                <p>
-                  <strong>
-                    L1000CDS2: LINCS L1000 Characteristic Direction Signature Search Engine Predicts
-                    Kenpaullone as a Potential Therapeutic for Ebola
-                  </strong>
-                </p>
-                <p><em>Avi Ma’ayan, PhD, Icahn School of Medicine at Mount Sinai</em></p>
-                <a href="http://www.triconference.com/Bioinformatics-Big-Data/">Learn more</a>
-              </div>
-              <div className={styles['info-block']}>
-                <h5>Integrated Informatics Driving Translational Research and Precision Medicine</h5>
-                <p>
-                  <strong>
-                    Rational Data-Driven Development of Novel Poly-Pharmacology Small Molecules
-                  </strong>
-                </p>
-                <p>
-                  <em>Stephan Schurer, PhD, Miller School of Medicine, University of Miami</em>
-                </p>
-                <a href="http://www.triconference.com/Integrated-Pharma-Informatics/">Learn more</a>
+              <h2>Training in Big Data Science</h2>
+              <h5>
+                BD2K-LINCS DCIC Summer Research Training Program in Biomedical Big Data Science
+              </h5>
+              <div className={styles['info-split-reverse']}>
+                <div className={`${styles.right} text-xs-center`}>
+                  <p>
+                    <a href="http://lincs-dcic.org/#/summer-research-app#nav">
+                      <img
+                        className="m-b-1"
+                        src="http://www.lincsproject.org/wp-content/uploads/2015/02/DCIC_FINAL_2015.01.19-expanded-500x375.png"
+                        alt="DCIC_FINAL_2015.01.19-expanded-500x375"
+                        width="231"
+                        height="173"
+                      />
+                    </a>
+                  </p>
+                </div>
+                <div className={styles.left}>
+                  <p>
+                    The BD2K-LINCS DCIC Summer Research Training Program in Biomedical Big Data
+                    Science is a research intensive ten-week training program for undergraduate and
+                    graduate students. The DCIC supports data science research focusing on
+                    interpreting and integrating LINCS-generated data from different data types and
+                    databases in LINCS-funded projects.
+                  </p>
+                  <a href="http://lincs-dcic.org/#/summer-research-app#nav">Learn more</a>
+                  <ul>
+                    <li><strong>Program Dates</strong>: June 6 – August 12, 2016</li>
+                    <li><strong>Application Deadline</strong>: March 4, 2016</li>
+                    <li>
+                      <strong>
+                        <a href="http://www.lincsproject.org/wp-content/uploads/2012/11/dcic_summer_program.pdf">
+                          2016 Program Poster
+                        </a>
+                      </strong>
+                    </li>
+                    <li>
+                      <strong>
+                        <a href="http://lincs-dcic.org/#/summer-fellows-2015#nav">
+                          2015 BD2K-LINCS DCIC Summer Fellows and Research Projects
+                        </a>
+                      </strong>
+                    </li>
+                  </ul>
+                </div>
               </div>
               <h2>LINCS Outreach Meeting 2016</h2>
               <div className={`${styles['info-split']}`}>
@@ -107,53 +124,6 @@ export default class Overview extends Component {
                 of <a href="https://meetings.ninds.nih.gov/Home/Tab1/13365">travel fellowships</a> are
                 available.
               </p>
-              <h2>Training in Big Data Science</h2>
-              <h5>
-                BD2K-LINCS DCIC Summer Research Training Program in Biomedical Big Data Science
-              </h5>
-              <div className={styles['info-split-reverse']}>
-                <div className={`${styles.right} text-xs-center`}>
-                  <p>
-                    <a href="http://lincs-dcic.org/#/summer-research-app#nav">
-                      <img
-                        className="m-b-1"
-                        src="http://www.lincsproject.org/wp-content/uploads/2015/02/DCIC_FINAL_2015.01.19-expanded-500x375.png"
-                        alt="DCIC_FINAL_2015.01.19-expanded-500x375"
-                        width="231"
-                        height="173"
-                      />
-                    </a>
-                  </p>
-                </div>
-                <div className={styles.left}>
-                  <p>
-                    The BD2K-LINCS DCIC Summer Research Training Program in Biomedical Big Data
-                    Science is a research intensive ten-week training program for undergraduate and
-                    graduate students. The DCIC supports data science research focusing on
-                    interpreting and integrating LINCS-generated data from different data types and
-                    databases in LINCS-funded projects.
-                  </p>
-                  <a href="http://lincs-dcic.org/#/summer-research-app#nav">Learn more</a>
-                  <ul>
-                    <li><strong>Program Dates</strong>: June 6 – August 12, 2016</li>
-                    <li><strong>Application Deadline</strong>: March 4, 2016</li>
-                    <li>
-                      <strong>
-                        <a href="http://www.lincsproject.org/wp-content/uploads/2012/11/dcic_summer_program.pdf">
-                          2016 Program Poster
-                        </a>
-                      </strong>
-                    </li>
-                    <li>
-                      <strong>
-                        <a href="http://lincs-dcic.org/#/summer-fellows-2015#nav">
-                          2015 BD2K-LINCS DCIC Summer Fellows and Research Projects
-                        </a>
-                      </strong>
-                    </li>
-                  </ul>
-                </div>
-              </div>
               <div className={styles['info-block']}>
                 <h5>Big Data Science with the BD2K-LINCS Data Coordination and Integration Center</h5>
                 <p>
@@ -165,6 +135,36 @@ export default class Overview extends Component {
                   but it is free and open for users to join at anytime.
                 </p>
                 <a href="https://www.coursera.org/course/bd2klincs">Visit course</a>
+              </div>
+              <h2>Molecular Medicine Tri-Conference 2016</h2>
+              <p>
+                On March 8, 2016, as part of the BD2K-LINCS DCIC’s community outreach efforts,
+                Avi Ma’ayan PhD and Stephan Schurer PhD will present in
+                the <a href="http://www.triconference.com/Informatics/">Informatics channel</a> at
+                the Molecular Medicine Tri-Conference 2016 in San Francisco, CA.
+              </p>
+              <div className={styles['info-block']}>
+                <h5>Bioinformatics for Big Data</h5>
+                <p>
+                  <strong>
+                    L1000CDS2: LINCS L1000 Characteristic Direction Signature Search Engine Predicts
+                    Kenpaullone as a Potential Therapeutic for Ebola
+                  </strong>
+                </p>
+                <p><em>Avi Ma’ayan, PhD, Icahn School of Medicine at Mount Sinai</em></p>
+                <a href="http://www.triconference.com/Bioinformatics-Big-Data/">Learn more</a>
+              </div>
+              <div className={styles['info-block']}>
+                <h5>Integrated Informatics Driving Translational Research and Precision Medicine</h5>
+                <p>
+                  <strong>
+                    Rational Data-Driven Development of Novel Poly-Pharmacology Small Molecules
+                  </strong>
+                </p>
+                <p>
+                  <em>Stephan Schurer, PhD, Miller School of Medicine, University of Miami</em>
+                </p>
+                <a href="http://www.triconference.com/Integrated-Pharma-Informatics/">Learn more</a>
               </div>
               <h2>Systems Biology Data Science Symposium 2016</h2>
               <div className={styles['info-split']}>

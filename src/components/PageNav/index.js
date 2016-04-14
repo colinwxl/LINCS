@@ -44,7 +44,7 @@ export default class PageNav extends Component {
         ],
       },
       {
-        title: 'Pilot Phase 1 Centers',
+        title: 'Pilot Phase I Centers',
         route: `${centersRoute}/phase-one`,
         children: [],
       },

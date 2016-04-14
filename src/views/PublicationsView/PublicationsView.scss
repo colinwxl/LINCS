@@ -74,3 +74,17 @@
 .cat-review {
   background-color: $brand-primary-light;
 }
+
+.cat-cite {
+  background-color: $white;
+  border: 1px solid $brand-primary;
+  color: $brand-primary;
+  cursor: pointer;
+  float: right;
+
+  &:hover {
+    background-color: $brand-primary;
+    border-color: darken($brand-primary, 2);
+    color: $white;
+  }
+}

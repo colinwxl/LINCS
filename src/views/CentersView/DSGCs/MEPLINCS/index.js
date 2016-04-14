@@ -13,6 +13,8 @@ export default class MEPLINCS extends Component {
         <PageBanner
           title="MEP LINCS"
           subTitle="The Microenvironment Perturbagen LINCS Center at the Oregon Health and Science University."
+          imgSrc={require('./mep-lincs-logo.png')}
+          imgAlt="MEP LINCS Logo"
         />
         <div className="container">
           <div className="row">

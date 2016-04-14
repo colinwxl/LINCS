@@ -4,6 +4,7 @@ import extend from 'extend';
 
 import styles from './PublicationsView.scss';
 import PageBanner from 'components/PageBanner';
+import Publication from './Publication';
 import PubCheckBox from './PubCheckBox';
 import { loadPublications } from 'actions/pubsNews';
 
@@ -140,97 +141,7 @@ export class PublicationsView extends Component {
               </div>
             </div>
             <div className="col-md-9 col-md-pull-3">
-              {
-                publications.map(pub => {
-                  const {
-                    id, authors, yearPublished, articleName, journalName, pmId, pmcId, doi,
-                    otherLink, assayDevelopment, dataAnalysis, dataGeneration, dataIntegration,
-                    dataStandards, signatureGeneration, softwareDevelopment, review,
-                  } = pub;
-                  const authorNames = authors.map(author => author.name);
-                  let articleTitle = articleName;
-                  if (pmId) {
-                    articleTitle = (
-                      <a href={`http://www.ncbi.nlm.nih.gov/pubmed/${pmId}`} target="_blank">
-                        {articleName}
-                      </a>
-                    );
-                  } else if (pmcId) {
-                    articleTitle = (
-                      <a href={`http://www.ncbi.nlm.nih.gov/pmc/articles/${pmcId}`} target="_blank">
-                        {articleName}
-                      </a>
-                    );
-                  } else if (doi) {
-                    articleTitle = (
-                      <a href={`http://dx.doi.org/${doi}`} target="_blank">{articleName}</a>
-                    );
-                  } else if (otherLink) {
-                    articleTitle = (
-                      <a href={otherLink} target="_blank">{articleName}</a>
-                    );
-                  }
-                  return (
-                    <div key={id} className={styles.pub}>
-                      <p>
-                        {authorNames.join(', ')}. {yearPublished}.
-                        <strong> {articleTitle} </strong>
-                        {journalName}
-                      </p>
-                      <p>
-                        {
-                          assayDevelopment &&
-                          <span className={`${styles.cat} ${styles['cat-ad']}`}>
-                            Assay Development
-                          </span>
-                        }
-                        {
-                          dataAnalysis &&
-                          <span className={`${styles.cat} ${styles['cat-da']}`}>
-                            Data Analysis
-                          </span>
-                        }
-                        {
-                          dataGeneration &&
-                          <span className={`${styles.cat} ${styles['cat-dg']}`}>
-                            Data Generation
-                          </span>
-                        }
-                        {
-                          dataIntegration &&
-                          <span className={`${styles.cat} ${styles['cat-di']}`}>
-                            Data Integration
-                          </span>
-                        }
-                        {
-                          dataStandards &&
-                          <span className={`${styles.cat} ${styles['cat-ds']}`}>
-                            Data Standards
-                          </span>
-                        }
-                        {
-                          signatureGeneration &&
-                          <span className={`${styles.cat} ${styles['cat-sg']}`}>
-                            Signature Generation
-                          </span>
-                        }
-                        {
-                          softwareDevelopment &&
-                          <span className={`${styles.cat} ${styles['cat-sd']}`}>
-                            Software Development
-                          </span>
-                        }
-                        {
-                          review &&
-                          <span className={`${styles.cat} ${styles['cat-review']}`}>
-                            Review
-                          </span>
-                        }
-                      </p>
-                    </div>
-                  );
-                })
-              }
+              {publications.map(p => <Publication key={p.id} pub={p} />)}
               {
                 !this.props.isFetchingPubs && !publications.length &&
                 <h2>Please select a category to view publications.</h2>
@@ -249,6 +160,4 @@ PublicationsView.propTypes = {
   isFetchingPubs: PropTypes.bool,
 };
 
-export default connect(mapStateToProps, {
-  loadPublications,
-})(PublicationsView);
+export default connect(mapStateToProps, { loadPublications })(PublicationsView);
