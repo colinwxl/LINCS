@@ -5,9 +5,15 @@ import PageBanner from 'components/PageBanner';
 import PageNav from 'components/PageNav';
 import styles from './Overview.scss';
 
-// TODO: Make a stateless function once completed. Leave for now to enable hot-reloading.
-/* eslint react/prefer-stateless-function:0 max-len:0 */
 export default class Overview extends Component {
+  componentDidMount() {
+    // Render the Google+ Follow Button
+    // https://developers.google.com/+/web/follow/#javascript_api
+    if (window && window.gapi) {
+      window.gapi.follow.go(styles.wrapper);
+    }
+  }
+
   render() {
     return (
       <div className={styles.wrapper}>
@@ -24,9 +30,10 @@ export default class Overview extends Component {
                 Access to and utilization of LINCS resources by the biomedical and data science
                 research communities is one of the major aims of the LINCS program.
                 The <a href="http://lincs-dcic.org/#/">BD2K-LINCS Data Coordination and Integration Center</a>,
-                together with the <Link to="/centers/data-and-signature-generating-centers/">data and signature generation centers</Link>,
-                use approaches like webinars, courses, training seminars, challenges, workshops and
-                symposia to create an active LINCS community.
+                together with the <Link to="/centers/data-and-signature-generating-centers/">
+                data and signature generation centers</Link>, use approaches like webinars,
+                courses, training seminars, challenges, workshops and symposia to create
+                an active LINCS community.
               </p>
               <h2>Training in Big Data Science</h2>
               <h5>
@@ -96,7 +103,11 @@ export default class Overview extends Component {
                     sets.
                   </p>
                   <p className="text-xs-center">
-                    <a href="https://meetings.ninds.nih.gov/Home/General/13365">General Info</a> | <a href="https://meetings.ninds.nih.gov/Home/Agenda/13365">Agenda</a> | <a href="https://meetings.ninds.nih.gov/Home/Registration/13365">Registration</a> | <a href="http://www.lincsproject.org/wp-content/uploads/2016/02/lincs_outeach_2016.pdf">Meeting Flyer</a>
+                    <a href="https://meetings.ninds.nih.gov/Home/General/13365">
+                    General Info</a> | <a href="https://meetings.ninds.nih.gov/Home/Agenda/13365">
+                    Agenda</a> | <a href="https://meetings.ninds.nih.gov/Home/Registration/13365">
+                    Registration</a> | <a href="http://www.lincsproject.org/wp-content/uploads/2016/02/lincs_outeach_2016.pdf">
+                    Meeting Flyer</a>
                   </p>
                   <p>
                     <strong>Confirmed Speakers:</strong>
@@ -115,8 +126,10 @@ export default class Overview extends Component {
               </div>
               <p>
                 Meet investigators from
-                the <Link to="/centers/data-and-signature-generating-centers">LINCS Data and Signature Generation Centers</Link> and
-                the <Link to="/centers/dcic">BD2K-LINCS Data Coordination and Integration Center</Link> to
+                the <Link to="/centers/data-and-signature-generating-centers">
+                LINCS Data and Signature Generation Centers</Link> and
+                the <Link to="/centers/dcic">
+                BD2K-LINCS Data Coordination and Integration Center</Link> to
                 establish collaborations!
               </p>
               <p>
@@ -125,7 +138,9 @@ export default class Overview extends Component {
                 available.
               </p>
               <div className={styles['info-block']}>
-                <h5>Big Data Science with the BD2K-LINCS Data Coordination and Integration Center</h5>
+                <h5>
+                  Big Data Science with the BD2K-LINCS Data Coordination and Integration Center
+                </h5>
                 <p>
                   This course covers various methods of analysis including: unsupervised clustering,
                   gene-set enrichment analyses, data visualization, and supervised machine learning
@@ -155,7 +170,9 @@ export default class Overview extends Component {
                 <a href="http://www.triconference.com/Bioinformatics-Big-Data/">Learn more</a>
               </div>
               <div className={styles['info-block']}>
-                <h5>Integrated Informatics Driving Translational Research and Precision Medicine</h5>
+                <h5>
+                  Integrated Informatics Driving Translational Research and Precision Medicine
+                </h5>
                 <p>
                   <strong>
                     Rational Data-Driven Development of Novel Poly-Pharmacology Small Molecules
@@ -181,17 +198,19 @@ export default class Overview extends Component {
                   <p>
                     The <a href="http://lincs-dcic.org/#/">BD2K-LINCS DCIC</a> and the University
                     of Miami hosted the
-                    two-day <a href="http://lincs-dcic.org/#/2016-data-science-symposium">Systems Biology Data Science Symposium (SBDSS)</a> on
-                    January 19-20, 2016 at the University of Miami.
+                    two-day <a href="http://lincs-dcic.org/#/2016-data-science-symposium">
+                    Systems Biology Data Science Symposium (SBDSS)</a> on January 19-20, 2016
+                    at the University of Miami.
                   </p>
                   <p className="m-b-0">
                     This SBDSS 2016 brought together the BD2K-LINCS DCIC, local researchers, and
                     outside experts who apply or develop computational systems biology resources.
                     In presentations, a poster reception and several working sessions, the DCIC
-                    showcased <a href="http://lincs-dcic.org/#/resources">tools/resources</a> and <a href="http://lincs-dcic.org/#/about#nav">scientific projects</a>,
-                    connected developers with users, and initiated new collaborations and obtained
-                    feedback from expert and casual users of computational systems biology
-                    resources.
+                    showcased <a href="http://lincs-dcic.org/#/resources">
+                    tools/resources</a> and <a href="http://lincs-dcic.org/#/about#nav">
+                    scientific projects</a>, connected developers with users, and initiated
+                    new collaborations and obtained feedback from expert and casual users of
+                    computational systems biology resources.
                   </p>
                   <a href="http://lincs-dcic.org/#/2016-data-science-symposium">Learn more</a>
                 </div>
@@ -200,9 +219,10 @@ export default class Overview extends Component {
               <div className={styles['info-block']}>
                 <h5>BD2K-LINCS DCIC Crowdsourcing Portal</h5>
                 <p>
-                  As part of our educational efforts to bring awareness to LINCS data and explain the
-                  efforts of LINCS to the general public, the DCIC developed a crowdsourcing portal
-                  which engages the research community in various micro- and megatasks.
+                  As part of our educational efforts to bring awareness to LINCS data and
+                  explain the efforts of LINCS to the general public, the DCIC developed
+                  a crowdsourcing portal which engages the research community in various
+                  micro- and megatasks.
                 </p>
                 <a href="http://www.maayanlab.net/crowdsourcing/">Learn more</a>
               </div>

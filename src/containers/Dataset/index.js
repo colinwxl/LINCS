@@ -70,7 +70,7 @@ export class Dataset extends Component {
           Download data package
         </a>
         <a className={`btn ${styles['btn-link']}`} onClick={this._openCitationsModal}>
-          Cite this dataset
+          Export data citation
         </a>
         {
           links.useSlicr &&

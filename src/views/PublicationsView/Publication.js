@@ -111,7 +111,7 @@ export default class Publication extends Component {
             onClick={this._openCitationsModal}
             className={`${styles.cat} ${styles['cat-cite']}`}
           >
-            Cite this publication
+            Export citation
           </span>
         </p>
       </div>

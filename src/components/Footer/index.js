@@ -4,12 +4,16 @@ import styles from './Footer.scss';
 
 const base = '/LINCS';
 const dataRoute = `${base}/data`;
-const appsWorkflowsRoute = `${base}/apps-workflows`;
+const applicationsRoute = `${base}/applications`;
 
 const centersRoute = `${base}/centers`;
 const dsgcRoute = `${centersRoute}/data-and-signature-generating-centers`;
 
-const mailLink = 'mailto:michael.mcdermott@mssm.edu?Subject=[Comments regarding lincsproject.org]';
+const mgm = 'michael.mcdermott@mssm.edu';
+const sherry = 'sherry.jenkins@mssm.edu';
+const subject = 'Questions/Comments regarding lincsproject.org';
+
+const mailLink = `mailto:${mgm},${sherry}?Subject=[${subject}]`;
 
 // Can't use react-router { Link } here because this component is outside of the <Router />
 export default function Footer(/* props */) {
@@ -66,7 +70,7 @@ export default function Footer(/* props */) {
                 <a href={`${dataRoute}/standards`}>Standards</a>
               </li>
               <li>
-                <a href={`${appsWorkflowsRoute}`}>Apps & Workflows</a>
+                <a href={`${applicationsRoute}`}>Apps & Workflows</a>
               </li>
             </ul>
           </div>

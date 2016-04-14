@@ -32,6 +32,12 @@ export default function Releases(/* props */) {
             <div className="col-lg-10 col-lg-offset-1">
               <div className={styles['search-wrap']}>
                 <SearchBar />
+                <p className="text-xs-center">
+                  <strong>Examples: </strong>
+                  <Link to="/data/search?q=MCF7">MCF7</Link>, <Link to="/data/search?q=Vandetanib">
+                  Vandetanib</Link>, <Link to="/data/search?q=HMS">
+                  HMS</Link>, <Link to="/data/search?q=L1000">L1000</Link>
+                </p>
               </div>
               <DataTree />
             </div>
