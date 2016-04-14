@@ -73,11 +73,11 @@ function generateENW(pub) {
   return new Promise(resolve => {
     const firstAuthorLastName = pub.authors[0].name.split(' ')[0];
     const id = `${firstAuthorLastName}${pub.yearPublished}`;
-    let filename = `${id}.ris`;
+    let filename = `${id}.enw`;
     if (!!pub.pmId) {
-      filename = `${id}-${pub.pmId}.ris`;
+      filename = `${id}-${pub.pmId}.enw`;
     } else if (!!pub.pmcId) {
-      filename = `${id}-${pub.pmcId}.ris`;
+      filename = `${id}-${pub.pmcId}.enw`;
     } else if (!!pub.doi) {
       filename = `${id}-${encodeURIComponent(pub.doi)}.enw`;
     }
@@ -117,11 +117,11 @@ function generateBIB(pub) {
   return new Promise(resolve => {
     const firstAuthorLastName = pub.authors[0].name.split(' ')[0];
     const id = `${firstAuthorLastName}${pub.yearPublished}`;
-    let filename = `${id}.ris`;
+    let filename = `${id}.bib`;
     if (!!pub.pmId) {
-      filename = `${id}-${pub.pmId}.ris`;
+      filename = `${id}-${pub.pmId}.bib`;
     } else if (!!pub.pmcId) {
-      filename = `${id}-${pub.pmcId}.ris`;
+      filename = `${id}-${pub.pmcId}.bib`;
     } else if (!!pub.doi) {
       filename = `${id}-${encodeURIComponent(pub.doi)}.bib`;
     }
