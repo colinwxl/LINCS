@@ -3,10 +3,14 @@
 $hover-color: #cacaca;
 
 .footer {
-  background-color: $dark-purple;
+  background-color: $dark-gray;
   color: $white;
   position: relative;
   width: 100%;
+
+  h5 {
+    color: $white;
+  }
 }
 
 .divider {
@@ -58,7 +62,7 @@ $hover-color: #cacaca;
   }
 
   hr {
-    background: $purple;
+    background: $base-font-color;
     border: 0;
     height: 1px;
     margin-bottom: 2rem;

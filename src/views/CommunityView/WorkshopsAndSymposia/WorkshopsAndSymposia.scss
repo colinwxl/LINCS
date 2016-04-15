@@ -14,8 +14,8 @@
 .workshop,
 .symposium {
   border-bottom: 1px solid $gray;
+  margin-bottom: 2rem;
   padding-bottom: 2rem;
-  padding-top: 2rem;
 
   p,
   ul {
@@ -24,6 +24,10 @@
 }
 
 .workshops {
+
+  .workshop:first-child {
+    padding-top: 0;
+  }
 
   .workshop:last-child {
     border-bottom: 0;

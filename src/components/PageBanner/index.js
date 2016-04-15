@@ -19,7 +19,7 @@ export default function PageBanner(props) {
         <div className={`row ${styles.flex}`}>
           <div className={titleClass}>
             <h1>{title}</h1>
-            <p>{subTitle}</p>
+            {!!subTitle && <p>{subTitle}</p>}
           </div>
           {
             hasImage &&

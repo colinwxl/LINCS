@@ -38,8 +38,6 @@ import PublicationsView from 'views/PublicationsView';
 import NewsView from 'views/NewsView';
 
 import AppsView from 'views/AppsView';
-import RegisterView from 'views/RegisterView';
-import LoginView from 'views/LoginView';
 import NotFoundView from 'views/NotFoundView';
 
 export default (/* store */) => (
@@ -85,9 +83,6 @@ export default (/* store */) => (
     <Route path="news" component={NewsView} />
 
     <Route path="applications" component={AppsView} />
-
-    <Route path="register" component={RegisterView} />
-    <Route path="login" component={LoginView} />
 
     <Route path="*" component={NotFoundView} />
   </Route>

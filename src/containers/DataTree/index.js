@@ -9,9 +9,7 @@ import TissueCellTree from './TissueCellTree';
 import DateTree from './DateTree';
 import PopularityTree from './PopularityTree';
 
-const mapStateToProps = (state) => ({
-  entities: state.entities,
-});
+const mapStateToProps = (state) => ({ entities: state.entities });
 
 export class DataTree extends Component {
   componentDidMount = () => {

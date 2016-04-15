@@ -12,16 +12,27 @@
 }
 
 .category-check {
-  background-color: $teal;
-  border-color: $teal;
-  color: $white;
+  background-color: $white;
+  border-bottom-color: $teal;
+  bottom: -1px;
+  color: $teal;
+  margin: 0;
+  position: relative;
+  z-index: 1;
+
+  &:not(.active):hover {
+    color: darken($teal, 10);
+  }
 }
 
 .active {
-  background-color: darken($teal, 8);
+  background-color: $white;
   background-image: none;
-  border-color: darken($teal, 10);
-  color: $white;
+  border-bottom-color: $white;
+  border-left-color: $teal;
+  border-right-color: $teal;
+  border-top-color: $teal;
+  color: $teal;
 }
 
 .workflow {

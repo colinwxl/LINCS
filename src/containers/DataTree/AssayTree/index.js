@@ -8,6 +8,10 @@ import AssayClassTree from './AssayClassTree';
 export default function AssayTree(props) {
   const { entities } = props;
   const assayClasses = [];
+  let label = <span className={styles['loading-node']}>Loading...</span>;
+  if (Object.keys(entities.datasets).length === 0) {
+    return <Tree nodeLabel={label} defaultCollapsed />;
+  }
   each(entities.datasets, (ds) => {
     if (assayClasses.indexOf(ds.classification) === -1) {
       assayClasses.push(ds.classification);
@@ -15,12 +19,6 @@ export default function AssayTree(props) {
   });
 
   assayClasses.sort();
-  console.log(assayClasses);
-
-  let label = <span className={styles['loading-node']}>Loading...</span>;
-  if (Object.keys(entities.datasets).length === 0) {
-    return <Tree nodeLabel={label} defaultCollapsed />;
-  }
 
   label = <span className={`${styles.node} ${styles.node}`}>By Assay</span>;
   return (

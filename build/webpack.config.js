@@ -55,6 +55,8 @@ webpackConfig.plugins = [
     $: 'jquery',
     jQuery: 'jquery',
     'window.Tether': 'tether',
+    Promise: 'exports?global.Promise!es6-promise',
+    fetch: 'imports?this=>global!exports?global.fetch!whatwg-fetch',
   }),
   new HtmlWebpackPlugin({
     template: paths.client('index.html'),

@@ -1,18 +1,16 @@
-// Import styles
-import 'jquery';
-import 'tether';
 import 'bootstrap';
+// Import styles
 import 'styles/core.scss';
 import React from 'react';
 import Navigation from 'containers/Navigation';
 // import coreStyles from './CoreLayout.scss';
 
-function CoreLayout({ children }) {
+function CoreLayout(props) {
   return (
     <div className="site-wrap">
-      <Navigation />
+      <Navigation atHome={props.location && props.location.pathname === '/'} />
       <div className="view-container">
-        {children}
+        {props.children}
       </div>
       <div className="footer-push" />
     </div>
@@ -20,6 +18,7 @@ function CoreLayout({ children }) {
 }
 
 CoreLayout.propTypes = {
+  location: React.PropTypes.object,
   children: React.PropTypes.element,
 };
 

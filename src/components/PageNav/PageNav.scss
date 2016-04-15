@@ -15,7 +15,7 @@
 }
 
 .link {
-  color: $darker-gray;
+  color: $base-font-color;
   display: block;
   padding: .25rem .75rem;
 }
@@ -33,7 +33,7 @@
   }
 
   .link {
-    color: $darker-gray;
+    color: $header-color;
     font-weight: 600;
   }
 }
@@ -54,13 +54,13 @@ $generic-link-color: #014c8c;
 .inner-active {
   a {
     background-color: transparent;
-    color: $darker-gray;
+    color: $header-color;
     font-weight: 600;
 
     &:focus,
     &:hover {
       background-color: transparent;
-      color: $darker-gray;
+      color: $header-color;
       font-weight: 600;
     }
   }

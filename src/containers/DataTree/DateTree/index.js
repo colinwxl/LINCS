@@ -40,6 +40,12 @@ export class DateTree extends Component {
     const dateDatasetMap = {};
     // dates is structured like [{ year: 2016, months: [1, 2, 3 (month indicies)] }]
     let dates = [];
+
+    let label = <span className={styles['loading-node']}>Loading...</span>;
+    if (this.props.datasets.length === 0) {
+      return <Tree nodeLabel={label} defaultCollapsed />;
+    }
+
     // Dates only contains years and months that exist in the dateDatasetMap so this is essentially
     // a way to sort the keys of dateDatasetMap to ensure that we can sort the years and
     // months in the proper order in the tree.
@@ -81,11 +87,6 @@ export class DateTree extends Component {
     dates.forEach(dateObj => {
       dateObj.months.sort((a, b) => b - a);
     });
-
-    let label = <span className={styles['loading-node']}>Loading...</span>;
-    if (dates.length === 0) {
-      return <Tree nodeLabel={label} defaultCollapsed />;
-    }
 
     label = <span className={styles.node}>By Initial Release Date</span>;
     return (

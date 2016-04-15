@@ -1,9 +1,8 @@
 @import 'vendor/bootstrap/variables';
-
-$link-color: #0275d8;
+@import 'variables';
 
 .link {
-  color: $link-color;
+  color: $brand-primary;
   text-decoration: none;
 }
 

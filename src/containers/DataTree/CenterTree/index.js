@@ -9,6 +9,10 @@ import IndividualCenterTree from './IndividualCenterTree';
 export default function CenterTree(props) {
   const centerNames = [];
   const datasets = [];
+  let label = <span className={styles['loading-node']}>Loading...</span>;
+  if (props.entities.datasets.length === 0) {
+    return <Tree nodeLabel={label} defaultCollapsed />;
+  }
   each(props.entities.datasets, (ds) => {
     datasets.push(ds);
     if (centerNames.indexOf(ds.centerName) === -1) {
@@ -17,11 +21,6 @@ export default function CenterTree(props) {
   });
 
   centerNames.sort();
-
-  let label = <span className={styles['loading-node']}>Loading...</span>;
-  if (centerNames.length === 0) {
-    return <Tree nodeLabel={label} defaultCollapsed />;
-  }
 
   label = <span className={`${styles.node} ${styles.node}`}>By Center</span>;
   return (

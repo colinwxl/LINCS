@@ -36,7 +36,7 @@ export class WorkshopsAndSymposia extends Component {
                 <h2>Workshops</h2>
                 { workshops.length === 0 && <p>No workshops available</p>}
                 {
-                  workshops.map((workshop) => {
+                  workshops.map((workshop, index) => {
                     const links = workshop.keyLinks;
                     const startDate = formatDate(new Date(workshop.startDate));
                     let endDate;
@@ -44,7 +44,7 @@ export class WorkshopsAndSymposia extends Component {
                       endDate = formatDate(new Date(workshop.endDate));
                     }
                     return (
-                      <div className={styles.workshop}>
+                      <div key={`workshop ${index}`} className={styles.workshop}>
                         <div className={styles.header}>
                           <h5>{workshop.title}</h5>
                           {
@@ -61,8 +61,8 @@ export class WorkshopsAndSymposia extends Component {
                         }
                         <ul>
                           {
-                            !!links && Object.keys(links).map((linkTitle) =>
-                              <li><a href={links[linkTitle]}>{linkTitle}</a></li>
+                            !!links && Object.keys(links).map((linkTitle, i) =>
+                              <li key={i}><a href={links[linkTitle]}>{linkTitle}</a></li>
                             )
                           }
                         </ul>
@@ -83,7 +83,7 @@ export class WorkshopsAndSymposia extends Component {
                       endDate = formatDate(new Date(sym.endDate));
                     }
                     return (
-                      <div key={index} className={styles.symposium}>
+                      <div key={`symposium ${index}`} className={styles.symposium}>
                         <div className={styles.header}>
                           <h5>{sym.title}</h5>
                           {
@@ -100,8 +100,8 @@ export class WorkshopsAndSymposia extends Component {
                         }
                         <ul>
                           {
-                            !!links && Object.keys(links).map((linkTitle) =>
-                              <li><a href={links[linkTitle]}>{linkTitle}</a></li>
+                            !!links && Object.keys(links).map((linkTitle, i) =>
+                              <li key={i}><a href={links[linkTitle]}>{linkTitle}</a></li>
                             )
                           }
                         </ul>

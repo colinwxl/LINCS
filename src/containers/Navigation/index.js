@@ -1,23 +1,21 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router';
-import cn from 'classnames';
 import styles from './Navigation.scss';
 import { logoutAndRedirect } from 'actions/auth';
 
-const mapStateToProps = (state) => ({
-  auth: state.auth,
-});
+const mapStateToProps = (state) => ({ auth: state.auth });
 export class Navigation extends Component {
   _handleLogOut = () => {
     this.props.logoutAndRedirect();
   };
 
   render() {
-    const { auth: { isAuthenticated } } = this.props;
+    const { auth: { isAuthenticated }, atHome } = this.props;
+    const atHomeClass = atHome ? styles['main-nav-home'] : '';
     return (
       <header
-        className={cn(['navbar', 'navbar-light', 'bg-faded', styles['main-nav']])}
+        className={`navbar bg-faded ${styles['main-nav']} ${atHomeClass}`}
         role="banner"
       >
         <div className="container">
@@ -30,12 +28,14 @@ export class Navigation extends Component {
             >
               ☰
             </button>
-            <Link className="navbar-brand hidden-md-up" to="/">
+            <Link className={`navbar-brand hidden-md-up ${styles.title}`} to="/">
               NIH LINCS Program
             </Link>
           </div>
           <div className="collapse navbar-toggleable-sm" id="main-navbar">
-            <Link className="navbar-brand hidden-sm-down" to="/">NIH LINCS Program</Link>
+            <Link className={`navbar-brand hidden-sm-down ${styles.title}`} to="/">
+              NIH LINCS Program
+            </Link>
             <nav className="nav navbar-nav pull-md-right">
               <Link className={styles.link} to="/centers">
                 Centers
@@ -73,6 +73,7 @@ export class Navigation extends Component {
 }
 
 Navigation.propTypes = {
+  atHome: PropTypes.bool,
   auth: PropTypes.object,
   logoutAndRedirect: PropTypes.func,
 };
