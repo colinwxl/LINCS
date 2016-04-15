@@ -18,8 +18,6 @@ function getMonthName(monthIndex) {
   ][monthIndex];
 }
 
-
-const mapStateToProps = (state) => ({ datasets: state.entities.datasets });
 export class DateTree extends Component {
   constructor(props) {
     super(props);
@@ -45,7 +43,7 @@ export class DateTree extends Component {
     // Dates only contains years and months that exist in the dateDatasetMap so this is essentially
     // a way to sort the keys of dateDatasetMap to ensure that we can sort the years and
     // months in the proper order in the tree.
-    each(this.props.entities.datasets, (ds) => {
+    each(this.props.datasets, (ds) => {
       const date = moment(ds.dateRetrieved);
       const month = date.month();
       const year = date.year();
@@ -118,10 +116,8 @@ export class DateTree extends Component {
 }
 
 DateTree.propTypes = {
-  entities: PropTypes.object,
+  datasets: PropTypes.object,
   incrementDatasetClicks: PropTypes.func,
 };
 
-export default connect(mapStateToProps, {
-  incrementDatasetClicks,
-})(DateTree);
+export default connect(null, { incrementDatasetClicks })(DateTree);

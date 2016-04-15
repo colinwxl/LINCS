@@ -7,6 +7,7 @@ import CenterTree from './CenterTree';
 import TissueCellTree from './TissueCellTree';
 // import DiseaseTree from './DiseaseTree';
 import DateTree from './DateTree';
+import PopularityTree from './PopularityTree';
 
 const mapStateToProps = (state) => ({
   entities: state.entities,
@@ -24,7 +25,8 @@ export class DataTree extends Component {
         <CenterTree entities={this.props.entities} />
         <TissueCellTree entities={this.props.entities} />
         {/* <DiseaseTree entities={this.props.entities} /> */}
-        <DateTree entities={this.props.entities} />
+        <DateTree datasets={this.props.entities.datasets} />
+        <PopularityTree datasets={this.props.entities.datasets} />
       </div>
     );
   }

@@ -63,7 +63,7 @@ export class Search extends Component {
                         Searching for <span className={styles.query}>{searchQ}</span>...
                       </h4>
                       <div className={styles.placeholders}>
-                        {range(4).map((index) => <ResultPlaceholder key={index} />)}
+                        {range(6).map((index) => <ResultPlaceholder key={index} />)}
                       </div>
                     </div>
                   )

@@ -38,7 +38,7 @@ export class HomeView extends Component {
               Discover LINCS Data
             </Link>
             <Link
-              to="/data/tools-databases"
+              to="/data/applications"
               className={`btn btn-outline-inverse btn-lg ${styles['btn-td']}`}
             >
               Apps & Workflows
