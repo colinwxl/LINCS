@@ -82,12 +82,9 @@ $loading-gray: rgba(255, 255, 255, .5);
     &::after {
       animation: move 3s linear infinite;
       background-image: linear-gradient(
-        -45deg,
-        $loading-gray 25%,
-        transparent 25%,
-        $loading-gray 75%,
-        transparent 75%,
-        transparent
+        0deg,
+        $loading-gray,
+        transparent 90%
       );
       background-size: 50px 50px;
       border-bottom-left-radius: 20px;

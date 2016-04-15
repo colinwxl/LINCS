@@ -40,7 +40,7 @@ export class Search extends Component {
       .then(datasets => {
         this.setState({
           searchResultIds: datasets.map(ds => ds.id),
-          isSearching: false,
+          isSearching: true,
         });
       });
   }
