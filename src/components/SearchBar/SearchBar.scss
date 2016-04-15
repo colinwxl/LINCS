@@ -5,6 +5,7 @@
   align-items: center;
   display: flex;
   justify-content: center;
+  max-width: 600px;
 }
 
 .logo {
@@ -17,7 +18,7 @@
 // .search {}
 
 .search-bar {
-  background-color: transparent;
+  background-color: $white;
   border: 1px solid $gray;
   // border-bottom-left-radius: .25rem;
   // border-top-left-radius: .25rem;

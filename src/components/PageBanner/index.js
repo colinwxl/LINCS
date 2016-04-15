@@ -17,10 +17,13 @@ export default function PageBanner(props) {
     <div className={styles.wrapper}>
       <div className={`container ${styles.inner}`}>
         <div className={`row ${styles.flex}`}>
-          <div className={titleClass}>
-            <h1>{title}</h1>
-            {!!subTitle && <p>{subTitle}</p>}
-          </div>
+          {
+            !!title &&
+            <div className={titleClass}>
+              <h1>{title}</h1>
+              {!!subTitle && <p>{subTitle}</p>}
+            </div>
+          }
           {
             hasImage &&
             <div className="col-md-4 text-xs-center">
@@ -33,7 +36,7 @@ export default function PageBanner(props) {
           }
           { includeSearchBar &&
             <div className="col-md-5">
-              <SearchBar darkBg query={props.searchQuery || ''} />
+              <SearchBar query={props.searchQuery || ''} />
             </div>
           }
         </div>

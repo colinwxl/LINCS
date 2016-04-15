@@ -34,18 +34,12 @@ export class SearchResult extends Component {
     return (
       <div className={styles.dataset}>
         <div className={styles['ds-header']}>
-          <div className="row">
-            <div className="col-xs-8">
-              <h5>{ds.method}</h5>
-              <p className={styles.creator}>{ds.centerName}</p>
-            </div>
-            <div className="col-xs-4">
-              <p className={`text-muted ${styles['info-date']}`}>
-                <em>{moment(ds.dateRetrieved).format('MMM Do, YYYY')}</em>
-              </p>
-            </div>
-          </div>
+          <h5>{ds.method}</h5>
+          <p className={styles.creator}>{ds.centerName}</p>
         </div>
+        <p className={`text-muted ${styles['info-date']}`}>
+          <em>{moment(ds.dateRetrieved).format('MMM Do, YYYY')}</em>
+        </p>
         <p className={styles.description}>{ds.description}</p>
         <div className={styles.links}>
           <a className={`btn ${styles['btn-link']}`} href={ds.sourceLink} target="_blank">

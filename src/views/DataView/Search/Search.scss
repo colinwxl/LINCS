@@ -1,56 +1,45 @@
 @import 'variables';
 
+.search-bar-wrap {
+  background-color: $light-gray;
+  border-bottom: 1px solid darken($light-gray, 5);
+  // color: $white;
+  margin-bottom: 2rem;
+  padding: 2rem .9375rem;
+}
+
 .search,
-.search-loading,
 .search-results {
-  margin: 0 auto 2rem;
-}
-
-.search-loading {
-  text-align: center;
-  width: 100%;
-
-  h4 {
-    font-weight: 400;
-    margin-bottom: 2rem;
-  }
-
-  i {
-    color: $teal;
-    margin-bottom: 2rem;
-  }
-}
-
-.search-loading,
-.search-results {
-  max-width: 1000px;
+  margin-bottom: 2rem;
 }
 
 .search-results {
+  max-width: 700px;
 
   a {
     cursor: pointer;
   }
+}
 
-  h4 {
-    font-weight: 400;
-    margin-bottom: 1rem;
-    text-align: center;
-  }
+.count {
+  font-style: italic;
 }
 
 .query {
-  color: $teal;
-  font-weight: bold;
+  color: $dark-gray;
+  font-weight: 600;
 }
 
-.placeholder,
+.placeholders {
+  margin-top: 1rem;
+}
+
+.placeholder {
+  margin-bottom: 2rem;
+}
+
 .dataset {
-  background-color: $white;
-  border: 1px solid;
-  border-color: $gray-border-top $gray-border-side $gray-border-bottom;
   margin-bottom: 1rem;
-  padding: .5rem 1rem;
 }
 
 
@@ -120,7 +109,7 @@ $loading-gray: rgba(255, 255, 255, .5);
 }
 
 .meter-date {
-  height: .8rem;
+  height: .9rem;
 }
 
 ////////////////////////////////
@@ -133,8 +122,8 @@ $loading-gray: rgba(255, 255, 255, .5);
 }
 
 .info-date {
-  float: right;
-  font-size: 80%;
+  font-size: 90%;
+  margin-bottom: 0;
 }
 
 .links {
@@ -155,7 +144,8 @@ $loading-gray: rgba(255, 255, 255, .5);
 .btn-link {
   border: 1px solid $brand-primary;
   color: $brand-primary;
-  margin-left: .5rem;
+  margin-bottom: .5rem;
+  margin-right: .5rem;
   padding: .15rem .375rem;
 
   &:hover {

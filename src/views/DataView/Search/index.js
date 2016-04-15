@@ -6,7 +6,7 @@ import { loadDatasets } from 'actions/entities';
 import handleResponse from 'utils/handleResponse';
 import SearchResult from './SearchResult';
 import ResultPlaceholder from './ResultPlaceholder';
-import PageBanner from 'components/PageBanner';
+import SearchBar from 'components/SearchBar';
 import styles from './Search.scss';
 
 const mapStateToProps = (state) => ({
@@ -51,28 +51,31 @@ export class Search extends Component {
     const { searchResultIds, isSearching } = this.state;
     return (
       <div className={styles.wrapper}>
-        <PageBanner title="LINCS Datasets" includeSearchBar searchQuery={searchQ} />
+        <div className={styles['search-bar-wrap']}>
+          <div className="container">
+            <div className="row">
+              <div className="col-xs-12">
+                <SearchBar searchQuery={searchQ} />
+              </div>
+            </div>
+          </div>
+        </div>
         <div className="container">
           <div className="row">
             <div className="col-xs-12">
                 {
                   isSearching
                   ? (
-                    <div className={styles['search-loading']}>
-                      <h4>
-                        Searching for <span className={styles.query}>{searchQ}</span>...
-                      </h4>
-                      <div className={styles.placeholders}>
-                        {range(6).map((index) => <ResultPlaceholder key={index} />)}
-                      </div>
+                    <div className={styles.placeholders}>
+                      {range(6).map((index) => <ResultPlaceholder key={index} />)}
                     </div>
                   )
                   : (
                     <div className={styles['search-results']}>
-                      <h4>
-                        {searchResultIds.length} results found
+                      <p className={styles.count}>
+                        {searchResultIds.length} results
                         for <span className={styles.query}>{searchQ}</span>
-                      </h4>
+                      </p>
                       <div className={styles.datasets}>
                         {
                           searchResultIds.map(id =>
