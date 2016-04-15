@@ -1242,7 +1242,7 @@ module.exports = [{
   "abstract": "MOTIVATION: Adverse Drug Reactions (ADRs) are a central consideration during drug development. Here we present a machine learning classifier to prioritize ADRs for approved drugs and pre-clinical small-molecule compounds by combining chemical structure (CS) and gene expression (GE) features. The GE data is from the Library of Integrated Network-based Cellular Signatures (LINCS) L1000 dataset that measured changes in GE before and after treatment of human cells with over 20,000 small molecule compounds including most of the FDA-approved drugs. Using various ben-chmarking methods, we show that the integration of GE data with the CS of the drugs can significantly improve the predictability of ADRs. Moreover, transforming GE features to enrichment vectors of biological terms further improves the predictive capability of the classifiers. The most predictive biological-term features can assist in understanding the drug mechanisms of action. Finally, we applied the classifier to all >20,000 small molecules profiled, and developed a web portal for browsing and searching predictive small-molecule/ADR connections.",
   "pmc_id": null,
   "year_published": 2016,
-  "pm_id": "26912667",
+  "pm_id": null,
   "article_name": "Drug Induced Adverse Events Prediction with the LINCS L1000 Data.",
   "authors": ["Wang Z", "Clark NC", "Ma'ayan A"],
   "issue": null,

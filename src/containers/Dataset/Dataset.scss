@@ -30,16 +30,13 @@
   span {
     font-size: 90%;
   }
-
-  a:first-child {
-    margin-left: 0;
-  }
 }
 
 .btn-link {
   border: 1px solid $brand-primary;
   color: $brand-primary;
-  margin-left: .5rem;
+  margin-right: .5rem;
+  margin-top: .5rem;
   padding: .15rem .375rem;
 
   &:hover {

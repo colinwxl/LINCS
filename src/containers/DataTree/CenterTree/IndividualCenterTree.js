@@ -9,9 +9,11 @@ export default function IndividualCenterTree(props) {
   const centerTree = { collapsed: true, assays: [], datasets: [] };
   datasets.forEach((ds) => {
     const { assay } = ds;
-    if (centerName === ds.centerName && centerTree.assays.indexOf(assay) === -1) {
-      centerTree.assays.push(assay);
+    if (centerName === ds.centerName) {
       centerTree.datasets.push(ds);
+      if (centerTree.assays.indexOf(assay) === -1) {
+        centerTree.assays.push(assay);
+      }
     }
   });
   const label = <span className={styles.node}>{centerName}</span>;

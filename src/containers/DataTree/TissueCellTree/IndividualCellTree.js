@@ -11,17 +11,21 @@ export default function IndividualCellTree(props) {
   if (datasets) {
     datasets.forEach((ds) => {
       const { assay } = ds;
-      if (ds.cells.indexOf(parseInt(cellId, 10)) !== -1 && cellTree.assays.indexOf(assay) === -1) {
-        cellTree.assays.push(assay);
+      if (ds.cells.indexOf(parseInt(cellId, 10)) !== -1) {
         cellTree.datasets.push(ds);
+        if (cellTree.assays.indexOf(assay) === -1) {
+          cellTree.assays.push(assay);
+        }
       }
     });
   } else {
     each(entities.datasets, (ds) => {
       const { assay } = ds;
-      if (ds.cells.indexOf(parseInt(cellId, 10)) !== -1 && cellTree.assays.indexOf(assay) === -1) {
-        cellTree.assays.push(assay);
+      if (ds.cells.indexOf(parseInt(cellId, 10)) !== -1) {
         cellTree.datasets.push(ds);
+        if (cellTree.assays.indexOf(assay) === -1) {
+          cellTree.assays.push(assay);
+        }
       }
     });
   }

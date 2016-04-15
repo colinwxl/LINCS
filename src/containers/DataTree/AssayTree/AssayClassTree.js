@@ -10,9 +10,11 @@ export default function AssayClassTree(props) {
   const assayClassTree = { collapsed: true, methods: [], datasets: [] };
   each(entities.datasets, (ds) => {
     const { classification, method } = ds;
-    if (assayClass === classification && assayClassTree.methods.indexOf(method) === -1) {
-      assayClassTree.methods.push(method);
+    if (assayClass === classification) {
       assayClassTree.datasets.push(ds);
+      if (assayClassTree.methods.indexOf(method) === -1) {
+        assayClassTree.methods.push(method);
+      }
     }
   });
 

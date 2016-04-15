@@ -15,6 +15,7 @@ export default function AssayTree(props) {
   });
 
   assayClasses.sort();
+  console.log(assayClasses);
 
   let label = <span className={styles['loading-node']}>Loading...</span>;
   if (Object.keys(entities.datasets).length === 0) {
