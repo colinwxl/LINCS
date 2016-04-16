@@ -1,4 +1,4 @@
-FROM node
+FROM node:4.4.3
 
 ENV SOURCE_DIR /usr/src
 RUN mkdir -p $SOURCE_DIR && cd $SOURCE_DIR
