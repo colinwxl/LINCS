@@ -18,7 +18,7 @@ export default function DiseaseTree(props) {
     return <Tree nodeLabel={label} defaultCollapsed />;
   }
 
-  label = <span className={`${styles.node} ${styles.node}`}>By Disease</span>;
+  label = <span className={styles.node}>By Disease</span>;
   return (
     <Tree nodeLabel={label} defaultCollapsed>
       {

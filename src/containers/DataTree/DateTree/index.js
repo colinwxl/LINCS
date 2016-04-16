@@ -1,7 +1,5 @@
 import React, { PropTypes, Component } from 'react';
 import { connect } from 'react-redux';
-import each from 'lodash/each';
-import moment from 'moment';
 
 import { incrementDatasetClicks } from 'actions/entities';
 import styles from '../DataTree.scss';
@@ -35,60 +33,8 @@ export class DateTree extends Component {
   }
 
   render() {
-    // So here we have a date dataset map and an array of dates.
-    // dateDatasetMap is structured like so: { 2016: { 1 (month index): [datasets] } }
-    const dateDatasetMap = {};
-    // dates is structured like [{ year: 2016, months: [1, 2, 3 (month indicies)] }]
-    let dates = [];
-
-    let label = <span className={styles['loading-node']}>Loading...</span>;
-    if (this.props.datasets.length === 0) {
-      return <Tree nodeLabel={label} defaultCollapsed />;
-    }
-
-    // Dates only contains years and months that exist in the dateDatasetMap so this is essentially
-    // a way to sort the keys of dateDatasetMap to ensure that we can sort the years and
-    // months in the proper order in the tree.
-    each(this.props.datasets, (ds) => {
-      const date = moment(ds.dateRetrieved);
-      const month = date.month();
-      const year = date.year();
-      // Check if an object exists in dates with the year of the current dataset
-      if (dates.filter(obj => obj.year === year).length === 0) {
-        dates.push({ year, months: [month] });
-      } else {
-        // Find the object with the correct year and add the month of the current dataset if it does
-        // not exist there already
-        dates.forEach(obj => {
-          if (obj.year === year && obj.months.indexOf(month) === -1) {
-            obj.months.push(month);
-          }
-        });
-      }
-      // Build the dateDatasetMap
-      if (dateDatasetMap[year]) {
-        if (dateDatasetMap[year][month]) {
-          dateDatasetMap[year][month].push(ds.id);
-        } else {
-          dateDatasetMap[year][month] = [ds.id];
-        }
-      } else {
-        dateDatasetMap[year] = {
-          [month]: [ds.id],
-        };
-      }
-    });
-    // Sort the objects in the dates array by their year
-    dates = dates.sort((a, b) => {
-      const result = a.year < b.year;
-      return result ? 1 : -1;
-    });
-    // Sort the months array in each object in the dates array
-    dates.forEach(dateObj => {
-      dateObj.months.sort((a, b) => b - a);
-    });
-
-    label = <span className={styles.node}>By Initial Release Date</span>;
+    const { dates, dateDatasetMap } = this.props;
+    const label = <span className={styles.node}>By Initial Release Date</span>;
     return (
       <Tree nodeLabel={label} defaultCollapsed>
         {
@@ -117,7 +63,8 @@ export class DateTree extends Component {
 }
 
 DateTree.propTypes = {
-  datasets: PropTypes.object,
+  dates: PropTypes.array,
+  dateDatasetMap: PropTypes.object,
   incrementDatasetClicks: PropTypes.func,
 };
 

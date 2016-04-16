@@ -32,6 +32,79 @@ router.get('/', async (ctx) => {
   }
 });
 
+router.get('/tree', async (ctx) => {
+  const assays = await Dataset
+    .query(qb => qb.distinct('assay').select().orderBy('assay', 'asc'))
+    .fetchAll()
+    .then(models => models.toJSON().map(obj => obj.assay));
+  const classes = await Dataset
+    .query(qb => qb.distinct('classification').select().orderBy('classification', 'asc'))
+    .fetchAll()
+    .then(models => models.toJSON().map(obj => obj.classification));
+  const methods = await Dataset
+    .query(qb => qb.distinct('method').select().orderBy('method', 'asc'))
+    .fetchAll()
+    .then(models => models.toJSON().map(obj => obj.method));
+  const centers = await Dataset
+    .query(qb => qb.distinct('center_name').select().orderBy('center_name', 'asc'))
+    .fetchAll()
+    .then(models => models.toJSON().map(obj => obj.centerName));
+
+  const popularity = await Dataset
+    .query(qb => qb.select('id').orderBy('clicks', 'asc'))
+    .fetchAll()
+    .then(models => models.toJSON().map(obj => obj.id));
+
+  const datasets = await Dataset.fetchAll().then(models => models.toJSON());
+  // So here we have a date dataset map and an array of dates.
+  // dateDatasetMap is structured like { 2016: { 1 (month index): [datasets] } }
+  const dateDatasetMap = {};
+  // dates is structured like [{ year: 2016, months: [1, 2, 3 (month indicies)] }]
+  let dates = [];
+
+  // Dates only contains years and months that exist in the dateDatasetMap so this is essentially
+  // a way to sort the keys of dateDatasetMap to ensure that we can sort the years and
+  // months in the proper order in the tree.
+  datasets.forEach((ds) => {
+    const date = moment(ds.dateRetrieved);
+    const month = date.month();
+    const year = date.year();
+    // Check if an object exists in dates with the year of the current dataset
+    if (dates.filter(obj => obj.year === year).length === 0) {
+      dates.push({ year, months: [month] });
+    } else {
+      // Find the object with the correct year and add the month of the current dataset if it does
+      // not exist there already
+      dates.forEach(obj => {
+        if (obj.year === year && obj.months.indexOf(month) === -1) {
+          obj.months.push(month);
+        }
+      });
+    }
+    // Build the dateDatasetMap
+    if (dateDatasetMap[year]) {
+      if (dateDatasetMap[year][month]) {
+        dateDatasetMap[year][month].push(ds.id);
+      } else {
+        dateDatasetMap[year][month] = [ds.id];
+      }
+    } else {
+      dateDatasetMap[year] = {
+        [month]: [ds.id],
+      };
+    }
+  });
+  // Sort the objects in the dates array by their year
+  dates = dates.sort((a, b) => {
+    const result = a.year < b.year;
+    return result ? 1 : -1;
+  });
+  // Sort the months array in each object in the dates array
+  dates.forEach(dateObj => {
+    dateObj.months.sort((a, b) => b - a);
+  });
+  ctx.body = { assays, classes, methods, centers, popularity, dates, dateDatasetMap };
+});
 
 router.get('/search', async (ctx) => {
   if (!ctx.query.q || ctx.query.q === '') {

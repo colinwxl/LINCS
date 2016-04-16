@@ -12,7 +12,7 @@ export default function TissueCellTree(props) {
     return <Tree nodeLabel={label} defaultCollapsed />;
   }
 
-  label = <span className={`${styles.node} ${styles.node}`}>By Tissue/Cell Line</span>;
+  label = <span className={styles.node}>By Tissue/Cell Line</span>;
   return (
     <Tree nodeLabel={label} defaultCollapsed>
       {
