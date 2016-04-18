@@ -49,19 +49,21 @@
   justify-content: space-between;
 }
 
+$tool-width: 10.5rem;
+
 .tool {
   border: 1px solid;
   border-color: $gray-border-top $gray-border-side $gray-border-bottom;
   border-radius: 3px;
   height: 15rem;
   margin-bottom: 1rem;
-  width: 10rem;
+  width: $tool-width;
 }
 
 .tool-img-wrap {
   display: table;
   height: 10rem;
-  width: 10rem;
+  width: $tool-width;
 }
 
 .tool-img-inner {
@@ -115,5 +117,5 @@ $title-line-height: 1.1rem;
   margin: 1px 0;
   overflow: hidden;
   white-space: nowrap;
-  width: 9rem;
+  width: 10rem;
 }
