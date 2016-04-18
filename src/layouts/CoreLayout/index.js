@@ -2,7 +2,7 @@ import 'bootstrap';
 // Import styles
 import 'styles/core.scss';
 import React from 'react';
-import Navigation from 'containers/Navigation';
+import Navigation from 'components/Navigation';
 // import coreStyles from './CoreLayout.scss';
 
 function CoreLayout(props) {
