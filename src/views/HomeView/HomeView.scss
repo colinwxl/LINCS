@@ -119,7 +119,6 @@ $button-color: $red;
   padding: 1rem;
 
   h4 {
-    color: $darker-gray;
     font-weight: 400;
     margin-bottom: .5rem;
   }
@@ -133,11 +132,6 @@ $button-color: $red;
   @media (min-width: 544px) {
     text-align: left;
   }
-}
-
-.sub-title {
-  margin-bottom: 1rem;
-  margin-top: 2rem;
 }
 
 .section-lead {

@@ -4,12 +4,10 @@ import moment from 'moment';
 
 import { loadDatasets } from 'actions/entities';
 import getIconLinks from 'utils/getIconLinks';
-import styles from './Search.scss';
+import styles from './Releases.scss';
 import CitationsModal from 'components/CitationsModal';
 
-const mapStateToProps = ({ entities }) => ({
-  cells: entities.cells,
-});
+const mapStateToProps = ({ entities }) => ({ cells: entities.cells });
 
 export class SearchResult extends Component {
   constructor(props) {
@@ -55,6 +53,12 @@ export class SearchResult extends Component {
             href={`/LINCS/api/v1/datasets/${ds.id}/download`}
           >
             Download data package
+          </a>
+          <a
+            className={`btn ${styles['btn-link']}`}
+            href={`/LINCS/api/v1/datasets/${ds.id}/download/gct`}
+          >
+            Download GCT file
           </a>
           <a className={`btn ${styles['btn-link']}`} onClick={this._openCitationsModal}>
             Cite this dataset

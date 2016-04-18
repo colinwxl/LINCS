@@ -288,8 +288,6 @@ router.get('/:id', async (ctx) => {
   }
 });
 
-
-// Only
 router.get('/:id/download', async (ctx) => {
   if (process.env.NODE_ENV !== 'production') {
     ctx.throw(400, 'Datasets can only be downloaded in production.');
@@ -309,11 +307,42 @@ router.get('/:id/download', async (ctx) => {
     ctx.set('Content-disposition', `attachment; filename=${filename}`);
     await send(ctx, filePath);
     if (!ctx.status) {
-      ctx.throw(500, 'An error occurred generating the ris file.');
+      ctx.throw(500, 'An error occurred downloading the dataset package.');
     }
   } catch (e) {
     debug(e);
-    ctx.throw(500, 'An error occurred obtaining datasets.');
+    ctx.throw(500, 'An error occurred downloading the dataset package.');
+  }
+});
+
+router.get('/:id/download/gct', async (ctx) => {
+  if (process.env.NODE_ENV !== 'production') {
+    ctx.throw(400, 'GCT files can only be downloaded in production.');
+  }
+  try {
+    let dataset = await Dataset.where('id', ctx.params.id).fetch();
+    dataset = dataset.toJSON();
+    const filename = `${dataset.lincsId}-${dataset.classification}-${dataset.method}.gct`;
+    const filePath = `/usr/src/dist/files/datasets/${dataset.lincsId}.gct`;
+    if (dataset.method === 'KINOMEScan') {
+      ctx.throw(400, 'GCT file is not available for the KINOMEScan dataset.');
+    } else if (dataset.method === 'KiNativ') {
+      ctx.throw(400, 'GCT file is not available for the KiNativ dataset.');
+    }
+    ctx.set('Content-disposition', `attachment; filename=${filename}`);
+    await send(ctx, filePath);
+    if (!ctx.status) {
+      ctx.throw(
+        500,
+        'An error occurred downloading the gct file. It may not be available for this dataset.'
+      );
+    }
+  } catch (e) {
+    debug(e);
+    ctx.throw(
+      500,
+      'An error occurred downloading the gct file. It may not be available for this dataset.'
+    );
   }
 });
 

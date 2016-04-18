@@ -69,6 +69,12 @@ export class Dataset extends Component {
         >
           Download data package
         </a>
+        <a
+          className={`btn ${styles['btn-link']}`}
+          href={`/LINCS/api/v1/datasets/${ds.id}/download/gct`}
+        >
+          Download GCT file
+        </a>
         <a className={`btn ${styles['btn-link']}`} onClick={this._openCitationsModal}>
           Export data citation
         </a>

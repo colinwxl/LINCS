@@ -30,7 +30,6 @@ import WorkshopsAndSymposia from 'views/CommunityView/WorkshopsAndSymposia';
 import DataOverview from 'views/DataView/Overview';
 import DataReleases from 'views/DataView/Releases';
 import DataStandards from 'views/DataView/Standards';
-import DataSearch from 'views/DataView/Search';
 import DataReleasePolicy from 'views/DataView/ReleasePolicy';
 
 // PubsNews
@@ -76,7 +75,6 @@ export default (/* store */) => (
     <Route path="data/overview" component={DataOverview} />
     <Route path="data/releases" component={DataReleases} />
     <Route path="data/standards" component={DataStandards} />
-    <Route path="data/search" component={DataSearch} />
     <Route path="data/release-policy" component={DataReleasePolicy} />
 
     <Route path="publications" component={PublicationsView} />
