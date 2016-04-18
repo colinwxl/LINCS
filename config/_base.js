@@ -37,13 +37,11 @@ const config = {
   },
   compilerVendor: [
     'axios',
-    'boom',
     'bootstrap',
     'camelize',
     'extend',
     'history',
     'jquery',
-    'jwt-decode',
     'lodash',
     'moment',
     'normalizr',
