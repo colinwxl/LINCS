@@ -36,7 +36,7 @@ export default function Navigation(props) {
               Data
             </Link>
             <Link className={styles.link} to="/applications">
-              Applications
+              Tools
             </Link>
             <Link className={styles.link} to="/community">
               Community

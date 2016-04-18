@@ -13,6 +13,10 @@ export class SearchBar extends Component {
     };
   }
 
+  componentWillReceiveProps(props) {
+    this.setState({ q: props.searchQuery });
+  }
+
   _handleSearch = (e) => {
     this.setState({ q: e.target.value });
   }

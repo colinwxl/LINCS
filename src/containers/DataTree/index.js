@@ -28,28 +28,23 @@ export class DataTree extends Component {
     };
   }
 
-  componentDidMount = () => {
-    this.setState({ treeLoaded: false });
+  componentDidMount() {
     this.props.loadDatasets();
-    if (this.state.classes.length) {
-      this.setState({ treeLoaded: true });
-    } else {
-      fetch('/LINCS/api/v1/datasets/tree')
-        .then(response => handleResponse(response))
-        .then(response => response.json())
-        .then((tree) => {
-          this.setState({
-            treeLoaded: true,
-            // assays: tree.assays,
-            classes: tree.classes,
-            methods: tree.methods,
-            centers: tree.centers,
-            popularity: tree.popularity,
-            dates: tree.dates,
-            dateDatasetMap: tree.dateDatasetMap,
-          });
+    fetch('/LINCS/api/v1/datasets/tree')
+      .then(response => handleResponse(response))
+      .then(response => response.json())
+      .then((tree) => {
+        this.setState({
+          treeLoaded: true,
+          // assays: tree.assays,
+          classes: tree.classes,
+          methods: tree.methods,
+          centers: tree.centers,
+          popularity: tree.popularity,
+          dates: tree.dates,
+          dateDatasetMap: tree.dateDatasetMap,
         });
-    }
+      });
   }
 
   render() {

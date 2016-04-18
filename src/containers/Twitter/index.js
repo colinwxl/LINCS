@@ -90,7 +90,9 @@ export class Twitter extends Component {
                         className={styles.avatar}
                         alt="User's Twitter avatar"
                       />
-                      <a href={user.url} target="_blank">{user.name}</a>
+                      <a href={`https://twitter.com/${user.screenName}`} target="_blank">
+                        {user.name}
+                      </a>
                     </div>
                     <div key={id} className={styles.status}>
                       <p dangerouslySetInnerHTML={this._rawTweetHtml(status)} />

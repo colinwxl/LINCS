@@ -5,7 +5,6 @@ import path from 'path';
 import fs from 'fs';
 
 import { Publication } from '../models/Publication';
-
 import _debug from 'debug';
 const debug = _debug('app:server:routes:pubsNews');
 

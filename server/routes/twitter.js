@@ -1,8 +1,8 @@
 /* eslint no-param-reassign:0 */
-import { Twit } from '../serverConf';
 import Router from 'koa-router';
 import camelize from 'camelize';
 
+import { Twit } from '../serverConf';
 import _debug from 'debug';
 const debug = _debug('app:server:routes:twitter');
 

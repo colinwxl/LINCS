@@ -61,24 +61,23 @@ export class Releases extends Component {
     const { searchResultIds, isSearching, showSearchResults } = this.state;
     return (
       <div className={styles.wrapper}>
-        <PageBanner title="LINCS Data Releases" />
+        <PageBanner
+          title="LINCS Data Releases"
+          subTitle="Browse or search LINCS released datasets"
+        />
         <div className="container">
           <div className="row">
             <PageNav mainPage="Releases" isDataPage />
             <div className="col-md-9 col-md-pull-3">
-              <h2>Global Visualization of LINCS Data</h2>
               <p>
-                This page provides three modes of global visual summaries of the currently
+                This page provides two modes to explore the currently
                 available <Link to="/centers">LINCS Phase II</Link> datasets. All
                 six <Link to="/centers/data-and-signature-generating-centers">LINCS Data
                 and Signature Generation Centers (DSGCs)</Link> have released data to the
                 community. These data are released according to the LINCS
                 consortium <Link to="/data/release-policy">data release policy</Link>. The
-                visualized summaries provide unified access with links to the data, metadata
-                and QC documentation hosted on the respective DSGCs’ web portals. Some of these
-                released datasets are also linked to <Link to="/applications">analysis
-                tools</Link> developed by the <Link to="/centers/dcic">BD2K-LINCS Data
-                Coordination and Integration Center</Link>.
+                browse or search features provide unified access with links to the data, metadata
+                as well as <Link to="/applications">data visualization and analysis tools</Link>.
               </p>
               <div className={styles['search-wrap']}>
                 <SearchBar searchQuery={searchQ} />
@@ -99,10 +98,19 @@ export class Releases extends Component {
                         </a>
                     </div>
                     <div className="col-xs-6">
-                      <p className={styles.count}>
-                        {searchResultIds.length} results
-                        for <span className={styles.query}>{searchQ}</span>
-                      </p>
+                      {
+                        !!searchResultIds.length
+                        ? (
+                          <p className={styles.count}>
+                            {searchResultIds.length} results
+                            for <span className={styles.query}>{searchQ}</span>
+                          </p>
+                        ) : (
+                          <p className={styles.count}>
+                            No results found for <span className={styles.query}>{searchQ}</span>
+                          </p>
+                        )
+                      }
                     </div>
                   </div>
                   <div className={styles.datasets}>

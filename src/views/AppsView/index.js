@@ -1,22 +1,40 @@
 import React, { Component } from 'react';
 
 import PageBanner from 'components/PageBanner';
+import handleResponse from 'utils/handleResponse';
 import ExpWorkflows from './ExpWorkflows';
 import CompBioWorkflows from './CompBioWorkflows';
+import Tool from './Tool';
 import styles from './AppsView.scss';
 
 export default class AppsView extends Component {
   constructor(props) {
     super(props);
-    this.state = { category: 'exp' };
+    this.state = {
+      fetchingTools: true,
+      workflowCategory: 'exp',
+      tools: [],
+    };
   }
 
-  _handleExpClicked = () => { this.setState({ category: 'exp' }); }
-  _handleCompBioClicked = () => { this.setState({ category: 'compBio' }); }
+  componentDidMount() {
+    fetch('/LINCS/api/v1/tools')
+      .then(response => handleResponse(response))
+      .then(response => response.json())
+      .then(tools => {
+        this.setState({
+          fetchingTools: false,
+          tools,
+        });
+      });
+  }
+
+  _handleExpClicked = () => { this.setState({ workflowCategory: 'exp' }); }
+  _handleCompBioClicked = () => { this.setState({ workflowCategory: 'compBio' }); }
 
   render() {
-    const isExp = this.state.category === 'exp';
-    const isCompBio = this.state.category === 'compBio';
+    const isExp = this.state.workflowCategory === 'exp';
+    const isCompBio = this.state.workflowCategory === 'compBio';
     return (
       <div className={styles.wrapper}>
         <PageBanner title="LINCS Workflows & Applications" />
@@ -51,7 +69,7 @@ export default class AppsView extends Component {
               {isExp ? <ExpWorkflows /> : <CompBioWorkflows />}
               <h2>Applications</h2>
               <div className={styles.tools}>
-
+                {this.state.tools.map(tool => <Tool key={tool.id} tool={tool} />)}
               </div>
             </div>
           </div>
