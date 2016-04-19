@@ -2,11 +2,11 @@ import React, { PropTypes, Component } from 'react';
 import { connect } from 'react-redux';
 import moment from 'moment';
 // import each from 'lodash/each';
-//
+
 import { loadDatasets } from 'actions/entities';
+import { openCitationsModal, closeCitationsModal } from 'actions/modals';
 import getIconLinks from 'utils/getIconLinks';
 import styles from './Dataset.scss';
-import CitationsModal from 'components/CitationsModal';
 
 const mapStateToProps = ({ entities }) => ({
   cells: entities.cells,
@@ -14,23 +14,15 @@ const mapStateToProps = ({ entities }) => ({
 });
 
 export class Dataset extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      isModalOpen: false,
-    };
-  }
-
   componentWillMount() {
     this.props.loadDatasets();
   }
 
   _openCitationsModal = () => {
-    this.setState({ isModalOpen: true });
-  }
-
-  _closeCitationsModal = () => {
-    this.setState({ isModalOpen: false });
+    this.props.openCitationsModal({
+      datasetId: this.props.datasetId,
+      onModalClose: this.props.closeCitationsModal,
+    });
   }
 
   render() {
@@ -58,11 +50,6 @@ export class Dataset extends Component {
         <a className={`btn ${styles['btn-link']}`} href={ds.sourceLink} target="_blank">
           View at source
         </a>
-        <CitationsModal
-          isOpen={this.state.isModalOpen}
-          datasetId={ds.id}
-          onModalClose={this._closeCitationsModal}
-        />
         <a
           className={`btn ${styles['btn-link']}`}
           href={`/LINCS/api/v1/datasets/${ds.id}/download`}
@@ -131,9 +118,13 @@ Dataset.propTypes = {
   datasets: PropTypes.object,
   datasetId: PropTypes.number,
   loadDatasets: PropTypes.func,
+  openCitationsModal: PropTypes.func,
+  closeCitationsModal: PropTypes.func,
   incrementDatasetClicks: PropTypes.func,
 };
 
 export default connect(mapStateToProps, {
   loadDatasets,
+  openCitationsModal,
+  closeCitationsModal,
 })(Dataset);

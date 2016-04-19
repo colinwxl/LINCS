@@ -37,11 +37,14 @@ export default class AppsView extends Component {
     const isCompBio = this.state.workflowCategory === 'compBio';
     return (
       <div className={styles.wrapper}>
-        <PageBanner title="LINCS Workflows & Applications" />
+        <PageBanner
+          title="LINCS Workflows & Applications"
+          subTitle="Tutorials, walkthroughs, and tools to help you be more productive."
+        />
         <div className="container">
           <div className="row">
             <div className="col-xs-12">
-              <h2>Workflows</h2>
+              <h2 className={styles['wf-title']}>Workflows</h2>
               <div className={`btn-group ${styles.categories}`} data-toggle="buttons">
                 <label
                   onClick={this._handleExpClicked}

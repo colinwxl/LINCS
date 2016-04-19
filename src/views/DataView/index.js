@@ -41,9 +41,7 @@ export class DataView extends Component {
   }
 
   _backToTreeView = () => {
-    this.setState({
-      showSearchResults: false,
-    });
+    this.setState({ showSearchResults: false });
   }
 
   render() {

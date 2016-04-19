@@ -1,86 +1,52 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 
-import handleResponse from 'utils/handleResponse';
 import { loadDatasets } from 'actions/entities';
+import { loadTree } from 'actions/tree';
 import AssayTree from './AssayTree';
 import CenterTree from './CenterTree';
 import TissueCellTree from './TissueCellTree';
 // import DiseaseTree from './DiseaseTree';
 import DateTree from './DateTree';
 import PopularityTree from './PopularityTree';
-import Tree from './Tree';
+import EmptyTree from './EmptyTree';
 import styles from './DataTree.scss';
 
-const mapStateToProps = (state) => ({ entities: state.entities });
-export class DataTree extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      treeLoaded: false,
-      // assays: [],
-      classes: [],
-      methods: [],
-      centers: [],
-      popularity: [],
-      dates: [],
-      dateDatasetMap: {},
-    };
-  }
+const mapStateToProps = ({ entities, tree }) => ({ entities, tree });
 
+export class DataTree extends Component {
   componentDidMount() {
     this.props.loadDatasets();
-    fetch('/LINCS/api/v1/datasets/tree')
-      .then(response => handleResponse(response))
-      .then(response => response.json())
-      .then((tree) => {
-        this.setState({
-          treeLoaded: true,
-          // assays: tree.assays,
-          classes: tree.classes,
-          methods: tree.methods,
-          centers: tree.centers,
-          popularity: tree.popularity,
-          dates: tree.dates,
-          dateDatasetMap: tree.dateDatasetMap,
-        });
-      });
+    this.props.loadTree();
   }
 
   render() {
-    const { entities } = this.props;
     const {
-      treeLoaded,
-      // assays,
-      classes,
-      methods,
-      centers,
-      popularity,
-      dates,
-      dateDatasetMap,
-    } = this.state;
+      entities,
+      tree,
+    } = this.props;
 
-    if (!treeLoaded) {
+    if (!entities || !tree || !tree.isLoaded) {
       const label = <span className={styles.node}>Loading</span>;
       return (
         <div className={styles['loading-tree']}>
-          <Tree nodeLabel={label} defaultCollapsed />
-          <Tree nodeLabel={label} defaultCollapsed />
-          <Tree nodeLabel={label} defaultCollapsed />
-          <Tree nodeLabel={label} defaultCollapsed />
-          <Tree nodeLabel={label} defaultCollapsed />
+          <EmptyTree nodeLabel={label} />
+          <EmptyTree nodeLabel={label} />
+          <EmptyTree nodeLabel={label} />
+          <EmptyTree nodeLabel={label} />
+          <EmptyTree nodeLabel={label} />
         </div>
       );
     }
     const datasets = Object.keys(entities.datasets).map(key => entities.datasets[key]);
     return (
       <div>
-        <AssayTree datasets={datasets} assayClasses={classes} assayMethods={methods} />
-        <CenterTree centerNames={centers} datasets={datasets} />
+        <AssayTree datasets={datasets} assayClasses={tree.classes} assayMethods={tree.methods} />
+        <CenterTree centerNames={tree.centers} datasets={datasets} />
         <TissueCellTree entities={entities} />
         {/* <DiseaseTree entities={this.props.entities} /> */}
-        <DateTree dates={dates} dateDatasetMap={dateDatasetMap} />
-        <PopularityTree datasetIds={popularity} />
+        <DateTree dates={tree.dates} dateDatasetMap={tree.dateDatasetMap} />
+        <PopularityTree datasetIds={tree.popularity} />
       </div>
     );
   }
@@ -88,7 +54,12 @@ export class DataTree extends Component {
 
 DataTree.propTypes = {
   loadDatasets: PropTypes.func.isRequired,
+  loadTree: PropTypes.func.isRequired,
   entities: PropTypes.object,
+  tree: PropTypes.object,
 };
 
-export default connect(mapStateToProps, { loadDatasets })(DataTree);
+export default connect(mapStateToProps, {
+  loadDatasets,
+  loadTree,
+})(DataTree);

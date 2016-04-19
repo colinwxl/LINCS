@@ -5,6 +5,8 @@ import merge from 'lodash/merge';
 import community from './community';
 import twitter from './twitter';
 import pubsNews from './pubsNews';
+import tree from './tree';
+import modals from './modals';
 import pendingRequests from './pendingRequests';
 // import * as EntityActionTypes from 'actions/entities';
 
@@ -29,6 +31,8 @@ export default combineReducers({
   community,
   pubsNews,
   twitter,
+  tree,
+  modals,
   pendingRequests,
   router,
   form: formReducer,

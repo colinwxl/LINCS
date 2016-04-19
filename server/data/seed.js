@@ -298,7 +298,8 @@ knex.raw('select 1+1 as result').then(() => {
     .all(promises)
     .then(() => {
       debug('Database seeded successfully.');
-      process.exit(0);
+      debug('Re-indexing elasticsearch');
+      require('./elastic');
     })
     .catch(e => {
       debug(e);

@@ -42,11 +42,6 @@ export class IndividualAssayTree extends Component {
     // Set this.childDatasets so we can increment their counts when clicked.
     this.childDatasets = childDatasets;
 
-    let label = <span className={styles['loading-node']}>Loading...</span>;
-    if (childDatasets.length === 0) {
-      return <Tree nodeLabel={label} defaultCollapsed />;
-    }
-
     let name = '';
     if (assayName) {
       name = assayName;
@@ -54,7 +49,7 @@ export class IndividualAssayTree extends Component {
       name = methodName;
     }
 
-    label = <span className={styles.node}>{name}</span>;
+    const label = <span className={styles.node}>{name}</span>;
     return (
       <Tree nodeLabel={label} onClick={this._handleClick} collapsed={this.state.collapsed}>
         {

@@ -164,6 +164,11 @@ export default {
     tool_id: { type: 'integer', nullable: false, unsigned: true, references: 'tools.id' },
     publication_id: { type: 'integer', nullable: false, unsigned: true, references: 'publications.id' },
   },
+  workflows: {
+    id: { type: 'increments', nullable: false, primary: true },
+    question: { type: 'text', maxlength: 2000, nullable: false },
+    url: { type: 'string', maxlength: 255, nullable: true },
+  },
   authors: {
     id: { type: 'increments', nullable: false, primary: true },
     name: { type: 'string', maxlength: 255, nullable: false },
@@ -177,6 +182,7 @@ export default {
   publications: {
     id: { type: 'increments', nullable: false, primary: true },
     journal_name: { type: 'string', maxlength: 255, nullable: true },
+    show_at_home: { type: 'bool', nullable: false, defaultTo: true },
     abstract: { type: 'text', maxlength: 16777215, fieldtype: 'medium', nullable: false },
     pp_pages: { type: 'string', maxlength: 255, nullable: true },
     issue: { type: 'string', maxlength: 255, nullable: true },

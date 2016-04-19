@@ -3,26 +3,18 @@ import { connect } from 'react-redux';
 import moment from 'moment';
 
 import { loadDatasets } from 'actions/entities';
+import { openCitationsModal, closeCitationsModal } from 'actions/modals';
 import getIconLinks from 'utils/getIconLinks';
 import styles from './Releases.scss';
-import CitationsModal from 'components/CitationsModal';
 
 const mapStateToProps = ({ entities }) => ({ cells: entities.cells });
 
 export class SearchResult extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      isModalOpen: false,
-    };
-  }
-
   _openCitationsModal = () => {
-    this.setState({ isModalOpen: true });
-  }
-
-  _closeCitationsModal = () => {
-    this.setState({ isModalOpen: false });
+    this.props.openCitationsModal({
+      datasetId: this.props.dataset.id,
+      onModalClose: this.props.closeCitationsModal,
+    });
   }
 
   render() {
@@ -43,11 +35,6 @@ export class SearchResult extends Component {
           <a className={`btn ${styles['btn-link']}`} href={ds.sourceLink} target="_blank">
             View at source
           </a>
-          <CitationsModal
-            isOpen={this.state.isModalOpen}
-            datasetId={ds.id}
-            onModalClose={this._closeCitationsModal}
-          />
           <a
             className={`btn ${styles['btn-link']}`}
             href={`/LINCS/api/v1/datasets/${ds.id}/download`}
@@ -113,7 +100,13 @@ SearchResult.propTypes = {
   cells: PropTypes.object,
   dataset: PropTypes.object,
   loadDatasets: PropTypes.func,
+  openCitationsModal: PropTypes.func,
+  closeCitationsModal: PropTypes.func,
   incrementDatasetClicks: PropTypes.func,
 };
 
-export default connect(mapStateToProps, { loadDatasets })(SearchResult);
+export default connect(mapStateToProps, {
+  loadDatasets,
+  openCitationsModal,
+  closeCitationsModal,
+})(SearchResult);

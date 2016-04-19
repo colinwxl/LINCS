@@ -1,22 +1,15 @@
 import React, { Component, PropTypes } from 'react';
+import { connect } from 'react-redux';
 
-import CitationsModal from 'components/CitationsModal';
+import { openCitationsModal, closeCitationsModal } from 'actions/modals';
 import styles from './PublicationsView.scss';
 
 export default class Publication extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      isModalOpen: false,
-    };
-  }
-
   _openCitationsModal = () => {
-    this.setState({ isModalOpen: true });
-  }
-
-  _closeCitationsModal = () => {
-    this.setState({ isModalOpen: false });
+    this.props.openCitationsModal({
+      pubId: this.props.pub.id,
+      onModalClose: this.props.closeCitationsModal,
+    });
   }
 
   render() {
@@ -102,11 +95,6 @@ export default class Publication extends Component {
               Review
             </span>
           }
-          <CitationsModal
-            isOpen={this.state.isModalOpen}
-            pubId={p.id}
-            onModalClose={this._closeCitationsModal}
-          />
           <span
             onClick={this._openCitationsModal}
             className={`${styles.cat} ${styles['cat-cite']}`}
@@ -121,4 +109,11 @@ export default class Publication extends Component {
 
 Publication.propTypes = {
   pub: PropTypes.object,
+  openCitationsModal: PropTypes.func,
+  closeCitationsModal: PropTypes.func,
 };
+
+export default connect(null, {
+  openCitationsModal,
+  closeCitationsModal,
+})(Publication);

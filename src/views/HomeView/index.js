@@ -12,15 +12,12 @@ const mapStateToProps = (state) => ({
 
 export class HomeView extends Component {
   componentWillMount = () => {
-    this.props.loadPublications(true);
+    this.props.loadPublications();
   }
 
   render() {
     const { publications } = this.props;
-    publications.sort((a, b) => {
-      const result = a.yearPublished < b.yearPublished;
-      return result ? 1 : -1;
-    });
+    const pubs = publications.filter(pub => !!pub.showAtHome);
     return (
       <div className={styles.wrapper}>
         <div className={styles.banner}>
@@ -192,7 +189,7 @@ export class HomeView extends Component {
                   <h3 className={styles.title}>Recent Publications</h3>
                   <div className={styles.publications}>
                     {
-                      publications && publications.slice(0, 4).map(pub => {
+                      pubs && pubs.slice(0, 4).map(pub => {
                         const {
                           id, authors, yearPublished, articleName,
                           journalName, pmId, pmcId, doi,

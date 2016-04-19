@@ -3,12 +3,14 @@ import 'bootstrap';
 import 'styles/core.scss';
 import React from 'react';
 import Navigation from 'components/Navigation';
+import CitationsModal from 'containers/CitationsModal';
 // import coreStyles from './CoreLayout.scss';
 
-function CoreLayout(props) {
+export default function CoreLayout(props) {
   return (
     <div className="site-wrap">
       <Navigation atHome={props.location && props.location.pathname === '/'} />
+      <CitationsModal />
       <div className="view-container">
         {props.children}
       </div>
@@ -21,5 +23,3 @@ CoreLayout.propTypes = {
   location: React.PropTypes.object,
   children: React.PropTypes.element,
 };
-
-export default CoreLayout;

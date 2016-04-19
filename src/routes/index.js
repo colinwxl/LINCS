@@ -36,7 +36,9 @@ import DataReleasePolicy from 'views/DataView/ReleasePolicy';
 import PublicationsView from 'views/PublicationsView';
 import NewsView from 'views/NewsView';
 
+// Applications
 import AppsView from 'views/AppsView';
+
 import NotFoundView from 'views/NotFoundView';
 
 export default (/* store */) => (
@@ -81,6 +83,24 @@ export default (/* store */) => (
     <Route path="news" component={NewsView} />
 
     <Route path="applications" component={AppsView} />
+
+    <Route path="applications/workflows/knowledge-about-a-gene-or-protein" component={null} />
+    <Route path="applications/workflows/understand-mechanism-of-action-of-sm" component={null} />
+    <Route
+      path="applications/workflows/find-novel-compounds-that-mimic-or-reverse-disease-sig"
+      component={null}
+    />
+    <Route path="applications/workflows/data-from-a-specific-cell-line" component={null} />
+    <Route path="applications/workflows/data-by-applying-a-specific-sm" component={null} />
+    <Route path="applications/workflows/query-signature-against-l1000" component={null} />
+
+    <Route path="applications/workflows/obtaining-l1000-data" component={null} />
+    <Route path="applications/workflows/download-rna-seq-data" component={null} />
+    <Route
+      path="applications/workflows/collect-attrs-to-predict-gene-function-using-machine-learning"
+      component={null}
+    />
+    <Route path="applications/workflows/search-lincs-metadata" component={null} />
 
     <Route path="*" component={NotFoundView} />
   </Route>

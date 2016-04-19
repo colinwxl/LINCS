@@ -1,45 +1,97 @@
 @import 'variables';
 
-.categories {
-  align-items: center;
-  display: flex;
-  justify-content: center;
+$background-color: $light-gray;
 
-  label {
-    border-radius: 0;
-    margin-bottom: 0;
+.wrapper {
+  background-color: $background-color;
+  margin-bottom: -2rem;
+  padding-bottom: 2rem;
+
+  h2 {
+    font-weight: 300;
   }
 }
 
+.wf-title {
+  position: absolute;
+}
+
+.categories {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  label {
+    border: 0;
+    margin: 0;
+  }
+
+  @media (min-width: 600px) {
+    flex-direction: row;
+  }
+}
+
+$apple-blue: #1390ff;
+
 .category-check {
-  background-color: $white;
-  border-bottom-color: $teal;
-  bottom: -1px;
-  color: $teal;
+  background-color: $background-color;
+  color: lighten($base-font-color, 15);
   margin: 0;
+  padding: .5rem 1rem;
   position: relative;
   z-index: 1;
 
-  &:not(.active):hover {
-    color: darken($teal, 10);
+  &:hover {
+    color: $apple-blue;
   }
 }
 
 .active {
-  background-color: $white;
-  background-image: none;
-  border-bottom-color: $white;
-  border-left-color: $teal;
-  border-right-color: $teal;
-  border-top-color: $teal;
-  color: $teal;
+  color: $apple-blue;
 }
 
 .workflow {
-  border: 1px solid $teal;
+  background-color: $white;
+  border: 1px solid;
+  border-color: $apple-blue $gray-border-side $gray-border-bottom;
+  border-radius: .2rem;
+  border-top-width: 2px;
+  margin-bottom: 2rem;
   min-height: 1px;
   padding: 1rem;
   position: relative;
+}
+
+.workflow-exp {
+  i {
+    font-size: 8.5rem;
+    line-height: 10rem;
+  }
+}
+
+.workflow-comp-bio {
+  i {
+    font-size: 8.5rem;
+  }
+}
+
+.question {
+  margin-bottom: 2rem;
+
+  h5 {
+    margin-bottom: 1rem;
+  }
+}
+
+.examples {
+
+  ul {
+    border-left: 1px solid $gray;
+    list-style: none;
+    padding-bottom: .5rem;
+    padding-top: .5rem;
+  }
 }
 
 .tools {
@@ -50,6 +102,7 @@
 }
 
 $tool-width: 10.5rem;
+$shadow: rgba(0, 0, 0, .1);
 
 .tool {
   border: 1px solid;
@@ -58,6 +111,16 @@ $tool-width: 10.5rem;
   height: 15rem;
   margin-bottom: 1rem;
   width: $tool-width;
+}
+
+.tool-inner {
+  background: $white;
+  border-radius: .2rem;
+  box-shadow: 0 2px 4px $shadow;
+  height: 100%;
+  position: relative;
+  text-decoration: none;
+  vertical-align: top;
 }
 
 .cover {
@@ -151,3 +214,40 @@ $title-line-height: 1.1rem;
   white-space: nowrap;
   width: 10rem;
 }
+
+.tool-ranking {
+  background: $white;
+  border-radius: 2px;
+  bottom: 0;
+  display: block;
+  padding: 0 .75rem;
+  position: absolute;
+  width: 100%;
+}
+
+// WorkflowInput
+
+.form-row {
+  margin-bottom: .5rem;
+}
+
+.workflow-input {
+  padding-left: 5px;
+  width: 100%;
+}
+
+.workflow-submit {
+  background-color: $white;
+  border-color: $teal;
+  color: $teal;
+  line-height: 1rem;
+  width: 100%;
+
+  &:hover {
+    background-color: darken($teal, 5);
+    border-color: darken($teal, 7);
+    color: $white;
+  }
+}
+
+//
