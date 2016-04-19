@@ -37,7 +37,7 @@ export default class LINCSPCCSE extends Component {
                   Related Website: <a href="https://panoramaweb.org/labkey/project/LINCS/begin.view" target="_blank">LINCS PCCSE Panorama Repository</a>
                 </li>
               </ul>
-              <h2>About</h2>
+              <h2>Overview</h2>
               <p>
                 The LINCS Proteomic Characterization Center for Signaling and Epigenetics, under
                 the direction of Dr. Jacob D. Jaffe of the Broad Institute, tests the hypothesis

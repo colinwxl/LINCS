@@ -37,7 +37,7 @@ export default class LINCSTranscriptomics extends Component {
                   Related Website: <a href="https://clue.io/">ConnectivityMap 2.0</a>
                 </li>
               </ul>
-              <h2>Goal</h2>
+              <h2>Overview</h2>
               <p>
                 The overarching goal of the Broad Institute’s LINCS program is the development of
                 comprehensive signatures of cellular states that can be used by the entire research
