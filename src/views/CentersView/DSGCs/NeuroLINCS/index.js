@@ -41,7 +41,7 @@ export default class NeuroLINCS extends Component {
                   Center Website: <a href="http://www.neurolincs.org/" target="_blank">neurolincs.org</a>
                 </li>
               </ul>
-              <h2>Mission</h2>
+              <h2>Overview</h2>
               <p>
                 There is a critical need to define the state and predict the behavior of human
                 brain cells in health and disease. The number of different cell types in the CNS
