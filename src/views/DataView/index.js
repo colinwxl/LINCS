@@ -23,6 +23,12 @@ export class DataView extends Component {
     };
   }
 
+  shouldComponentUpdate(nextProps, nextState) {
+    console.log(nextProps);
+    console.log(nextState);
+    return true;
+  }
+
   _handleSearch = (e) => {
     this.setState({ q: e.target.value });
   }

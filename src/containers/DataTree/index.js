@@ -20,11 +20,13 @@ export class DataTree extends Component {
     this.props.loadTree();
   }
 
+  shouldComponentUpdate(nextProps) {
+    const { entities, tree } = nextProps;
+    return !!entities && !!tree && tree.isLoaded;
+  }
+
   render() {
-    const {
-      entities,
-      tree,
-    } = this.props;
+    const { entities, tree } = this.props;
 
     if (!entities || !tree || !tree.isLoaded) {
       const label = <span className={styles.node}>Loading</span>;

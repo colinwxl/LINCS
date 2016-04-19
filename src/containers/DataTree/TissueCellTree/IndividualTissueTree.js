@@ -7,10 +7,10 @@ import IndividualCellTree from './IndividualCellTree';
 
 export default function IndividualTissueTree(props) {
   const { entities, tissueId } = props;
-  const diseaseTree = { collapsed: true, cells: {}, cellIds: [] };
+  const cellIds = [];
   each(entities.cells, (cell) => {
     if (cell.tissues.indexOf(parseInt(tissueId, 10)) !== -1) {
-      diseaseTree.cellIds.push(cell.id);
+      cellIds.push(cell.id);
     }
   });
   const tissue = entities.tissues[tissueId];
@@ -18,7 +18,7 @@ export default function IndividualTissueTree(props) {
   return (
     <Tree nodeLabel={label} defaultCollapsed>
       {
-        diseaseTree.cellIds.map((cellId, index) =>
+        cellIds.map((cellId, index) =>
           <IndividualCellTree
             key={index}
             entities={entities}

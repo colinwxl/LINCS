@@ -23,17 +23,9 @@ export function fetchTimeline() {
   return (dispatch) => {
     dispatch(userTimelineRequest());
     return fetch('/LINCS/api/v1/twitter/timeline')
-    .then(response => handleResponse(response))
-    .then(response => response.json())
-    .then(response => {
-      try {
-        dispatch(userTimelineSuccess(response));
-      } catch (e) {
-        dispatch(userTimelineFailure(e));
-      }
-    })
-    .catch(error => {
-      dispatch(userTimelineFailure(error));
-    });
+      .then(response => handleResponse(response))
+      .then(response => response.json())
+      .then(response => dispatch(userTimelineSuccess(response)))
+      .catch(error => dispatch(userTimelineFailure(error)));
   };
 }

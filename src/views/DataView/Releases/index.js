@@ -76,8 +76,15 @@ export class Releases extends Component {
                 and Signature Generation Centers (DSGCs)</Link> have released data to the
                 community. These data are released according to the LINCS
                 consortium <Link to="/data/release-policy">data release policy</Link>. The
-                browse or search features provide unified access with links to the data, metadata
+                browse and search features provide unified access with links to the data, metadata
                 as well as <Link to="/applications">data visualization and analysis tools</Link>.
+              </p>
+              <p>
+                For more information about tools related to the L1000 datasets, such as
+                scripts to parse .gct and .gctx files, visit
+                this <a href="https://github.com/wangz10/l1ktools" target="_blank">GitHub Page</a>.
+                (<a href="https://github.com/wangz10/l1ktools/archive/master.zip" target="_blank">
+                Download Link</a>)
               </p>
               <div className={styles['search-wrap']}>
                 <SearchBar searchQuery={searchQ} />

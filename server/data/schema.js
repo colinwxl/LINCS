@@ -166,8 +166,11 @@ export default {
   },
   workflows: {
     id: { type: 'increments', nullable: false, primary: true },
-    question: { type: 'text', maxlength: 2000, nullable: false },
-    url: { type: 'string', maxlength: 255, nullable: true },
+    question: { type: 'text', maxlength: 1000, nullable: false },
+    type: { type: 'string', maxlength: 255, nullable: false },
+    exists: { type: 'bool', nullable: false, defaultTo: false },
+    email: { type: 'string', maxlength: 255, nullable: true },
+    url: { type: 'text', maxlength: 1000, nullable: true },
   },
   authors: {
     id: { type: 'increments', nullable: false, primary: true },

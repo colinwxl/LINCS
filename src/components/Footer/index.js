@@ -1,5 +1,6 @@
 import React from 'react';
 
+import FooterDropDown from './FooterDropDown';
 import styles from './Footer.scss';
 
 const base = '/LINCS';
@@ -28,7 +29,7 @@ export default function Footer(/* props */) {
       </div>
       <div className={`container ${styles.content}`}>
         <div className={`row ${styles.map}`}>
-          <div className="col-xs-12 col-sm-3">
+          <div className="col-md-3 hidden-md-down">
             <h5>Centers</h5>
             <ul>
               <li>
@@ -57,7 +58,17 @@ export default function Footer(/* props */) {
               </li>
             </ul>
           </div>
-          <div className="col-xs-12 col-sm-3">
+          <FooterDropDown title="Centers">
+            <p><a href={`${centersRoute}/overview`}>Overview</a></p>
+            <p><a href={`${centersRoute}/dcic`}>BD2K-LINCS DCIC</a></p>
+            <p><a href={`${dsgcRoute}/hms-lincs`}>HMS LINCS</a></p>
+            <p><a href={`${dsgcRoute}/dtoxs`}>DToxS</a></p>
+            <p><a href={`${dsgcRoute}/lincs-pccse`}>LINCS Proteomics</a></p>
+            <p><a href={`${dsgcRoute}/lincs-transcriptomics`}>LINCS Transcriptomics</a></p>
+            <p><a href={`${dsgcRoute}/mep-lincs`}>MEP LINCS</a></p>
+            <p><a href={`${dsgcRoute}/neurolincs`}>NeuroLINCS</a></p>
+          </FooterDropDown>
+          <div className="col-md-3 hidden-md-down">
             <h5>Data</h5>
             <ul>
               <li>
@@ -74,7 +85,13 @@ export default function Footer(/* props */) {
               </li>
             </ul>
           </div>
-          <div className="col-xs-12 col-sm-3">
+          <FooterDropDown title="Data">
+            <p><a href={`${dataRoute}/releases`}>Releases</a></p>
+            <p><a href={`${dataRoute}/release-policy`}>Release Policy</a></p>
+            <p><a href={`${dataRoute}/standards`}>Standards</a></p>
+            <p><a href={`${applicationsRoute}`}>Apps & Workflows</a></p>
+          </FooterDropDown>
+          <div className="col-md-3 hidden-md-down">
             <h5>Announcements</h5>
             <ul>
               <li>
@@ -91,7 +108,7 @@ export default function Footer(/* props */) {
               </li>
             </ul>
           </div>
-          <div className="col-xs-12 col-sm-3">
+          <div className="col-xs-12 col-md-3">
             <h5>Contact</h5>
             <ul className={styles.icons}>
               <li>
@@ -115,10 +132,10 @@ export default function Footer(/* props */) {
         <hr />
         <div className="row">
           <div className="col-xs-12">
-            <div className={`col-xs-12 col-sm-6 ${styles.copy}`}>
+            <div className={`col-xs-12 col-md-6 ${styles.copy}`}>
               <p>© 2016, LINCS Program. All rights reserved.</p>
             </div>
-            <div className={`col-xs-12 col-sm-6 ${styles.credit}`}>
+            <div className={`col-xs-12 col-md-6 ${styles.credit}`}>
               <p>
                 Funded by <a href="http://commonfund.nih.gov/lincs/" target="_blank">The NIH Common Fund</a>.
                 Developed by the <a href="http://lincs-dcic.org/" target="_blank">BD2K-LINCS DCIC</a>.

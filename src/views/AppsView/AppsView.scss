@@ -51,6 +51,15 @@ $apple-blue: #1390ff;
   color: $apple-blue;
 }
 
+.enter {
+  opacity: 0;
+}
+
+.enter-active {
+  opacity: 1;
+  transition: opacity 750ms ease-in;
+}
+
 .workflow {
   background-color: $white;
   border: 1px solid;
@@ -63,18 +72,23 @@ $apple-blue: #1390ff;
   position: relative;
 }
 
+.workflow-exp,
+.workflow-comp-bio {
+  i {
+    color: $brand-primary-light;
+    font-size: 8.5rem;
+  }
+}
+
 .workflow-exp {
   i {
-    font-size: 8.5rem;
     line-height: 10rem;
   }
 }
 
-.workflow-comp-bio {
-  i {
-    font-size: 8.5rem;
-  }
-}
+// .workflow-comp-bio {
+//
+// }
 
 .question {
   margin-bottom: 2rem;
@@ -237,15 +251,15 @@ $title-line-height: 1.1rem;
 }
 
 .workflow-submit {
-  background-color: $white;
-  border-color: $teal;
-  color: $teal;
+  background-color: $teal;
+  border-color: darken($teal, 3);
+  color: $white;
   line-height: 1rem;
   width: 100%;
 
   &:hover {
-    background-color: darken($teal, 5);
-    border-color: darken($teal, 7);
+    background-color: darken($teal, 8);
+    border-color: darken($teal, 10);
     color: $white;
   }
 }

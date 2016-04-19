@@ -46,6 +46,7 @@ const config = {
     'moment',
     'normalizr',
     'react',
+    'react-addons-css-transition-group',
     'react-dom',
     'react-modal',
     'react-redux',

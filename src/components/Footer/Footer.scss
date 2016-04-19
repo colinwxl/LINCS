@@ -77,12 +77,60 @@ $hover-color: #cacaca;
 
 .copy {
   padding-left: 0;
+  text-align: center;
+
+  @media (min-width: 768px) {
+    text-align: left;
+  }
 }
 
 .credit {
   padding-right: 0;
+  text-align: center;
+
+  @media (min-width: 768px) {
+    text-align: left;
+  }
 
   a {
     font-weight: 600;
   }
+}
+
+// Dropdown
+.dropdown {
+
+  i,
+  span {
+    font-size: 1.25rem;
+    font-weight: 500;
+    line-height: 1.1;
+  }
+}
+
+.dropdown-children {
+  margin-left: 1rem;
+  max-height: 100000px;
+  overflow-y: hidden;
+  transition-duration: .8s;
+  transition-property: all;
+  transition-timing-function: ease-in;
+
+  p {
+    margin: 0;
+  }
+}
+
+.dropdown-children-collapsed {
+  max-height: 0;
+  transition-duration: .3s;
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0, 1, .5, 1);
+}
+
+.collapse {
+  cursor: pointer;
+  display: inline-block;
+  margin-right: .5rem;
+  user-select: none;
 }

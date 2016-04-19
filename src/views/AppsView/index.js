@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
 import PageBanner from 'components/PageBanner';
 import handleResponse from 'utils/handleResponse';
@@ -22,10 +23,7 @@ export default class AppsView extends Component {
       .then(response => handleResponse(response))
       .then(response => response.json())
       .then(tools => {
-        this.setState({
-          fetchingTools: false,
-          tools,
-        });
+        this.setState({ fetchingTools: false, tools });
       });
   }
 
@@ -69,7 +67,18 @@ export default class AppsView extends Component {
                   For a Computational Biologist
                 </label>
               </div>
-              {isExp ? <ExpWorkflows /> : <CompBioWorkflows />}
+              <div className={styles.workflow}>
+                <ReactCSSTransitionGroup
+                  transitionName={{
+                    enter: styles.enter,
+                    enterActive: styles['enter-active'],
+                  }}
+                  transitionEnterTimeout={750}
+                  transitionLeave={false}
+                >
+                  {isExp ? <ExpWorkflows key="exp" /> : <CompBioWorkflows key="compBio" />}
+                </ReactCSSTransitionGroup>
+              </div>
               <h2>Applications</h2>
               <div className={styles.tools}>
                 {this.state.tools.map(tool => <Tool key={tool.id} tool={tool} />)}

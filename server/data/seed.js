@@ -261,31 +261,19 @@ knex.raw('select 1+1 as result').then(() => {
       insertSmallMolecules()
         .then(() => {
           debug('Small molecules inserted.');
-          insertTissuesAndDiseases()
-            .then(() => {
-              debug('Tissues and diseases inserted.');
-              insertCellLines()
-                .then(() => {
-                  debug('Cells inserted.');
-                  buildDatasets()
-                    .then(() => {
-                      debug('Datasets inserted.');
-                      resolve();
-                    })
-                    .catch(e => {
-                      reject(e);
-                      debug(e);
-                    });
-                })
-                .catch(e => {
-                  reject(e);
-                  debug(e);
-                });
-            })
-            .catch(e => {
-              reject(e);
-              debug(e);
-            });
+          return insertTissuesAndDiseases();
+        })
+        .then(() => {
+          debug('Tissues and diseases inserted.');
+          return insertCellLines();
+        })
+        .then(() => {
+          debug('Cells inserted.');
+          return buildDatasets();
+        })
+        .then(() => {
+          debug('Datasets inserted.');
+          resolve();
         })
         .catch(e => {
           reject(e);
@@ -298,8 +286,7 @@ knex.raw('select 1+1 as result').then(() => {
     .all(promises)
     .then(() => {
       debug('Database seeded successfully.');
-      debug('Re-indexing elasticsearch');
-      require('./elastic');
+      process.exit(0);
     })
     .catch(e => {
       debug(e);

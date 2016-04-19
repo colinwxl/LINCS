@@ -20,8 +20,6 @@ export default class Tree extends Component {
   render() {
     const {
       collapsed = this.state.collapsed,
-      className = '',
-      itemClassName = '',
       nodeLabel,
       children,
       ...rest,
@@ -37,25 +35,19 @@ export default class Tree extends Component {
     const arrow = (
       <div
         {...rest}
-        className={`${className} ${arrowClassName}`}
+        className={arrowClassName}
         onClick={this.handleClick}
       />
     );
 
-    const hasChildren = !!children && children.length;
-
     return (
       <div className={styles['tree-view']}>
-        <div className={`${styles['tree-view-item']} ${itemClassName}`}>
+        <div className={styles['tree-view-item']}>
           <div>
             {arrow}
             {nodeLabel}
           </div>
-          {
-            hasChildren
-            ? <span className={styles.count}>{children.length}</span>
-            : <i className="fa fa-circle-o-notch fa-spin" />
-          }
+          <span className={styles.count}>{children.length}</span>
         </div>
         <div className={containerClassName}>
           {children}
