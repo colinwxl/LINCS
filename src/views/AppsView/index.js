@@ -60,7 +60,7 @@ export default class AppsView extends Component {
       (sortFeature === 'Search' && tool.featureSearch) ||
       (sortFeature === 'Navigation' && tool.featureNavigation) ||
       (sortFeature === 'Integration' && tool.featureIntegration) ||
-      (sortFeature === 'Visualization' && tool.featureVizualization) ||
+      (sortFeature === 'Visualization' && tool.featureVisualization) ||
       (sortFeature === 'Signature Enrichment' && tool.featureSignatureEnrichment) ||
       (sortFeature === 'Browse' && tool.featureBrowse) ||
       (sortFeature === 'Download' && tool.featureDownload) ||

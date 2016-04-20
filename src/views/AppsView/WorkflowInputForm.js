@@ -1,5 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import { reduxForm } from 'redux-form';
+
 import styles from './AppsView.scss';
 
 export const fields = ['question', 'email'];

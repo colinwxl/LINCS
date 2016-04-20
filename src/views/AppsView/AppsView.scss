@@ -338,3 +338,42 @@ $desc-line-height: 1.125rem; // 18px
 }
 
 //
+
+// WorkflowSentModal
+
+// .wf-modal-header {
+//   border-bottom: 0;
+// }
+
+.wf-modal-content {
+  border: 0;
+}
+
+.wf-modal-body {
+  text-align: center;
+  padding: 1rem;
+
+  h4 {
+    margin: 3rem 0 .5rem;
+  }
+
+  p {
+    font-weight: 300;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    text-align: left;
+  }
+
+  button {
+    background-color: $brand-primary-light;
+    border-radius: .3rem;
+    box-shadow: none;
+    color: $white;
+    cursor: pointer;
+    font-size: 17px;
+    font-weight: 500;
+    margin: 3rem auto 0;
+    padding: .6rem 2rem;
+  }
+}
