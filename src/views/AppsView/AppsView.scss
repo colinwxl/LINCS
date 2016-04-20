@@ -156,14 +156,17 @@ $apple-blue: #1390ff;
   justify-content: space-between;
 }
 
-$tool-width: 10rem;
+// Tool
+
+$tool-height: 10rem;
+$tool-width: 21rem;
 $shadow: rgba(0, 0, 0, .1);
 
 .tool {
   border: 1px solid;
   border-color: $gray-border-top $gray-border-side $gray-border-bottom;
   border-radius: .2rem;
-  height: 15rem;
+  height: $tool-height;
   margin: 0 auto 1rem;
   width: $tool-width;
 }
@@ -172,21 +175,24 @@ $shadow: rgba(0, 0, 0, .1);
   background: $white;
   border-radius: .2rem;
   box-shadow: 0 2px 4px $shadow;
-  height: 100%;
+  height: $tool-height;
   position: relative;
   text-decoration: none;
   vertical-align: top;
 }
 
 .cover {
+  float: left;
+  height: $tool-height;
   overflow: hidden;
   position: relative;
+  width: 10rem;
 }
 
 .tool-img-wrap {
   display: table;
-  height: 10rem;
-  width: $tool-width;
+  height: $tool-height;
+  width: 10rem;
 }
 
 .tool-img-inner {
@@ -196,7 +202,7 @@ $shadow: rgba(0, 0, 0, .1);
 
   img {
     max-height: 100%;
-    width: 75%;
+    width: 80%;
   }
 }
 
@@ -228,16 +234,17 @@ $shadow: rgba(0, 0, 0, .1);
 }
 
 .tool-details {
-  max-height: 70px;
+  max-height: 7rem;
   overflow: hidden;
   padding: .5rem .75rem 0;
 }
 
-$title-line-height: 1.1rem;
+$title-line-height: 1.5rem;
 
 .tool-title {
   color: $off-black;
   display: block;
+  font-size: 1.25rem;
   font-weight: 400;
   line-height: $title-line-height;
   margin: 0;
@@ -247,12 +254,15 @@ $title-line-height: 1.1rem;
   position: relative;
   text-decoration: none;
   white-space: nowrap;
+
+  .end {
+    height: $title-line-height;
+  }
 }
 
 .end {
   background: linear-gradient(to right, transparent, $white);
   bottom: 0;
-  height: $title-line-height;
   max-height: 100%;
   position: absolute;
   right: 0;
@@ -268,6 +278,23 @@ $title-line-height: 1.1rem;
   overflow: hidden;
   white-space: nowrap;
   width: 10rem;
+}
+
+$desc-line-height: 1.125rem; // 18px
+
+.tool-description {
+  display: block;
+  font-size: .8rem; // ~13px
+  line-height: $desc-line-height;
+  margin-top: .625rem; // 10px
+  max-height: $desc-line-height * 3;
+  min-height: 1.25rem;
+  position: relative;
+  word-wrap: break-word;
+
+  .end {
+    height: $desc-line-height;
+  }
 }
 
 .tool-ranking {

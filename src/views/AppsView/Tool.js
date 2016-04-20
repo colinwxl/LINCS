@@ -23,6 +23,10 @@ export default function Tool(props) {
             <span className={styles.end} />
           </p>
           <p className={styles['tool-creator']}>{tool.center}</p>
+          <div className={styles['tool-description']}>
+            {tool.description}
+            <span className={styles.end} />
+          </div>
         </div>
         <div className={styles['tool-ranking']}>
 

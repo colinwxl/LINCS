@@ -197,7 +197,7 @@ export default class AppsView extends Component {
               <div className="row">
                 {
                   tools.map(tool =>
-                    <div key={tool.id} className="col-xs-6 col-sm-4 col-lg-3 col-xl-2">
+                    <div key={tool.id} className="col-xs-12 col-md-6 col-xl-4">
                       <Tool tool={tool} />
                     </div>
                   )
