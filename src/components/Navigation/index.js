@@ -13,7 +13,7 @@ export default function Navigation(props) {
       <div className="container">
         <div className="clearfix">
           <button
-            className="navbar-toggler pull-xs-right hidden-md-up"
+            className={`navbar-toggler pull-xs-right hidden-md-up ${styles.toggle}`}
             type="button"
             data-toggle="collapse"
             data-target="#main-navbar"

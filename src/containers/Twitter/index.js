@@ -56,29 +56,10 @@ export class Twitter extends Component {
     if (!timeline.length || twitter.isFetching) {
       return <h3>Loading...</h3>;
     }
-    // Allow 3 tweets from one user
-    const usersInTweets = {};
-    const tweets = [];
-    for (let i = 0; i < timeline.length; i++) {
-      const status = timeline[i];
-      const { screenName } = status.user;
-      if (usersInTweets[screenName]) {
-        usersInTweets[screenName]++;
-      } else {
-        usersInTweets[screenName] = 1;
-      }
-      if (usersInTweets[screenName] < 4) {
-        tweets.push(status);
-      }
-      // Only use 5 tweets
-      if (tweets.length === 5) {
-        break;
-      }
-    }
     return (
       <div className={styles.wrapper}>
         {
-          tweets.map(status => {
+          timeline.splice(0, 5).map(status => {
             const { id, createdAt, user } = status;
             return (
               <div key={id} className="container">

@@ -14,7 +14,7 @@ const sortTypes = [
 ];
 
 const sortFeatures = [
-  'All', 'Access', 'Search', 'Navigation', 'Integration', 'Vizualization',
+  'All', 'Access', 'Search', 'Navigation', 'Integration', 'Visualization',
   'Signature Enrichment', 'Browse', 'Download', 'Mining', 'Query',
 ];
 
@@ -60,7 +60,7 @@ export default class AppsView extends Component {
       (sortFeature === 'Search' && tool.featureSearch) ||
       (sortFeature === 'Navigation' && tool.featureNavigation) ||
       (sortFeature === 'Integration' && tool.featureIntegration) ||
-      (sortFeature === 'Vizualization' && tool.featureVizualization) ||
+      (sortFeature === 'Visualization' && tool.featureVizualization) ||
       (sortFeature === 'Signature Enrichment' && tool.featureSignatureEnrichment) ||
       (sortFeature === 'Browse' && tool.featureBrowse) ||
       (sortFeature === 'Download' && tool.featureDownload) ||

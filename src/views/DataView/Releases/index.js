@@ -61,7 +61,6 @@ export class Releases extends Component {
   _backToTree = () => { this.setState({ showSearchResults: false }); }
 
   render() {
-    console.log(this.state);
     const searchQ = this.props.location.query.q;
     const { datasets } = this.props;
     const { searchResultIds, isSearching, showSearchResults } = this.state;

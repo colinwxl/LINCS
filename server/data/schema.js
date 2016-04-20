@@ -149,7 +149,7 @@ export default {
     feature_search: { type: 'bool', nullable: false, defaultTo: false },
     feature_navigation: { type: 'bool', nullable: false, defaultTo: false },
     feature_integration: { type: 'bool', nullable: false, defaultTo: false },
-    feature_vizualization: { type: 'bool', nullable: false, defaultTo: false },
+    feature_visualization: { type: 'bool', nullable: false, defaultTo: false },
     feature_signature_enrichment: { type: 'bool', nullable: false, defaultTo: false },
     feature_browse: { type: 'bool', nullable: false, defaultTo: false },
     feature_download: { type: 'bool', nullable: false, defaultTo: false },

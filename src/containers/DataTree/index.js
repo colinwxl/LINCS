@@ -15,7 +15,7 @@ import styles from './DataTree.scss';
 const mapStateToProps = ({ entities, tree }) => ({ entities, tree });
 
 export class DataTree extends Component {
-  componentDidMount() {
+  componentWillMount() {
     this.props.loadDatasets();
     this.props.loadTree();
   }

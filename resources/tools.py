@@ -33,7 +33,7 @@ for row in toolArr:
         'feature_search': row[14] == '1',
         'feature_navigation': row[15] == '1',
         'feature_integration': row[16] == '1',
-        'feature_vizualization': row[17] == '1',
+        'feature_visualization': row[17] == '1',
         'feature_signature_enrichment': row[18] == '1',
         'feature_browse': row[19] == '1',
         'feature_download': row[20] == '1',
