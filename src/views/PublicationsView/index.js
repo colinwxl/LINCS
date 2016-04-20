@@ -40,13 +40,13 @@ export class PublicationsView extends Component {
   _filterCategories = (p) => {
     const { categories } = this.state;
     return (p.assayDevelopment && categories.assayDevelopment) ||
-    (p.dataAnalysis && categories.dataAnalysis) ||
-    (p.dataGeneration && categories.dataGeneration) ||
-    (p.dataIntegration && categories.dataIntegration) ||
-    (p.dataStandards && categories.dataStandards) ||
-    (p.signatureGeneration && categories.signatureGeneration) ||
-    (p.softwareDevelopment && categories.softwareDevelopment) ||
-    (p.review && categories.review);
+      (p.dataAnalysis && categories.dataAnalysis) ||
+      (p.dataGeneration && categories.dataGeneration) ||
+      (p.dataIntegration && categories.dataIntegration) ||
+      (p.dataStandards && categories.dataStandards) ||
+      (p.signatureGeneration && categories.signatureGeneration) ||
+      (p.softwareDevelopment && categories.softwareDevelopment) ||
+      (p.review && categories.review);
   };
 
   _handleSortOrderChanged = (event) => {

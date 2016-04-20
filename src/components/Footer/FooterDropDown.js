@@ -15,28 +15,25 @@ export default class FooterDropDown extends Component {
   }
 
   render() {
-    const {
-      title,
-      children,
-    } = this.props;
+    const { title, children } = this.props;
+    const { collapsed } = this.state;
 
     let containerClassName = styles['dropdown-children'];
-    if (this.state.collapsed) {
+    let iconClassName = 'fa fa-chevron-up';
+    if (collapsed) {
       containerClassName += ` ${styles['dropdown-children-collapsed']}`;
+      iconClassName = 'fa fa-chevron-down';
     }
 
     return (
-      <div className={`col-xs-12 hidden-lg-up ${styles.dropdown}`}>
-        <div className={styles.collapse} onClick={this._handleClick}>
-          {
-            this.state.collapsed
-            ? <i className="fa fa-chevron-right" />
-            : <i className="fa fa-chevron-down" />
-          }
-        </div>
-        <span>{title}</span>
-        <div className={containerClassName}>
-          {children}
+      <div className="col-xs-12 hidden-lg-up">
+        <div className={styles.dropdown}>
+          <h5 className={styles['dropdown-target']} onClick={this._handleClick}>
+            {title} <i className={iconClassName} />
+          </h5>
+          <div className={containerClassName}>
+            {children}
+          </div>
         </div>
       </div>
     );

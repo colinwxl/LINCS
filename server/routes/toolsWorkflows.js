@@ -12,7 +12,7 @@ const router = new Router({
 
 router.get('/tools', async (ctx) => {
   try {
-    const tools = await Tool.fetchAll();
+    const tools = await Tool.query(qb => qb.select().orderBy('order', 'asc')).fetchAll();
     ctx.body = tools.toJSON();
   } catch (e) {
     debug(e);

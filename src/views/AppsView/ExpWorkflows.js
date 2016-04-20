@@ -10,7 +10,6 @@ const awRoute = '/applications/workflows';
 
 export default class ExpWorkflows extends Component {
   _handleSubmit = (form) => {
-    console.log(form);
     this.props.addWorkflow({
       ...form,
       type: 'experimentalist',
@@ -20,17 +19,17 @@ export default class ExpWorkflows extends Component {
     return (
       <div className={styles['workflow-exp']}>
         <div className="row">
-          <div className="col-xs-12 col-md-8 col-md-offset-2">
+          <div className="col-xs-12 col-sm-10 col-sm-offset-1 col-lg-8 col-lg-offset-2">
             <div className={styles.question}>
               <h5 className="text-xs-center">What would you like to achieve with LINCS?</h5>
               <WorkflowInputForm onSubmit={this._handleSubmit} />
             </div>
             <h4>I would like to...</h4>
             <div className={`row ${styles.examples}`}>
-              <div className="col-xs-3 text-xs-center">
+              <div className="col-md-3 hidden-sm-down text-xs-center">
                 <i className="fa fa-question" aria-hidden="true" />
               </div>
-              <ul className="col-xs-9">
+              <ul className="col-xs-12 col-md-9">
                 <li>
                   <Link to={`${awRoute}/knowledge-about-a-gene-or-protein`}>
                     find knowledge about a specific gene or protein

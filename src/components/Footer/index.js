@@ -59,14 +59,16 @@ export default function Footer(/* props */) {
             </ul>
           </div>
           <FooterDropDown title="Centers">
-            <p><a href={`${centersRoute}/overview`}>Overview</a></p>
-            <p><a href={`${centersRoute}/dcic`}>BD2K-LINCS DCIC</a></p>
-            <p><a href={`${dsgcRoute}/hms-lincs`}>HMS LINCS</a></p>
-            <p><a href={`${dsgcRoute}/dtoxs`}>DToxS</a></p>
-            <p><a href={`${dsgcRoute}/lincs-pccse`}>LINCS Proteomics</a></p>
-            <p><a href={`${dsgcRoute}/lincs-transcriptomics`}>LINCS Transcriptomics</a></p>
-            <p><a href={`${dsgcRoute}/mep-lincs`}>MEP LINCS</a></p>
-            <p><a href={`${dsgcRoute}/neurolincs`}>NeuroLINCS</a></p>
+            <ul>
+              <li><a href={`${centersRoute}/overview`}>Overview</a></li>
+              <li><a href={`${centersRoute}/dcic`}>BD2K-LINCS DCIC</a></li>
+              <li><a href={`${dsgcRoute}/hms-lincs`}>HMS LINCS</a></li>
+              <li><a href={`${dsgcRoute}/dtoxs`}>DToxS</a></li>
+              <li><a href={`${dsgcRoute}/lincs-pccse`}>LINCS Proteomics</a></li>
+              <li><a href={`${dsgcRoute}/lincs-transcriptomics`}>LINCS Transcriptomics</a></li>
+              <li><a href={`${dsgcRoute}/mep-lincs`}>MEP LINCS</a></li>
+              <li><a href={`${dsgcRoute}/neurolincs`}>NeuroLINCS</a></li>
+            </ul>
           </FooterDropDown>
           <div className="col-md-3 hidden-md-down">
             <h5>Data</h5>
@@ -86,10 +88,12 @@ export default function Footer(/* props */) {
             </ul>
           </div>
           <FooterDropDown title="Data">
-            <p><a href={`${dataRoute}/releases`}>Releases</a></p>
-            <p><a href={`${dataRoute}/release-policy`}>Release Policy</a></p>
-            <p><a href={`${dataRoute}/standards`}>Standards</a></p>
-            <p><a href={`${applicationsRoute}`}>Apps & Workflows</a></p>
+            <ul>
+              <li><a href={`${dataRoute}/releases`}>Releases</a></li>
+              <li><a href={`${dataRoute}/release-policy`}>Release Policy</a></li>
+              <li><a href={`${dataRoute}/standards`}>Standards</a></li>
+              <li><a href={`${applicationsRoute}`}>Apps & Workflows</a></li>
+            </ul>
           </FooterDropDown>
           <div className="col-md-3 hidden-md-down">
             <h5>Announcements</h5>
@@ -108,23 +112,29 @@ export default function Footer(/* props */) {
               </li>
             </ul>
           </div>
-          <div className="col-xs-12 col-md-3">
+          <FooterDropDown title="Announcements">
+            <ul>
+              <li><a href={`${base}/publications`}>Publications</a></li>
+              <li><a href={`${base}/news`}>News</a></li>
+              <li><a href={`${base}/community/webinars`}>Webinars</a></li>
+              <li>
+                <a href={`${base}/community/workshops-and-symposia`}>Workshops and Symposia</a>
+              </li>
+            </ul>
+          </FooterDropDown>
+          <div className={`col-xs-12 col-md-3 ${styles.contact}`}>
             <h5>Contact</h5>
             <ul className={styles.icons}>
               <li>
                 <a href="https://twitter.com/BD2KLINCSDCIC">
-                  <i className="fa fa-twitter fa-2x" />
+                  <i className="fa fa-twitter" />
                 </a>
                 <a href="https://www.youtube.com/channel/UC88h_MIO1LP7Jv52VQ4qKkg">
-                  <i className="fa fa-youtube-square fa-2x" />
+                  <i className="fa fa-youtube-square" />
                 </a>
                 <a href={mailLink}>
-                  <i className="fa fa-envelope-o fa-2x" />
+                  <i className="fa fa-envelope-o" />
                 </a>
-              </li>
-              <li>
-              </li>
-              <li>
               </li>
             </ul>
           </div>
@@ -132,13 +142,15 @@ export default function Footer(/* props */) {
         <hr />
         <div className="row">
           <div className="col-xs-12">
-            <div className={`col-xs-12 col-md-6 ${styles.copy}`}>
+            <div className={`col-xs-12 col-md-6 col-lg-5 ${styles.copy}`}>
               <p>© 2016, LINCS Program. All rights reserved.</p>
             </div>
-            <div className={`col-xs-12 col-md-6 ${styles.credit}`}>
+            <div className={`col-xs-12 col-md-6 col-lg-7 text-xl-right ${styles.credit}`}>
               <p>
-                Funded by <a href="http://commonfund.nih.gov/lincs/" target="_blank">The NIH Common Fund</a>.
-                Developed by the <a href="http://lincs-dcic.org/" target="_blank">BD2K-LINCS DCIC</a>.
+                Funded by <a href="http://commonfund.nih.gov/lincs/" target="_blank">
+                The NIH Common Fund</a>.
+                Developed by the <a href="http://lincs-dcic.org/" target="_blank">
+                BD2K-LINCS DCIC</a>.
               </p>
             </div>
           </div>

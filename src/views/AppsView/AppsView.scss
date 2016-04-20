@@ -9,11 +9,18 @@ $background-color: $light-gray;
 
   h2 {
     font-weight: 300;
+
+    i {
+      color: $base-font-color;
+    }
   }
 }
 
 .wf-title {
-  position: absolute;
+
+  @media (min-width: 992px) {
+    position: absolute;
+  }
 }
 
 .categories {
@@ -108,6 +115,40 @@ $apple-blue: #1390ff;
   }
 }
 
+.flex {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+
+  @media (min-width: 992px) {
+    align-items: center;
+    flex-direction: row;
+  }
+}
+
+.filter {
+  margin-bottom: 1rem;
+  margin-left: 1rem;
+
+  label {
+    margin-right: .5rem;
+  }
+
+  @media (min-width: 992px) {
+    margin-bottom: 0;
+  }
+}
+
+.select {
+  display: inline-block;
+  vertical-align: middle;
+  width: 100%;
+
+  @media (min-width: 992px) {
+    width: auto;
+  }
+}
+
 .tools {
   align-items: center;
   display: flex;
@@ -115,7 +156,7 @@ $apple-blue: #1390ff;
   justify-content: space-between;
 }
 
-$tool-width: 10.5rem;
+$tool-width: 10rem;
 $shadow: rgba(0, 0, 0, .1);
 
 .tool {
@@ -123,7 +164,7 @@ $shadow: rgba(0, 0, 0, .1);
   border-color: $gray-border-top $gray-border-side $gray-border-bottom;
   border-radius: .2rem;
   height: 15rem;
-  margin-bottom: 1rem;
+  margin: 0 auto 1rem;
   width: $tool-width;
 }
 
@@ -255,12 +296,17 @@ $title-line-height: 1.1rem;
   border-color: darken($teal, 3);
   color: $white;
   line-height: 1rem;
+  margin-top: 1rem;
   width: 100%;
 
   &:hover {
     background-color: darken($teal, 8);
     border-color: darken($teal, 10);
     color: $white;
+  }
+
+  @media (min-width: 768px) {
+    margin-top: 0;
   }
 }
 

@@ -27,8 +27,8 @@ class WorkflowInputForm extends Component {
     return (
       <form onSubmit={handleSubmit}>
         <div className={`row ${styles['form-row']}`}>
-          <label htmlFor="question" className="col-sm-3">Your Question/Aim</label>
-          <div className="col-sm-9">
+          <label htmlFor="question" className="col-md-3">Your Question/Aim</label>
+          <div className="col-md-9">
             <input
               id="question"
               ref="question"
@@ -40,8 +40,8 @@ class WorkflowInputForm extends Component {
           </div>
         </div>
         <div className={`row ${styles['form-row']}`}>
-          <label htmlFor="email" className="col-sm-3">Email (optional)</label>
-          <div className="col-sm-7">
+          <label htmlFor="email" className="col-md-3">Email (optional)</label>
+          <div className="col-md-6 col-xl-7">
             <input
               id="email"
               type="text"
@@ -49,7 +49,7 @@ class WorkflowInputForm extends Component {
               {...email}
             />
           </div>
-          <div className="col-sm-2">
+          <div className="col-md-3 col-xl-2">
             <button
               type="submit"
               disabled={submitting}

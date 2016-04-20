@@ -8,6 +8,9 @@ const debug = _debug('app:server:data:migrate');
 
 function createTable(tableName) {
   debug(`Creating table ${tableName}...`);
+  if (tableName === 'workflows') {
+    return Promise.resolve();
+  }
   return knex.schema.createTable(tableName, (table) => {
     let column;
     const columnKeys = _.keys(schema[tableName]);
@@ -49,6 +52,9 @@ function createTable(tableName) {
 
 const tableNames = _.keys(schema);
 const dropPromises = tableNames.map((tableName) => {
+  if (tableName === 'workflows') {
+    return Promise.resolve();
+  }
   debug(`Dropping table ${tableName} if it exists...`);
   return knex
     .raw('SET foreign_key_checks = 0;')

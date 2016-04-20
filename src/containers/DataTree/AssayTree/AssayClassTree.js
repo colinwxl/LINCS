@@ -5,15 +5,24 @@ import Tree from '../Tree';
 import IndividualAssayTree from './IndividualAssayTree';
 
 export default function AssayClassTree(props) {
-  const label = <span className={styles.node}>{props.assayClass}</span>;
+  const { assayClass } = props;
+  const label = <span className={styles.node}>{assayClass}</span>;
+  const methods = [];
+  const datasets = [];
+  props.datasets.forEach(ds => {
+    if (ds.classification === assayClass && methods.indexOf(ds.method) === -1) {
+      methods.push(ds.method);
+      datasets.push(ds);
+    }
+  });
   return (
     <Tree nodeLabel={label} defaultCollapsed>
       {
-        props.assayMethods.map((methodName, index) =>
+        methods.map((methodName, index) =>
           <IndividualAssayTree
             key={index}
             methodName={methodName}
-            datasets={props.datasets}
+            datasets={datasets}
           />
         )
       }
@@ -24,5 +33,4 @@ export default function AssayClassTree(props) {
 AssayClassTree.propTypes = {
   datasets: PropTypes.array,
   assayClass: PropTypes.string,
-  assayMethods: PropTypes.array,
 };

@@ -30,9 +30,14 @@ export class Releases extends Component {
     this._findResults(this.props.location.query.q);
   }
 
-  componentWillReceiveProps = (props) => { this._findResults(props.location.query.q); }
+  componentWillReceiveProps = (props) => {
+    this._findResults(props.location.query.q);
+  }
 
   _findResults = (query) => {
+    if (this.state.isSearching) {
+      return;
+    }
     if (!query) {
       this.setState({
         isSearching: false,
@@ -56,6 +61,7 @@ export class Releases extends Component {
   _backToTree = () => { this.setState({ showSearchResults: false }); }
 
   render() {
+    console.log(this.state);
     const searchQ = this.props.location.query.q;
     const { datasets } = this.props;
     const { searchResultIds, isSearching, showSearchResults } = this.state;

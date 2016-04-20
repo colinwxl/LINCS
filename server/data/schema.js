@@ -137,6 +137,7 @@ export default {
     description: { type: 'text', maxlength: 16777215, fieldtype: 'medium', nullable: true },
     url: { type: 'string', maxlength: 255, nullable: true, unique: true },
     icon_url: { type: 'string', maxlength: 255, nullable: true },
+    order: { type: 'integer', nullable: false },
     web_based_ui: { type: 'bool', nullable: false, defaultTo: false },
     clust_l1000_data: { type: 'bool', nullable: false, defaultTo: false },
     enrichment_analysis: { type: 'bool', nullable: false, defaultTo: false },

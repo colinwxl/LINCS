@@ -43,7 +43,7 @@ export class DataTree extends Component {
     const datasets = Object.keys(entities.datasets).map(key => entities.datasets[key]);
     return (
       <div>
-        <AssayTree datasets={datasets} assayClasses={tree.classes} assayMethods={tree.methods} />
+        <AssayTree datasets={datasets} assayClasses={tree.classes} />
         <CenterTree centerNames={tree.centers} datasets={datasets} />
         <TissueCellTree entities={entities} />
         {/* <DiseaseTree entities={this.props.entities} /> */}

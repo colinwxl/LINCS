@@ -5,7 +5,7 @@ import Tree from '../Tree';
 import AssayClassTree from './AssayClassTree';
 
 export default function AssayTree(props) {
-  const { datasets, assayClasses, assayMethods } = props;
+  const { datasets, assayClasses } = props;
   const label = <span className={styles.node}>By Assay</span>;
   return (
     <Tree nodeLabel={label} defaultCollapsed>
@@ -15,7 +15,6 @@ export default function AssayTree(props) {
             key={index}
             datasets={datasets}
             assayClass={assayClass}
-            assayMethods={assayMethods}
           />
         )
       }
@@ -26,5 +25,4 @@ export default function AssayTree(props) {
 AssayTree.propTypes = {
   datasets: PropTypes.array,
   assayClasses: PropTypes.array,
-  assayMethods: PropTypes.array,
 };
