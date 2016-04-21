@@ -50,6 +50,9 @@ function createTable(tableName) {
 const tableNames = _.keys(schema);
 const dropPromises = tableNames.map((tableName) => {
   debug(`Dropping table ${tableName} if it exists...`);
+  if (process.env.NODE_ENV !== 'production') {
+    return knex.schema.dropTableIfExists(tableName);
+  }
   return knex
     .raw('SET foreign_key_checks = 0;')
     .then(() => knex.schema.dropTableIfExists(tableName))

@@ -41,18 +41,36 @@ function insertSmallMolecules() {
   const sms = [];
   _.each(smallMolecules, (obj) => {
     if (obj.lincs_id && obj.lincs_id.length) {
-      sms.push({
-        ...obj,
-        created_at: moment().toDate(),
-      });
+      sms.push({ ...obj, created_at: moment().toDate() });
     }
   });
+  if (process.env.NODE_ENV !== 'production') {
+    return Promise.all(sms.map(sm => knex.insert(sm).into('small_molecules')));
+  }
   return knex.batchInsert('small_molecules', sms);
 }
 
 function findSmallMolecules(lincsIds) {
   if (!lincsIds.length) {
     return Promise.resolve([]);
+  }
+  // sqlite can only take 999 variables at a time.
+  // Split up lincsIds into multiple queries, each with arrays of 999 lincs ids.
+  if (process.env.NODE_ENV !== 'production') {
+    const promises = [];
+    const ids = [];
+    while (lincsIds.length) {
+      promises.push(
+        knex
+          .select('id')
+          .from(SmallMolecule.prototype.tableName)
+          .whereIn('lincs_id', lincsIds.splice(0, 999))
+          .then(results => {
+            results.forEach(result => ids.push(result.id));
+          })
+      );
+    }
+    return Promise.all(promises).then(() => ids);
   }
   return knex
     .select('id')
@@ -116,6 +134,16 @@ function insertTissuesAndDiseases() {
   tissues = tissues.map(name => ({ name, created_at: created }));
   diseases = diseases.map(name => ({ name, created_at: created }));
   debug(`Inserting ${tissues.length} tissues and ${diseases.length} diseases.`);
+  if (process.env.NODE_ENV !== 'production') {
+    const promises = [];
+    tissues.forEach(tissue => {
+      promises.push(knex.insert(tissue).into('tissues'));
+    });
+    diseases.forEach(disease => {
+      promises.push(knex.insert(disease).into('diseases'));
+    });
+    return Promise.all(promises);
+  }
   return Promise.all([
     knex.insert(tissues).into('tissues'),
     knex.insert(diseases).into('diseases'),
@@ -179,9 +207,7 @@ function buildDatasets() {
         .then(smIds =>
           findCells(ds.cells)
             .then(cellIds => {
-              if (ds.name === 'Kinativ') {
-                debug(cellIds);
-              }
+              debug(cellIds);
               saveDataset(
                 _.pick(ds, Dataset.prototype.permittedAttributes()),
                 smIds,
