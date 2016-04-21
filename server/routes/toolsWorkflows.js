@@ -61,13 +61,16 @@ router.post('/workflows/add', async (ctx) => {
     const mailOptions = {
       from: 'LINCS@amp.pharm.mssm.edu',
       to: 'michael.mcdermott@mssm.edu',
-      subject: 'A new workfow has been submitted',
+      subject: 'A new workflow has been submitted',
       text: 'Hello,\n\n' +
-        'This is a notification from http://amp.pharm.mssm.edu/LINCS that a' +
+        'This is a notification from http://amp.pharm.mssm.edu/LINCS that a ' +
         'new workflow has been submitted.\n\n' +
-        `${wf.email ? `The submitter's email address is ${wf.email}.\n` : ''}` + 'He/she is ' +
-        `${wf.type === 'experimentalist' ? 'an experimentalist' : 'a computational biologist.'}\n` +
-        `Their question/aim is ${wf.question}.`,
+        `${wf.email ? `The submitter's email address is ${wf.email}.\n` : ''}` +
+        'He/she is ' + `${
+          wf.type === 'experimentalist'
+          ? 'an experimentalist.'
+          : 'a computational biologist.'
+        }\n` + `Their question/aim is ${wf.question}.`,
     };
     await sendMail(transporter, mailOptions);
     ctx.body = wf;
