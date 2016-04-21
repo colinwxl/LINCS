@@ -24,9 +24,13 @@
     "lint:fix": "npm run lint -- --fix",
     "migrate": "better-npm-run migrate",
     "migrate:prod": "better-npm-run migrate:prod",
+    "migrate:omit-data": "better-npm-run migrate --omit-data",
+    "migrate:prod:omit-data": "better-npm-run migrate:prod --omit-data",
     "push:docker": "npm version | tee build.log || exit 1 && VERSION=$(head -1 build.log | awk '{print substr($3, 2, length($3) - 3);}') && echo \"$VERSION\" && docker push 146.203.54.165:5000/lincs:$VERSION && curl -H \"Content-Type: application/json\" -X PUT -d '{ \"instances\": 1, \"cpus\": 1, \"mem\": 2048, \"env\": { \"NODE_ENV\": \"production\" }, \"container\": { \"type\": \"DOCKER\", \"docker\": { \"image\": \"146.203.54.165:5000/lincs:'\"$VERSION\"'\", \"forcePullImage\": false, \"network\": \"BRIDGE\", \"portMappings\": [ { \"containerPort\": 3000, \"hostPort\": 0, \"protocol\": \"tcp\" } ] }, \"volumes\": [ {\"containerPath\": \"/usr/src/dist/files/datasets\", \"hostPath\": \"/hadoop/hdfs-mount/apps/lincs/datasets\", \"mode\": \"RO\"} ] }, \"healthChecks\": [ { \"protocol\": \"HTTP\", \"path\": \"/LINCS/api/v1/health\", \"gracePeriodSeconds\": 10, \"intervalSeconds\": 60, \"portIndex\": 0, \"timeoutSeconds\": 10, \"maxConsecutiveFailures\": 3 }], \"labels\": { \"public\": \"true\" } }' maayanlab:systemsbiology@146.203.54.165:8080/v2/apps/lincs && rm build.log",
     "seed": "better-npm-run seed",
     "seed:prod": "better-npm-run seed:prod",
+    "seed:omit-data": "better-npm-run seed:omit-data",
+    "seed:prod:omit-data": "better-npm-run seed:prod:omit-data",
     "start": "better-npm-run start",
     "start:prod": "better-npm-run start:prod",
     "test": "better-npm-run test",
@@ -77,6 +81,20 @@
     },
     "seed:prod": {
       "command": "npm run server-es5 && node --max-old-space-size=15360 server-es5/data/seed && rm -rf server-es5",
+      "env": {
+        "NODE_ENV": "production",
+        "DEBUG": "app:*"
+      }
+    },
+    "seed:omit-data": {
+      "command": "npm run server-es5 && node --max-old-space-size=15360 server-es5/data/seed --omit-data && rm -rf server-es5",
+      "env": {
+        "NODE_ENV": "development",
+        "DEBUG": "app:*"
+      }
+    },
+    "seed:prod:omit-data": {
+      "command": "npm run server-es5 && node --max-old-space-size=15360 server-es5/data/seed --omit-data && rm -rf server-es5",
       "env": {
         "NODE_ENV": "production",
         "DEBUG": "app:*"
@@ -144,7 +162,7 @@
     "lodash": "^4.11.1",
     "moment": "^2.13.0",
     "mysql": "^2.10.2",
-    "nodemailer": "^2.1.0",
+    "nodemailer": "^2.3.2",
     "normalizr": "^2.0.0",
     "react": "^15.0.1",
     "react-addons-css-transition-group": "^15.0.1",

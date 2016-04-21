@@ -1,6 +1,7 @@
 import _debug from 'debug';
 import _ from 'lodash';
 import moment from 'moment';
+import { argv } from 'yargs';
 
 import { Dataset } from '../models/Dataset';
 import { Disease } from '../models/Disease';
@@ -256,31 +257,35 @@ knex.raw('select 1+1 as result').then(() => {
   promises.push(knex.insert(tools).into('tools'));
   promises.push(insertPublications());
 
-  promises.push(
-    new Promise((resolve, reject) => {
-      insertSmallMolecules()
-        .then(() => {
-          debug('Small molecules inserted.');
-          return insertTissuesAndDiseases();
-        })
-        .then(() => {
-          debug('Tissues and diseases inserted.');
-          return insertCellLines();
-        })
-        .then(() => {
-          debug('Cells inserted.');
-          return buildDatasets();
-        })
-        .then(() => {
-          debug('Datasets inserted.');
-          resolve();
-        })
-        .catch(e => {
-          reject(e);
-          debug(e);
-        });
-    })
-  );
+  if (argv['omit-data']) {
+    debug('Omitting dataset tables.');
+  } else {
+    promises.push(
+      new Promise((resolve, reject) => {
+        insertSmallMolecules()
+          .then(() => {
+            debug('Small molecules inserted.');
+            return insertTissuesAndDiseases();
+          })
+          .then(() => {
+            debug('Tissues and diseases inserted.');
+            return insertCellLines();
+          })
+          .then(() => {
+            debug('Cells inserted.');
+            return buildDatasets();
+          })
+          .then(() => {
+            debug('Datasets inserted.');
+            resolve();
+          })
+          .catch(e => {
+            reject(e);
+            debug(e);
+          });
+      })
+    );
+  }
 
   Promise
     .all(promises)

@@ -1,16 +1,37 @@
 import _ from 'lodash';
 import _debug from 'debug';
 
+import { argv } from 'yargs';
 import schema from './schema';
 import { knex } from '../serverConf';
 
 const debug = _debug('app:server:data:migrate');
 
+const omitDatasetTables = [
+  'datasets',
+  'cells',
+  'cells_datasets',
+  'tissues',
+  'cells_tissues',
+  'diseases',
+  'cells_diseases',
+  'synonyms',
+  'small_molecules',
+  'small_molecules_datasets',
+];
+
+if (argv['omit-data']) {
+  debug('Omitting data tables.');
+}
+
 function createTable(tableName) {
-  debug(`Creating table ${tableName}...`);
+  if (argv['omit-data'] && omitDatasetTables.indexOf(tableName) !== -1) {
+    return Promise.resolve();
+  }
   if (tableName === 'workflows') {
     return Promise.resolve();
   }
+  debug(`Creating table ${tableName}...`);
   return knex.schema.createTable(tableName, (table) => {
     let column;
     const columnKeys = _.keys(schema[tableName]);
@@ -52,6 +73,9 @@ function createTable(tableName) {
 
 const tableNames = _.keys(schema);
 const dropPromises = tableNames.map((tableName) => {
+  if (argv['omit-data'] && omitDatasetTables.indexOf(tableName) !== -1) {
+    return Promise.resolve();
+  }
   if (tableName === 'workflows') {
     return Promise.resolve();
   }

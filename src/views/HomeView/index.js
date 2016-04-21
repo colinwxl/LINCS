@@ -17,7 +17,12 @@ export class HomeView extends Component {
 
   render() {
     const { publications } = this.props;
-    const pubs = publications.filter(pub => !!pub.showAtHome);
+    const pubs = publications
+      .filter(pub => !!pub.showAtHomeOrder)
+      .sort((a, b) => {
+        const result = a.showAtHomeOrder > b.showAtHomeOrder;
+        return result ? 1 : -1;
+      });
     return (
       <div className={styles.wrapper}>
         <div className={styles.banner}>
@@ -189,7 +194,7 @@ export class HomeView extends Component {
                   <h3 className={styles.title}>Recent Publications</h3>
                   <div className={styles.publications}>
                     {
-                      pubs && pubs.slice(0, 4).map(pub => {
+                      pubs && pubs.map(pub => {
                         const {
                           id, authors, yearPublished, articleName,
                           journalName, pmId, pmcId, doi,

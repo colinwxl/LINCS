@@ -1,6 +1,6 @@
 /* eslint no-param-reassign:0 */
 import Router from 'koa-router';
-
+import nodemailer from 'nodemailer';
 import { Tool } from '../models/Tool';
 import { Workflow } from '../models/Workflow';
 import _debug from 'debug';
@@ -30,6 +30,22 @@ router.get('/workflows', async (ctx) => {
   }
 });
 
+function sendMail(transporter, opts) {
+  return new Promise((resolve, reject) => {
+    if (!transporter.sendMail) {
+      reject('Transporter is invalid. Use nodemailer.createTransport()');
+      return;
+    }
+    transporter.sendMail(opts, (err) => {
+      if (err) {
+        reject(err);
+        return;
+      }
+      resolve();
+    });
+  });
+}
+
 router.post('/workflows/add', async (ctx) => {
   const workflow = ctx.request.body;
   if (!Object.keys(workflow).length) {
@@ -40,6 +56,20 @@ router.post('/workflows/add', async (ctx) => {
   }
   try {
     const wf = await Workflow.forge(workflow).save().then(wfModel => wfModel.toJSON());
+    const transporter = nodemailer
+      .createTransport('smtps://maayanlabapps%40gmail.com:systemsbiology@smtp.gmail.com');
+    const mailOptions = {
+      from: 'LINCS@amp.pharm.mssm.edu',
+      to: 'michael.mcdermott@mssm.edu',
+      subject: 'A new workfow has been submitted',
+      text: 'Hello,\n\n' +
+        'This is a notification from http://amp.pharm.mssm.edu/LINCS that a' +
+        'new workflow has been submitted.\n\n' +
+        `${wf.email ? `The submitter's email address is ${wf.email}.\n` : ''}` + 'He/she is ' +
+        `${wf.type === 'experimentalist' ? 'an experimentalist' : 'a computational biologist.'}\n` +
+        `Their question/aim is ${wf.question}.`,
+    };
+    await sendMail(transporter, mailOptions);
     ctx.body = wf;
   } catch (e) {
     debug(e);

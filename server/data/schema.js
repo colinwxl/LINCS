@@ -186,7 +186,7 @@ export default {
   publications: {
     id: { type: 'increments', nullable: false, primary: true },
     journal_name: { type: 'string', maxlength: 255, nullable: true },
-    show_at_home: { type: 'bool', nullable: false, defaultTo: true },
+    show_at_home_order: { type: 'integer', nullable: true },
     abstract: { type: 'text', maxlength: 16777215, fieldtype: 'medium', nullable: false },
     pp_pages: { type: 'string', maxlength: 255, nullable: true },
     issue: { type: 'string', maxlength: 255, nullable: true },
