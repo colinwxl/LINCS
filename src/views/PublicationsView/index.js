@@ -59,6 +59,38 @@ export class PublicationsView extends Component {
     this.setState({ categories });
   }
 
+  _handleCatClicked = (key) => {
+    const categories = {
+      assayDevelopment: false,
+      dataAnalysis: false,
+      dataGeneration: false,
+      dataIntegration: false,
+      dataStandards: false,
+      signatureGeneration: false,
+      softwareDevelopment: false,
+      review: false,
+    };
+    if (categories.hasOwnProperty(key)) {
+      categories[key] = true;
+      this.setState({ categories });
+    }
+  }
+
+  _selectAll = () => {
+    this.setState({
+      categories: {
+        assayDevelopment: true,
+        dataAnalysis: true,
+        dataGeneration: true,
+        dataIntegration: true,
+        dataStandards: true,
+        signatureGeneration: true,
+        softwareDevelopment: true,
+        review: true,
+      },
+    });
+  }
+
   render() {
     let publications = this.props.publications;
     publications.sort((a, b) => {
@@ -141,10 +173,20 @@ export class PublicationsView extends Component {
                   checked={this.state.categories.review}
                   onChange={this._handleCategoryChecked}
                 />
+                <button
+                  className={`btn btn-secondary ${styles['select-all-btn']}`}
+                  onClick={this._selectAll}
+                >
+                  Select All
+                </button>
               </div>
             </div>
             <div className="col-md-9 col-md-pull-3">
-              {publications.map(p => <Publication key={p.id} pub={p} />)}
+              {
+                publications.map(p =>
+                  <Publication key={p.id} pub={p} onCatClicked={this._handleCatClicked} />
+                )
+              }
               {
                 !this.props.isFetchingPubs && !publications.length &&
                 <h2>Please select a category to view publications.</h2>

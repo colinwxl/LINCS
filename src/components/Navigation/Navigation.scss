@@ -8,6 +8,7 @@
   padding-top: ($nav-height - 20) / 2;
   width: 100%;
 
+  button,
   a {
     color: $white;
 
@@ -38,6 +39,7 @@
 .main-nav-home {
   background-color: $white;
 
+  button,
   a {
     color: $dark-gray;
 

@@ -67,8 +67,8 @@ export class Releases extends Component {
     return (
       <div className={styles.wrapper}>
         <PageBanner
-          title="LINCS Data Releases"
-          subTitle="Browse or search LINCS released datasets"
+          title="LINCS Data&nbsp;Releases"
+          subTitle="Browse or search LINCS released&nbsp;datasets"
         />
         <div className="container">
           <div className="row">

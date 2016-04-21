@@ -61,20 +61,20 @@
 
   footer,
   .footer-push {
-    height: 468px;
+    height: 34rem;
 
     @media (min-width: 992px) {
-      height: 448px;
+      height: 28rem;
     }
   }
 
   .site-wrap {
-    margin-bottom: -468px;
+    margin-bottom: -34rem;
     min-height: 100%;
     position: relative;
 
     @media (min-width: 992px) {
-      margin-bottom: -448px;
+      margin-bottom: -28rem;
     }
   }
 

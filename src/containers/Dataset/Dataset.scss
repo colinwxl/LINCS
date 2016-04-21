@@ -38,11 +38,16 @@
   margin-right: .5rem;
   margin-top: .5rem;
   padding: .15rem .375rem;
+  width: 100%;
 
   &:hover {
     background-color: $brand-primary;
     border-color: darken($brand-primary, 2);
     color: $white;
+  }
+
+  @media (min-width: 544px) {
+    width: auto;
   }
 }
 

@@ -25,7 +25,7 @@ export class WorkshopsAndSymposia extends Component {
     return (
       <div className={styles.wrapper}>
         <PageBanner
-          title="Workshops & Symposia"
+          title="Workshops &&nbsp;Symposia"
           subTitle=""
         />
         <div className="container">
