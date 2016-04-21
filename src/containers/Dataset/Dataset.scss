@@ -10,6 +10,10 @@
 
 .ds-header {
 
+  h5 {
+    line-height: 1.25rem;
+  }
+
   h5,
   p {
     margin-bottom: 0;
@@ -17,8 +21,16 @@
 }
 
 .info-date {
-  float: right;
-  font-size: 80%;
+  font-size: 90%;
+  line-height: 1.25rem;
+  text-align: right;
+}
+
+.clicks {
+  color: $dark-gray;
+  font-size: 90%;
+  font-weight: 600;
+  text-align: right;
 }
 
 .links {
@@ -38,11 +50,16 @@
   margin-right: .5rem;
   margin-top: .5rem;
   padding: .15rem .375rem;
+  width: 100%;
 
   &:hover {
     background-color: $brand-primary;
     border-color: darken($brand-primary, 2);
     color: $white;
+  }
+
+  @media (min-width: 544px) {
+    width: auto;
   }
 }
 

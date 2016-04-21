@@ -1,6 +1,7 @@
 /* eslint no-param-reassign:0 */
-import { knex } from '../serverConf';
 import Router from 'koa-router';
+
+import { knex } from '../serverConf';
 import _debug from 'debug';
 const debug = _debug('app:server:routes:health');
 

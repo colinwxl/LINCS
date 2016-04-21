@@ -6,38 +6,27 @@ import Tree from '../Tree';
 import IndividualAssayTree from '../AssayTree/IndividualAssayTree';
 
 export default function IndividualCellTree(props) {
-  const { entities, datasets, cells, cellId } = props;
-  const cellTree = { collapsed: true, assays: [], datasets: [] };
-  if (datasets) {
-    datasets.forEach((ds) => {
-      const { assay } = ds;
-      if (ds.cells.indexOf(parseInt(cellId, 10)) !== -1) {
-        cellTree.datasets.push(ds);
-        if (cellTree.assays.indexOf(assay) === -1) {
-          cellTree.assays.push(assay);
-        }
+  const { entities, cells, cellId } = props;
+  const assays = [];
+  const datasets = [];
+  each(entities.datasets, (ds) => {
+    const { assay } = ds;
+    if (ds.cells.indexOf(parseInt(cellId, 10)) !== -1) {
+      datasets.push(ds);
+      if (assays.indexOf(assay) === -1) {
+        assays.push(assay);
       }
-    });
-  } else {
-    each(entities.datasets, (ds) => {
-      const { assay } = ds;
-      if (ds.cells.indexOf(parseInt(cellId, 10)) !== -1) {
-        cellTree.datasets.push(ds);
-        if (cellTree.assays.indexOf(assay) === -1) {
-          cellTree.assays.push(assay);
-        }
-      }
-    });
-  }
+    }
+  });
   const cell = !!entities ? entities.cells[cellId] : cells[cellId];
   const label = <span className={styles.node}>{cell.name}</span>;
   return (
     <Tree nodeLabel={label} defaultCollapsed>
       {
-        cellTree.assays.map((assayName, index) =>
+        assays.map((assayName, index) =>
           <IndividualAssayTree
             key={index}
-            datasets={cellTree.datasets}
+            datasets={datasets}
             assayName={assayName}
             cellId={cellId}
           />
@@ -49,7 +38,6 @@ export default function IndividualCellTree(props) {
 
 IndividualCellTree.propTypes = {
   entities: PropTypes.object,
-  datasets: PropTypes.array,
   cells: PropTypes.object,
   cellId: PropTypes.number,
 };

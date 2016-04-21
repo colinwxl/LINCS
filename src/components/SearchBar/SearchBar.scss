@@ -1,11 +1,15 @@
 @import 'variables';
 
+.search-wrap {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
 .flex,
 .search {
   align-items: center;
   display: flex;
   justify-content: center;
-  max-width: 600px;
 }
 
 .logo {

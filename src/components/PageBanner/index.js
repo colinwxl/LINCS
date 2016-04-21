@@ -21,7 +21,7 @@ export default function PageBanner(props) {
             !!title &&
             <div className={titleClass}>
               <h1>{title}</h1>
-              {!!subTitle && <p>{subTitle}</p>}
+              {!!subTitle && <p className={styles.subtitle}>{subTitle}</p>}
             </div>
           }
           {

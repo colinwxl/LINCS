@@ -5,9 +5,10 @@ import comm from './community';
 import pn from './pubsNews';
 import health from './health';
 import twitter from './twitter';
+import tw from './toolsWorkflows';
 
 export default (app) => {
-  [ds, comm, pn, health, twitter].forEach(router => {
+  [ds, comm, pn, health, twitter, tw].forEach(router => {
     /* eslint new-cap:0 */
     app
     .use(router.routes())

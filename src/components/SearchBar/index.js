@@ -1,5 +1,6 @@
 import React, { PropTypes, Component } from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router';
 import { push } from 'react-router-redux';
 
 import styles from './SearchBar.scss';
@@ -12,13 +13,17 @@ export class SearchBar extends Component {
     };
   }
 
+  componentWillReceiveProps(props) {
+    this.setState({ q: props.searchQuery });
+  }
+
   _handleSearch = (e) => {
     this.setState({ q: e.target.value });
   }
 
   _handleSubmit = (e) => {
     e.preventDefault();
-    this.props.push(`/data/search?q=${this.state.q}`);
+    this.props.push(`/data/releases?q=${this.state.q}`);
   }
 
   render() {
@@ -41,14 +46,18 @@ export class SearchBar extends Component {
               </div>
             </div>
             <button
-              style={{
-                backgroundImage: `url(${require('./ico-search.svg')})`,
-              }}
+              style={{ backgroundImage: `url(${require('./ico-search.svg')})` }}
               className={`btn ${styles.submit} ${this.props.darkBg ? '' : styles.teal}`}
               type="submit"
             />
           </div>
         </form>
+        <p className="text-xs-center">
+          <strong>Examples: </strong>
+          <Link to="/data/releases?q=MCF7">MCF7</Link>, <Link to="/data/releases?q=Vandetanib">
+          Vandetanib</Link>, <Link to="/data/releases?q=HMS">
+          HMS</Link>, <Link to="/data/releases?q=L1000">L1000</Link>
+        </p>
       </div>
     );
   }

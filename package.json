@@ -1,6 +1,6 @@
 {
   "name": "lincs",
-  "version": "1.4.5",
+  "version": "1.5.11",
   "description": "A home for the LINCS project.",
   "main": "src/main.js",
   "engines": {
@@ -23,8 +23,14 @@
     "lint": "eslint . ./",
     "lint:fix": "npm run lint -- --fix",
     "migrate": "better-npm-run migrate",
+    "migrate:prod": "better-npm-run migrate:prod",
+    "migrate:omit-data": "better-npm-run migrate --omit-data",
+    "migrate:prod:omit-data": "better-npm-run migrate:prod --omit-data",
     "push:docker": "npm version | tee build.log || exit 1 && VERSION=$(head -1 build.log | awk '{print substr($3, 2, length($3) - 3);}') && echo \"$VERSION\" && docker push 146.203.54.165:5000/lincs:$VERSION && curl -H \"Content-Type: application/json\" -X PUT -d '{ \"instances\": 1, \"cpus\": 1, \"mem\": 2048, \"env\": { \"NODE_ENV\": \"production\" }, \"container\": { \"type\": \"DOCKER\", \"docker\": { \"image\": \"146.203.54.165:5000/lincs:'\"$VERSION\"'\", \"forcePullImage\": false, \"network\": \"BRIDGE\", \"portMappings\": [ { \"containerPort\": 3000, \"hostPort\": 0, \"protocol\": \"tcp\" } ] }, \"volumes\": [ {\"containerPath\": \"/usr/src/dist/files/datasets\", \"hostPath\": \"/hadoop/hdfs-mount/apps/lincs/datasets\", \"mode\": \"RO\"} ] }, \"healthChecks\": [ { \"protocol\": \"HTTP\", \"path\": \"/LINCS/api/v1/health\", \"gracePeriodSeconds\": 10, \"intervalSeconds\": 60, \"portIndex\": 0, \"timeoutSeconds\": 10, \"maxConsecutiveFailures\": 3 }], \"labels\": { \"public\": \"true\" } }' maayanlab:systemsbiology@146.203.54.165:8080/v2/apps/lincs && rm build.log",
     "seed": "better-npm-run seed",
+    "seed:prod": "better-npm-run seed:prod",
+    "seed:omit-data": "better-npm-run seed:omit-data",
+    "seed:prod:omit-data": "better-npm-run seed:prod:omit-data",
     "start": "better-npm-run start",
     "start:prod": "better-npm-run start:prod",
     "test": "better-npm-run test",
@@ -59,6 +65,13 @@
         "DEBUG": "app:*"
       }
     },
+    "migrate:prod": {
+      "command": "babel-node server/data/migrate",
+      "env": {
+        "NODE_ENV": "production",
+        "DEBUG": "app:*"
+      }
+    },
     "seed": {
       "command": "npm run server-es5 && node --max-old-space-size=15360 server-es5/data/seed && rm -rf server-es5",
       "env": {
@@ -68,6 +81,20 @@
     },
     "seed:prod": {
       "command": "npm run server-es5 && node --max-old-space-size=15360 server-es5/data/seed && rm -rf server-es5",
+      "env": {
+        "NODE_ENV": "production",
+        "DEBUG": "app:*"
+      }
+    },
+    "seed:omit-data": {
+      "command": "npm run server-es5 && node --max-old-space-size=15360 server-es5/data/seed --omit-data && rm -rf server-es5",
+      "env": {
+        "NODE_ENV": "development",
+        "DEBUG": "app:*"
+      }
+    },
+    "seed:prod:omit-data": {
+      "command": "npm run server-es5 && node --max-old-space-size=15360 server-es5/data/seed --omit-data && rm -rf server-es5",
       "env": {
         "NODE_ENV": "production",
         "DEBUG": "app:*"
@@ -102,22 +129,23 @@
   "license": "MIT",
   "dependencies": {
     "axios": "^0.9.1",
+    "babel-runtime": "^6.6.1",
     "bcrypt": "^0.8.5",
     "better-npm-run": "0.0.8",
     "bookshelf": "^0.9.2",
     "boom": "^3.1.2",
     "bootstrap": "^4.0.0-alpha.2",
     "camelize": "^1.0.0",
-    "classnames": "^2.2.3",
     "crypto": "0.0.3",
     "debug": "^2.2.0",
-    "elasticsearch": "^11.0.0",
+    "elasticsearch": "^11.0.1",
     "es6-promise": "^3.1.2",
+    "eslint": "^2.8.0",
     "extend": "^3.0.0",
-    "history": "^2.0.1",
+    "history": "^2.0.2",
+    "html-webpack-plugin": "^2.16.0",
     "jquery": "^2.2.2",
     "jsonwebtoken": "^5.7.0",
-    "jwt-decode": "^1.5.1",
     "knex": "^0.10.0",
     "koa": "^2.0.0-alpha.3",
     "koa-bodyparser": "^2.0.1",
@@ -131,24 +159,26 @@
     "koa-router": "^7.0.1",
     "koa-sendfile": "^2.0.0",
     "koa-static": "^2.0.0",
-    "lodash": "^4.3.0",
-    "moment": "^2.12.0",
+    "lodash": "^4.11.1",
+    "moment": "^2.13.0",
     "mysql": "^2.10.2",
-    "nodemailer": "^2.1.0",
+    "nodemailer": "^2.3.2",
     "normalizr": "^2.0.0",
     "react": "^15.0.1",
+    "react-addons-css-transition-group": "^15.0.1",
     "react-dom": "^15.0.1",
-    "react-event-calendar": "^0.1.0",
-    "react-modal": "^1.1.0",
+    "react-modal": "^1.1.1",
     "react-redux": "^4.4.5",
-    "react-router": "^2.0.1",
+    "react-router": "^2.2.4",
     "react-router-redux": "^4.0.0",
     "redux": "^3.3.1",
+    "redux-devtools-log-monitor": "^1.0.11",
     "redux-form": "^5.0.1",
     "redux-thunk": "^2.0.1",
-    "tether": "^1.2.0",
+    "tether": "^1.2.2",
     "twit": "^2.2.3",
     "url": "^0.11.0",
+    "webpack": "^1.13.0",
     "whatwg-fetch": "^0.11.0",
     "yargs": "^4.3.2"
   },
@@ -166,7 +196,6 @@
     "babel-preset-react": "^6.3.13",
     "babel-preset-stage-0": "^6.3.13",
     "babel-register": "^6.3.13",
-    "babel-runtime": "^6.5.0",
     "chai": "^3.4.1",
     "chai-as-promised": "^5.3.0",
     "chai-enzyme": "^0.4.0",
@@ -184,7 +213,7 @@
     "exports-loader": "^0.6.3",
     "extract-text-webpack-plugin": "^1.0.0",
     "file-loader": "^0.8.4",
-    "flow-bin": "^0.22.1",
+    "flow-bin": "^0.23.0",
     "flow-interfaces": "^0.6.0",
     "fs-extra": "^0.26.3",
     "html-webpack-plugin": "^2.12.0",

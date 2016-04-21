@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { Component } from 'react';
 
+import FooterDropDown from './FooterDropDown';
 import styles from './Footer.scss';
 
 const base = '/LINCS';
@@ -16,117 +17,195 @@ const subject = 'Questions/Comments regarding lincsproject.org';
 const mailLink = `mailto:${mgm},${sherry}?Subject=[${subject}]`;
 
 // Can't use react-router { Link } here because this component is outside of the <Router />
-export default function Footer(/* props */) {
-  return (
-    <footer className={styles.footer}>
-      <div className={styles.divider}>
-        <span className={`col-xs-2 ${styles.green}`} />
-        <span className={`col-xs-1 ${styles.teal}`} />
-        <span className={`col-xs-6 ${styles.orange}`} />
-        <span className={`col-xs-1 ${styles.teal}`} />
-        <span className={`col-xs-2 ${styles.green}`} />
-      </div>
-      <div className={`container ${styles.content}`}>
-        <div className={`row ${styles.map}`}>
-          <div className="col-xs-12 col-sm-3">
-            <h5>Centers</h5>
-            <ul>
-              <li>
-                <a href={`${centersRoute}/overview`}>Overview</a>
-              </li>
-              <li>
-                <a href={`${centersRoute}/dcic`}>BD2K-LINCS DCIC</a>
-              </li>
-              <li>
-                <a href={`${dsgcRoute}/hms-lincs`}>HMS LINCS</a>
-              </li>
-              <li>
-                <a href={`${dsgcRoute}/dtoxs`}>DToxS</a>
-              </li>
-              <li>
-                <a href={`${dsgcRoute}/lincs-pccse`}>LINCS Proteomics</a>
-              </li>
-              <li>
-                <a href={`${dsgcRoute}/lincs-transcriptomics`}>LINCS Transcriptomics</a>
-              </li>
-              <li>
-                <a href={`${dsgcRoute}/mep-lincs`}>MEP LINCS</a>
-              </li>
-              <li>
-                <a href={`${dsgcRoute}/neurolincs`}>NeuroLINCS</a>
-              </li>
-            </ul>
+export default class Footer extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      centersCollapsed: true,
+      dataCollapsed: true,
+      annCollapsed: true,
+    };
+  }
+
+  // Do to restriction on Footer height, we need to keep the state of all dropdowns
+  // in this component. This way we can close all other dropdowns when one is open.
+
+  _handleCentersClicked = () => {
+    this.setState({
+      centersCollapsed: !this.state.centersCollapsed,
+      dataCollapsed: true,
+      annCollapsed: true,
+    });
+  }
+
+  _handleDataClicked = () => {
+    this.setState({
+      centersCollapsed: true,
+      dataCollapsed: !this.state.dataCollapsed,
+      annCollapsed: true,
+    });
+  }
+
+  _handleAnnClicked = () => {
+    this.setState({
+      centersCollapsed: true,
+      dataCollapsed: true,
+      annCollapsed: !this.state.annClicked,
+    });
+  }
+
+  render() {
+    return (
+      <footer className={styles.footer}>
+        <div className={styles.divider}>
+          <span className={`col-xs-2 ${styles.green}`} />
+          <span className={`col-xs-1 ${styles.teal}`} />
+          <span className={`col-xs-6 ${styles.orange}`} />
+          <span className={`col-xs-1 ${styles.teal}`} />
+          <span className={`col-xs-2 ${styles.green}`} />
+        </div>
+        <div className={`container ${styles.content}`}>
+          <div className={`row ${styles.map}`}>
+            <div className="col-md-3 hidden-md-down">
+              <h5>Centers</h5>
+              <ul>
+                <li>
+                  <a href={`${centersRoute}/overview`}>Overview</a>
+                </li>
+                <li>
+                  <a href={`${centersRoute}/dcic`}>BD2K-LINCS DCIC</a>
+                </li>
+                <li>
+                  <a href={`${dsgcRoute}/hms-lincs`}>HMS LINCS</a>
+                </li>
+                <li>
+                  <a href={`${dsgcRoute}/dtoxs`}>DToxS</a>
+                </li>
+                <li>
+                  <a href={`${dsgcRoute}/lincs-pccse`}>LINCS Proteomics</a>
+                </li>
+                <li>
+                  <a href={`${dsgcRoute}/lincs-transcriptomics`}>LINCS Transcriptomics</a>
+                </li>
+                <li>
+                  <a href={`${dsgcRoute}/mep-lincs`}>MEP LINCS</a>
+                </li>
+                <li>
+                  <a href={`${dsgcRoute}/neurolincs`}>NeuroLINCS</a>
+                </li>
+              </ul>
+            </div>
+            <FooterDropDown
+              title="Centers"
+              collapsed={this.state.centersCollapsed}
+              onClick={this._handleCentersClicked}
+            >
+              <ul>
+                <li><a href={`${centersRoute}/overview`}>Overview</a></li>
+                <li><a href={`${centersRoute}/dcic`}>BD2K-LINCS DCIC</a></li>
+                <li><a href={`${dsgcRoute}/hms-lincs`}>HMS LINCS</a></li>
+                <li><a href={`${dsgcRoute}/dtoxs`}>DToxS</a></li>
+                <li><a href={`${dsgcRoute}/lincs-pccse`}>LINCS Proteomics</a></li>
+                <li><a href={`${dsgcRoute}/lincs-transcriptomics`}>LINCS Transcriptomics</a></li>
+                <li><a href={`${dsgcRoute}/mep-lincs`}>MEP LINCS</a></li>
+                <li><a href={`${dsgcRoute}/neurolincs`}>NeuroLINCS</a></li>
+              </ul>
+            </FooterDropDown>
+            <div className="col-md-3 hidden-md-down">
+              <h5>Data</h5>
+              <ul>
+                <li>
+                  <a href={`${dataRoute}/releases`}>Releases</a>
+                </li>
+                <li>
+                  <a href={`${dataRoute}/release-policy`}>Release Policy</a>
+                </li>
+                <li>
+                  <a href={`${dataRoute}/standards`}>Standards</a>
+                </li>
+                <li>
+                  <a href={`${applicationsRoute}`}>Apps & Workflows</a>
+                </li>
+              </ul>
+            </div>
+            <FooterDropDown
+              title="Data"
+              collapsed={this.state.dataCollapsed}
+              onClick={this._handleDataClicked}
+            >
+              <ul>
+                <li><a href={`${dataRoute}/releases`}>Releases</a></li>
+                <li><a href={`${dataRoute}/release-policy`}>Release Policy</a></li>
+                <li><a href={`${dataRoute}/standards`}>Standards</a></li>
+                <li><a href={`${applicationsRoute}`}>Apps & Workflows</a></li>
+              </ul>
+            </FooterDropDown>
+            <div className="col-md-3 hidden-md-down">
+              <h5>Announcements</h5>
+              <ul>
+                <li>
+                  <a href={`${base}/publications`}>Publications</a>
+                </li>
+                <li>
+                  <a href={`${base}/news`}>News</a>
+                </li>
+                <li>
+                  <a href={`${base}/community/webinars`}>Webinars</a>
+                </li>
+                <li>
+                  <a href={`${base}/community/workshops-and-symposia`}>Workshops and Symposia</a>
+                </li>
+              </ul>
+            </div>
+            <FooterDropDown
+              title="Announcements"
+              collapsed={this.state.annCollapsed}
+              onClick={this._handleAnnClicked}
+            >
+              <ul>
+                <li><a href={`${base}/publications`}>Publications</a></li>
+                <li><a href={`${base}/news`}>News</a></li>
+                <li><a href={`${base}/community/webinars`}>Webinars</a></li>
+                <li>
+                  <a href={`${base}/community/workshops-and-symposia`}>Workshops and Symposia</a>
+                </li>
+              </ul>
+            </FooterDropDown>
+            <div className={`col-xs-12 col-md-3 ${styles.contact}`}>
+              <h5>Contact</h5>
+              <ul className={styles.icons}>
+                <li>
+                  <a href="https://twitter.com/BD2KLINCSDCIC">
+                    <i className="fa fa-twitter" />
+                  </a>
+                  <a href="https://www.youtube.com/channel/UC88h_MIO1LP7Jv52VQ4qKkg">
+                    <i className="fa fa-youtube-square" />
+                  </a>
+                  <a href={mailLink}>
+                    <i className="fa fa-envelope-o" />
+                  </a>
+                </li>
+              </ul>
+            </div>
           </div>
-          <div className="col-xs-12 col-sm-3">
-            <h5>Data</h5>
-            <ul>
-              <li>
-                <a href={`${dataRoute}/releases`}>Releases</a>
-              </li>
-              <li>
-                <a href={`${dataRoute}/release-policy`}>Release Policy</a>
-              </li>
-              <li>
-                <a href={`${dataRoute}/standards`}>Standards</a>
-              </li>
-              <li>
-                <a href={`${applicationsRoute}`}>Apps & Workflows</a>
-              </li>
-            </ul>
-          </div>
-          <div className="col-xs-12 col-sm-3">
-            <h5>Announcements</h5>
-            <ul>
-              <li>
-                <a href={`${base}/publications`}>Publications</a>
-              </li>
-              <li>
-                <a href={`${base}/news`}>News</a>
-              </li>
-              <li>
-                <a href={`${base}/community/webinars`}>Webinars</a>
-              </li>
-              <li>
-                <a href={`${base}/community/workshops-and-symposia`}>Workshops and Symposia</a>
-              </li>
-            </ul>
-          </div>
-          <div className="col-xs-12 col-sm-3">
-            <h5>Contact</h5>
-            <ul className={styles.icons}>
-              <li>
-                <a href="https://twitter.com/BD2KLINCSDCIC">
-                  <i className="fa fa-twitter fa-2x" />
-                </a>
-                <a href="https://www.youtube.com/channel/UC88h_MIO1LP7Jv52VQ4qKkg">
-                  <i className="fa fa-youtube-square fa-2x" />
-                </a>
-                <a href={mailLink}>
-                  <i className="fa fa-envelope-o fa-2x" />
-                </a>
-              </li>
-              <li>
-              </li>
-              <li>
-              </li>
-            </ul>
+          <hr />
+          <div className="row">
+            <div className="col-xs-12">
+              <div className={`col-xs-12 col-md-6 col-lg-5 ${styles.copy}`}>
+                <p>© 2016, LINCS Program. All rights reserved.</p>
+              </div>
+              <div className={`col-xs-12 col-md-6 col-lg-7 text-xl-right ${styles.credit}`}>
+                <p>
+                  Funded by <a href="http://commonfund.nih.gov/lincs/" target="_blank">
+                  The NIH Common Fund</a>.
+                  Developed by the <a href="http://lincs-dcic.org/" target="_blank">
+                  BD2K-LINCS DCIC</a>.
+                </p>
+              </div>
+            </div>
           </div>
         </div>
-        <hr />
-        <div className="row">
-          <div className="col-xs-12">
-            <div className={`col-xs-12 col-sm-6 ${styles.copy}`}>
-              <p>© 2016, LINCS Program. All rights reserved.</p>
-            </div>
-            <div className={`col-xs-12 col-sm-6 ${styles.credit}`}>
-              <p>
-                Funded by <a href="http://commonfund.nih.gov/lincs/" target="_blank">The NIH Common Fund</a>.
-                Developed by the <a href="http://lincs-dcic.org/" target="_blank">BD2K-LINCS DCIC</a>.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </footer>
-  );
+      </footer>
+    );
+  }
 }

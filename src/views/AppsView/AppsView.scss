@@ -1,43 +1,379 @@
 @import 'variables';
 
-.categories {
-  align-items: center;
-  display: flex;
-  justify-content: center;
+$background-color: $light-gray;
 
-  label {
-    border-radius: 0;
-    margin-bottom: 0;
+.wrapper {
+  background-color: $background-color;
+  margin-bottom: -2rem;
+  padding-bottom: 2rem;
+
+  h2 {
+    font-weight: 300;
+
+    i {
+      color: $base-font-color;
+    }
   }
 }
 
+.wf-title {
+
+  @media (min-width: 992px) {
+    position: absolute;
+  }
+}
+
+.categories {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  label {
+    border: 0;
+    margin: 0;
+  }
+
+  @media (min-width: 600px) {
+    flex-direction: row;
+  }
+}
+
+$apple-blue: #1390ff;
+
 .category-check {
-  background-color: $white;
-  border-bottom-color: $teal;
-  bottom: -1px;
-  color: $teal;
+  background-color: $background-color;
+  color: lighten($base-font-color, 15);
   margin: 0;
+  padding: .5rem 1rem;
   position: relative;
   z-index: 1;
 
-  &:not(.active):hover {
-    color: darken($teal, 10);
+  &:hover {
+    color: $apple-blue;
   }
 }
 
 .active {
-  background-color: $white;
-  background-image: none;
-  border-bottom-color: $white;
-  border-left-color: $teal;
-  border-right-color: $teal;
-  border-top-color: $teal;
-  color: $teal;
+  color: $apple-blue;
+}
+
+.enter {
+  opacity: 0;
+}
+
+.enter-active {
+  opacity: 1;
+  transition: opacity 750ms ease-in;
 }
 
 .workflow {
-  border: 1px solid $teal;
+  background-color: $white;
+  border: 1px solid;
+  border-color: $apple-blue $gray-border-side $gray-border-bottom;
+  border-radius: .2rem;
+  border-top-width: 2px;
+  margin-bottom: 2rem;
   min-height: 1px;
   padding: 1rem;
   position: relative;
+}
+
+.workflow-exp,
+.workflow-comp-bio {
+  i {
+    color: $brand-primary-light;
+    font-size: 8.5rem;
+  }
+}
+
+.workflow-exp {
+  i {
+    line-height: 10rem;
+  }
+}
+
+// .workflow-comp-bio {
+//
+// }
+
+.question {
+  margin-bottom: 2rem;
+
+  h5 {
+    margin-bottom: 1rem;
+  }
+}
+
+.examples {
+
+  ul {
+    border-left: 1px solid $gray;
+    list-style: none;
+    padding-bottom: .5rem;
+    padding-top: .5rem;
+  }
+}
+
+.flex {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+
+  @media (min-width: 992px) {
+    align-items: center;
+    flex-direction: row;
+  }
+}
+
+.filter {
+  margin-bottom: 1rem;
+  margin-left: 1rem;
+
+  label {
+    margin-right: .5rem;
+  }
+
+  @media (min-width: 992px) {
+    margin-bottom: 0;
+  }
+}
+
+.select {
+  display: inline-block;
+  vertical-align: middle;
+  width: 100%;
+
+  @media (min-width: 992px) {
+    width: auto;
+  }
+}
+
+.tools {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+// Tool
+
+$tool-height: 10rem;
+$tool-width: 21rem;
+$shadow: rgba(0, 0, 0, .1);
+
+.tool {
+  border: 1px solid;
+  border-color: $gray-border-top $gray-border-side $gray-border-bottom;
+  border-radius: .2rem;
+  height: $tool-height;
+  margin: 0 auto 1rem;
+  width: $tool-width;
+}
+
+.tool-inner {
+  background: $white;
+  border-radius: .2rem;
+  box-shadow: 0 2px 4px $shadow;
+  height: $tool-height;
+  position: relative;
+  text-decoration: none;
+  vertical-align: top;
+}
+
+.cover {
+  float: left;
+  height: $tool-height;
+  overflow: hidden;
+  position: relative;
+  width: 10rem;
+}
+
+.tool-img-wrap {
+  display: table;
+  height: $tool-height;
+  width: 10rem;
+}
+
+.tool-img-inner {
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle;
+
+  img {
+    max-height: 100%;
+    width: 80%;
+  }
+}
+
+.tool-click-target {
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.overlay {
+  background: $overlay-black;
+  border-radius: .2rem;
+  cursor: pointer;
+  filter: alpha(opacity = 0);
+  height: 100%;
+  left: 0;
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  transition: all .25s ease;
+  width: 100%;
+
+  &:hover {
+    filter: alpha(opacity = 1);
+    opacity: 1;
+  }
+}
+
+.tool-details {
+  max-height: 7rem;
+  overflow: hidden;
+  padding: .5rem .75rem 0;
+}
+
+$title-line-height: 1.5rem;
+
+.tool-title {
+  color: $off-black;
+  display: block;
+  font-size: 1.25rem;
+  font-weight: 400;
+  line-height: $title-line-height;
+  margin: 0;
+  max-height: 2rem;
+  min-height: 1.1rem;
+  overflow: hidden;
+  position: relative;
+  text-decoration: none;
+  white-space: nowrap;
+
+  .end {
+    height: $title-line-height;
+  }
+}
+
+.end {
+  background: linear-gradient(to right, transparent, $white);
+  bottom: 0;
+  max-height: 100%;
+  position: absolute;
+  right: 0;
+  width: 45px;
+}
+
+.tool-creator {
+  color: $dark-gray;
+  font-size: .9rem;
+  font-weight: 400;
+  line-height: 1rem;
+  margin: 1px 0;
+  overflow: hidden;
+  white-space: nowrap;
+  width: 10rem;
+}
+
+$desc-line-height: 1.125rem; // 18px
+
+.tool-description {
+  display: block;
+  font-size: .8rem; // ~13px
+  line-height: $desc-line-height;
+  margin-top: .625rem; // 10px
+  max-height: $desc-line-height * 3;
+  min-height: 1.25rem;
+  position: relative;
+  word-wrap: break-word;
+
+  .end {
+    height: $desc-line-height;
+  }
+}
+
+.tool-ranking {
+  background: $white;
+  border-radius: 2px;
+  bottom: 0;
+  display: block;
+  padding: 0 .75rem;
+  position: absolute;
+  width: 100%;
+}
+
+// WorkflowInput
+
+.form-row {
+  margin-bottom: .5rem;
+}
+
+.workflow-input {
+  padding-left: 5px;
+  width: 100%;
+}
+
+.workflow-submit {
+  background-color: $teal;
+  border-color: darken($teal, 3);
+  color: $white;
+  line-height: 1rem;
+  margin-top: 1rem;
+  width: 100%;
+
+  &:hover {
+    background-color: darken($teal, 8);
+    border-color: darken($teal, 10);
+    color: $white;
+  }
+
+  @media (min-width: 768px) {
+    margin-top: 0;
+  }
+}
+
+//
+
+// WorkflowSentModal
+
+// .wf-modal-header {
+//   border-bottom: 0;
+// }
+
+.wf-modal-content {
+  border: 0;
+}
+
+.wf-modal-body {
+  text-align: center;
+  padding: 1rem;
+
+  h4 {
+    margin: 3rem 0 .5rem;
+  }
+
+  p {
+    font-weight: 300;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    text-align: left;
+  }
+
+  button {
+    background-color: $brand-primary-light;
+    border-radius: .3rem;
+    box-shadow: none;
+    color: $white;
+    cursor: pointer;
+    font-size: 17px;
+    font-weight: 500;
+    margin: 3rem auto 0;
+    padding: .6rem 2rem;
+  }
 }

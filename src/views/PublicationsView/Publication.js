@@ -1,23 +1,25 @@
 import React, { Component, PropTypes } from 'react';
+import { connect } from 'react-redux';
 
-import CitationsModal from 'components/CitationsModal';
+import { openCitationsModal, closeCitationsModal } from 'actions/modals';
 import styles from './PublicationsView.scss';
 
 export default class Publication extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      isModalOpen: false,
-    };
-  }
-
   _openCitationsModal = () => {
-    this.setState({ isModalOpen: true });
+    this.props.openCitationsModal({
+      pubId: this.props.pub.id,
+      onModalClose: this.props.closeCitationsModal,
+    });
   }
 
-  _closeCitationsModal = () => {
-    this.setState({ isModalOpen: false });
-  }
+  _handleADClicked = () => this.props.onCatClicked('assayDevelopment');
+  _handleDAClicked = () => this.props.onCatClicked('dataAnalysis');
+  _handleDGClicked = () => this.props.onCatClicked('dataGeneration');
+  _handleDIClicked = () => this.props.onCatClicked('dataIntegration');
+  _handleDSClicked = () => this.props.onCatClicked('dataStandards');
+  _handleSGClicked = () => this.props.onCatClicked('signatureGeneration');
+  _handleSDClicked = () => this.props.onCatClicked('softwareDevelopment');
+  _handleRClicked = () => this.props.onCatClicked('review');
 
   render() {
     const p = this.props.pub;
@@ -56,57 +58,76 @@ export default class Publication extends Component {
         <p>
           {
             p.assayDevelopment &&
-            <span className={`${styles.cat} ${styles['cat-ad']}`}>
+            <span
+              onClick={this._handleADClicked}
+              className={`${styles.cat} ${styles['cat-ad']}`}
+            >
               Assay Development
             </span>
           }
           {
             p.dataAnalysis &&
-            <span className={`${styles.cat} ${styles['cat-da']}`}>
+            <span
+              onClick={this._handleDAClicked}
+              className={`${styles.cat} ${styles['cat-da']}`}
+            >
               Data Analysis
             </span>
           }
           {
             p.dataGeneration &&
-            <span className={`${styles.cat} ${styles['cat-dg']}`}>
+            <span
+              onClick={this._handleDGClicked}
+              className={`${styles.cat} ${styles['cat-dg']}`}
+            >
               Data Generation
             </span>
           }
           {
             p.dataIntegration &&
-            <span className={`${styles.cat} ${styles['cat-di']}`}>
+            <span
+              onClick={this._handleDIClicked}
+              className={`${styles.cat} ${styles['cat-di']}`}
+            >
               Data Integration
             </span>
           }
           {
             p.dataStandards &&
-            <span className={`${styles.cat} ${styles['cat-ds']}`}>
+            <span
+              onClick={this._handleDSClicked}
+              className={`${styles.cat} ${styles['cat-ds']}`}
+            >
               Data Standards
             </span>
           }
           {
             p.signatureGeneration &&
-            <span className={`${styles.cat} ${styles['cat-sg']}`}>
+            <span
+              onClick={this._handleSGClicked}
+              className={`${styles.cat} ${styles['cat-sg']}`}
+            >
               Signature Generation
             </span>
           }
           {
             p.softwareDevelopment &&
-            <span className={`${styles.cat} ${styles['cat-sd']}`}>
+            <span
+              onClick={this._handleSDClicked}
+              className={`${styles.cat} ${styles['cat-sd']}`}
+            >
               Software Development
             </span>
           }
           {
             p.review &&
-            <span className={`${styles.cat} ${styles['cat-review']}`}>
+            <span
+              onClick={this._handleRClicked}
+              className={`${styles.cat} ${styles['cat-review']}`}
+            >
               Review
             </span>
           }
-          <CitationsModal
-            isOpen={this.state.isModalOpen}
-            pubId={p.id}
-            onModalClose={this._closeCitationsModal}
-          />
           <span
             onClick={this._openCitationsModal}
             className={`${styles.cat} ${styles['cat-cite']}`}
@@ -121,4 +142,12 @@ export default class Publication extends Component {
 
 Publication.propTypes = {
   pub: PropTypes.object,
+  onCatClicked: PropTypes.func,
+  openCitationsModal: PropTypes.func,
+  closeCitationsModal: PropTypes.func,
 };
+
+export default connect(null, {
+  openCitationsModal,
+  closeCitationsModal,
+})(Publication);

@@ -1,6 +1,7 @@
 import _debug from 'debug';
 import _ from 'lodash';
 import moment from 'moment';
+import { argv } from 'yargs';
 
 import { Dataset } from '../models/Dataset';
 import { Disease } from '../models/Disease';
@@ -233,37 +234,25 @@ function insertPublications() {
   const created = moment().toDate();
   const pubs = publications.map(obj => ({ ...obj, created_at: created }));
   let authors = [];
-  const toolNames = [];
   pubs.forEach(obj => {
     authors = _.union(authors, obj.authors);
-    obj.tools.forEach(tool => {
-      const { name } = tool;
-      if (toolNames.indexOf(name) === -1) {
-        toolNames.push(name);
-      }
-    });
   });
   const authorIdMap = {};
-  return new Promise((resolve, reject) => {
-    Promise.all(authors.map(name => {
-      const author = { name, created_at: created };
-      return Author.forge(author).save().then(model => (authorIdMap[name] = model.id));
+  return Promise.all(authors.map(name => {
+    const author = { name, created_at: created };
+    return Author.forge(author).save().then(model => (authorIdMap[name] = model.id));
+  }))
+  .then(() =>
+    Promise.all(pubs.map(obj => {
+      const pub = _.pick(obj, Publication.prototype.permittedAttributes());
+      return Publication.forge(pub).save().then(pubModel => {
+        const authorIds = obj.authors.map(name => authorIdMap[name]);
+        if (authorIds.length) {
+          pubModel.authors().attach(authorIds);
+        }
+      });
     }))
-    .then(() => {
-      Promise.all(pubs.map(obj => {
-        const pub = _.pick(obj, Publication.prototype.permittedAttributes());
-        return Publication.forge(pub).save().then(pubModel => {
-          const authorIds = obj.authors.map(name => authorIdMap[name]);
-          if (authorIds.length) {
-            pubModel.authors().attach(authorIds);
-          }
-        });
-      }))
-      .then(() => resolve())
-      .catch(e => reject(e));
-    })
-    .catch(e => reject(e));
-  });
+  );
 }
 
 knex.raw('select 1+1 as result').then(() => {
@@ -282,43 +271,35 @@ knex.raw('select 1+1 as result').then(() => {
   promises.push(knex.insert(tools).into('tools'));
   promises.push(insertPublications());
 
-  promises.push(
-    new Promise((resolve, reject) => {
-      insertSmallMolecules()
-        .then(() => {
-          debug('Small molecules inserted.');
-          insertTissuesAndDiseases()
-            .then(() => {
-              debug('Tissues and diseases inserted.');
-              insertCellLines()
-                .then(() => {
-                  debug('Cells inserted.');
-                  buildDatasets()
-                    .then(() => {
-                      debug('Datasets inserted.');
-                      resolve();
-                    })
-                    .catch(e => {
-                      reject(e);
-                      debug(e);
-                    });
-                })
-                .catch(e => {
-                  reject(e);
-                  debug(e);
-                });
-            })
-            .catch(e => {
-              reject(e);
-              debug(e);
-            });
-        })
-        .catch(e => {
-          reject(e);
-          debug(e);
-        });
-    })
-  );
+  if (argv['omit-data']) {
+    debug('Omitting dataset tables.');
+  } else {
+    promises.push(
+      new Promise((resolve, reject) => {
+        insertSmallMolecules()
+          .then(() => {
+            debug('Small molecules inserted.');
+            return insertTissuesAndDiseases();
+          })
+          .then(() => {
+            debug('Tissues and diseases inserted.');
+            return insertCellLines();
+          })
+          .then(() => {
+            debug('Cells inserted.');
+            return buildDatasets();
+          })
+          .then(() => {
+            debug('Datasets inserted.');
+            resolve();
+          })
+          .catch(e => {
+            reject(e);
+            debug(e);
+          });
+      })
+    );
+  }
 
   Promise
     .all(promises)

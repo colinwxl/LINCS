@@ -17,5 +17,184 @@
 }
 
 .search-wrap {
-  margin: 2rem auto;
+  margin: 1rem auto;
+}
+
+.tree-wrap {
+  margin-top: 2rem;
+}
+
+
+// Search
+
+.search,
+.search-results {
+  margin-bottom: 2rem;
+}
+
+.search-results {
+  a {
+    cursor: pointer;
+  }
+}
+
+.info {
+  margin-bottom: 1rem;
+}
+
+.back {
+  &:hover {
+    color: darken($brand-primary, 10);
+    text-decoration: none;
+  }
+}
+
+.count {
+  font-style: italic;
+  margin-bottom: 0;
+  text-align: right;
+}
+
+.query {
+  color: $dark-gray;
+  font-weight: 600;
+}
+
+.placeholders {
+  margin-top: 3.75rem;
+}
+
+.placeholder {
+  margin-bottom: 3.5rem;
+}
+
+.dataset {
+  margin-bottom: 1rem;
+}
+
+
+// https://css-tricks.com/css3-progress-bars/
+
+@keyframes move {
+  0% {
+    background-position: 0 0;
+  }
+
+  100% {
+    background-position: 50px 50px;
+  }
+}
+
+$loading-gray: rgba(255, 255, 255, .5);
+
+.meter {
+  margin: .3rem 0;
+  position: relative;
+
+  span {
+    background-color: darken($light-gray, 2);
+    display: block;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+
+    &::after {
+      animation: move 3s linear infinite;
+      background-image: linear-gradient(
+        0deg,
+        $loading-gray,
+        transparent 90%
+      );
+      background-size: 50px 50px;
+      border-bottom-left-radius: 20px;
+      border-bottom-right-radius: 8px;
+      border-top-left-radius: 20px;
+      border-top-right-radius: 8px;
+      bottom: 0;
+      content: '';
+      left: 0;
+      overflow: hidden;
+      position: absolute;
+      right: 0;
+      top: 0;
+      z-index: 1;
+    }
+  }
+}
+
+.meter-title {
+  height: 1.1rem;
+}
+
+.meter-subtitle {
+  height: .9rem;
+}
+
+.meter-desc {
+  height: .9rem;
+}
+
+.meter-links {
+  height: .9rem;
+}
+
+.meter-date {
+  height: .9rem;
+}
+
+////////////////////////////////
+
+.ds-header {
+  h5,
+  p {
+    margin-bottom: 0;
+  }
+}
+
+.info-date {
+  font-size: 90%;
+  margin-bottom: 0;
+}
+
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+
+  a,
+  span {
+    font-size: 90%;
+  }
+
+  a:first-child {
+    margin-left: 0;
+  }
+}
+
+.btn-link {
+  border: 1px solid $brand-primary;
+  color: $brand-primary;
+  margin-bottom: .5rem;
+  margin-right: .5rem;
+  padding: .15rem .375rem;
+
+  &:hover {
+    background-color: $brand-primary;
+    border-color: darken($brand-primary, 2);
+    color: $white;
+  }
+}
+
+.creator,
+.description {
+  font-size: 90%;
+}
+
+.description {
+  margin-bottom: .5rem;
+}
+
+.creator {
+  color: $teal;
+  font-weight: 600;
 }

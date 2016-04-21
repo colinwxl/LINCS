@@ -7,7 +7,6 @@ import moment from 'moment';
 
 import _debug from 'debug';
 const debug = _debug('app:server:routes:datasets');
-
 import { esClient } from '../serverConf';
 import { Dataset } from '../models/Dataset';
 
@@ -32,6 +31,16 @@ router.get('/', async (ctx) => {
   }
 });
 
+router.get('/clicks', async (ctx) => {
+  try {
+    const clicks = await Dataset.fetchAll({ columns: ['id', 'lincs_id', 'method', 'clicks'] });
+    ctx.body = clicks.toJSON();
+  } catch (e) {
+    debug(e);
+    ctx.throw(500, 'An error occurred obtaining datasets.');
+  }
+});
+
 router.get('/tree', async (ctx) => {
   const assays = await Dataset
     .query(qb => qb.distinct('assay').select().orderBy('assay', 'asc'))
@@ -50,8 +59,8 @@ router.get('/tree', async (ctx) => {
     .fetchAll()
     .then(models => models.toJSON().map(obj => obj.centerName));
 
-  const popularity = await Dataset
-    .query(qb => qb.select('id').orderBy('clicks', 'asc'))
+  const alphabetical = await Dataset
+    .query(qb => qb.select('id').orderBy('method', 'asc'))
     .fetchAll()
     .then(models => models.toJSON().map(obj => obj.id));
 
@@ -103,7 +112,7 @@ router.get('/tree', async (ctx) => {
   dates.forEach(dateObj => {
     dateObj.months.sort((a, b) => b - a);
   });
-  ctx.body = { assays, classes, methods, centers, popularity, dates, dateDatasetMap };
+  ctx.body = { assays, classes, methods, centers, alphabetical, dates, dateDatasetMap };
 });
 
 router.get('/search', async (ctx) => {
@@ -276,8 +285,15 @@ function generateBIB(ds) {
 }
 
 router.get('/:id', async (ctx) => {
+  let id = -1;
   try {
-    let dataset = await Dataset.where('id', ctx.params.id).fetch();
+    id = parseInt(ctx.params.id, 10);
+  } catch (e) {
+    debug(e);
+    ctx.throw(400, 'Dataset Id must be a number');
+  }
+  try {
+    let dataset = await Dataset.where('id', id).fetch();
     // Omit pivot by default
     const includePivot = !!ctx.query.includePivot;
     dataset = dataset.toJSON({ omitPivot: !includePivot });
@@ -288,8 +304,6 @@ router.get('/:id', async (ctx) => {
   }
 });
 
-
-// Only
 router.get('/:id/download', async (ctx) => {
   if (process.env.NODE_ENV !== 'production') {
     ctx.throw(400, 'Datasets can only be downloaded in production.');
@@ -309,11 +323,79 @@ router.get('/:id/download', async (ctx) => {
     ctx.set('Content-disposition', `attachment; filename=${filename}`);
     await send(ctx, filePath);
     if (!ctx.status) {
-      ctx.throw(500, 'An error occurred generating the ris file.');
+      ctx.throw(500, 'An error occurred downloading the dataset package.');
     }
   } catch (e) {
     debug(e);
-    ctx.throw(500, 'An error occurred obtaining datasets.');
+    ctx.throw(500, 'An error occurred downloading the dataset package.');
+  }
+});
+
+router.get('/:id/download/gct', async (ctx) => {
+  if (process.env.NODE_ENV !== 'production') {
+    ctx.throw(400, 'GCT files can only be downloaded in production.');
+  }
+  try {
+    let dataset = await Dataset.where('id', ctx.params.id).fetch();
+    dataset = dataset.toJSON();
+    let filename = `${dataset.lincsId}-${dataset.classification}-${dataset.method}.gct`;
+    let filePath = `/usr/src/dist/files/datasets/${dataset.lincsId}.gct`;
+    if (dataset.method === 'KINOMEScan') {
+      filename = `${dataset.classification}-KINOMEScan.gct`;
+      filePath = '/usr/src/dist/files/datasets/KINOMEScan.gct';
+    } else if (dataset.method === 'KiNativ') {
+      filename = `${dataset.classification}-KiNativ.gct`;
+      filePath = '/usr/src/dist/files/datasets/KiNativ.gct';
+    }
+    ctx.set('Content-disposition', `attachment; filename=${filename}`);
+    await send(ctx, filePath);
+    if (!ctx.status) {
+      ctx.throw(
+        400,
+        'An error occurred downloading the gct file. It may not be available for this dataset.'
+      );
+    }
+  } catch (e) {
+    debug(e);
+    ctx.throw(
+      500,
+      'An error occurred downloading the gct file. It may not be available for this dataset.'
+    );
+  }
+});
+
+router.get('/:id/download/gctx', async (ctx) => {
+  if (process.env.NODE_ENV !== 'production') {
+    ctx.throw(400, 'GCTX files can only be downloaded in production.');
+  }
+  try {
+    let dataset = await Dataset.where('id', ctx.params.id).fetch();
+    dataset = dataset.toJSON();
+    const filename = `${dataset.lincsId}-${dataset.classification}-${dataset.method}.gctx`;
+    const filePath = `/usr/src/dist/files/datasets/${dataset.lincsId}.gctx`;
+    if (dataset.method === 'KINOMEScan') {
+      // filename = `${dataset.classification}-KINOMEScan.gctx`;
+      // filePath = '/usr/src/dist/files/datasets/KINOMEScan.gctx';
+      ctx.throw(400, 'GCTX file is not currently available for KINOMEScan.');
+    } else if (dataset.method === 'KiNativ') {
+      // filename = `${dataset.classification}-KiNativ.gctx`;
+      // filePath = '/usr/src/dist/files/datasets/KiNativ.gctx';
+      ctx.throw(400, 'GCTX file is not currently available for KiNativ.');
+    }
+    ctx.set('Content-disposition', `attachment; filename=${filename}`);
+    await send(ctx, filePath);
+    if (!ctx.status) {
+      ctx.throw(
+        400,
+        'An error occurred downloading the gctx file. It may not be available for this dataset.'
+      );
+    }
+  } catch (e) {
+    debug(e);
+    ctx.throw(
+      500,
+      'An error occurred downloading the gctx file. It may not be available for this dataset.'
+    );
   }
 });
 

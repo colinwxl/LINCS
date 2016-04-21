@@ -1,0 +1,83 @@
+/* eslint no-param-reassign:0 */
+import Router from 'koa-router';
+import nodemailer from 'nodemailer';
+import { Tool } from '../models/Tool';
+import { Workflow } from '../models/Workflow';
+import _debug from 'debug';
+const debug = _debug('app:server:routes:health');
+
+const router = new Router({
+  prefix: '/LINCS/api/v1',
+});
+
+router.get('/tools', async (ctx) => {
+  try {
+    const tools = await Tool.query(qb => qb.select().orderBy('order', 'asc')).fetchAll();
+    ctx.body = tools.toJSON();
+  } catch (e) {
+    debug(e);
+    ctx.throw(500, 'An error occurred obtaining tools.');
+  }
+});
+
+router.get('/workflows', async (ctx) => {
+  try {
+    const workflows = await Workflow.fetchAll();
+    ctx.body = workflows.toJSON();
+  } catch (e) {
+    debug(e);
+    ctx.throw(500, 'An error occurred obtaining workflows.');
+  }
+});
+
+function sendMail(transporter, opts) {
+  return new Promise((resolve, reject) => {
+    if (!transporter.sendMail) {
+      reject('Transporter is invalid. Use nodemailer.createTransport()');
+      return;
+    }
+    transporter.sendMail(opts, (err) => {
+      if (err) {
+        reject(err);
+        return;
+      }
+      resolve();
+    });
+  });
+}
+
+router.post('/workflows/add', async (ctx) => {
+  const workflow = ctx.request.body;
+  if (!Object.keys(workflow).length) {
+    ctx.throw(400, 'Workflow not sent with request.');
+  }
+  if (!workflow.type) {
+    ctx.throw(400, 'Workflow requires a type');
+  }
+  try {
+    const wf = await Workflow.forge(workflow).save().then(wfModel => wfModel.toJSON());
+    const transporter = nodemailer
+      .createTransport('smtps://maayanlabapps%40gmail.com:systemsbiology@smtp.gmail.com');
+    const mailOptions = {
+      from: 'LINCS@amp.pharm.mssm.edu',
+      to: 'michael.mcdermott@mssm.edu',
+      subject: 'A new workflow has been submitted',
+      text: 'Hello,\n\n' +
+        'This is a notification from http://amp.pharm.mssm.edu/LINCS that a ' +
+        'new workflow has been submitted.\n\n' +
+        `${wf.email ? `The submitter's email address is ${wf.email}.\n` : ''}` +
+        'He/she is ' + `${
+          wf.type === 'experimentalist'
+          ? 'an experimentalist.'
+          : 'a computational biologist.'
+        }\n` + `Their question/aim is ${wf.question}.`,
+    };
+    await sendMail(transporter, mailOptions);
+    ctx.body = wf;
+  } catch (e) {
+    debug(e);
+    ctx.throw(500, 'An error occurred adding workflow.');
+  }
+});
+
+export default router;

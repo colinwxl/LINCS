@@ -34,7 +34,7 @@ export default class MEPLINCS extends Component {
                   Awardee Institution: <a title="Oregon Health and Science University" href="http://www.ohsu.edu/xd/" target="_blank">Oregon Health and Science University</a>
                 </li>
               </ul>
-              <h2>Goals</h2>
+              <h2>Overview</h2>
               <p>
                 Our goal in this project is to contribute to further development of the NIH Library
                 of Integrated Network-based cellular signatures (LINCS) program by developing a

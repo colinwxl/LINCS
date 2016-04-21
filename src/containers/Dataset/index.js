@@ -2,11 +2,11 @@ import React, { PropTypes, Component } from 'react';
 import { connect } from 'react-redux';
 import moment from 'moment';
 // import each from 'lodash/each';
-//
+
 import { loadDatasets } from 'actions/entities';
+import { openCitationsModal, closeCitationsModal } from 'actions/modals';
 import getIconLinks from 'utils/getIconLinks';
 import styles from './Dataset.scss';
-import CitationsModal from 'components/CitationsModal';
 
 const mapStateToProps = ({ entities }) => ({
   cells: entities.cells,
@@ -14,27 +14,19 @@ const mapStateToProps = ({ entities }) => ({
 });
 
 export class Dataset extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      isModalOpen: false,
-    };
-  }
-
   componentWillMount() {
     this.props.loadDatasets();
   }
 
   _openCitationsModal = () => {
-    this.setState({ isModalOpen: true });
-  }
-
-  _closeCitationsModal = () => {
-    this.setState({ isModalOpen: false });
+    this.props.openCitationsModal({
+      datasetId: this.props.datasetId,
+      onModalClose: this.props.closeCitationsModal,
+    });
   }
 
   render() {
-    const { cells, cellId, className, datasets, datasetId } = this.props;
+    const { cells, cellId, className, datasets, datasetId, showClicks } = this.props;
     const ds = datasets[datasetId];
     const cell = cells[cellId];
     const links = getIconLinks(ds);
@@ -42,14 +34,15 @@ export class Dataset extends Component {
       <div className={`${styles.dataset} ${className}`}>
       <div className={styles['ds-header']}>
         <div className="row">
-          <div className="col-xs-8">
+          <div className="col-xs-7">
             <h5>{ds.method}</h5>
             <p className={styles.creator}>{ds.centerName}</p>
           </div>
-          <div className="col-xs-4">
+          <div className="col-xs-5">
             <p className={`text-muted ${styles['info-date']}`}>
               <em>{moment(ds.dateRetrieved).format('MMM Do, YYYY')}</em>
             </p>
+            {showClicks && <p className={styles.clicks}>Clicks: {ds.clicks}</p>}
           </div>
         </div>
       </div>
@@ -58,16 +51,17 @@ export class Dataset extends Component {
         <a className={`btn ${styles['btn-link']}`} href={ds.sourceLink} target="_blank">
           View at source
         </a>
-        <CitationsModal
-          isOpen={this.state.isModalOpen}
-          datasetId={ds.id}
-          onModalClose={this._closeCitationsModal}
-        />
         <a
           className={`btn ${styles['btn-link']}`}
           href={`/LINCS/api/v1/datasets/${ds.id}/download`}
         >
           Download data package
+        </a>
+        <a
+          className={`btn ${styles['btn-link']}`}
+          href={`/LINCS/api/v1/datasets/${ds.id}/download/gct`}
+        >
+          Download GCT file
         </a>
         <a className={`btn ${styles['btn-link']}`} onClick={this._openCitationsModal}>
           Export data citation
@@ -121,13 +115,18 @@ export class Dataset extends Component {
 Dataset.propTypes = {
   cells: PropTypes.object,
   cellId: PropTypes.number,
+  showClicks: PropTypes.bool,
   className: PropTypes.string,
   datasets: PropTypes.object,
   datasetId: PropTypes.number,
   loadDatasets: PropTypes.func,
+  openCitationsModal: PropTypes.func,
+  closeCitationsModal: PropTypes.func,
   incrementDatasetClicks: PropTypes.func,
 };
 
 export default connect(mapStateToProps, {
   loadDatasets,
+  openCitationsModal,
+  closeCitationsModal,
 })(Dataset);

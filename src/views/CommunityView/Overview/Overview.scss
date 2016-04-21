@@ -54,9 +54,9 @@
 .social {
   align-items: center;
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   text-align: center;
-  width: 400px;
 }
 
 .twitter {

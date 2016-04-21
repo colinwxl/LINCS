@@ -1,6 +1,6 @@
 import React from 'react';
 
-import styles from './Search.scss';
+import styles from './Releases.scss';
 
 export default function ResultPlaceholder() {
   return (
