@@ -1,6 +1,7 @@
 import React, { PropTypes, Component } from 'react';
 import { connect } from 'react-redux';
 import extend from 'extend';
+import isEqual from 'lodash/isEqual';
 
 import styles from './PublicationsView.scss';
 import PageBanner from 'components/PageBanner';
@@ -33,6 +34,12 @@ export class PublicationsView extends Component {
 
   componentWillMount() {
     this.props.loadPublications();
+  }
+
+  shouldComponentUpdate(nextProps, nextState) {
+    return !this.props.publications.length
+      || !isEqual(this.state.categories, nextState.categories)
+      || this.state.sortOrder !== nextState.sortOrder;
   }
 
   // Check if category is wanted (this.state.categories[category] is true) and that
@@ -73,6 +80,9 @@ export class PublicationsView extends Component {
     if (categories.hasOwnProperty(key)) {
       categories[key] = true;
       this.setState({ categories });
+      if (window) {
+        window.scrollTo(0, 0);
+      }
     }
   }
 
@@ -95,8 +105,14 @@ export class PublicationsView extends Component {
     let publications = this.props.publications;
     publications.sort((a, b) => {
       let result = a.yearPublished > b.yearPublished;
+      if (a.yearPublished === b.yearPublished && !!a.pmId && !!b.pmId) {
+        result = parseInt(a.pmId, 10) > parseInt(a.pmId, 10);
+      }
       if (this.state.sortOrder === 'descending') {
         result = a.yearPublished < b.yearPublished;
+        if (a.yearPublished === b.yearPublished && !!a.pmId && !!b.pmId) {
+          result = parseInt(a.pmId, 10) < parseInt(a.pmId, 10);
+        }
       }
       return result ? 1 : -1;
     });
