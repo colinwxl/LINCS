@@ -9,13 +9,13 @@ import Tool from './Tool';
 import styles from './AppsView.scss';
 
 const sortTypes = [
-  'All', 'Web Based UI', 'Clusters L1000 Data',
+  'All', 'Web Based UI', 'Processed L1000 Data',
   'Enrichment Analysis', 'APIs', 'MATLAB/Python Script',
 ];
 
 const sortFeatures = [
   'All', 'Access', 'Search', 'Navigation', 'Integration', 'Visualization',
-  'Signature Enrichment', 'Browse', 'Download', 'Mining', 'Query',
+  'Download', 'Leverages Ontology', 'Image Analysis',
 ];
 
 export default class AppsView extends Component {
@@ -36,20 +36,16 @@ export default class AppsView extends Component {
     fetch('/LINCS/api/v1/tools')
       .then(response => handleResponse(response))
       .then(response => response.json())
-      .then(tools => {
-        this.setState({ fetchingTools: false, tools });
-      });
+      .then(tools => this.setState({ fetchingTools: false, tools }));
   }
 
   _checkAllTypes = (tool) => {
     const { sortType } = this.state;
     return (sortType === 'All') ||
       (sortType === 'Web Based UI' && tool.webBasedUi) ||
-      (sortType === 'Clusters L1000 Data' && tool.clustL1000Data) ||
+      (sortType === 'Processed L1000 Data' && tool.processedL1000Data) ||
       (sortType === 'Enrichment Analysis' && tool.enrichmentAnalysis) ||
       (sortType === 'APIs' && tool.api) ||
-      (sortType === 'Desktop Software' && tool.desktopSoftware) ||
-      (sortType === 'Client Server Software' && tool.clientServerSoftware) ||
       (sortType === 'MATLAB/Python Script' && tool.matlabPythonScript);
   }
 
@@ -61,17 +57,10 @@ export default class AppsView extends Component {
       (sortFeature === 'Navigation' && tool.featureNavigation) ||
       (sortFeature === 'Integration' && tool.featureIntegration) ||
       (sortFeature === 'Visualization' && tool.featureVisualization) ||
-      (sortFeature === 'Signature Enrichment' && tool.featureSignatureEnrichment) ||
-      (sortFeature === 'Browse' && tool.featureBrowse) ||
       (sortFeature === 'Download' && tool.featureDownload) ||
-      (sortFeature === 'Leverages Ontology' && tool.featureLeveragesOntology) ||
-      (sortFeature === 'Mining' && tool.featureMining) ||
-      (sortFeature === 'Query' && tool.featureQuery) ||
-      (sortFeature === 'Data Analysis' && tool.featureDataAnalysis) ||
-      (sortFeature === 'Image Analysis' && tool.featureImageAnalysis) ||
-      (sortFeature === 'Image Management' && tool.featureImageManage);
+      (sortFeature === 'Leverages Ontology' && tool.featureLeverageOntology) ||
+      (sortFeature === 'Image Analysis' && tool.featureImageAnalysis);
   }
-
 
   _filterTools = (tool) => {
     const { sortCenter, sortType, sortFeature } = this.state;

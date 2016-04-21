@@ -208,37 +208,25 @@ function insertPublications() {
   const created = moment().toDate();
   const pubs = publications.map(obj => ({ ...obj, created_at: created }));
   let authors = [];
-  const toolNames = [];
   pubs.forEach(obj => {
     authors = _.union(authors, obj.authors);
-    obj.tools.forEach(tool => {
-      const { name } = tool;
-      if (toolNames.indexOf(name) === -1) {
-        toolNames.push(name);
-      }
-    });
   });
   const authorIdMap = {};
-  return new Promise((resolve, reject) => {
-    Promise.all(authors.map(name => {
-      const author = { name, created_at: created };
-      return Author.forge(author).save().then(model => (authorIdMap[name] = model.id));
+  return Promise.all(authors.map(name => {
+    const author = { name, created_at: created };
+    return Author.forge(author).save().then(model => (authorIdMap[name] = model.id));
+  }))
+  .then(() =>
+    Promise.all(pubs.map(obj => {
+      const pub = _.pick(obj, Publication.prototype.permittedAttributes());
+      return Publication.forge(pub).save().then(pubModel => {
+        const authorIds = obj.authors.map(name => authorIdMap[name]);
+        if (authorIds.length) {
+          pubModel.authors().attach(authorIds);
+        }
+      });
     }))
-    .then(() => {
-      Promise.all(pubs.map(obj => {
-        const pub = _.pick(obj, Publication.prototype.permittedAttributes());
-        return Publication.forge(pub).save().then(pubModel => {
-          const authorIds = obj.authors.map(name => authorIdMap[name]);
-          if (authorIds.length) {
-            pubModel.authors().attach(authorIds);
-          }
-        });
-      }))
-      .then(() => resolve())
-      .catch(e => reject(e));
-    })
-    .catch(e => reject(e));
-  });
+  );
 }
 
 knex.raw('select 1+1 as result').then(() => {

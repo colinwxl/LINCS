@@ -13,7 +13,7 @@ export default function Tool(props) {
               <img src={tool.iconUrl} alt={tool.name} />
             </div>
           </div>
-          <a className={styles['tool-click-target']} href="">
+          <a className={styles['tool-click-target']} href={tool.url} target="_blank">
             <span className={styles.overlay} />
           </a>
         </div>
