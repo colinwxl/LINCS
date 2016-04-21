@@ -8,7 +8,7 @@ import CenterTree from './CenterTree';
 import TissueCellTree from './TissueCellTree';
 // import DiseaseTree from './DiseaseTree';
 import DateTree from './DateTree';
-import PopularityTree from './PopularityTree';
+import AlphabeticalTree from './AlphabeticalTree';
 import EmptyTree from './EmptyTree';
 import styles from './DataTree.scss';
 
@@ -48,7 +48,7 @@ export class DataTree extends Component {
         <TissueCellTree entities={entities} />
         {/* <DiseaseTree entities={this.props.entities} /> */}
         <DateTree dates={tree.dates} dateDatasetMap={tree.dateDatasetMap} />
-        <PopularityTree datasetIds={tree.popularity} />
+        <AlphabeticalTree datasetIds={tree.alphabetical} />
       </div>
     );
   }

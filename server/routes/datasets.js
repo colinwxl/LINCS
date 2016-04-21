@@ -59,8 +59,8 @@ router.get('/tree', async (ctx) => {
     .fetchAll()
     .then(models => models.toJSON().map(obj => obj.centerName));
 
-  const popularity = await Dataset
-    .query(qb => qb.select('id').orderBy('clicks', 'desc'))
+  const alphabetical = await Dataset
+    .query(qb => qb.select('id').orderBy('method', 'asc'))
     .fetchAll()
     .then(models => models.toJSON().map(obj => obj.id));
 
@@ -112,7 +112,7 @@ router.get('/tree', async (ctx) => {
   dates.forEach(dateObj => {
     dateObj.months.sort((a, b) => b - a);
   });
-  ctx.body = { assays, classes, methods, centers, popularity, dates, dateDatasetMap };
+  ctx.body = { assays, classes, methods, centers, alphabetical, dates, dateDatasetMap };
 });
 
 router.get('/search', async (ctx) => {
