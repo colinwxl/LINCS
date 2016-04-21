@@ -121,7 +121,7 @@ export default class AppsView extends Component {
                     name="exp"
                     defaultChecked={isExp}
                   />
-                  For an Experimentalist
+                  For Experimentalists
                 </label>
                 <label
                   onClick={this._handleCompBioClicked}
@@ -132,7 +132,7 @@ export default class AppsView extends Component {
                     name="compBio"
                     defaultChecked={isCompBio}
                   />
-                  For a Computational Biologist
+                  For Computational Biologists
                 </label>
               </div>
               <div className={styles.workflow}>

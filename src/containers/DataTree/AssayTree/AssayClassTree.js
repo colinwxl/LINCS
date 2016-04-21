@@ -10,9 +10,11 @@ export default function AssayClassTree(props) {
   const methods = [];
   const datasets = [];
   props.datasets.forEach(ds => {
-    if (ds.classification === assayClass && methods.indexOf(ds.method) === -1) {
-      methods.push(ds.method);
+    if (ds.classification === assayClass) {
       datasets.push(ds);
+      if (methods.indexOf(ds.method) === -1) {
+        methods.push(ds.method);
+      }
     }
   });
   return (

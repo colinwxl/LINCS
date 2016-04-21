@@ -60,7 +60,7 @@ router.get('/tree', async (ctx) => {
     .then(models => models.toJSON().map(obj => obj.centerName));
 
   const popularity = await Dataset
-    .query(qb => qb.select('id').orderBy('clicks', 'asc'))
+    .query(qb => qb.select('id').orderBy('clicks', 'desc'))
     .fetchAll()
     .then(models => models.toJSON().map(obj => obj.id));
 

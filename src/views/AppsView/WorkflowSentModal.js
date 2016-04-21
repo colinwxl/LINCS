@@ -42,9 +42,11 @@ export default function WorkflowSentModal(props) {
         <div className={`modal-body ${styles['wf-modal-body']}`}>
           <h4>Thanks for submitting your request!</h4>
           <p>
-            We will take a look into your request as soon as possible. If you provided us
-            with an email, we will contact you with a workflow, otherwise, keep an eye out
-            Apps & Workflows page to check if we've added your workflow to the list!
+            We will read it carefully. If you provided us with an email, we will contact
+            you if we have any additional questions. Once we complete assembling a new
+            workflow that answers your query, we will post it here and notify you.
+            In the meantime, please examine the existing workflows to see if any of
+            them match your needs.
           </p>
           <button className="btn" onClick={onModalClose}>Ok</button>
         </div>

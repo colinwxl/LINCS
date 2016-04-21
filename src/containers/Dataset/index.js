@@ -26,7 +26,7 @@ export class Dataset extends Component {
   }
 
   render() {
-    const { cells, cellId, className, datasets, datasetId } = this.props;
+    const { cells, cellId, className, datasets, datasetId, showClicks } = this.props;
     const ds = datasets[datasetId];
     const cell = cells[cellId];
     const links = getIconLinks(ds);
@@ -34,14 +34,15 @@ export class Dataset extends Component {
       <div className={`${styles.dataset} ${className}`}>
       <div className={styles['ds-header']}>
         <div className="row">
-          <div className="col-xs-8">
+          <div className="col-xs-7">
             <h5>{ds.method}</h5>
             <p className={styles.creator}>{ds.centerName}</p>
           </div>
-          <div className="col-xs-4">
+          <div className="col-xs-5">
             <p className={`text-muted ${styles['info-date']}`}>
               <em>{moment(ds.dateRetrieved).format('MMM Do, YYYY')}</em>
             </p>
+            {showClicks && <p className={styles.clicks}>Clicks: {ds.clicks}</p>}
           </div>
         </div>
       </div>
@@ -114,6 +115,7 @@ export class Dataset extends Component {
 Dataset.propTypes = {
   cells: PropTypes.object,
   cellId: PropTypes.number,
+  showClicks: PropTypes.bool,
   className: PropTypes.string,
   datasets: PropTypes.object,
   datasetId: PropTypes.number,
