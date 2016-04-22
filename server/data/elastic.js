@@ -219,7 +219,7 @@ const smMapping = {
 const { indices } = esClient;
 
 indices
-  .delete({ index: '_all' })
+  .delete({ index: 'lincs' })
   .then(() => indices.create({ index: 'lincs' }))
   .then(() => indices.close({ index: 'lincs' }))
   .then(() => indices.close({ index: 'lincs' }))
@@ -235,6 +235,4 @@ indices
   .then(() => indexSms())
   .then(() => esClient.bulk({ body: bulkSms }))
   .then(() => process.exit(0))
-  .catch((e) => {
-    throw e;
-  });
+  .catch((e) => { throw e; });
