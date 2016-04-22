@@ -97,6 +97,18 @@ export class Releases extends Component {
               {
                 isSearching &&
                 <div className={styles.placeholders}>
+                  <div className={`row ${styles.info}`}>
+                    <div className="col-xs-6">
+                      <a className={styles.back} onClick={this._backToTree}>
+                        <i className="fa fa-chevron-left" /> Back to Tree View
+                      </a>
+                    </div>
+                    <div className="col-xs-6">
+                      <p className={styles.count}>
+                        Searching for <span className={styles.query}>{searchQ}</span>...
+                      </p>
+                    </div>
+                  </div>
                   {range(6).map((index) => <ResultPlaceholder key={index} />)}
                 </div>
               }
@@ -107,7 +119,7 @@ export class Releases extends Component {
                     <div className="col-xs-6">
                       <a className={styles.back} onClick={this._backToTree}>
                         <i className="fa fa-chevron-left" /> Back to Tree View
-                        </a>
+                      </a>
                     </div>
                     <div className="col-xs-6">
                       {

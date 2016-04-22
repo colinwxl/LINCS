@@ -15,7 +15,7 @@ const router = new Router({
 router.get('/publications', async (ctx) => {
   try {
     const pubs = await Publication
-      .query(qb => qb.select().orderBy('year_published', 'desc'))
+      .query(qb => qb.select().orderByRaw('year_published DESC, pm_id DESC'))
       .fetchAll({ withRelated: ['authors'] });
     // Omit pivot by default
     const includePivot = !!ctx.query.includePivot;

@@ -37,6 +37,9 @@ export class PublicationsView extends Component {
   }
 
   shouldComponentUpdate(nextProps, nextState) {
+    // Prevent the component from updating if this.props.publications exists and
+    // the state has not changed.
+    // This prevents the publications from swapping everytime you click 'Select All'
     return !this.props.publications.length
       || !isEqual(this.state.categories, nextState.categories)
       || this.state.sortOrder !== nextState.sortOrder;
@@ -55,6 +58,20 @@ export class PublicationsView extends Component {
       (p.softwareDevelopment && categories.softwareDevelopment) ||
       (p.review && categories.review);
   };
+
+  _sortPublications = (a, b) => {
+    let result = a.yearPublished > b.yearPublished;
+    if (a.yearPublished === b.yearPublished) {
+      result = a.pmId > b.pmId;
+    }
+    if (this.state.sortOrder === 'descending') {
+      result = a.yearPublished < b.yearPublished;
+      if (a.yearPublished === b.yearPublished) {
+        result = a.pmId < b.pmId;
+      }
+    }
+    return result ? 1 : -1;
+  }
 
   _handleSortOrderChanged = (event) => {
     this.setState({ sortOrder: event.target.value });
@@ -103,20 +120,7 @@ export class PublicationsView extends Component {
 
   render() {
     let publications = this.props.publications;
-    publications.sort((a, b) => {
-      let result = a.yearPublished > b.yearPublished;
-      if (a.yearPublished === b.yearPublished && !!a.pmId && !!b.pmId) {
-        result = parseInt(a.pmId, 10) > parseInt(a.pmId, 10);
-      }
-      if (this.state.sortOrder === 'descending') {
-        result = a.yearPublished < b.yearPublished;
-        if (a.yearPublished === b.yearPublished && !!a.pmId && !!b.pmId) {
-          result = parseInt(a.pmId, 10) < parseInt(a.pmId, 10);
-        }
-      }
-      return result ? 1 : -1;
-    });
-    publications = publications.filter(this._filterCategories);
+    publications = publications.sort(this._sortPublications).filter(this._filterCategories);
     return (
       <div className={styles.wrapper}>
         <PageBanner
