@@ -6,7 +6,11 @@
   img {
     margin-bottom: 1rem;
     max-width: 100%;
-    width: auto;
+    width: 100%;
+
+    @media (min-width: 544px) {
+      width: auto;
+    }
   }
 }
 
