@@ -50,7 +50,7 @@ export default class Footer extends Component {
     this.setState({
       centersCollapsed: true,
       dataCollapsed: true,
-      annCollapsed: !this.state.annClicked,
+      annCollapsed: !this.state.annCollapsed,
     });
   }
 
