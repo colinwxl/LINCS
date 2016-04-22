@@ -216,7 +216,7 @@ const smMapping = {
   },
 };
 
-const { indices } = esClient;
+const { indices, bulk } = esClient;
 
 indices
   .delete({ index: 'lincs' })
@@ -227,12 +227,12 @@ indices
   .then(() => indices.open({ index: 'lincs' }))
   .then(() => indices.putMapping(datasetMapping))
   .then(() => indexDatasets())
-  .then(() => esClient.bulk({ body: bulkDs }))
+  .then(() => bulk({ body: bulkDs }))
   .then(() => indices.putMapping(cellMapping))
   .then(() => indexCells())
-  .then(() => esClient.bulk({ body: bulkCells }))
+  .then(() => bulk({ body: bulkCells }))
   .then(() => indices.putMapping(smMapping))
   .then(() => indexSms())
-  .then(() => esClient.bulk({ body: bulkSms }))
+  .then(() => bulk({ body: bulkSms }))
   .then(() => process.exit(0))
   .catch((e) => { throw e; });

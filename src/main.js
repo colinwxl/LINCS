@@ -9,7 +9,6 @@ import makeRoutes from './routes';
 import Root from 'containers/Root';
 import configureStore from 'store/configureStore';
 // import { attemptLoginFromToken } from 'actions/auth';
-import { loadDatasets } from 'actions/entities';
 
 const historyConfig = { basename: '/LINCS' };
 const browserHistory = useRouterHistory(createBrowserHistory)(historyConfig);
@@ -27,9 +26,6 @@ const routes = makeRoutes(store);
 // if (token) {
 //   store.dispatch(attemptLoginFromToken(token));
 // }
-
-// Load datasets to speed up loading of tree later
-store.dispatch(loadDatasets());
 
 const mountNode = document.getElementById('root');
 
