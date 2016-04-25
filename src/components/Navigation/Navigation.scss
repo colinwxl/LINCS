@@ -1,11 +1,13 @@
 @import 'variables';
 
+$nav-padding-top-bottom: ($nav-height - 20) / 2;
+
 .main-nav {
   background-color: $brand-primary;
   border-radius: 0;
   min-height: $nav-height;
-  padding-bottom: ($nav-height - 20) / 2;
-  padding-top: ($nav-height - 20) / 2;
+  padding-bottom: $nav-padding-top-bottom;
+  padding-top: $nav-padding-top-bottom;
   width: 100%;
 
   button,
@@ -19,6 +21,10 @@
       text-decoration: none;
     }
   }
+
+  .toggle {
+    color: $dark-gray;
+  }
 }
 
 .link {
@@ -30,10 +36,6 @@
     float: left;
     margin-left: 1rem;
   }
-}
-
-.toggle {
-  color: $dark-gray;
 }
 
 .main-nav-home {
@@ -49,5 +51,9 @@
       color: $darker-gray;
       text-decoration: none;
     }
+  }
+
+  .toggle {
+    color: $dark-gray;
   }
 }

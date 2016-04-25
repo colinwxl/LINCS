@@ -562,7 +562,7 @@ export default function NewsView() {
               <p>
                 The <Link to="/data/releases">Data Releases</Link> page describes the
                 collections of data released and planned to be released to the public by
-                the LINCS consortium.
+                the LINCS Consortium.
               </p>
             </div>
             <div className={styles['news-group']}>

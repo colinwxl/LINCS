@@ -180,22 +180,13 @@ function insertCellLines() {
                   created_at: moment().toDate(),
                 }));
                 knex.insert(syns).into('synonyms')
-                .then(() => resolve())
-                .catch(e => {
-                  debug(e);
-                  reject(e);
-                });
+                  .then(() => resolve())
+                  .catch(e => reject(e));
               });
             })
-            .catch(e => {
-              debug(e);
-              reject(e);
-            });
+            .catch(e => reject(e));
         })
-        .catch(e => {
-          debug(e);
-          reject(e);
-        });
+        .catch(e => reject(e));
     })
   ));
 }
@@ -208,7 +199,6 @@ function buildDatasets() {
         .then(smIds =>
           findCells(ds.cells)
             .then(cellIds => {
-              debug(cellIds);
               saveDataset(
                 _.pick(ds, Dataset.prototype.permittedAttributes()),
                 smIds,

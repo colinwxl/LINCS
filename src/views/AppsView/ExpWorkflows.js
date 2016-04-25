@@ -36,7 +36,7 @@ export default class ExpWorkflows extends Component {
         <div className="row">
           <div className="col-xs-12 col-sm-10 col-sm-offset-1 col-lg-8 col-lg-offset-2">
             <div className={styles.question}>
-              <h5 className="text-xs-center">What would you like to achieve with LINCS?</h5>
+              <h4 className="text-xs-center">What would you like to achieve with LINCS?</h4>
               <WorkflowInputForm onSubmit={this._handleSubmit} />
             </div>
             <h4>I would like to...</h4>

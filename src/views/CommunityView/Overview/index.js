@@ -19,7 +19,10 @@ export default class Overview extends Component {
       <div className={styles.wrapper}>
         <PageBanner
           title="The LINCS Community"
-          subTitle=""
+          subTitle={
+            'The consortium engages the biomedical research ' +
+            'communities through various outreach activities'
+          }
         />
         <div className="container">
           <div className="row">

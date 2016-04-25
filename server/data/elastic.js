@@ -6,10 +6,6 @@ import { Dataset } from '../models/Dataset';
 import { Cell } from '../models/Cell';
 import { SmallMolecule } from '../models/SmallMolecule';
 
-const bulkDs = [];
-const bulkCells = [];
-const bulkSms = [];
-
 function indexDatasets() {
   debug('Indexing datasets');
   return Dataset
@@ -17,8 +13,9 @@ function indexDatasets() {
     .fetchAll()
     .then(dsModels => dsModels.toJSON())
     .then(datasets => {
+      const body = [];
       datasets.forEach(ds => {
-        bulkDs.push({
+        body.push({
           index: {
             _index: 'lincs',
             _type: 'dataset',
@@ -35,6 +32,7 @@ function indexDatasets() {
           lincs_id: ds.lincsId,
         });
       });
+      return esClient.bulk({ body });
     });
 }
 
@@ -45,8 +43,9 @@ function indexCells() {
     .fetchAll()
     .then(cellModels => cellModels.toJSON())
     .then(cells => {
+      const body = [];
       cells.forEach(cell => {
-        bulkCells.push({
+        body.push({
           index: {
             _index: 'lincs',
             _type: 'cell',
@@ -58,6 +57,7 @@ function indexCells() {
           source: cell.source,
         });
       });
+      return esClient.bulk({ body });
     });
 }
 
@@ -68,8 +68,9 @@ function indexSms() {
     .fetchAll()
     .then(smModels => smModels.toJSON())
     .then(sms => {
+      let body = [];
       sms.forEach(sm => {
-        bulkSms.push({
+        body.push({
           index: {
             _index: 'lincs',
             _type: 'smallmolecule',
@@ -81,7 +82,12 @@ function indexSms() {
           source: sm.source,
           pubchem_cid: sm.pubchemCid,
         });
+        if (body.length === 5000) {
+          esClient.bulk({ body });
+          body = [];
+        }
       });
+      return esClient.bulk({ body });
     });
 }
 
@@ -216,7 +222,7 @@ const smMapping = {
   },
 };
 
-const { indices, bulk } = esClient;
+const { indices } = esClient;
 
 indices
   .delete({ index: 'lincs' })
@@ -227,12 +233,12 @@ indices
   .then(() => indices.open({ index: 'lincs' }))
   .then(() => indices.putMapping(datasetMapping))
   .then(() => indexDatasets())
-  .then(() => bulk({ body: bulkDs }))
   .then(() => indices.putMapping(cellMapping))
   .then(() => indexCells())
-  .then(() => bulk({ body: bulkCells }))
   .then(() => indices.putMapping(smMapping))
   .then(() => indexSms())
-  .then(() => bulk({ body: bulkSms }))
   .then(() => process.exit(0))
-  .catch((e) => { throw e; });
+  .catch((e) => {
+    debug(e);
+    process.exit(1);
+  });

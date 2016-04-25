@@ -18,6 +18,8 @@ const sortFeatures = [
   'Download', 'Leverages Ontology', 'Image Analysis',
 ];
 
+const sub = 'Tutorials, walkthroughs, and tools to help you be more productive with LINCS datasets';
+
 export default class AppsView extends Component {
   constructor(props) {
     super(props);
@@ -25,7 +27,6 @@ export default class AppsView extends Component {
       fetchingTools: true,
       workflowCategory: 'exp',
       tools: [],
-      centers: [],
       sortCenter: 'All',
       sortType: 'All',
       sortFeature: 'All',
@@ -71,9 +72,9 @@ export default class AppsView extends Component {
     } else if (sortType === 'All' && sortFeature === 'All') {
       return tool.center === sortCenter;
     } else if (sortType === 'All') {
-      return this._checkAllFeatures(tool);
+      return tool.center === sortCenter && this._checkAllFeatures(tool);
     } else if (sortFeature === 'All') {
-      return this._checkAllTypes(tool);
+      return tool.center === sortCenter && this._checkAllTypes(tool);
     }
     return tool.center === sortCenter && this._checkAllTypes(tool) && this._checkAllFeatures(tool);
   }
@@ -103,10 +104,7 @@ export default class AppsView extends Component {
     const tools = this.state.tools.filter(this._filterTools);
     return (
       <div className={styles.wrapper}>
-        <PageBanner
-          title="LINCS Workflows & Applications"
-          subTitle="Tutorials, walkthroughs, and tools to help you be more productive."
-        />
+        <PageBanner title="LINCS Workflows & Applications" subTitle={sub} />
         <div className="container">
           <div className="row">
             <div className="col-xs-12">

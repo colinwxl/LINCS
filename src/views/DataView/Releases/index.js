@@ -85,11 +85,11 @@ export class Releases extends Component {
                 as well as <Link to="/applications">data visualization and analysis tools</Link>.
               </p>
               <p>
-                For more information about tools related to the L1000 datasets, such as
-                scripts to parse .gct and .gctx files, visit
-                this <a href="https://github.com/wangz10/l1ktools" target="_blank">GitHub Page</a>.
-                (<a href="https://github.com/wangz10/l1ktools/archive/master.zip" target="_blank">
-                Download Link</a>)
+                <strong>
+                  For more expansive access to all LINCS datasets, please visit
+                  the <a href="http://lincsportal.ccs.miami.edu/datasets" target="_blank">
+                  LINCS Data Portal</a>.
+                </strong>
               </p>
               <div className={styles['search-wrap']}>
                 <SearchBar searchQuery={searchQ} />

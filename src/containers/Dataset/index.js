@@ -40,6 +40,9 @@ export class Dataset extends Component {
           </div>
           <div className="col-xs-5">
             <p className={`text-muted ${styles['info-date']}`}>
+              {ds.lincsId}
+            </p>
+            <p className={`text-muted ${styles['info-date']}`}>
               <em>{moment(ds.dateRetrieved).format('MMM Do, YYYY')}</em>
             </p>
             {showClicks && <p className={styles.clicks}>Clicks: {ds.clicks}</p>}

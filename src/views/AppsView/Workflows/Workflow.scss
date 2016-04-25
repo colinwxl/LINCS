@@ -7,8 +7,9 @@
   }
 }
 
-.harmonizome {
-  margin-bottom: 1.25rem;
+.harmonizome,
+.lincscloud {
+  margin: 2rem 0;
   text-align: center;
 
   h1 {
@@ -35,14 +36,13 @@
     border: 1px solid #ccc;
     border-radius: 0;
     float: left;
-    width: 105px;
   }
 
-  .ha-input {
+  .input {
     overflow: hidden;
   }
 
-  .ha-input-wrap {
+  .input-wrap {
     display: inline-block;
     float: left;
     position: relative;
@@ -75,5 +75,22 @@
       border-color: #adadad;
       color: #333;
     }
+  }
+}
+
+.harmonizome {
+  select {
+    width: 105px;
+  }
+}
+
+.lincscloud {
+  select {
+    width: 120px;
+  }
+
+  img {
+    margin-bottom: 1rem;
+    width: 250px;
   }
 }

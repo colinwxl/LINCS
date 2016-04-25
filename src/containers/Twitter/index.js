@@ -59,7 +59,7 @@ export class Twitter extends Component {
     return (
       <div className={styles.wrapper}>
         {
-          timeline.splice(0, 5).map(status => {
+          timeline.splice(0, 3).map(status => {
             const { id, createdAt, user } = status;
             return (
               <div key={id} className="container">

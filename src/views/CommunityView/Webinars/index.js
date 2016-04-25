@@ -13,8 +13,6 @@ const mapStateToProps = (state) => ({
   webinars: state.community.webinars,
 });
 
-// TODO: Make a stateless function once completed. Leave for now to enable hot-reloading.
-/* eslint react/prefer-stateless-function:0 max-len:0 */
 export class Webinars extends Component {
   componentWillMount() {
     this.props.fetchWebinars();
@@ -87,7 +85,8 @@ export class Webinars extends Component {
               <ol>
                 <li>
                   Join from your computer, tablet, or smartphone by
-                  visiting <a href="https://global.gotomeeting.com/join/168894253">https://global.gotomeeting.com/join/168894253</a>
+                  visiting <a href="https://global.gotomeeting.com/join/168894253">
+                  https://global.gotomeeting.com/join/168894253</a>
                 </li>
                 <li>
                   Use your microphone and speakers (VOIP) for audio. You’ll sound best with a
@@ -102,11 +101,13 @@ export class Webinars extends Component {
               <p>
                 For summary information about LINCS Data Science Webinars, please visit the
                 BD2K-LINCS DCIC's <a href="http://lincs-dcic.org/#/webinars">webinars page</a> or
-                their <a href="https://www.youtube.com/channel/UC88h_MIO1LP7Jv52VQ4qKkg">YouTube channel</a>.
+                their <a href="https://www.youtube.com/channel/UC88h_MIO1LP7Jv52VQ4qKkg">
+                YouTube channel</a>.
               </p>
               <p>
                 For detailed information including the discussion group, please visit the wiki
-                at <a href="https://sites.google.com/site/bd2klincsdatascience">https://sites.google.com/site/bd2klincsdatascience</a>
+                at <a href="https://sites.google.com/site/bd2klincsdatascience">
+                https://sites.google.com/site/bd2klincsdatascience</a>
               </p>
               <div className={styles.webinars}>
                 <h2>Upcoming Webinars</h2>

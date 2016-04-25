@@ -118,7 +118,7 @@ export default function ReleasePolicy(/* props */) {
               that they must be correctly cited so that others can establish provenance and
               access the original data; the correct citation will be released with each data
               set and will comprise either a PMID/PMCID reference or a unique LINCS identifier.
-              Investigators are encouraged to inform the LINCS consortium of ongoing
+              Investigators are encouraged to inform the LINCS Consortium of ongoing
               integrative analyses in order to minimize duplicative and competitive analyses
               groups. This information will also be available on
               the <Link to="/community">Community</Link> pages of the LINCS website.

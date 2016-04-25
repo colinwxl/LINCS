@@ -20,24 +20,24 @@ with open('Small_Molecule_Metadata_LDS-1195.txt', 'rU') as data:
     reader = csv.reader(data, skipinitialspace=False, delimiter="\t")
     lds1195 = [row[1] for row in reader if any(row)]
 
-r = requests.get('http://amp.pharm.mssm.edu/LINCS/api/v1/datasets/clicks')
-clicks = r.json()
+# r = requests.get('http://amp.pharm.mssm.edu/LINCS/api/v1/datasets/clicks')
+# clicks = r.json()
 
 for dsRow in dsArr:
     if 'Dataset ID' in dsRow[0]:
         continue
     ds = {
         'lincs_id': dsRow[0],
-        'center_name': dsRow[1],
-        'classification': dsRow[2],
-        'assay': dsRow[3],
-        'method': dsRow[4],
-        'physical_detection': dsRow[5],
+        'center_name': dsRow[1].strip(),
+        'classification': dsRow[2].strip(),
+        'assay': dsRow[3].strip(),
+        'method': dsRow[4].strip(),
+        'physical_detection': dsRow[5].strip(),
         'date_updated': dsRow[6] if dsRow[6] else None,
         'date_retrieved': dsRow[7] if dsRow[7] else None,
         'cells': [x.strip() for x in dsRow[8].split(',')] if dsRow[8] else [],
         'smIds': [x.strip() for x in dsRow[9].split(',')] if dsRow[9] else [],
-        'full_assay_name': dsRow[11],
+        'full_assay_name': dsRow[11].strip(),
         'source_link': dsRow[12] if dsRow[12] else None,
         'description': dsRow[14] if dsRow[14] else None,
         'assay_description': dsRow[15] if dsRow[15] else None,
@@ -51,9 +51,9 @@ for dsRow in dsArr:
     elif ds['lincs_id'] == 'LDS-1195':
         ds['smIds'] = lds1195;
 
-    for dsObj in clicks:
-        if ds['lincs_id'] == dsObj['lincsId'] and ds['method'] == dsObj.method:
-            ds['clicks'] = dsObj.clicks
+    # for dsObj in clicks:
+    #     if ds['lincs_id'] == dsObj['lincsId'] and ds['method'] == dsObj.method:
+    #         ds['clicks'] = dsObj.clicks
     datasets.append(ds)
 
 with open('../seed/datasets.js', 'w+') as out:

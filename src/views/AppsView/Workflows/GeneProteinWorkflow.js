@@ -15,7 +15,7 @@ export default class Workflow extends Component {
     super(props);
     this.state = {
       lincsCloudQ: {
-        engine: 'pertinfo',
+        engine: 'cell_id',
         term: '',
       },
     };
@@ -39,14 +39,15 @@ export default class Workflow extends Component {
     this.setState({ lincsCloudQ });
   }
 
-  _runLincsCloudQuery = () => {
+  _handleLQSubmit = (e) => {
+    e.preventDefault();
     const base = 'http://api.lincscloud.org/a2/';
     const key = 'lincsdemo';
     const { engine, term } = this.state.lincsCloudQ;
     const field = lcEngineFieldMap[engine];
 
     if (window) {
-      window.open(`${base}${engine}?q={"${field}:${term}"}&user_key=${key}`, '_blank');
+      window.open(`${base}${engine}?q={"${field}":"${term}"}&user_key=${key}`, '_blank');
     }
   }
 
@@ -98,9 +99,9 @@ export default class Workflow extends Component {
                       <span className="fa fa-search" />
                     </button>
                   </div>
-                  <div className={styles['ha-input']}>
+                  <div className={styles.input}>
                     <label htmlFor="q" className="sr-only">Search</label>
-                    <span className={styles['ha-input-wrap']}>
+                    <span className={styles['input-wrap']}>
                       <input
                         type="text"
                         className="form-control"
@@ -124,31 +125,48 @@ export default class Workflow extends Component {
                 expression signatures from this data. You can check if your gene of
                 interest was processed by this effort by typing it here:
               </p>
-              <div className="form-group">
+              <div className={styles.lincscloud}>
                 <img
                   src="/LINCS/files/lincscloud-logo.png"
                   alt="Lincscloud Logo"
                 />
-                <h1>Lincscloud</h1>
-                <select
-                  id="engine"
-                  className="form-control"
-                  onChange={this._handleEngineChanged}
-                  value={this.state.lincsCloudQ.engine}
+                <form
+                  acceptCharset="utf-8"
+                  className="form-horizontal"
+                  onSubmit={this._handleLQSubmit}
                 >
-                  <option value="cellinfo">Cell lines</option>
-                  <option value="geneinfo">Genes</option>
-                  <option value="pertinfo">Perturbations</option>
-                </select>
-                <input
-                  type="text"
-                  className="form-control"
-                  autoComplete="off"
-                  spellCheck="false"
-                  dir="auto"
-                  value={this.state.lincsCloudQ.term}
-                  onChange={this._handleTermChanged}
-                />
+                  <select
+                    id="engine"
+                    className="form-control"
+                    style={{ backgroundImage: `url(${require('./arrow-down.png')})` }}
+                    onChange={this._handleEngineChanged}
+                    value={this.state.lincsCloudQ.engine}
+                  >
+                    <option value="cellinfo">Cell lines</option>
+                    <option value="geneinfo">Genes</option>
+                    <option value="pertinfo">Perturbations</option>
+                  </select>
+                  <div className={`${styles.submit} input-group-btn`}>
+                    <button type="submit" className="btn btn-default">
+                      <span className="fa fa-search" />
+                    </button>
+                  </div>
+                  <div className={styles.input}>
+                    <label htmlFor="lq" className="sr-only">Search</label>
+                    <span className={styles['input-wrap']}>
+                      <input
+                        id="lq"
+                        type="text"
+                        className="form-control"
+                        autoComplete="off"
+                        spellCheck="false"
+                        dir="auto"
+                        value={this.state.lincsCloudQ.term}
+                        onChange={this._handleTermChanged}
+                      />
+                    </span>
+                  </div>
+                </form>
               </div>
             </div>
           </div>

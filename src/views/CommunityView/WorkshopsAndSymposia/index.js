@@ -8,8 +8,6 @@ import PageBanner from 'components/PageBanner';
 import PageNav from 'components/PageNav';
 import styles from './WorkshopsAndSymposia.scss';
 
-// TODO: Make a stateless function once completed. Leave for now to enable hot-reloading.
-/* eslint react/prefer-stateless-function:0 max-len:0 */
 const mapStateToProps = (state) => ({
   workshops: state.community.workshops,
   symposia: state.community.symposia,
@@ -26,7 +24,7 @@ export class WorkshopsAndSymposia extends Component {
       <div className={styles.wrapper}>
         <PageBanner
           title="Workshops &&nbsp;Symposia"
-          subTitle=""
+          subTitle="Members of the Consortium present LINCS-related topics at scientific meetings"
         />
         <div className="container">
           <div className="row">
