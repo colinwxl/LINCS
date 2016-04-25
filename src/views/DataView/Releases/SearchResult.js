@@ -28,7 +28,7 @@ export class SearchResult extends Component {
           <p className={styles.creator}>{ds.centerName}</p>
         </div>
         <p className={`text-muted ${styles['info-date']}`}>
-          <em>{moment(ds.dateRetrieved).format('MMM Do, YYYY')}</em>
+           {ds.lincsId} - <em>{moment(ds.dateRetrieved).format('MMM Do, YYYY')}</em>
         </p>
         <p className={styles.description}>{ds.description}</p>
         <div className={styles.links}>
