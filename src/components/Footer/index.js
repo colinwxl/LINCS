@@ -76,10 +76,10 @@ export default class Footer extends Component {
                   <a href={`${centersRoute}/dcic`}>BD2K-LINCS DCIC</a>
                 </li>
                 <li>
-                  <a href={`${dsgcRoute}/hms-lincs`}>HMS LINCS</a>
+                  <a href={`${dsgcRoute}/dtoxs`}>DToxS</a>
                 </li>
                 <li>
-                  <a href={`${dsgcRoute}/dtoxs`}>DToxS</a>
+                  <a href={`${dsgcRoute}/hms-lincs`}>HMS LINCS</a>
                 </li>
                 <li>
                   <a href={`${dsgcRoute}/lincs-pccse`}>LINCS Proteomics</a>
@@ -175,10 +175,10 @@ export default class Footer extends Component {
               <h5>Contact</h5>
               <ul className={styles.icons}>
                 <li>
-                  <a href="https://twitter.com/BD2KLINCSDCIC">
+                  <a href="https://twitter.com/LINCSProgram">
                     <i className="fa fa-twitter" />
                   </a>
-                  <a href="https://www.youtube.com/channel/UC88h_MIO1LP7Jv52VQ4qKkg">
+                  <a href="https://www.youtube.com/channel/UCNcDd4x8PsUZpt4U2Xa8sfg">
                     <i className="fa fa-youtube-square" />
                   </a>
                   <a href={mailLink}>

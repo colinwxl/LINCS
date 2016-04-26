@@ -163,3 +163,38 @@
     font: .875rem "Helvetica Neue", Helvetica, Arial, sans-serif; // 14px
   }
 }
+
+.search-meta {
+
+  iframe {
+    height: 186px;
+    margin-bottom: 2rem;
+    width: 330px;
+  }
+
+  table {
+    margin-bottom: 2rem;
+  }
+
+  thead {
+    border-bottom: 2px solid $dark-gray;
+    color: $dark-gray;
+    font-weight: 600;
+
+    td {
+      border-top: 0;
+    }
+  }
+
+  td {
+    border-color: $gray;
+    min-width: 200px;
+  }
+
+  .examples {
+
+    p {
+      margin-bottom: .5rem;
+    }
+  }
+}
