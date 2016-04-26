@@ -10,7 +10,7 @@ function indexDatasets() {
   debug('Indexing datasets');
   return Dataset
     .forge()
-    .fetchAll()
+    .fetchAll({ withRelated: ['center'] })
     .then(dsModels => dsModels.toJSON())
     .then(datasets => {
       const body = [];
@@ -24,7 +24,7 @@ function indexDatasets() {
         }, {
           full_assay_name: ds.fullAssayName,
           description: ds.description,
-          center_name: ds.centerName,
+          center_name: ds.center.name,
           assay: ds.assay,
           method: ds.method,
           classification: ds.classification,

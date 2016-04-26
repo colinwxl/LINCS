@@ -1,10 +1,17 @@
 /* eslint max-len:0 */
 export default {
+  centers: {
+    id: { type: 'increments', nullable: false, primary: true },
+    name: { type: 'string', maxlength: 255, nullable: false, unique: true },
+    description: { type: 'text', maxlength: 16777215, fieldtype: 'medium', nullable: true },
+    created_at: { type: 'dateTime', nullable: false },
+    updated_at: { type: 'dateTime', nullable: true },
+  },
   datasets: {
     id: { type: 'increments', nullable: false, primary: true },
     description: { type: 'text', maxlength: 16777215, fieldtype: 'medium', nullable: true },
     full_assay_name: { type: 'text', maxlength: 65535, nullable: true },
-    center_name: { type: 'string', maxlength: 255, nullable: false },
+    center_id: { type: 'integer', nullable: false, unsigned: true, references: 'centers.id' },
     assay: { type: 'string', maxlength: 255, nullable: false },
     method: { type: 'string', maxlength: 255, nullable: false },
     classification: { type: 'string', maxlength: 255, nullable: false },
@@ -133,7 +140,7 @@ export default {
   tools: {
     id: { type: 'increments', nullable: false, primary: true },
     name: { type: 'string', maxlength: 255, nullable: false },
-    center: { type: 'string', maxlength: 255, nullable: true },
+    center_id: { type: 'integer', nullable: false, unsigned: true, references: 'centers.id' },
     description: { type: 'text', maxlength: 16777215, fieldtype: 'medium', nullable: true },
     url: { type: 'string', maxlength: 255, nullable: true, unique: true },
     icon_url: { type: 'string', maxlength: 255, nullable: true },

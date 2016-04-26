@@ -64,19 +64,20 @@ export default class AppsView extends Component {
   }
 
   _filterTools = (tool) => {
+    const centerName = tool.center.name;
     const { sortCenter, sortType, sortFeature } = this.state;
     if (sortCenter === 'All' && sortType === 'All' && sortFeature === 'All') {
       return true;
     } else if (sortCenter === 'All') {
       return this._checkAllTypes(tool) && this._checkAllFeatures(tool);
     } else if (sortType === 'All' && sortFeature === 'All') {
-      return tool.center === sortCenter;
+      return centerName === sortCenter;
     } else if (sortType === 'All') {
-      return tool.center === sortCenter && this._checkAllFeatures(tool);
+      return centerName === sortCenter && this._checkAllFeatures(tool);
     } else if (sortFeature === 'All') {
-      return tool.center === sortCenter && this._checkAllTypes(tool);
+      return centerName === sortCenter && this._checkAllTypes(tool);
     }
-    return tool.center === sortCenter && this._checkAllTypes(tool) && this._checkAllFeatures(tool);
+    return centerName === sortCenter && this._checkAllTypes(tool) && this._checkAllFeatures(tool);
   }
 
   _handleExpClicked = () => { this.setState({ workflowCategory: 'exp' }); }
@@ -100,7 +101,7 @@ export default class AppsView extends Component {
     const isCompBio = workflowCategory === 'compBio';
     // http://stackoverflow.com/questions/15125920/how-to-get-distinct-values-from-an-array-of-objects-in-javascript
     // ES6 get unique elements
-    const centers = ['All', ...new Set(this.state.tools.map(tool => tool.center))];
+    const centers = ['All', ...new Set(this.state.tools.map(tool => tool.center.name))];
     const tools = this.state.tools.filter(this._filterTools);
     return (
       <div className={styles.wrapper}>

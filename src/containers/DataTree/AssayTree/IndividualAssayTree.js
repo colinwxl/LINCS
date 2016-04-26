@@ -31,7 +31,7 @@ export class IndividualAssayTree extends Component {
       if ((assayName && assay === assayName) || (methodName && method === methodName)) {
         if (cellId && cells.indexOf(parseInt(cellId, 10)) !== -1) {
           childDatasets.push(ds);
-        } else if (centerName && ds.centerName === centerName) {
+        } else if (centerName && ds.center.name === centerName) {
           childDatasets.push(ds);
         } else if (!centerName && !cellId) {
           childDatasets.push(ds);

@@ -1,8 +1,12 @@
 import lincsBookshelf from './base';
 
+require('./Center');
 require('./Publication');
 const model = lincsBookshelf.Model.extend({
   tableName: 'tools',
+  center() {
+    return this.belongsTo('Center');
+  },
   publications() {
     return this.belongsToMany('Publication', 'tools_publications');
   },

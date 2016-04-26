@@ -168,6 +168,14 @@ export default class Workflow extends Component {
                   </div>
                 </form>
               </div>
+              <div className={styles.creeds}>
+                <p>
+                  The BD2K-LINCS DCIC, through a crowdsourcing effort, also collected data from
+                  gene perturbation followed by expression from GEO, and generated expression
+                  signatures from this data. You can check if your gene of interest was
+                  processed by this effort by typing it here:
+                </p>
+              </div>
             </div>
           </div>
         </div>

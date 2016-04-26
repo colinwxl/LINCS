@@ -1,5 +1,6 @@
 import Boom from 'boom';
 
+import centers from './centers';
 import ds from './datasets';
 import comm from './community';
 import pn from './pubsNews';
@@ -8,7 +9,7 @@ import twitter from './twitter';
 import tw from './toolsWorkflows';
 
 export default (app) => {
-  [ds, comm, pn, health, twitter, tw].forEach(router => {
+  [centers, ds, comm, pn, health, twitter, tw].forEach(router => {
     /* eslint new-cap:0 */
     app
     .use(router.routes())

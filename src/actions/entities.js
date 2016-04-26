@@ -8,7 +8,7 @@ export const INCREMENT_DATASET_CLICKS_REQUEST = 'INCREMENT_DATASET_CLICKS_REQUES
 export const INCREMENT_DATASET_CLICKS_SUCCESS = 'INCREMENT_DATASET_CLICKS_SUCCESS';
 export const INCREMENT_DATASET_CLICKS_FAILURE = 'INCREMENT_DATASET_CLICKS_FAILURE';
 
-function fetchDatasets(include = ['cells', 'cells.tissues', 'cells.diseases']) {
+function fetchDatasets(include = ['center', 'cells', 'cells.tissues', 'cells.diseases']) {
   let endpoint = 'datasets';
   if (include.length) {
     endpoint += `?include=${include.join(',')}`;

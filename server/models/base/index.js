@@ -1,6 +1,7 @@
 import bookshelf from 'bookshelf';
 import moment from 'moment';
 import _ from 'lodash';
+import camelize from 'camelize';
 
 import { knex } from '../../serverConf';
 import pagination from './pagination';
@@ -17,7 +18,7 @@ lincsBookshelf.Model = lincsBookshelf.Model.extend({
     return _.keys(schema[this.tableName]);
   },
   // defaults: () => ({}),
-  snakeCase: function snakeCase(attributes) {
+  snakeCase(attributes) {
     const self = this;
     const attrs = {};
     _.each(attributes, (value, key) => {
@@ -27,17 +28,17 @@ lincsBookshelf.Model = lincsBookshelf.Model.extend({
     });
     return attrs;
   },
-  camelCase: function camelCase(attributes) {
+  camelCase(attributes) {
     const self = this;
-    const attrs = {};
+    const attrs = attributes;
     _.each(attributes, (value, key) => {
       if (schema[self.tableName].hasOwnProperty(key)) {
-        attrs[_.camelCase(key)] = value;
+        attrs[camelize(key)] = value;
       }
     });
     return attrs;
   },
-  stringifyObjects: function stringifyObjects(attributes) {
+  stringifyObjects(attributes) {
     const self = this;
     const attrs = attributes;
     _.each(attrs, (value, key) => {
@@ -49,7 +50,7 @@ lincsBookshelf.Model = lincsBookshelf.Model.extend({
     });
     return attrs;
   },
-  stringsToObjects: function stringsToObjects(attributes) {
+  stringsToObjects(attributes) {
     const self = this;
     const attrs = attributes;
     _.each(attrs, (value, key) => {
@@ -63,7 +64,7 @@ lincsBookshelf.Model = lincsBookshelf.Model.extend({
     });
     return attrs;
   },
-  fixBools: function fixBools(attributes) {
+  fixBools(attributes) {
     const self = this;
     const attrs = attributes;
     _.each(attrs, (value, key) => {
@@ -74,7 +75,7 @@ lincsBookshelf.Model = lincsBookshelf.Model.extend({
     });
     return attrs;
   },
-  fixDates: function fixDates(attributes) {
+  fixDates(attributes) {
     const self = this;
     const attrs = attributes;
     _.each(attrs, (value, key) => {
@@ -91,6 +92,28 @@ lincsBookshelf.Model = lincsBookshelf.Model.extend({
     });
     return attrs;
   },
+  // serialize(options = {}) {
+  //   const { shallow = false, omitPivot = false, ...rest } = options;
+  //   const { attributes } = this;
+  //
+  //   if (!shallow) {
+  //     const relations = _.mapValues(this.relations, (relation) => {
+  //       if (relation.toJSON !== null) {
+  //         return relation.toJSON({ shallow, omitPivot, ...rest });
+  //       }
+  //       return relation;
+  //     });
+  //
+  //     const pivot = this.pivot && !omitPivot && this.pivot.attributes;
+  //     const pivotAttributes = _.mapKeys(pivot, (value, key) =>
+  //       `_pivot_${key}`
+  //     );
+  //
+  //     return { ...attributes, ...relations, ...pivotAttributes };
+  //   }
+  //
+  //   return { ...attributes };
+  // },
   format(attributes) {
     let attrs = attributes;
     attrs = this.snakeCase(attrs);

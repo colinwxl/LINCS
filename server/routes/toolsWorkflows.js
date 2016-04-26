@@ -1,7 +1,7 @@
 /* eslint no-param-reassign:0 */
 import Router from 'koa-router';
 import nodemailer from 'nodemailer';
-import { Tool } from '../models/Tool';
+import { Tools } from '../models/Tool';
 import { Workflow } from '../models/Workflow';
 import _debug from 'debug';
 const debug = _debug('app:server:routes:health');
@@ -12,7 +12,9 @@ const router = new Router({
 
 router.get('/tools', async (ctx) => {
   try {
-    const tools = await Tool.query(qb => qb.select().orderBy('order', 'asc')).fetchAll();
+    const tools = await Tools
+      .query(qb => qb.select().orderBy('order', 'asc'))
+      .fetch({ withRelated: ['center'] });
     ctx.body = tools.toJSON();
   } catch (e) {
     debug(e);

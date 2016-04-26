@@ -10,6 +10,7 @@ import { Cell } from '../models/Cell';
 import { SmallMolecule } from '../models/SmallMolecule';
 import { Author } from '../models/Author';
 import { Publication } from '../models/Publication';
+import { Tool } from '../models/Tool';
 import tools from '../../seed/tools';
 import smallMolecules from '../../seed/smallMolecules';
 import cellLines from '../../seed/cellLines';
@@ -23,9 +24,10 @@ import { knex } from '../serverConf';
 
 const debug = _debug('app:server:data:seed');
 
-function saveDataset(dsObj, smIds, cellIds) {
+function saveDataset(dsObj, centerId, smIds, cellIds) {
+  const ds = { center_id: centerId, ...dsObj };
   return Dataset
-    .forge(dsObj)
+    .forge(ds)
     .save()
     .then(dsModel => {
       if (smIds.length) {
@@ -191,27 +193,53 @@ function insertCellLines() {
   ));
 }
 
+function insertCenters() {
+  // http://stackoverflow.com/questions/15125920/how-to-get-distinct-values-from-an-array-of-objects-in-javascript
+  // ES6 get unique elements
+  const centerNames = ['BD2K-LINCS DCIC', ...new Set(datasets.map(dataset => dataset.center_name))];
+  const created = moment().toDate();
+  const centers = centerNames.map(name => ({ name, created_at: created }));
+  debug(`Inserting ${centers.length} centers...`);
+  return knex.insert(centers).into('centers');
+}
+
+function findCenterId(centerName) {
+  return knex
+    .select('id')
+    .from('centers')
+    .where('name', centerName)
+    .then(resultsArr => {
+      if (resultsArr.length) {
+        return resultsArr[0].id;
+      }
+      return null;
+    });
+}
+
 function buildDatasets() {
   debug(`Inserting ${datasets.length} datasets.`);
+  const attrs = Dataset.prototype.permittedAttributes();
   return Promise.all(datasets.map(ds =>
     new Promise((resolve, reject) => {
-      findSmallMolecules(ds.smIds)
-        .then(smIds =>
-          findCells(ds.cells)
-            .then(cellIds => {
-              saveDataset(
-                _.pick(ds, Dataset.prototype.permittedAttributes()),
-                smIds,
-                cellIds
-              ).then(() => {
-                resolve();
-              });
+      findCenterId(ds.center_name)
+        .then(centerId => {
+          findSmallMolecules(ds.smIds)
+            .then(smIds => {
+              findCells(ds.cells)
+                .then(cellIds => {
+                  saveDataset(_.pick(ds, attrs), centerId, smIds, cellIds)
+                    .then(resolve);
+                })
+                .catch(e => {
+                  debug(e);
+                  reject(e);
+                });
             })
             .catch(e => {
               debug(e);
               reject(e);
-            })
-        )
+            });
+        })
         .catch(e => {
           debug(e);
           reject(e);
@@ -245,6 +273,18 @@ function insertPublications() {
   );
 }
 
+function insertTools() {
+  debug(`Inserting ${tools.length} tools...`);
+  return Promise.all(tools.map(toolObj => {
+    const tool = _.pick(toolObj, Tool.prototype.permittedAttributes());
+    return findCenterId(toolObj.center)
+      .then(centerId => {
+        tool.center_id = centerId;
+        return knex.insert(tool).into('tools');
+      });
+  }));
+}
+
 knex.raw('select 1+1 as result').then(() => {
   debug('Connection successful.');
   const promises = [];
@@ -258,31 +298,21 @@ knex.raw('select 1+1 as result').then(() => {
   promises.push(knex.insert(shops).into('workshops'));
   promises.push(knex.insert(webs).into('webinars'));
   promises.push(knex.insert(opps).into('funding_opportunities'));
-  promises.push(knex.insert(tools).into('tools'));
   promises.push(insertPublications());
 
   if (argv['omit-data']) {
-    debug('Omitting dataset tables.');
+    debug('Omitting centers, tools, and dataset tables.');
   } else {
     promises.push(
       new Promise((resolve, reject) => {
         insertSmallMolecules()
-          .then(() => {
-            debug('Small molecules inserted.');
-            return insertTissuesAndDiseases();
-          })
-          .then(() => {
-            debug('Tissues and diseases inserted.');
-            return insertCellLines();
-          })
-          .then(() => {
-            debug('Cells inserted.');
-            return buildDatasets();
-          })
-          .then(() => {
-            debug('Datasets inserted.');
-            resolve();
-          })
+          .then(() => insertTissuesAndDiseases())
+          .then(() => insertCellLines())
+          .then(() => insertCenters())
+          // Need to insert tools after centers
+          .then(() => insertTools())
+          .then(() => buildDatasets())
+          .then(resolve)
           .catch(e => {
             reject(e);
             debug(e);

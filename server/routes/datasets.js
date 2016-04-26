@@ -9,6 +9,7 @@ import _debug from 'debug';
 const debug = _debug('app:server:routes:datasets');
 import { esClient } from '../serverConf';
 import { Dataset } from '../models/Dataset';
+import { Center } from '../models/Center';
 
 const router = new Router({
   prefix: '/LINCS/api/v1/datasets',
@@ -41,6 +42,18 @@ router.get('/clicks', async (ctx) => {
   }
 });
 
+router.get('/recent', async (ctx) => {
+  try {
+    const datasets = await Dataset
+      .query(qb => qb.select().distinct('center_name').orderBy('date_retrieved', 'desc'))
+      .fetchAll();
+    ctx.body = datasets.toJSON();
+  } catch (e) {
+    debug(e);
+    ctx.throw(500, 'An error occurred obtaining datasets.');
+  }
+});
+
 router.get('/tree', async (ctx) => {
   const assays = await Dataset
     .query(qb => qb.distinct('assay').select().orderBy('assay', 'asc'))
@@ -54,10 +67,9 @@ router.get('/tree', async (ctx) => {
     .query(qb => qb.distinct('method').select().orderBy('method', 'asc'))
     .fetchAll()
     .then(models => models.toJSON().map(obj => obj.method));
-  const centers = await Dataset
-    .query(qb => qb.distinct('center_name').select().orderBy('center_name', 'asc'))
+  const centers = await Center
     .fetchAll()
-    .then(models => models.toJSON().map(obj => obj.centerName));
+    .then(models => models.toJSON().map(obj => obj.name));
 
   const alphabetical = await Dataset
     .query(qb => qb.select('id').orderBy('method', 'asc'))
@@ -215,75 +227,6 @@ router.post('/clicks/increment', async (ctx) => {
   }
 });
 
-function generateRIS(ds) {
-  return new Promise(resolve => {
-    const dateRetrieved = moment(ds.dateRetrieved);
-    const filename = `${ds.method.replace(/\s/g, '_')}-${ds.lincsId}.ris`;
-    const filePath = path.join(__dirname, '/', filename);
-    const stream = fs.createWriteStream(filePath);
-    stream.write('TY  - DATA\n');
-    stream.write(`AU  - ${ds.centerName}\n`);
-    stream.write(`PY  - ${dateRetrieved.format('YYYY')}\n`);
-    stream.write(`DA  - ${dateRetrieved.format('YYYY/MM/DD')}\n`);
-    if (ds.method && ds.method.length && ds.description && ds.description.length) {
-      stream.write(`TI  - ${ds.method}\n`);
-      stream.write(`AB  - ${ds.description}\n`);
-    } else if (ds.description && ds.description.length) {
-      stream.write(`TI  - ${ds.description}\n`);
-    }
-    stream.write('DP  - NIH LINCS Program\n');
-    stream.write(`KW  - ${ds.lincsId}\n`);
-    stream.write(`UR  - ${ds.sourceLink}\n`);
-    stream.write(`ER  - \n`);
-    stream.end();
-    stream.on('finish', () => resolve({ filePath, filename }));
-  });
-}
-
-function generateENW(ds) {
-  return new Promise(resolve => {
-    const dateRetrieved = moment(ds.dateRetrieved);
-    const filename = `${ds.method.replace(/\s/g, '_')}-${ds.lincsId}.enw`;
-    const filePath = path.join(__dirname, '/', filename);
-    const stream = fs.createWriteStream(filePath);
-    stream.write('%0 Dataset\n');
-    stream.write(`%A ${ds.centerName}\n`);
-    stream.write(`%D ${dateRetrieved.format('YYYY')}\n`);
-    if (ds.method && ds.method.length) {
-      stream.write(`%T ${ds.method}\n`);
-    } else if (ds.description && ds.description.length) {
-      stream.write(`%T ${ds.description}\n`);
-    }
-    stream.write(`%M ${ds.lincsId}\n`);
-    stream.write(`%U ${ds.sourceLink}\n`);
-    stream.end();
-    stream.on('finish', () => resolve({ filePath, filename }));
-  });
-}
-
-function generateBIB(ds) {
-  return new Promise(resolve => {
-    const year = moment(ds.dateRetrieved).format('YYYY');
-    const filename = `${ds.method.replace(/\s/g, '_')}-${ds.lincsId}.bib`;
-    const filePath = path.join(__dirname, '/', filename);
-    const stream = fs.createWriteStream(filePath);
-    stream.write(`@unpublished{${ds.centerName.replace(/\s/g, '_')}${year},\n`);
-    stream.write(`author="${ds.centerName}",\n`);
-    stream.write(`year="${year}",\n`);
-    if (ds.method && ds.method.length && ds.description && ds.description.length) {
-      stream.write(`title="${ds.method}"\n`);
-      stream.write(`"${ds.description}"\n`);
-    } else if (ds.description && ds.description.length) {
-      stream.write(`title="${ds.description}"\n`);
-    }
-    stream.write(`url="${ds.sourceLink}"\n`);
-    stream.write(`note="Unpublished dataset, LINCS ID: ${ds.lincsId}"\n`);
-    stream.write(`}\n\n`);
-    stream.end();
-    stream.on('finish', () => resolve({ filePath, filename }));
-  });
-}
-
 router.get('/:id', async (ctx) => {
   let id = -1;
   try {
@@ -399,8 +342,77 @@ router.get('/:id/download/gctx', async (ctx) => {
   }
 });
 
+function generateRIS(ds) {
+  return new Promise(resolve => {
+    const dateRetrieved = moment(ds.dateRetrieved);
+    const filename = `${ds.method.replace(/\s/g, '_')}-${ds.lincsId}.ris`;
+    const filePath = path.join(__dirname, '/', filename);
+    const stream = fs.createWriteStream(filePath);
+    stream.write('TY  - DATA\n');
+    stream.write(`AU  - ${ds.center.name}\n`);
+    stream.write(`PY  - ${dateRetrieved.format('YYYY')}\n`);
+    stream.write(`DA  - ${dateRetrieved.format('YYYY/MM/DD')}\n`);
+    if (ds.method && ds.method.length && ds.description && ds.description.length) {
+      stream.write(`TI  - ${ds.method}\n`);
+      stream.write(`AB  - ${ds.description}\n`);
+    } else if (ds.description && ds.description.length) {
+      stream.write(`TI  - ${ds.description}\n`);
+    }
+    stream.write('DP  - NIH LINCS Program\n');
+    stream.write(`KW  - ${ds.lincsId}\n`);
+    stream.write(`UR  - ${ds.sourceLink}\n`);
+    stream.write(`ER  - \n`);
+    stream.end();
+    stream.on('finish', () => resolve({ filePath, filename }));
+  });
+}
+
+function generateENW(ds) {
+  return new Promise(resolve => {
+    const dateRetrieved = moment(ds.dateRetrieved);
+    const filename = `${ds.method.replace(/\s/g, '_')}-${ds.lincsId}.enw`;
+    const filePath = path.join(__dirname, '/', filename);
+    const stream = fs.createWriteStream(filePath);
+    stream.write('%0 Dataset\n');
+    stream.write(`%A ${ds.center.name}\n`);
+    stream.write(`%D ${dateRetrieved.format('YYYY')}\n`);
+    if (ds.method && ds.method.length) {
+      stream.write(`%T ${ds.method}\n`);
+    } else if (ds.description && ds.description.length) {
+      stream.write(`%T ${ds.description}\n`);
+    }
+    stream.write(`%M ${ds.lincsId}\n`);
+    stream.write(`%U ${ds.sourceLink}\n`);
+    stream.end();
+    stream.on('finish', () => resolve({ filePath, filename }));
+  });
+}
+
+function generateBIB(ds) {
+  return new Promise(resolve => {
+    const year = moment(ds.dateRetrieved).format('YYYY');
+    const filename = `${ds.method.replace(/\s/g, '_')}-${ds.lincsId}.bib`;
+    const filePath = path.join(__dirname, '/', filename);
+    const stream = fs.createWriteStream(filePath);
+    stream.write(`@unpublished{${ds.center.name.replace(/\s/g, '_')}${year},\n`);
+    stream.write(`author="${ds.center.name}",\n`);
+    stream.write(`year="${year}",\n`);
+    if (ds.method && ds.method.length && ds.description && ds.description.length) {
+      stream.write(`title="${ds.method}"\n`);
+      stream.write(`"${ds.description}"\n`);
+    } else if (ds.description && ds.description.length) {
+      stream.write(`title="${ds.description}"\n`);
+    }
+    stream.write(`url="${ds.sourceLink}"\n`);
+    stream.write(`note="Unpublished dataset, LINCS ID: ${ds.lincsId}"\n`);
+    stream.write(`}\n\n`);
+    stream.end();
+    stream.on('finish', () => resolve({ filePath, filename }));
+  });
+}
+
 router.get('/:id/reference/:refType', async (ctx) => {
-  const dsModel = await Dataset.where('id', ctx.params.id).fetch();
+  const dsModel = await Dataset.where('id', ctx.params.id).fetch({ withRelated: ['center'] });
   const dataset = dsModel.toJSON();
   let fPath;
   let fName;

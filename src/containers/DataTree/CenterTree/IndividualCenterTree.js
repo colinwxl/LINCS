@@ -9,7 +9,7 @@ export default function IndividualCenterTree(props) {
   const centerTree = { collapsed: true, assays: [], datasets: [] };
   datasets.forEach((ds) => {
     const { assay } = ds;
-    if (centerName === ds.centerName) {
+    if (centerName === ds.center.name) {
       centerTree.datasets.push(ds);
       if (centerTree.assays.indexOf(assay) === -1) {
         centerTree.assays.push(assay);

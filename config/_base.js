@@ -53,7 +53,6 @@ const config = {
     'react-router',
     'react-router-redux',
     'redux',
-    'redux-devtools-log-monitor',
     'redux-form',
     'redux-thunk',
     'tether',

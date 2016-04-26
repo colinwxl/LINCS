@@ -5,7 +5,7 @@ require('./Cell');
 const model = lincsBookshelf.Model.extend({
   tableName: 'synonyms',
   // Relations
-  cells() {
+  cell() {
     return this.belongsTo('Cell');
   },
 });

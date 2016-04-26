@@ -25,7 +25,7 @@ export class SearchResult extends Component {
       <div className={styles.dataset}>
         <div className={styles['ds-header']}>
           <h5>{ds.method}</h5>
-          <p className={styles.creator}>{ds.centerName}</p>
+          <p className={styles.creator}>{ds.center.name}</p>
         </div>
         <p className={`text-muted ${styles['info-date']}`}>
            {ds.lincsId} - <em>{moment(ds.dateRetrieved).format('MMM Do, YYYY')}</em>

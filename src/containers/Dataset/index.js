@@ -36,7 +36,7 @@ export class Dataset extends Component {
         <div className="row">
           <div className="col-xs-7">
             <h5>{ds.method}</h5>
-            <p className={styles.creator}>{ds.centerName}</p>
+            <p className={styles.creator}>{ds.center.name}</p>
           </div>
           <div className="col-xs-5">
             <p className={`text-muted ${styles['info-date']}`}>
