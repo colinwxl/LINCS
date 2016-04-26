@@ -15,7 +15,7 @@ router.get('/tools', async (ctx) => {
     const tools = await Tools
       .query(qb => qb.select().orderBy('order', 'asc'))
       .fetch({ withRelated: ['center'] });
-    ctx.body = tools.toJSON();
+    ctx.body = tools.toJSON({ omitPivot: true });
   } catch (e) {
     debug(e);
     ctx.throw(500, 'An error occurred obtaining tools.');

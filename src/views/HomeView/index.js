@@ -2,6 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import { Link } from 'react-router';
 import { connect } from 'react-redux';
 
+import handleResponse from 'utils/handleResponse';
 import Twitter from 'containers/Twitter';
 import { loadPublications } from 'actions/pubsNews';
 import styles from './HomeView.scss';
@@ -11,11 +12,28 @@ const mapStateToProps = (state) => ({
 });
 
 export class HomeView extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      recentDatasets: [],
+    };
+  }
+
   componentWillMount = () => {
     this.props.loadPublications();
   }
 
+  componentDidMount() {
+    fetch('/LINCS/api/v1/datasets/recent')
+      .then(handleResponse)
+      .then(response => response.json())
+      .then(recentDatasets => {
+        this.setState({ recentDatasets });
+      });
+  }
+
   render() {
+    console.log(this.state.recentDatasets);
     const { publications } = this.props;
     const pubs = publications
       .filter(pub => !!pub.showAtHomeOrder)
@@ -50,6 +68,23 @@ export class HomeView extends Component {
         </div>
         <div className={`${styles.content}`}>
           <div className="container">
+            <div className="row">
+              <div className="col-xs-12">
+                <div className={styles.section}>
+                  <h3 className={styles.title}>Recent Dataset Releases</h3>
+                  <div className="row">
+                    {
+                      this.state.recentDatasets.map(ds =>
+                        <div key={ds.id} className="col-xs-12 col-sm-6 col-md-4">
+                          <h5>{ds.method}</h5>
+                          <p>{ds.center.name}</p>
+                        </div>
+                      )
+                    }
+                  </div>
+                </div>
+              </div>
+            </div>
             <div className="row">
               <div className="col-lg-5 col-lg-push-7">
                 <div className={styles.section}>

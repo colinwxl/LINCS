@@ -1,7 +1,7 @@
 import bookshelf from 'bookshelf';
 import moment from 'moment';
 import _ from 'lodash';
-import camelize from 'camelize';
+// import camelize from 'camelize';
 
 import { knex } from '../../serverConf';
 import pagination from './pagination';
@@ -33,7 +33,7 @@ lincsBookshelf.Model = lincsBookshelf.Model.extend({
     const attrs = attributes;
     _.each(attributes, (value, key) => {
       if (schema[self.tableName].hasOwnProperty(key)) {
-        attrs[camelize(key)] = value;
+        attrs[_.camelCase(key)] = value;
       }
     });
     return attrs;

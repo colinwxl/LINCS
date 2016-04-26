@@ -43,11 +43,27 @@ router.get('/clicks', async (ctx) => {
 });
 
 router.get('/recent', async (ctx) => {
+  // This endpoint returns an array of datasets
+  // These datasets are the most recent release from each center
   try {
+    // Get all centers and their datasets in order of date retrieved
+    const centers = await Center
+      .fetchAll({
+        withRelated: [
+          { datasets: (query) => query.orderBy('date_retrieved', 'desc') },
+        ],
+      })
+      .then(models => models.toJSON({ omitPivot: true }));
+    // Remove centers without datasets
+    const centersWithDatasets = centers.filter(center => center.datasets.length);
+    // Get the id of the most recent dataset of each center
+    const datasetIds = centersWithDatasets.map(center => center.datasets[0].id);
+    // Query for these datasets
     const datasets = await Dataset
-      .query(qb => qb.select().distinct('center_name').orderBy('date_retrieved', 'desc'))
-      .fetchAll();
-    ctx.body = datasets.toJSON();
+      .query(qb => qb.whereIn('id', datasetIds))
+      .fetchAll({ withRelated: ['center'] })
+      .then(models => models.toJSON({ omitPivot: true }));
+    ctx.body = datasets;
   } catch (e) {
     debug(e);
     ctx.throw(500, 'An error occurred obtaining datasets.');
@@ -67,9 +83,17 @@ router.get('/tree', async (ctx) => {
     .query(qb => qb.distinct('method').select().orderBy('method', 'asc'))
     .fetchAll()
     .then(models => models.toJSON().map(obj => obj.method));
+  // Find all centers. Return a sorted array with centerNames and
+  // remove centers without any datasets (DCIC)
   const centers = await Center
-    .fetchAll()
-    .then(models => models.toJSON().map(obj => obj.name));
+    .fetchAll({ withRelated: ['datasets'] })
+    .then(centerModels => centerModels.toJSON({ omitPivot: true }))
+    .then(centerArr =>
+      centerArr
+        .filter(centerObj => !!centerObj.datasets.length)
+        .map(center => center.name)
+        .sort()
+    );
 
   const alphabetical = await Dataset
     .query(qb => qb.select('id').orderBy('method', 'asc'))
