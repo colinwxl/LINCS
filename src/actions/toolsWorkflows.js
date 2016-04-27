@@ -36,3 +36,37 @@ export function addWorkflow(workflow) {
       .catch(error => dispatch(addWorkflowFailure(error)));
   };
 }
+
+export const TOOLS_REQUEST = 'TOOLS_REQUEST';
+export const TOOLS_SUCCESS = 'TOOLS_SUCCESS';
+export const TOOLS_FAILURE = 'TOOLS_FAILURE';
+
+export function toolsRequest() {
+  return { type: TOOLS_REQUEST };
+}
+
+export function toolsSuccess(payload) {
+  return { type: TOOLS_SUCCESS, payload };
+}
+
+export function toolsFailure(error) {
+  return {
+    type: TOOLS_FAILURE,
+    error,
+  };
+}
+
+export function loadTools() {
+  return (dispatch, getState) => {
+    const toolsWorkflows = getState().toolsWorkflows;
+    if (toolsWorkflows && toolsWorkflows.tools && toolsWorkflows.tools.length) {
+      return null;
+    }
+    dispatch(toolsRequest());
+    return fetch('/LINCS/api/v1/tools')
+      .then(response => handleResponse(response))
+      .then(response => response.json())
+      .then(payload => dispatch(toolsSuccess(payload)))
+      .catch(error => dispatch(toolsFailure(error)));
+  };
+}

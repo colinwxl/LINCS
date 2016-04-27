@@ -113,6 +113,10 @@ $apple-blue: #1390ff;
     padding-bottom: .5rem;
     padding-top: .5rem;
   }
+
+  p {
+    margin: 0;
+  }
 }
 
 .flex {
@@ -154,157 +158,6 @@ $apple-blue: #1390ff;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-}
-
-// Tool
-
-$tool-height: 10rem;
-$tool-width: 21rem;
-$shadow: rgba(0, 0, 0, .1);
-
-.tool {
-  border: 1px solid;
-  border-color: $gray-border-top $gray-border-side $gray-border-bottom;
-  border-radius: .2rem;
-  height: $tool-height;
-  margin: 0 auto 1rem;
-  width: $tool-width;
-}
-
-.tool-inner {
-  background: $white;
-  border-radius: .2rem;
-  box-shadow: 0 2px 4px $shadow;
-  height: $tool-height;
-  position: relative;
-  text-decoration: none;
-  vertical-align: top;
-}
-
-.cover {
-  float: left;
-  height: $tool-height;
-  overflow: hidden;
-  position: relative;
-  width: 10rem;
-}
-
-.tool-img-wrap {
-  display: table;
-  height: $tool-height;
-  width: 10rem;
-}
-
-.tool-img-inner {
-  display: table-cell;
-  text-align: center;
-  vertical-align: middle;
-
-  img {
-    max-height: 100%;
-    width: 80%;
-  }
-}
-
-.tool-click-target {
-  bottom: 0;
-  left: 0;
-  position: absolute;
-  right: 0;
-  top: 0;
-}
-
-.overlay {
-  background: $overlay-black;
-  border-radius: .2rem;
-  cursor: pointer;
-  filter: alpha(opacity = 0);
-  height: 100%;
-  left: 0;
-  opacity: 0;
-  position: absolute;
-  top: 0;
-  transition: all .25s ease;
-  width: 100%;
-
-  &:hover {
-    filter: alpha(opacity = 1);
-    opacity: 1;
-  }
-}
-
-.tool-details {
-  max-height: 7rem;
-  overflow: hidden;
-  padding: .5rem .75rem 0;
-}
-
-$title-line-height: 1.5rem;
-
-.tool-title {
-  color: $off-black;
-  display: block;
-  font-size: 1.25rem;
-  font-weight: 400;
-  line-height: $title-line-height;
-  margin: 0;
-  max-height: 2rem;
-  min-height: 1.1rem;
-  overflow: hidden;
-  position: relative;
-  text-decoration: none;
-  white-space: nowrap;
-
-  .end {
-    height: $title-line-height;
-  }
-}
-
-.end {
-  background: linear-gradient(to right, transparent, $white);
-  bottom: 0;
-  max-height: 100%;
-  position: absolute;
-  right: 0;
-  width: 45px;
-}
-
-.tool-creator {
-  color: $dark-gray;
-  font-size: .9rem;
-  font-weight: 400;
-  line-height: 1rem;
-  margin: 1px 0;
-  overflow: hidden;
-  white-space: nowrap;
-  width: 10rem;
-}
-
-$desc-line-height: 1.125rem; // 18px
-
-.tool-description {
-  display: block;
-  font-size: .8rem; // ~13px
-  line-height: $desc-line-height;
-  margin-top: .625rem; // 10px
-  max-height: $desc-line-height * 3;
-  min-height: 1.25rem;
-  position: relative;
-  word-wrap: break-word;
-
-  .end {
-    height: $desc-line-height;
-  }
-}
-
-.tool-ranking {
-  background: $white;
-  border-radius: 2px;
-  bottom: 0;
-  display: block;
-  padding: 0 .75rem;
-  position: absolute;
-  width: 100%;
 }
 
 // WorkflowInput

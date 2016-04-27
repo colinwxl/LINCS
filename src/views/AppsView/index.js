@@ -1,11 +1,12 @@
-import React, { Component } from 'react';
+import React, { PropTypes, Component } from 'react';
+import { connect } from 'react-redux';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
 import PageBanner from 'components/PageBanner';
-import handleResponse from 'utils/handleResponse';
+import { loadTools } from 'actions/toolsWorkflows';
 import ExpWorkflows from './ExpWorkflows';
 import CompBioWorkflows from './CompBioWorkflows';
-import Tool from './Tool';
+import Tool from 'components/Tool';
 import styles from './AppsView.scss';
 
 const sortTypes = [
@@ -20,13 +21,15 @@ const sortFeatures = [
 
 const sub = 'Tutorials, walkthroughs, and tools to help you be more productive with LINCS datasets';
 
-export default class AppsView extends Component {
+const mapStateToProps = (state) => ({
+  tools: state.toolsWorkflows.tools,
+});
+
+export class AppsView extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      fetchingTools: true,
       workflowCategory: 'exp',
-      tools: [],
       sortCenter: 'All',
       sortType: 'All',
       sortFeature: 'All',
@@ -34,10 +37,7 @@ export default class AppsView extends Component {
   }
 
   componentDidMount() {
-    fetch('/LINCS/api/v1/tools')
-      .then(response => handleResponse(response))
-      .then(response => response.json())
-      .then(tools => this.setState({ fetchingTools: false, tools }));
+    this.props.loadTools();
   }
 
   _checkAllTypes = (tool) => {
@@ -101,8 +101,8 @@ export default class AppsView extends Component {
     const isCompBio = workflowCategory === 'compBio';
     // http://stackoverflow.com/questions/15125920/how-to-get-distinct-values-from-an-array-of-objects-in-javascript
     // ES6 get unique elements
-    const centers = ['All', ...new Set(this.state.tools.map(tool => tool.center.name))];
-    const tools = this.state.tools.filter(this._filterTools);
+    const centers = ['All', ...new Set(this.props.tools.map(tool => tool.center.name))];
+    const tools = this.props.tools.filter(this._filterTools);
     return (
       <div className={styles.wrapper}>
         <PageBanner title="LINCS Workflows & Applications" subTitle={sub} />
@@ -204,3 +204,10 @@ export default class AppsView extends Component {
     );
   }
 }
+
+AppsView.propTypes = {
+  loadTools: PropTypes.func,
+  tools: PropTypes.array,
+};
+
+export default connect(mapStateToProps, { loadTools })(AppsView);

@@ -51,9 +51,9 @@ export default class CompBioWorkflows extends Component {
                   </Link>
                 </li>
                 <li>
-                  <Link to={`${awRoute}/download-rna-seq-data`}>
+                  <p to={`${awRoute}/download-rna-seq-data`}>
                     download RNA-seq data from LINCS
-                  </Link>
+                  </p>
                 </li>
                 <li>
                   <Link

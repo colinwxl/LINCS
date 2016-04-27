@@ -1,16 +1,15 @@
 @import 'variables';
 
-$brand-primary-opaque: rgba(58, 82, 120, .7);
+$brand-primary-opaque: rgba(58, 82, 120, .2);
+
 
 .main-nav {
-  background-color: $brand-primary-opaque;
+  background-color: $brand-primary;
   border-radius: 0;
   min-height: $nav-height;
   padding-bottom: .5rem;
   padding-top: .5rem;
-  position: absolute;
   width: 100%;
-  z-index: 1;
 
   button,
   a {
@@ -31,7 +30,7 @@ $brand-primary-opaque: rgba(58, 82, 120, .7);
 
 .nav-mobile,
 .dd-nav {
-  background-color: $brand-primary-opaque;
+  background-color: $brand-primary;
   width: 100%;
 
   @media (max-width: 768px) {
@@ -61,5 +60,12 @@ $brand-primary-opaque: rgba(58, 82, 120, .7);
 }
 
 .main-nav-home {
-  background: none;
+  background-color: transparent;
+  border-radius: 0;
+  min-height: $nav-height;
+  padding-bottom: .5rem;
+  padding-top: .5rem;
+  position: absolute;
+  width: 100%;
+  z-index: 1;
 }

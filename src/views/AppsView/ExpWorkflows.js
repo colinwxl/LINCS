@@ -51,9 +51,9 @@ export default class ExpWorkflows extends Component {
                   </Link>
                 </li>
                 <li>
-                  <Link to={`${awRoute}/understand-mechanism-of-action-of-sm`}>
+                  <p to={`${awRoute}/understand-mechanism-of-action-of-sm`}>
                     understand the mechanism of action of a small molecule
-                  </Link>
+                  </p>
                 </li>
                 <li>
                   <Link to={`${awRoute}/find-novel-compounds-that-mimic-or-reverse-disease-sig`}>
@@ -61,19 +61,19 @@ export default class ExpWorkflows extends Component {
                   </Link>
                 </li>
                 <li>
-                  <Link to={`${awRoute}/data-from-a-specific-cell-line`}>
+                  <p to={`${awRoute}/data-from-a-specific-cell-line`}>
                     find out if LINCS has collected data from a specific cell line
-                  </Link>
+                  </p>
                 </li>
                 <li>
-                  <Link to={`${awRoute}/data-by-applying-a-specific-sm`}>
+                  <p to={`${awRoute}/data-by-applying-a-specific-sm`}>
                     find out if LINCS has collected data from a specific small molecule
-                  </Link>
+                  </p>
                 </li>
                 <li>
-                  <Link to={`${awRoute}/query-signature-against-l1000`}>
+                  <p to={`${awRoute}/query-signature-against-l1000`}>
                     query my own gene expression signature against the LINCS L1000 data
-                  </Link>
+                  </p>
                 </li>
               </ul>
             </div>

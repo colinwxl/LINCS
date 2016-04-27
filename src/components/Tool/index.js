@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
 
-import styles from './AppsView.scss';
+import styles from './Tool.scss';
 
 export default function Tool(props) {
   const { tool } = props;
@@ -28,9 +28,7 @@ export default function Tool(props) {
             <span className={styles.end} />
           </div>
         </div>
-        <div className={styles['tool-ranking']}>
-
-        </div>
+        <div className={styles['tool-ranking']}></div>
       </div>
     </div>
   );
