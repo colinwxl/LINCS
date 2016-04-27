@@ -61,11 +61,15 @@ $btn-width: 16.25rem;
   font-size: 1.25rem;
   font-weight: 500;
   padding: 1rem 2rem;
-  width: $btn-width;
+  width: 100%;
 
   &:hover {
     background-color: $yellow;
     color: $off-black;
+  }
+
+  @media (min-width: 544px) {
+    width: $btn-width;
   }
 }
 
