@@ -1,14 +1,16 @@
 @import 'variables';
 
-$nav-padding-top-bottom: ($nav-height - 20) / 2;
+$brand-primary-opaque: rgba(58, 82, 120, .7);
 
 .main-nav {
-  background-color: $brand-primary;
+  background-color: $brand-primary-opaque;
   border-radius: 0;
   min-height: $nav-height;
-  padding-bottom: $nav-padding-top-bottom;
-  padding-top: $nav-padding-top-bottom;
+  padding-bottom: .5rem;
+  padding-top: .5rem;
+  position: absolute;
   width: 100%;
+  z-index: 1;
 
   button,
   a {
@@ -23,7 +25,27 @@ $nav-padding-top-bottom: ($nav-height - 20) / 2;
   }
 
   .toggle {
-    color: $dark-gray;
+    color: $white;
+  }
+}
+
+.nav-mobile,
+.dd-nav {
+  background-color: $brand-primary-opaque;
+  width: 100%;
+
+  @media (max-width: 768px) {
+    left: 0;
+    margin-top: -.5rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    position: absolute;
+  }
+}
+
+.dd-nav {
+  @media (max-width: 768px) {
+    top: $nav-height + 1rem;
   }
 }
 
@@ -39,21 +61,5 @@ $nav-padding-top-bottom: ($nav-height - 20) / 2;
 }
 
 .main-nav-home {
-  background-color: $white;
-
-  button,
-  a {
-    color: $dark-gray;
-
-    &:hover,
-    &:focus {
-      background-color: transparent;
-      color: $darker-gray;
-      text-decoration: none;
-    }
-  }
-
-  .toggle {
-    color: $dark-gray;
-  }
+  background: none;
 }

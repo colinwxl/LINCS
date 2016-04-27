@@ -42,7 +42,10 @@ export class HomeView extends Component {
       });
     return (
       <div className={styles.wrapper}>
-        <div className={styles.banner}>
+        <div
+          className={styles.banner}
+          style={{ backgroundImage: `url(${require('./background.png')})` }}
+        >
           <div className={`container ${styles.animated}`}>
             <img src={require('./cube.png')} alt="NIH LINCS Program" />
             <p className={styles.lead}>
@@ -68,13 +71,13 @@ export class HomeView extends Component {
         <div className={`${styles.content}`}>
           <div className="container">
             <div className="row">
-              <div className="col-xs-12">
+              <div className="">
                 <div className={`${styles.section} ${styles['recent-ds-section']}`}>
                   <h3 className={styles.title}>Recent Dataset Releases</h3>
                   <div className={styles['recent-datasets']}>
                     {
                       this.state.recentDatasets.map(ds =>
-                        <div key={ds.id} className={`col-xs-12 col-sm-6 col-md-4 ${styles.ds}`}>
+                        <div key={ds.id} className={styles.ds}>
                           <h5>{ds.method}</h5>
                           <p className={styles['ds-center']}>{ds.center.name}</p>
                           <p>{ds.description}</p>
@@ -86,7 +89,7 @@ export class HomeView extends Component {
               </div>
             </div>
             <div className="row">
-              <div className="col-lg-5 col-lg-push-7">
+              <div className="">
                 <div className={styles.section}>
                   <h3 className={styles.title}>Access LINCS Data</h3>
                   <div className={styles.center}>
@@ -159,7 +162,7 @@ export class HomeView extends Component {
                   <Twitter />
                 </div>
               </div>
-              <div className="col-lg-7 col-lg-pull-5">
+              <div className="">
                 <div className={styles.section}>
                   <h3 className={styles.title}>Announcements</h3>
                   <h4>LINCS Outreach Meeting 2016</h4>

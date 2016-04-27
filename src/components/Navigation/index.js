@@ -11,20 +11,20 @@ export default function Navigation(props) {
       role="banner"
     >
       <div className="container">
-        <div className="clearfix">
+        <div className={`clearfix hidden-md-up ${styles['nav-mobile']}`}>
           <button
-            className={`navbar-toggler pull-xs-right hidden-md-up ${styles.toggle}`}
+            className={`navbar-toggler pull-xs-right ${styles.toggle}`}
             type="button"
             data-toggle="collapse"
             data-target="#main-navbar"
           >
             ☰
           </button>
-          <Link className={`navbar-brand hidden-md-up ${styles.title}`} to="/">
+          <Link className={`navbar-brand ${styles.title}`} to="/">
             NIH LINCS Program
           </Link>
         </div>
-        <div className="collapse navbar-toggleable-sm" id="main-navbar">
+        <div className={`collapse navbar-toggleable-sm ${styles['dd-nav']}`} id="main-navbar">
           <Link className={`navbar-brand hidden-sm-down ${styles.title}`} to="/">
             NIH LINCS Program
           </Link>
