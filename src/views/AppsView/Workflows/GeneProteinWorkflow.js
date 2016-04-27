@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router';
 import extend from 'extend';
 
 import styles from './Workflow.scss';
@@ -64,12 +65,14 @@ export default class Workflow extends Component {
               <p>
                 The BD2K-LINCS DCIC is systematically collecting knowledge about the
                 properties of genes and proteins from online available omics resources
-                such as ENCODE, GTEx, TCGA, LINCS and many more. This accumulating
-                knowledge is served on a web portal called the Harmonizome. You can
-                find novel and known information about a gene or a protein by typing
-                the name in the Harmonizome search bar available below (Note: you will
-                be brought to the <a href="http://amp.pharm.mssm.edu/Harmonizome" target="_blank">
-                Harmonizome web page</a>):
+                such as <a href="https://genome.ucsc.edu/ENCODE/" target="_blank">
+                ENCODE</a>, <a href="http://www.gtexportal.org/home/" target="_blank">
+                GTEx</a>, <a href="http://cancergenome.nih.gov/" target="_blank">
+                TCGA</a>, <Link to="/">LINCS</Link> and many more. This accumulating
+                knowledge is served on a web portal called
+                the <a href="" target="_blank">Harmonizome</a>. You can find novel and
+                known information about a gene or a protein by typing the name in the
+                Harmonizome search bar available below:
               </p>
               <div className={styles.harmonizome}>
                 <img

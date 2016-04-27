@@ -33,7 +33,6 @@ export class HomeView extends Component {
   }
 
   render() {
-    console.log(this.state.recentDatasets);
     const { publications } = this.props;
     const pubs = publications
       .filter(pub => !!pub.showAtHomeOrder)
@@ -70,14 +69,15 @@ export class HomeView extends Component {
           <div className="container">
             <div className="row">
               <div className="col-xs-12">
-                <div className={styles.section}>
+                <div className={`${styles.section} ${styles['recent-ds-section']}`}>
                   <h3 className={styles.title}>Recent Dataset Releases</h3>
-                  <div className="row">
+                  <div className={styles['recent-datasets']}>
                     {
                       this.state.recentDatasets.map(ds =>
-                        <div key={ds.id} className="col-xs-12 col-sm-6 col-md-4">
+                        <div key={ds.id} className={`col-xs-12 col-sm-6 col-md-4 ${styles.ds}`}>
                           <h5>{ds.method}</h5>
-                          <p>{ds.center.name}</p>
+                          <p className={styles['ds-center']}>{ds.center.name}</p>
+                          <p>{ds.description}</p>
                         </div>
                       )
                     }

@@ -3,7 +3,12 @@ import { connect } from 'react-redux';
 import moment from 'moment';
 
 import { loadDatasets } from 'actions/entities';
-import { openCitationsModal, closeCitationsModal } from 'actions/modals';
+import {
+  openCitationsModal,
+  closeCitationsModal,
+  openClustergramModal,
+  closeClustergramModal,
+} from 'actions/modals';
 import getIconLinks from 'utils/getIconLinks';
 import styles from './Releases.scss';
 
@@ -14,6 +19,13 @@ export class SearchResult extends Component {
     this.props.openCitationsModal({
       datasetId: this.props.dataset.id,
       onModalClose: this.props.closeCitationsModal,
+    });
+  }
+
+  _openClustergramModal = () => {
+    this.props.openClustergramModal({
+      datasetId: this.props.dataset.id,
+      onModalClose: this.props.closeClustergramModal,
     });
   }
 
@@ -47,6 +59,11 @@ export class SearchResult extends Component {
           >
             Download GCT file
           </a>
+          {/*
+          <a className={`btn ${styles['btn-link']}`} onClick={this._openClustergramModal}>
+            View with Clustergrammer
+          </a>
+          */}
           <a className={`btn ${styles['btn-link']}`} onClick={this._openCitationsModal}>
             Cite this dataset
           </a>
@@ -102,6 +119,8 @@ SearchResult.propTypes = {
   loadDatasets: PropTypes.func,
   openCitationsModal: PropTypes.func,
   closeCitationsModal: PropTypes.func,
+  openClustergramModal: PropTypes.func,
+  closeClustergramModal: PropTypes.func,
   incrementDatasetClicks: PropTypes.func,
 };
 
@@ -109,4 +128,6 @@ export default connect(mapStateToProps, {
   loadDatasets,
   openCitationsModal,
   closeCitationsModal,
+  openClustergramModal,
+  closeClustergramModal,
 })(SearchResult);

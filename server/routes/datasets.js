@@ -253,6 +253,10 @@ router.post('/clicks/increment', async (ctx) => {
 
 router.get('/:id', async (ctx) => {
   let id = -1;
+  let withRelated = [];
+  if (ctx.query.include) {
+    withRelated = ctx.query.include.split(',');
+  }
   try {
     id = parseInt(ctx.params.id, 10);
   } catch (e) {
@@ -260,7 +264,7 @@ router.get('/:id', async (ctx) => {
     ctx.throw(400, 'Dataset Id must be a number');
   }
   try {
-    let dataset = await Dataset.where('id', id).fetch();
+    let dataset = await Dataset.where('id', id).fetch({ withRelated });
     // Omit pivot by default
     const includePivot = !!ctx.query.includePivot;
     dataset = dataset.toJSON({ omitPivot: !includePivot });
@@ -269,6 +273,27 @@ router.get('/:id', async (ctx) => {
     debug(e);
     ctx.throw(500, 'An error occurred obtaining datasets.');
   }
+});
+
+router.get('/:id/network', async (ctx) => {
+  let id = -1;
+  try {
+    id = parseInt(ctx.params.id, 10);
+  } catch (e) {
+    debug(e);
+    ctx.throw(400, 'Dataset Id must be a number');
+    return;
+  }
+  let dataset = await Dataset.where('id', id).fetch({ columns: ['lincs_id'] });
+  dataset = dataset.toJSON();
+  let network;
+  try {
+    network = require(`../networks/${dataset.lincsId}.json`);
+  } catch (e) {
+    ctx.throw(400, 'Network is not available for this dataset.');
+    return;
+  }
+  ctx.body = !!network ? network : {};
 });
 
 router.get('/:id/download', async (ctx) => {

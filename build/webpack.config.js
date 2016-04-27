@@ -52,6 +52,7 @@ webpackConfig.output = {
 webpackConfig.plugins = [
   new webpack.DefinePlugin(config.globals),
   new webpack.ProvidePlugin({
+    // d3: 'd3',
     $: 'jquery',
     jQuery: 'jquery',
     'window.Tether': 'tether',

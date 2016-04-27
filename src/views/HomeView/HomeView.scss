@@ -75,9 +75,6 @@
   }
 }
 
-$button-color: $red;
-// $button-color: $brand-secondary-dark;
-
 .center {
   text-align: center;
   width: 100%;
@@ -100,6 +97,28 @@ $button-color: $red;
   }
 }
 
+.recent-datasets {
+  display: flex;
+  flex-wrap: wrap;
+
+  h5,
+  p {
+    margin-bottom: 0;
+  }
+
+  p {
+    font-size: 90%;
+  }
+}
+
+.ds {
+  margin-bottom: 1rem;
+}
+
+.ds-center {
+  margin-bottom: 0;
+}
+
 .content {
   background-color: $light-gray;
   margin-bottom: -2rem;
@@ -112,7 +131,6 @@ $button-color: $red;
   border: 1px solid;
   border-color: $gray-border-top $gray-border-side $gray-border-bottom;
   border-radius: 3px;
-  color: $dark-gray;
   font-size: 1rem;
   line-height: 1.5;
   margin-bottom: 1rem;

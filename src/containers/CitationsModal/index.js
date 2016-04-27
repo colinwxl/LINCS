@@ -38,6 +38,9 @@ const mapStateToProps = (state) => ({
 
 export function CitationsModal(props) {
   const { isOpen, onModalClose, datasetId, pubId } = props;
+  if (!isOpen || (!datasetId && !pubId)) {
+    return null;
+  }
   let risLink = '';
   let enwLink = '';
   let bibLink = '';

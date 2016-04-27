@@ -4,7 +4,12 @@ import moment from 'moment';
 // import each from 'lodash/each';
 
 import { loadDatasets } from 'actions/entities';
-import { openCitationsModal, closeCitationsModal } from 'actions/modals';
+import {
+  openCitationsModal,
+  closeCitationsModal,
+  openClustergramModal,
+  closeClustergramModal,
+} from 'actions/modals';
 import getIconLinks from 'utils/getIconLinks';
 import styles from './Dataset.scss';
 
@@ -22,6 +27,13 @@ export class Dataset extends Component {
     this.props.openCitationsModal({
       datasetId: this.props.datasetId,
       onModalClose: this.props.closeCitationsModal,
+    });
+  }
+
+  _openClustergramModal = () => {
+    this.props.openClustergramModal({
+      datasetId: this.props.datasetId,
+      onModalClose: this.props.closeClustergramModal,
     });
   }
 
@@ -66,6 +78,11 @@ export class Dataset extends Component {
         >
           Download GCT file
         </a>
+        {/*
+        <a className={`btn ${styles['btn-link']}`} onClick={this._openClustergramModal}>
+          View with Clustergrammer
+        </a>
+        */}
         <a className={`btn ${styles['btn-link']}`} onClick={this._openCitationsModal}>
           Export data citation
         </a>
@@ -125,6 +142,8 @@ Dataset.propTypes = {
   loadDatasets: PropTypes.func,
   openCitationsModal: PropTypes.func,
   closeCitationsModal: PropTypes.func,
+  openClustergramModal: PropTypes.func,
+  closeClustergramModal: PropTypes.func,
   incrementDatasetClicks: PropTypes.func,
 };
 
@@ -132,4 +151,6 @@ export default connect(mapStateToProps, {
   loadDatasets,
   openCitationsModal,
   closeCitationsModal,
+  openClustergramModal,
+  closeClustergramModal,
 })(Dataset);

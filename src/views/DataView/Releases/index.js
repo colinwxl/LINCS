@@ -139,8 +139,10 @@ export class Releases extends Component {
                   </div>
                   <div className={styles.datasets}>
                     {
+                      !!searchResultIds.length && !!Object.keys(datasets).length &&
                       searchResultIds.map(id =>
-                      <SearchResult key={id} dataset={datasets[id]} />)
+                        <SearchResult key={id} dataset={datasets[id]} />
+                      )
                     }
                   </div>
                 </div>

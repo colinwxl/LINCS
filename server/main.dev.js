@@ -47,3 +47,7 @@ app.use(mount('/LINCS', stat));
 
 app.listen(3000);
 debug('App is running on port 3000.');
+
+process.stderr.on('data', (data) => {
+  debug(data);
+});

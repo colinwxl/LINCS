@@ -13,3 +13,19 @@ export function closeCitationsModal() {
     type: CLOSE_CITATIONS_MODAL,
   });
 }
+
+export const OPEN_CLUSTERGRAM_MODAL = 'OPEN_CLUSTERGRAM_MODAL';
+export const CLOSE_CLUSTERGRAM_MODAL = 'CLOSE_CLUSTERGRAM_MODAL';
+
+export function openClustergramModal(payload) {
+  return (dispatch) => dispatch({
+    type: OPEN_CLUSTERGRAM_MODAL,
+    payload,
+  });
+}
+
+export function closeClustergramModal() {
+  return (dispatch) => dispatch({
+    type: CLOSE_CLUSTERGRAM_MODAL,
+  });
+}
