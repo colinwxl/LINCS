@@ -50,6 +50,8 @@ import L1000DataWorkflow from 'views/AppsView/Workflows/L1000DataWorkflow';
 import RnaSeqWorkflow from 'views/AppsView/Workflows/RnaSeqWorkflow';
 import SearchMetaWorkflow from 'views/AppsView/Workflows/SearchMetaWorkflow';
 import PredictFuncWorkflow from 'views/AppsView/Workflows/PredictFuncWorkflow';
+import ProteomicEpigenomicWorkflow from 'views/AppsView/Workflows/ProteomicEpigenomicWorkflow';
+import ViabilityWorkflow from 'views/AppsView/Workflows/ViabilityWorkflow';
 
 
 import NotFoundView from 'views/NotFoundView';
@@ -103,7 +105,7 @@ export default (/* store */) => (
     <Route path={`${wf}/knowledge-about-a-gene-or-protein`} component={GeneProteinWorkflow} />
     <Route path={`${wf}/understand-mechanism-of-action-of-sm`} component={SmMechanismWorkflow} />
     <Route path={`${wf}/data-from-a-specific-cell-line`} component={CellWorkflow} />
-    <Route path={`${wf}/data-by-applying-a-specific-sm`} component={SmWorkflow} />
+    <Route path={`${wf}/data-from-a-specific-sm`} component={SmWorkflow} />
     <Route path={`${wf}/query-signature-against-l1000`} component={QueryL1000Workflow} />
     <Route
       path={`${wf}/find-novel-compounds-that-mimic-or-reverse-disease-sig`}
@@ -117,6 +119,14 @@ export default (/* store */) => (
     <Route
       path={`${wf}/collect-attrs-to-predict-gene-function-using-machine-learning`}
       component={PredictFuncWorkflow}
+    />
+    <Route
+      path={`${wf}/proteomic-epigenomic-data-l1000`}
+      component={ProteomicEpigenomicWorkflow}
+    />
+    <Route
+      path={`${wf}/viability-phenotype-data-following-sm-perturbations`}
+      component={ViabilityWorkflow}
     />
 
     {/* Not Found Route */}

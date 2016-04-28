@@ -175,7 +175,6 @@ $apple-blue: #1390ff;
   background-color: $teal;
   border-color: darken($teal, 3);
   color: $white;
-  line-height: 1rem;
   margin-top: 1rem;
   width: 100%;
 
@@ -203,8 +202,8 @@ $apple-blue: #1390ff;
 }
 
 .wf-modal-body {
-  text-align: center;
   padding: 1rem;
+  text-align: center;
 
   h4 {
     margin: 3rem 0 .5rem;

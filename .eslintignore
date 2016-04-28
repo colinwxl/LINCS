@@ -4,6 +4,7 @@
 *.spec.js
 **/src/index.html
 
+**/clustergrammer/**
 **/resources/**
 **/seed/**
 **/server-es5/**

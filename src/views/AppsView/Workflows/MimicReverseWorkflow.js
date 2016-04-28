@@ -76,9 +76,6 @@ export default function Workflow() {
               are predicted by computing the cosine similarity between the L1000 small
               molecules signatures and a large collection of signatures extracted from the
               gene expression omnibus (GEO) for single gene perturbations in mammalian cells.
-              The web-based gene-signature search engine, L1000CDS<sup>2</sup>, also enables
-              users to query the L1000 gene expression data and find perturbagens that mimic
-              or reverse their signature of interest.
             </p>
             <p>
               The L1000CDS<sup>2</sup> homepage is shown below. A user can input their disease

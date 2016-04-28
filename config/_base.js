@@ -42,7 +42,7 @@ const config = {
     'extend',
     'history',
     'jquery',
-    'lodash',
+    // 'lodash',
     'moment',
     'normalizr',
     'react',

@@ -80,7 +80,7 @@ tagUpdate = {
             return false;
         }
         return TagModel.forge()
-            .query('whereIn', 'name', _.pluck(tagsToMatch, 'name')).fetchAll(options);
+            .query('whereIn', 'name', _.map(tagsToMatch, 'name')).fetchAll(options);
     },
 
     detachTagFromPost: function detachTagFromPost(post, tag, options) {

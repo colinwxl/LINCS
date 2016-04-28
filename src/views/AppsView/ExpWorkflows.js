@@ -52,7 +52,8 @@ export default class ExpWorkflows extends Component {
                 </li>
                 <li>
                   <p to={`${awRoute}/understand-mechanism-of-action-of-sm`}>
-                    understand the mechanism of action of a small molecule
+                    explore microscopy imaging data collected
+                    across the LINCS centers
                   </p>
                 </li>
                 <li>
@@ -66,9 +67,9 @@ export default class ExpWorkflows extends Component {
                   </p>
                 </li>
                 <li>
-                  <p to={`${awRoute}/data-by-applying-a-specific-sm`}>
+                  <Link to={`${awRoute}/data-from-a-specific-sm`}>
                     find out if LINCS has collected data from a specific small molecule
-                  </p>
+                  </Link>
                 </li>
                 <li>
                   <Link to={`${awRoute}/query-signature-against-l1000`}>

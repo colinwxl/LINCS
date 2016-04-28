@@ -2,6 +2,8 @@
 @import 'variables';
 
 .wrapper {
+  margin-bottom: 1rem;
+
   img {
     max-width: 100%;
     width: auto;
@@ -231,5 +233,13 @@
 
   img {
     margin-bottom: 1rem;
+  }
+}
+
+.pw-workflow,
+.sm-profiled {
+
+  img {
+    margin: 1rem 0;
   }
 }

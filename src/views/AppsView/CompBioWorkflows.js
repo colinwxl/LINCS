@@ -68,6 +68,19 @@ export default class CompBioWorkflows extends Component {
                     search LINCS metadata through their API's
                   </Link>
                 </li>
+                <li>
+                  <Link to={`${awRoute}/proteomic-epigenomic-data-l1000`}>
+                    find proteomic and epigenomic data from the same conditions profiled
+                    by the L1000 assay
+                  </Link>
+                </li>
+                <li>
+                  <Link to={`${awRoute}/viability-phenotype-data-following-sm-perturbations`}>
+                    find data about cell viability and other cellular-level phenotypes
+                    besides gene and protein expression in response to small molecule
+                    perturbations
+                  </Link>
+                </li>
               </ul>
             </div>
           </div>

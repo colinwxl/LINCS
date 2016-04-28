@@ -1308,10 +1308,10 @@ module.exports = [{
   "assay_development": false,
   "data_analysis": true,
   "data_generation": false,
-  "data_integration": false,
+  "data_integration": true,
   "data_standards": false,
   "signature_generation": false,
-  "software_development": false,
+  "software_development": true,
   "review": false,
 }, {
   "abstract": "Reproducibility is vital in science. For complex computational methods, it is often necessary, not just to recreate the code, but also the software and hardware environment to reproduce results. Virtual machines, and container software such as Docker, make it possible to reproduce the exact environment regardless of the underlying hardware and operating system. However, workflows that use Graphical User Interfaces (GUIs) remain difficult to replicate on different host systems as there is no high level graphical software layer common to all platforms. GUIdock allows for the facile distribution of a systems biology application along with its graphics environment. Complex graphics based workflows, ubiquitous in systems biology, can now be easily exported and reproduced on many different platforms. GUIdock uses Docker, an open source project that provides a container with only the absolutely necessary software dependencies and configures a common X Windows (X11) graphic interface on Linux, Macintosh and Windows platforms. As proof of concept, we present a Docker package that contains a Bioconductor application written in R and C++ called networkBMA for gene network inference. Our package also includes Cytoscape, a java-based platform with a graphical user interface for visualizing and analyzing gene networks, and the CyNetworkBMA app, a Cytoscape app that allows the use of networkBMA via the user-friendly Cytoscape interface.",

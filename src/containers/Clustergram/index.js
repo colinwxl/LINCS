@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import Modal from 'react-modal';
 // import extend from 'extend';
 
-// import renderClustergram from './clustergrammer';
+import renderClustgram from './clustergrammer';
 import handleResponse from 'utils/handleResponse';
 import styles from './Clustergram.scss';
 
@@ -17,18 +17,21 @@ const modalStyles = {
     backgroundColor: 'rgba(0, 0, 0, 0.4)',
   },
   content: {
-    position: 'absolute',
-    top: '40px',
-    left: '40px',
-    right: '40px',
-    bottom: '40px',
-    border: '0px',
     background: 'none',
-    overflow: 'inherit',
-    WebkitOverflowScrolling: 'touch',
+    border: '0px',
     borderRadius: '0px',
+    bottom: 'inherit',
+    height: '600px',
+    left: 'inherit',
+    margin: '3.25rem auto',
     outline: 'none',
+    overflow: 'inherit',
+    right: 'inherit',
+    top: 'inherit',
     padding: '0px',
+    position: 'inherit',
+    WebkitOverflowScrolling: 'touch',
+    width: '750px',
   },
 };
 
@@ -45,22 +48,6 @@ export class Clustergram extends Component {
     this.state = {
       networkLoaded: false,
       networkError: false,
-      clustergramArguments: {
-        root: '#clustergram',
-        network_data: {},
-        row_label: 'Row Title',
-        col_label: 'Column Title',
-        outer_margins: {
-          top: 2,
-          bottom: 30,
-          left: 5,
-          right: 2,
-        },
-        show_tile_tooltips: true,
-        ini_view: { N_row_sum: '500' },
-        about: 'Zoom, scroll, and click buttons to interact with the clustergram.',
-        row_search_placeholder: 'Gene',
-      },
     };
   }
 
@@ -83,24 +70,23 @@ export class Clustergram extends Component {
     fetch(`/LINCS/api/v1/datasets/${datasetId}/network`)
       .then(handleResponse)
       .then(response => response.json())
-      .then((/* network */) => {
-        // const args = {
-        //   root: '#clustergram',
-        //   network_data: network,
-        //   row_label: 'Row Title',
-        //   col_label: 'Column Title',
-        //   outer_margins: {
-        //     top: 2,
-        //     bottom: 30,
-        //     left: 5,
-        //     right: 2,
-        //   },
-        //   show_tile_tooltips: true,
-        //   ini_view: { N_row_sum: '500' },
-        //   about: 'Zoom, scroll, and click buttons to interact with the clustergram.',
-        //   row_search_placeholder: 'Gene',
-        // };
-        // window.Clustergrammer(args);
+      .then((network) => {
+        const args = {
+          root: '#clustergram',
+          network_data: network,
+          row_label: 'Row Title',
+          col_label: 'Column Title',
+          size: {
+            height: 600,
+            width: 700,
+          },
+          use_sidebar: true,
+          show_tile_tooltips: true,
+          ini_view: { N_row_sum: '500' },
+          about: 'Zoom, scroll, and click buttons to interact with the clustergram.',
+          row_search_placeholder: 'Gene',
+        };
+        renderClustgram(args);
       })
       .catch(() => {
         this.setState({
@@ -119,7 +105,7 @@ export class Clustergram extends Component {
 
     return (
       <Modal
-        className="modal-dialog"
+        className={styles.modal}
         closeTimeoutMS={150}
         isOpen={isOpen}
         onRequestClose={onModalClose}
@@ -131,11 +117,9 @@ export class Clustergram extends Component {
               <span aria-hidden="true">&times;</span>
               <span className="sr-only">Close</span>
             </button>
-            <h5 className="modal-title">Select a Citation Format</h5>
+            <h5 className="modal-title">Clustergram</h5>
           </div>
-          <div className={`modal-body ${styles['modal-body']}`}>
-            <div id="clustergram" />
-          </div>
+          <div id="clustergram" className={styles.clustergram} />
         </div>
       </Modal>
     );

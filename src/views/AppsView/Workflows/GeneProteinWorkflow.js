@@ -16,7 +16,7 @@ export default class Workflow extends Component {
     super(props);
     this.state = {
       lincsCloudQ: {
-        engine: 'cell_id',
+        engine: 'pr_gene_symbol',
         term: '',
       },
       creedsQ: '',
@@ -135,12 +135,6 @@ export default class Workflow extends Component {
                 LINCS also contains data about the changes in mRNA expression after
                 knocking down or over-expressing individual genes. To find information
                 about these experiments type your gene of interest below:
-              </p>
-              <p>
-                The BD2K-LINCS DCIC, through a crowdsourcing effort, also collected data
-                from gene perturbations followed by expressions from GEO and generated
-                expression signatures from this data. You can check if your gene of
-                interest was processed by this effort by typing it here:
               </p>
               <div className={styles.lincscloud}>
                 <img

@@ -4,7 +4,7 @@ import 'styles/core.scss';
 import React from 'react';
 import Navigation from 'components/Navigation';
 import CitationsModal from 'containers/CitationsModal';
-import Clustergram from 'containers/Clustergram';
+// import Clustergram from 'containers/Clustergram';
 // import coreStyles from './CoreLayout.scss';
 
 export default function CoreLayout(props) {
@@ -12,7 +12,7 @@ export default function CoreLayout(props) {
     <div className="site-wrap">
       <Navigation atHome={props.location && props.location.pathname === '/'} />
       <CitationsModal />
-      <Clustergram />
+      {/* <Clustergram /> */}
       <div className="view-container">
         {props.children}
       </div>

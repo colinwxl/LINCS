@@ -53,8 +53,6 @@ webpackConfig.plugins = [
   new webpack.DefinePlugin(config.globals),
   new webpack.ProvidePlugin({
     // d3: 'd3',
-    $: 'jquery',
-    jQuery: 'jquery',
     'window.Tether': 'tether',
     Promise: 'exports?global.Promise!es6-promise',
     fetch: 'imports?this=>global!exports?global.fetch!whatwg-fetch',

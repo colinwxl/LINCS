@@ -87,7 +87,7 @@ export default class Workflow extends Component {
                 up for an account at <a href="http://apps.lincscloud.org/register" target="_blank">
                 http://apps.lincscloud.org/register</a>.
               </p>
-              <h5>Downloading annotated level 4 data packages from the LINCS-BD2K Program</h5>
+              <h5>Downloading annotated level 4 data packages from the BD2K-LINCS DCIC</h5>
               <p>
                 You can search for L1000 data packages on the
                 LINCS <Link to="/data/releases?q=L1000">Data Releases</Link> page.

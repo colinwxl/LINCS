@@ -1,0 +1,3 @@
+[submodule "src/containers/Clustergram/clustergrammer"]
+	path = src/containers/Clustergram/clustergrammer
+	url = git@github.com:cornhundred/clustergrammer.js
