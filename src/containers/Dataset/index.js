@@ -78,11 +78,9 @@ export class Dataset extends Component {
         >
           Download GCT file
         </a>
-        {/*
         <a className={`btn ${styles['btn-link']}`} onClick={this._openClustergramModal}>
           View with Clustergrammer
         </a>
-        */}
         <a className={`btn ${styles['btn-link']}`} onClick={this._openCitationsModal}>
           Export data citation
         </a>
