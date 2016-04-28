@@ -8,12 +8,12 @@
     "npm": "^3.0.0"
   },
   "scripts": {
-    "version": "npm run build:docker && git add -A .",
+    "version": "npm run deploy:docker && git add -A .",
     "postversion": "git push origin master && git push origin master --tags",
-    "build:docker": "npm run server-es5 && npm run deploy && npm version | tee build.log || exit 1 && VERSION=$(head -1 build.log | awk '{print substr($3, 2, length($3) - 3);}') && docker build -t 146.203.54.165:5000/lincs:$VERSION . && rm build.log",
+    "deploy:docker": "npm run server-es5 && npm run build:prod && npm version | tee build.log || exit 1 && VERSION=$(head -1 build.log | awk '{print substr($3, 2, length($3) - 3);}') && docker build -t 146.203.54.165:5000/lincs:$VERSION . && docker push 146.203.54.165:5000/lincs:$VERSION && curl -H \"Content-Type: application/json\" -X PUT -d '{ \"instances\": 1, \"cpus\": 1, \"mem\": 2048, \"env\": { \"NODE_ENV\": \"production\" }, \"container\": { \"type\": \"DOCKER\", \"docker\": { \"image\": \"146.203.54.165:5000/lincs:'\"$VERSION\"'\", \"forcePullImage\": false, \"network\": \"BRIDGE\", \"portMappings\": [ { \"containerPort\": 3000, \"hostPort\": 0, \"protocol\": \"tcp\" } ] }, \"volumes\": [ {\"containerPath\": \"/usr/src/dist/files/datasets\", \"hostPath\": \"/hadoop/hdfs-mount/apps/lincs/datasets\", \"mode\": \"RO\"} ] }, \"healthChecks\": [ { \"protocol\": \"HTTP\", \"path\": \"/LINCS/api/v1/health\", \"gracePeriodSeconds\": 10, \"intervalSeconds\": 60, \"portIndex\": 0, \"timeoutSeconds\": 10, \"maxConsecutiveFailures\": 3 }], \"labels\": { \"public\": \"true\" } }' maayanlab:systemsbiology@146.203.54.165:8080/v2/apps/lincs && rm build.log",
     "clean": "rm -rf dist",
     "compile": "babel-node bin/compile",
-    "deploy": "better-npm-run deploy",
+    "build:prod": "better-npm-run build:prod",
     "dev": "better-npm-run dev",
     "dev:nw": "npm run dev -- --nw",
     "dev:no-debug": "npm run dev -- --no_debug",
@@ -26,7 +26,6 @@
     "migrate:prod": "better-npm-run migrate:prod",
     "migrate:omit-data": "better-npm-run migrate --omit-data",
     "migrate:prod:omit-data": "better-npm-run migrate:prod --omit-data",
-    "push:docker": "npm version | tee build.log || exit 1 && VERSION=$(head -1 build.log | awk '{print substr($3, 2, length($3) - 3);}') && echo \"$VERSION\" && docker push 146.203.54.165:5000/lincs:$VERSION && curl -H \"Content-Type: application/json\" -X PUT -d '{ \"instances\": 1, \"cpus\": 1, \"mem\": 2048, \"env\": { \"NODE_ENV\": \"production\" }, \"container\": { \"type\": \"DOCKER\", \"docker\": { \"image\": \"146.203.54.165:5000/lincs:'\"$VERSION\"'\", \"forcePullImage\": false, \"network\": \"BRIDGE\", \"portMappings\": [ { \"containerPort\": 3000, \"hostPort\": 0, \"protocol\": \"tcp\" } ] }, \"volumes\": [ {\"containerPath\": \"/usr/src/dist/files/datasets\", \"hostPath\": \"/hadoop/hdfs-mount/apps/lincs/datasets\", \"mode\": \"RO\"} ] }, \"healthChecks\": [ { \"protocol\": \"HTTP\", \"path\": \"/LINCS/api/v1/health\", \"gracePeriodSeconds\": 10, \"intervalSeconds\": 60, \"portIndex\": 0, \"timeoutSeconds\": 10, \"maxConsecutiveFailures\": 3 }], \"labels\": { \"public\": \"true\" } }' maayanlab:systemsbiology@146.203.54.165:8080/v2/apps/lincs && rm build.log",
     "seed": "better-npm-run seed",
     "seed:prod": "better-npm-run seed:prod",
     "seed:omit-data": "better-npm-run seed:omit-data",
@@ -44,7 +43,7 @@
         "DEBUG": "app:*"
       }
     },
-    "deploy": {
+    "build:prod": {
       "command": "npm run clean && npm run compile",
       "env": {
         "NODE_ENV": "production",
