@@ -3,26 +3,17 @@
 .wrapper {
   background-color: $white;
   border-bottom: 1px solid $gray;
-  // color: $white;
   margin-bottom: 2rem;
   padding: 2rem .9375rem;
   text-align: center;
 
   @media (min-width: 544px) {
-    // margin-bottom: 3rem;
-    // padding-bottom: 3.25rem;
-    // padding-top: 3.25rem;
     text-align: left;
   }
 
   h1 {
-    // color: $white;
     font-size: 3rem;
     font-weight: 400;
-
-    @media (min-width: 768px) {
-      // font-size: 4rem;
-    }
   }
 }
 
@@ -36,8 +27,8 @@
   }
 }
 
-.flex,
-.search {
+.flex {
+  align-items: center;
   display: flex;
   justify-content: center;
 }

@@ -15,7 +15,7 @@ export default function PageBanner(props) {
   }
   return (
     <div className={styles.wrapper}>
-      <div className={`container ${styles.inner}`}>
+      <div className="container">
         <div className={`row ${styles.flex}`}>
           {
             !!title &&
@@ -26,7 +26,7 @@ export default function PageBanner(props) {
           }
           {
             hasImage &&
-            <div className="col-md-4 text-xs-center">
+            <div className={`col-md-4 text-xs-center ${styles.flex}`}>
               <img
                 className={styles.logo}
                 src={imgSrc}

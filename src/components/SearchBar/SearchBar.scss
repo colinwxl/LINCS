@@ -1,8 +1,12 @@
 @import 'variables';
 
 .search-wrap {
-  max-width: 600px;
   margin: 0 auto;
+  max-width: 600px;
+
+  p {
+    margin-bottom: 0;
+  }
 }
 
 .flex,
