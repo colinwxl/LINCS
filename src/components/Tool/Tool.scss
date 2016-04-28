@@ -23,18 +23,20 @@ $shadow: rgba(0, 0, 0, .1);
   vertical-align: top;
 }
 
+$img-width: 9rem;
+
 .cover {
   float: left;
   height: $tool-height;
   overflow: hidden;
   position: relative;
-  width: 10rem;
+  width: $img-width;
 }
 
 .tool-img-wrap {
   display: table;
   height: $tool-height;
-  width: 10rem;
+  width: $img-width;
 }
 
 .tool-img-inner {

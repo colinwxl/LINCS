@@ -58,28 +58,29 @@ export class Twitter extends Component {
     }
     return (
       <div className={styles.wrapper}>
+        <div className={styles['twitter-bird']}>
+          <img src={require('./twitter-bird.svg')} alt="Twitter logo" />
+        </div>
         {
           timeline.splice(0, 3).map(status => {
             const { id, createdAt, user } = status;
             return (
-              <div key={id} className="container">
-                <div className="row">
-                  <div className="col-xs-12">
-                    <div className={`clearfix ${styles.tweeter}`}>
-                      <img
-                        src={user.profileImageUrlHttps}
-                        className={styles.avatar}
-                        alt="User's Twitter avatar"
-                      />
-                      <a href={`https://twitter.com/${user.screenName}`} target="_blank">
-                        {user.name}
-                      </a>
-                    </div>
-                    <div key={id} className={styles.status}>
-                      <p dangerouslySetInnerHTML={this._rawTweetHtml(status)} />
-                      <p className={styles.time}>{this._humanDate(createdAt)}</p>
-                    </div>
+              <div key={id} className={styles.tweet}>
+                <div className={styles.tweeter}>
+                  <div className={styles['img-wrap']}>
+                    <img
+                      src={user.profileImageUrlHttps}
+                      className={styles.avatar}
+                      alt="User's Twitter avatar"
+                    />
                   </div>
+                  <a href={`https://twitter.com/${user.screenName}`} target="_blank">
+                    {user.name}
+                  </a>
+                </div>
+                <div key={id} className={styles.status}>
+                  <p dangerouslySetInnerHTML={this._rawTweetHtml(status)} />
+                  <p className={styles.time}>{this._humanDate(createdAt)}</p>
                 </div>
               </div>
             );

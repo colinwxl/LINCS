@@ -19,6 +19,7 @@ export default class Workflow extends Component {
         engine: 'cell_id',
         term: '',
       },
+      creedsQ: '',
     };
   }
 
@@ -49,6 +50,19 @@ export default class Workflow extends Component {
 
     if (window) {
       window.open(`${base}${engine}?q={"${field}":"${term}"}&user_key=${key}`, '_blank');
+    }
+  }
+
+  _handleCreedsQChanged = (e) => {
+    this.setState({ creedsQ: e.target.value });
+  }
+
+  _handleCreedsSubmit = (e) => {
+    e.preventDefault();
+    const { creedsQ } = this.state;
+
+    if (window) {
+      window.open(`http://amp.pharm.mssm.edu/CREEDS/#similarity/${creedsQ}`, '_blank');
     }
   }
 
@@ -178,6 +192,37 @@ export default class Workflow extends Component {
                   signatures from this data. You can check if your gene of interest was
                   processed by this effort by typing it here:
                 </p>
+                <img src={require('./creeds-logo.png')} alt="CREEDS Logo" />
+                <h4>Search signatures by term</h4>
+                <p>
+                  Examples: <a href="http://amp.pharm.mssm.edu/CREEDS/#similarity/TP53" target="_blank">
+                  TP53</a>, <a href="http://amp.pharm.mssm.edu/CREEDS/#similarity/Breast cancer" target="_blank">
+                  Breast cancer</a>, <a href="http://amp.pharm.mssm.edu/CREEDS/#similarity/Imatinib" target="_blank">
+                  Imatinib</a>
+                </p>
+                <form
+                  acceptCharset="utf-8"
+                  className="form-horizontal"
+                  onSubmit={this._handleCreedsSubmit}
+                >
+                  <div className="input-group">
+                    <input
+                      id="creeds"
+                      type="text"
+                      className="form-control"
+                      autoComplete="off"
+                      spellCheck="false"
+                      dir="auto"
+                      value={this.state.creedsQ}
+                      onChange={this._handleCreedsQChanged}
+                    />
+                    <span className="input-group-btn">
+                      <button className="btn btn-info" type="submit">
+                        Search by term
+                      </button>
+                    </span>
+                  </div>
+                </form>
               </div>
             </div>
           </div>

@@ -71,9 +71,9 @@ export default class ExpWorkflows extends Component {
                   </p>
                 </li>
                 <li>
-                  <p to={`${awRoute}/query-signature-against-l1000`}>
+                  <Link to={`${awRoute}/query-signature-against-l1000`}>
                     query my own gene expression signature against the LINCS L1000 data
-                  </p>
+                  </Link>
                 </li>
               </ul>
             </div>
