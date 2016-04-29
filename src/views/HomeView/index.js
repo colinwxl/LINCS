@@ -116,6 +116,7 @@ export class HomeView extends Component {
                     </p>
                     <a href="http://eh3.uc.edu/pilincs/#/" target="_blank">Visit website</a>
                   </div>
+                  <Link to="/applications">More tools...</Link>
                 </div>
                 <div className={styles.section}>
                   <div className="row">

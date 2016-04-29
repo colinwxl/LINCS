@@ -5,16 +5,22 @@ import Tree from '../Tree';
 import IndividualTissueTree from './IndividualTissueTree';
 
 export default function TissueCellTree(props) {
-  const tissues = props.entities.tissues;
+  const tissueObj = props.entities.tissues;
+  const tissues = Object.keys(tissueObj).map((id) => tissueObj[id]);
+  tissues.sort((a, b) => {
+    const result = a.name > b.name;
+    return result ? 1 : -1;
+  });
+
   const label = <span className={styles.node}>By Tissue/Cell Line</span>;
   return (
     <Tree nodeLabel={label} defaultCollapsed>
       {
-        Object.keys(tissues).map((tissueId, index) =>
+        tissues.map((tissue, index) =>
           <IndividualTissueTree
             key={index}
             entities={props.entities}
-            tissueId={parseInt(tissueId, 10)}
+            tissueId={parseInt(tissue.id, 10)}
           />
         )
       }

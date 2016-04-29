@@ -21,7 +21,6 @@ export class Releases extends Component {
       isSearching: false,
       q: '',
       searchResultIds: [],
-      showSearchResults: false,
     };
   }
 
@@ -58,12 +57,14 @@ export class Releases extends Component {
       });
   }
 
-  _backToTree = () => { this.setState({ showSearchResults: false }); }
-
   render() {
     const searchQ = this.props.location.query.q;
     const { datasets } = this.props;
-    const { searchResultIds, isSearching, showSearchResults } = this.state;
+    const { searchResultIds, isSearching } = this.state;
+    let treeClass = styles['tree-wrap'];
+    if (isSearching || searchQ) {
+      treeClass += ` ${styles['tree-wrap-hidden']}`;
+    }
     return (
       <div className={styles.wrapper}>
         <PageBanner
@@ -92,7 +93,7 @@ export class Releases extends Component {
                 </strong>
               </p>
               <div className={styles['search-wrap']}>
-                <SearchBar searchQuery={searchQ} />
+                <SearchBar searchQuery={searchQ || ''} />
               </div>
               {
                 isSearching &&
@@ -113,13 +114,13 @@ export class Releases extends Component {
                 </div>
               }
               {
-                !isSearching && showSearchResults &&
+                !isSearching && !!searchQ &&
                 <div className={styles['search-results']}>
                   <div className={`row ${styles.info}`}>
                     <div className="col-xs-6">
-                      <a className={styles.back} onClick={this._backToTree}>
+                      <Link to="/data/releases" className={styles.back}>
                         <i className="fa fa-chevron-left" /> Back to Tree View
-                      </a>
+                      </Link>
                     </div>
                     <div className="col-xs-6">
                       {
@@ -147,12 +148,9 @@ export class Releases extends Component {
                   </div>
                 </div>
               }
-              {
-                !isSearching && !showSearchResults &&
-                <div className={styles['tree-wrap']}>
-                  <DataTree />
-                </div>
-              }
+              <div className={treeClass}>
+                <DataTree />
+              </div>
             </div>
           </div>
         </div>

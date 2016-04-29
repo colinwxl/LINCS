@@ -228,7 +228,6 @@ indices
   .delete({ index: 'lincs' })
   .then(() => indices.create({ index: 'lincs' }))
   .then(() => indices.close({ index: 'lincs' }))
-  .then(() => indices.close({ index: 'lincs' }))
   .then(() => indices.putSettings(lincsSettings))
   .then(() => indices.open({ index: 'lincs' }))
   .then(() => indices.putMapping(datasetMapping))

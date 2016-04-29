@@ -6,7 +6,6 @@ import styles from './Workflow.scss';
 import PageBanner from 'components/PageBanner';
 
 const lcEngineFieldMap = {
-  cellinfo: 'cell_id',
   geneinfo: 'pr_gene_symbol',
   pertinfo: 'pert_iname',
 };
@@ -153,7 +152,6 @@ export default class Workflow extends Component {
                     onChange={this._handleEngineChanged}
                     value={this.state.lincsCloudQ.engine}
                   >
-                    <option value="cellinfo">Cell lines</option>
                     <option value="geneinfo">Genes</option>
                     <option value="pertinfo">Perturbations</option>
                   </select>
@@ -211,7 +209,7 @@ export default class Workflow extends Component {
                       onChange={this._handleCreedsQChanged}
                     />
                     <span className="input-group-btn">
-                      <button className="btn btn-info" type="submit">
+                      <button className={`btn btn-info ${styles['creeds-btn']}`} type="submit">
                         Search by term
                       </button>
                     </span>
