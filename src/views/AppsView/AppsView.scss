@@ -98,18 +98,29 @@ $apple-blue: #1390ff;
 // }
 
 .question {
-  margin-bottom: 2rem;
 
   h5 {
     margin-bottom: 1rem;
   }
+
+  label {
+    line-height: 1.85rem;
+    margin-bottom: 0;
+  }
+}
+
+.small {
+  font-size: 85%;
 }
 
 .examples {
+  align-items: center;
+  display: flex;
 
   ul {
     border-left: 1px solid $gray;
     list-style: none;
+    margin-bottom: 0;
     padding-bottom: .5rem;
     padding-top: .5rem;
   }
@@ -117,6 +128,16 @@ $apple-blue: #1390ff;
   p {
     margin: 0;
   }
+}
+
+.base {
+  p {
+    margin: 0;
+  }
+}
+
+.p-half {
+  margin-bottom: .5rem;
 }
 
 .flex {
@@ -167,7 +188,7 @@ $apple-blue: #1390ff;
 }
 
 .workflow-input {
-  padding-left: 5px;
+  padding-left: .375rem;
   width: 100%;
 }
 
