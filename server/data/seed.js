@@ -1,3 +1,6 @@
+// This file populates the database. Taking the JSON files from the `../../seed` folder (note that
+// some of these are very large) and the bookshelfjs models, the data is inserted.
+
 import _debug from 'debug';
 import _ from 'lodash';
 import moment from 'moment';
@@ -24,6 +27,21 @@ import { knex } from '../serverConf';
 
 const debug = _debug('app:server:data:seed');
 
+
+/**
+ * saveDataset - Saves a dataset using the `Dataset` bookshelfjs model.
+ *
+ * @param  {Object} dsObj    The dataset object. To get an idea of what this looks like,
+ * view the schema of the database.
+ * @param  {String} centerId The id of the center that the dataset is associated with. This is
+ * added to the dsObj.
+ * @param  {Array} smIds     The small molecule ids associated with the dataset. These will
+ * be `attached` using bookshelfjs. In other words, this dataset's id and the ids of the
+ * small molecules will be inserted into small_molecules_datasets.
+ * @param  {Array} cellIds  Similar to smIds. These are the cellIds associated with the dataset.
+ * They will be inserted alongside the dataset's id into cells_datasets
+ * @return {Promise}        A promise that resolves when the dataset has been inserted.
+ */
 function saveDataset(dsObj, centerId, smIds, cellIds) {
   const ds = { center_id: centerId, ...dsObj };
   return Dataset
@@ -39,6 +57,14 @@ function saveDataset(dsObj, centerId, smIds, cellIds) {
     });
 }
 
+
+/**
+ * insertSmallMolecules - Inserts the small molecules from the JSON in the seed folder
+ * using knex. {@link http://knexjs.org/#Utility-BatchInsert knex.batchInsert} is used
+ * instead of the `Small Molecule` bookshelf model for performance .
+ *
+ * @return {Promise}  A promise from knex, resolving when the small molecules are inserted.
+ */
 function insertSmallMolecules() {
   debug(`Inserting ${Object.keys(smallMolecules).length} small molecules.`);
   const sms = [];
@@ -53,6 +79,15 @@ function insertSmallMolecules() {
   return knex.batchInsert('small_molecules', sms);
 }
 
+
+/**
+ * findSmallMolecules - Find a list of small molecules in the database given their lincs ids.
+ * Although the implementation is broken elsewhere, this function behaves differently in
+ * development and production due to the limitations of sqlite.
+ *
+ * @param  {Array} lincsIds The LINCS ids (LSM's) of the small molecules to be found .
+ * @return {Promise}        A promise resolving when all the small molecules are found.
+ */
 function findSmallMolecules(lincsIds) {
   if (!lincsIds.length) {
     return Promise.resolve([]);
@@ -82,17 +117,36 @@ function findSmallMolecules(lincsIds) {
     .then(results => results.map(result => result.id));
 }
 
-function findEntities(Model, entityNames) {
+
+/**
+ * findEntities - A utility function to find a list of ids using the tableName and the
+ * list of entity names.
+ *
+ * @param  {String} tableName  The tableName of the MySQL database where the entityNames can
+ * be found. This is one of the tables in the database schema.
+ * @param  {Array} entityNames The entityNames whose ids will be found.
+ * @return {Promise}           A promise from knex that resolves to an array of ids
+ * when all of them have been found.
+ */
+function findEntities(tableName, entityNames) {
   if (!entityNames.length) {
     return Promise.resolve([]);
   }
   return knex
     .select('id')
-    .from(Model.prototype.tableName)
+    .from(tableName)
     .whereIn('name', entityNames)
     .then(results => results.map(result => result.id));
 }
 
+
+/**
+ * findCells - Find a list of cell ids in the database from their names.
+ *  
+ * @param  {Array} cellNames The names or synonyms of cells in the MySQL database.
+ * @return {Promise}         A promise that resolves to an array if no cell names are
+ * given or when all of the ids have been found.
+ */
 function findCells(cellNames) {
   if (!cellNames.length) {
     return Promise.resolve([]);
@@ -160,9 +214,9 @@ function insertCellLines() {
       const tissue = cl.tissue || '';
       const disease = cl.disease || '';
       const synonyms = cl.synonyms || [];
-      findEntities(Tissue, [tissue])
+      findEntities(Tissue.prototype.tableName, [tissue])
         .then(tissueIds => {
-          findEntities(Disease, [disease])
+          findEntities(Disease.prototype.tableName, [disease])
             .then(diseaseIds => {
               const cell = _.pick(cl, Cell.prototype.permittedAttributes());
               Cell.forge(cell).save().then((clModel) => {

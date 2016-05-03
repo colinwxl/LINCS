@@ -1,3 +1,10 @@
+// This file is run using `npm run elastic`. It imports the elasticsearch client
+// generated from ../serverConf (https://github.com/elastic/elasticsearch-js) and the
+// bookshelf js models.
+//
+// To understand how esClient.bulk works, view these docs:
+// https://www.elastic.co/guide/en/elasticsearch/client/javascript-api/current/api-reference-2-2.html#api-bulk-2-2
+
 import _debug from 'debug';
 const debug = _debug('app:server:data:elastic');
 
@@ -6,6 +13,15 @@ import { Dataset } from '../models/Dataset';
 import { Cell } from '../models/Cell';
 import { SmallMolecule } from '../models/SmallMolecule';
 
+
+/**
+ * indexDatasets - Indexes the datasets in the database in elasticsearch. Fetches all the
+ * datasets (with their center) using the bookshelf `Dataset` model and then uses the
+ * {@link https://www.elastic.co/guide/en/elasticsearch/client/javascript-api/current/api-reference-2-2.html#api-bulk-2-2 elasticsearch bulk API}
+ * to index them all at once.
+ *
+ * @return {Promise} A promise resolving when the datasets are indexed
+ */
 function indexDatasets() {
   debug('Indexing datasets');
   return Dataset
@@ -36,6 +52,14 @@ function indexDatasets() {
     });
 }
 
+/**
+ * indexCells - Indexes the cells in the database in elasticsearch. Fetches all the
+ * cells using the bookshelf `Cell` model and then uses the
+ * {@link https://www.elastic.co/guide/en/elasticsearch/client/javascript-api/current/api-reference-2-2.html#api-bulk-2-2 elasticsearch bulk API}
+ * to index them all at once.
+ *
+ * @return {Promise} A promise resolving when the cells are indexed
+ */
 function indexCells() {
   debug('Indexing cells');
   return Cell
@@ -61,6 +85,14 @@ function indexCells() {
     });
 }
 
+/**
+ * indexSms - Indexes the small molecules in the database in elasticsearch. Fetches all the
+ * small molecules (with their center) using the bookshelf `Small Molecule` model and then uses the
+ * {@link https://www.elastic.co/guide/en/elasticsearch/client/javascript-api/current/api-reference-2-2.html#api-bulk-2-2 elasticsearch bulk API}
+ * to index them all at once.
+ *
+ * @return {Promise} A promise resolving when the small molecules are indexed
+ */
 function indexSms() {
   debug('Indexing small molecules.');
   return SmallMolecule
@@ -120,46 +152,14 @@ const datasetMapping = {
   body: {
     dataset: {
       properties: {
-        full_assay_name: {
-          type: 'string',
-          // index_analyzer: 'autocomplete',
-          // search_analyzer: 'standard',
-        },
-        description: {
-          type: 'string',
-          // index_analyzer: 'autocomplete',
-          // search_analyzer: 'standard',
-        },
-        center_name: {
-          type: 'string',
-          // index_analyzer: 'autocomplete',
-          // search_analyzer: 'standard',
-        },
-        assay: {
-          type: 'string',
-          // index_analyzer: 'autocomplete',
-          // search_analyzer: 'standard',
-        },
-        method: {
-          type: 'string',
-          // index_analyzer: 'autocomplete',
-          // search_analyzer: 'standard',
-        },
-        classification: {
-          type: 'string',
-          // index_analyzer: 'autocomplete',
-          // search_analyzer: 'standard',
-        },
-        physical_detection: {
-          type: 'string',
-          // index_analyzer: 'autocomplete',
-          // search_analyzer: 'standard',
-        },
-        lincs_id: {
-          type: 'string',
-          // index_analyzer: 'autocomplete',
-          // search_analyzer: 'standard',
-        },
+        full_assay_name: { type: 'string' },
+        description: { type: 'string' },
+        center_name: { type: 'string' },
+        assay: { type: 'string' },
+        method: { type: 'string' },
+        classification: { type: 'string' },
+        physical_detection: { type: 'string' },
+        lincs_id: { type: 'string' },
       },
     },
   },
@@ -171,21 +171,9 @@ const cellMapping = {
   body: {
     cell: {
       properties: {
-        name: {
-          type: 'string',
-          // index_analyzer: 'autocomplete',
-          // search_analyzer: 'standard',
-        },
-        lincs_id: {
-          type: 'string',
-          // index_analyzer: 'autocomplete',
-          // search_analyzer: 'standard',
-        },
-        source: {
-          type: 'string',
-          // index_analyzer: 'autocomplete',
-          // search_analyzer: 'standard',
-        },
+        name: { type: 'string' },
+        lincs_id: { type: 'string' },
+        source: { type: 'string' },
       },
     },
   },
@@ -197,26 +185,10 @@ const smMapping = {
   body: {
     smallmolecule: {
       properties: {
-        name: {
-          type: 'string',
-          // index_analyzer: 'autocomplete',
-          // search_analyzer: 'standard',
-        },
-        source: {
-          type: 'string',
-          // index_analyzer: 'autocomplete',
-          // search_analyzer: 'standard',
-        },
-        lincs_id: {
-          type: 'string',
-          // index_analyzer: 'autocomplete',
-          // search_analyzer: 'standard',
-        },
-        pubchem_cid: {
-          type: 'string',
-          // index_analyzer: 'autocomplete',
-          // search_analyzer: 'standard',
-        },
+        name: { type: 'string' },
+        source: { type: 'string' },
+        lincs_id: { type: 'string' },
+        pubchem_cid: { type: 'string' },
       },
     },
   },
@@ -225,15 +197,22 @@ const smMapping = {
 const { indices } = esClient;
 
 indices
+  // delete the current `lincs` index
   .delete({ index: 'lincs' })
+  // recreate the `lincs` index
   .then(() => indices.create({ index: 'lincs' }))
+  // In order to update the settings of the index, it must be closed.
+  // These next three lines close the index, update the settings, and then reopen the index.
   .then(() => indices.close({ index: 'lincs' }))
   .then(() => indices.putSettings(lincsSettings))
   .then(() => indices.open({ index: 'lincs' }))
+  // Update the dataset mapping and index the datasets
   .then(() => indices.putMapping(datasetMapping))
   .then(() => indexDatasets())
+  // Update the cell mapping and index the datasets
   .then(() => indices.putMapping(cellMapping))
   .then(() => indexCells())
+  // Update the small molecule mapping and index the datasets
   .then(() => indices.putMapping(smMapping))
   .then(() => indexSms())
   .then(() => process.exit(0))

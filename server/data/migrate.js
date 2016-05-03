@@ -1,3 +1,9 @@
+// This file is responsible for dropping and creating the MySQL tables in the database
+// based off of the schema provided in ./schema.
+// This file is run using npm run migrate. You may also run npm run migrate:prod to update
+// the production database. Currently the SQLite implementation is broken,
+// so the production database is used for both development and production.
+
 import _ from 'lodash';
 import _debug from 'debug';
 
@@ -24,6 +30,15 @@ if (argv['omit-data']) {
   debug('Omitting data tables.');
 }
 
+
+/**
+ * createTable - Creates a table in the MySQL database using the fields supplied
+ * from the schema
+ *
+ * @param  {String} tableName The name of the table. Must be the same as one of the keys
+ * in the schema
+ * @return {Promise} Returns a Promise that resolves upon creation of the table.
+ */
 function createTable(tableName) {
   if (argv['omit-data'] && omitDatasetTables.indexOf(tableName) !== -1) {
     return Promise.resolve();

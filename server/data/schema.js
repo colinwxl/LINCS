@@ -1,3 +1,7 @@
+// This file is the database schema. It is used in several places, most importantly in
+// ./migrate. For more information on this, browse the code around this schema (Ghost Blog):
+// https://github.com/TryGhost/Ghost/blob/master/core/server/data/schema/schema.js
+
 /* eslint max-len:0 */
 export default {
   centers: {
