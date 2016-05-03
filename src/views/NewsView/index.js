@@ -13,7 +13,7 @@ export default function NewsView() {
       />
       <div className="container">
         <div className="row">
-          <div className={`col-xl-9 ${styles.news}`}>
+          <div className={`col-xs-12 col-xl-9 ${styles.news}`}>
             <div className={styles['news-group']}>
               <h2>HMS LINCS Center Updates</h2>
               <p className="text-muted"><em>Posted on April 6th, 2016 by Sherry Jenkins</em></p>

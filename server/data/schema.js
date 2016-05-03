@@ -188,6 +188,7 @@ export default {
     journal_name: { type: 'string', maxlength: 255, nullable: true },
     show_at_home_order: { type: 'integer', nullable: true },
     abstract: { type: 'text', maxlength: 16777215, fieldtype: 'medium', nullable: false },
+    resource_links: { type: 'text', maxlength: 65535, nullable: true, isJson: true },
     pp_pages: { type: 'string', maxlength: 255, nullable: true },
     issue: { type: 'string', maxlength: 255, nullable: true },
     volume: { type: 'string', maxlength: 255, nullable: true },

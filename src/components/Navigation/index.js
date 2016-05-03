@@ -29,6 +29,9 @@ export default function Navigation(props) {
             NIH LINCS Program
           </Link>
           <nav className="nav navbar-nav pull-md-right">
+            <Link className={styles.link} to="/about">
+              About
+            </Link>
             <Link className={styles.link} to="/centers">
               Centers
             </Link>

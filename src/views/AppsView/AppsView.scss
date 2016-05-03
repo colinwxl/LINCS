@@ -119,10 +119,17 @@ $apple-blue: #1390ff;
 
   ul {
     border-left: 1px solid $gray;
-    list-style: none;
+    list-style-type: none;
     margin-bottom: 0;
     padding-bottom: .5rem;
+    padding-left: .9375rem;
     padding-top: .5rem;
+    text-indent: -5px;
+
+    li::before {
+      content: '- ';
+      text-indent: -5px;
+    }
   }
 
   p {

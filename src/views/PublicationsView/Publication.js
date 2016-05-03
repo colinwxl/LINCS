@@ -55,7 +55,7 @@ export default class Publication extends Component {
           {!!p.issue ? `(${p.issue})` : ''}
           {!!p.ppPages ? `:${p.ppPages}` : ''}.
         </p>
-        <p>
+        <p className={styles.categories}>
           {
             p.assayDevelopment &&
             <span
@@ -135,6 +135,26 @@ export default class Publication extends Component {
             Export citation
           </span>
         </p>
+        { p.resourceLinks &&
+          <p className={styles.resources}>
+            <em>Relevant Resources: </em>
+            {
+              Object.keys(p.resourceLinks).map((resource, index) => {
+                const val = p.resourceLinks[resource];
+                return (
+                  <span key={index} className={styles.resource}>
+                    {index !== 0 && <span> - </span>}
+                    {
+                      typeof val === 'string' || val instanceof String
+                      ? <a href={val}>{resource}</a>
+                      : <span>{resource}</span>
+                    }
+                  </span>
+                );
+              })
+            }
+          </p>
+        }
       </div>
     );
   }

@@ -123,19 +123,21 @@ class WorkflowInputForm extends Component {
                   <p className={`text-muted ${styles.small}`}><em>Examples</em></p>
                   <h5>I would like to...</h5>
                 </div>
-                <ul className="col-xs-12 col-md-9">
-                  {
-                    examples.length && examples.map((wfObj, i) =>
-                      <li key={i}>
-                        {
-                          wfObj.disabled
-                          ? <p>{wfObj.text}</p>
-                          : <Link to={wfObj.link}>{wfObj.text}</Link>
-                        }
-                      </li>
-                    )
-                  }
-                </ul>
+                <div className="col-xs-12 col-md-9">
+                  <ul>
+                    {
+                      examples.length && examples.map((wfObj, i) =>
+                        <li key={i}>
+                          {
+                            wfObj.disabled
+                            ? <span>{wfObj.text}</span>
+                            : <Link to={wfObj.link}>{wfObj.text}</Link>
+                          }
+                        </li>
+                      )
+                    }
+                  </ul>
+                </div>
               </div>
               <div className="row">
                 <div className="col-xs-12">

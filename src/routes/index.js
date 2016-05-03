@@ -3,6 +3,7 @@ import { Route, IndexRoute, Redirect } from 'react-router';
 
 import CoreLayout from 'layouts/CoreLayout';
 import HomeView from 'views/HomeView';
+import AboutView from 'views/AboutView';
 
 // Centers
 import CentersOverview from 'views/CentersView/Overview';
@@ -65,6 +66,8 @@ const wf = 'applications/workflows';
 export default (/* store */) => (
   <Route path="/" component={CoreLayout}>
     <IndexRoute component={HomeView} />
+
+    <Route path="about" component={AboutView} />
 
     {/* Centers Routes */}
     <Redirect from={centersBase} to={`${centersBase}/overview`} />
