@@ -20,7 +20,7 @@ import { SmallMolecule } from '../models/SmallMolecule';
  * {@link https://www.elastic.co/guide/en/elasticsearch/client/javascript-api/current/api-reference-2-2.html#api-bulk-2-2 elasticsearch bulk API}
  * to index them all at once.
  *
- * @return {Promise} A promise resolving when the datasets are indexed
+ * @return {Promise} A promise that resolves when the datasets are indexed.
  */
 function indexDatasets() {
   debug('Indexing datasets');
@@ -58,7 +58,7 @@ function indexDatasets() {
  * {@link https://www.elastic.co/guide/en/elasticsearch/client/javascript-api/current/api-reference-2-2.html#api-bulk-2-2 elasticsearch bulk API}
  * to index them all at once.
  *
- * @return {Promise} A promise resolving when the cells are indexed
+ * @return {Promise} A promise that resolves when the cells are indexed
  */
 function indexCells() {
   debug('Indexing cells');
@@ -91,7 +91,7 @@ function indexCells() {
  * {@link https://www.elastic.co/guide/en/elasticsearch/client/javascript-api/current/api-reference-2-2.html#api-bulk-2-2 elasticsearch bulk API}
  * to index them all at once.
  *
- * @return {Promise} A promise resolving when the small molecules are indexed
+ * @return {Promise} A promise that resolves when the small molecules are indexed
  */
 function indexSms() {
   debug('Indexing small molecules.');

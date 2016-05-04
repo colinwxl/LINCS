@@ -8,6 +8,9 @@ const router = new Router({
   prefix: '/LINCS/api/v1/centers',
 });
 
+/**
+ * Get all centers with their tools and datasets.
+ */
 router.get('/', async (ctx) => {
   try {
     const centers = await Centers

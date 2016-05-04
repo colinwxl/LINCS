@@ -12,6 +12,11 @@ const router = new Router({
   prefix: '/LINCS/api/v1',
 });
 
+
+/**
+ * Fetch all publications. Order them by their year_published and PubMed Id (pm_id).
+ * Include the authors of the publications.
+ */
 router.get('/publications', async (ctx) => {
   try {
     const pubs = await Publication
@@ -26,6 +31,13 @@ router.get('/publications', async (ctx) => {
   }
 });
 
+/**
+ * Generates a publication reference in the
+ * {@link http://refman.com/sites/rm/files/m/direct_export_ris.pdf RIS format}
+ * @param  {Object} pub The publication to reference
+ * @return {Promise}   A promise that resolves with the filePath and filename of the
+ * RIS file to be downloaded
+ */
 function generateRIS(pub) {
   return new Promise(resolve => {
     const firstAuthorLastName = pub.authors[0].name.split(' ')[0];
@@ -70,6 +82,13 @@ function generateRIS(pub) {
   });
 }
 
+/**
+ * Generates a publication reference in the
+ * {@link http://wiki.cns.iu.edu/pages/viewpage.action?pageId=1933370 ENW format}
+ * @param  {Object} pub The publication to reference
+ * @return {Promise}   A promise that resolves with the filePath and filename of the
+ * ENW file to be downloaded
+ */
 function generateENW(pub) {
   return new Promise(resolve => {
     const firstAuthorLastName = pub.authors[0].name.split(' ')[0];
@@ -114,6 +133,12 @@ function generateENW(pub) {
   });
 }
 
+/**
+ * Generates a publication reference in the {@link http://www.bibtex.org/Format/ BIBTEX format}
+ * @param  {Object} pub The publication to reference
+ * @return {Promise}   A promise that resolves with the filePath and filename of the
+ * BIBTEX file to be downloaded
+ */
 function generateBIB(pub) {
   return new Promise(resolve => {
     const firstAuthorLastName = pub.authors[0].name.split(' ')[0];
@@ -161,6 +186,11 @@ function generateBIB(pub) {
   });
 }
 
+/**
+ * Downloads the publication citation for the given publication id
+ * @param  {String} id The publication id for which the citation will be downloaded.
+ * @param  {String} refType The type of citation to download. Either ris, enw, or bib.
+ */
 router.get('/publications/:id/reference/:refType', async (ctx) => {
   const pubModel = await Publication.where('id', ctx.params.id).fetch({ withRelated: ['authors'] });
   const publication = pubModel.toJSON();

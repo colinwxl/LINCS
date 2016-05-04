@@ -37,7 +37,7 @@ if (argv['omit-data']) {
  *
  * @param  {String} tableName The name of the table. Must be the same as one of the keys
  * in the schema
- * @return {Promise} Returns a Promise that resolves upon creation of the table.
+ * @return {Promise} A promise that resolves upon creation of the table.
  */
 function createTable(tableName) {
   if (argv['omit-data'] && omitDatasetTables.indexOf(tableName) !== -1) {

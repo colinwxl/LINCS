@@ -9,6 +9,10 @@ const router = new Router({
   prefix: '/LINCS/api/v1',
 });
 
+/**
+ * A health endpoint. Does a simple SQL query to check the connection to the database.
+ * Returns a 200 if the connection is successful.
+ */
 router.get('/health', async (ctx) => {
   try {
     await knex.raw('select 1+1 as result');

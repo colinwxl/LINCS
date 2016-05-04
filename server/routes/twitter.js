@@ -10,6 +10,10 @@ const router = new Router({
   prefix: '/LINCS/api/v1/twitter',
 });
 
+/**
+ * Uses the {@link https://github.com/ttezel/twit#usage Twit API} to get the LINCSProgram
+ * twitter timeline. Camelizes the response and sends it.
+ */
 router.get('/timeline', async (ctx) => {
   try {
     const opts = { screen_name: 'LINCSProgram', count: 20 };

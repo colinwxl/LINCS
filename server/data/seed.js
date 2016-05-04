@@ -27,20 +27,19 @@ import { knex } from '../serverConf';
 
 const debug = _debug('app:server:data:seed');
 
-
 /**
- * saveDataset - Saves a dataset using the `Dataset` bookshelfjs model.
+ * Saves a dataset using the `Dataset` bookshelfjs model.
  *
- * @param  {Object} dsObj    The dataset object. To get an idea of what this looks like,
+ * @param  {Object} dsObj The dataset object. To get an idea of what this looks like,
  * view the schema of the database.
  * @param  {String} centerId The id of the center that the dataset is associated with. This is
  * added to the dsObj.
- * @param  {Array} smIds     The small molecule ids associated with the dataset. These will
+ * @param  {Array} smIds The small molecule ids associated with the dataset. These will
  * be `attached` using bookshelfjs. In other words, this dataset's id and the ids of the
  * small molecules will be inserted into small_molecules_datasets.
  * @param  {Array} cellIds  Similar to smIds. These are the cellIds associated with the dataset.
  * They will be inserted alongside the dataset's id into cells_datasets
- * @return {Promise}        A promise that resolves when the dataset has been inserted.
+ * @return {Promise} A promise that resolves when the dataset has been inserted.
  */
 function saveDataset(dsObj, centerId, smIds, cellIds) {
   const ds = { center_id: centerId, ...dsObj };
@@ -59,11 +58,11 @@ function saveDataset(dsObj, centerId, smIds, cellIds) {
 
 
 /**
- * insertSmallMolecules - Inserts the small molecules from the JSON in the seed folder
+ * Inserts the small molecules from the JSON in the seed folder
  * using knex. {@link http://knexjs.org/#Utility-BatchInsert knex.batchInsert} is used
- * instead of the `Small Molecule` bookshelf model for performance .
+ * instead of the `Small Molecule` bookshelf model for performance.
  *
- * @return {Promise}  A promise from knex, resolving when the small molecules are inserted.
+ * @return {Promise} A promise from knex, resolving when the small molecules are inserted.
  */
 function insertSmallMolecules() {
   debug(`Inserting ${Object.keys(smallMolecules).length} small molecules.`);
@@ -81,12 +80,12 @@ function insertSmallMolecules() {
 
 
 /**
- * findSmallMolecules - Find a list of small molecules in the database given their lincs ids.
+ * Find a list of small molecules in the database given their lincs ids.
  * Although the implementation is broken elsewhere, this function behaves differently in
  * development and production due to the limitations of sqlite.
  *
- * @param  {Array} lincsIds The LINCS ids (LSM's) of the small molecules to be found .
- * @return {Promise}        A promise resolving when all the small molecules are found.
+ * @param  {Array} lincsIds The LINCS ids (LSM's) of the small molecules to be found.
+ * @return {Promise} A promise resolving when all the small molecules are found.
  */
 function findSmallMolecules(lincsIds) {
   if (!lincsIds.length) {
@@ -119,13 +118,13 @@ function findSmallMolecules(lincsIds) {
 
 
 /**
- * findEntities - A utility function to find a list of ids using the tableName and the
+ * A utility function to find a list of ids using the tableName and the
  * list of entity names.
  *
  * @param  {String} tableName  The tableName of the MySQL database where the entityNames can
  * be found. This is one of the tables in the database schema.
  * @param  {Array} entityNames The entityNames whose ids will be found.
- * @return {Promise}           A promise from knex that resolves to an array of ids
+ * @return {Promise} A promise from knex that resolves to an array of ids
  * when all of them have been found.
  */
 function findEntities(tableName, entityNames) {
@@ -141,10 +140,10 @@ function findEntities(tableName, entityNames) {
 
 
 /**
- * findCells - Find a list of cell ids in the database from their names.
- *  
+ * Find a list of cell ids in the database from their names.
+ *
  * @param  {Array} cellNames The names or synonyms of cells in the MySQL database.
- * @return {Promise}         A promise that resolves to an array if no cell names are
+ * @return {Promise} A promise that resolves to an array if no cell names are
  * given or when all of the ids have been found.
  */
 function findCells(cellNames) {
@@ -174,6 +173,11 @@ function findCells(cellNames) {
   });
 }
 
+/**
+ * Insert the tissues and diseases from JSON files in the '../../seed' folder.
+ * @return {Promise} A promise that resolves when all tissues and diseases have
+ * been inserted.
+ */
 function insertTissuesAndDiseases() {
   let tissues = [];
   let diseases = [];
@@ -207,6 +211,11 @@ function insertTissuesAndDiseases() {
   ]);
 }
 
+/**
+ * Inserts cells into the database. First the disease and tissue ids associated with
+ * the cell need to be found and later attached (associated).
+ * @return {Promise} A promise that resolves when all of the cells have been inserted.
+ */
 function insertCellLines() {
   debug(`Inserting ${cellLines.length} cells.`);
   return Promise.all(cellLines.map(cl =>
@@ -247,8 +256,15 @@ function insertCellLines() {
   ));
 }
 
+/**
+ * Find all of the center names from the datasets (make sure to add the DCIC).
+ * @return {Promise} A promise from knex that resolves when all of the centers have been
+ * inserted.
+ */
 function insertCenters() {
   // http://stackoverflow.com/questions/15125920/how-to-get-distinct-values-from-an-array-of-objects-in-javascript
+  // A set can not contain duplicate elements so create a set of center names from the datasets
+  // and add the DCIC. Uses the ES6 ...spread operator as well.
   // ES6 get unique elements
   const centerNames = ['BD2K-LINCS DCIC', ...new Set(datasets.map(dataset => dataset.center_name))];
   const created = moment().toDate();
@@ -257,6 +273,11 @@ function insertCenters() {
   return knex.insert(centers).into('centers');
 }
 
+/**
+ * Given the centerName, find its id in the database.
+ * @param  {String} centerName The name of the center to find.
+ * @return {Promise} A promise that resolves to the center's id when it is found.
+ */
 function findCenterId(centerName) {
   return knex
     .select('id')
@@ -270,6 +291,10 @@ function findCenterId(centerName) {
     });
 }
 
+/**
+ * Find all of the necessary ids and build the dataset object to be passed to saveDataset().
+ * @return {Promise} A promise that resolves when all of the datasets have been built and saved.
+ */
 function buildDatasets() {
   debug(`Inserting ${datasets.length} datasets.`);
   const attrs = Dataset.prototype.permittedAttributes();
@@ -302,6 +327,11 @@ function buildDatasets() {
   ));
 }
 
+/**
+ * Insert publications into the database from the JSON in the '../../seed' folder.
+ * @return {Promise} A promise that resolves when all of the publications and their
+ * authors have been inserted and associated with each other.
+ */
 function insertPublications() {
   const created = moment().toDate();
   const pubs = publications.map(obj => ({ ...obj, created_at: created }));
@@ -327,6 +357,11 @@ function insertPublications() {
   );
 }
 
+/**
+ * Insert tools into the database. Tool object is built by finding the tool's center's id
+ * and from the JSON in the '../../seed' folder.
+ * @return {Promise} A promise that resolves when the
+ */
 function insertTools() {
   debug(`Inserting ${tools.length} tools...`);
   return Promise.all(tools.map(toolObj => {
@@ -343,17 +378,24 @@ knex.raw('select 1+1 as result').then(() => {
   debug('Connection successful.');
   const promises = [];
   const created = moment().toDate();
-  const syms = symposia.map(obj => ({ ...obj, created_at: created }));
-  const shops = workshops.map(obj => ({ ...obj, created_at: created }));
-  const webs = webinars.map(obj => ({ ...obj, created_at: created }));
-  const opps = fundingOpportunities.map(obj => ({ ...obj, created_at: created }));
 
+  // Build and insert symposia, workshops, webinars, and funding opportunities into the db.
+  const syms = symposia.map(obj => ({ ...obj, created_at: created }));
   promises.push(knex.insert(syms).into('symposia'));
+
+  const shops = workshops.map(obj => ({ ...obj, created_at: created }));
   promises.push(knex.insert(shops).into('workshops'));
+
+  const webs = webinars.map(obj => ({ ...obj, created_at: created }));
   promises.push(knex.insert(webs).into('webinars'));
+
+  const opps = fundingOpportunities.map(obj => ({ ...obj, created_at: created }));
   promises.push(knex.insert(opps).into('funding_opportunities'));
+
   promises.push(insertPublications());
 
+  // If the omit-data argument is passed, don't insert datasets and metadata.
+  // Otherwise, insert entities and datasets in the proper order so that they are available.
   if (argv['omit-data']) {
     debug('Omitting centers, tools, and dataset tables.');
   } else {
@@ -363,7 +405,7 @@ knex.raw('select 1+1 as result').then(() => {
           .then(() => insertTissuesAndDiseases())
           .then(() => insertCellLines())
           .then(() => insertCenters())
-          // Need to insert tools after centers
+          // Need to insert tools and datasets after centers
           .then(() => insertTools())
           .then(() => buildDatasets())
           .then(resolve)

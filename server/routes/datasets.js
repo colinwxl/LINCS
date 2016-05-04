@@ -15,6 +15,9 @@ const router = new Router({
   prefix: '/LINCS/api/v1/datasets',
 });
 
+/**
+ * Fetch all datasets and the relationships provided in the `include` query parameter.
+ */
 router.get('/', async (ctx) => {
   let withRelated = [];
   if (ctx.query.include) {
@@ -42,9 +45,10 @@ router.get('/clicks', async (ctx) => {
   }
 });
 
+/**
+ * Fetch an array of datasets that are the most recent dataset from each center.
+ */
 router.get('/recent', async (ctx) => {
-  // This endpoint returns an array of datasets
-  // These datasets are the most recent release from each center
   try {
     // Get all centers and their datasets in order of date retrieved
     const centers = await Center
@@ -70,6 +74,10 @@ router.get('/recent', async (ctx) => {
   }
 });
 
+/**
+ * Fetch all of the information needed for the DataTree. Speeds up initial load of
+ * the tree on the front end.
+ */
 router.get('/tree', async (ctx) => {
   const assays = await Dataset
     .query(qb => qb.distinct('assay').select().orderBy('assay', 'asc'))
@@ -151,6 +159,9 @@ router.get('/tree', async (ctx) => {
   ctx.body = { assays, classes, methods, centers, alphabetical, dates, dateDatasetMap };
 });
 
+/**
+ * Search the datasets based on the query given in the `q` query parameter.
+ */
 router.get('/search', async (ctx) => {
   if (!ctx.query.q || ctx.query.q === '') {
     ctx.throw(400, 'Query parameter q required for search.');
@@ -214,7 +225,10 @@ router.get('/search', async (ctx) => {
   });
 });
 
-// ctx.request.body.datasetIds is an array of dataset ids whose clicks need to be incremented.
+/**
+ * Increment the number of clicks on a dataset.
+ * @param {Array} ctx.request.body.datasetIds Dataset ids whose clicks need to be incremented.
+ */
 router.post('/clicks/increment', async (ctx) => {
   const datasetIds = ctx.request.body.datasetIds;
   const includePivot = !!ctx.query.includePivot;
@@ -251,6 +265,10 @@ router.post('/clicks/increment', async (ctx) => {
   }
 });
 
+/**
+ * Fetches a specific dataset
+ * @param  {String} id The id of the dataset to be fetched.
+ */
 router.get('/:id', async (ctx) => {
   let id = -1;
   let withRelated = [];
@@ -275,6 +293,10 @@ router.get('/:id', async (ctx) => {
   }
 });
 
+/**
+ * Downloads the Clustergrammer network for the given dataset id
+ * @param  {String} id The dataset id for which the Clustergrammer network will be downloaded.
+ */
 router.get('/:id/network', async (ctx) => {
   let id = -1;
   try {
@@ -296,6 +318,10 @@ router.get('/:id/network', async (ctx) => {
   ctx.body = !!network ? network : {};
 });
 
+/**
+ * Downloads the raw data package for the given dataset id
+ * @param  {String} id The dataset id for which the raw data package will be downloaded.
+ */
 router.get('/:id/download', async (ctx) => {
   if (process.env.NODE_ENV !== 'production') {
     ctx.throw(400, 'Datasets can only be downloaded in production.');
@@ -323,6 +349,10 @@ router.get('/:id/download', async (ctx) => {
   }
 });
 
+/**
+ * Downloads the gct file for the given dataset id
+ * @param  {String} id The dataset id for which the gct file will be downloaded.
+ */
 router.get('/:id/download/gct', async (ctx) => {
   if (process.env.NODE_ENV !== 'production') {
     ctx.throw(400, 'GCT files can only be downloaded in production.');
@@ -356,6 +386,10 @@ router.get('/:id/download/gct', async (ctx) => {
   }
 });
 
+/**
+ * Downloads the gctx file for the given dataset id
+ * @param  {String} id The dataset id for which the gctx file will be downloaded.
+ */
 router.get('/:id/download/gctx', async (ctx) => {
   if (process.env.NODE_ENV !== 'production') {
     ctx.throw(400, 'GCTX files can only be downloaded in production.');
@@ -391,6 +425,13 @@ router.get('/:id/download/gctx', async (ctx) => {
   }
 });
 
+/**
+ * Generates a dataset reference in the
+ * {@link http://refman.com/sites/rm/files/m/direct_export_ris.pdf RIS format}
+ * @param  {Object} ds The dataset to reference
+ * @return {Promise}   A promise that resolves with the filePath and filename of the
+ * RIS file to be downloaded
+ */
 function generateRIS(ds) {
   return new Promise(resolve => {
     const dateRetrieved = moment(ds.dateRetrieved);
@@ -416,6 +457,13 @@ function generateRIS(ds) {
   });
 }
 
+/**
+ * Generates a dataset reference in the
+ * {@link http://wiki.cns.iu.edu/pages/viewpage.action?pageId=1933370 ENW format}
+ * @param  {Object} ds The dataset to reference
+ * @return {Promise}   A promise that resolves with the filePath and filename of the
+ * ENW file to be downloaded
+ */
 function generateENW(ds) {
   return new Promise(resolve => {
     const dateRetrieved = moment(ds.dateRetrieved);
@@ -437,6 +485,12 @@ function generateENW(ds) {
   });
 }
 
+/**
+ * Generates a dataset reference in the {@link http://www.bibtex.org/Format/ BIBTEX format}
+ * @param  {Object} ds The dataset to reference
+ * @return {Promise}   A promise that resolves with the filePath and filename of the
+ * BIBTEX file to be downloaded
+ */
 function generateBIB(ds) {
   return new Promise(resolve => {
     const year = moment(ds.dateRetrieved).format('YYYY');
@@ -460,6 +514,11 @@ function generateBIB(ds) {
   });
 }
 
+/**
+ * Downloads the dataset citation for the given dataset id
+ * @param  {String} id The dataset id for which the citation will be downloaded.
+ * @param  {String} refType The type of citation to download. Either ris, enw, or bib.
+ */
 router.get('/:id/reference/:refType', async (ctx) => {
   const dsModel = await Dataset.where('id', ctx.params.id).fetch({ withRelated: ['center'] });
   const dataset = dsModel.toJSON();
