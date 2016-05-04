@@ -35,7 +35,7 @@ export default combineReducers({
   twitter,
   tree,
   modals,
-  pendingRequests,
   router,
+  pendingRequests,
   form: formReducer,
 });

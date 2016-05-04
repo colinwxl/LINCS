@@ -1,5 +1,9 @@
 // This file populates the database. Taking the JSON files from the `../../seed` folder (note that
 // some of these are very large) and the bookshelfjs models, the data is inserted.
+// This file is run with `npm run seed`. It usually follows `npm run migrate`.
+//
+// To understand how this file works, you will need to understand promises:
+// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
 import _debug from 'debug';
 import _ from 'lodash';
@@ -81,8 +85,6 @@ function insertSmallMolecules() {
 
 /**
  * Find a list of small molecules in the database given their lincs ids.
- * Although the implementation is broken elsewhere, this function behaves differently in
- * development and production due to the limitations of sqlite.
  *
  * @param  {Array} lincsIds The LINCS ids (LSM's) of the small molecules to be found.
  * @return {Promise} A promise resolving when all the small molecules are found.
@@ -90,24 +92,6 @@ function insertSmallMolecules() {
 function findSmallMolecules(lincsIds) {
   if (!lincsIds.length) {
     return Promise.resolve([]);
-  }
-  // sqlite can only take 999 variables at a time.
-  // Split up lincsIds into multiple queries, each with arrays of 999 lincs ids.
-  if (process.env.NODE_ENV !== 'production') {
-    const promises = [];
-    const ids = [];
-    while (lincsIds.length) {
-      promises.push(
-        knex
-          .select('id')
-          .from(SmallMolecule.prototype.tableName)
-          .whereIn('lincs_id', lincsIds.splice(0, 999))
-          .then(results => {
-            results.forEach(result => ids.push(result.id));
-          })
-      );
-    }
-    return Promise.all(promises).then(() => ids);
   }
   return knex
     .select('id')
@@ -195,16 +179,6 @@ function insertTissuesAndDiseases() {
   tissues = tissues.map(name => ({ name, created_at: created }));
   diseases = diseases.map(name => ({ name, created_at: created }));
   debug(`Inserting ${tissues.length} tissues and ${diseases.length} diseases.`);
-  if (process.env.NODE_ENV !== 'production') {
-    const promises = [];
-    tissues.forEach(tissue => {
-      promises.push(knex.insert(tissue).into('tissues'));
-    });
-    diseases.forEach(disease => {
-      promises.push(knex.insert(disease).into('diseases'));
-    });
-    return Promise.all(promises);
-  }
   return Promise.all([
     knex.insert(tissues).into('tissues'),
     knex.insert(diseases).into('diseases'),
@@ -339,6 +313,8 @@ function insertPublications() {
   pubs.forEach(obj => {
     authors = _.union(authors, obj.authors);
   });
+  // Insert all of the authors and make an object where the author name is the key and
+  // his/her id is the value so that we can attach it to publications.
   const authorIdMap = {};
   return Promise.all(authors.map(name => {
     const author = { name, created_at: created };
@@ -374,8 +350,13 @@ function insertTools() {
   }));
 }
 
+// This is where the file is run. It checks if there is a connection to the
+// database by running a simple query, and if it is, then the data is inserted.
 knex.raw('select 1+1 as result').then(() => {
   debug('Connection successful.');
+
+  // This is an array of promises that will contain all of the promises that will
+  // resolve when the data has be inserted into the database.
   const promises = [];
   const created = moment().toDate();
 
@@ -394,7 +375,7 @@ knex.raw('select 1+1 as result').then(() => {
 
   promises.push(insertPublications());
 
-  // If the omit-data argument is passed, don't insert datasets and metadata.
+  // If the --omit-data argument is passed, don't insert datasets and metadata.
   // Otherwise, insert entities and datasets in the proper order so that they are available.
   if (argv['omit-data']) {
     debug('Omitting centers, tools, and dataset tables.');
@@ -417,6 +398,9 @@ knex.raw('select 1+1 as result').then(() => {
     );
   }
 
+  // Promise.all will check that all of the promises in the promises array defined
+  // above have resolved. If they have without errors, then the database has
+  // been seeded.
   Promise
     .all(promises)
     .then(() => {

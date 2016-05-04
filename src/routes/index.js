@@ -1,3 +1,11 @@
+// Routes
+// This file contains all of the routes for the front-end of the app.
+// This is pretty straight-forward, however to better understand what's going on here,
+// view the react-router
+// documentation: https://github.com/reactjs/react-router/tree/master/docs#table-of-contents
+// and more specifically, the RouteConfiguration docs:
+// https://github.com/reactjs/react-router/blob/master/docs/guides/RouteConfiguration.md
+
 import React from 'react';
 import { Route, IndexRoute, Redirect } from 'react-router';
 
@@ -65,6 +73,22 @@ const wf = 'applications/workflows';
 
 export default (/* store */) => (
   <Route path="/" component={CoreLayout}>
+    {
+      /**
+      * The CoreLayout component is essentially a wrapper for all of the routes.
+      * It is the first component hit no matter what the request is and then whatever
+      * route inside matches the current url will be passed as a prop to props.children.
+      * This allows us to do things like add Navigation on every route.
+      */
+    }
+    {
+      /**
+      * The IndexRoute is loaded if the endpoint is just '/'.
+      * This is where the homepage lives.
+      * For more info on IndexRoute, view the docs:
+      * https://github.com/reactjs/react-router/blob/master/docs/guides/IndexRoutes.md
+      */
+    }
     <IndexRoute component={HomeView} />
 
     <Route path="about" component={AboutView} />
