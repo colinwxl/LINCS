@@ -136,10 +136,47 @@ the [babel-node](https://babeljs.io/docs/usage/cli/#babel-node) package is used 
 `npm run seed`, however, the babel-node process runs out of memory because the files in the
 seed folder are too large. To overcome this, the entire server folder is compiled to regular
 JavaScript, regular `node` is run with the `--max-old-space-size=15360` flag to increase the
-alloted memory, and then the compiled files are removed. The command can be found in the
+allotted memory, and then the compiled files are removed. The command can be found in the
 package.json file:
 ```
 npm run server-es5 && node --max-old-space-size=15360 server-es5/data/seed && rm -rf server-es5
 ```
 
 ### Building and Deploying
+
+#### Running in Development
+To run the application in development, first install the
+[Redux DevTools Chrome Extension](https://github.com/zalmoxisus/redux-devtools-extension). It makes
+viewing changes in your data over the lifetime of your app very easy. Once installed, start the
+application with `npm run dev`. This may take some time as webpack needs to compile the application.
+If any problems arise in this part of the process, I would review the
+[react-redux-starter-kit](https://www.github.com/davezuko/react-redux-starter-kit) as the webpack
+configs are almost identical to the ones there.
+
+#### Building the Application for Production
+This application is built using Docker. In order to build it for production, you must first have
+docker-machine installed. Follow the instructions on the
+[Docker website](https://www.docker.com/products/docker-toolbox) for installing the Docker
+Toolbox (which contains docker-machine amongst other things).
+
+With docker-machine installed, you'll need to create a new machine. I would delete the current
+'default' machine by running `docker-machine rm default`. Following the answer from
+[this StackOverflow answer](http://stackoverflow.com/questions/30654306/allow-insecure-registry-in-host-provisioned-with-docker-machine),
+run the following command to create a machine with our insecure registry:
+```
+docker-machine create --driver virtualbox --engine-insecure-registry REPLACE_WITH_ELIZABETH_IP:5000 default
+```
+
+After creating the machine, follow the instructions found by running `docker-machine env default`
+to set up your shell properly.
+
+Now that you have docker-machine configured, you are ready to run this in production. It is very
+simple to do so. First, determine the severity of the changes you have made since the last release.
+Normally, these are very minor. The deployment process uses the `npm version (patch|minor|major)`
+(details found [here](https://docs.npmjs.com/cli/version)) to increment the version of the
+application, create a docker vm with the same new version, push it to our repository, and tell
+Marathon to restart the application with the new vm. You can find the commands described in
+the npm docs (version and postversion) in the package.json file.
+
+If the deployment process finishes without errors, visit http://amp.pharm.mssm.edu/LINCS to view
+the updated product.
