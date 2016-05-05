@@ -1,7 +1,12 @@
 # LINCS
 The homepage of the NIH LINCS Program.
 
+> Note: There is a file missing that you will need to run this application, however it has
+sensitive data. Email me at michael@mgmcdermott.com and I can send it to you. The file lives
+in the server folder and it is called serverConf.js
+
 ## Learning the Codebase
+----------------------------------------------------------------------------------------------------
 ### Client Side
 There are only a few libraries and technologies used on the front-end of this project.
 The most important of these is [React](https://facebook.github.io/react/). If you have a
@@ -79,5 +84,60 @@ router.get('/', async (ctx) => {
 ```
 
 ### Migrating and Seeding the Database
+> Note: I am working on implementing a set of Python scripts to migrate and seed the database.
+> For now, they are all written in Node.js
+
+To update entries in the database, you may do so without recreating it using phpMyAdmin.
+This is accessed by going to Marathon (elizabeth:8080) and clicking on the computer where
+the phpMyAdmin instance is running. From here, it is very easy for you to make small changes
+to text, add entries, or remove them.
+
+If you would like to rebuild the database from scratch using the original data files, then there
+are two different processes you'll need to prepare the data:
+
+For **datasets, cell lines, and tools**:
+1. In the resources folder, located the .csv file of the entity you'd like to edit. Open it in
+your favorite editor.
+  * I tend to use Google Sheets as it ensures that all characters are utf-8, otherwise some
+  problems may come up in the next step.
+2. Open the python file associated with the .csv file you edited (i.e. datasets.py). If the
+columns are the same, there is no need to edit the Python script.
+  * Note that the Python script converts the csv to a JavaScript file that contains an array
+  of objects, where each object has the schema specified in
+  [server/data/schema.js](https://github.com/MaayanLab/LINCS/blob/master/server/data/schema.js).
+3. After running the Python script, a new JavaScript file will be created in the seed folder.
+
+For **publications, webinars, workshops, funding opportunities, and symposia**:
+1. Edit the JavaScript file in the seed folder directly. These files are much smaller than
+the others, making them easy to maintain. Make sure that each object has the same schema as its
+database table found in
+[server/data/schema.js](https://github.com/MaayanLab/LINCS/blob/master/server/data/schema.js).
+
+Once the data is updated and the seed folder contains the correct JavaScript files, run
+`npm run migrate` to recreate the database tables in development, and `npm run migrate:prod`
+to  recreate the database tables in production. At the moment, the development and production
+databases are the same, so these will both do the same thing. Changing server/serverConf.js
+will change where the databases are located depending on your environment. If an error occurs,
+try re-running the command.
+
+After recreating the tables in the database, run `npm run seed` or `npm run seed:prod`. This
+may take some time and an error may occur here if any of the files in the seed folder are
+incorrect.
+
+After making any changes to the database, run `npm run elastic` to update the elasticsearch
+index. This technology may be removed in favor of SQL queries for simplicity.
+
+All three commands, `npm run migrate`, `npm run seed`, and `npm run elastic`, contain files
+written in ES6 (they live in the
+[server/data](https://github.com/MaayanLab/LINCS/tree/master/server/data) folder). Therefore,
+the [babel-node](https://babeljs.io/docs/usage/cli/#babel-node) package is used to run them. For
+`npm run seed`, however, the babel-node process runs out of memory because the files in the
+seed folder are too large. To overcome this, the entire server folder is compiled to regular
+JavaScript, regular `node` is run with the `--max-old-space-size=15360` flag to increase the
+alloted memory, and then the compiled files are removed. The command can be found in the
+package.json file:
+```
+npm run server-es5 && node --max-old-space-size=15360 server-es5/data/seed && rm -rf server-es5
+```
 
 ### Building and Deploying
