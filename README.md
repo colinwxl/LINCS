@@ -6,7 +6,7 @@ sensitive data. Email me at michael@mgmcdermott.com and I can send it to you. Th
 in the server folder and it is called serverConf.js
 
 ## Learning the Codebase
-----------------------------------------------------------------------------------------------------
+
 ### Client Side
 There are only a few libraries and technologies used on the front-end of this project.
 The most important of these is [React](https://facebook.github.io/react/). If you have a
@@ -95,7 +95,8 @@ to text, add entries, or remove them.
 If you would like to rebuild the database from scratch using the original data files, then there
 are two different processes you'll need to prepare the data:
 
-For **datasets, cell lines, and tools**:
+For **datasets**, **cell lines**, and **tools**:
+
 1. In the resources folder, located the .csv file of the entity you'd like to edit. Open it in
 your favorite editor.
   * I tend to use Google Sheets as it ensures that all characters are utf-8, otherwise some
@@ -107,7 +108,8 @@ columns are the same, there is no need to edit the Python script.
   [server/data/schema.js](https://github.com/MaayanLab/LINCS/blob/master/server/data/schema.js).
 3. After running the Python script, a new JavaScript file will be created in the seed folder.
 
-For **publications, webinars, workshops, funding opportunities, and symposia**:
+For **publications**, **webinars**, **workshops**, **funding opportunities**, and **symposia**:
+
 1. Edit the JavaScript file in the seed folder directly. These files are much smaller than
 the others, making them easy to maintain. Make sure that each object has the same schema as its
 database table found in
