@@ -266,6 +266,4 @@ HomeView.propTypes = {
   publications: PropTypes.array,
 };
 
-export default connect(mapStateToProps, {
-  loadPublications,
-})(HomeView);
+export default connect(mapStateToProps, { loadPublications })(HomeView);
