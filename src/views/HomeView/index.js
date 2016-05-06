@@ -101,10 +101,10 @@ export class HomeView extends Component {
                     <p>
                       Provides a 'one-stop' user interface to analyze differential gene
                       expression in a dataset identified via
-                      the <a href="http://lincsportal.ccs.miami.edu/dcic-portal/" target="_blank">LINCS Data Portal</a>.
-                      Users are able to query gene lists
-                      to <a href="http://amp.pharm.mssm.edu/Enrichr" target="_blank">Enrichr</a> and/or
-                      re-analyze, interpret and export results.
+                      the <a href="http://lincsportal.ccs.miami.edu/dcic-portal/" target="_blank">
+                      LINCS Data Portal</a>. Users are able to query gene lists
+                      to <a href="http://amp.pharm.mssm.edu/Enrichr" target="_blank">
+                      Enrichr</a> and/or re-analyze, interpret and export results.
                     </p>
                     <a href="http://eh3.uc.edu/GenomicsPortals/Lincs.jsp" target="_blank">Visit website</a>
                   </div>

@@ -8,41 +8,21 @@ in the server folder and it is called serverConf.js
 ## Learning the Codebase
 
 ### Client Side
-There are only a few libraries and technologies used on the front-end of this project.
-The most important of these is [React](https://facebook.github.io/react/). If you have a
-grasp on React, I think this project should be very easy to follow.
+There are only a few libraries and technologies used on the front-end of this project. The most important of these is [React](https://facebook.github.io/react/). If you have a grasp on React, I think this project should be very easy to follow.
 
-The second-most important technology used in this project is [Redux](http://redux.js.org/).
-Once you understand the concept behind Redux, writing code using the library is very simple as
-its APIs and documentation are very easy to follow. I **strongly recommend** watching
-[this video tutorial series](https://egghead.io/series/getting-started-with-redux) by the
-creator of Redux to get and understanding of what is going on in this project.
+The second-most important technology used in this project is [Redux](http://redux.js.org/). Once you understand the concept behind Redux, writing code using the library is very simple as its APIs and documentation are very easy to follow. I **strongly recommend** watching [this video tutorial series](https://egghead.io/series/getting-started-with-redux) by the creator of Redux to get and understanding of what is going on in this project.
 
-The two best repos to look to as examples are
-the [react-redux-starter-kit](https://github.com/davezuko/react-redux-starter-kit) and the
-[examples found in the Redux repo](https://github.com/reactjs/redux/tree/master/examples)
+The two best repos to look to as examples are the [react-redux-starter-kit](https://github.com/davezuko/react-redux-starter-kit) and the [examples found in the Redux repo](https://github.com/reactjs/redux/tree/master/examples)
 (especially the real-world example). This project was originally a fork of the
-react-redux-starter-kit
-and a good portion of code was taken from the redux examples.
+react-redux-starter-kit and a good portion of code was taken from the redux examples.
 
 ### Server Side
-This project uses Node.JS on the server side. There are two libraries important to understanding
-the backend code. The first of these is [Koa](http://koajs.com/). Koa 2 (which this project uses)
-makes use of the ES7 async/await. Again, there are many technologies that may seem new but the
-learning curves are not as big as you may think.
+This project uses Node.JS on the server side. There are two libraries important to understanding the backend code. The first of these is [Koa](http://koajs.com/). Koa 2 (which this project uses) makes use of the ES7 async/await. Again, there are many technologies that may seem new but the learning curves are not as big as you may think.
 
-To understand Koa 2 and async/await, you first need to understand [promises](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise).
-[Here is a good example](https://www.twilio.com/blog/2015/10/asyncawait-the-hero-javascript-deserved.html)
-of how promises are used and async/await. In a few words, you can call
-`const result = await someFuncThatReturnsAPromise();` and after the promise is resolved, the value
-of result will be whatever the promise resolves to. This means you can write code that seems
-synchronous in the sense that you don't have any `.then()` calls or callbacks.
+To understand Koa 2 and async/await, you first need to understand [promises](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise). [Here is a good example](https://www.twilio.com/blog/2015/10/asyncawait-the-hero-javascript-deserved.html) of how promises are used and async/await. In a few words, you can call `const result = await someFuncThatReturnsAPromise();` and after the promise is resolved, the value
+of result will be whatever the promise resolves to. This means you can write code that seems synchronous in the sense that you don't have any `.then()` calls or callbacks.
 
-For manipulating and querying the MySQL database that this app is built on top of,
-[Bookshelf.js](http://bookshelfjs.org/) is used as an ORM. This library is promise-based so it
-plays very nicely with Koa 2 and async/await. To go through a small example, the following code is
-taken directly from
-[server/routes/datasets.js](https://github.com/MaayanLab/LINCS/blob/master/server/routes/datasets.js)
+For manipulating and querying the MySQL database that this app is built on top of, [Bookshelf.js](http://bookshelfjs.org/) is used as an ORM. This library is promise-based so it plays very nicely with Koa 2 and async/await. To go through a small example, the following code is taken directly from [server/routes/datasets.js](https://github.com/MaayanLab/LINCS/blob/master/server/routes/datasets.js):
 
 ```js
 import Router from 'koa-router';
@@ -87,22 +67,16 @@ router.get('/', async (ctx) => {
 > Note: I am working on implementing a set of Python scripts to migrate and seed the database.
 > For now, they are all written in Node.js
 
-To update entries in the database, you may do so without recreating it using phpMyAdmin.
-This is accessed by going to Marathon (elizabeth:8080) and clicking on the computer where
-the phpMyAdmin instance is running. From here, it is very easy for you to make small changes
-to text, add entries, or remove them.
+To update entries in the database, you may do so without recreating it using phpMyAdmin. This is accessed by going to Marathon (elizabeth:8080) and clicking on the computer where the phpMyAdmin instance is running. From here, it is very easy for you to make small changes to text, add entries, or remove them.
 
-If you would like to rebuild the database from scratch using the original data files, then there
-are two different processes you'll need to prepare the data:
+If you would like to rebuild the database from scratch using the original data files, then there are two different processes you'll need to prepare the data:
 
 For **datasets**, **cell lines**, and **tools**:
 
 1. In the resources folder, located the .csv file of the entity you'd like to edit. Open it in
 your favorite editor.
-  * I tend to use Google Sheets as it ensures that all characters are utf-8, otherwise some
-  problems may come up in the next step.
-2. Open the python file associated with the .csv file you edited (i.e. datasets.py). If the
-columns are the same, there is no need to edit the Python script.
+  * I tend to use Google Sheets as it ensures that all characters are utf-8, otherwise some problems may come up in the next step.
+2. Open the python file associated with the .csv file you edited (i.e. datasets.py). If the columns are the same, there is no need to edit the Python script.
   * Note that the Python script converts the csv to a JavaScript file that contains an array
   of objects, where each object has the schema specified in
   [server/data/schema.js](https://github.com/MaayanLab/LINCS/blob/master/server/data/schema.js).
