@@ -15,11 +15,11 @@ export default function CoreLayout(props) {
       <div className="view-container">
         {
           /**
-           * props.children are the child routes passed depending on what the endpoint is.
-           * For example. Props.children will be the <About /> component if the url is
-           * '/about'. These routes are specified in the routes/index.js
-           */
-         }
+          * props.children are the child routes passed depending on what the endpoint is.
+          * For example. Props.children will be the <About /> component if the url is
+          * '/about'. These routes are specified in the routes/index.js
+          */
+        }
         {props.children}
       </div>
       {/* http://ryanfait.com/resources/footer-stick-to-bottom-of-page/ */}

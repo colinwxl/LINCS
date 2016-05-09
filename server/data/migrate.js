@@ -43,11 +43,8 @@ function createTable(tableName) {
   if (argv['omit-data'] && omitDatasetTables.indexOf(tableName) !== -1) {
     return Promise.resolve();
   }
-  if (tableName === 'workflows') {
-    return Promise.resolve();
-  }
   debug(`Creating table ${tableName}...`);
-  return knex.schema.createTable(tableName, (table) => {
+  return knex.schema.createTableIfNotExists(tableName, (table) => {
     let column;
     const columnKeys = _.keys(schema[tableName]);
     columnKeys.forEach((key) => {

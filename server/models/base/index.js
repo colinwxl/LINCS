@@ -12,13 +12,10 @@ import _ from 'lodash';
 // import camelize from 'camelize';
 
 import { knex } from '../../serverConf';
-import pagination from './pagination';
 import schema from '../../data/schema';
 
 const lincsBookshelf = bookshelf(knex);
-
 lincsBookshelf.plugin('registry');
-lincsBookshelf.plugin(pagination);
 
 lincsBookshelf.Model = lincsBookshelf.Model.extend({
   hasTimestamps: true,
@@ -59,7 +56,7 @@ lincsBookshelf.Model = lincsBookshelf.Model.extend({
    */
   camelCase(attributes) {
     const self = this;
-    const attrs = attributes;
+    const attrs = {};
     _.each(attributes, (value, key) => {
       if (schema[self.tableName].hasOwnProperty(key)) {
         attrs[_.camelCase(key)] = value;
