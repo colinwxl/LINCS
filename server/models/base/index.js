@@ -47,10 +47,6 @@ lincsBookshelf.Model = lincsBookshelf.Model.extend({
   /**
    * This function takes a list of attributes (keys) and converts them all
    * to camelCase. Used to convert all keys to camelCase before being returned from the db.
-   * Currently, this duplicates the keys, keeping the snake_case ones. This is due to the
-   * following issue and StackOverflow question:
-   * https://github.com/tgriesser/bookshelf/issues/1212
-   * http://stackoverflow.com/questions/36875411/fetching-model-with-one-many-relationship-and-parse
    * @param  {Object} attributes An object that will be returned from the database.
    * @return {Object}            The same attributes, with camelCase keys.
    */
@@ -58,6 +54,13 @@ lincsBookshelf.Model = lincsBookshelf.Model.extend({
     const self = this;
     const attrs = {};
     _.each(attributes, (value, key) => {
+      // Need to duplicate keys like 'center_id' due to the following issue and
+      // StackOverflow question:
+      // https://github.com/tgriesser/bookshelf/issues/1212
+      // http://stackoverflow.com/questions/36875411/fetching-model-with-one-many-relationship-and-parse
+      if (key.indexOf('_id') !== -1) {
+        attrs[key] = value;
+      }
       if (schema[self.tableName].hasOwnProperty(key)) {
         attrs[_.camelCase(key)] = value;
       }

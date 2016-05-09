@@ -19,7 +19,7 @@ const router = new Router({
  * Fetch all datasets and the relationships provided in the `include` query parameter.
  */
 router.get('/', async (ctx) => {
-  let withRelated = [];
+  let withRelated = ['center'];
   if (ctx.query.include) {
     withRelated = ctx.query.include.split(',');
   }
@@ -206,7 +206,7 @@ router.get('/search', async (ctx) => {
   // Fetch all datasets. May change later if a specific query is available
   const dsModels = await Dataset
     .fetchAll({
-      withRelated: ['cells', 'smallMolecules'],
+      withRelated: ['center', 'cells', 'smallMolecules'],
     });
   const datasets = dsModels.toJSON({ omitPivot: !includePivot });
   // Send all datasets where dataset.id is in dsIds,
@@ -241,6 +241,7 @@ router.post('/clicks/increment', async (ctx) => {
       .query(qb => qb.whereIn('id', datasetIds))
       .fetchAll({
         withRelated: [
+          'center',
           'cells',
           'cells.tissues',
           'cells.diseases',

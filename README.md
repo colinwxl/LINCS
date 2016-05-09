@@ -25,7 +25,7 @@ npm run dev
 ### Client Side
 There are only a few libraries and technologies used on the front-end of this project. The most important of these is [React](https://facebook.github.io/react/). If you have a grasp on React, I think this project should be very easy to follow.
 
-The second-most important technology used in this project is [Redux](http://redux.js.org/). Once you understand the concept behind Redux, writing code using the library is very simple as its APIs and documentation are very easy to follow. I **strongly recommend** watching [this video tutorial series](https://egghead.io/series/getting-started-with-redux) by the creator of Redux to get and understanding of what is going on in this project.
+The second-most important technology used in this project is [Redux](http://redux.js.org/). Once you understand the concept behind Redux, writing code using the library is very simple as its APIs and documentation are very straight-forward. I **strongly recommend** watching [this video tutorial series](https://egghead.io/series/getting-started-with-redux) by the creator of Redux to get an understanding of what is going on in this project.
 
 The two best repos to look to as examples are the [react-redux-starter-kit](https://github.com/davezuko/react-redux-starter-kit) and the [examples found in the Redux repo](https://github.com/reactjs/redux/tree/master/examples)
 (especially the real-world example). This project was originally a fork of the react-redux-starter-kit and a good portion of code was taken from the redux examples.
@@ -104,9 +104,9 @@ Once the data is updated and the seed folder contains the correct JavaScript fil
 
 After recreating the tables in the database, run `npm run seed` or `npm run seed:prod` for development and production. This may take some time and an error may occur here if any of the files in the seed folder are incorrect.
 
-After making any changes to the database, run `npm run elastic` to update the elasticsearch index. This technology may be removed in favor of SQL queries for simplicity.
+After making any changes to the production database, run `npm run elastic` to update the elasticsearch index. This technology may be removed in favor of SQL queries for simplicity.
 
-All three commands, `npm run migrate`, `npm run seed`, and `npm run elastic`, contain files written in ES6 (they live in the [server/data](https://github.com/MaayanLab/LINCS/tree/master/server/data) folder). Therefore, the [babel-node](https://babeljs.io/docs/usage/cli/#babel-node) package is used to run them. For `npm run seed`, however, the babel-node process runs out of memory because the files in the seed folder are too large. To overcome this, the entire server folder is compiled to regular JavaScript, regular `node` is run with the `--max-old-space-size=15360` flag to increase the allotted memory, and then the compiled files are removed. The command can be found in the package.json file:
+All three commands, `npm run migrate`, `npm run seed`, and `npm run elastic`, contain files written in ES6 (they live in the [server/data](https://github.com/MaayanLab/LINCS/tree/master/server/data) folder). Therefore, the [babel-node](https://babeljs.io/docs/usage/cli/#babel-node) package is used to run them. For `npm run seed`, however, the babel-node process runs out of memory because the files in the seed folder are too large. To overcome this, the entire server folder is compiled to regular JavaScript (ES5), regular `node` is run with the `--max-old-space-size=15360` flag to increase the allotted memory, and then the compiled files are removed. The command can be found in the package.json file:
 ```shell
 npm run server-es5 && node --max-old-space-size=15360 server-es5/data/seed && rm -rf server-es5
 ```
