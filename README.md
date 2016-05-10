@@ -49,7 +49,8 @@ const router = new Router({
 router.get('/', async (ctx) => {
   let withRelated = [];
   // ctx.query is an object of the query parameters.
-  // ctx.query.include would look like /LINCS/api/v1/datasets?include=center,cells
+  // If the URL was /LINCS/api/v1/datasets?include=center,cells
+  // then ctx.query would look like { include: 'center,cells' }
   // withRelated as a result looks like ['center', 'cells']
   if (ctx.query.include) {
     withRelated = ctx.query.include.split(',');
@@ -102,7 +103,7 @@ For **publications**, **webinars**, **workshops**, **funding opportunities**, an
 
 Once the data is updated and the seed folder contains the correct JavaScript files, run `npm run migrate` to recreate the database tables in development, and `npm run migrate:prod` to  recreate the database tables in production. Changing server/serverConf.js will change where the databases are located depending on your environment. Currently, the development database is an SQLite file found in the root folder (lincs.sqlite) and the production database is a MySQL instance running on our internal servers. If an error occurs, try re-running the commands.
 
-After recreating the tables in the database, run `npm run seed` or `npm run seed:prod` for development and production. This may take some time and an error may occur here if any of the files in the seed folder are incorrect.
+After recreating the tables in the database, populate them by running `npm run seed` or `npm run seed:prod` for development and production respectively. This may take some time and an error may occur here if any of the files in the seed folder are incorrect.
 
 After making any changes to the production database, run `npm run elastic` to update the elasticsearch index. This technology may be removed in favor of SQL queries for simplicity.
 
