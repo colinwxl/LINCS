@@ -72,6 +72,7 @@
 }
 
 .dataset {
+  border-bottom: 1px solid $gray;
   margin-bottom: 1rem;
 }
 
@@ -194,7 +195,7 @@ $loading-gray: rgba(255, 255, 255, .5);
 }
 
 .description {
-  margin-bottom: .5rem;
+  margin-bottom: 1rem;
 }
 
 .creator {

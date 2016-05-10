@@ -4,7 +4,6 @@
   @import 'vendor/bootstrap/bootstrap';
   @import 'variables';
   @import 'form';
-  @import 'clustergrammer';
 
   html {
     box-sizing: border-box;
@@ -82,4 +81,25 @@
   .view-container {
     margin-bottom: 2rem;
   }
+
+  .btn-primary {
+    background-color: $brand-primary-light;
+    border-color: darken($brand-primary-light, 5);
+
+    &:hover {
+      background-color: $brand-primary;
+      border-color: darken($brand-primary, 5);
+    }
+
+    &.active {
+      background-color: $brand-primary;
+      border-color: darken($brand-primary, 5);
+    }
+
+    &.active:hover {
+      background-color: $brand-primary;
+      border-color: darken($brand-primary, 5);
+    }
+  }
+
 }

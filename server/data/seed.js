@@ -31,6 +31,8 @@ import { knex } from '../serverConf';
 
 const debug = _debug('app:server:data:seed');
 
+const inDevelopment = process.env.NODE_ENV !== 'production';
+
 /**
  * Saves a dataset using the `Dataset` bookshelfjs model.
  *
@@ -50,14 +52,18 @@ function saveDataset(dsObj, centerId, smIds, cellIds) {
   return Dataset
     .forge(ds)
     .save()
-    .then(dsModel => {
-      if (smIds.length) {
-        dsModel.smallMolecules().attach(smIds);
-      }
-      if (cellIds.length) {
-        dsModel.cells().attach(cellIds);
-      }
-    });
+    .then(dsModel =>
+      knex.transaction((transacting) => {
+        const promises = [];
+        if (smIds.length) {
+          promises.push(dsModel.smallMolecules().attach(smIds, { transacting }));
+        }
+        if (cellIds.length) {
+          promises.push(dsModel.cells().attach(cellIds, { transacting }));
+        }
+        return Promise.all(promises);
+      })
+    );
 }
 
 
@@ -76,7 +82,7 @@ function insertSmallMolecules() {
       sms.push({ ...obj, created_at: moment().toDate() });
     }
   });
-  if (process.env.NODE_ENV !== 'production') {
+  if (inDevelopment) {
     const promises = [];
     while (sms.length) {
       promises.push(knex.batchInsert('small_molecules', sms.splice(0, 50)));
@@ -99,7 +105,7 @@ function findSmallMolecules(lincsIds) {
   }
   // sqlite can only take 999 variables at a time.
   // Split up lincsIds into multiple queries, each with arrays of 999 lincs ids.
-  if (process.env.NODE_ENV !== 'production') {
+  if (inDevelopment) {
     const promises = [];
     const ids = [];
     while (lincsIds.length) {
@@ -265,7 +271,7 @@ function insertCenters() {
   const centerNames = ['BD2K-LINCS DCIC', ...new Set(datasets.map(dataset => dataset.center_name))];
   const created = moment().toDate();
   const centers = centerNames.map(name => ({ name, created_at: created }));
-  debug(`Inserting ${centers.length} centers...`);
+  debug(`Inserting ${centers.length} centers.`);
   return knex.insert(centers).into('centers');
 }
 
@@ -298,7 +304,7 @@ function buildDatasets() {
     new Promise((resolve, reject) => {
       findCenterId(ds.center_name)
         .then(centerId => {
-          findSmallMolecules(ds.smIds)
+          findSmallMolecules(ds.sm_ids)
             .then(smIds => {
               findCells(ds.cells)
                 .then(cellIds => {
@@ -358,10 +364,10 @@ function insertPublications() {
 /**
  * Insert tools into the database. Tool object is built by finding the tool's center's id
  * and from the JSON in the '../../seed' folder.
- * @return {Promise} A promise that resolves when the
+ * @return {Promise} A promise that resolves when the tools have been inserted.
  */
 function insertTools() {
-  debug(`Inserting ${tools.length} tools...`);
+  debug(`Inserting ${tools.length} tools.`);
   return Promise.all(tools.map(toolObj => {
     const tool = _.pick(toolObj, Tool.prototype.permittedAttributes());
     return findCenterId(toolObj.center)

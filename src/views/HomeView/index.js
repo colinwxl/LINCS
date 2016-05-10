@@ -110,10 +110,10 @@ export class HomeView extends Component {
                     <h3 className={styles.title}>The LINCS Consortium</h3>
                     <p>
                       {/* LINCS aims to create a network-based understanding of biology by
-                      cataloging changes in gene expression and other cellular processes
-                      that occur when cells are exposed to a variety of perturbing agents,
-                      and by using computational tools to integrate this diverse information
-                      into a comprehensive view of normal and disease states that can be
+                        cataloging changes in gene expression and other cellular processes
+                        that occur when cells are exposed to a variety of perturbing agents,
+                        and by using computational tools to integrate this diverse information
+                        into a comprehensive view of normal and disease states that can be
                       applied for the development of new biomarkers and therapeutics. */}By
                       generating and making public data that indicates how cells respond to
                       various genetic and environmental stressors, the LINCS project will
@@ -144,12 +144,12 @@ export class HomeView extends Component {
                         <div className={styles.group}>
                           <p className={`clearfix ${styles.justify}`}>
                             {/*
-                            <iframe
+                              <iframe
                               className={styles.ajay}
                               src="https://www.youtube.com/embed/MwJoLfc_LuM?list=PLQw7KTnzkpXdpO1WMpW8fJeriqZEuFR1i&showinfo=0"
                               frameBorder="0"
                               allowFullScreen
-                            />
+                              />
                             */}
                             On March 10-11, 2016, the LINCS Outreach Meeting was held at the
                             University of California, Irvine. We invited the research community to

@@ -1,0 +1,104 @@
+@import 'variables';
+
+$clustergram-height: 800px;
+
+.clustergram-wrap {
+  margin-top: .5rem;
+
+  i {
+    width: inherit;
+  }
+}
+
+.flex-center {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+.clustergram-wrap,
+.clustergram {
+  height: $clustergram-height;
+  width: 100%;
+}
+
+.clust-error {
+  height: inherit;
+}
+
+.clustergram {
+  input {
+    width: 100%;
+  }
+}
+
+.clust-hidden {
+  display: none;
+}
+
+.loading {
+  bottom: $clustergram-height / 2;
+  position: absolute;
+  text-align: center;
+  width: 100%;
+}
+
+// scss-lint:disable all
+
+:global {
+  .submit_gene_button {
+    background-color: $brand-primary;
+    border-color: darken($brand-primary, 5);
+
+    &:hover {
+      background-color: darken($brand-primary, 5);
+      border-color: darken($brand-primary, 10);
+    }
+  }
+
+  .d3-tip {
+    background: $overlay-black;
+    border-radius: 2px;
+    color: $white;
+    font-weight: bold;
+    line-height: 1;
+    max-width: 500px;
+    padding: 12px;
+    top: 0;
+  }
+
+  .icon_buttons {
+    color: $brand-primary-light;
+
+    &:hover {
+      color: $brand-primary;
+    }
+  }
+
+  .share_url {
+    width: 570px;
+  }
+
+  .viz_title {
+    width: 1125px;
+    font-size: 30px;
+    font-weight: 300;
+    margin-left: -10px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #DEDEDE;
+  }
+
+
+  .viz_description {
+    margin-top: 10px;
+    margin-left: 5px;
+    margin-right: 20px;
+    text-align: justify;
+    margin-bottom: 30px;
+  }
+
+  #clustergrammer_logo {
+    width: 250px;
+  }
+}

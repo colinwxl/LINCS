@@ -41,6 +41,8 @@ import DataReleases from 'views/DataView/Releases';
 import DataStandards from 'views/DataView/Standards';
 import DataReleasePolicy from 'views/DataView/ReleasePolicy';
 
+import DatasetView from 'views/DataView/DatasetView';
+
 // PubsNews
 import PublicationsView from 'views/PublicationsView';
 import NewsView from 'views/NewsView';
@@ -118,6 +120,7 @@ export default (/* store */) => (
     <Redirect from={dataBase} to={`${dataBase}/releases`} />
     <Route path={`${dataBase}/overview`} component={DataOverview} />
     <Route path={`${dataBase}/releases`} component={DataReleases} />
+    <Route path={`${dataBase}/releases/:datasetId`} component={DatasetView} />
     <Route path={`${dataBase}/standards`} component={DataStandards} />
     <Route path={`${dataBase}/release-policy`} component={DataReleasePolicy} />
 
