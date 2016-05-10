@@ -25,7 +25,7 @@ npm run dev
 ### Client Side
 There are only a few libraries and technologies used on the front-end of this project. The most important of these is [React](https://facebook.github.io/react/). If you have a grasp on React, I think this project should be very easy to follow.
 
-The second-most important technology used in this project is [Redux](http://redux.js.org/). Once you understand the concept behind Redux, writing code using the library is very simple as its APIs and documentation are very easy to follow. I **strongly recommend** watching [this video tutorial series](https://egghead.io/series/getting-started-with-redux) by the creator of Redux to get and understanding of what is going on in this project.
+The second-most important technology used in this project is [Redux](http://redux.js.org/). Once you understand the concept behind Redux, writing code using the library is very simple as its APIs and documentation are very easy to follow. I **strongly recommend** watching [this video tutorial series](https://egghead.io/series/getting-started-with-redux) by the creator of Redux to get an understanding of what is going on in this project.
 
 The two best repos to look to as examples are the [react-redux-starter-kit](https://github.com/davezuko/react-redux-starter-kit) and the [examples found in the Redux repo](https://github.com/reactjs/redux/tree/master/examples)
 (especially the real-world example). This project was originally a fork of the react-redux-starter-kit and a good portion of code was taken from the redux examples.
