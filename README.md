@@ -49,7 +49,8 @@ const router = new Router({
 router.get('/', async (ctx) => {
   let withRelated = [];
   // ctx.query is an object of the query parameters.
-  // ctx.query.include would look like /LINCS/api/v1/datasets?include=center,cells
+  // If the URL was /LINCS/api/v1/datasets?include=center,cells
+  // then ctx.query would look like { include: 'center,cells' }
   // withRelated as a result looks like ['center', 'cells']
   if (ctx.query.include) {
     withRelated = ctx.query.include.split(',');
