@@ -15,7 +15,7 @@ export default function NeuroLINCS() {
           'networks within patient-derived iPSCs, and their differentiated progeny, ' +
           'across many regulatory layers'
         }
-        imgSrc={require('./NeuroLINCS.png')}
+        imgSrc="/LINCS/files/NeuroLINCS.png"
         imgAlt="NeuroLINCS logo"
       />
       <div className="container">

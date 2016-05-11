@@ -14,7 +14,7 @@ export default function LINCSPCCSE() {
           'and Epigenetics at the Broad Institute utilizes the P100 and ' +
           'GCP assays to profile the response of human cell lines to perturbations'
         }
-        imgSrc={require('./lincs-pccse.png')}
+        imgSrc="/LINCS/files/lincs-pccse.png"
         imgAlt="LINCS PCCSE Logo"
       />
       <div className="container">

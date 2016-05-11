@@ -14,7 +14,7 @@ export default function HMSLINCS() {
           'The Harvard Medical School LINCS Center collects data and develops analytical ' +
           'tools needed to understand how human cells respond to perturbation by drugs'
         }
-        imgSrc={require('./hms-lincs.png')}
+        imgSrc="/LINCS/files/hms-lincs.png"
         imgAlt="HMS LINCS Logo"
       />
       <div className="container">

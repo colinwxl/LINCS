@@ -7,7 +7,9 @@ export default {
   centers: {
     id: { type: 'increments', nullable: false, primary: true },
     name: { type: 'string', maxlength: 255, nullable: false, unique: true },
-    description: { type: 'text', maxlength: 16777215, fieldtype: 'medium', nullable: true },
+    description: { type: 'text', maxlength: 16777215, fieldtype: 'medium', nullable: false },
+    logo_url: { type: 'string', maxlength: 255, nullable: false },
+    website: { type: 'text', maxlength: 2000, nullable: false },
     created_at: { type: 'dateTime', nullable: false },
     updated_at: { type: 'dateTime', nullable: true },
   },

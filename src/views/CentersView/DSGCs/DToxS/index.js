@@ -16,7 +16,7 @@ export default function DToxS() {
           'The Drug Toxicity Signature Generation Center links ' +
           'cellular drug responses to adverse events'
         }
-        imgSrc={require('./DToxS.png')}
+        imgSrc="/LINCS/files/DToxS.png"
         imgAlt="DToxS Logo"
       />
       <div className="container">

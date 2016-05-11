@@ -15,8 +15,10 @@ export class Clustergram extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      clustergram: {},
       clustergramError: false,
       clustergramLoaded: false,
+      windowWidth: !!window ? window.innerWidth : null,
     };
   }
 
@@ -26,6 +28,9 @@ export class Clustergram extends Component {
   }
 
   componentDidMount() {
+    if (window) {
+      window.addEventListener('resize', this.handleResize);
+    }
     fetch(`/LINCS/api/v1/datasets/${this.props.datasetId}/network`)
       .then(handleResponse)
       .then(response => response.json())
@@ -40,47 +45,79 @@ export class Clustergram extends Component {
           ini_view: { N_row_sum: '500' },
           row_search_placeholder: 'Perturbagen',
         };
+        let clustergram;
         try {
-          renderClustgram(args);
+          clustergram = renderClustgram(args);
         } catch (e) {
+          // An error occurred in Clustergrammer. Treat like a network error.
           this.setState({
+            clustergram: null,
             clustergramError: true,
             clustergramLoaded: false,
           });
           return;
         }
+        // Clustergram successfully loaded. Add it to the state so it may
+        // be resized as needed.
         this.setState({
+          clustergram,
           clustergramError: false,
           clustergramLoaded: true,
         });
       })
       .catch(() => {
+        // Network error.
         this.setState({
+          clustergram: null,
           clustergramError: true,
           clustergramLoaded: false,
         });
       });
   }
 
+  componentWillUnMount() {
+    if (window) {
+      window.removeEventListener('resize', this.handleResize);
+    }
+  }
+
+  handleResize = () => {
+    this.setState({ windowWidth: window.innerWidth });
+  }
+
   render() {
     const { datasets, datasetId } = this.props;
-    const { clustergramLoaded, clustergramError } = this.state;
+    const { clustergram, clustergramLoaded, clustergramError, windowWidth } = this.state;
     const ds = datasets[datasetId];
     if (!ds) {
       return null;
     }
     const clustLoading = !clustergramLoaded && !clustergramError;
+    // Require a window width of 800px for clustergram.
+    const windowWideEnough = windowWidth > 800;
+    // Resize clustergram if it exists and the window is wide enough.
+    // Clustergrammer handles not calling resize_viz() too frequently.
+    if (!!clustergram && !!clustergram.resize_viz && !!windowWideEnough) {
+      clustergram.resize_viz();
+    }
     let wrapClass = styles['clustergram-wrap'];
     let clustergramClass = styles.clustergram;
-    if (clustergramError) {
+    if (clustergramError || !windowWideEnough) {
       wrapClass += ` ${styles['clust-error']}`;
       clustergramClass += ` ${styles['clust-hidden']}`;
     }
     return (
       <div className={wrapClass}>
         {
-          clustergramLoaded &&
+          clustergramLoaded && windowWideEnough &&
             <p>Zoom, scroll, and click buttons to interact with the clustergram.</p>
+        }
+        {
+          clustergramLoaded && !windowWideEnough &&
+            <p>
+              Clustergram is not supported on mobile devices and requires a certain
+              browser width to be displayed. If on a desktop, please resize your browser.
+            </p>
         }
         {
           clustergramError &&

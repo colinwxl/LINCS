@@ -14,7 +14,7 @@ export default function LINCSTranscriptomics() {
           'utilizes the L1000 technology to profile the response of human ' +
           'cells to thousands of perturbations'
         }
-        imgSrc={require('./CMap.svg')}
+        imgSrc="/LINCS/files/CMap.svg"
         imgAlt="Connectivity Map Logo"
       />
       <div className="container">

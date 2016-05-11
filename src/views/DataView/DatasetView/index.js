@@ -16,6 +16,7 @@ export class DatasetView extends Component {
   componentWillMount() {
     this.props.loadDataset(this.props.params.datasetId);
   }
+
   render() {
     const dataset = this.props.datasets[this.props.params.datasetId];
     if (!dataset) {
@@ -23,22 +24,27 @@ export class DatasetView extends Component {
     }
     const links = getIconLinks(dataset);
     const hasAnalysis = links.useSlicr || links.usePiLINCS || links.useMosaic || links.useILINCS;
+    const validLincsId = !!dataset.lincsId && dataset.lincsId !== 'LDS-*';
+    let pageTitle = dataset.method;
+    if (validLincsId) {
+      pageTitle += ` (${dataset.lincsId})`;
+    }
     return (
       <div className={styles.wrapper}>
-        <PageBanner
-          title={`${dataset.method} (${dataset.lincsId})`}
-          subTitle={dataset.description}
-        />
+        <PageBanner title={pageTitle} subTitle={dataset.description} />
         <div className="container">
           <div className="row">
             <div className="col-xs-12">
               <h2>Access & Analyze Data</h2>
               <table className={`table ${styles['metadata-table']}`}>
                 <tbody>
-                  <tr>
-                    <td>LINCS ID</td>
-                    <td>{dataset.lincsId}</td>
-                  </tr>
+                  {
+                    validLincsId &&
+                      <tr>
+                        <td>LINCS ID</td>
+                        <td>{dataset.lincsId}</td>
+                      </tr>
+                  }
                   <tr>
                     <td>Description</td>
                     <td>{dataset.description}</td>
@@ -46,8 +52,9 @@ export class DatasetView extends Component {
                   <tr>
                     <td>Center</td>
                     <td>
-                      {dataset.center.name} - <a href={dataset.sourceLink} target="_blank">
-                      View at source</a>
+                      <a href={dataset.center.website} target="_blank">
+                        {dataset.center.name}
+                      </a>
                     </td>
                   </tr>
                   {
@@ -71,6 +78,30 @@ export class DatasetView extends Component {
                         <td>{moment(dataset.dateRetrieved).format('MMMM Do, YYYY')}</td>
                       </tr>
                   }
+                  <tr>
+                    <td>Links</td>
+                    <td>
+                      <div className="btn-group" role="group" aria-label="Cite Links">
+                        <a
+                          className="btn btn-secondary"
+                          href={dataset.sourceLink}
+                          target="_blank"
+                        >
+                          View at Source
+                        </a>
+                        {
+                          validLincsId &&
+                            <a
+                              className="btn btn-secondary"
+                              href={`http://lincsportal.ccs.miami.edu/datasets/#/view/${dataset.lincsId}`}
+                              target="_blank"
+                            >
+                            View on LINCS Data Portal
+                          </a>
+                        }
+                      </div>
+                    </td>
+                  </tr>
                   <tr>
                     <td>Cite this Dataset</td>
                     <td>
@@ -96,7 +127,6 @@ export class DatasetView extends Component {
                       </div>
                     </td>
                   </tr>
-
                   <tr>
                     <td>Download</td>
                     <td>

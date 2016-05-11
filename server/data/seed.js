@@ -18,6 +18,7 @@ import { SmallMolecule } from '../models/SmallMolecule';
 import { Author } from '../models/Author';
 import { Publication } from '../models/Publication';
 import { Tool } from '../models/Tool';
+import centers from '../../seed/centers';
 import tools from '../../seed/tools';
 import smallMolecules from '../../seed/smallMolecules';
 import cellLines from '../../seed/cellLines';
@@ -264,15 +265,10 @@ function insertCellLines() {
  * inserted.
  */
 function insertCenters() {
-  // http://stackoverflow.com/questions/15125920/how-to-get-distinct-values-from-an-array-of-objects-in-javascript
-  // A set can not contain duplicate elements so create a set of center names from the datasets
-  // and add the DCIC. Uses the ES6 ...spread operator as well.
-  // ES6 get unique elements
-  const centerNames = ['BD2K-LINCS DCIC', ...new Set(datasets.map(dataset => dataset.center_name))];
   const created = moment().toDate();
-  const centers = centerNames.map(name => ({ name, created_at: created }));
-  debug(`Inserting ${centers.length} centers.`);
-  return knex.insert(centers).into('centers');
+  const centersArr = centers.map(obj => ({ ...obj, created_at: created }));
+  debug(`Inserting ${centersArr.length} centers.`);
+  return knex.insert(centersArr).into('centers');
 }
 
 /**
@@ -410,10 +406,10 @@ knex.raw('select 1+1 as result').then(() => {
   } else {
     promises.push(
       new Promise((resolve, reject) => {
-        insertSmallMolecules()
-          .then(() => insertTissuesAndDiseases())
+        insertCenters()
           .then(() => insertCellLines())
-          .then(() => insertCenters())
+          .then(() => insertTissuesAndDiseases())
+          .then(() => insertSmallMolecules())
           // Need to insert tools and datasets after centers
           .then(() => insertTools())
           .then(() => buildDatasets())

@@ -102,4 +102,23 @@
     }
   }
 
+  // jQuery UI Autocomplete
+
+  .ui-menu .ui-menu-item {
+    background-color: $white;
+
+    .ui-corner-all {
+      color: $base-font-color;
+    }
+  }
+
+  .ui-autocomplete .ui-menu-item .ui-state-focus {
+    background: $brand-primary;
+    border: 1px solid darken($brand-primary, 5);
+    border-radius: 0;
+    color: $white;
+    font-weight: inherit;
+  }
+
+
 }
