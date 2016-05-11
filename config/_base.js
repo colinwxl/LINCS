@@ -1,6 +1,5 @@
 import _debug from 'debug';
 import path from 'path';
-import { argv } from 'yargs';
 
 const debug = _debug('app:config:_base');
 const config = {
@@ -36,7 +35,6 @@ const config = {
     colors: true,
   },
   compilerVendor: [
-    'axios',
     'bootstrap',
     'camelize',
     'd3',
@@ -63,7 +61,7 @@ const config = {
   // ----------------------------------
   // Test Configuration
   // ----------------------------------
-  coverageEnabled: !argv.watch,
+  coverageEnabled: true,
   coverageReporters: [
     { type: 'text-summary' },
     { type: 'lcov', dir: 'coverage' },
@@ -91,8 +89,8 @@ config.globals = {
   __DEV__: config.env === 'development',
   __PROD__: config.env === 'production',
   __TEST__: config.env === 'test',
-  __DEBUG__: config.env === 'development' && !argv.no_debug,
-  __DEBUG_NEW_WINDOW__: !!argv.nw,
+  __DEBUG__: config.env === 'development',
+  __DEBUG_NEW_WINDOW__: false,
 };
 
 // ------------------------------------
