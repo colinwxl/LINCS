@@ -43,6 +43,7 @@ export class Dataset extends Component {
           </div>
         </div>
         <p className={styles.description}>{ds.description}</p>
+        <Link to={`/data/releases/${datasetId}`}>Click here to view dataset page</Link>
       </div>
     );
   }

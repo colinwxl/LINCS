@@ -74,76 +74,70 @@ export class DatasetView extends Component {
                   {
                     dataset.dateRetrieved &&
                       <tr>
-                        <td>Date Retrieved</td>
+                        <td>Release Date</td>
                         <td>{moment(dataset.dateRetrieved).format('MMMM Do, YYYY')}</td>
                       </tr>
                   }
                   <tr>
                     <td>Links</td>
                     <td>
-                      <div className="btn-group" role="group" aria-label="Cite Links">
-                        <a
-                          className="btn btn-secondary"
-                          href={dataset.sourceLink}
-                          target="_blank"
-                        >
-                          View at Source
-                        </a>
-                        {
-                          validLincsId &&
-                            <a
-                              className="btn btn-secondary"
-                              href={`http://lincsportal.ccs.miami.edu/datasets/#/view/${dataset.lincsId}`}
-                              target="_blank"
-                            >
-                            View on LINCS Data Portal
-                          </a>
-                        }
-                      </div>
+                      <button
+                        className="btn btn-secondary"
+                        href={dataset.sourceLink}
+                        target="_blank"
+                      >
+                        View at DSGC Website
+                      </button>
+                      {
+                        validLincsId &&
+                          <button
+                            className="btn btn-secondary"
+                            href={`http://lincsportal.ccs.miami.edu/datasets/#/view/${dataset.lincsId}`}
+                            target="_blank"
+                          >
+                            View on the LINCS Data Portal
+                          </button>
+                      }
                     </td>
                   </tr>
                   <tr>
                     <td>Cite this Dataset</td>
                     <td>
-                      <div className="btn-group" role="group" aria-label="Cite Links">
-                        <a
-                          className="btn btn-secondary"
-                          href={`/LINCS/api/v1/datasets/${dataset.id}/reference/ris`}
-                        >
-                          RIS Format (.ris)
-                        </a>
-                        <a
-                          className="btn btn-secondary"
-                          href={`/LINCS/api/v1/datasets/${dataset.id}/reference/bib`}
-                        >
-                          BibTeX Format (.bib)
-                        </a>
-                        <a
-                          className="btn btn-secondary"
-                          href={`/LINCS/api/v1/datasets/${dataset.id}/reference/enw`}
-                        >
-                          EndNote Format (.enw)
-                        </a>
-                      </div>
+                      <a
+                        className="btn btn-secondary"
+                        href={`/LINCS/api/v1/datasets/${dataset.id}/reference/ris`}
+                      >
+                        RIS Format (.ris)
+                      </a>
+                      <a
+                        className="btn btn-secondary"
+                        href={`/LINCS/api/v1/datasets/${dataset.id}/reference/bib`}
+                      >
+                        BibTeX Format (.bib)
+                      </a>
+                      <a
+                        className="btn btn-secondary"
+                        href={`/LINCS/api/v1/datasets/${dataset.id}/reference/enw`}
+                      >
+                        EndNote Format (.enw)
+                      </a>
                     </td>
                   </tr>
                   <tr>
                     <td>Download</td>
                     <td>
-                      <div className="btn-group" role="group" aria-label="Cite Links">
-                        <a
-                          className="btn btn-secondary"
-                          href={`/LINCS/api/v1/datasets/${dataset.id}/download`}
-                        >
-                          Data Package
-                        </a>
-                        <a
-                          className="btn btn-secondary"
-                          href={`/LINCS/api/v1/datasets/${dataset.id}/download/gct`}
-                        >
-                          GCT File*
-                        </a>
-                      </div>
+                      <a
+                        className="btn btn-secondary"
+                        href={`/LINCS/api/v1/datasets/${dataset.id}/download`}
+                      >
+                        Data Package
+                      </a>
+                      <a
+                        className="btn btn-secondary"
+                        href={`/LINCS/api/v1/datasets/${dataset.id}/download/gct`}
+                      >
+                        GCT File*
+                      </a>
                     </td>
                   </tr>
                   {
@@ -151,48 +145,46 @@ export class DatasetView extends Component {
                       <tr>
                         <td>Analyze</td>
                         <td>
-                          <div className="btn-group" role="group" aria-label="Cite Links">
-                            {
-                              links.useSlicr &&
-                                <a
-                                  className="btn btn-secondary"
-                                  href="http://amp.pharm.mssm.edu/Slicr/"
-                                  target="_blank"
-                                >
-                                  Analyze with Slicr
-                                </a>
-                            }
-                            {
-                              links.usePiLINCS &&
-                                <a
-                                  className="btn btn-secondary"
-                                  href="http://eh3.uc.edu/pilincs"
-                                  target="_blank"
-                                >
-                                  Analysis with piLINCS
-                                </a>
-                            }
-                            {
-                              links.useMosaic &&
-                                <a
-                                  className="btn btn-secondary"
-                                  href="http://amp.pharm.mssm.edu/p100mosaic"
-                                  target="_blank"
-                                >
-                                  P100 Mosaic
-                                </a>
-                            }
-                            {
-                              links.useILINCS &&
-                                <a
-                                  className="btn btn-secondary"
-                                  href={`http://eh3.uc.edu/GenomicsPortals/DatasetLandingPage.do?data_set=${dataset.lincsId}`}
-                                  target="_blank"
-                                >
-                                  Analyze with iLINCS
-                                </a>
-                            }
-                          </div>
+                          {
+                            links.useSlicr &&
+                              <a
+                                className="btn btn-secondary"
+                                href="http://amp.pharm.mssm.edu/Slicr/"
+                                target="_blank"
+                              >
+                                Analysis with Slicr
+                              </a>
+                          }
+                          {
+                            links.usePiLINCS &&
+                              <a
+                                className="btn btn-secondary"
+                                href="http://eh3.uc.edu/pilincs"
+                                target="_blank"
+                              >
+                                Analysis with piLINCS
+                              </a>
+                          }
+                          {
+                            links.useMosaic &&
+                              <a
+                                className="btn btn-secondary"
+                                href="http://amp.pharm.mssm.edu/p100mosaic"
+                                target="_blank"
+                              >
+                                Analysis with P100 Mosaic
+                              </a>
+                          }
+                          {
+                            links.useILINCS &&
+                              <a
+                                className="btn btn-secondary"
+                                href={`http://eh3.uc.edu/GenomicsPortals/DatasetLandingPage.do?data_set=${dataset.lincsId}`}
+                                target="_blank"
+                              >
+                                Analysis with iLINCS
+                              </a>
+                          }
                         </td>
                       </tr>
                   }
@@ -200,7 +192,6 @@ export class DatasetView extends Component {
               </table>
             </div>
             <div className="col-xs-12">
-              <h2>Clustergram</h2>
               <Clustergram datasetId={dataset.id} />
             </div>
           </div>

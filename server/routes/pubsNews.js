@@ -12,7 +12,6 @@ const router = new Router({
   prefix: '/LINCS/api/v1',
 });
 
-
 /**
  * Fetch all publications. Order them by their year_published and PubMed Id (pm_id).
  * Include the authors of the publications.
@@ -194,27 +193,20 @@ function generateBIB(pub) {
 router.get('/publications/:id/reference/:refType', async (ctx) => {
   const pubModel = await Publication.where('id', ctx.params.id).fetch({ withRelated: ['authors'] });
   const publication = pubModel.toJSON();
-  let fPath;
-  let fName;
+  let fileInfo;
   if (ctx.params.refType === 'ris') {
-    const { filePath, filename } = await generateRIS(publication);
-    fPath = filePath;
-    fName = filename;
+    fileInfo = await generateRIS(publication);
   } else if (ctx.params.refType === 'enw') {
-    const { filePath, filename } = await generateENW(publication);
-    fPath = filePath;
-    fName = filename;
+    fileInfo = await generateENW(publication);
   } else if (ctx.params.refType === 'bib') {
-    const { filePath, filename } = await generateBIB(publication);
-    fPath = filePath;
-    fName = filename;
+    fileInfo = await generateBIB(publication);
   }
-  ctx.set('Content-disposition', `attachment; filename=${fName}`);
-  await send(ctx, fPath);
+  ctx.set('Content-disposition', `attachment; filename=${fileInfo.filename}`);
+  await send(ctx, fileInfo.filePath);
   if (!ctx.status) {
     ctx.throw(500, 'An error occurred generating the ris file.');
   }
-  fs.unlinkSync(fPath);
+  fs.unlinkSync(fileInfo.filePath);
 });
 
 // News need to exist in database first

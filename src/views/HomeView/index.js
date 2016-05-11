@@ -2,59 +2,30 @@ import React, { Component, PropTypes } from 'react';
 import { Link } from 'react-router';
 import { connect } from 'react-redux';
 
-import handleResponse from 'utils/handleResponse';
 import Twitter from 'containers/Twitter';
 import { loadPublications } from 'actions/pubsNews';
-import { loadTools } from 'actions/toolsWorkflows';
-import Tool from 'components/Tool';
 import styles from './HomeView.scss';
 
 const mapStateToProps = (state) => ({
   publications: state.pubsNews.publications,
-  tools: state.toolsWorkflows.tools,
 });
 
 export class HomeView extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      recentDatasets: [],
-    };
-  }
-
   componentWillMount = () => {
     this.props.loadPublications();
-    this.props.loadTools();
-  }
-
-  componentDidMount() {
-    fetch('/LINCS/api/v1/datasets/recent')
-      .then(handleResponse)
-      .then(response => response.json())
-      .then(recentDatasets => {
-        this.setState({ recentDatasets });
-      });
   }
 
   render() {
-    const pubs = this.props.publications
+    const { publications } = this.props;
+    const pubs = publications
       .filter(pub => !!pub.showAtHomeOrder)
       .sort((a, b) => {
         const result = a.showAtHomeOrder > b.showAtHomeOrder;
         return result ? 1 : -1;
       });
-    const tools = this.props.tools
-      .filter(tool => !!tool.homeOrder)
-      .sort((a, b) => {
-        const result = a.homeOrder > b.homeOrder;
-        return result ? 1 : -1;
-      });
     return (
       <div className={styles.wrapper}>
-        <div
-          className={styles.banner}
-          style={{ backgroundImage: `url(${require('./background.png')})` }}
-        >
+        <div className={styles.banner}>
           <div className={`container ${styles.animated}`}>
             <img src={require('./cube.png')} alt="NIH LINCS Program" />
             <p className={styles.lead}>
@@ -80,41 +51,134 @@ export class HomeView extends Component {
         <div className={`${styles.content}`}>
           <div className="container">
             <div className="row">
-              <div
-                className={`col-xs-12 col-lg-8 ${styles.section} ${styles['recent-ds-section']}`}
-              >
-                <h3 className={styles.title}>Recent Dataset Releases</h3>
-                <div className={styles['recent-datasets']}>
-                  {
-                    this.state.recentDatasets.map(ds =>
-                      <div key={ds.id} className={styles.ds}>
-                        <h5>{ds.method}</h5>
-                        <p className={styles['ds-center']}>{ds.center.name}</p>
-                        <p>{ds.description}</p>
-                      </div>
-                    )
-                  }
+              <div className="col-lg-5 col-lg-push-7">
+                <div className={styles.section}>
+                  <h3 className={styles.title}>Access LINCS Data</h3>
+                  <div className={styles.center}>
+                    <a
+                      className={`btn ${styles['btn-lincs']}`}
+                      href="http://lincsportal.ccs.miami.edu/datasets/"
+                      target="_blank"
+                    >
+                      Launch LINCS Data Portal
+                    </a>
+                  </div>
+                  <p>
+                    The LINCS Data Portal provides a unified interface for searching LINCS
+                    dataset packages and reagents.
+                  </p>
+                </div>
+                <div className={styles.section}>
+                  <h3 className={styles.title}>Recent LINCS Tools</h3>
+                  <div className={styles.center}>
+                    <a
+                      className={`btn ${styles['btn-lincs']}`}
+                      href="http://lincs-dcic.org/#/#quick-start"
+                      target="_blank"
+                    >
+                      Quick Start to LINCS Tools
+                    </a>
+                  </div>
+                  <div className={styles.group}>
+                    <h5>LINCS L1000 Slicr</h5>
+                    <p>
+                      Slicr is a metadata search engine that searches for LINCS L1000 gene
+                      expression profiles and signatures matching user's input parameters.
+                    </p>
+                    <a href="http://amp.pharm.mssm.edu/Slicr" target="_blank">Visit website</a>
+                  </div>
+                  <div className={styles.group}>
+                    <h5>L1000CDS2</h5>
+                    <p>
+                      L1000CDS2 queries gene expression signatures against the LINCS L1000 to
+                      identify and prioritize small molecules that can reverse or mimic the
+                      observed input expression pattern.
+                    </p>
+                    <a href="http://amp.pharm.mssm.edu/L1000CDS2/" target="_blank">Visit website</a>
+                  </div>
+                  <div className={styles.group}>
+                    <h5>iLINCS</h5>
+                    <p>
+                      Provides a 'one-stop' user interface to analyze differential gene
+                      expression in a dataset identified via
+                      the <a href="http://lincsportal.ccs.miami.edu/dcic-portal/" target="_blank">
+                      LINCS Data Portal</a>. Users are able to query gene lists
+                      to <a href="http://amp.pharm.mssm.edu/Enrichr" target="_blank">
+                      Enrichr</a> and/or re-analyze, interpret and export results.
+                    </p>
+                    <a href="http://eh3.uc.edu/GenomicsPortals/Lincs.jsp" target="_blank">Visit website</a>
+                  </div>
+                  <div className={styles.group}>
+                    <h5>piLINCS</h5>
+                    <p>
+                      piLINCS provides access to proteomic profiles generated by the
+                      LINCS Consortium.
+                    </p>
+                    <a href="http://eh3.uc.edu/pilincs/#/" target="_blank">Visit website</a>
+                  </div>
+                  <Link to="/applications">More tools...</Link>
+                </div>
+                <div className={styles.section}>
+                  <div className="row">
+                    <div className="container">
+                      <Twitter />
+                    </div>
+                  </div>
                 </div>
               </div>
-              <div className={`col-xs-12 col-lg-4 ${styles.section} ${styles['tools-section']}`}>
-                <h4>Recent LINCS Tools</h4>
-                {tools && tools.map(tool => <Tool key={tool.id} tool={tool} />)}
-              </div>
-            </div>
-          </div>
-          <div className={styles.about}>
-            <div className="container">
-              <div className="row">
-                <div className={`col-xs-12 ${styles.section}`}>
+              <div className="col-lg-7 col-lg-pull-5">
+                <div className={styles.section}>
+                  <h3 className={styles.title}>Announcements</h3>
+                  <h4>LINCS Outreach Meeting 2016</h4>
+                  <div className={styles.group}>
+                    <p className={`clearfix ${styles.justify}`}>
+                      <iframe
+                        className={styles.ajay}
+                        src="https://www.youtube.com/embed/MwJoLfc_LuM?list=PLQw7KTnzkpXdpO1WMpW8fJeriqZEuFR1i&showinfo=0"
+                        frameBorder="0"
+                        allowFullScreen
+                      />
+                      On March 10-11, 2016, the LINCS Outreach Meeting was held at the
+                      University of California, Irvine. We invited the research community to
+                      come see examples of LINCS in action and learn how to effectively work
+                      with these unprecedented datasets. The first day of the meeting brought
+                      together the centers of the LINCS Consortium to review progress to date
+                      and discuss the next steps for data integration and analysis across the
+                      centers. The meeting included an outreach program with experts in stem
+                      cell biology, and big data management.
+                    </p>
+                    <a href="https://www.youtube.com/playlist?list=PLQw7KTnzkpXdpO1WMpW8fJeriqZEuFR1i">
+                      Watch Videos
+                    </a>
+                  </div>
+                  <h4>LINCS Data Science Research Webinars</h4>
+                  <div className={styles.group}>
+                    <h5>Detection and Removal of Spatial Bias in Multi-Well Assays</h5>
+                    <p><em>May 24, 2016</em> - Alexander Lachmann PhD, Columbia University</p>
+                    <Link to="/community/webinars">Learn More</Link>
+                  </div>
+                  <div className={styles.group}>
+                    <h5>
+                      Construction, Characterization and Validation of Multiscale Gene Networks
+                      in Cancer
+                    </h5>
+                    <p>
+                      <em>June 28, 2016</em> - Bin Zhang PhD, Icahn School of Medicine at
+                      Mount Sinai
+                    </p>
+                    <Link to="/community/webinars">Learn More</Link>
+                  </div>
+                </div>
+                <div className={styles.section}>
                   <div className={styles.group}>
                     <h3 className={styles.title}>The LINCS Consortium</h3>
-                    <p>
-                      {/* LINCS aims to create a network-based understanding of biology by
-                        cataloging changes in gene expression and other cellular processes
-                        that occur when cells are exposed to a variety of perturbing agents,
-                        and by using computational tools to integrate this diverse information
-                        into a comprehensive view of normal and disease states that can be
-                      applied for the development of new biomarkers and therapeutics. */}By
+                    <p className={styles.justify}>
+                      LINCS aims to create a network-based understanding of biology by
+                      cataloging changes in gene expression and other cellular processes
+                      that occur when cells are exposed to a variety of perturbing agents,
+                      and by using computational tools to integrate this diverse information
+                      into a comprehensive view of normal and disease states that can be
+                      applied for the development of new biomarkers and therapeutics. By
                       generating and making public data that indicates how cells respond to
                       various genetic and environmental stressors, the LINCS project will
                       help us gain a more detailed understanding of cell pathways and aid
@@ -129,79 +193,8 @@ export class HomeView extends Component {
                     <Link to="/centers">Learn More</Link>
                   </div>
                 </div>
-              </div>
-            </div>
-          </div>
-          <div className={styles.ann}>
-            <div className="container">
-              <div className="row">
-                <div className={`col-xs-12 ${styles.section} ${styles['ann-section']}`}>
-                  <h3 className={styles.title}>Announcements</h3>
-                  <div className="row">
-                    <div className="col-xs-12 col-md-4">
-                      <div className={styles.card}>
-                        <h5>LINCS Outreach Meeting 2016</h5>
-                        <div className={styles.group}>
-                          <p className={`clearfix ${styles.justify}`}>
-                            {/*
-                              <iframe
-                              className={styles.ajay}
-                              src="https://www.youtube.com/embed/MwJoLfc_LuM?list=PLQw7KTnzkpXdpO1WMpW8fJeriqZEuFR1i&showinfo=0"
-                              frameBorder="0"
-                              allowFullScreen
-                              />
-                            */}
-                            On March 10-11, 2016, the LINCS Outreach Meeting was held at the
-                            University of California, Irvine. We invited the research community to
-                            come see examples of LINCS in action and learn how to effectively work
-                            with these unprecedented datasets. The first day of the meeting brought
-                            together the centers of the LINCS Consortium to review progress to date
-                            and discuss the next steps for data integration and analysis across the
-                            centers. The meeting included an outreach program with experts in stem
-                            cell biology, and big data management.
-                          </p>
-                          <a href="https://www.youtube.com/playlist?list=PLQw7KTnzkpXdpO1WMpW8fJeriqZEuFR1i">
-                            Watch Videos
-                          </a>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="col-xs-12 col-md-4">
-                      <div className={styles.card}>
-                        <h5>Data Science Research Webinar</h5>
-                        <div className={styles.group}>
-                          <h6>Detection and Removal of Spatial Bias in Multi-Well Assays</h6>
-                          <p><em>May 24, 2016</em> - Alexander Lachmann PhD, Columbia University</p>
-                          <Link to="/community/webinars">Learn More</Link>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="col-xs-12 col-md-4">
-                      <div className={styles.card}>
-                        <h5>Data Science Research Webinar</h5>
-                        <div className={styles.group}>
-                          <h6>
-                            Construction, Characterization and Validation of Multiscale
-                            Gene Networks in Cancer
-                          </h6>
-                          <p>
-                            <em>June 28, 2016</em> - Bin Zhang PhD, Icahn School of Medicine at
-                            Mount Sinai
-                          </p>
-                          <Link to="/community/webinars">Learn More</Link>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className={styles['pubs-wrap']}>
-            <div className="container">
-              <div className="row">
-                <div className={`col-xs-12 ${styles.section} ${styles['pub-section']}`}>
-                  <h4>Recent Publications</h4>
+                <div className={styles.section}>
+                  <h3 className={styles.title}>Recent Publications</h3>
                   <div className={styles.publications}>
                     {
                       pubs && pubs.map(p => {
@@ -252,25 +245,16 @@ export class HomeView extends Component {
                   </div>
                   <Link to="/publications">More publications...</Link>
                 </div>
+                <div className={styles.section}>
+                  <img
+                    src={require('./ncf-osc-logo.png')}
+                    className={styles.logo}
+                    alt="The NIH Common Fund Office of Strategic Coordination"
+                  />
+                </div>
               </div>
             </div>
           </div>
-          <div className={`${styles.section} ${styles['twitter-section']}`}>
-            <div className="container">
-              <div className="row">
-                <Twitter />
-              </div>
-            </div>
-          </div>
-          {/*
-          <div className={styles.section}>
-            <img
-              src={require('./ncf-osc-logo.png')}
-              className={styles.logo}
-              alt="The NIH Common Fund Office of Strategic Coordination"
-            />
-          </div>
-          */}
         </div>
       </div>
     );
@@ -280,11 +264,6 @@ export class HomeView extends Component {
 HomeView.propTypes = {
   loadPublications: PropTypes.func,
   publications: PropTypes.array,
-  loadTools: PropTypes.func,
-  tools: PropTypes.array,
 };
 
-export default connect(mapStateToProps, {
-  loadPublications,
-  loadTools,
-})(HomeView);
+export default connect(mapStateToProps, { loadPublications })(HomeView);

@@ -7,7 +7,7 @@ import moment from 'moment';
 
 import _debug from 'debug';
 const debug = _debug('app:server:routes:datasets');
-import { esClient } from '../serverConf';
+import { knex, esClient } from '../serverConf';
 import { Dataset } from '../models/Dataset';
 import { Center } from '../models/Center';
 
@@ -163,6 +163,10 @@ router.get('/tree', async (ctx) => {
  * Search the datasets based on the query given in the `q` query parameter.
  */
 router.get('/search', async (ctx) => {
+  let withRelated = ['center'];
+  if (ctx.query.include) {
+    withRelated = ctx.query.include.split(',');
+  }
   if (!ctx.query.q || ctx.query.q === '') {
     ctx.throw(400, 'Query parameter q required for search.');
   }
@@ -203,26 +207,37 @@ router.get('/search', async (ctx) => {
       smIds.push(id);
     }
   });
-  // Fetch all datasets. May change later if a specific query is available
-  const dsModels = await Dataset
-    .fetchAll({
-      withRelated: ['center', 'cells', 'smallMolecules'],
-    });
-  const datasets = dsModels.toJSON({ omitPivot: !includePivot });
-  // Send all datasets where dataset.id is in dsIds,
-  // one of the cells in the dataset has an id that is in cellIds, or
-  // one the small molecules in the dataset has an id that is in smIds.
-  ctx.body = datasets.filter(ds => {
-    if (dsIds.indexOf(ds.id) !== -1) {
-      return true;
-    }
-    const dsCellIds = ds.cells.map(cell => cell.id);
-    if (cellIds.some((id) => dsCellIds.indexOf(id) !== -1)) {
-      return true;
-    }
-    const dsSmIds = ds.smallMolecules.map(sm => sm.id);
-    return smIds.some((id) => dsSmIds.indexOf(id) !== -1);
-  });
+
+  // Find all of the dataset ids that have:
+  //   - A dataset id in dsIds
+  //   - Any of the cell lines in cellIds
+  //   - Any of the small molecules in smIds
+  // Might be able to build a query with Bookshelf.
+  // For now use knex to query the relationship tables.
+  const dsetsWithCells = await knex
+    .select('dataset_id')
+    .from('cells_datasets')
+    .whereIn('cell_id', cellIds);
+
+  const dsetsWithSms = await knex
+    .select('dataset_id')
+    .from('small_molecules_datasets')
+    .whereIn('small_molecule_id', smIds);
+
+  // dsIds looks like [Number]
+  // dsetsWithCells and dsetsWithSms look like [{ dataset_id: Number }, ... ]
+  // Therefore we must map dsetsWithCells and dsetsWithSms and concat them to
+  // dsIds to get all dataset ids.
+  const datasetIds = dsIds.concat(
+    dsetsWithCells.map(obj => obj.dataset_id),
+    dsetsWithSms.map(obj => obj.dataset_id),
+  );
+
+  const datasets = await Dataset
+    .query(qb => qb.whereIn('id', datasetIds))
+    .fetchAll({ withRelated });
+
+  ctx.body = datasets.toJSON({ omitPivot: !includePivot });
 });
 
 /**
@@ -524,27 +539,20 @@ function generateBIB(ds) {
 router.get('/:id/reference/:refType', async (ctx) => {
   const dsModel = await Dataset.where('id', ctx.params.id).fetch({ withRelated: ['center'] });
   const dataset = dsModel.toJSON();
-  let fPath;
-  let fName;
+  let fileInfo;
   if (ctx.params.refType === 'ris') {
-    const { filePath, filename } = await generateRIS(dataset);
-    fPath = filePath;
-    fName = filename;
+    fileInfo = await generateRIS(dataset);
   } else if (ctx.params.refType === 'enw') {
-    const { filePath, filename } = await generateENW(dataset);
-    fPath = filePath;
-    fName = filename;
+    fileInfo = await generateENW(dataset);
   } else if (ctx.params.refType === 'bib') {
-    const { filePath, filename } = await generateBIB(dataset);
-    fPath = filePath;
-    fName = filename;
+    fileInfo = await generateBIB(dataset);
   }
-  ctx.set('Content-disposition', `attachment; filename=${fName}`);
-  await send(ctx, fPath);
+  ctx.set('Content-disposition', `attachment; filename=${fileInfo.filename}`);
+  await send(ctx, fileInfo.filePath);
   if (!ctx.status) {
     ctx.throw(500, 'An error occurred generating the ris file.');
   }
-  fs.unlinkSync(fPath);
+  fs.unlinkSync(fileInfo.filePath);
 });
 
 export default router;

@@ -16,7 +16,7 @@ const mapStateToProps = ({ entities, tree }) => ({ entities, tree });
 
 export class DataTree extends Component {
   componentWillMount() {
-    this.props.loadDatasets();
+    this.props.loadDatasets(['center', 'cells', 'cells.tissues']);
     this.props.loadTree();
   }
 
@@ -27,7 +27,6 @@ export class DataTree extends Component {
 
   render() {
     const { entities, tree } = this.props;
-
     if (!entities || !tree || !tree.isLoaded) {
       const label = <span className={styles.node}>Loading</span>;
       return (

@@ -13,14 +13,17 @@ export default function SearchResult(props) {
     <div className={styles.dataset}>
       <div className={styles['ds-header']}>
         <h5>
-          <Link to={`/data/releases/${ds.id}`}>{ds.method}</Link>
+          <Link to={`/data/releases/${ds.id}`}>{ds.lincsId} - {ds.method}</Link>
         </h5>
-        <p className={styles.creator}>{ds.center.name}</p>
+        <p>Center: <span className={styles.creator}>{ds.center.name}</span></p>
       </div>
       <p className={`text-muted ${styles['info-date']}`}>
-        {ds.lincsId} - <em>{moment(ds.dateRetrieved).format('MMM Do, YYYY')}</em>
+        Release date: <em>{moment(ds.dateRetrieved).format('MMM Do, YYYY')}</em>
       </p>
-      <p className={styles.description}>{ds.description}</p>
+      <p className={styles.description}>Summary: {ds.description}</p>
+      <Link to={`/data/releases/${ds.id}`} className={styles.link}>
+        Click here to view dataset page
+      </Link>
     </div>
   );
 }

@@ -407,8 +407,9 @@ knex.raw('select 1+1 as result').then(() => {
     promises.push(
       new Promise((resolve, reject) => {
         insertCenters()
-          .then(() => insertCellLines())
+          // Tissues and diseases must be inserted before cell lines
           .then(() => insertTissuesAndDiseases())
+          .then(() => insertCellLines())
           .then(() => insertSmallMolecules())
           // Need to insert tools and datasets after centers
           .then(() => insertTools())
