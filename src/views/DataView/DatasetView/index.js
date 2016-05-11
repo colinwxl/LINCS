@@ -36,7 +36,7 @@ export class DatasetView extends Component {
           <div className="row">
             <div className="col-xs-12">
               <h2>Access & Analyze Data</h2>
-              <table className={`table ${styles['metadata-table']}`}>
+              <table className={`table ${styles['data-table']}`}>
                 <tbody>
                   {
                     validLincsId &&
@@ -82,7 +82,7 @@ export class DatasetView extends Component {
                     <td>Links</td>
                     <td>
                       <button
-                        className="btn btn-secondary"
+                        className={`btn btn-secondary ${styles['btn-link']}`}
                         href={dataset.sourceLink}
                         target="_blank"
                       >
@@ -91,7 +91,7 @@ export class DatasetView extends Component {
                       {
                         validLincsId &&
                           <button
-                            className="btn btn-secondary"
+                            className={`btn btn-secondary ${styles['btn-link']}`}
                             href={`http://lincsportal.ccs.miami.edu/datasets/#/view/${dataset.lincsId}`}
                             target="_blank"
                           >
@@ -104,19 +104,19 @@ export class DatasetView extends Component {
                     <td>Cite this Dataset</td>
                     <td>
                       <a
-                        className="btn btn-secondary"
+                        className={`btn btn-secondary ${styles['btn-link']}`}
                         href={`/LINCS/api/v1/datasets/${dataset.id}/reference/ris`}
                       >
                         RIS Format (.ris)
                       </a>
                       <a
-                        className="btn btn-secondary"
+                        className={`btn btn-secondary ${styles['btn-link']}`}
                         href={`/LINCS/api/v1/datasets/${dataset.id}/reference/bib`}
                       >
                         BibTeX Format (.bib)
                       </a>
                       <a
-                        className="btn btn-secondary"
+                        className={`btn btn-secondary ${styles['btn-link']}`}
                         href={`/LINCS/api/v1/datasets/${dataset.id}/reference/enw`}
                       >
                         EndNote Format (.enw)
@@ -127,13 +127,13 @@ export class DatasetView extends Component {
                     <td>Download</td>
                     <td>
                       <a
-                        className="btn btn-secondary"
+                        className={`btn btn-secondary ${styles['btn-link']}`}
                         href={`/LINCS/api/v1/datasets/${dataset.id}/download`}
                       >
                         Data Package
                       </a>
                       <a
-                        className="btn btn-secondary"
+                        className={`btn btn-secondary ${styles['btn-link']}`}
                         href={`/LINCS/api/v1/datasets/${dataset.id}/download/gct`}
                       >
                         GCT File*
@@ -148,7 +148,7 @@ export class DatasetView extends Component {
                           {
                             links.useSlicr &&
                               <a
-                                className="btn btn-secondary"
+                                className={`btn btn-secondary ${styles['btn-link']}`}
                                 href="http://amp.pharm.mssm.edu/Slicr/"
                                 target="_blank"
                               >
@@ -158,7 +158,7 @@ export class DatasetView extends Component {
                           {
                             links.usePiLINCS &&
                               <a
-                                className="btn btn-secondary"
+                                className={`btn btn-secondary ${styles['btn-link']}`}
                                 href="http://eh3.uc.edu/pilincs"
                                 target="_blank"
                               >
@@ -168,7 +168,7 @@ export class DatasetView extends Component {
                           {
                             links.useMosaic &&
                               <a
-                                className="btn btn-secondary"
+                                className={`btn btn-secondary ${styles['btn-link']}`}
                                 href="http://amp.pharm.mssm.edu/p100mosaic"
                                 target="_blank"
                               >
@@ -178,7 +178,7 @@ export class DatasetView extends Component {
                           {
                             links.useILINCS &&
                               <a
-                                className="btn btn-secondary"
+                                className={`btn btn-secondary ${styles['btn-link']}`}
                                 href={`http://eh3.uc.edu/GenomicsPortals/DatasetLandingPage.do?data_set=${dataset.lincsId}`}
                                 target="_blank"
                               >
