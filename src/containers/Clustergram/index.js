@@ -102,6 +102,8 @@ export class Clustergram extends Component {
     }
     let wrapClass = styles['clustergram-wrap'];
     let clustergramClass = styles.clustergram;
+    // Reset the outer div's height and hide the clustergram DOM node if there was
+    // an error or if the window isn't wide enough.
     if (clustergramError || !windowWideEnough) {
       wrapClass += ` ${styles['clust-error']}`;
       clustergramClass += ` ${styles['clust-hidden']}`;
