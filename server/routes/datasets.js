@@ -313,6 +313,7 @@ router.get('/:id/network', async (ctx) => {
   try {
     network = require(`../networks/${dataset.lincsId}.json`);
   } catch (e) {
+    debug(e);
     ctx.throw(400, 'Network is not available for this dataset.');
     return;
   }

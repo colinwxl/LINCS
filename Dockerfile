@@ -13,6 +13,7 @@ RUN npm install --production
 
 COPY dist $SOURCE_DIR/dist
 
+COPY server/networks $SOURCE_DIR/networks
 COPY server-es5 $SOURCE_DIR
 
 EXPOSE 3000
