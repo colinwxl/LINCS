@@ -41,7 +41,7 @@ export class DatasetView extends Component {
                   {
                     validLincsId &&
                       <tr>
-                        <td>LINCS ID</td>
+                        <td>LINCS&nbsp;ID</td>
                         <td>{dataset.lincsId}</td>
                       </tr>
                   }
@@ -60,21 +60,21 @@ export class DatasetView extends Component {
                   {
                     dataset.assay &&
                       <tr>
-                        <td>Assay Type</td>
+                        <td>Assay&nbsp;Type</td>
                         <td>{dataset.assay}</td>
                       </tr>
                   }
                   {
                     dataset.physicalDetection &&
                       <tr>
-                        <td>Physical Detection</td>
+                        <td>Physical&nbsp;Detection</td>
                         <td>{dataset.physicalDetection}</td>
                       </tr>
                   }
                   {
                     dataset.dateRetrieved &&
                       <tr>
-                        <td>Release Date</td>
+                        <td>Release&nbsp;Date</td>
                         <td>{moment(dataset.dateRetrieved).format('MMMM Do, YYYY')}</td>
                       </tr>
                   }
