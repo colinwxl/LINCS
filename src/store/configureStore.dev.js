@@ -33,6 +33,7 @@ export default function configureStore(config: Object): Object {
   // on react-transform-hmr: https://github.com/gaearon/react-transform-hmr
   if (module.hot) {
     module.hot.accept('../reducers', () => {
+      /* eslint global-require:0 */
       const nextRootReducer = require('../reducers').default;
       store.replaceReducer(nextRootReducer);
     });

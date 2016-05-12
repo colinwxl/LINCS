@@ -2,6 +2,16 @@ import React from 'react';
 
 import styles from './Workflow.scss';
 import PageBanner from 'components/PageBanner';
+// Images
+import lcQueryToolImg from './lc-query-tool.png';
+import lcResultsScreenshot from './lc-results-screenshot.png';
+import l1000cds2QueryImg from './l1000cds2-query.png';
+import l1000cds2ResultsImg from './l1000cds2-results.png';
+import l1000cds2ClustImg from './l1000cds2-clust.png';
+import g2eMarketplaceImg from './g2e-marketplace.png';
+import g2eSelectionImg from './g2e-selection.png';
+import g2eFormImg from './g2e-form.png';
+import g2eResultsImg from './g2e-results.png';
 
 export default function Workflow() {
   return (
@@ -41,7 +51,7 @@ export default function Workflow() {
             </p>
             <div className="row">
               <div className="col-xs-12 col-md-10 col-md-offset-1">
-                <img src={require('./lc-query-tool.png')} alt="lincscloud Query Tool" />
+                <img src={lcQueryToolImg} alt="lincscloud Query Tool" />
               </div>
             </div>
             <p>
@@ -52,7 +62,7 @@ export default function Workflow() {
             </p>
             <div className="row">
               <div className="col-xs-12 col-md-10 col-md-offset-1">
-                <img src={require('./lc-results-screenshot.png')} alt="lincscloud Results Page" />
+                <img src={lcResultsScreenshot} alt="lincscloud Results Page" />
               </div>
             </div>
             <h4>L1000 Characteristic Direction Signature Search Engine (L1000CDS<sup>2</sup>)</h4>
@@ -67,7 +77,7 @@ export default function Workflow() {
               signatures are served through a state-of-the-art web-based search engine
               application called L1000CDS<sup>2</sup>
               (<a href="http://amp.pharm.mssm.edu/L1000CDS2" target="_blank">
-              http://amp.pharm.mssm.edu/L1000CDS<sup>2</sup></a>). The
+                http://amp.pharm.mssm.edu/L1000CDS<sup>2</sup></a>). The
               L1000CDS<sup>2</sup> search engine provides prioritization
               of thousands of small molecule signatures, and their pairwise combinations,
               predicted to either mimic or reverse an input gene expression signature using
@@ -84,7 +94,7 @@ export default function Workflow() {
             </p>
             <div className="row">
               <div className="col-xs-12 col-md-10 col-md-offset-1">
-                <img src={require('./l1000cds2-query.png')} alt="L1000CDS2 Query Page" />
+                <img src={l1000cds2QueryImg} alt="L1000CDS2 Query Page" />
               </div>
             </div>
             <p>
@@ -93,7 +103,7 @@ export default function Workflow() {
             </p>
             <div className="row">
               <div className="col-xs-12 col-md-10 col-md-offset-1">
-                <img src={require('./l1000cds2-results.png')} alt="L1000CDS2 Results Page" />
+                <img src={l1000cds2ResultsImg} alt="L1000CDS2 Results Page" />
               </div>
             </div>
             <p>
@@ -104,7 +114,7 @@ export default function Workflow() {
             </p>
             <div className="row">
               <div className="col-xs-12 col-md-10 col-md-offset-1">
-                <img src={require('./l1000cds2-clust.png')} alt="L1000CDS2 Clustergram" />
+                <img src={l1000cds2ClustImg} alt="L1000CDS2 Clustergram" />
               </div>
             </div>
             <p>
@@ -136,7 +146,7 @@ export default function Workflow() {
             </p>
             <div className="row">
               <div className="col-xs-12 col-md-10 col-md-offset-1">
-                <img src={require('./g2e-marketplace.png')} alt="G2E on the Google Play Store" />
+                <img src={g2eMarketplaceImg} alt="G2E on the Google Play Store" />
               </div>
             </div>
             <p>
@@ -146,7 +156,7 @@ export default function Workflow() {
             </p>
             <div className="row">
               <div className="col-xs-12 col-md-10 col-md-offset-1">
-                <img src={require('./g2e-selection.png')} alt="Selecting Samples with G2E" />
+                <img src={g2eSelectionImg} alt="Selecting Samples with G2E" />
               </div>
             </div>
             <p>
@@ -155,7 +165,7 @@ export default function Workflow() {
             </p>
             <div className="row">
               <div className="col-xs-12 col-md-10 col-md-offset-1">
-                <img src={require('./g2e-form.png')} alt="G2E Submission Form" />
+                <img src={g2eFormImg} alt="G2E Submission Form" />
               </div>
             </div>
             <p>
@@ -166,7 +176,7 @@ export default function Workflow() {
             </p>
             <div className="row">
               <div className="col-xs-12 col-md-8 col-md-offset-2">
-                <img src={require('./g2e-results.png')} alt="G2E Results Page" />
+                <img src={g2eResultsImg} alt="G2E Results Page" />
               </div>
             </div>
             <p>

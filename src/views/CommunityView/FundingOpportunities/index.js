@@ -1,6 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import extend from 'extend';
+import each from 'lodash/each';
 // import { Link } from 'react-router';
 
 import formatDate from 'utils/formatDate';
@@ -31,27 +32,27 @@ export class FundingOpportunities extends Component {
           <ul>
             {
               releaseDate &&
-              <li>Release Date: {formatDate(releaseDate)}</li>
+                <li>Release Date: {formatDate(releaseDate)}</li>
             }
             {
               openDate &&
-              <li>Open Date (earliest submission): {formatDate(openDate)}</li>
+                <li>Open Date (earliest submission): {formatDate(openDate)}</li>
             }
             {
               dueDate &&
-              <li>Application Due Date: {formatDate(dueDate)}</li>
+                <li>Application Due Date: {formatDate(dueDate)}</li>
             }
             {
               reviewDate &&
-              <li>Application Review: {formatDate(reviewDate)}</li>
+                <li>Application Review: {formatDate(reviewDate)}</li>
             }
             {
               announcedDate &&
-              <li>Decision Announcement: {formatDate(announcedDate)}</li>
+                <li>Decision Announcement: {formatDate(announcedDate)}</li>
             }
             {
               startDate &&
-              <li>Earliest Start Date: {formatDate(startDate)}</li>
+                <li>Earliest Start Date: {formatDate(startDate)}</li>
             }
           </ul>
           {!!keyLinks && Object.keys(keyLinks).length && <h6>Links</h6>}
@@ -81,11 +82,9 @@ export class FundingOpportunities extends Component {
       // Here we loop through opp.keyDates and set each value to a Date object of the string that
       // currently exists there.
       if (opp.keyDates) {
-        for (const date in opp.keyDates) {
-          if (opp.keyDates.hasOwnProperty(date)) {
-            opp.keyDates[date] = new Date(opp.keyDates[date]);
-          }
-        }
+        each(opp.keyDates, date => {
+          opp.keyDates[date] = new Date(opp.keyDates[date]);
+        });
       }
       if (opp.date) {
         // Set opp.date to an actual date object (continuing from above)

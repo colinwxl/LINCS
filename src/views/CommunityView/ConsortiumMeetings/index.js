@@ -5,6 +5,9 @@ import PageBanner from 'components/PageBanner';
 import PageNav from 'components/PageNav';
 import styles from './ConsortiumMeetings.scss';
 
+import meeting2015Img from './2015-consortium-meeting.png';
+import cover2014Img from './2014-cover.png';
+
 const dsgcRoute = '/centers/data-and-signature-generating-centers';
 
 // TODO: Make LINCS 2013 Consortium Meeting page
@@ -30,7 +33,7 @@ export default function ConsortiumMeetings() {
             <h2>2015 Consortium Meeting</h2>
             <div className="text-xs-center">
               <img
-                src={require('./2015-consortium-meeting.png')}
+                src={meeting2015Img}
                 alt="2015 Consortium Meeting"
               />
             </div>
@@ -97,7 +100,7 @@ export default function ConsortiumMeetings() {
                 <a href="/LINCS/files/LINCS-2014-Consortium-Meeting-Agenda.pdf">
                   <img
                     className={styles['img-bordered']}
-                    src={require('./2014-cover.png')}
+                    src={cover2014Img}
                     alt="2014 Consortium Meeting Agenda"
                   />
                 </a>

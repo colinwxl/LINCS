@@ -188,8 +188,8 @@ export default function AboutView() {
                     direct measurement of a reduced representation of the transcriptome and
                     computational inference of the portion of the transcriptome not explicitly
                     measured. Measurements are (a) of endogenous mRNA (i.e not reporter-based
-                      system) (b) from treated whole cell lysates (c) current detection method
-                      is by optically-addressed microspheres based Luminex system.
+                    system) (b) from treated whole cell lysates (c) current detection method
+                    is by optically-addressed microspheres based Luminex system.
                   </li>
                   <li>
                     The <Link to={`${dsgcRoute}/lincs-pccse`}>LINCS Proteomic Characterization
@@ -203,7 +203,7 @@ export default function AboutView() {
                     modulated via perturbations. The Global Chromatin Profiling assay is a
                     mass spectrometry-based targeted proteomics assay that detects and quantifies
                     an extensive set of chromatin modifications (specifically, post-translational
-                      modifications on histone proteins).
+                    modifications on histone proteins).
                   </li>
                   <li>
                     The <Link to={`${dsgcRoute}/mep-lincs`}>MEP LINCS Center’s</Link> assays
@@ -235,9 +235,9 @@ export default function AboutView() {
                 </span>
                 <ul>
                   <li>
-                  The <Link to={`${dsgcRoute}/dtoxs`}>
-                  Drug Toxicity Signature Generation Center’s</Link> perturbations are FDA
-                  approved drugs applied individually or in combinations.
+                    The <Link to={`${dsgcRoute}/dtoxs`}>
+                    Drug Toxicity Signature Generation Center’s</Link> perturbations are FDA
+                    approved drugs applied individually or in combinations.
                   </li>
                   <li>
                     The <Link to={`${dsgcRoute}/hms-lincs`}>HMS LINCS Center</Link> currently

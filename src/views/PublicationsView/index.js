@@ -47,7 +47,7 @@ export class PublicationsView extends Component {
 
   // Check if category is wanted (this.state.categories[category] is true) and that
   // the publication falls under that category (p[category] is true)
-  _filterCategories = (p) => {
+  filterCategories = (p) => {
     const { categories } = this.state;
     return (p.assayDevelopment && categories.assayDevelopment) ||
       (p.dataAnalysis && categories.dataAnalysis) ||
@@ -59,7 +59,7 @@ export class PublicationsView extends Component {
       (p.review && categories.review);
   };
 
-  _sortPublications = (a, b) => {
+  sortPublications = (a, b) => {
     let result = a.yearPublished > b.yearPublished;
     if (a.yearPublished === b.yearPublished) {
       result = a.pmId > b.pmId;
@@ -73,17 +73,17 @@ export class PublicationsView extends Component {
     return result ? 1 : -1;
   }
 
-  _handleSortOrderChanged = (event) => {
+  handleSortOrderChanged = (event) => {
     this.setState({ sortOrder: event.target.value });
   }
 
-  _handleCategoryChecked = (name, checked) => {
+  handleCategoryChecked = (name, checked) => {
     const categories = extend(true, {}, this.state.categories);
     categories[name] = checked;
     this.setState({ categories });
   }
 
-  _handleCatClicked = (key) => {
+  handleCatClicked = (key) => {
     const categories = {
       assayDevelopment: false,
       dataAnalysis: false,
@@ -103,7 +103,7 @@ export class PublicationsView extends Component {
     }
   }
 
-  _selectAll = () => {
+  selectAll = () => {
     this.setState({
       categories: {
         assayDevelopment: true,
@@ -120,7 +120,7 @@ export class PublicationsView extends Component {
 
   render() {
     let publications = this.props.publications;
-    publications = publications.sort(this._sortPublications).filter(this._filterCategories);
+    publications = publications.sort(this.sortPublications).filter(this.filterCategories);
     return (
       <div className={styles.wrapper}>
         <PageBanner
@@ -136,7 +136,7 @@ export class PublicationsView extends Component {
                 <select
                   id="sort-order"
                   className="form-control"
-                  onChange={this._handleSortOrderChanged}
+                  onChange={this.handleSortOrderChanged}
                   value={this.state.sortOrder}
                 >
                   <option value="descending">Descending</option>
@@ -149,53 +149,53 @@ export class PublicationsView extends Component {
                   name="assayDevelopment"
                   label="Assay Development"
                   checked={this.state.categories.assayDevelopment}
-                  onChange={this._handleCategoryChecked}
+                  onChange={this.handleCategoryChecked}
                 />
                 <PubCheckBox
                   name="dataAnalysis"
                   label="Data Analysis"
                   checked={this.state.categories.dataAnalysis}
-                  onChange={this._handleCategoryChecked}
+                  onChange={this.handleCategoryChecked}
                 />
                 <PubCheckBox
                   name="dataGeneration"
                   label="Data Generation"
                   checked={this.state.categories.dataGeneration}
-                  onChange={this._handleCategoryChecked}
+                  onChange={this.handleCategoryChecked}
                 />
                 <PubCheckBox
                   name="dataIntegration"
                   label="Data Integration"
                   checked={this.state.categories.dataIntegration}
-                  onChange={this._handleCategoryChecked}
+                  onChange={this.handleCategoryChecked}
                 />
                 <PubCheckBox
                   name="dataStandards"
                   label="Data Standards"
                   checked={this.state.categories.dataStandards}
-                  onChange={this._handleCategoryChecked}
+                  onChange={this.handleCategoryChecked}
                 />
                 <PubCheckBox
                   name="signatureGeneration"
                   label="Signature Generation"
                   checked={this.state.categories.signatureGeneration}
-                  onChange={this._handleCategoryChecked}
+                  onChange={this.handleCategoryChecked}
                 />
                 <PubCheckBox
                   name="softwareDevelopment"
                   label="Software Development"
                   checked={this.state.categories.softwareDevelopment}
-                  onChange={this._handleCategoryChecked}
+                  onChange={this.handleCategoryChecked}
                 />
                 <PubCheckBox
                   name="review"
                   label="Review"
                   checked={this.state.categories.review}
-                  onChange={this._handleCategoryChecked}
+                  onChange={this.handleCategoryChecked}
                 />
                 <button
                   className={`btn btn-secondary ${styles['select-all-btn']}`}
-                  onClick={this._selectAll}
+                  onClick={this.selectAll}
                 >
                   Select All
                 </button>
@@ -204,12 +204,12 @@ export class PublicationsView extends Component {
             <div className="col-md-9 col-md-pull-3">
               {
                 publications.map(p =>
-                  <Publication key={p.id} pub={p} onCatClicked={this._handleCatClicked} />
+                  <Publication key={p.id} pub={p} onCatClicked={this.handleCatClicked} />
                 )
               }
               {
                 !this.props.isFetchingPubs && !publications.length &&
-                <h2>Please select a category to view publications.</h2>
+                  <h2>Please select a category to view publications.</h2>
               }
             </div>
           </div>

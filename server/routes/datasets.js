@@ -198,6 +198,8 @@ router.get('/search', async (ctx) => {
   const cellIds = [];
   const smIds = [];
   resp.hits.hits.forEach(doc => {
+    // Disable linting due to _hanging _underscores
+    /* eslint-disable */
     const id = parseInt(doc._id, 10);
     if (doc._type === 'dataset') {
       dsIds.push(id);
@@ -206,6 +208,7 @@ router.get('/search', async (ctx) => {
     } else if (doc._type === 'smallmolecule') {
       smIds.push(id);
     }
+    /* eslint-enable */
   });
 
   // Find all of the dataset ids that have:
@@ -326,7 +329,7 @@ router.get('/:id/network', async (ctx) => {
   dataset = dataset.toJSON();
   let network;
   try {
-    network = require(`../networks/${dataset.lincsId}.json`);
+    network = require(`../networks/${dataset.lincsId}.json`); // eslint-disable-line
   } catch (e) {
     debug(e);
     ctx.throw(400, 'Network is not available for this dataset.');

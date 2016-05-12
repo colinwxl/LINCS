@@ -5,7 +5,7 @@ import Tree from '../Tree';
 import Dataset from 'containers/Dataset';
 
 export default class MonthTree extends Component {
-  _handleClick = () => {
+  handleClick = () => {
     this.props.onClick(this.props.datasetIds);
   }
 
@@ -13,7 +13,7 @@ export default class MonthTree extends Component {
     const { datasetIds, monthName, collapsed } = this.props;
     const label = <span className={styles.node}>{monthName}</span>;
     return (
-      <Tree nodeLabel={label} onClick={this._handleClick} collapsed={collapsed} >
+      <Tree nodeLabel={label} onClick={this.handleClick} collapsed={collapsed} >
         {datasetIds.map((dsId, index) => <Dataset key={`dataset ${index}`} datasetId={dsId} />)}
       </Tree>
     );

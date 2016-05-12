@@ -4,6 +4,7 @@ import { Link } from 'react-router';
 import PageBanner from 'components/PageBanner';
 import PageNav from 'components/PageNav';
 import styles from './Overview.scss';
+import dataLevelsImg from './data-levels.png';
 
 export default function Overview(/* props */) {
   return (
@@ -42,7 +43,7 @@ export default function Overview(/* props */) {
             <p className="clearfix">
               <img
                 className={styles['data-levels']}
-                src={require('./data-levels.png')}
+                src={dataLevelsImg}
                 alt="LINCS Data Levels"
               />
               The LINCS project embraces and aims to further develop the concept of data

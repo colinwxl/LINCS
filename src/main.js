@@ -15,7 +15,7 @@ import configureStore from 'store/configureStore';
 const historyConfig = { basename: '/LINCS' };
 const browserHistory = useRouterHistory(createBrowserHistory)(historyConfig);
 // If using server-side rendering, the initial state of the app may be set on the window.
-const initialState = window.__INITIAL_STATE__;
+const initialState = window.INITIAL_STATE;
 
 // Initialize the store using the browserHistory we created and the initialState if it
 // exists

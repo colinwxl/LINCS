@@ -87,11 +87,11 @@ router.post('/workflows/add', async (ctx) => {
         'This is a notification from http://amp.pharm.mssm.edu/LINCS that a ' +
         'new workflow has been submitted.\n\n' +
         `${wf.email ? `The submitter's email address is ${wf.email}.\n` : ''}` +
-        'He/she is ' + `${
+        `He/she is ${
           wf.type === 'experimentalist'
           ? 'an experimentalist.'
           : 'a computational biologist.'
-        }\n` + `Their question/aim is ${wf.question}.`,
+        }\nTheir question/aim is ${wf.question}.`,
     };
     await sendMail(transporter, mailOptions);
     ctx.body = wf;

@@ -2,6 +2,17 @@ import React from 'react';
 
 import styles from './Workflow.scss';
 import PageBanner from 'components/PageBanner';
+// Images
+import ldpPanelImg from './ldp-panel.png';
+import ldpDataBrowserImg from './ldp-data-browser.png';
+import dtoxsDataIcon from './dtoxs-data-icon.png';
+import dtoxsRequestDataImg from './dtoxs-request-data.png';
+import neurolincsDsPageImg from './neurolincs-ds-page.png';
+import neurolincsDsDownloadImg from './neurolincs-ds-download.png';
+import iLincsDropdownImg from './ilincs-dropdown.png';
+import iLincsAnalysisImg from './ilincs-analysis.png';
+import iLincsFilterImg from './ilincs-filter.png';
+import lincsTreeViewImg from './lincs-tree-view.png';
 
 export default function Workflow() {
   return (
@@ -34,7 +45,7 @@ export default function Workflow() {
             </ol>
             <div className="row">
               <div className="col-xs-8 col-xs-offset-2 col-md-4 col-md-offset-4 text-xs-center">
-                <img src={require('./ldp-panel.png')} alt="LINCS Data Portal Filters" />
+                <img src={ldpPanelImg} alt="LINCS Data Portal Filters" />
               </div>
             </div>
             <ol start="3">
@@ -42,7 +53,7 @@ export default function Workflow() {
             </ol>
             <div className="row">
               <div className="col-xs-10 col-xs-offset-1">
-                <img src={require('./ldp-data-browser.png')} alt="LINCS Data Portal Browser" />
+                <img src={ldpDataBrowserImg} alt="LINCS Data Portal Browser" />
               </div>
             </div>
             <h4>Obtaining RNA-Seq datasets from the DToxS website</h4>
@@ -56,7 +67,7 @@ export default function Workflow() {
             </ol>
             <div className="row">
               <div className="col-xs-4 col-xs-offset-4 col-md-2 col-md-offset-5 text-xs-center">
-                <img src={require('./dtoxs-data-icon.png')} alt="DToxS Data Icon" />
+                <img src={dtoxsDataIcon} alt="DToxS Data Icon" />
               </div>
             </div>
             <ol start="3">
@@ -65,7 +76,7 @@ export default function Workflow() {
             <div className="row">
               <div className="col-xs-10 col-xs-offset-1">
                 <img
-                  src={require('./dtoxs-request-data.png')}
+                  src={dtoxsRequestDataImg}
                   alt="DToxS Request Data"
                   className={styles['img-bordered']}
                 />
@@ -89,7 +100,7 @@ export default function Workflow() {
             <div className="row">
               <div className="col-xs-10 col-xs-offset-1">
                 <img
-                  src={require('./neurolincs-ds-page.png')}
+                  src={neurolincsDsPageImg}
                   alt="NeuroLINCS Dataset Page"
                   className={styles['img-bordered']}
                 />
@@ -103,7 +114,7 @@ export default function Workflow() {
             </ol>
             <div className="row">
               <div className="col-xs-10 col-xs-offset-1">
-                <img src={require('./neurolincs-ds-download.png')} alt="NeuroLINCS Download" />
+                <img src={neurolincsDsDownloadImg} alt="NeuroLINCS Download" />
               </div>
             </div>
             <h4>Obtaining RNA-Seq datasets from iLINCS</h4>
@@ -118,7 +129,7 @@ export default function Workflow() {
             <div className="row">
               <div className="col-xs-8 col-xs-offset-2">
                 <img
-                  src={require('./ilincs-dropdown.png')}
+                  src={iLincsDropdownImg}
                   alt="iLINCS Dropdown Menu"
                   className={styles['img-bordered']}
                 />
@@ -130,7 +141,7 @@ export default function Workflow() {
             <div className="row">
               <div className="col-xs-10 col-xs-offset-1 col-md-6 col-md-offset-3 text-xs-center">
                 <img
-                  src={require('./ilincs-analysis.png')}
+                  src={iLincsAnalysisImg}
                   alt="iLINCS Analysis"
                   className={styles['img-bordered']}
                 />
@@ -145,7 +156,7 @@ export default function Workflow() {
             <div className="row">
               <div className="col-xs-8 col-xs-offset-2">
                 <img
-                  src={require('./ilincs-filter.png')}
+                  src={iLincsFilterImg}
                   alt="iLINCS Filters"
                   className={styles['img-bordered']}
                 />
@@ -161,7 +172,7 @@ export default function Workflow() {
             </ol>
             <div className="row">
               <div className="col-xs-10 col-xs-offset-1 text-xs-center">
-                <img src={require('./lincs-tree-view.png')} alt="LINCS Tree View" />
+                <img src={lincsTreeViewImg} alt="LINCS Tree View" />
               </div>
             </div>
             <ol start="3">

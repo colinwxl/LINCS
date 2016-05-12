@@ -6,7 +6,7 @@ import { addWorkflow } from 'actions/toolsWorkflows';
 import WorkflowInputForm from './WorkflowInputForm';
 import styles from './AppsView.scss';
 
-export default class CompBioWorkflows extends Component {
+export class CompBioWorkflows extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -14,11 +14,11 @@ export default class CompBioWorkflows extends Component {
     };
   }
 
-  _handleModalClose = () => {
+  handleModalClose = () => {
     this.setState({ isModalOpen: false });
   }
 
-  _handleSubmit = (form) => {
+  handleSubmit = (form) => {
     this.props.addWorkflow({
       ...form,
       type: 'computationalBiologist',
@@ -29,8 +29,8 @@ export default class CompBioWorkflows extends Component {
   render() {
     return (
       <div className={styles['workflow-comp-bio']}>
-        <WorkflowSentModal isOpen={this.state.isModalOpen} onModalClose={this._handleModalClose} />
-        <WorkflowInputForm onSubmit={this._handleSubmit} isCompBio />
+        <WorkflowSentModal isOpen={this.state.isModalOpen} onModalClose={this.handleModalClose} />
+        <WorkflowInputForm onSubmit={this.handleSubmit} isCompBio />
       </div>
     );
   }

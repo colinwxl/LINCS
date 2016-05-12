@@ -23,7 +23,7 @@ try {
 // the Node process to exit if an error occurs.
 let overrides;
 if (hasOverridesFile) {
-  overrides = require(`./${overridesFilename}`).default(config);
+  overrides = require(`./${overridesFilename}`).default(config); // eslint-disable-line
 } else {
   debug(`No configuration overrides found for NODE_ENV "${config.env}"`);
 }

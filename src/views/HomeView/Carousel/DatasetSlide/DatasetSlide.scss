@@ -1,0 +1,57 @@
+@import 'variables';
+
+$top-height: 6rem;
+
+.card {
+  background-color: $white;
+  border: 1px solid;
+  border-color: $gray-border-top $gray-border-side $gray-border-bottom;
+  border-radius: .2rem;
+  margin: 1rem;
+  padding: .5rem;
+
+  p,
+  h4 {
+    margin-bottom: 0;
+  }
+
+}
+
+.card-top {
+  height: $top-height;
+}
+
+.table-wrap {
+  display: table;
+  height: $top-height;
+}
+
+.card-img,
+.card-title {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.card-img {
+  text-align: center;
+
+  img {
+    display: inline-block;
+    max-height: $top-height;
+    max-width: 100%;
+    width: auto;
+  }
+}
+
+$total-padding: .9375rem * 2;
+
+.card-title-wrap {
+  border-left: 1px solid $brand-primary;
+  height: $top-height;
+  padding-left: .5rem;
+  padding-right: $total-padding - .5rem;
+
+  p {
+    font-size: 90%;
+  }
+}

@@ -30,7 +30,7 @@ export default class Footer extends Component {
   // Do to restriction on Footer height, we need to keep the state of all dropdowns
   // in this component. This way we can close all other dropdowns when one is open.
 
-  _handleCentersClicked = () => {
+  handleCentersClicked = () => {
     this.setState({
       centersCollapsed: !this.state.centersCollapsed,
       dataCollapsed: true,
@@ -38,7 +38,7 @@ export default class Footer extends Component {
     });
   }
 
-  _handleDataClicked = () => {
+  handleDataClicked = () => {
     this.setState({
       centersCollapsed: true,
       dataCollapsed: !this.state.dataCollapsed,
@@ -46,7 +46,7 @@ export default class Footer extends Component {
     });
   }
 
-  _handleAnnClicked = () => {
+  handleAnnClicked = () => {
     this.setState({
       centersCollapsed: true,
       dataCollapsed: true,
@@ -98,7 +98,7 @@ export default class Footer extends Component {
             <FooterDropDown
               title="Centers"
               collapsed={this.state.centersCollapsed}
-              onClick={this._handleCentersClicked}
+              onClick={this.handleCentersClicked}
             >
               <ul>
                 <li><a href={`${centersRoute}/overview`}>Overview</a></li>
@@ -131,7 +131,7 @@ export default class Footer extends Component {
             <FooterDropDown
               title="Data"
               collapsed={this.state.dataCollapsed}
-              onClick={this._handleDataClicked}
+              onClick={this.handleDataClicked}
             >
               <ul>
                 <li><a href={`${dataRoute}/releases`}>Releases</a></li>
@@ -160,7 +160,7 @@ export default class Footer extends Component {
             <FooterDropDown
               title="Announcements"
               collapsed={this.state.annCollapsed}
-              onClick={this._handleAnnClicked}
+              onClick={this.handleAnnClicked}
             >
               <ul>
                 <li><a href={`${base}/publications`}>Publications</a></li>

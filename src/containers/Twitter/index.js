@@ -13,12 +13,12 @@ export class Twitter extends Component {
     this.props.fetchTimeline();
   }
 
-  _humanDate(date) {
+  humanDate(date) {
     const d = new Date(date);
     return moment(d).fromNow();
   }
 
-  _rawTweetHtml(status) {
+  rawTweetHtml(status) {
     const { text, entities } = status;
     let tweetHtml = unEscape(text);
     entities.urls.forEach(urlObj => {
@@ -76,8 +76,8 @@ export class Twitter extends Component {
                       </a>
                     </div>
                     <div key={id} className={styles.status}>
-                      <p dangerouslySetInnerHTML={this._rawTweetHtml(status)} />
-                      <p className={styles.time}>{this._humanDate(createdAt)}</p>
+                      <p dangerouslySetInnerHTML={this.rawTweetHtml(status)} />
+                      <p className={styles.time}>{this.humanDate(createdAt)}</p>
                     </div>
                   </div>
                 </div>

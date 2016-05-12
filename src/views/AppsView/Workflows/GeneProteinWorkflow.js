@@ -5,6 +5,10 @@ import extend from 'extend';
 import styles from './Workflow.scss';
 import PageBanner from 'components/PageBanner';
 
+// Images
+import arrowDownImg from './arrow-down.png';
+import creedsLogoImg from './creeds-logo.png';
+
 const lcEngineFieldMap = {
   geneinfo: 'pr_gene_symbol',
   pertinfo: 'pert_iname',
@@ -22,7 +26,7 @@ export default class Workflow extends Component {
     };
   }
 
-  _handleEngineChanged = (e) => {
+  handleEngineChanged = (e) => {
     // Duplicate lincsCloudQ currently in state
     const lincsCloudQ = extend(true, {}, this.state.lincsCloudQ);
     // Set new engine
@@ -31,7 +35,7 @@ export default class Workflow extends Component {
     this.setState({ lincsCloudQ });
   }
 
-  _handleTermChanged = (e) => {
+  handleTermChanged = (e) => {
     // Duplicate lincsCloudQ currently in state
     const lincsCloudQ = extend(true, {}, this.state.lincsCloudQ);
     // Set new term
@@ -40,7 +44,7 @@ export default class Workflow extends Component {
     this.setState({ lincsCloudQ });
   }
 
-  _handleLQSubmit = (e) => {
+  handleLQSubmit = (e) => {
     e.preventDefault();
     const base = 'http://api.lincscloud.org/a2/';
     const key = 'lincsdemo';
@@ -52,11 +56,11 @@ export default class Workflow extends Component {
     }
   }
 
-  _handleCreedsQChanged = (e) => {
+  handleCreedsQChanged = (e) => {
     this.setState({ creedsQ: e.target.value });
   }
 
-  _handleCreedsSubmit = (e) => {
+  handleCreedsSubmit = (e) => {
     e.preventDefault();
     const { creedsQ } = this.state;
 
@@ -103,7 +107,7 @@ export default class Workflow extends Component {
                   <select
                     className="form-control"
                     name="t"
-                    style={{ backgroundImage: `url(${require('./arrow-down.png')})` }}
+                    style={{ backgroundImage: `url(${arrowDownImg})` }}
                   >
                     <option value="all">All</option>
                     <option value="gene">Genes</option>
@@ -143,13 +147,13 @@ export default class Workflow extends Component {
                 <form
                   acceptCharset="utf-8"
                   className="form-horizontal"
-                  onSubmit={this._handleLQSubmit}
+                  onSubmit={this.handleLQSubmit}
                 >
                   <select
                     id="engine"
                     className="form-control"
-                    style={{ backgroundImage: `url(${require('./arrow-down.png')})` }}
-                    onChange={this._handleEngineChanged}
+                    style={{ backgroundImage: `url(${arrowDownImg})` }}
+                    onChange={this.handleEngineChanged}
                     value={this.state.lincsCloudQ.engine}
                   >
                     <option value="geneinfo">Genes</option>
@@ -171,7 +175,7 @@ export default class Workflow extends Component {
                         spellCheck="false"
                         dir="auto"
                         value={this.state.lincsCloudQ.term}
-                        onChange={this._handleTermChanged}
+                        onChange={this.handleTermChanged}
                       />
                     </span>
                   </div>
@@ -184,7 +188,7 @@ export default class Workflow extends Component {
                   signatures from this data. You can check if your gene of interest was
                   processed by this effort by typing it here:
                 </p>
-                <img src={require('./creeds-logo.png')} alt="CREEDS Logo" />
+                <img src={creedsLogoImg} alt="CREEDS Logo" />
                 <h4>Search signatures by term</h4>
                 <p>
                   Examples: <a href="http://amp.pharm.mssm.edu/CREEDS/#similarity/TP53" target="_blank">
@@ -195,7 +199,7 @@ export default class Workflow extends Component {
                 <form
                   acceptCharset="utf-8"
                   className="form-horizontal"
-                  onSubmit={this._handleCreedsSubmit}
+                  onSubmit={this.handleCreedsSubmit}
                 >
                   <div className="input-group">
                     <input
@@ -206,7 +210,7 @@ export default class Workflow extends Component {
                       spellCheck="false"
                       dir="auto"
                       value={this.state.creedsQ}
-                      onChange={this._handleCreedsQChanged}
+                      onChange={this.handleCreedsQChanged}
                     />
                     <span className="input-group-btn">
                       <button className={`btn btn-info ${styles['creeds-btn']}`} type="submit">

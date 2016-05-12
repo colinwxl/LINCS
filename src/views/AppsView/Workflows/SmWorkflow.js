@@ -3,6 +3,7 @@ import { Link } from 'react-router';
 
 import styles from './Workflow.scss';
 import PageBanner from 'components/PageBanner';
+import ldpScreenshot from './ldp-sm-screenshot.png';
 
 export default function Workflow() {
   return (
@@ -28,7 +29,7 @@ export default function Workflow() {
             </p>
             <img
               className={styles['img-bordered']}
-              src={require('./ldp-sm-screenshot.png')}
+              src={ldpScreenshot}
               alt="LINCS Data Portal Screenshot"
             />
           </div>

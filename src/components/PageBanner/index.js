@@ -19,25 +19,26 @@ export default function PageBanner(props) {
         <div className={`row ${styles.flex}`}>
           {
             !!title &&
-            <div className={titleClass}>
-              <h1>{title}</h1>
-              {!!subTitle && <p className={styles.subtitle}>{subTitle}</p>}
-            </div>
+              <div className={titleClass}>
+                <h1>{title}</h1>
+                {!!subTitle && <p className={styles.subtitle}>{subTitle}</p>}
+              </div>
           }
           {
             hasImage &&
-            <div className={`col-md-4 text-xs-center ${styles.flex}`}>
-              <img
-                className={styles.logo}
-                src={imgSrc}
-                alt={alt}
-              />
-            </div>
+              <div className={`col-md-4 text-xs-center ${styles.flex}`}>
+                <img
+                  className={styles.logo}
+                  src={imgSrc}
+                  alt={alt}
+                />
+              </div>
           }
-          { includeSearchBar &&
-            <div className="col-md-5">
-              <SearchBar query={props.searchQuery || ''} />
-            </div>
+          {
+            includeSearchBar &&
+              <div className="col-md-5">
+                <SearchBar query={props.searchQuery || ''} />
+              </div>
           }
         </div>
       </div>

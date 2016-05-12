@@ -11,6 +11,13 @@
     "__BASENAME__": false,
   },
   "rules": {
-    "react/prefer-stateless-function": 1,
-  }
+    "import/no-unresolved": [0, {}],
+  },
+  "settings" : {
+    "import/resolver": {
+      "webpack": {
+        "config": "./build/webpack.config.js"
+      }
+    }
+  },
 }

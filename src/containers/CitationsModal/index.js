@@ -3,6 +3,10 @@ import { connect } from 'react-redux';
 import Modal from 'react-modal';
 
 import styles from './CitationsModal.scss';
+// Images
+import bibtexImg from './BibTeX.svg';
+import endnoteImg from './endnote.png';
+import risImg from './ris.png';
 
 const modalStyles = {
   overlay: {
@@ -71,15 +75,15 @@ export function CitationsModal(props) {
         </div>
         <div className={`modal-body ${styles['modal-body']}`}>
           <a href={risLink} className={`btn btn-secondary ${styles['citation-link']}`}>
-            <img src={require('./ris.png')} alt="Research Information Systems" />
+            <img src={risImg} alt="Research Information Systems" />
             <h5 className="text-xs-center">.ris</h5>
           </a>
           <a href={enwLink} className={`btn btn-secondary ${styles['citation-link']}`}>
-            <img src={require('./endnote.png')} alt="Endnote" />
+            <img src={endnoteImg} alt="Endnote" />
             <h5 className="text-xs-center">.enw</h5>
           </a>
           <a href={bibLink} className={`btn btn-secondary ${styles['citation-link']}`}>
-            <img src={require('./BibTeX.svg')} alt="BibTeX" />
+            <img src={bibtexImg} alt="BibTeX" />
             <h5 className="text-xs-center">.bib</h5>
           </a>
         </div>

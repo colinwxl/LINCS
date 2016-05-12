@@ -4,6 +4,10 @@ import { Link } from 'react-router';
 import PageBanner from 'components/PageBanner';
 import PageNav from 'components/PageNav';
 import styles from './Overview.scss';
+// Images
+import neuroOutreachImg from './neuro_outreach.jpg';
+import sbdssImg from './SBDSS.jpg';
+import youtubeImg from './youtube.png';
 
 export default class Overview extends Component {
   componentDidMount() {
@@ -91,7 +95,7 @@ export default class Overview extends Component {
                   <a href="https://meetings.ninds.nih.gov/Home/Index/13365">
                     <img
                       className="m-b-1"
-                      src={require('./neuro_outreach.jpg')}
+                      src={neuroOutreachImg}
                       alt="neuro_outreach"
                       width="218"
                       height="300"
@@ -191,7 +195,7 @@ export default class Overview extends Component {
                 <div className={styles.left}>
                   <a href="http://lincs-dcic.org/#/2016-data-science-symposium">
                     <img
-                      src={require('./SBDSS.jpg')}
+                      src={sbdssImg}
                       alt="SBDSS"
                       width="350"
                     />
@@ -252,7 +256,7 @@ export default class Overview extends Component {
               <div className={styles.social}>
                 <a href="https://www.youtube.com/channel/UC88h_MIO1LP7Jv52VQ4qKkg">
                   <img
-                    src={require('./youtube.png')}
+                    src={youtubeImg}
                     alt="YouTube"
                     title="BD2K-LINCS DCIC Youtube Channel"
                     height="60"
@@ -266,7 +270,8 @@ export default class Overview extends Component {
                   data-rel="author"
                 />
                 <div className={styles.twitter}>
-                  <iframe id="twitter-widget-0"
+                  <iframe
+                    id="twitter-widget-0"
                     scrolling="no"
                     frameBorder="0"
                     allowTransparency="true"

@@ -26,14 +26,14 @@ export class Releases extends Component {
 
   componentWillMount() {
     this.props.loadDatasets();
-    this._findResults(this.props.location.query.q);
+    this.findResults(this.props.location.query.q);
   }
 
   componentWillReceiveProps = (props) => {
-    this._findResults(props.location.query.q);
+    this.findResults(props.location.query.q);
   }
 
-  _findResults = (query) => {
+  findResults = (query) => {
     if (this.state.isSearching) {
       return;
     }
@@ -97,56 +97,56 @@ export class Releases extends Component {
               </div>
               {
                 isSearching &&
-                <div className={styles.placeholders}>
-                  <div className={`row ${styles.info}`}>
-                    <div className="col-xs-6">
-                      <a className={styles.back} onClick={this._backToTree}>
-                        <i className="fa fa-chevron-left" /> Back to Tree View
-                      </a>
+                  <div className={styles.placeholders}>
+                    <div className={`row ${styles.info}`}>
+                      <div className="col-xs-6">
+                        <Link to="/data/releases" className={styles.back}>
+                          <i className="fa fa-chevron-left" /> Back to Tree View
+                        </Link>
+                      </div>
+                      <div className="col-xs-6">
+                        <p className={styles.count}>
+                          Searching for <span className={styles.query}>{searchQ}</span>...
+                        </p>
+                      </div>
                     </div>
-                    <div className="col-xs-6">
-                      <p className={styles.count}>
-                        Searching for <span className={styles.query}>{searchQ}</span>...
-                      </p>
-                    </div>
+                    {range(6).map((index) => <ResultPlaceholder key={index} />)}
                   </div>
-                  {range(6).map((index) => <ResultPlaceholder key={index} />)}
-                </div>
               }
               {
                 !isSearching && !!searchQ &&
-                <div className={styles['search-results']}>
-                  <div className={`row ${styles.info}`}>
-                    <div className="col-xs-6">
-                      <Link to="/data/releases" className={styles.back}>
-                        <i className="fa fa-chevron-left" /> Back to Tree View
-                      </Link>
+                  <div className={styles['search-results']}>
+                    <div className={`row ${styles.info}`}>
+                      <div className="col-xs-6">
+                        <Link to="/data/releases" className={styles.back}>
+                          <i className="fa fa-chevron-left" /> Back to Tree View
+                        </Link>
+                      </div>
+                      <div className="col-xs-6">
+                        {
+                          !!searchResultIds.length
+                          ? (
+                            <p className={styles.count}>
+                              {searchResultIds.length} results
+                              for <span className={styles.query}>{searchQ}</span>
+                            </p>
+                          ) : (
+                            <p className={styles.count}>
+                              No results found for <span className={styles.query}>{searchQ}</span>
+                            </p>
+                          )
+                        }
+                      </div>
                     </div>
-                    <div className="col-xs-6">
+                    <div className={styles.datasets}>
                       {
-                        !!searchResultIds.length
-                        ? (
-                          <p className={styles.count}>
-                            {searchResultIds.length} results
-                            for <span className={styles.query}>{searchQ}</span>
-                          </p>
-                        ) : (
-                          <p className={styles.count}>
-                            No results found for <span className={styles.query}>{searchQ}</span>
-                          </p>
+                        !!searchResultIds.length && !!Object.keys(datasets).length &&
+                        searchResultIds.map(id =>
+                          <SearchResult key={id} dataset={datasets[id]} />
                         )
                       }
                     </div>
                   </div>
-                  <div className={styles.datasets}>
-                    {
-                      !!searchResultIds.length && !!Object.keys(datasets).length &&
-                      searchResultIds.map(id =>
-                        <SearchResult key={id} dataset={datasets[id]} />
-                      )
-                    }
-                  </div>
-                </div>
               }
               <div className={treeClass}>
                 <DataTree />

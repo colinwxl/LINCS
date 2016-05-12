@@ -3,6 +3,21 @@ import { Link } from 'react-router';
 
 import styles from './NewsView.scss';
 import PageBanner from 'components/PageBanner';
+// Images
+import exploreHmsImg from './explore-hms-lincs.jpg';
+import quickStartImg from './quick-start-lincs.png';
+import neurolincsImg from './neurolincs.png';
+import triconImg from './tricon2016.png';
+import neuroOutreachImg from './neuro-outreach.jpg';
+import sbdssImg from './sbdss.jpg';
+import slicrImg from './slicr-news.png';
+import ldpImg from './ldp-news.png';
+import enrichrImg from './enrichr.png';
+import natureCoverImg from './nature-cover.png';
+import dcicScreenshot from './lincs-dcic-screenshot.jpg';
+import dcicLogo from './lincs-dcic-logo.jpg';
+import dcicMooc from './dcic-mooc.png';
+import chemblImg from './chembl.png';
 
 export default function NewsView() {
   return (
@@ -29,7 +44,7 @@ export default function NewsView() {
               <div className={styles['img-wrap']}>
                 <img
                   className={`${styles['img-border']}`}
-                  src={require('./explore-hms-lincs.jpg')}
+                  src={exploreHmsImg}
                   alt="Explore HMS LINCS"
                 />
               </div>
@@ -47,7 +62,7 @@ export default function NewsView() {
               <h2>New Feature For LINCS Tools: ‘Quick Start With LINCS’</h2>
               <p className="text-muted"><em>Posted on March 28th, 2016 by Sherry Jenkins</em></p>
               <img
-                src={require('./quick-start-lincs.png')}
+                src={quickStartImg}
                 alt="Quick Start With LINCS"
               />
               <p>
@@ -63,16 +78,16 @@ export default function NewsView() {
               <p className="clearfix">
                 <img
                   className={styles['inline-img-left']}
-                  src={require('./neurolincs.png')}
+                  src={neurolincsImg}
                   alt="NeuroLINCS"
                 />
-                  <a href="http://www.neurolincs.org/resources/AChroMap" target="_blank">
-                  AChroMap</a> (accessible chromatin mapper of transcriptional regulators) is
-                  a data integration tool for transcriptomic and epigenomic data. This tool
-                  generates a list of enriched motifs in open chromatin regions (as assayed
-                  by ATAC-seq or DNAseH) for a given set genes. The foreground list of genes
-                  are differentially expressed or highly expressed genes and the background
-                  list of genes are the rest of the genes in the transcriptomic experiment.
+                <a href="http://www.neurolincs.org/resources/AChroMap" target="_blank">
+                AChroMap</a> (accessible chromatin mapper of transcriptional regulators) is
+                a data integration tool for transcriptomic and epigenomic data. This tool
+                generates a list of enriched motifs in open chromatin regions (as assayed
+                by ATAC-seq or DNAseH) for a given set genes. The foreground list of genes
+                are differentially expressed or highly expressed genes and the background
+                list of genes are the rest of the genes in the transcriptomic experiment.
               </p>
             </div>
             <div className={styles['news-group']}>
@@ -98,7 +113,7 @@ export default function NewsView() {
               <div className={styles['img-wrap']}>
                 <img
                   className={`${styles['img-border']}`}
-                  src={require('./tricon2016.png')}
+                  src={triconImg}
                   alt="Tri-Con 2016"
                 />
               </div>
@@ -138,7 +153,7 @@ export default function NewsView() {
               <div className="clearfix">
                 <img
                   className={styles['inline-img-right']}
-                  src={require('./neuro-outreach.jpg')}
+                  src={neuroOutreachImg}
                   alt="LINCS Outreach"
                 />
                 <p className={styles.center}>
@@ -215,7 +230,7 @@ export default function NewsView() {
               </p>
               <div className={styles['img-wrap']}>
                 <img
-                  src={require('./sbdss.jpg')}
+                  src={sbdssImg}
                   alt="SBDSS 2016"
                 />
               </div>
@@ -232,8 +247,8 @@ export default function NewsView() {
                   The NIH BD2K Initiative: How it Hopes to Impact Biomedical Research
                 </p>
                 <p>
-                Ajay Pillai, PhD, Program Director – National Human Genome Research
-                Institute (NHGRI), NIH Program
+                  Ajay Pillai, PhD, Program Director – National Human Genome Research
+                  Institute (NHGRI), NIH Program
                 </p>
               </div>
               <div className={styles.pres}>
@@ -310,7 +325,7 @@ export default function NewsView() {
               <h2>New LINCS L1000 Tool and Updated Release of LINCS Data Portal</h2>
               <p className="text-muted"><em>Posted on December 22nd, 2015 by Sherry Jenkins</em></p>
               <div className={styles['img-wrap']}>
-                <img src={require('./slicr-news.png')} alt="Slicr" />
+                <img src={slicrImg} alt="Slicr" />
               </div>
               <p>
                 The BD2K-LINCS DCIC recently released a new tool
@@ -321,7 +336,7 @@ export default function NewsView() {
                 selected results in a 3D scatter plot using PCA or MDS.
               </p>
               <div className={styles['img-wrap']}>
-                <img src={require('./ldp-news.png')} alt="LINCS Data Portal" />
+                <img src={ldpImg} alt="LINCS Data Portal" />
               </div>
               <p>
                 The BD2K-LINCS DCIC recently released an updated version of
@@ -336,16 +351,16 @@ export default function NewsView() {
               <p className="clearfix">
                 <img
                   className={styles['inline-img-left']}
-                  src={require('./enrichr.png')}
+                  src={enrichrImg}
                   alt="Enrichr"
                 />
-                  In this new release
-                  of <a href="http://amp.pharm.mssm.edu/Enrichr" target="_blank">Enrichr</a>, the
-                  BD2K-LINCS DCIC updated
-                  their <a href="http://amp.pharm.mssm.edu/lib/chea.jsp" target="_blank">
-                  ChIP-X Enrichment Analysis (ChEA)</a> database with gene sets extracted
-                  from forty new studies. The previous version is now in the ‘Legacy’
-                  category for provenance.
+                In this new release
+                of <a href="http://amp.pharm.mssm.edu/Enrichr" target="_blank">Enrichr</a>, the
+                BD2K-LINCS DCIC updated
+                their <a href="http://amp.pharm.mssm.edu/lib/chea.jsp" target="_blank">
+                ChIP-X Enrichment Analysis (ChEA)</a> database with gene sets extracted
+                from forty new studies. The previous version is now in the ‘Legacy’
+                category for provenance.
               </p>
               <p>
                 They also added a new gene set library created from the database of Genotypes and
@@ -368,23 +383,23 @@ export default function NewsView() {
               <div className="clearfix">
                 <img
                   className={`${styles['img-border']} ${styles['inline-img-left']}`}
-                  src={require('./nature-cover.png')}
+                  src={natureCoverImg}
                   alt="Nature Outlook Cover"
                 />
-                  <h5>Genetics: Big Hopes for Big Data</h5>
-                  <p>Jill U. Adam</p>
-                  <p>
-                    Nature 527, S108–S109 (19 November 2015) doi:10.1038/527S108a.
-                    Published online 18 November 2015
-                  </p>
-                  <p>
-                    <a
-                      href="http://www.nature.com/nature/journal/v527/n7578_supp/full/527S108a.html"
-                      target="_blank"
-                    >
-                      Learn More
-                    </a>
-                  </p>
+                <h5>Genetics: Big Hopes for Big Data</h5>
+                <p>Jill U. Adam</p>
+                <p>
+                  Nature 527, S108–S109 (19 November 2015) doi:10.1038/527S108a.
+                  Published online 18 November 2015
+                </p>
+                <p>
+                  <a
+                    href="http://www.nature.com/nature/journal/v527/n7578_supp/full/527S108a.html"
+                    target="_blank"
+                  >
+                    Learn More
+                  </a>
+                </p>
               </div>
             </div>
             <div className={styles['news-group']}>
@@ -396,20 +411,20 @@ export default function NewsView() {
               <p className="clearfix">
                 <img
                   className={styles['inline-img-left']}
-                  src={require('./lincs-dcic-screenshot.jpg')}
+                  src={dcicScreenshot}
                   alt="BD2K-LINCS DCIC Summer Research Training Program"
                 />
-                  The <a href="http://lincs-dcic.org/#/summer-research-app#nav" target="_blank">
+                The <a href="http://lincs-dcic.org/#/summer-research-app#nav" target="_blank">
                   BD2K-LINCS DCIC Summer Research Training Program in Biomedical Big
-                  Data Science</a> is a research intensive ten-week training program for
-                  undergraduate and graduate students interested in participating in cutting
-                  edge research projects aimed at solving data-intensive biomedical problems.
-                  <a href="http://lincs-dcic.org/#/summer-fellows-2015#nav" target="_blank">
-                  Summer fellows</a> conduct faculty-mentored independent research projects
-                  within laboratories affiliated with the Center in the following areas: data
-                  integration, dynamic data visualization, machine learning, data harmonization,
-                  computational drug discovery, metadata and APIs, knowledge modeling,
-                  Bayesian networks and statistical mining.
+                Data Science</a> is a research intensive ten-week training program for
+                undergraduate and graduate students interested in participating in cutting
+                edge research projects aimed at solving data-intensive biomedical problems.
+                <a href="http://lincs-dcic.org/#/summer-fellows-2015#nav" target="_blank">
+                Summer fellows</a> conduct faculty-mentored independent research projects
+                within laboratories affiliated with the Center in the following areas: data
+                integration, dynamic data visualization, machine learning, data harmonization,
+                computational drug discovery, metadata and APIs, knowledge modeling,
+                Bayesian networks and statistical mining.
               </p>
               <p>
                 In summer session 2016, our research training program will be offered at
@@ -443,28 +458,28 @@ export default function NewsView() {
               <p className="clearfix">
                 <img
                   className={styles['inline-img-left']}
-                  src={require('./lincs-dcic-logo.jpg')}
+                  src={dcicLogo}
                   alt="BD2K-LINCS DCIC"
                 />
-                  The <a href="http://lincs-dcic.org" target="_blank">BD2K-LINCS Data
-                  Coordination and Integration Center</a> and the University of Miami will
-                  host a
-                  two-day <a href="http://lincs-dcic.org/#/2016-data-science-symposium" target="_blank">
-                  Systems Biology Data Science Symposium</a> on <strong>January 19-20,
-                  2016</strong> at the University of Miami.
+                The <a href="http://lincs-dcic.org" target="_blank">BD2K-LINCS Data
+                Coordination and Integration Center</a> and the University of Miami will
+                host a
+                two-day <a href="http://lincs-dcic.org/#/2016-data-science-symposium" target="_blank">
+                Systems Biology Data Science Symposium</a> on <strong>January 19-20,
+                2016</strong> at the University of Miami.
               </p>
               <p>
-              On January 19-20, 2016, the first
-              annual <a href="http://lincs-dcic.org/#/2016-data-science-symposium" target="_blank">
-              Systems Biology Data Science Symposium (SBDSS 2016)</a> at the University
-              of Miami will bring together the <a href="http://lincs-dcic.org/#/" target="_blank">
-              BD2K-LINCS Data Coordination and Integration Center</a>, local researchers, and
-              outside experts who apply or develop computational systems biology resources.
-              In presentations, a poster reception and several working sessions, the DCIC
-              showcased <a href="http://lincs-dcic.org/#/resources" target="_blank">
-              tools/resources</a> and <a href="http://lincs-dcic.org/#/about#nav" target="_blank">
-              scientific projects</a>, connected developers with users, and initiated
-              new collaborations.
+                On January 19-20, 2016, the first
+                annual <a href="http://lincs-dcic.org/#/2016-data-science-symposium" target="_blank">
+                Systems Biology Data Science Symposium (SBDSS 2016)</a> at the University
+                of Miami will bring together the <a href="http://lincs-dcic.org/#/" target="_blank">
+                BD2K-LINCS Data Coordination and Integration Center</a>, local researchers, and
+                outside experts who apply or develop computational systems biology resources.
+                In presentations, a poster reception and several working sessions, the DCIC
+                showcased <a href="http://lincs-dcic.org/#/resources" target="_blank">
+                tools/resources</a> and <a href="http://lincs-dcic.org/#/about#nav" target="_blank">
+                scientific projects</a>, connected developers with users, and initiated
+                new collaborations.
               </p>
               <p>
                 <strong>Details: </strong>
@@ -498,7 +513,7 @@ export default function NewsView() {
               <div className={styles['img-wrap']}>
                 <img
                   className={`${styles['img-border']}`}
-                  src={require('./dcic-mooc.png')}
+                  src={dcicMooc}
                   alt="BD2K-LINCS DCIC MOOC"
                 />
               </div>
@@ -712,7 +727,7 @@ export default function NewsView() {
               <div className={styles['img-wrap']}>
                 <img
                   className={`${styles['img-border']}`}
-                  src={require('./chembl.png')}
+                  src={chemblImg}
                   alt="CHEMBL Screenshot"
                 />
               </div>

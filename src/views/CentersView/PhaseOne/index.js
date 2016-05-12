@@ -20,16 +20,16 @@ export default function PhaseOne() {
               the following activities:
             </p>
             <ul>
-            <li>
-              Large-scale production of perturbation-induced molecular and cellular signatures
-            </li>
-            <li>
-              Creation of a database, common data standards and public user interface for
-              accessing the data
-            </li>
-            <li>Computational tool development and integrative data analyses</li>
-            <li>Development of new cost-effective, molecular and cellular phenotypic assays</li>
-            <li>Integration of existing datasets into LINCS</li>
+              <li>
+                Large-scale production of perturbation-induced molecular and cellular signatures
+              </li>
+              <li>
+                Creation of a database, common data standards and public user interface for
+                accessing the data
+              </li>
+              <li>Computational tool development and integrative data analyses</li>
+              <li>Development of new cost-effective, molecular and cellular phenotypic assays</li>
+              <li>Integration of existing datasets into LINCS</li>
             </ul>
             <p>
               The LINCS pilot phase was composed of 10 centers: two data production/analysis
@@ -48,26 +48,26 @@ export default function PhaseOne() {
               variety of different cell lines are exposed to perturbations.
             </p>
             <ul>
-            <li>
-              At <a href="http://lincs.hms.harvard.edu/" target="_blank">
-              Harvard Medical School</a>, LINCS researchers aimed to create signatures
-              that measure the responses to therapeutic drugs of cells derived from different
-              human tissues. The perturbing agents they focused on are small molecule kinase
-              inhibitors, which are a leading class of therapeutic agents for treatment of
-              cancer, autoimmune and other diseases.
-            </li>
-            <li>
-              At the Broad Institute, LINCS researchers concentrated on cataloging the cellular
-              consequences of diverse small-molecule and genetic perturbations in a breadth of
-              human cell lines.
-            </li>
-            <li>
-              There was also a joint Broad-HMS collaboration project, in which the two data
-              production centers worked together to ensure that the data they generated is
-              consistent and will be able to be meaningfully integrated. Through this
-              collaboration, the Broad Institute carried out expression profiling on a subset
-              of the HMS perturbation studies.
-            </li>
+              <li>
+                At <a href="http://lincs.hms.harvard.edu/" target="_blank">
+                Harvard Medical School</a>, LINCS researchers aimed to create signatures
+                that measure the responses to therapeutic drugs of cells derived from different
+                human tissues. The perturbing agents they focused on are small molecule kinase
+                inhibitors, which are a leading class of therapeutic agents for treatment of
+                cancer, autoimmune and other diseases.
+              </li>
+              <li>
+                At the Broad Institute, LINCS researchers concentrated on cataloging the cellular
+                consequences of diverse small-molecule and genetic perturbations in a breadth of
+                human cell lines.
+              </li>
+              <li>
+                There was also a joint Broad-HMS collaboration project, in which the two data
+                production centers worked together to ensure that the data they generated is
+                consistent and will be able to be meaningfully integrated. Through this
+                collaboration, the Broad Institute carried out expression profiling on a subset
+                of the HMS perturbation studies.
+              </li>
             </ul>
             <h2>LINCS Pilot Phase Technology Development (U01)</h2>
             <p>
@@ -108,15 +108,15 @@ export default function PhaseOne() {
                 HMS-Broad: Interactive Web Content for Integrated Analysis of LINCS Joint Project
                 <br />
                 <em>Creation of non-expert dynamic web tools for analysis of combined LINCS
-                data (biochemical and cell-based data from HMS Center and gene expression
+                  data (biochemical and cell-based data from HMS Center and gene expression
                 data from the Broad Center)</em>
               </li>
               <li>
                 HMS-Miami: Development of a Unified LINCS Data Portal
                 <br />
                 <em>Pilot project to develop an easy-to-use user interface (UI) to directly
-                query and explore a small slice of LINCS data; this project will inform best
-                practices for curation of LINCS data and set the stage for development of a
+                  query and explore a small slice of LINCS data; this project will inform best
+                  practices for curation of LINCS data and set the stage for development of a
                 distributed data management system (portal).</em>
               </li>
               <li>
@@ -124,8 +124,8 @@ export default function PhaseOne() {
                 and Sensitivity
                 <br />
                 <em>Develop software to allow expert users to query the Columbia LINCS Center
-                data, and probe for synergistic effects of drug-pairs in a number of different
-                cancer cell lines; this will aid in the elucidation of mechanisms of drug
+                  data, and probe for synergistic effects of drug-pairs in a number of different
+                  cancer cell lines; this will aid in the elucidation of mechanisms of drug
                 activity and sensitivity.</em>
               </li>
               <li>

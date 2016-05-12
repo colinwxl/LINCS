@@ -151,7 +151,7 @@ export default function DSGCs() {
                   </a>
                 </p>
               </div>
-          </div>
+            </div>
           </div>
         </div>
       </div>

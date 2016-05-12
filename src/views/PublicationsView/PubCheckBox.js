@@ -1,7 +1,7 @@
 import React, { PropTypes, Component } from 'react';
 
 export default class PubCheckBox extends Component {
-  _onRadioClicked = (e) => {
+  onRadioClicked = (e) => {
     this.props.onChange(this.props.name, e.target.checked);
   }
 
@@ -12,7 +12,7 @@ export default class PubCheckBox extends Component {
           type="checkbox"
           name={this.props.name}
           checked={this.props.checked}
-          onChange={this._onRadioClicked}
+          onChange={this.onRadioClicked}
         />
         {` ${this.props.label}`}
       </label>

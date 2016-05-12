@@ -24,7 +24,7 @@ export class DateTree extends Component {
     };
   }
 
-  _handleClick = (datasetIds) => {
+  handleClick = (datasetIds) => {
     const collapsed = !this.state.collapsed;
     if (!collapsed) {
       this.props.incrementDatasetClicks(datasetIds);
@@ -48,7 +48,7 @@ export class DateTree extends Component {
                       key={`month ${index}`}
                       datasetIds={dateDatasetMap[dateObj.year][month]}
                       monthName={getMonthName(month)}
-                      onClick={this._handleClick}
+                      onClick={this.handleClick}
                       collapsed={this.state.collapsed}
                     />
                   )

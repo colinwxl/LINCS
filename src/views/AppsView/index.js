@@ -40,7 +40,7 @@ export class AppsView extends Component {
     this.props.loadTools();
   }
 
-  _checkAllTypes = (tool) => {
+  checkAllTypes = (tool) => {
     const { sortType } = this.state;
     return (sortType === 'All') ||
       (sortType === 'Web Based UI' && tool.webBasedUi) ||
@@ -50,7 +50,7 @@ export class AppsView extends Component {
       (sortType === 'MATLAB/Python Script' && tool.matlabPythonScript);
   }
 
-  _checkAllFeatures = (tool) => {
+  checkAllFeatures = (tool) => {
     const { sortFeature } = this.state;
     return (sortFeature === 'All') ||
       (sortFeature === 'Access' && tool.featureAccess) ||
@@ -63,35 +63,35 @@ export class AppsView extends Component {
       (sortFeature === 'Image Analysis' && tool.featureImageAnalysis);
   }
 
-  _filterTools = (tool) => {
+  filterTools = (tool) => {
     const centerName = tool.center.name;
     const { sortCenter, sortType, sortFeature } = this.state;
     if (sortCenter === 'All' && sortType === 'All' && sortFeature === 'All') {
       return true;
     } else if (sortCenter === 'All') {
-      return this._checkAllTypes(tool) && this._checkAllFeatures(tool);
+      return this.checkAllTypes(tool) && this.checkAllFeatures(tool);
     } else if (sortType === 'All' && sortFeature === 'All') {
       return centerName === sortCenter;
     } else if (sortType === 'All') {
-      return centerName === sortCenter && this._checkAllFeatures(tool);
+      return centerName === sortCenter && this.checkAllFeatures(tool);
     } else if (sortFeature === 'All') {
-      return centerName === sortCenter && this._checkAllTypes(tool);
+      return centerName === sortCenter && this.checkAllTypes(tool);
     }
-    return centerName === sortCenter && this._checkAllTypes(tool) && this._checkAllFeatures(tool);
+    return centerName === sortCenter && this.checkAllTypes(tool) && this.checkAllFeatures(tool);
   }
 
-  _handleExpClicked = () => { this.setState({ workflowCategory: 'exp' }); }
-  _handleCompBioClicked = () => { this.setState({ workflowCategory: 'compBio' }); }
+  handleExpClicked = () => { this.setState({ workflowCategory: 'exp' }); }
+  handleCompBioClicked = () => { this.setState({ workflowCategory: 'compBio' }); }
 
-  _handleSortCenterChanged = (e) => {
+  handleSortCenterChanged = (e) => {
     this.setState({ sortCenter: e.target.value });
   }
 
-  _handleSortTypeChanged = (e) => {
+  handleSortTypeChanged = (e) => {
     this.setState({ sortType: e.target.value });
   }
 
-  _handleSortFeatureChanged = (e) => {
+  handleSortFeatureChanged = (e) => {
     this.setState({ sortFeature: e.target.value });
   }
 
@@ -102,7 +102,7 @@ export class AppsView extends Component {
     // http://stackoverflow.com/questions/15125920/how-to-get-distinct-values-from-an-array-of-objects-in-javascript
     // ES6 get unique elements
     const centers = ['All', ...new Set(this.props.tools.map(tool => tool.center.name))];
-    const tools = this.props.tools.filter(this._filterTools);
+    const tools = this.props.tools.filter(this.filterTools);
     return (
       <div className={styles.wrapper}>
         <PageBanner title="LINCS Workflows & Applications" subTitle={sub} />
@@ -112,7 +112,7 @@ export class AppsView extends Component {
               <h2 className={styles['wf-title']}>Workflows</h2>
               <div className={`btn-group ${styles.categories}`} data-toggle="buttons">
                 <label
-                  onClick={this._handleExpClicked}
+                  onClick={this.handleExpClicked}
                   className={`btn ${styles['category-check']} ${isExp ? styles.active : ''}`}
                 >
                   <input
@@ -123,7 +123,7 @@ export class AppsView extends Component {
                   For Experimentalists
                 </label>
                 <label
-                  onClick={this._handleCompBioClicked}
+                  onClick={this.handleCompBioClicked}
                   className={`btn ${styles['category-check']} ${isCompBio ? styles.active : ''}`}
                 >
                   <input
@@ -153,7 +153,7 @@ export class AppsView extends Component {
                   <select
                     id="sort-center"
                     className={`form-control ${styles.select}`}
-                    onChange={this._handleSortCenterChanged}
+                    onChange={this.handleSortCenterChanged}
                     value={sortCenter}
                   >
                     {centers.map((center, i) => <option key={i} value={center}>{center}</option>)}
@@ -164,7 +164,7 @@ export class AppsView extends Component {
                   <select
                     id="sort-type"
                     className={`form-control ${styles.select}`}
-                    onChange={this._handleSortTypeChanged}
+                    onChange={this.handleSortTypeChanged}
                     value={sortType}
                   >
                     {sortTypes.map((type, i) => <option key={i} value={type}>{type}</option>)}
@@ -175,7 +175,7 @@ export class AppsView extends Component {
                   <select
                     id="sort-feature"
                     className={`form-control ${styles.select}`}
-                    onChange={this._handleSortFeatureChanged}
+                    onChange={this.handleSortFeatureChanged}
                     value={sortFeature}
                   >
                     {sortFeatures.map((feat, i) => <option key={i} value={feat}>{feat}</option>)}
@@ -192,9 +192,9 @@ export class AppsView extends Component {
                 }
                 {
                   !tools.length &&
-                  <h5 className="m-t-3 text-xs-center">
-                    No tools found. Please try another filter.
-                  </h5>
+                    <h5 className="m-t-3 text-xs-center">
+                      No tools found. Please try another filter.
+                    </h5>
                 }
               </div>
             </div>

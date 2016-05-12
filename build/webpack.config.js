@@ -263,4 +263,4 @@ if (!__DEV__) {
   );
 }
 
-export default webpackConfig;
+module.exports = webpackConfig;

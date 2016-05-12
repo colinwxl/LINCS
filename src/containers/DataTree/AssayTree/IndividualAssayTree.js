@@ -14,7 +14,7 @@ export class IndividualAssayTree extends Component {
     };
   }
 
-  _handleClick = () => {
+  handleClick = () => {
     const collapsed = !this.state.collapsed;
     if (!collapsed) {
       const dsIds = this.childDatasets.map(ds => ds.id);
@@ -51,7 +51,7 @@ export class IndividualAssayTree extends Component {
 
     const label = <span className={styles.node}>{name}</span>;
     return (
-      <Tree nodeLabel={label} onClick={this._handleClick} collapsed={this.state.collapsed}>
+      <Tree nodeLabel={label} onClick={this.handleClick} collapsed={this.state.collapsed}>
         {
           childDatasets.map((ds, index) =>
             <Dataset key={`dataset ${index}`} datasetId={ds.id} cellId={cellId} />

@@ -4,6 +4,7 @@ import { Link } from 'react-router';
 import { push } from 'react-router-redux';
 
 import styles from './SearchBar.scss';
+import icoSearchImg from './ico-search.svg';
 
 export class SearchBar extends Component {
   constructor(props) {
@@ -17,11 +18,11 @@ export class SearchBar extends Component {
     this.setState({ q: props.searchQuery });
   }
 
-  _handleSearch = (e) => {
+  handleSearch = (e) => {
     this.setState({ q: e.target.value });
   }
 
-  _handleSubmit = (e) => {
+  handleSubmit = (e) => {
     e.preventDefault();
     this.props.push(`/data/releases?q=${this.state.q}`);
   }
@@ -29,14 +30,14 @@ export class SearchBar extends Component {
   render() {
     return (
       <div className={styles['search-wrap']}>
-        <form onSubmit={this._handleSubmit}>
+        <form onSubmit={this.handleSubmit}>
           <div className={styles.search}>
             <div className={styles['search-bar']}>
               <div style={{ position: 'relative' }}>
                 <input
                   name="q"
                   value={this.state.q}
-                  onChange={this._handleSearch}
+                  onChange={this.handleSearch}
                   type="search"
                   placeholder="Search LINCS datasets"
                   autoCapitalize="off"
@@ -46,7 +47,7 @@ export class SearchBar extends Component {
               </div>
             </div>
             <button
-              style={{ backgroundImage: `url(${require('./ico-search.svg')})` }}
+              style={{ backgroundImage: `url(${icoSearchImg})` }}
               className={`btn ${styles.submit} ${this.props.darkBg ? '' : styles.teal}`}
               type="submit"
             />

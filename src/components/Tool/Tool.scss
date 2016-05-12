@@ -8,7 +8,6 @@ $shadow: rgba(0, 0, 0, .1);
   border: 1px solid;
   border-color: $gray-border-top $gray-border-side $gray-border-bottom;
   border-radius: .2rem;
-  height: $tool-height;
   margin: 0 auto 1rem;
   width: $tool-width;
 }
@@ -45,6 +44,7 @@ $img-width: 9rem;
   vertical-align: middle;
 
   img {
+    display: inline-block;
     max-height: 100%;
     width: 80%;
   }

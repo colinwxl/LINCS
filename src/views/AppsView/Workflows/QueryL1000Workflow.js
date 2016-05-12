@@ -2,6 +2,10 @@ import React from 'react';
 
 import styles from './Workflow.scss';
 import PageBanner from 'components/PageBanner';
+import l1000QueryImg from './l1000-query-process.png';
+import l1000cds2InputImg from './l1000cds2-input-box.png';
+import l1000cds2ResultImg from './l1000cds2-result-table.png';
+import l1000cds2EnrichrImg from './l1000cds2-enrichr.png';
 
 export default function Workflow() {
   return (
@@ -37,7 +41,7 @@ export default function Workflow() {
             </p>
             <div className="row">
               <div className="col-xs-10 col-xs-offset-1 text-xs-center">
-                <img src={require('./l1000-query-process.png')} alt="L1000 Query Process" />
+                <img src={l1000QueryImg} alt="L1000 Query Process" />
               </div>
             </div>
             <p>
@@ -59,7 +63,7 @@ export default function Workflow() {
             </p>
             <div className="row">
               <div className="col-xs-8 col-xs-offset-2 text-xs-center">
-                <img src={require('./l1000cds2-input-box.png')} alt="L1000CDS2 Input" />
+                <img src={l1000cds2InputImg} alt="L1000CDS2 Input" />
               </div>
             </div>
             <p>
@@ -76,7 +80,7 @@ export default function Workflow() {
             </p>
             <div className="row">
               <div className="col-xs-10 col-xs-offset-1 text-xs-center">
-                <img src={require('./l1000cds2-result-table.png')} alt="L1000CDS2 Results" />
+                <img src={l1000cds2ResultImg} alt="L1000CDS2 Results" />
               </div>
             </div>
             <p>
@@ -87,7 +91,7 @@ export default function Workflow() {
             </p>
             <div className="row">
               <div className="col-xs-8 col-xs-offset-2 text-xs-center">
-                <img src={require('./l1000cds2-enrichr.png')} alt="L1000CDS2 & Enrichr" />
+                <img src={l1000cds2EnrichrImg} alt="L1000CDS2 & Enrichr" />
               </div>
             </div>
             <h4>Querying signatures with the lincscloud CLUE Query Tool</h4>

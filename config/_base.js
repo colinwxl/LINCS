@@ -52,6 +52,7 @@ const config = {
     'react-redux',
     'react-router',
     'react-router-redux',
+    'react-slick',
     'redux',
     'redux-form',
     'redux-thunk',

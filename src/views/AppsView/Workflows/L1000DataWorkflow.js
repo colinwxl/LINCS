@@ -3,6 +3,14 @@ import { Link } from 'react-router';
 
 import styles from './Workflow.scss';
 import PageBanner from 'components/PageBanner';
+import lcScreenshotOne from './lc-screenshot-1.png';
+import lcScreenshotTwo from './lc-screenshot-2.png';
+import l1000PipelineImg from './l1000-pipeline.png';
+import l1000ResultImg from './l1000-result.png';
+import geoScreenshot from './geo-screenshot.png';
+import lincscloudApiImg from './lincscloud-api-ex.png';
+import slicrLogo from './slicr-logo.png';
+import slicrScreenshot from './slicr-screenshot.png';
 
 export default class Workflow extends Component {
   constructor(props) {
@@ -12,11 +20,11 @@ export default class Workflow extends Component {
     };
   }
 
-  _handleSlicrQ = (e) => {
+  handleSlicrQ = (e) => {
     this.setState({ slicrQ: e.target.value });
   }
 
-  _handleSlicrSubmit = (e) => {
+  handleSlicrSubmit = (e) => {
     e.preventDefault();
     if (window) {
       window.open(`http://amp.pharm.mssm.edu/Slicr/#/search/${this.state.slicrQ}`, '_blank');
@@ -45,10 +53,10 @@ export default class Workflow extends Component {
                 <div className="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2">
                   <div className="row">
                     <div className="col-xs-12 col-sm-6">
-                      <img src={require('./lc-screenshot-1.png')} alt="lincscloud Screenshot" />
+                      <img src={lcScreenshotOne} alt="lincscloud Screenshot" />
                     </div>
                     <div className="col-xs-12 col-sm-6">
-                      <img src={require('./lc-screenshot-2.png')} alt="lincscloud Screenshot" />
+                      <img src={lcScreenshotTwo} alt="lincscloud Screenshot" />
                     </div>
                   </div>
                 </div>
@@ -58,7 +66,7 @@ export default class Workflow extends Component {
                 points in the analysis pipeline.
               </p>
               <img
-                src={require('./l1000-pipeline.png')}
+                src={l1000PipelineImg}
                 alt="L1000 Pipeline"
                 className={styles['img-spaced']}
               />
@@ -94,7 +102,7 @@ export default class Workflow extends Component {
               </p>
               <div className="row">
                 <div className="col-xs-10 col-xs-offset-1">
-                  <img src={require('./l1000-result.png')} alt="L1000 Search Result" />
+                  <img src={l1000ResultImg} alt="L1000 Search Result" />
                 </div>
               </div>
               <p>
@@ -114,7 +122,7 @@ export default class Workflow extends Component {
               <div className="row">
                 <div className="col-xs-10 col-xs-offset-1">
                   <img
-                    src={require('./geo-screenshot.png')}
+                    src={geoScreenshot}
                     alt="GEO Screenshot"
                     className={styles['img-bordered']}
                   />
@@ -141,7 +149,7 @@ export default class Workflow extends Component {
                 found <a href="http://api.lincscloud.org/a2/usage" target="_blank">here</a>.
               </p>
               <img
-                src={require('./lincscloud-api-ex.png')}
+                src={lincscloudApiImg}
                 alt="lincscloud API Example"
                 className={styles['img-bordered']}
               />
@@ -155,17 +163,21 @@ export default class Workflow extends Component {
               </p>
               <div className={styles.slicr}>
                 <div className={styles['s-header']}>
-                  <img src={require('./slicr-logo.png')} alt="Slicr Logo" />
+                  <img src={slicrLogo} alt="Slicr Logo" />
                   <span>
-                    <span className={styles['s-title']}>Slicr</span><span className={styles['s-subtitle']}>LINCS L1000 Slicr &nbsp;[ <a target="_blank" href="http://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE70138">GSE70138</a> data only ]</span></span>
-                    <a
-                      className={styles['s-question']}
-                      href="http://amp.pharm.mssm.edu/Slicr/help.html"
-                    >
-                      <i className="fa fa-question-circle" />
-                    </a>
+                    <span className={styles['s-title']}>Slicr</span>
+                    <span className={styles['s-subtitle']}>
+                      LINCS L1000 Slicr &nbsp;[ <a target="_blank" href="http://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE70138">GSE70138</a> data only ]
+                    </span>
+                  </span>
+                  <a
+                    className={styles['s-question']}
+                    href="http://amp.pharm.mssm.edu/Slicr/help.html"
+                  >
+                    <i className="fa fa-question-circle" />
+                  </a>
                 </div>
-                <form onSubmit={this._handleSlicrSubmit}>
+                <form onSubmit={this.handleSlicrSubmit}>
                   <input
                     className="form-control"
                     placeholder={
@@ -173,7 +185,7 @@ export default class Workflow extends Component {
                       'cell-line, time point or dose'
                     }
                     value={this.state.slicrQ}
-                    onChange={this._handleSlicrQ}
+                    onChange={this.handleSlicrQ}
                   />
                 </form>
               </div>
@@ -186,7 +198,7 @@ export default class Workflow extends Component {
               </p>
               <div className="row">
                 <div className="col-xs-10 col-xs-offset-1">
-                  <img src={require('./slicr-screenshot.png')} alt="Slicr Screenshot" />
+                  <img src={slicrScreenshot} alt="Slicr Screenshot" />
                 </div>
               </div>
               <p>

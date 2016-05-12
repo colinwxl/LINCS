@@ -33,7 +33,7 @@ export default function MEPLINCS() {
             <ul>
               <li>
                 Project Title: <a href="http://projectreporter.nih.gov/project_description.cfm?projectnumber=1U54HG008100-01" target="_blank">
-                Extrinsic Perturbations of Cell Physiology and Associated Regulatory
+                  Extrinsic Perturbations of Cell Physiology and Associated Regulatory
                 Networks (1U54HG008100)</a>
               </li>
               <li>
@@ -82,23 +82,23 @@ export default function MEPLINCS() {
               </li>
             </ol>
             <h2>Resources</h2>
-              <ul>
-                <li>
-                  <a href="https://www.synapse.org/#!Synapse:syn2862345/wiki/72486">
-                    MEP LINCS Synapse Website
-                  </a>
-                </li>
-                <li>
-                  <a href="https://www.synapse.org/#!Synapse:syn2346643/wiki/">
-                    Breast Cancer Cell Line Panel
-                  </a>
-                </li>
-                <li>
-                  <a href={`${bmeLink}/spatial-systems-biomedicine/`}>
-                    OHSU Center for Spatial Systems Biomedicine
-                  </a>
-                </li>
-              </ul>
+            <ul>
+              <li>
+                <a href="https://www.synapse.org/#!Synapse:syn2862345/wiki/72486">
+                  MEP LINCS Synapse Website
+                </a>
+              </li>
+              <li>
+                <a href="https://www.synapse.org/#!Synapse:syn2346643/wiki/">
+                  Breast Cancer Cell Line Panel
+                </a>
+              </li>
+              <li>
+                <a href={`${bmeLink}/spatial-systems-biomedicine/`}>
+                  OHSU Center for Spatial Systems Biomedicine
+                </a>
+              </li>
+            </ul>
           </div>
         </div>
       </div>

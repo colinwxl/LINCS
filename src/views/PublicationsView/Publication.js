@@ -4,22 +4,22 @@ import { connect } from 'react-redux';
 import { openCitationsModal, closeCitationsModal } from 'actions/modals';
 import styles from './PublicationsView.scss';
 
-export default class Publication extends Component {
-  _openCitationsModal = () => {
+export class Publication extends Component {
+  openCitationsModal = () => {
     this.props.openCitationsModal({
       pubId: this.props.pub.id,
       onModalClose: this.props.closeCitationsModal,
     });
   }
 
-  _handleADClicked = () => this.props.onCatClicked('assayDevelopment');
-  _handleDAClicked = () => this.props.onCatClicked('dataAnalysis');
-  _handleDGClicked = () => this.props.onCatClicked('dataGeneration');
-  _handleDIClicked = () => this.props.onCatClicked('dataIntegration');
-  _handleDSClicked = () => this.props.onCatClicked('dataStandards');
-  _handleSGClicked = () => this.props.onCatClicked('signatureGeneration');
-  _handleSDClicked = () => this.props.onCatClicked('softwareDevelopment');
-  _handleRClicked = () => this.props.onCatClicked('review');
+  handleADClicked = () => this.props.onCatClicked('assayDevelopment');
+  handleDAClicked = () => this.props.onCatClicked('dataAnalysis');
+  handleDGClicked = () => this.props.onCatClicked('dataGeneration');
+  handleDIClicked = () => this.props.onCatClicked('dataIntegration');
+  handleDSClicked = () => this.props.onCatClicked('dataStandards');
+  handleSGClicked = () => this.props.onCatClicked('signatureGeneration');
+  handleSDClicked = () => this.props.onCatClicked('softwareDevelopment');
+  handleRClicked = () => this.props.onCatClicked('review');
 
   render() {
     const p = this.props.pub;
@@ -58,102 +58,103 @@ export default class Publication extends Component {
         <p className={styles.categories}>
           {
             p.assayDevelopment &&
-            <span
-              onClick={this._handleADClicked}
-              className={`${styles.cat} ${styles['cat-ad']}`}
-            >
-              Assay Development
-            </span>
+              <span
+                onClick={this.handleADClicked}
+                className={`${styles.cat} ${styles['cat-ad']}`}
+              >
+                Assay Development
+              </span>
           }
           {
             p.dataAnalysis &&
-            <span
-              onClick={this._handleDAClicked}
-              className={`${styles.cat} ${styles['cat-da']}`}
-            >
-              Data Analysis
-            </span>
+              <span
+                onClick={this.handleDAClicked}
+                className={`${styles.cat} ${styles['cat-da']}`}
+              >
+                Data Analysis
+              </span>
           }
           {
             p.dataGeneration &&
-            <span
-              onClick={this._handleDGClicked}
-              className={`${styles.cat} ${styles['cat-dg']}`}
-            >
-              Data Generation
-            </span>
+              <span
+                onClick={this.handleDGClicked}
+                className={`${styles.cat} ${styles['cat-dg']}`}
+              >
+                Data Generation
+              </span>
           }
           {
             p.dataIntegration &&
-            <span
-              onClick={this._handleDIClicked}
-              className={`${styles.cat} ${styles['cat-di']}`}
-            >
-              Data Integration
-            </span>
+              <span
+                onClick={this.handleDIClicked}
+                className={`${styles.cat} ${styles['cat-di']}`}
+              >
+                Data Integration
+              </span>
           }
           {
             p.dataStandards &&
-            <span
-              onClick={this._handleDSClicked}
-              className={`${styles.cat} ${styles['cat-ds']}`}
-            >
-              Data Standards
-            </span>
+              <span
+                onClick={this.handleDSClicked}
+                className={`${styles.cat} ${styles['cat-ds']}`}
+              >
+                Data Standards
+              </span>
           }
           {
             p.signatureGeneration &&
-            <span
-              onClick={this._handleSGClicked}
-              className={`${styles.cat} ${styles['cat-sg']}`}
-            >
-              Signature Generation
-            </span>
+              <span
+                onClick={this.handleSGClicked}
+                className={`${styles.cat} ${styles['cat-sg']}`}
+              >
+                Signature Generation
+              </span>
           }
           {
             p.softwareDevelopment &&
-            <span
-              onClick={this._handleSDClicked}
-              className={`${styles.cat} ${styles['cat-sd']}`}
-            >
-              Software Development
-            </span>
+              <span
+                onClick={this.handleSDClicked}
+                className={`${styles.cat} ${styles['cat-sd']}`}
+              >
+                Software Development
+              </span>
           }
           {
             p.review &&
-            <span
-              onClick={this._handleRClicked}
-              className={`${styles.cat} ${styles['cat-review']}`}
-            >
-              Review
-            </span>
+              <span
+                onClick={this.handleRClicked}
+                className={`${styles.cat} ${styles['cat-review']}`}
+              >
+                Review
+              </span>
           }
           <span
-            onClick={this._openCitationsModal}
+            onClick={this.openCitationsModal}
             className={`${styles.cat} ${styles['cat-cite']}`}
           >
             Export citation
           </span>
         </p>
-        { p.resourceLinks &&
-          <p className={styles.resources}>
-            <em>Relevant Resources: </em>
-            {
-              Object.keys(p.resourceLinks).map((resource, index) => {
-                const val = p.resourceLinks[resource];
-                return (
-                  <span key={index} className={styles.resource}>
-                    {index !== 0 && <span> - </span>}
-                    {
-                      typeof val === 'string' || val instanceof String
-                      ? <a href={val}>{resource}</a>
-                      : <span>{resource}</span>
-                    }
-                  </span>
-                );
-              })
-            }
-          </p>
+        {
+          p.resourceLinks &&
+            <p className={styles.resources}>
+              <em>Relevant Resources: </em>
+              {
+                Object.keys(p.resourceLinks).map((resource, index) => {
+                  const val = p.resourceLinks[resource];
+                  return (
+                    <span key={index} className={styles.resource}>
+                      {index !== 0 && <span> - </span>}
+                      {
+                        typeof val === 'string' || val instanceof String
+                          ? <a href={val}>{resource}</a>
+                            : <span>{resource}</span>
+                      }
+                    </span>
+                  );
+                })
+              }
+            </p>
         }
       </div>
     );

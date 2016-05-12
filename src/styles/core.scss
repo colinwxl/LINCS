@@ -1,4 +1,4 @@
-// scss-lint:disable VendorPrefix
+// scss-lint:disable VendorPrefix SelectorDepth
 
 :global {
   @import 'vendor/bootstrap/bootstrap';
@@ -44,10 +44,6 @@
   .h6 {
     color: $header-color;
     font-weight: 500;
-  }
-
-  a {
-    color: $brand-primary;
   }
 
   * {
@@ -120,5 +116,9 @@
     font-weight: inherit;
   }
 
-
+  // react-slick
+  .slick-prev::before,
+  .slick-next::before {
+    color: $brand-primary;
+  }
 }

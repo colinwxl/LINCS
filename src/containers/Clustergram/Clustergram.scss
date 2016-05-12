@@ -56,8 +56,15 @@ $clustergram-height: 800px;
     }
   }
 
+  .download_buttons {
+
+    a {
+      cursor: pointer;
+    }
+  }
+
   .d3-tip {
-    background: $overlay-black;
+    background-color: $black;
     border-radius: 2px;
     color: $white;
     font-weight: bold;
@@ -87,6 +94,7 @@ $clustergram-height: 800px;
     margin-top: 10px;
     margin-bottom: 20px;
     border-bottom: 1px solid #DEDEDE;
+    z-index: 1000;
   }
 
 

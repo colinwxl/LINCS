@@ -2,6 +2,7 @@ import React from 'react';
 
 import styles from './Workflow.scss';
 import PageBanner from 'components/PageBanner';
+import lincsMlImg from './lincs-ml.png';
 
 export default function Workflow() {
   return (
@@ -26,7 +27,7 @@ export default function Workflow() {
               classification labels, and then build a classifier to train and predict
               gene labels from the remaining datasets.
             </p>
-            <img src={require('./lincs-ml.png')} alt="Machine Learning with LINCS" />
+            <img src={lincsMlImg} alt="Machine Learning with LINCS" />
             <p>
               The Harmonizome has over one hundred preprocessed datasets ready for machine
               learning. These datasets are free and available for download.

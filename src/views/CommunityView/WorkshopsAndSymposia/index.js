@@ -32,7 +32,7 @@ export class WorkshopsAndSymposia extends Component {
             <div className="col-md-9 col-md-pull-3">
               <div className={styles.workshops}>
                 <h2>Workshops</h2>
-                { workshops.length === 0 && <p>No workshops available</p>}
+                {workshops.length === 0 && <p>No workshops available</p>}
                 {
                   workshops.map((workshop, index) => {
                     const links = workshop.keyLinks;
@@ -47,15 +47,15 @@ export class WorkshopsAndSymposia extends Component {
                           <h5>{workshop.title}</h5>
                           {
                             !!endDate
-                            ? <p><em>{startDate} to {endDate}</em></p>
-                            : <p><em>{startDate}</em></p>
+                              ? <p><em>{startDate} to {endDate}</em></p>
+                                : <p><em>{startDate}</em></p>
                           }
                           <p><em>{workshop.location}</em></p>
                         </div>
                         <p>{workshop.description}</p>
                         {
                           !!links && !!Object.keys(links).length &&
-                          <p><strong>Links</strong></p>
+                            <p><strong>Links</strong></p>
                         }
                         <ul>
                           {
@@ -71,7 +71,7 @@ export class WorkshopsAndSymposia extends Component {
               </div>
               <div className={styles.symposia}>
                 <h2>Symposia</h2>
-                { symposia.length === 0 && <p>No symposia available</p>}
+                {symposia.length === 0 && <p>No symposia available</p>}
                 {
                   symposia.map((sym, index) => {
                     const links = sym.keyLinks;
@@ -86,15 +86,15 @@ export class WorkshopsAndSymposia extends Component {
                           <h5>{sym.title}</h5>
                           {
                             !!endDate
-                            ? <p><em>{startDate} to {endDate}</em></p>
-                            : <p><em>{startDate}</em></p>
+                              ? <p><em>{startDate} to {endDate}</em></p>
+                                : <p><em>{startDate}</em></p>
                           }
                           <p><em>{sym.location}</em></p>
                         </div>
                         <p>{sym.description}</p>
                         {
                           !!links && !!Object.keys(links).length &&
-                          <p><strong>Links</strong></p>
+                            <p><strong>Links</strong></p>
                         }
                         <ul>
                           {

@@ -77,7 +77,7 @@ export class Clustergram extends Component {
 
   componentWillUnMount() {
     if (window) {
-      window.removeEventListener('resize', this.handleResize);
+      window.removeEventListener('resize');
     }
   }
 
