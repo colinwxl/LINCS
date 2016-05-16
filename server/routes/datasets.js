@@ -19,16 +19,21 @@ const router = new Router({
  * Fetch all datasets and the relationships provided in the `include` query parameter.
  */
 router.get('/', async (ctx) => {
+  // Include the dataset's center by default.
+  // Add desired relationships in the include query parameter
+  // Items of the array are formatted for the withRelated option of bookshelf .fetchAll()
+  // http://bookshelfjs.org/#Model-instance-fetch
+  // Nested relationships (tissues of cells) are loaded using '.'
+  // Ex. --> ...?include=center,smallMolecules,cells,cells.tissues,cells.diseases,cells.synonyms
   let withRelated = ['center'];
   if (ctx.query.include) {
     withRelated = ctx.query.include.split(',');
   }
   try {
-    let datasets = await Dataset.fetchAll({ withRelated });
+    const datasets = await Dataset.fetchAll({ withRelated });
     // Omit pivot by default
     const includePivot = !!ctx.query.includePivot;
-    datasets = datasets.toJSON({ omitPivot: !includePivot });
-    ctx.body = datasets;
+    ctx.body = datasets.toJSON({ omitPivot: !includePivot });
   } catch (e) {
     debug(e);
     ctx.throw(500, 'An error occurred obtaining datasets.');
@@ -163,14 +168,12 @@ router.get('/tree', async (ctx) => {
  * Search the datasets based on the query given in the `q` query parameter.
  */
 router.get('/search', async (ctx) => {
-  let withRelated = ['center'];
-  if (ctx.query.include) {
-    withRelated = ctx.query.include.split(',');
-  }
   if (!ctx.query.q || ctx.query.q === '') {
     ctx.throw(400, 'Query parameter q required for search.');
   }
-  const includePivot = !!ctx.query.includePivot;
+
+  // Search elasticsearch indices with the multi_match and phrase_prefix query types
+  // https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-multi-match-query.html#type-phrase
   const resp = await esClient.search({
     index: 'lincs',
     size: ctx.query.limit || 100,
@@ -216,7 +219,7 @@ router.get('/search', async (ctx) => {
   //   - Any of the cell lines in cellIds
   //   - Any of the small molecules in smIds
   // Might be able to build a query with Bookshelf.
-  // For now use knex to query the relationship tables.
+  // For now use knex to query the join tables.
   const dsetsWithCells = await knex
     .select('dataset_id')
     .from('cells_datasets')
@@ -236,10 +239,23 @@ router.get('/search', async (ctx) => {
     dsetsWithSms.map(obj => obj.dataset_id),
   );
 
+  // Fetch the datasets with the gathered ids.
+  // Include the dataset's center by default.
+  // Add desired relationships in the include query parameter
+  // Items of the array are formatted for the withRelated option of bookshelf .fetchAll()
+  // http://bookshelfjs.org/#Model-instance-fetch
+  // Nested relationships (tissues of cells) are loaded using '.'
+  // Ex. --> ...?include=center,smallMolecules,cells,cells.tissues,cells.diseases,cells.synonyms
+  let withRelated = ['center'];
+  if (ctx.query.include) {
+    withRelated = ctx.query.include.split(',');
+  }
   const datasets = await Dataset
     .query(qb => qb.whereIn('id', datasetIds))
     .fetchAll({ withRelated });
 
+  // Omit the pivot included by bookshelf in the .toJSON() method by default.
+  const includePivot = !!ctx.query.includePivot;
   ctx.body = datasets.toJSON({ omitPivot: !includePivot });
 });
 
@@ -290,7 +306,13 @@ router.post('/clicks/increment', async (ctx) => {
  */
 router.get('/:id', async (ctx) => {
   let id = -1;
-  let withRelated = [];
+  // Include the dataset's center by default.
+  // Add desired relationships in the include query parameter
+  // Items of the array are formatted for the withRelated option of bookshelf .fetchAll()
+  // http://bookshelfjs.org/#Model-instance-fetch
+  // Nested relationships (tissues of cells) are loaded using '.'
+  // Ex. --> ...?include=center,smallMolecules,cells,cells.tissues,cells.diseases,cells.synonyms
+  let withRelated = ['center'];
   if (ctx.query.include) {
     withRelated = ctx.query.include.split(',');
   }
@@ -301,10 +323,12 @@ router.get('/:id', async (ctx) => {
     ctx.throw(400, 'Dataset Id must be a number');
   }
   try {
-    let dataset = await Dataset.where('id', id).fetch({ withRelated });
-    // Omit pivot by default
     const includePivot = !!ctx.query.includePivot;
-    dataset = dataset.toJSON({ omitPivot: !includePivot });
+    // Omit pivot by default
+    const dataset = await Dataset
+      .where('id', id)
+      .fetch({ withRelated })
+      .then(model => model.toJSON({ omitPivot: !includePivot }));
     ctx.body = dataset;
   } catch (e) {
     debug(e);
@@ -325,8 +349,15 @@ router.get('/:id/network', async (ctx) => {
     ctx.throw(400, 'Dataset Id must be a number');
     return;
   }
-  let dataset = await Dataset.where('id', id).fetch({ columns: ['lincs_id'] });
-  dataset = dataset.toJSON();
+  // Fetch dataset with given id, only selecting the lincs_id column
+  const dataset = await Dataset
+    .where('id', id)
+    .fetch({ columns: ['lincs_id'] })
+    .then(dsModel => dsModel.toJSON());
+  // Here we are trying to load a file with name of the dataset's lincs id. If it exists, in
+  // the ../networks folder, that means a clustergram is available. If that's the case, send
+  // the JSON. If it doesn't exist, an error will be thrown and a 400 response will be sent
+  // in the catch {} block.
   let network;
   try {
     network = require(`../networks/${dataset.lincsId}.json`); // eslint-disable-line
@@ -343,6 +374,10 @@ router.get('/:id/network', async (ctx) => {
  * @param  {String} id The dataset id for which the raw data package will be downloaded.
  */
 router.get('/:id/download', async (ctx) => {
+  // Dataset files exist in /usr/src/dist/files/datasets/...
+  // However, this folder is mounted from HDFS when the application is deployed.
+  // This is done because the files can get very large. The files can be found at
+  // http://elizabeth:50070/explorer.html#/apps/lincs/datasets
   if (process.env.NODE_ENV !== 'production') {
     ctx.throw(400, 'Datasets can only be downloaded in production.');
   }
@@ -359,6 +394,7 @@ router.get('/:id/download', async (ctx) => {
       filePath = '/usr/src/dist/files/datasets/KiNativ.zip';
     }
     ctx.set('Content-disposition', `attachment; filename=${filename}`);
+    // Use koa-sendfile to send the file, given the path.
     await send(ctx, filePath);
     if (!ctx.status) {
       ctx.throw(500, 'An error occurred downloading the dataset package.');
@@ -374,12 +410,18 @@ router.get('/:id/download', async (ctx) => {
  * @param  {String} id The dataset id for which the gct file will be downloaded.
  */
 router.get('/:id/download/gct', async (ctx) => {
+  // Dataset files exist in /usr/src/dist/files/datasets/...
+  // However, this folder is mounted from HDFS when the application is deployed.
+  // This is done because the files can get very large. The files can be found at
+  // http://elizabeth:50070/explorer.html#/apps/lincs/datasets
   if (process.env.NODE_ENV !== 'production') {
     ctx.throw(400, 'GCT files can only be downloaded in production.');
   }
   try {
-    let dataset = await Dataset.where('id', ctx.params.id).fetch();
-    dataset = dataset.toJSON();
+    const dataset = await Dataset
+      .where('id', ctx.params.id)
+      .fetch()
+      .then(model => model.toJSON());
     let filename = `${dataset.lincsId}-${dataset.classification}-${dataset.method}.gct`;
     let filePath = `/usr/src/dist/files/datasets/${dataset.lincsId}.gct`;
     if (dataset.method === 'KINOMEScan') {
@@ -390,6 +432,7 @@ router.get('/:id/download/gct', async (ctx) => {
       filePath = '/usr/src/dist/files/datasets/KiNativ.gct';
     }
     ctx.set('Content-disposition', `attachment; filename=${filename}`);
+    // Use koa-sendfile to send the file, given the path.
     await send(ctx, filePath);
     if (!ctx.status) {
       ctx.throw(
@@ -411,6 +454,10 @@ router.get('/:id/download/gct', async (ctx) => {
  * @param  {String} id The dataset id for which the gctx file will be downloaded.
  */
 router.get('/:id/download/gctx', async (ctx) => {
+  // Dataset files exist in /usr/src/dist/files/datasets/...
+  // However, this folder is mounted from HDFS when the application is deployed.
+  // This is done because the files can get very large. The files can be found at
+  // http://elizabeth:50070/explorer.html#/apps/lincs/datasets
   if (process.env.NODE_ENV !== 'production') {
     ctx.throw(400, 'GCTX files can only be downloaded in production.');
   }
@@ -429,6 +476,7 @@ router.get('/:id/download/gctx', async (ctx) => {
       ctx.throw(400, 'GCTX file is not currently available for KiNativ.');
     }
     ctx.set('Content-disposition', `attachment; filename=${filename}`);
+    // Use koa-sendfile to send the file, given the path.
     await send(ctx, filePath);
     if (!ctx.status) {
       ctx.throw(
@@ -551,6 +599,7 @@ router.get('/:id/reference/:refType', async (ctx) => {
     fileInfo = await generateBIB(dataset);
   }
   ctx.set('Content-disposition', `attachment; filename=${fileInfo.filename}`);
+  // Use koa-sendfile to send the file, given the path.
   await send(ctx, fileInfo.filePath);
   if (!ctx.status) {
     ctx.throw(500, 'An error occurred generating the ris file.');

@@ -69,30 +69,14 @@ export default class Footer extends Component {
             <div className="col-md-3 hidden-md-down">
               <h5>Centers</h5>
               <ul>
-                <li>
-                  <a href={`${centersRoute}/overview`}>Overview</a>
-                </li>
-                <li>
-                  <a href={`${centersRoute}/dcic`}>BD2K-LINCS DCIC</a>
-                </li>
-                <li>
-                  <a href={`${dsgcRoute}/dtoxs`}>DToxS</a>
-                </li>
-                <li>
-                  <a href={`${dsgcRoute}/hms-lincs`}>HMS LINCS</a>
-                </li>
-                <li>
-                  <a href={`${dsgcRoute}/lincs-pccse`}>LINCS Proteomics</a>
-                </li>
-                <li>
-                  <a href={`${dsgcRoute}/lincs-transcriptomics`}>LINCS Transcriptomics</a>
-                </li>
-                <li>
-                  <a href={`${dsgcRoute}/mep-lincs`}>MEP LINCS</a>
-                </li>
-                <li>
-                  <a href={`${dsgcRoute}/neurolincs`}>NeuroLINCS</a>
-                </li>
+                <li><a href={`${centersRoute}/overview`}>Overview</a></li>
+                <li><a href={`${centersRoute}/dcic`}>BD2K-LINCS DCIC</a></li>
+                <li><a href={`${dsgcRoute}/dtoxs`}>DToxS</a></li>
+                <li><a href={`${dsgcRoute}/hms-lincs`}>HMS LINCS</a></li>
+                <li><a href={`${dsgcRoute}/lincs-pccse`}>LINCS Proteomics</a></li>
+                <li><a href={`${dsgcRoute}/lincs-transcriptomics`}>LINCS Transcriptomics</a></li>
+                <li><a href={`${dsgcRoute}/mep-lincs`}>MEP LINCS</a></li>
+                <li><a href={`${dsgcRoute}/neurolincs`}>NeuroLINCS</a></li>
               </ul>
             </div>
             <FooterDropDown
@@ -175,10 +159,13 @@ export default class Footer extends Component {
               <h5>Contact</h5>
               <ul className={styles.icons}>
                 <li>
-                  <a href="https://twitter.com/LINCSProgram">
+                  <a href="https://twitter.com/LINCSProgram" target="_blank">
                     <i className="fa fa-twitter" />
                   </a>
-                  <a href="https://www.youtube.com/channel/UCNcDd4x8PsUZpt4U2Xa8sfg">
+                  <a
+                    href="https://www.youtube.com/channel/UCNcDd4x8PsUZpt4U2Xa8sfg"
+                    target="_blank"
+                  >
                     <i className="fa fa-youtube-square" />
                   </a>
                   <a href={mailLink}>

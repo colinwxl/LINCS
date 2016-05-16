@@ -5,7 +5,7 @@ import isEqual from 'lodash/isEqual';
 
 import styles from './PublicationsView.scss';
 import PageBanner from 'components/PageBanner';
-import Publication from './Publication';
+import Publication from 'containers/Publication';
 import PubCheckBox from './PubCheckBox';
 import { loadPublications } from 'actions/pubsNews';
 

@@ -110,7 +110,7 @@ export class Clustergram extends Component {
     }
     return (
       <div className={wrapClass}>
-        <h2>Clustergram</h2>
+        <h2>Dataset Visualization</h2>
         {
           clustergramLoaded && windowWideEnough &&
             <p>Zoom, scroll, and click buttons to interact with the clustergram.</p>
@@ -118,14 +118,14 @@ export class Clustergram extends Component {
         {
           clustergramLoaded && !windowWideEnough &&
             <p>
-              Clustergram is not supported on mobile devices and requires a certain
+              Visualizations are not supported on mobile devices and requires a certain
               browser width to be displayed. If on a desktop, please resize your browser.
             </p>
         }
         {
           clustergramError &&
             <p>
-              A clustergram is currently not available for this dataset.
+              A heatmap visualization is currently not available for this dataset.
               Please check again at a later time.
             </p>
         }

@@ -5,6 +5,7 @@ import unEscape from 'lodash/unescape';
 
 import styles from './Twitter.scss';
 import { fetchTimeline } from 'actions/twitter';
+import twitterBirdImg from './twitter-bird.svg';
 
 const mapStateToProps = ({ twitter }) => ({ twitter });
 
@@ -58,28 +59,56 @@ export class Twitter extends Component {
     }
     return (
       <div className={styles.wrapper}>
+        <div className={styles['twitter-bird']}>
+          <img src={twitterBirdImg} alt="Twitter logo" />
+        </div>
         {
-          timeline.splice(0, 3).map(status => {
-            const { id, createdAt, user } = status;
+          timeline.splice(0, 1).map(status => {
+            const { idStr, createdAt, user, favoriteCount, retweetCount } = status;
+            const userLink = `https://twitter.com/${user.screenName}`;
             return (
-              <div key={id} className="container">
-                <div className="row">
-                  <div className="col-xs-12">
-                    <div className={`clearfix ${styles.tweeter}`}>
-                      <img
-                        src={user.profileImageUrlHttps}
-                        className={styles.avatar}
-                        alt="User's Twitter avatar"
-                      />
-                      <a href={`https://twitter.com/${user.screenName}`} target="_blank">
-                        {user.name}
-                      </a>
-                    </div>
-                    <div key={id} className={styles.status}>
-                      <p dangerouslySetInnerHTML={this.rawTweetHtml(status)} />
-                      <p className={styles.time}>{this.humanDate(createdAt)}</p>
-                    </div>
+              <div key={idStr} className={styles.tweet}>
+                <div className={`clearfix ${styles.tweeter}`}>
+                  <div className={styles['img-wrap']}>
+                    <img
+                      src={user.profileImageUrlHttps}
+                      className={styles.avatar}
+                      alt="User's Twitter avatar"
+                    />
                   </div>
+                  <p className={styles.username}>
+                    <a href={userLink} target="_blank">{user.name}</a>
+                  </p>
+                  <p className={styles['screen-name']}>
+                    <a href={userLink} target="_blank">@{user.screenName}</a>
+                  </p>
+                </div>
+                <div className={styles.status}>
+                  <p dangerouslySetInnerHTML={this.rawTweetHtml(status)} />
+                  <p className={styles.info}>
+                    <span className={styles.date}>{this.humanDate(createdAt)}</span>
+                    <a
+                      href={`https://twitter.com/intent/tweet?in_reply_to=${idStr}`}
+                      target="_blank"
+                    >
+                      <i className="fa fa-reply" />
+                    </a>
+                    {'  '}
+                    <a
+                      href={`https://twitter.com/intent/retweet?tweet_id=${idStr}`}
+                      target="_blank"
+                    >
+                      <i className="fa fa-retweet" />
+                    </a>
+                    {` ${retweetCount}`}
+                    <a
+                      href={`https://twitter.com/intent/favorite?tweet_id=${idStr}`}
+                      target="_blank"
+                    >
+                      <i className="fa fa-star" />
+                    </a>
+                    {` ${favoriteCount}`}
+                  </p>
                 </div>
               </div>
             );

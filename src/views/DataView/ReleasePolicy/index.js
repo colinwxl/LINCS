@@ -19,9 +19,9 @@ export default function ReleasePolicy(/* props */) {
                 LINCS Centers have been funded to create a public resource that makes it
                 possible for members of the community to make new discoveries as rapidly as
                 possible. We therefore agree to comply with
-                the <a href="http://www.genome.gov/pages/research/wellcomereport0303.pdf">Fort Lauderdale Principles</a> with
-                respect to the dissemination and unrestricted re-use of LINCS data
-                and signatures.
+                the <a href="http://www.genome.gov/pages/research/wellcomereport0303.pdf">
+                Fort Lauderdale Principles</a> with respect to the dissemination and
+                unrestricted re-use of LINCS data and signatures.
               </li>
               <li>
                 Whenever a recognized long-term public repository exists for data generated
@@ -70,8 +70,8 @@ export default function ReleasePolicy(/* props */) {
                 the delay between data generation and data release will be longer. Regardless,
                 the principle will be the same: timely release of data of sufficient quality
                 that it is useful to the community at large. The concept of data levels is
-                explained <Link to="/data">here</Link> and follows principles used in other
-                projects like TCGA (The Cancer Genome Atlas).
+                explained <Link to="/data/overview">here</Link> and follows principles used
+                in other projects like TCGA (The Cancer Genome Atlas).
               </li>
               <li>
                 For some LINCS data types (e.g. L1000), data levels have already been

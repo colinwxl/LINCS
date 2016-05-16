@@ -143,7 +143,7 @@ export class AppsView extends Component {
                   {isExp ? <ExpWorkflows key="exp" /> : <CompBioWorkflows key="compBio" />}
                 </ReactCSSTransitionGroup>
               </div>
-              <h2 className="text-xs-center text-sm-left">
+              <h2 id="tools" className="text-xs-center text-sm-left">
                 LINCS Application Marketplace{' '}
                 {fetchingTools && <i className="fa fa-circle-o-notch fa-spin" />}
               </h2>

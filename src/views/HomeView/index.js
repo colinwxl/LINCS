@@ -7,11 +7,16 @@ import Carousel from './Carousel';
 import Twitter from 'containers/Twitter';
 import { loadPublications } from 'actions/pubsNews';
 import { loadTools } from 'actions/toolsWorkflows';
-import Tool from 'components/Tool';
 import styles from './HomeView.scss';
 // Images
 import bannerImg from './background.png';
 import cubeImg from './cube.png';
+
+const mgm = 'michael.mcdermott@mssm.edu';
+const sherry = 'sherry.jenkins@mssm.edu';
+const subject = 'Questions/Comments regarding lincsproject.org';
+
+const mailLink = `mailto:${mgm},${sherry}?Subject=[${subject}]`;
 
 const mapStateToProps = (state) => ({
   publications: state.pubsNews.publications,
@@ -82,20 +87,54 @@ export class HomeView extends Component {
           </div>
         </div>
         <div className={`${styles.content}`}>
-          <div className={styles.recent}>
+          <div className={styles['recent-ds-section']}>
             <div className="container">
-              <div className={`row ${styles['flex-center']} ${styles['recent-ds-section']}`}>
+              <div className="row">
                 <div className="col-xs-12 col-lg-6">
-                  <h3 className={styles.title}>Recent Dataset Releases</h3>
+                  <h3 className={styles.title}>Recent Data Releases from the DSGCs</h3>
+                  <p className={styles['section-lead']}>
+                    Scroll through the most recent data releases from the six
+                    LINCS Data and Signature Generation Centers (DSGCs)
+                  </p>
+                  <Link
+                    to="/data"
+                    className={`btn ${styles['btn-primary-outline']}`}
+                  >
+                    Explore more data releases
+                  </Link>
                 </div>
                 <div className="col-xs-12 col-lg-5 col-lg-push-1">
                   <Carousel datasets={this.state.recentDatasets} />
                 </div>
               </div>
-              <hr />
-              <div className={`row ${styles['flex-center']} ${styles['tools-section']}`}>
+              <hr className={styles['hr-small']} />
+              <p>
+                <strong>Curious what LINCS defines as a dataset?</strong> View the
+                LINCS data standards to find out.
+              </p>
+              <Link
+                to="/data/standards"
+                className={`btn ${styles['btn-primary-outline']}`}
+              >
+                View LINCS data standards
+              </Link>
+            </div>
+          </div>
+          <div className={styles['tools-section']}>
+            <div className="container">
+              <div className="row">
                 <div className="col-xs-12 col-lg-6 col-lg-push-6">
-                  <h3 className={styles.title}>Recent LINCS Tools</h3>
+                  <h3 className={styles.title}>Featured LINCS Tools</h3>
+                  <p className={styles['section-lead']}>
+                    Scroll through some of the LINCS tools developed by the BD2K
+                    LINCS Data Coordination and Integration Center (DCIC) and the DSGCs
+                  </p>
+                  <Link
+                    to="/applications#tools"
+                    className={`btn ${styles['btn-primary-outline']}`}
+                  >
+                    Explore more LINCS tools
+                  </Link>
                 </div>
                 <div className="col-xs-12 col-lg-5 col-lg-pull-6">
                   <Carousel tools={tools} />
@@ -188,7 +227,7 @@ export class HomeView extends Component {
             <div className="container">
               <div className="row">
                 <div className={`col-xs-12 ${styles.section} ${styles['pub-section']}`}>
-                  <h4>Recent Publications</h4>
+                  <h3>Featured Recent Publications</h3>
                   <div className={styles.publications}>
                     {
                       pubs && pubs.map(p => {
@@ -240,10 +279,36 @@ export class HomeView extends Component {
               </div>
             </div>
           </div>
-          <div className={`${styles.section} ${styles['twitter-section']}`}>
+          <div className={`${styles.section} ${styles['social-section']}`}>
             <div className="container">
+              <h3 className={styles.title}>Get in Touch</h3>
               <div className="row">
-                <Twitter />
+                <div className={`col-xs-12 col-md-6 ${styles['social-left']}`}>
+                  <div className={styles.youtube}>
+                    <p>
+                      Access everything from application tutorials and workflows to
+                      recaps of meetings and seminars on the NIH LINCS Program
+                      YouTube channel
+                    </p>
+                    <a
+                      href="https://www.youtube.com/channel/UCNcDd4x8PsUZpt4U2Xa8sfg"
+                      className={`btn ${styles['btn-secondary-outline']}`}
+                    >
+                      NIH LINCS Program YouTube channel
+                    </a>
+                  </div>
+                  <div className={styles.contact}>
+                    <p><strong>More questions about the NIH LINCS Program?</strong></p>
+                    <p>
+                      Be sure to check out the <Link to="/about#q-a">Q & A section</Link> first
+                      and don't be afraid to <a href={mailLink}>contact us</a> with additional
+                      questions!
+                    </p>
+                  </div>
+                </div>
+                <div className="col-xs-12 col-md-6">
+                  <Twitter />
+                </div>
               </div>
             </div>
           </div>

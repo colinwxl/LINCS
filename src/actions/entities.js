@@ -27,19 +27,24 @@ const defaultInclude = ['center', 'cells', 'cells.tissues', 'cells.diseases'];
  * This redux action creator load the datasets from the server with the
  * specified relationships.
  *
+ * @param {Number} datasetId The id of the dataset you would like to load.
  * @param {Array} include The relationships that you would like to include
  * from the database. For example, ['center'] will return the dataset object
  * with a 'center' key that contains the information about the center who
  * created the dataset.
- * @return {Function} A function that returns a dispatch()
+ * @return {Function} An immediately invoking function that dispatches an API redux action
+ * if needed.
  */
-export function loadDataset(datasetId, include = defaultInclude, requiredFields = []) {
+export function loadDataset(datasetId, include = defaultInclude) {
   return (dispatch, getState) => {
     // Get the dataset from the store (undefined if not there yet)
-    const dataset = getState().entities.datasets[datasetId];
+    const state = getState();
+    const { datasets } = state.entities;
+    const { datasetsPending } = state.pendingRequests;
+    const dataset = datasets[datasetId];
 
     // Check if the dataset exists and that all of the required fields are there.
-    if (!!dataset && requiredFields.every(key => dataset.hasOwnProperty(key))) {
+    if (!!dataset || datasetsPending) {
       return null;
     }
 

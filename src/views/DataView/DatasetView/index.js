@@ -81,22 +81,22 @@ export class DatasetView extends Component {
                   <tr>
                     <td>Links</td>
                     <td>
-                      <button
+                      <a
                         className={`btn btn-secondary ${styles['btn-link']}`}
                         href={dataset.sourceLink}
                         target="_blank"
                       >
                         View at DSGC Website
-                      </button>
+                      </a>
                       {
                         validLincsId &&
-                          <button
+                          <a
                             className={`btn btn-secondary ${styles['btn-link']}`}
                             href={`http://lincsportal.ccs.miami.edu/datasets/#/view/${dataset.lincsId}`}
                             target="_blank"
                           >
                             View on the LINCS Data Portal
-                          </button>
+                          </a>
                       }
                     </td>
                   </tr>

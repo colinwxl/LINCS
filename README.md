@@ -23,6 +23,8 @@ npm run dev
 ## Learning the Codebase
 
 ### Client Side
+The majority of this project is written in ES6/ES2015 (JavaScript). For a full tutorial on ES6 and all of its features, check out [Understanding ECMAScript 6](https://leanpub.com/understandinges6/read). It may also be helpful to look at Addy Osmani's [es6-equivalents-in-es5](https://github.com/addyosmani/es6-equivalents-in-es5).
+
 There are only a few libraries and technologies used on the front-end of this project. The most important of these is [React](https://facebook.github.io/react/). If you have a grasp on React, I think this project should be very easy to follow.
 
 The second-most important technology used in this project is [Redux](http://redux.js.org/). Once you understand the concept behind Redux, writing code using the library is very simple as its APIs and documentation are very straight-forward. I **strongly recommend** watching [this video tutorial series](https://egghead.io/series/getting-started-with-redux) by the creator of Redux to get an understanding of what is going on in this project.
@@ -62,6 +64,10 @@ router.get('/', async (ctx) => {
     // Looking at the docs here: http://bookshelfjs.org/#Model-instance-fetchAll we see
     // that Dataset.fetchAll() returns a Promise that resolves to a Bookshelf.js Collection.
     // Once that is resolved, the resulting collection is set to the datasets variable.
+    //
+    // Note that { withRelated } is an example of ES6 destructuring assignment.
+    // { withRelated } is the same as { withRelated: withRelated }
+    // https://github.com/addyosmani/es6-equivalents-in-es5#destructuring-assignment
     let datasets = await Dataset.fetchAll({ withRelated });
     // By default Bookshelf.js includes a _pivot_ key on every object that is added
     // as a relationship. In this project, it is usually omitted by default.

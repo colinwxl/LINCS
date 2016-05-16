@@ -81,7 +81,7 @@ export default function AboutView() {
                 LINCS data/signature types
               </li>
             </ul>
-            <h2>Q & A</h2>
+            <h2 id="q-a">Q & A</h2>
             <ul>
               <li>
                 <a href="#goal">What is the overall goal of this program?</a>

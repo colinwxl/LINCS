@@ -1,0 +1,100 @@
+@import 'variables';
+
+.pub {
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+
+  h6,
+  h5,
+  p,
+  a {
+    margin-bottom: 0;
+  }
+
+  a {
+
+    &:hover {
+      color: $brand-primary;
+    }
+  }
+}
+
+.cat {
+  border-radius: .25rem;
+  color: $white;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 75%;
+  font-weight: 700;
+  line-height: 1rem;
+  margin-right: .25rem;
+  padding: .15rem .4rem;
+  text-align: center;
+  vertical-align: baseline;
+  white-space: nowrap;
+}
+
+.cat-ad {
+  background-color: $dark-red;
+}
+
+.cat-da {
+  background-color: darken($teal, 5);
+}
+
+.cat-dg {
+  background-color: $green;
+}
+
+.cat-di {
+  background-color: darken($orange, 5);
+}
+
+.cat-ds {
+  background-color: $brand-secondary-dark;
+}
+
+.cat-sg {
+  background-color: $brand-primary-light;
+}
+
+.cat-sd {
+  background-color: $red;
+}
+
+.cat-review {
+  background-color: $dark-gray;
+}
+
+.cat-cite {
+  background-color: $brand-primary;
+  // border: 1px solid darken($brand-primary, 5);
+  color: $white;
+  cursor: pointer;
+  float: right;
+  margin: 1rem 0;
+  width: 100%;
+
+  &:hover {
+    background-color: darken($brand-primary, 5);
+    // border-color: darken($brand-primary, 10);
+    color: $white;
+  }
+
+  @media (min-width: 544px) {
+    margin: 0;
+    width: auto;
+  }
+}
+
+.resources {
+  font-size: 90%;
+  margin-top: .5rem;
+}
+
+.resource {
+
+  a {
+    cursor: pointer;
+  }
+}

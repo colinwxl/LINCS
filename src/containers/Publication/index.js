@@ -2,7 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 
 import { openCitationsModal, closeCitationsModal } from 'actions/modals';
-import styles from './PublicationsView.scss';
+import styles from './Publication.scss';
 
 export class Publication extends Component {
   openCitationsModal = () => {

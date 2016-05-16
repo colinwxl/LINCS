@@ -1,32 +1,22 @@
 @import 'vendor/bootstrap/variables';
 @import 'variables';
 
-.link {
-  color: $brand-primary;
-  text-decoration: none;
+.wrapper {
+  color: $white;
+  margin: 0 auto;
+  max-width: 600px;
+  width: 100%;
 }
 
-.avatar {
-  float: left;
-}
-
-.status {
-  margin-bottom: 1rem;
-
-  p {
-    margin-bottom: 0;
-  }
-}
-
-.tweeter {
-  font-size: 1.25rem;
-  margin-bottom: 0;
+.tweet {
 
   a {
-    line-height: 2.5rem;
-    margin-left: .5rem;
-    text-decoration: none;
+    color: $brand-secondary;
   }
+}
+
+.link {
+  color: $brand-secondary;
 }
 
 .twitter-bird {
@@ -39,8 +29,56 @@
   }
 }
 
-.time {
-  color: $text-muted;
-  font-size: .9rem;
+.img-wrap {
+  border: 5px solid $white;
+  border-radius: .75rem;
+  float: left;
+}
+
+.avatar {
+  float: left;
+}
+
+.status {
+  margin-bottom: 1rem;
+
+  p,
+  i {
+    font-size: 1.1rem;
+  }
+}
+
+.tweeter {
+  margin-bottom: .5rem;
+
+  p {
+    line-height: 1;
+  }
+
+  a {
+    margin-left: .5rem;
+  }
+}
+
+.username {
+  font-size: 1.25rem;
+  margin-bottom: .5rem;
+}
+
+.screen-name {
+  margin-bottom: 0;
+}
+
+.info {
+  font-weight: 300;
+
+  i {
+    color: $brand-secondary;
+    margin-left: .5rem;
+  }
+}
+
+.date {
   font-style: italic;
+  margin-right: 2rem;
 }

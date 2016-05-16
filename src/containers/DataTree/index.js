@@ -45,7 +45,6 @@ export class DataTree extends Component {
         <AssayTree datasets={datasets} assayClasses={tree.classes} />
         <CenterTree centerNames={tree.centers} datasets={datasets} />
         <TissueCellTree entities={entities} />
-        {/* <DiseaseTree entities={this.props.entities} /> */}
         <DateTree dates={tree.dates} dateDatasetMap={tree.dateDatasetMap} />
         <AlphabeticalTree datasetIds={tree.alphabetical} />
       </div>
