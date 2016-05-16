@@ -12,10 +12,9 @@ module.exports = function set_up_reorder(params, sidebar){
 
   var reorder_section = sidebar
     .append('div')
-    .classed('reorder_section',true)
-    .style('text-align','center')
-    .style('padding-left','15px')
-    .style('padding-right','15px');
+    .style('padding-left', '15px')
+    .style('padding-right', '15px')
+    .classed('reorder_section', true);
 
   var reorder_types;
   if (params.sim_mat){
@@ -24,7 +23,7 @@ module.exports = function set_up_reorder(params, sidebar){
     reorder_types = ['row','col'];
   }
 
-  _.each( reorder_types, function(inst_rc){
+  _.each(reorder_types, function(inst_rc){
 
     button_dict = {
       'clust':'Cluster',
@@ -94,7 +93,6 @@ module.exports = function set_up_reorder(params, sidebar){
       .append('div')
       .classed('sidebar_text',true)
       .style('clear','both')
-      .style('margin-left','7px')
       .style('margin-top','10px')
       .style('font-size','13px')
       .html(rc_dict[inst_rc]+reorder_text);
@@ -102,9 +100,9 @@ module.exports = function set_up_reorder(params, sidebar){
     inst_reorder = reorder_section
       .append('div')
       .classed('btn-group-vertical',true)
+      .style('width', '100%')
       .classed('toggle_'+inst_rc+'_order',true)
-      .attr('role','group')
-      .style('width', '100%');
+      .attr('role','group');
 
     inst_reorder
       .selectAll('.button')

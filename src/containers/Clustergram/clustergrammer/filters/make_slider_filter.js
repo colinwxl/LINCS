@@ -27,14 +27,12 @@ module.exports = function make_slider_filter(cgm, filter_type, div_filters){
     .classed('slider_description', true)
     .style('margin-top', '5px')
     .style('margin-bottom', '3px')
-    .style('width', '100%')
     .text(filter_title.text + filter_title.state + filter_title.suffix);
 
   div_filters
     .append('div')
     .classed('slider_'+filter_type,true)
     .classed('slider',true)
-    .style('width', '100%')
     .attr('current_state', filter_title.state);
 
   var views = params.network_data.views;

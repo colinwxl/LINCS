@@ -30,9 +30,8 @@ module.exports = function set_up_dendro_sliders(sidebar, params){
 
     dendro_sliders
       .append('div')
-      .classed('slider_'+inst_rc,true)
-      .classed('slider',true)
-      .style('width', '100%');
+      .classed('slider_'+inst_rc, true)
+      .classed('slider', true);
 
   });
 

@@ -2,21 +2,23 @@
 @import 'variables';
 
 .wrapper {
-  color: $white;
+  color: $base-font-color;
   margin: 0 auto;
   max-width: 600px;
   width: 100%;
 }
 
 .tweet {
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
 
   a {
-    color: $brand-secondary;
+    color: $brand-primary-light;
   }
 }
 
 .link {
-  color: $brand-secondary;
+  color: $brand-primary-light;
 }
 
 .twitter-bird {
@@ -40,11 +42,10 @@
 }
 
 .status {
-  margin-bottom: 1rem;
-
   p,
   i {
     font-size: 1.1rem;
+    margin-bottom: 0;
   }
 }
 
@@ -73,7 +74,7 @@
   font-weight: 300;
 
   i {
-    color: $brand-secondary;
+    color: $brand-primary-light;
     margin-left: .5rem;
   }
 }

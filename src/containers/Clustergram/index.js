@@ -50,6 +50,7 @@ export class Clustergram extends Component {
           clustergram = renderClustgram(args);
         } catch (e) {
           // An error occurred in Clustergrammer. Treat like a network error.
+          console.error(e);
           this.setState({
             clustergram: null,
             clustergramError: true,

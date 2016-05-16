@@ -168,6 +168,10 @@ Publication.propTypes = {
   closeCitationsModal: PropTypes.func,
 };
 
+Publication.defaultProps = {
+  onCatClicked: function noop() {},
+};
+
 export default connect(null, {
   openCitationsModal,
   closeCitationsModal,

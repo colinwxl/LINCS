@@ -5,9 +5,11 @@ import { connect } from 'react-redux';
 import handleResponse from 'utils/handleResponse';
 import Carousel from './Carousel';
 import Twitter from 'containers/Twitter';
+import Publication from 'containers/Publication';
 import { loadPublications } from 'actions/pubsNews';
 import { loadTools } from 'actions/toolsWorkflows';
 import styles from './HomeView.scss';
+
 // Images
 import bannerImg from './background.png';
 import cubeImg from './cube.png';
@@ -107,17 +109,6 @@ export class HomeView extends Component {
                   <Carousel datasets={this.state.recentDatasets} />
                 </div>
               </div>
-              <hr className={styles['hr-small']} />
-              <p>
-                <strong>Curious what LINCS defines as a dataset?</strong> View the
-                LINCS data standards to find out.
-              </p>
-              <Link
-                to="/data/standards"
-                className={`btn ${styles['btn-primary-outline']}`}
-              >
-                View LINCS data standards
-              </Link>
             </div>
           </div>
           <div className={styles['tools-section']}>
@@ -170,7 +161,7 @@ export class HomeView extends Component {
             <div className="container">
               <div className="row">
                 <div className={`col-xs-12 ${styles.section} ${styles['ann-section']}`}>
-                  <h3 className={styles.title}>Announcements</h3>
+                  <h3 className={styles.title}>Events</h3>
                   <div className="row">
                     <div className="col-xs-12 col-md-4">
                       <div className={styles.card}>
@@ -178,13 +169,8 @@ export class HomeView extends Component {
                         <div className={styles.group}>
                           <p className={`clearfix ${styles.justify}`}>
                             On March 10-11, 2016, the LINCS Outreach Meeting was held at the
-                            University of California, Irvine. We invited the research community to
-                            come see examples of LINCS in action and learn how to effectively work
-                            with these unprecedented datasets. The first day of the meeting brought
-                            together the centers of the LINCS Consortium to review progress to date
-                            and discuss the next steps for data integration and analysis across the
-                            centers. The meeting included an outreach program with experts in stem
-                            cell biology, and big data management.
+                            UC Irvine. The meeting included an outreach program with experts
+                            in stem cell biology, and big data management.
                           </p>
                           <a href="https://www.youtube.com/playlist?list=PLQw7KTnzkpXdpO1WMpW8fJeriqZEuFR1i">
                             Watch Videos
@@ -227,91 +213,56 @@ export class HomeView extends Component {
             <div className="container">
               <div className="row">
                 <div className={`col-xs-12 ${styles.section} ${styles['pub-section']}`}>
-                  <h3>Featured Recent Publications</h3>
-                  <div className={styles.publications}>
-                    {
-                      pubs && pubs.map(p => {
-                        let articleTitle = p.articleName;
-                        if (p.pmId) {
-                          articleTitle = (
-                            <a
-                              href={`http://www.ncbi.nlm.nih.gov/pubmed/${p.pmId}`}
-                              target="_blank"
-                            >
-                              {p.articleName}
-                            </a>
-                          );
-                        } else if (p.pmcId) {
-                          articleTitle = (
-                            <a
-                              href={`http://www.ncbi.nlm.nih.gov/pmc/articles/${p.pmcId}`}
-                              target="_blank"
-                            >
-                              {p.articleName}
-                            </a>
-                          );
-                        } else if (p.doi) {
-                          articleTitle = (
-                            <a href={`http://dx.doi.org/${p.doi}`} target="_blank">
-                              {p.articleName}
-                            </a>
-                          );
-                        } else if (p.otherLink) {
-                          articleTitle = <a href={p.otherLink} target="_blank">{p.articleName}</a>;
-                        }
-                        const authorNames = p.authors.map(author => author.name);
-                        return (
-                          <div key={p.id} className={styles.group}>
-                            <p>
-                              {authorNames.join(', ')}. {p.yearPublished}.
-                              <strong> {articleTitle} </strong>
-                              {p.journalName}. {p.volume}
-                              {!!p.issue ? `(${p.issue})` : ''}
-                              {!!p.ppPages ? `:${p.ppPages}` : ''}.
-                            </p>
-                          </div>
-                        );
-                      })
-                    }
+                  <div className="row">
+                    <div className={`col-xs-12 col-md-7 ${styles.publications}`}>
+                      <h3>Featured Recent Publications</h3>
+                      {
+                        pubs && pubs.map(p =>
+                          <Publication key={p.id} pub={p} />
+                        )
+                      }
+                      <Link to="/publications">More publications...</Link>
+                    </div>
+                    <div className="col-xs-12 col-md-5">
+                      <Twitter />
+                    </div>
                   </div>
-                  <Link to="/publications">More publications...</Link>
                 </div>
               </div>
             </div>
           </div>
-          <div className={`${styles.section} ${styles['social-section']}`}>
+          {/*
+            <div className={`${styles.section} ${styles['social-section']}`}>
             <div className="container">
-              <h3 className={styles.title}>Get in Touch</h3>
-              <div className="row">
-                <div className={`col-xs-12 col-md-6 ${styles['social-left']}`}>
-                  <div className={styles.youtube}>
-                    <p>
-                      Access everything from application tutorials and workflows to
-                      recaps of meetings and seminars on the NIH LINCS Program
-                      YouTube channel
-                    </p>
-                    <a
-                      href="https://www.youtube.com/channel/UCNcDd4x8PsUZpt4U2Xa8sfg"
-                      className={`btn ${styles['btn-secondary-outline']}`}
-                    >
-                      NIH LINCS Program YouTube channel
-                    </a>
-                  </div>
-                  <div className={styles.contact}>
-                    <p><strong>More questions about the NIH LINCS Program?</strong></p>
-                    <p>
-                      Be sure to check out the <Link to="/about#q-a">Q & A section</Link> first
-                      and don't be afraid to <a href={mailLink}>contact us</a> with additional
-                      questions!
-                    </p>
-                  </div>
-                </div>
-                <div className="col-xs-12 col-md-6">
-                  <Twitter />
-                </div>
-              </div>
+            <h3 className={styles.title}>Get in Touch</h3>
+            <div className="row">
+            <div className={`col-xs-12 col-md-6 ${styles['social-left']}`}>
+            <div className={styles.youtube}>
+            <p>
+            Access everything from application tutorials and workflows to
+            recaps of meetings and seminars on the NIH LINCS Program
+            YouTube channel
+            </p>
+            <a
+            href="https://www.youtube.com/channel/UCNcDd4x8PsUZpt4U2Xa8sfg"
+            className={`btn ${styles['btn-secondary-outline']}`}
+            >
+            NIH LINCS Program YouTube channel
+            </a>
             </div>
-          </div>
+            <div className={styles.contact}>
+            <p><strong>More questions about the NIH LINCS Program?</strong></p>
+            <p>
+            Be sure to check out the <Link to="/about#q-a">Q & A section</Link> first
+            and don't be afraid to <a href={mailLink}>contact us</a> with additional
+            questions!
+            </p>
+            </div>
+            </div>
+            </div>
+            </div>
+            </div>
+          */}
         </div>
       </div>
     );

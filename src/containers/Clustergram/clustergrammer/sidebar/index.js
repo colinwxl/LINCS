@@ -1,3 +1,4 @@
+require('jquery-ui/slider');
 var ini_sidebar = require('./ini_sidebar');
 var set_up_filters = require('../filters/set_up_filters');
 var set_up_dendro_sliders = require('./set_up_dendro_sliders');
@@ -6,6 +7,7 @@ var set_up_reorder = require('./set_up_reorder');
 var set_sidebar_ini_view = require('./set_sidebar_ini_view');
 var make_icons = require('./make_icons');
 var make_modals = require('./make_modals');
+var set_up_opacity_slider = require('./set_up_opacity_slider');
 
 /* Represents sidebar with controls.
  */
@@ -41,24 +43,25 @@ module.exports = function sidebar(cgm) {
     .append('div')
     .classed('about_section',true);
 
-  // if (params.sidebar.about != null){
-  //
-  //   var about_section_width = params.sidebar.text.width - 5;
-  //   sidebar
-  //     .select('.about_section')
-  //     .append('p')
-  //     .classed('sidebar_text',true)
-  //     .style('margin-left','7px')
-  //     .style('margin-top','5px')
-  //     .style('margin-bottom','2px')
-  //     .style('width', about_section_width+'px')
-  //     // .style('text-align','justify')
-  //     .text(params.sidebar.about);
-  // }
+  if (params.sidebar.about != null){
+
+    var about_section_width = params.sidebar.text.width - 5;
+    sidebar
+      .select('.about_section')
+      .append('h5')
+      .classed('sidebar_text',true)
+      .style('margin-left','7px')
+      .style('margin-top','5px')
+      .style('margin-bottom','2px')
+      .style('width', about_section_width+'px')
+      .style('text-align','justify')
+      .text(params.sidebar.about);
+  }
 
   sidebar
     .append('div')
-    .classed('icons_section',true);
+    .classed('icons_section',true)
+    .style('text-align', 'center');
 
   if (params.sidebar.icons){
     make_modals(params);
@@ -77,9 +80,13 @@ module.exports = function sidebar(cgm) {
 
   set_up_search(sidebar, params);
 
+  set_up_opacity_slider(sidebar, params);
+
   if (params.viz.show_dendrogram){
     set_up_dendro_sliders(sidebar, params);
   }
+
+
 
   var possible_filter_names = _.keys(params.viz.possible_filters);
 

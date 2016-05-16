@@ -18,6 +18,7 @@ module.exports = function update_with_new_network(config, old_params,  new_netwo
 
   tmp_config.network_data = new_network_data;
   tmp_config.inst_order = old_params.viz.inst_order;
+  tmp_config.input_domain = old_params.matrix.opacity_scale.domain()[1];
 
   update_reorder_buttons(tmp_config, old_params);
 

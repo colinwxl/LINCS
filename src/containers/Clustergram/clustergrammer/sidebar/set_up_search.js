@@ -4,9 +4,9 @@ module.exports = function set_up_search(sidebar, params ){
     .append('div')
     // .classed('row',true)
     .classed('gene_search_container',true)
-    .style('margin-top','10px')
-    .style('padding-left', '15px')
-    .style('padding-right', '15px');
+    .style('padding-left','15px')
+    .style('padding-right','15px')
+    .style('margin-top','10px');
 
   search_container
     .append('input')
@@ -15,14 +15,12 @@ module.exports = function set_up_search(sidebar, params ){
     .classed('sidebar_text', true)
     .attr('type','text')
     .attr('placeholder', params.sidebar.row_search.placeholder)
-    .style('height', '34px');
+    .style('height', params.sidebar.row_search.box.height+'px');
 
   search_container
     .append('div')
-    .classed('btn-group',true)
-    .classed('gene_search_button', true)
-    .style('width', '100%')
-    .style('text-align', 'center')
+    .classed('gene_search_button',true)
+    .style('margin-top', '5px')
     .attr('data-toggle','buttons')
     .append('button')
     .classed('sidebar_text', true)
@@ -31,9 +29,7 @@ module.exports = function set_up_search(sidebar, params ){
     .classed('btn',true)
     .classed('btn-primary',true)
     .classed('submit_gene_button',true)
-    .style('margin-top', '4px')
-    .style('padding-top', '2px')
-    .style('padding-bottom', '2px')
-    .style('float', 'none');
+    .style('width', '100%')
+    .style('font-size', '14px');
 
 };

@@ -147,8 +147,8 @@ $btn-width: 16.25rem;
 
 .recent-ds-section,
 .tools-section {
-  padding-bottom: 6rem;
-  padding-top: 6rem;
+  padding-bottom: 4rem;
+  padding-top: 4rem;
 }
 
 $border-color: #4e709b;
@@ -268,8 +268,8 @@ $about-background: $purple;
 }
 
 .ann-section {
-  padding-bottom: 2rem;
-  padding-top: 2rem;
+  padding-bottom: 4rem;
+  padding-top: 4rem;
 }
 
 .card {
@@ -277,6 +277,7 @@ $about-background: $purple;
   border: 1px solid;
   border-color: $gray-border-top $gray-border-side $gray-border-bottom;
   border-radius: .25rem;
+  min-height: 12.5rem;
   padding: 1rem;
 
   p,
@@ -291,53 +292,56 @@ $about-background: $purple;
 }
 
 .pub-section {
-  p,
-  a {
-    font-size: .9rem;
+  span {
+    cursor: inherit;
   }
 }
 
-.social-section {
-  background-color: $brand-primary-light;
-  color: $white;
-  padding-bottom: 2rem;
-  padding-top: 2rem;
-
-  h3 {
-    color: $white;
-    margin-bottom: 1rem;
-  }
+.publications {
+  border-right: 1px solid $gray;
 }
 
-.social-left {
-  border-bottom: 1px solid $brand-primary-very-light;
-  margin-bottom: 1rem;
-  padding-bottom: 1rem;
-
-  @media (min-width: 768px) {
-    border-bottom: 0;
-    border-right: 1px solid $brand-primary-very-light;
-    padding-bottom: 0;
-  }
-
-  hr {
-    border-color: $brand-primary-very-light;
-  }
-}
-
-.youtube {
-  margin-bottom: 2.5rem;
-}
-
-.contact {
-  a {
-    color: $brand-secondary;
-  }
-
-  p {
-    margin-bottom: 0;
-  }
-}
+// .social-section {
+//   background-color: $brand-primary-light;
+//   color: $white;
+//   padding-bottom: 2rem;
+//   padding-top: 2rem;
+//
+//   h3 {
+//     color: $white;
+//     margin-bottom: 1rem;
+//   }
+// }
+//
+// .social-left {
+//   border-bottom: 1px solid $brand-primary-very-light;
+//   margin-bottom: 1rem;
+//   padding-bottom: 1rem;
+//
+//   @media (min-width: 768px) {
+//     border-bottom: 0;
+//     border-right: 1px solid $brand-primary-very-light;
+//     padding-bottom: 0;
+//   }
+//
+//   hr {
+//     border-color: $brand-primary-very-light;
+//   }
+// }
+//
+// .youtube {
+//   margin-bottom: 2.5rem;
+// }
+//
+// .contact {
+//   a {
+//     color: $brand-secondary;
+//   }
+//
+//   p {
+//     margin-bottom: 0;
+//   }
+// }
 
 .ajay {
   float: right;

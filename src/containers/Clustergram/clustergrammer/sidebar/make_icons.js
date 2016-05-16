@@ -12,13 +12,10 @@ module.exports = function make_icons(params, sidebar){
 
   var row = sidebar
     .select('.icons_section')
-    .style('margin-top','7px')
-    // .style('margin-left', params.sidebar.icon_margin_left+'px')
-    // .style('width',params.sidebar.buttons.width+'px')
-    .append('div');
+    .style('margin-top','7px');
 
   row
-    .append('col')
+    .append('div')
     .classed('col-xs-4',true)
     .append('a')
     .attr('href','http://amp.pharm.mssm.edu/clustergrammer/help')
@@ -30,7 +27,7 @@ module.exports = function make_icons(params, sidebar){
     .style('font-size','25px');
 
   row
-    .append('col')
+    .append('div')
     .classed('col-xs-4',true)
     .append('i')
     .classed('fa',true)
@@ -45,14 +42,14 @@ module.exports = function make_icons(params, sidebar){
     });
 
   row
-    .append('col')
+    .append('div')
     .classed('col-xs-4',true)
     .append('i')
     .classed('fa',true)
     .classed('fa-camera',true)
     .classed('icon_buttons',true)
     .style('font-size','25px')
-    .on('click',function(){
+    .on('click', function() {
 
       $(params.root+' .picture_info').modal('toggle');
 

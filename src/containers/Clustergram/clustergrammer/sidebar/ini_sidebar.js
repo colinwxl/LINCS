@@ -1,5 +1,4 @@
 require('jquery-ui/slider');
-
 var change_groups = require('../dendrogram/change_groups');
 var search = require('../search');
 var all_reorder = require('../reorder/all_reorder');
@@ -84,5 +83,30 @@ module.exports = function ini_sidebar(params){
   });
 
   ini_cat_reorder(params);
+
+  $( params.root+' .opacity_slider' ).slider({
+    // value:0.5,
+    min: 0.1,
+    max: 2.0,
+    step: 0.1,
+    slide: function( event, ui ) {
+
+      $( "#amount" ).val( "$" + ui.value );
+      var inst_index = 2 - ui.value;
+
+      var scaled_max = params.matrix.abs_max_val * inst_index;
+
+      params.matrix.opacity_scale.domain([0, scaled_max]);
+
+      d3.selectAll(params.root+' .tile')
+        .style('fill-opacity', function(d) {
+          // calculate output opacity using the opacity scale
+          var output_opacity = params.matrix.opacity_scale(Math.abs(d.value));
+          return output_opacity;
+        });
+
+
+    }
+  });
 
 };

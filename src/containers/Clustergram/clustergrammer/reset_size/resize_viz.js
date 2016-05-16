@@ -24,15 +24,16 @@ var make_col_dendro_triangles = require('../dendrogram/make_col_dendro_triangles
 var toggle_dendro_view = require('../dendrogram/toggle_dendro_view');
 var show_visible_area = require('../zoom/show_visible_area');
 var calc_viz_dimensions = require('../params/calc_viz_dimensions');
+var position_play_button = require('../demo/position_play_button');
 
 module.exports = function(params) {
 
-  var cont_dim = calc_viz_dimensions(params);
+  var cont_dim = calc_viz_dimensions(params); 
 
   d3.select(params.root+' .play_button');
     // .style('opacity', 0.2);
 
-  // reset visible area
+  // reset visible area 
   var zoom_info = {};
   zoom_info.zoom_x = 1;
   zoom_info.zoom_y = 1;
@@ -91,6 +92,7 @@ module.exports = function(params) {
     .attr('width', params.viz.clust.dim.width)
     .attr('height', params.viz.clust.dim.height);
 
+  setTimeout(position_play_button, 100, params);
 
   var row_nodes = params.network_data.row_nodes;
   var row_nodes_names = _.map(row_nodes, 'name');
@@ -106,7 +108,7 @@ module.exports = function(params) {
   // resize row labels
   ///////////////////////////
 
-  resize_row_labels(params, svg_group);
+  resize_row_labels(params, svg_group); 
   resize_row_viz(params, svg_group);
 
   // change the size of the highlighting rects
@@ -130,10 +132,10 @@ module.exports = function(params) {
         });
     });
 
-  // necessary to properly position row labels vertically
+  // necessary to properly position row labels vertically 
   svg_group.selectAll('.row_label_group')
     .select('text')
-    .attr('y', params.viz.rect_height * 0.5 + params.labels.default_fs_row*0.35 );
+    .attr('y', params.viz.rect_height * 0.5 + params.labels.default_fs_row*0.35 ); 
 
   if (utils.has( params.network_data.row_nodes[0], 'value')) {
     resize_label_bars(params, svg_group);
@@ -159,7 +161,7 @@ module.exports = function(params) {
       var output_string = 'M ' + origin_x + ',' + origin_y + ' L ' +
         mid_x + ',' + mid_y + ', L ' + final_x + ',' + final_y + ' Z';
       return output_string;
-    });
+    }); 
 
   var is_resize = true;
   if (params.viz.show_dendrogram){
@@ -171,7 +173,7 @@ module.exports = function(params) {
     toggle_dendro_view(params, 'col', 0);
   }
 
-  resize_col_labels(params, svg_group);
+  resize_col_labels(params, svg_group); 
   resize_col_text(params, svg_group);
   resize_col_triangle(params, svg_group);
   resize_col_hlight(params, svg_group);
@@ -180,7 +182,7 @@ module.exports = function(params) {
   resize_super_labels(params, svg_group);
   resize_spillover(params.viz, svg_group);
 
-  // specific to screen resize
+  // specific to screen resize 
   resize_grid_lines(params, svg_group);
   resize_borders(params, svg_group);
 
@@ -190,6 +192,6 @@ module.exports = function(params) {
     .translate([ params.viz.clust.margin.left, params.viz.clust.margin.top ]);
 
   label_constrain_and_trim(params);
-
+  
   d3.select(params.viz.viz_svg).style('opacity',1);
 };
