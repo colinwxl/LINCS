@@ -14,12 +14,6 @@ import styles from './HomeView.scss';
 import bannerImg from './background.png';
 import cubeImg from './cube.png';
 
-const mgm = 'michael.mcdermott@mssm.edu';
-const sherry = 'sherry.jenkins@mssm.edu';
-const subject = 'Questions/Comments regarding lincsproject.org';
-
-const mailLink = `mailto:${mgm},${sherry}?Subject=[${subject}]`;
-
 const mapStateToProps = (state) => ({
   publications: state.pubsNews.publications,
   tools: state.toolsWorkflows.tools,
