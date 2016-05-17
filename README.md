@@ -5,7 +5,7 @@ The homepage of the NIH LINCS Program.
 
 ## Getting Started
 
-To get started with this project, you will need to have [Node.js](https://nodejs.org) installed.
+To get started with this project, you will need to have [Node.js](https://nodejs.org) installed. **Please ensure that your version of Node.js is at least 4.0**.
 ```shell
 # Download the .zip of the project or clone the project using git:
 git clone https://github.com/MaayanLab/LINCS.git
