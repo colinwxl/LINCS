@@ -27,7 +27,9 @@ export default function Navigation(props) {
           </Link>
         </div>
         <div className={`collapse navbar-toggleable-sm ${styles['dd-nav']}`} id="main-navbar">
-          <img src={cubeImg} alt="NIH LINCS Program" />
+          <Link to="/">
+            <img src={cubeImg} alt="NIH LINCS Program" />
+          </Link>
           <Link className={`navbar-brand hidden-sm-down ${styles.title}`} to="/">
             NIH LINCS Program
           </Link>

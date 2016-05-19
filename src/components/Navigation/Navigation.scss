@@ -45,6 +45,12 @@ $brand-primary-opaque: rgba(58, 82, 120, .2);
     padding-right: 2rem;
     position: absolute;
     z-index: 1;
+
+  }
+  @media (max-width: 1000px) {
+    img {
+      display: none;
+    }
   }
 }
 
