@@ -1,6 +1,8 @@
 import React, { PropTypes } from 'react';
 import { Link } from 'react-router';
 import styles from './Navigation.scss';
+import cubeImg from './cube.png';
+
 
 export default function Navigation(props) {
   const { atHome } = props;
@@ -25,6 +27,7 @@ export default function Navigation(props) {
           </Link>
         </div>
         <div className={`collapse navbar-toggleable-sm ${styles['dd-nav']}`} id="main-navbar">
+          <img src={cubeImg} alt="NIH LINCS Program" />
           <Link className={`navbar-brand hidden-sm-down ${styles.title}`} to="/">
             NIH LINCS Program
           </Link>

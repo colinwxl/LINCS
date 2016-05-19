@@ -42,7 +42,7 @@ $text-shadow-color: #051933;
 .lead {
   color: $white;
   font-size: 1.2rem;
-  font-weight: 300;
+  font-weight: 400;
   margin-bottom: 2rem;
   margin-left: auto;
   margin-right: auto;
@@ -61,13 +61,13 @@ $btn-width: 16.25rem;
 
 .btn-discover,
 .btn-td {
+  background-color: $brand-primary;
   border-color: $yellow;
   color: $yellow;
   font-size: 1.25rem;
   font-weight: 500;
   padding: 1rem 2rem;
   width: 100%;
-
   &:hover {
     background-color: $yellow;
     color: $off-black;

@@ -11,6 +11,11 @@ $brand-primary-opaque: rgba(58, 82, 120, .2);
   padding-top: .5rem;
   width: 100%;
 
+  img {
+    width: 50px;
+    float: left;
+    margin-right: 10px;
+  }
   button,
   a {
     color: $white;
