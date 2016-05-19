@@ -196,11 +196,20 @@ const smMapping = {
 
 const { indices } = esClient;
 
-indices
-  // delete the current `lincs` index
-  .delete({ index: 'lincs' })
-  // recreate the `lincs` index
-  .then(() => indices.create({ index: 'lincs' }))
+let promise;
+
+// Deleting the index will fail if it doesn't exist
+try {
+  promise = indices
+    .delete({ index: 'lincs' })
+    .then(() => indices.create({ index: 'lincs' }));
+} catch (e) {
+  // Index does not exist so create it
+  promise = indices.create({ index: 'lincs' });
+}
+
+// Index has been deleted if it exists and created already.
+promise
   // In order to update the settings of the index, it must be closed.
   // These next three lines close the index, update the settings, and then reopen the index.
   .then(() => indices.close({ index: 'lincs' }))
