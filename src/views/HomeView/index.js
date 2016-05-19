@@ -12,7 +12,7 @@ import styles from './HomeView.scss';
 
 // Images
 import bannerImg from './background.png';
-import cubeImg from './cube.png'
+import cubeImg from './cube.png';
 
 const mapStateToProps = (state) => ({
   publications: state.pubsNews.publications,
