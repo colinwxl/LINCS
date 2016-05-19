@@ -74,4 +74,8 @@ $brand-primary-opaque: rgba(58, 82, 120, .2);
   position: absolute;
   width: 100%;
   z-index: 1;
+  
+  img {
+    display: none;
+  }
 }
