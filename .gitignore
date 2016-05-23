@@ -5,6 +5,7 @@ node_modules/
 dist/
 coverage/
 server-es5/
+graphics/
 
 **/serverConf.js
 *.sqlite
