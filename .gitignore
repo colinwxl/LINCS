@@ -7,3 +7,4 @@ coverage/
 server-es5/
 
 **/serverConf.js
+*.sqlite
