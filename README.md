@@ -2,9 +2,12 @@
 
 ## Getting Started
 
-To get started, you need a private config file, `serverConf.js` that contains sensitive data. Search Confluence for this file or ask one of the active developers. Once you have it, place it in the `server` directory.
+To get started, you need:
 
-To get started with this project, you will need to have [Node.js](https://nodejs.org) installed. **Please ensure that your version of Node.js is at least 4.0**.
+1. A config file, `serverConf.js`. It contains sensitive data and is not committed to this repo. Search Confluence for this file or ask one of the active developers. Once you have it, place it in the `server` directory.
+2. [Node.js](https://nodejs.org) installed locally. **Please ensure that your version of Node.js is at least 4.0**.
+
+Then just run:
 
 ```shell
 # Download the .zip of the project or clone the project using git:
@@ -79,12 +82,12 @@ router.get('/', async (ctx) => {
 });
 ```
 
-### Building and Deploying
+## Building and Deploying
 
-#### Running in Development
+### Running in Development
 To run the application in development, first install the [Redux DevTools Chrome Extension](https://github.com/zalmoxisus/redux-devtools-extension). It makes viewing changes in your data over the lifetime of your app very easy. Once installed, start the application with `npm run dev`. This may take some time as webpack needs to compile the application. If any problems arise in this part of the process, I would review the [react-redux-starter-kit](https://www.github.com/davezuko/react-redux-starter-kit) as the webpack configs are almost identical to the ones there.
 
-#### Building the Application for Production
+### Building the Application for Production
 This application is built using Docker. In order to build it for production, you must first have docker-machine installed. Follow the instructions on the [Docker website](https://www.docker.com/products/docker-toolbox) for installing the Docker Toolbox (which contains docker-machine amongst other things).
 
 With docker-machine installed, you'll need to create a new machine. I would delete the current 'default' machine by running `docker-machine rm default`. Following the answer from [this StackOverflow answer](http://stackoverflow.com/questions/30654306/allow-insecure-registry-in-host-provisioned-with-docker-machine),
@@ -98,3 +101,8 @@ After creating the machine, follow the instructions found by running `docker-mac
 Now that you have docker-machine configured, you are ready to run this in production. It is very simple to do so. First, determine the severity of the changes you have made since the last release. Normally, these are very minor. The deployment process uses the `npm version (patch|minor|major)` (details found [here](https://docs.npmjs.com/cli/version)) to increment the version of the application, create a docker vm with the same new version, push it to our repository, and tell Marathon to restart the application with the new vm. You can find the commands described in the npm docs (version and postversion) in the package.json file.
 
 If the deployment process finishes without errors, visit http://amp.pharm.mssm.edu/LINCS to view the updated product.
+
+## Developers
+
+- (Michael McDermott)[https://github.com/mgmcdermott]
+- (Gregory Gundersen)[https://github.com/gwgundersen]

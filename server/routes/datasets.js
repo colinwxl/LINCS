@@ -230,7 +230,9 @@ router.get('/search', async (ctx) => {
     .from('datasets')
     .whereIn('center_id', centerIds);
 
-  // Concatenate dataset IDs with IDs from other Knex queries.
+  // Concatenate dataset IDs with IDs from other Knex queries. We don't have to
+  // verify that the IDs are unique because Knex will use `WHERE IN`.
+  // --------------------------------------------------------------------------
   const datasetIds = dsIds.concat(
     dsetsWithCells.map(obj => obj.dataset_id),
     dsetsWithSms.map(obj => obj.dataset_id),
