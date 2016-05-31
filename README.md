@@ -1,21 +1,17 @@
-# LINCS
-The homepage of the NIH LINCS Program.
-
-> Note: There is a file missing that you will need to run this application, however it has sensitive data. Email me at michael@mgmcdermott.com and I can send it to you. The file lives in the server folder and it is called serverConf.js
+# Homepage for the NIH LINCS Program
 
 ## Getting Started
 
+To get started, you need a private config file, `serverConf.js` that contains sensitive data. Search Confluence for this file or ask one of the active developers. Once you have it, place it in the `server` directory.
+
 To get started with this project, you will need to have [Node.js](https://nodejs.org) installed. **Please ensure that your version of Node.js is at least 4.0**.
+
 ```shell
 # Download the .zip of the project or clone the project using git:
 git clone https://github.com/MaayanLab/LINCS.git
 cd LINCS
 # Install dependencies
 npm install
-# Create the SQL tables in the development database
-npm run migrate
-# Seed the created SQL tables in the development database
-npm run seed
 # Start the application
 npm run dev
 ```
@@ -81,40 +77,6 @@ router.get('/', async (ctx) => {
     ctx.throw(500, 'An error occurred obtaining datasets.');
   }
 });
-```
-
-### Migrating and Seeding the Database
-> Note: I am working on implementing a set of Python scripts to migrate and seed the database.
-> For now, they are all written in JavaScript (Node.js executables)
-
-To update entries in the database, you may do so without recreating it using phpMyAdmin. This is accessed by going to Marathon (elizabeth:8080) and clicking on the computer where the phpMyAdmin instance is running. From here, it is very easy for you to make small changes to text, add entries, or remove them.
-
-If you would like to rebuild the database from scratch using the original data files, then there are two different processes you'll need to prepare the data:
-
-For **datasets**, **cell lines**, and **tools**:
-
-1. In the resources folder, located the .csv file of the entity you'd like to edit. Open it in
-your favorite editor.
-  * I tend to use Google Sheets as it ensures that all characters are utf-8, otherwise some problems may come up in the next step.
-2. Open the python file associated with the .csv file you edited (i.e. datasets.py). If the columns are the same, there is no need to edit the Python script.
-  * Note that the Python script converts the csv to a JavaScript file that contains an array
-  of objects, where each object has the schema specified in
-  [server/data/schema.js](https://github.com/MaayanLab/LINCS/blob/master/server/data/schema.js).
-3. After running the Python script, a new JavaScript file will be created in the seed folder.
-
-For **publications**, **webinars**, **workshops**, **funding opportunities**, and **symposia**:
-
-1. Edit the JavaScript file in the seed folder directly. These files are much smaller than the others, making them easy to maintain. Make sure that each object has the same schema as its database table found in [server/data/schema.js](https://github.com/MaayanLab/LINCS/blob/master/server/data/schema.js).
-
-Once the data is updated and the seed folder contains the correct JavaScript files, run `npm run migrate` to recreate the database tables in development, and `npm run migrate:prod` to  recreate the database tables in production. Changing server/serverConf.js will change where the databases are located depending on your environment. Currently, the development database is an SQLite file found in the root folder (lincs.sqlite) and the production database is a MySQL instance running on our internal servers. If an error occurs, try re-running the commands.
-
-After recreating the tables in the database, populate them by running `npm run seed` or `npm run seed:prod` for development and production respectively. This may take some time and an error may occur here if any of the files in the seed folder are incorrect.
-
-After making any changes to the production database, run `npm run elastic` to update the elasticsearch index. This technology may be removed in favor of SQL queries for simplicity.
-
-All three commands, `npm run migrate`, `npm run seed`, and `npm run elastic`, contain files written in ES6 (they live in the [server/data](https://github.com/MaayanLab/LINCS/tree/master/server/data) folder). Therefore, the [babel-node](https://babeljs.io/docs/usage/cli/#babel-node) package is used to run them. For `npm run seed`, however, the babel-node process runs out of memory because the files in the seed folder are too large. To overcome this, the entire server folder is compiled to regular JavaScript (ES5), regular `node` is run with the `--max-old-space-size=15360` flag to increase the allotted memory, and then the compiled files are removed. The command can be found in the package.json file:
-```shell
-npm run server-es5 && node --max-old-space-size=15360 server-es5/data/seed && rm -rf server-es5
 ```
 
 ### Building and Deploying

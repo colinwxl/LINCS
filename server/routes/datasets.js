@@ -7,13 +7,19 @@ import moment from 'moment';
 
 import _debug from 'debug';
 const debug = _debug('app:server:routes:datasets');
-import { knex, esClient } from '../serverConf';
+import { knex } from '../serverConf';
 import { Dataset } from '../models/Dataset';
 import { Center } from '../models/Center';
 
 const router = new Router({
-  prefix: '/LINCS/api/v1/datasets',
+  prefix: '/LINCS/api/v1/datasets'
 });
+
+
+/**
+ * Routes
+ * ----------------------------------------------------------------------------*/
+
 
 /**
  * Fetch all datasets and the relationships provided in the `include` query parameter.
@@ -172,54 +178,43 @@ router.get('/search', async (ctx) => {
     ctx.throw(400, 'Query parameter q required for search.');
   }
 
-  // Search elasticsearch indices with the multi_match and phrase_prefix query types
-  // https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-multi-match-query.html#type-phrase
-  const resp = await esClient.search({
-    index: 'lincs',
-    size: ctx.query.limit || 100,
-    fields: ['_id'],
-    body: {
-      query: {
-        multi_match: {
-          fields: [
-            'name^2', 'source', 'lincs_id', 'pubchem_cid', 'full_assay_name', 'description',
-            'center_name', 'assay', 'method', 'classification', 'physical_detection',
-          ],
-          query: ctx.query.q,
-          type: 'phrase_prefix',
-          max_expansions: 10,
-          operator: 'and',
-        },
-      },
-    },
-  });
+  // Get row IDs based on full-text searches of table fields.
+  // --------------------------------------------------------------------------
+  const limit = ctx.query.limit || 100;
 
-  // Result from elasticsearch has objects with
-  // { _id: 1, type: 'dataset' } and { _id: 2, type: 'cell' }
-  // Split results to find all dsIds and cellIds
-  const dsIds = [];
-  const cellIds = [];
-  const smIds = [];
-  resp.hits.hits.forEach(doc => {
-    // Disable linting due to _hanging _underscores
-    /* eslint-disable */
-    const id = parseInt(doc._id, 10);
-    if (doc._type === 'dataset') {
-      dsIds.push(id);
-    } else if (doc._type === 'cell') {
-      cellIds.push(id);
-    } else if (doc._type === 'smallmolecule') {
-      smIds.push(id);
-    }
-    /* eslint-enable */
-  });
+  const dsIds = await getIdsFromFullTextSearch(
+    'datasets',
+    ['description', 'full_assay_name', 'classification', 'assay',
+      'method', 'physical_detection', 'lincs_id'],
+    ctx.query.q,
+    limit
+  );
 
-  // Find all of the dataset ids that have:
-  //   - A dataset id in dsIds
-  //   - Any of the cell lines in cellIds
-  //   - Any of the small molecules in smIds
-  // Might be able to build a query with Bookshelf.
-  // For now use knex to query the join tables.
+  const cellIds = await getIdsFromFullTextSearch(
+    'cells',
+    ['name', 'lincs_id', 'source'],
+    ctx.query.q,
+    limit
+  );
+
+  const smIds = await getIdsFromFullTextSearch(
+    'small_molecules',
+    ['pubchem_cid', 'name', 'source', 'lincs_id'],
+    ctx.query.q,
+    limit
+  );
+
+  const centerIds = await getIdsFromFullTextSearch(
+    'centers',
+    ['name', 'description'],
+    ctx.query.q,
+    limit
+  );
+
+  // Translate row IDs to dataset IDs. We could do this manually, but let's let
+  // Knex handle the joins for now. We can optimize this if the results are too
+  // slow.
+  // --------------------------------------------------------------------------
   const dsetsWithCells = await knex
     .select('dataset_id')
     .from('cells_datasets')
@@ -230,13 +225,16 @@ router.get('/search', async (ctx) => {
     .from('small_molecules_datasets')
     .whereIn('small_molecule_id', smIds);
 
-  // dsIds looks like [Number]
-  // dsetsWithCells and dsetsWithSms look like [{ dataset_id: Number }, ... ]
-  // Therefore we must map dsetsWithCells and dsetsWithSms and concat them to
-  // dsIds to get all dataset ids.
+  const dsetsWithCenters = await knex
+    .select('id')
+    .from('datasets')
+    .whereIn('center_id', centerIds);
+
+  // Concatenate dataset IDs with IDs from other Knex queries.
   const datasetIds = dsIds.concat(
     dsetsWithCells.map(obj => obj.dataset_id),
     dsetsWithSms.map(obj => obj.dataset_id),
+    dsetsWithCenters.map(obj => obj.id)
   );
 
   // Fetch the datasets with the gathered ids.
@@ -279,9 +277,9 @@ router.post('/clicks/increment', async (ctx) => {
           'cells',
           'cells.tissues',
           'cells.diseases',
-          'cells.synonyms',
+          'cells.synonyms'
           // 'smallMolecules',
-        ],
+        ]
       });
     // debug(dsModels);
     ctx.body = await Promise.all(
@@ -493,6 +491,59 @@ router.get('/:id/download/gctx', async (ctx) => {
   }
 });
 
+
+/**
+ * Downloads the dataset citation for the given dataset id
+ * @param  {String} id The dataset id for which the citation will be downloaded.
+ * @param  {String} refType The type of citation to download. Either ris, enw, or bib.
+ */
+router.get('/:id/reference/:refType', async (ctx) => {
+  const dsModel = await Dataset.where('id', ctx.params.id).fetch({ withRelated: ['center'] });
+  const dataset = dsModel.toJSON();
+  let fileInfo;
+  if (ctx.params.refType === 'ris') {
+    fileInfo = await generateRIS(dataset);
+  } else if (ctx.params.refType === 'enw') {
+    fileInfo = await generateENW(dataset);
+  } else if (ctx.params.refType === 'bib') {
+    fileInfo = await generateBIB(dataset);
+  }
+  ctx.set('Content-disposition', `attachment; filename=${fileInfo.filename}`);
+  // Use koa-sendfile to send the file, given the path.
+  await send(ctx, fileInfo.filePath);
+  if (!ctx.status) {
+    ctx.throw(500, 'An error occurred generating the ris file.');
+  }
+  fs.unlinkSync(fileInfo.filePath);
+});
+
+
+/**
+ * Utility functions
+ * ----------------------------------------------------------------------------*/
+async function getIdsFromFullTextSearch(table, fields, searchTerm, limit) {
+  const ids = [];
+  const bindings = [];
+
+  let sql = 'SELECT id FROM {0} WHERE'; //MATCH(description) AGAINST(?)';
+  sql = sql.replace('{0}', table);
+  fields.forEach(function(field, i) {
+    if (i != 0) { sql += ' OR'; }
+    // IMPORTANT: Let Knex.js handle the bindings to prevent SQL injection.
+    sql += ' MATCH (' + field + ') AGAINST(?)';
+    bindings.push(searchTerm);
+  });
+  sql += ' LIMIT ' + limit;
+
+  const resp = await knex.raw(sql, bindings);
+  resp[0].forEach(doc => {
+    const id = parseInt(doc.id, 10);
+    ids.push(id);
+  });
+  return ids;
+}
+
+
 /**
  * Generates a dataset reference in the
  * {@link http://refman.com/sites/rm/files/m/direct_export_ris.pdf RIS format}
@@ -553,6 +604,7 @@ function generateENW(ds) {
   });
 }
 
+
 /**
  * Generates a dataset reference in the {@link http://www.bibtex.org/Format/ BIBTEX format}
  * @param  {Object} ds The dataset to reference
@@ -582,29 +634,5 @@ function generateBIB(ds) {
   });
 }
 
-/**
- * Downloads the dataset citation for the given dataset id
- * @param  {String} id The dataset id for which the citation will be downloaded.
- * @param  {String} refType The type of citation to download. Either ris, enw, or bib.
- */
-router.get('/:id/reference/:refType', async (ctx) => {
-  const dsModel = await Dataset.where('id', ctx.params.id).fetch({ withRelated: ['center'] });
-  const dataset = dsModel.toJSON();
-  let fileInfo;
-  if (ctx.params.refType === 'ris') {
-    fileInfo = await generateRIS(dataset);
-  } else if (ctx.params.refType === 'enw') {
-    fileInfo = await generateENW(dataset);
-  } else if (ctx.params.refType === 'bib') {
-    fileInfo = await generateBIB(dataset);
-  }
-  ctx.set('Content-disposition', `attachment; filename=${fileInfo.filename}`);
-  // Use koa-sendfile to send the file, given the path.
-  await send(ctx, fileInfo.filePath);
-  if (!ctx.status) {
-    ctx.throw(500, 'An error occurred generating the ris file.');
-  }
-  fs.unlinkSync(fileInfo.filePath);
-});
 
 export default router;
