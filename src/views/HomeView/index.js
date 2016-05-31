@@ -12,7 +12,7 @@ import styles from './HomeView.scss';
 
 // Images
 import bannerImg from './background.png';
-import cubeImg from './cube.png';
+import cubeImg from './cube_lines.png';
 
 const mapStateToProps = (state) => ({
   publications: state.pubsNews.publications,
@@ -82,6 +82,116 @@ export class HomeView extends Component {
             </Link>
           </div>
         </div>
+
+        {/* Publications / Twitter
+          * ================================================================ */}
+        <div className={styles['pubs-wrap']}>
+          <div className="container">
+            <div className="row">
+              <div className={`col-xs-12 ${styles.section} ${styles['pub-section']}`}>
+                <div className="row">
+                  <div className={`col-xs-12 col-md-7 ${styles.publications}`}>
+                    <h3>Featured Recent Publications</h3>
+                    {
+                      pubs && pubs.map(p =>
+                          <Publication key={p.id} pub={p} />
+                      )
+                    }
+                    <Link to="/publications">More publications...</Link>
+                  </div>
+                  <div className="col-xs-12 col-md-5">
+                    <Twitter />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Events
+          * ================================================================ */}
+        <div className={styles.ann}>
+          <div className="container">
+            <div className="row">
+              <div className={`col-xs-12 ${styles.section} ${styles['ann-section']}`}>
+                <h3 className={styles.title}>Events</h3>
+                <div className="row">
+                  <div className="col-xs-12 col-md-4">
+                    <div className={styles.card}>
+                      <h5>LINCS Outreach Meeting 2016</h5>
+                      <div className={styles.group}>
+                        <p className={`clearfix ${styles.justify}`}>
+                          On March 10-11, 2016, the LINCS Outreach Meeting was held at the
+                          UC Irvine. The meeting included an outreach program with experts
+                          in stem cell biology, and big data management.
+                        </p>
+                        <a href="https://www.youtube.com/playlist?list=PLQw7KTnzkpXdpO1WMpW8fJeriqZEuFR1i">
+                          Watch Videos
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="col-xs-12 col-md-4">
+                    <div className={styles.card}>
+                      <h5>Data Science Research Webinar</h5>
+                      <div className={styles.group}>
+                        <h6>Detection and Removal of Spatial Bias in Multi-Well Assays</h6>
+                        <p><em>May 24, 2016</em> - Alexander Lachmann PhD, Columbia University</p>
+                        <Link to="/community/webinars">Learn More</Link>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="col-xs-12 col-md-4">
+                    <div className={styles.card}>
+                      <h5>Data Science Research Webinar</h5>
+                      <div className={styles.group}>
+                        <h6>
+                          Construction, Characterization and Validation of Multiscale
+                          Gene Networks in Cancer
+                        </h6>
+                        <p>
+                          <em>June 28, 2016</em> - Bin Zhang PhD, Icahn School of Medicine at
+                          Mount Sinai
+                        </p>
+                        <Link to="/community/webinars">Learn More</Link>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Consortium description
+          * ================================================================ */}
+        <div className={styles.about}>
+          <div className="container">
+            <div className="row">
+              <div className={`col-xs-12 ${styles.section}`}>
+                <div className={styles.group}>
+                  <h3 className={styles.title}>The LINCS Consortium</h3>
+                  <p>
+                    By generating and making public data that indicates how cells respond to
+                    various genetic and environmental stressors, the LINCS project will
+                    help us gain a more detailed understanding of cell pathways and aid
+                    efforts to develop therapies that might restore perturbed pathways and
+                    networks to their normal states. The LINCS website is a source of
+                    information for the research community and general public about the
+                    LINCS project. The website contains details about the assays, cell
+                    types, and perturbagens currently part of the library, as well as links
+                    to participating sites, the data releases from the sites, and software
+                    that can be used for analyzing the data.
+                  </p>
+                  <Link to="/centers">Learn More</Link>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Recent data releases
+          * ================================================================ */}
         <div className={`${styles.content}`}>
           <div className={styles['recent-ds-section']}>
             <div className="container">
@@ -123,104 +233,6 @@ export class HomeView extends Component {
                 </div>
                 <div className="col-xs-12 col-lg-5 col-lg-pull-6">
                   <Carousel tools={tools} />
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className={styles.about}>
-            <div className="container">
-              <div className="row">
-                <div className={`col-xs-12 ${styles.section}`}>
-                  <div className={styles.group}>
-                    <h3 className={styles.title}>The LINCS Consortium</h3>
-                    <p>
-                      By generating and making public data that indicates how cells respond to
-                      various genetic and environmental stressors, the LINCS project will
-                      help us gain a more detailed understanding of cell pathways and aid
-                      efforts to develop therapies that might restore perturbed pathways and
-                      networks to their normal states. The LINCS website is a source of
-                      information for the research community and general public about the
-                      LINCS project. The website contains details about the assays, cell
-                      types, and perturbagens currently part of the library, as well as links
-                      to participating sites, the data releases from the sites, and software
-                      that can be used for analyzing the data.
-                    </p>
-                    <Link to="/centers">Learn More</Link>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className={styles.ann}>
-            <div className="container">
-              <div className="row">
-                <div className={`col-xs-12 ${styles.section} ${styles['ann-section']}`}>
-                  <h3 className={styles.title}>Events</h3>
-                  <div className="row">
-                    <div className="col-xs-12 col-md-4">
-                      <div className={styles.card}>
-                        <h5>LINCS Outreach Meeting 2016</h5>
-                        <div className={styles.group}>
-                          <p className={`clearfix ${styles.justify}`}>
-                            On March 10-11, 2016, the LINCS Outreach Meeting was held at the
-                            UC Irvine. The meeting included an outreach program with experts
-                            in stem cell biology, and big data management.
-                          </p>
-                          <a href="https://www.youtube.com/playlist?list=PLQw7KTnzkpXdpO1WMpW8fJeriqZEuFR1i">
-                            Watch Videos
-                          </a>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="col-xs-12 col-md-4">
-                      <div className={styles.card}>
-                        <h5>Data Science Research Webinar</h5>
-                        <div className={styles.group}>
-                          <h6>Detection and Removal of Spatial Bias in Multi-Well Assays</h6>
-                          <p><em>May 24, 2016</em> - Alexander Lachmann PhD, Columbia University</p>
-                          <Link to="/community/webinars">Learn More</Link>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="col-xs-12 col-md-4">
-                      <div className={styles.card}>
-                        <h5>Data Science Research Webinar</h5>
-                        <div className={styles.group}>
-                          <h6>
-                            Construction, Characterization and Validation of Multiscale
-                            Gene Networks in Cancer
-                          </h6>
-                          <p>
-                            <em>June 28, 2016</em> - Bin Zhang PhD, Icahn School of Medicine at
-                            Mount Sinai
-                          </p>
-                          <Link to="/community/webinars">Learn More</Link>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className={styles['pubs-wrap']}>
-            <div className="container">
-              <div className="row">
-                <div className={`col-xs-12 ${styles.section} ${styles['pub-section']}`}>
-                  <div className="row">
-                    <div className={`col-xs-12 col-md-7 ${styles.publications}`}>
-                      <h3>Featured Recent Publications</h3>
-                      {
-                        pubs && pubs.map(p =>
-                          <Publication key={p.id} pub={p} />
-                        )
-                      }
-                      <Link to="/publications">More publications...</Link>
-                    </div>
-                    <div className="col-xs-12 col-md-5">
-                      <Twitter />
-                    </div>
-                  </div>
                 </div>
               </div>
             </div>

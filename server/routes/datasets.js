@@ -542,6 +542,7 @@ async function getIdsFromFullTextSearch(table, fields, searchTerm, limit) {
     const id = parseInt(doc.id, 10);
     ids.push(id);
   });
+
   return ids;
 }
 

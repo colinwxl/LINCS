@@ -13,14 +13,14 @@
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  padding: 6rem .9375rem;
+  padding: 4rem .9375rem 3rem .9375rem;
   position: relative;
   text-align: center;
 
   img {
-    height: 167px;
-    margin-bottom: 2rem;
-    width: 200px;
+    //height: 167px;
+    //margin-bottom: 2rem;
+    width: 540px;
   }
 }
 
@@ -147,8 +147,8 @@ $btn-width: 16.25rem;
 
 .recent-ds-section,
 .tools-section {
-  padding-bottom: 4rem;
-  padding-top: 4rem;
+  padding-bottom: 35px;
+  padding-top: 35px;
 }
 
 $border-color: #4e709b;
@@ -174,8 +174,8 @@ $about-background: $purple;
   background-color: $about-background;
   border-bottom: 1px solid darken($purple, 5);
   border-top: 1px solid darken($purple, 5);
-  padding-bottom: 2rem;
-  padding-top: 4rem;
+  padding-bottom: 20px;
+  padding-top: 30px;
 
   h3,
   p {
@@ -268,8 +268,8 @@ $about-background: $purple;
 }
 
 .ann-section {
-  padding-bottom: 4rem;
-  padding-top: 4rem;
+  padding-bottom: 30px;
+  padding-top: 30px;
 }
 
 .card {
@@ -287,8 +287,8 @@ $about-background: $purple;
 }
 
 .pubs-wrap {
-  padding-bottom: 2rem;
-  padding-top: 2rem;
+  padding-bottom: 20px;
+  padding-top: 50px;
 }
 
 .pub-section {
