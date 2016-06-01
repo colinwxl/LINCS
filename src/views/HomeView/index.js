@@ -94,7 +94,7 @@ export class HomeView extends Component {
                     <h3>Featured Recent Publications</h3>
                     {
                       pubs && pubs.map(p =>
-                          <Publication key={p.id} pub={p} />
+                        <Publication key={p.id} pub={p} />
                       )
                     }
                     <Link to="/publications">More publications...</Link>
