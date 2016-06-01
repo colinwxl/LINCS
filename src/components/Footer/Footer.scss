@@ -67,16 +67,15 @@ $hover-color: #cacaca;
     background: $base-font-color;
     border: 0;
     height: 1px;
-    margin-bottom: 1rem;
 
     @media (min-width: 768px) {
-      margin-bottom: 2rem;
+      margin-bottom: 10px;
     }
   }
 
   @media (min-width: 768px) {
-    padding-bottom: 1rem;
-    padding-top: 3rem;
+    padding-bottom: 10px;
+    padding-top: 30px;
   }
 }
 

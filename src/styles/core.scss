@@ -57,20 +57,20 @@
 
   footer,
   .footer-push {
-    height: 34rem;
+    height: $footer-height-collapsed;
 
     @media (min-width: 992px) {
-      height: 28rem;
+      height: $footer-height;
     }
   }
 
   .site-wrap {
-    margin-bottom: -34rem;
+    margin-bottom: -$footer-height-collapsed;
     min-height: 100%;
     position: relative;
 
     @media (min-width: 992px) {
-      margin-bottom: -28rem;
+      margin-bottom: -$footer-height;
     }
   }
 

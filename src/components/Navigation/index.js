@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react';
 import { Link } from 'react-router';
 import styles from './Navigation.scss';
-import cubeImg from './cube.png';
+import cubeImg from './cube_no-lines.png';
 
 
 export default function Navigation(props) {
