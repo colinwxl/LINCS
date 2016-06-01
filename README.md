@@ -104,5 +104,5 @@ If the deployment process finishes without errors, visit http://amp.pharm.mssm.e
 
 ## Developers
 
-- [Michael McDermott](https://github.com/mgmcdermott)
-- [Gregory Gundersen](https://github.com/gwgundersen)
+- [Michael McDermott](https://github.com/mgmcdermott) (lead developer)
+- [Gregory Gundersen](https://github.com/gwgundersen) (current maintainer)
