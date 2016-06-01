@@ -20,7 +20,10 @@ router.get('/publications', async (ctx) => {
   try {
     const pubs = await Publication
       .query(qb => qb.select().orderByRaw('year_published DESC, pm_id DESC'))
-      .fetchAll({ withRelated: ['authors'] });
+      .fetchAll({ withRelated: [
+        'authors',
+        { authors: function(query) { query.orderBy('author_rank')} }
+      ] });
     // Omit pivot by default
     const includePivot = !!ctx.query.includePivot;
     ctx.body = pubs.toJSON({ omitPivot: !includePivot });
@@ -39,7 +42,7 @@ router.get('/publications', async (ctx) => {
  */
 function generateRIS(pub) {
   return new Promise(resolve => {
-    const firstAuthorLastName = pub.authors[0].name.split(' ')[0];
+    const firstAuthorLastName = getFirstAuthorName(pub);
     const id = `${firstAuthorLastName}${pub.yearPublished}`;
     let filename = `${id}.ris`;
     if (!!pub.pmId) {
@@ -90,7 +93,7 @@ function generateRIS(pub) {
  */
 function generateENW(pub) {
   return new Promise(resolve => {
-    const firstAuthorLastName = pub.authors[0].name.split(' ')[0];
+    const firstAuthorLastName = getFirstAuthorName(pub);
     const id = `${firstAuthorLastName}${pub.yearPublished}`;
     let filename = `${id}.enw`;
     if (!!pub.pmId) {
@@ -140,7 +143,7 @@ function generateENW(pub) {
  */
 function generateBIB(pub) {
   return new Promise(resolve => {
-    const firstAuthorLastName = pub.authors[0].name.split(' ')[0];
+    const firstAuthorLastName = getFirstAuthorName(pub);
     const id = `${firstAuthorLastName}${pub.yearPublished}`;
     let filename = `${id}.bib`;
     if (!!pub.pmId) {
@@ -191,7 +194,14 @@ function generateBIB(pub) {
  * @param  {String} refType The type of citation to download. Either ris, enw, or bib.
  */
 router.get('/publications/:id/reference/:refType', async (ctx) => {
-  const pubModel = await Publication.where('id', ctx.params.id).fetch({ withRelated: ['authors'] });
+  const pubModel = await Publication
+    .where('id', ctx.params.id)
+    .fetch({
+      withRelated: [
+        'authors',
+        { authors: function(query) { query.orderBy('author_rank')} }
+      ]
+    });
   const publication = pubModel.toJSON();
   let fileInfo;
   if (ctx.params.refType === 'ris') {
@@ -215,3 +225,16 @@ router.get('/news', async (ctx) => {
 });
 
 export default router;
+
+
+/**
+ * Utility functions
+ * ----------------------------------------------------------------------------*/
+
+function getFirstAuthorName(pub) {
+  // IMPORTANT: This function is only guaranteed to work because the publication
+  // argument sorts the authors by author_rank. I don't like this, but it's the
+  // simplest solution for now.
+  const firstAuthor = pub.authors[0];
+  return firstAuthor.name.split(' ')[0];
+}
