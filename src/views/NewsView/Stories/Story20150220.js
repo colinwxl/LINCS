@@ -8,8 +8,7 @@ import chemblImg from './images/chembl.png';
 export default function Story20150220() {
   return (
     <Story
-      title="Call For External Collaborations With The BD2K-LINCS Data Coordination
-                And Integration Center"
+      title="LINCS Cell Line Data Integrated Into ChEMBL"
       date="February 20th, 2015"
     >
       <p>
