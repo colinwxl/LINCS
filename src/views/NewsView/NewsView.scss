@@ -93,3 +93,21 @@
     margin: 0;
   }
 }
+
+.twitter-label {
+  border: 1px solid $brand-primary;
+  border-radius: 4px;
+  display: inline-block;
+  padding: 2px 6px;
+  a {
+    color: $brand-primary;
+  }
+  &:hover {
+    background-color: $brand-primary;
+    cursor: pointer;
+    a {
+      color: white;
+      text-decoration: none;
+    }
+  }
+}
