@@ -22,8 +22,8 @@ export default function Story20151105() {
         Data Science</a> is a research intensive ten-week training program for
         undergraduate and graduate students interested in participating in cutting
         edge research projects aimed at solving data-intensive biomedical problems.
-        <a href="http://lincs-dcic.org/#/summer-fellows-2015#nav" target="_blank">
-          Summer fellows</a> conduct faculty-mentored independent research projects
+        <a href="http://lincs-dcic.org/#/summer-fellows-2015#nav" target="_blank">Summer fellows</a>
+        conduct faculty-mentored independent research projects
         within laboratories affiliated with the Center in the following areas: data
         integration, dynamic data visualization, machine learning, data harmonization,
         computational drug discovery, metadata and APIs, knowledge modeling,
@@ -35,14 +35,14 @@ export default function Story20151105() {
       </p>
       <p>
         <a href="http://icahn.mssm.edu/research/labs/maayan-laboratory" target="_blank">
-          Ma’ayan Laboratory of Computational Systems Biology</a> | Icahn School of
-        Medicine at Mount Sinai
+        Ma’ayan Laboratory of Computational Systems Biology</a> | Icahn School of Medicine at
+        Mount Sinai
         <br />
         <a href="http://eh3.uc.edu/" target="_blank">Medvedovic Laboratory for
-          Statistical Genomics and Systems Biology</a> | University of Cincinnati
+        Statistical Genomics and Systems Biology</a> | University of Cincinnati
         <br />
         <a href="http://ccs.miami.edu/focus-area/drug-discovery/" target="_blank">
-          Schurer Laboratory in the Center for Computational Science</a> |
+        Schurer Laboratory in the Center for Computational Science</a> |
         University of Miami
       </p>
       <p><strong>Application Deadline: March 4, 2016 at 11:00 PM ET</strong></p>

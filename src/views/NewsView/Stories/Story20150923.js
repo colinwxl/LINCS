@@ -16,7 +16,7 @@ export default function Story20150923() {
           className={styles['inline-img-left']}
           src={dcicLogo}
           alt="BD2K-LINCS DCIC"
-          />
+        />
         The <a href="http://lincs-dcic.org" target="_blank">BD2K-LINCS Data
         Coordination and Integration Center</a> and the University of Miami will
         host a

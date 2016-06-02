@@ -19,6 +19,11 @@ import Story20150817 from './Stories/Story20150817.js';
 import Story201508172 from './Stories/Story201508172.js';
 import Story20150813 from './Stories/Story20150813.js';
 import Story20150806 from './Stories/Story20150806.js';
+import Story20150413 from './Stories/Story20150413.js';
+import Story20150228 from './Stories/Story20150228.js';
+import Story20150224 from './Stories/Story20150224.js';
+import Story20150220 from './Stories/Story20150220.js';
+import Story20150208 from './Stories/Story20150208.js';
 
 
 export default function NewsView() {
@@ -47,6 +52,11 @@ export default function NewsView() {
             <Story201508172 />
             <Story20150813 />
             <Story20150806 />
+            <Story20150413 />
+            <Story20150228 />
+            <Story20150224 />
+            <Story20150220 />
+            <Story20150208 />
           </div>
         </div>
       </div>
