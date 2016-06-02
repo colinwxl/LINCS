@@ -8,7 +8,8 @@ import dcicMooc from './images/dcic-mooc.png';
 export default function Story20150917() {
   return (
     <Story
-      title="New Course: Big Data Science With the BD2K-LINCS Data Coordination and Integration Center"
+      title="New Course: Big Data Science With the BD2K-LINCS Data Coordination
+      and Integration Center"
       date="September 17th, 2015"
     >
       <p>
@@ -30,7 +31,7 @@ export default function Story20150917() {
           className={`${styles['img-border']}`}
           src={dcicMooc}
           alt="BD2K-LINCS DCIC MOOC"
-          />
+        />
       </div>
       <h5>Course Summary</h5>
       <p>
