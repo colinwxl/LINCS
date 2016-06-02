@@ -5,5 +5,7 @@ dist/
 coverage/
 resources/graphics/
 
+server-es5/
+
 **/serverConf.js
 *.sqlite
