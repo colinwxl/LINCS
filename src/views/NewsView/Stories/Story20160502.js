@@ -28,7 +28,7 @@ export default function Story20160502() {
           className={`${styles['img-border']}`}
           src={proteomicsFigure}
           alt="Molecular & Cellular Proteomics figure"
-          />
+        />
       </div>
       <p>
         A set of kinase inhibitors directed at known pathways (top) were introduced to cells.
@@ -38,7 +38,7 @@ export default function Story20160502() {
         into MAPK, PI3K/mTOR, and Cell Cycling modules (bottom).
       </p>
       <p>
-        For more details, see the article: Abelin JG, Patel J, Lu X, Feeney CM, Fagbami L, Creech
+        Abelin JG, Patel J, Lu X, Feeney CM, Fagbami L, Creech
         AL, Hu R, Lam D, Davison D, Pino L, Qiao JW, Kuhn E, Officer A, Li J, Abbatiello S,
         Subramanian A, Sidman R, Snyder EY, Carr SA, Jaffe JD. <strong>Reduced-representation
         phosphosignatures measured by quantitative targeted MS capture cellular states and enable
@@ -49,7 +49,7 @@ export default function Story20160502() {
         <a
           title="Follow @LINCSProgram on Twitter"
           href="https://twitter.com/LINCSProgram"
-          >
+        >
           Follow <strong>@LINCSProgram</strong>
         </a>
       </span>

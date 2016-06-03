@@ -10,7 +10,7 @@ export default function Story20160425() {
     <Story
       title="NIH LINCS Program On Social Media"
       date="April 25th, 2016"
-      >
+    >
       <div className="clearfix">
         <img
           src={youtubeSreenshot}
@@ -22,15 +22,15 @@ export default function Story20160425() {
           latest news and data releases! <a href="https://www.youtube.com/channel/UCNcDd4x8PsUZpt4U2Xa8sfg" target="_blank">
           NIH LINCS Program YouTube channel</a>
         </p>
-      </div>
-      <span className={styles['twitter-label']}>
-        <a
-          title="Follow @LINCSProgram on Twitter"
-          href="https://twitter.com/LINCSProgram"
+        <span className={styles['twitter-label']}>
+          <a
+            title="Follow @LINCSProgram on Twitter"
+            href="https://twitter.com/LINCSProgram"
           >
-          Follow <strong>@LINCSProgram</strong>
-        </a>
-      </span>
+            Follow <strong>@LINCSProgram</strong>
+          </a>
+        </span>
+      </div>
     </Story>
   );
 }
