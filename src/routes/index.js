@@ -64,7 +64,6 @@ import PredictFuncWorkflow from 'views/AppsView/Workflows/PredictFuncWorkflow';
 import ProteomicEpigenomicWorkflow from 'views/AppsView/Workflows/ProteomicEpigenomicWorkflow';
 import ViabilityWorkflow from 'views/AppsView/Workflows/ViabilityWorkflow';
 
-
 import NotFoundView from 'views/NotFoundView';
 
 const centersBase = 'centers';

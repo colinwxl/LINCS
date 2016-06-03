@@ -30,29 +30,28 @@ class WorkflowInputForm extends Component {
     return [
       {
         link: `${awRoute}/knowledge-about-a-gene-or-protein`,
-        text: 'find knowledge about a specific gene or protein',
+        text: 'Find knowledge about a specific gene or protein',
       },
       {
         link: `${awRoute}/understand-mechanism-of-action-of-sm`,
-        text: 'explore microscopy imaging data collected across the LINCS centers',
-        disabled: true,
+        text: 'Explore microscopy imaging data collected across the LINCS centers',
       },
       {
         link: `${awRoute}/find-novel-compounds-that-mimic-or-reverse-disease-sig`,
-        text: 'find novel compounds that mimic or reverse a disease signature',
+        text: 'Find novel compounds that mimic or reverse a disease signature',
       },
       {
         link: `${awRoute}/data-from-a-specific-cell-line`,
-        text: 'find out if LINCS has collected data from a specific cell line',
+        text: 'Find out if LINCS has collected data from a specific cell line',
         disabled: true,
       },
       {
         link: `${awRoute}/data-from-a-specific-sm`,
-        text: 'find out if LINCS has collected data from a specific small molecule',
+        text: 'Find out if LINCS has collected data from a specific small molecule',
       },
       {
         link: `${awRoute}/query-signature-against-l1000`,
-        text: 'query my own gene expression signature against the LINCS L1000 data',
+        text: 'Query my own gene expression signature against the LINCS L1000 data',
       },
     ];
   }
@@ -61,29 +60,29 @@ class WorkflowInputForm extends Component {
     return [
       {
         link: `${awRoute}/obtaining-l1000-data`,
-        text: 'find the best place to obtain the LINCS L1000 data',
+        text: 'Find the best place to obtain the LINCS L1000 data',
       },
       {
         link: `${awRoute}/download-rna-seq-data`,
-        text: 'download RNA-seq data from LINCS',
+        text: 'Download RNA-seq data from LINCS',
       },
       {
         link: `${awRoute}/collect-attrs-to-predict-gene-function-using-machine-learning`,
-        text: 'collect attributes about genes and proteins for predicting gene ' +
+        text: 'Collect attributes about genes and proteins for predicting gene ' +
           'function using machine learning, where can I find such data?',
       },
       {
         link: `${awRoute}/search-lincs-metadata`,
-        text: 'search LINCS metadata through their API\'s',
+        text: 'Search LINCS metadata through their API\'s',
       },
       {
         link: `${awRoute}/proteomic-epigenomic-data-l1000`,
-        text: 'find proteomic and epigenomic data from the same ' +
+        text: 'Find proteomic and epigenomic data from the same ' +
           'conditions profiled by the L1000 assay',
       },
       {
         link: `${awRoute}/viability-phenotype-data-following-sm-perturbations`,
-        text: 'find data about cell viability and other cellular-level phenotypes ' +
+        text: 'Find data about cell viability and other cellular-level phenotypes ' +
           'besides gene and protein expression in response to small molecule ' +
           'perturbations',
       },
