@@ -16,12 +16,10 @@ export default function Story20160520() {
           Drug-response studies play an important role in both preclinical and clinical research,
           but such studies are complicated by differences in cell growth rates across samples and
           conditions. To improve the value and reliability of such studies, new metrics for
-          parameterizing drug response were developed and
-          <a href="http://www.ncbi.nlm.nih.gov/pubmed/27135972" target="_blank">published in
-          Nature Methods</a> by the <a href="http://lincs.hms.harvard.edu/" target="_blank">HMS
-          LINCS Center</a>. The online GR tools were developed by the
-          <a href="http://lincs-dcic.org/#/" target="_blank">BD2K-LINCS Data Coordination and
-          Integration Center</a>.
+          parameterizing drug response were developed and <a href="http://www.ncbi.nlm.nih.gov/pubmed/27135972" target="_blank">
+          published in Nature Methods</a> by the <a href="http://lincs.hms.harvard.edu/" target="_blank">
+          HMS LINCS Center</a>. The online GR tools were developed by the <a href="http://lincs-dcic.org/#/" target="_blank">
+          BD2K-LINCS Data Coordination and Integration Center</a>.
         </p>
         <p>
           Hafner M, Niepel M, Chung M, Sorger PK. <strong>Growth rate inhibition metrics correct
