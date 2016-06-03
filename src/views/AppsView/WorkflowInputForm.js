@@ -43,7 +43,6 @@ class WorkflowInputForm extends Component {
       {
         link: `${awRoute}/data-from-a-specific-cell-line`,
         text: 'Find out if LINCS has collected data from a specific cell line',
-        disabled: true,
       },
       {
         link: `${awRoute}/data-from-a-specific-sm`,

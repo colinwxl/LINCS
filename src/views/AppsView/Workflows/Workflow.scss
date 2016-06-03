@@ -265,10 +265,17 @@
   img {
     border: 1px solid $gray-border-bottom;
   }
-
   .section {
     border-bottom: 1px solid $gray-border-bottom;
     padding-bottom: 30px;
     margin-bottom: 30px;
+  }
+}
+
+.cell-line {
+
+  img {
+    border: 1px solid $gray-border-bottom;
+    margin-top: 15px;
   }
 }
