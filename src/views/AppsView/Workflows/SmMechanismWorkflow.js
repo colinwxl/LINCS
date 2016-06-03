@@ -23,8 +23,8 @@ export default function Workflow() {
             </p>
             <div className={styles.section}>
               <p>
-                The <a href="http://sorger.med.harvard.edu/" target="_blank">Sorger Lab</a> at <a href="http://hms.harvard.edu/" target="_blank">
-                Harvard Medical School</a> collect various types of imaging data.
+                <strong>The <a href="http://sorger.med.harvard.edu/" target="_blank">Sorger Lab</a> at <a href="http://hms.harvard.edu/" target="_blank">
+                Harvard Medical School</a></strong> collect various types of imaging data.
                 For example, the Sorger Lab is measuring cell viability and proliferation using
                 florescence imaging with apoptosis and mitotic markers. In addition, the Sorger
                 Lab monitors the activity of key protein kinases using florescence microscopy and
@@ -40,9 +40,9 @@ export default function Workflow() {
             </div>
             <div className={styles.section}>
               <p>
-                The <a href="https://www.synapse.org/#!Synapse:syn2862345/wiki/72486" target="_blank">
+                <strong>The <a href="https://www.synapse.org/#!Synapse:syn2862345/wiki/72486" target="_blank">
                 MEP-LINCS</a> center, and in particular the <a href="http://www.ohsu.edu/xd/education/schools/school-of-medicine/departments/basic-science-departments/biomedical-engineering/bme-labs/gray-lab/" target="_blank">
-                Gray Lab</a>, collects images of cancer cell lines growing in different
+                Gray Lab</a></strong>, collects images of cancer cell lines growing in different
                 micro-environments and treated with different endogenous extracellular ligands.
                 The cells are visualized with advanced microscopy that provides layered
                 visualization of several parameters. The processed imaging data (features) are
@@ -57,9 +57,9 @@ export default function Workflow() {
             </div>
             <div>
               <p>
-                The <a href="https://labs.gladstone.org/finkbeiner/" target="_blank">Finkbeiner
-                Lab</a> from the <a href="http://www.neurolincs.org/" target="_blank">NeuroLINCS</a> center
-                is utilizing robotics to collect microscopy images from neurons and iPSCs
+                <strong>The <a href="https://labs.gladstone.org/finkbeiner/" target="_blank">Finkbeiner
+                Lab</a> from the <a href="http://www.neurolincs.org/" target="_blank">NeuroLINCS</a> center</strong> is
+                utilizing robotics to collect microscopy images from neurons and iPSCs
                 created from ALS and SMA patients and heathy controls. The images are collected
                 in temporal fashion while measuring multiple parameters at once from each cell.
                 Some of these microscopy image data are made available for download at various

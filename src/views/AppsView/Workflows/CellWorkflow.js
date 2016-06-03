@@ -31,7 +31,8 @@ export default function Workflow() {
             </p>
             <p>
               If you are not sure about the cell line name but curious about cell lines from a
-              specific tissue of origin, please try the tree view available from <Link to="/data/releases">here</Link>.
+              specific tissue of origin, please try the tree view available from
+              <Link to="/data/releases">here</Link>.
               <img src={lincsDatasetPageScreenshot} alt="LINCS dataset page screenshot" />
             </p>
           </div>
