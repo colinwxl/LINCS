@@ -35,7 +35,7 @@ export class DatasetView extends Component {
         <div className="container">
           <div className="row">
             <div className="col-xs-12">
-              <h2>Access & Analyze Data</h2>
+              <h2>Access &amp; Analyze Data</h2>
               <table className={`table ${styles['data-table']}`}>
                 <tbody>
                   {
