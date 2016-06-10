@@ -47,7 +47,7 @@ const Cells = (props) => {
           return (
             <Cell
               key={cell.id}
-              sm={cell}
+              cell={cell}
               useLinks={isVisible}
             />
           );

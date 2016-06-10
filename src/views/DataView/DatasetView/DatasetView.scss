@@ -63,7 +63,9 @@
   }
 }
 
+.cells,
 .small-molecules {
+  table-layout: fixed;
 
   thead {
 
