@@ -10,6 +10,7 @@ import tree from './tree';
 import modals from './modals';
 import pendingRequests from './pendingRequests';
 import smallMoleculesTable from './smallMoleculesTable';
+import cellsTable from './cellsTable';
 // import * as EntityActionTypes from 'actions/entities';
 
 // Updates an entity cache in response to any action with response.entities.
@@ -40,4 +41,5 @@ export default combineReducers({
   pendingRequests,
   form: formReducer,
   smallMoleculesTable,
+  cellsTable,
 });

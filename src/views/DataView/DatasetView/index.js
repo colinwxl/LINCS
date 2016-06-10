@@ -8,10 +8,13 @@ import PageBanner from 'components/PageBanner';
 import Clustergram from 'containers/Clustergram';
 import styles from './DatasetView.scss';
 import SmallMolecules from './SmallMolecules';
+import Cells from './Cells';
+
 
 const mapStateToProps = (state) => ({
   datasets: state.entities.datasets,
-  smallMolecules: state.entities.smallMolecules,
+  hasSmallMolecules: Object.keys(state.entities.smallMolecules).length !== 0,
+  hasCells: Object.keys(state.entities.cells).length !== 0,
 });
 
 export class DatasetView extends Component {
@@ -24,6 +27,7 @@ export class DatasetView extends Component {
     if (!dataset) {
       return null;
     }
+    const { hasSmallMolecules, hasCells } = this.props;
     const links = getIconLinks(dataset);
     const hasAnalysis = links.useSlicr || links.usePiLINCS || links.useMosaic || links.useILINCS;
     const validLincsId = !!dataset.lincsId && dataset.lincsId !== 'LDS-*';
@@ -191,12 +195,24 @@ export class DatasetView extends Component {
                           </td>
                         </tr>
                     }
-                    <tr>
-                      <td>Small Molecules</td>
-                      <td>
-                        <SmallMolecules />
-                      </td>
-                    </tr>
+                    {
+                      hasSmallMolecules &&
+                      <tr>
+                        <td>Small Molecules</td>
+                        <td>
+                          <SmallMolecules />
+                        </td>
+                      </tr>
+                    }
+                    {
+                      hasCells &&
+                      <tr>
+                        <td>Cells</td>
+                        <td>
+                          <Cells />
+                        </td>
+                      </tr>
+                    }
                   </tbody>
                 </table>
               </div>
@@ -214,7 +230,8 @@ export class DatasetView extends Component {
 DatasetView.propTypes = {
   loadDataset: PropTypes.func.isRequired,
   datasets: PropTypes.object.isRequired,
-  smallMolecules: PropTypes.object.isRequired,
+  hasSmallMolecules: PropTypes.bool.isRequired,
+  hasCells: PropTypes.bool.isRequired,
   params: PropTypes.object.isRequired,
 };
 
