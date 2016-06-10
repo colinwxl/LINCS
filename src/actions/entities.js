@@ -21,7 +21,7 @@ export const INCREMENT_DATASET_CLICKS_SUCCESS = 'INCREMENT_DATASET_CLICKS_SUCCES
 export const INCREMENT_DATASET_CLICKS_FAILURE = 'INCREMENT_DATASET_CLICKS_FAILURE';
 
 // The default include options for loading datasets
-const defaultInclude = ['center', 'cells', 'cells.tissues', 'cells.diseases'];
+const defaultInclude = ['center', 'cells', 'cells.tissues', 'cells.diseases', 'smallMolecules'];
 
 /**
  * This redux action creator load the datasets from the server with the

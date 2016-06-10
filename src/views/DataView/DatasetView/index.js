@@ -4,15 +4,61 @@ import moment from 'moment';
 
 import getIconLinks from 'utils/getIconLinks';
 import { loadDataset } from 'actions/entities';
+import {
+  updateSmallMoleculeRange,
+  filterSmallMolecules,
+  updateCellRange,
+  filterCells,
+} from 'actions/cellsAndSMs';
 import PageBanner from 'components/PageBanner';
 import Clustergram from 'containers/Clustergram';
 import styles from './DatasetView.scss';
+import CellsOrSMs from './CellsOrSMs';
+import Paginator from './Paginator';
 
-const mapStateToProps = (state) => ({
-  datasets: state.entities.datasets,
+
+const mapStateToProps = (state) => {
+  const entities = state.entities;
+  const cache = entities.cache;
+  const filters = entities.filters;
+  const hasCache = Object.keys(cache).length > 0;
+  return {
+    datasets: entities.datasets,
+    smallMolecules: entities.smallMolecules,
+    numSmallMolecules: hasCache ? Object.keys(cache.smallMolecules).length : 0,
+    smRange: filters.smRange,
+    cells: entities.cells,
+    numCells: hasCache ? Object.keys(cache.cells).length : 0,
+    cellRange: filters.cellRange,
+  };
+};
+
+const mapDispatchToProps = (dispatch) => ({
+  loadDataset: (datasetId) => {
+    dispatch(loadDataset(datasetId));
+  },
+  onNextSMClick: () => {
+    dispatch(updateSmallMoleculeRange(true));
+  },
+  onPrevSMClick: () => {
+    dispatch(updateSmallMoleculeRange(false));
+  },
+  onSMSearch: (e) => {
+    dispatch(filterSmallMolecules(e.target.value));
+  },
+  onNextCellClick: () => {
+    dispatch(updateCellRange(true));
+  },
+  onPrevCellClick: () => {
+    dispatch(updateCellRange(false));
+  },
+  onCellSearch: (e) => {
+    dispatch(filterCells(e.target.value));
+  },
 });
 
 export class DatasetView extends Component {
+
   componentWillMount() {
     this.props.loadDataset(this.props.params.datasetId);
   }
@@ -22,6 +68,20 @@ export class DatasetView extends Component {
     if (!dataset) {
       return null;
     }
+    const {
+      smallMolecules,
+      numSmallMolecules,
+      smRange,
+      onNextSMClick,
+      onPrevSMClick,
+      onSMSearch,
+      cells,
+      numCells,
+      cellRange,
+      onNextCellClick,
+      onPrevCellClick,
+      onCellSearch,
+    } = this.props;
     const links = getIconLinks(dataset);
     const hasAnalysis = links.useSlicr || links.usePiLINCS || links.useMosaic || links.useILINCS;
     const validLincsId = !!dataset.lincsId && dataset.lincsId !== 'LDS-*';
@@ -35,161 +95,203 @@ export class DatasetView extends Component {
         <div className="container">
           <div className="row">
             <div className="col-xs-12">
-              <h2>Access &amp; Analyze Data</h2>
-              <table className={`table ${styles['data-table']}`}>
-                <tbody>
-                  {
-                    validLincsId &&
-                      <tr>
-                        <td>LINCS&nbsp;ID</td>
-                        <td>{dataset.lincsId}</td>
-                      </tr>
-                  }
-                  <tr>
-                    <td>Description</td>
-                    <td>{dataset.description}</td>
-                  </tr>
-                  <tr>
-                    <td>Center</td>
-                    <td>
-                      <a href={dataset.center.website} target="_blank">
-                        {dataset.center.name}
-                      </a>
-                    </td>
-                  </tr>
-                  {
-                    dataset.assay &&
-                      <tr>
-                        <td>Assay&nbsp;Type</td>
-                        <td>{dataset.assay}</td>
-                      </tr>
-                  }
-                  {
-                    dataset.physicalDetection &&
-                      <tr>
-                        <td>Physical&nbsp;Detection</td>
-                        <td>{dataset.physicalDetection}</td>
-                      </tr>
-                  }
-                  {
-                    dataset.dateRetrieved &&
-                      <tr>
-                        <td>Release&nbsp;Date</td>
-                        <td>{moment(dataset.dateRetrieved).format('MMMM Do, YYYY')}</td>
-                      </tr>
-                  }
-                  <tr>
-                    <td>Links</td>
-                    <td>
-                      <a
-                        className={`btn btn-secondary ${styles['btn-link']}`}
-                        href={dataset.sourceLink}
-                        target="_blank"
-                      >
-                        View at DSGC Website
-                      </a>
-                      {
-                        validLincsId &&
-                          <a
-                            className={`btn btn-secondary ${styles['btn-link']}`}
-                            href={`http://lincsportal.ccs.miami.edu/datasets/#/view/${dataset.lincsId}`}
-                            target="_blank"
-                          >
-                            View on the LINCS Data Portal
-                          </a>
-                      }
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Cite this Dataset</td>
-                    <td>
-                      <a
-                        className={`btn btn-secondary ${styles['btn-link']}`}
-                        href={`/LINCS/api/v1/datasets/${dataset.id}/reference/ris`}
-                      >
-                        RIS Format (.ris)
-                      </a>
-                      <a
-                        className={`btn btn-secondary ${styles['btn-link']}`}
-                        href={`/LINCS/api/v1/datasets/${dataset.id}/reference/bib`}
-                      >
-                        BibTeX Format (.bib)
-                      </a>
-                      <a
-                        className={`btn btn-secondary ${styles['btn-link']}`}
-                        href={`/LINCS/api/v1/datasets/${dataset.id}/reference/enw`}
-                      >
-                        EndNote Format (.enw)
-                      </a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Download</td>
-                    <td>
-                      <a
-                        className={`btn btn-secondary ${styles['btn-link']}`}
-                        href={`/LINCS/api/v1/datasets/${dataset.id}/download`}
-                      >
-                        Data Package
-                      </a>
-                      <a
-                        className={`btn btn-secondary ${styles['btn-link']}`}
-                        href={`/LINCS/api/v1/datasets/${dataset.id}/download/gct`}
-                      >
-                        GCT File*
-                      </a>
-                    </td>
-                  </tr>
-                  {
-                    hasAnalysis &&
-                      <tr>
-                        <td>Analyze</td>
-                        <td>
-                          {
-                            links.useSlicr &&
-                              <a
-                                className={`btn btn-secondary ${styles['btn-link']}`}
-                                href="http://amp.pharm.mssm.edu/Slicr/"
-                                target="_blank"
-                              >
-                                Analysis with Slicr
-                              </a>
-                          }
-                          {
-                            links.usePiLINCS &&
-                              <a
-                                className={`btn btn-secondary ${styles['btn-link']}`}
-                                href="http://eh3.uc.edu/pilincs"
-                                target="_blank"
-                              >
-                                Analysis with piLINCS
-                              </a>
-                          }
-                          {
-                            links.useMosaic &&
-                              <a
-                                className={`btn btn-secondary ${styles['btn-link']}`}
-                                href="http://amp.pharm.mssm.edu/p100mosaic"
-                                target="_blank"
-                              >
-                                Analysis with P100 Mosaic
-                              </a>
-                          }
-                          {
-                            links.useILINCS &&
-                              <a
-                                className={`btn btn-secondary ${styles['btn-link']}`}
-                                href={`http://eh3.uc.edu/GenomicsPortals/DatasetLandingPage.do?data_set=${dataset.lincsId}`}
-                                target="_blank"
-                              >
-                                Analysis with iLINCS
-                              </a>
-                          }
-                        </td>
-                      </tr>
-                  }
-                </tbody>
-              </table>
+              <div className="table-responsive">
+                <h2>Access &amp; Analyze Data</h2>
+                <table className={`table ${styles['data-table']}`}>
+                  <tbody>
+                    {
+                      validLincsId &&
+                        <tr>
+                          <td>LINCS&nbsp;ID</td>
+                          <td>{dataset.lincsId}</td>
+                        </tr>
+                    }
+                    <tr>
+                      <td>Description</td>
+                      <td>{dataset.description}</td>
+                    </tr>
+                    <tr>
+                      <td>Center</td>
+                      <td>
+                        <a href={dataset.center.website} target="_blank">
+                          {dataset.center.name}
+                        </a>
+                      </td>
+                    </tr>
+                    {
+                      dataset.assay &&
+                        <tr>
+                          <td>Assay&nbsp;Type</td>
+                          <td>{dataset.assay}</td>
+                        </tr>
+                    }
+                    {
+                      dataset.physicalDetection &&
+                        <tr>
+                          <td>Physical&nbsp;Detection</td>
+                          <td>{dataset.physicalDetection}</td>
+                        </tr>
+                    }
+                    {
+                      dataset.dateRetrieved &&
+                        <tr>
+                          <td>Release&nbsp;Date</td>
+                          <td>{moment(dataset.dateRetrieved).format('MMMM Do, YYYY')}</td>
+                        </tr>
+                    }
+                    <tr>
+                      <td>Links</td>
+                      <td>
+                        <a
+                          className={`btn btn-secondary ${styles['btn-link']}`}
+                          href={dataset.sourceLink}
+                          target="_blank"
+                        >
+                          View at DSGC Website
+                        </a>
+                        {
+                          validLincsId &&
+                            <a
+                              className={`btn btn-secondary ${styles['btn-link']}`}
+                              href={`http://lincsportal.ccs.miami.edu/datasets/#/view/${dataset.lincsId}`}
+                              target="_blank"
+                            >
+                              View on the LINCS Data Portal
+                            </a>
+                        }
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Cite this Dataset</td>
+                      <td>
+                        <a
+                          className={`btn btn-secondary ${styles['btn-link']}`}
+                          href={`/LINCS/api/v1/datasets/${dataset.id}/reference/ris`}
+                        >
+                          RIS Format (.ris)
+                        </a>
+                        <a
+                          className={`btn btn-secondary ${styles['btn-link']}`}
+                          href={`/LINCS/api/v1/datasets/${dataset.id}/reference/bib`}
+                        >
+                          BibTeX Format (.bib)
+                        </a>
+                        <a
+                          className={`btn btn-secondary ${styles['btn-link']}`}
+                          href={`/LINCS/api/v1/datasets/${dataset.id}/reference/enw`}
+                        >
+                          EndNote Format (.enw)
+                        </a>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Download</td>
+                      <td>
+                        <a
+                          className={`btn btn-secondary ${styles['btn-link']}`}
+                          href={`/LINCS/api/v1/datasets/${dataset.id}/download`}
+                        >
+                          Data Package
+                        </a>
+                        <a
+                          className={`btn btn-secondary ${styles['btn-link']}`}
+                          href={`/LINCS/api/v1/datasets/${dataset.id}/download/gct`}
+                        >
+                          GCT File*
+                        </a>
+                      </td>
+                    </tr>
+                    {
+                      hasAnalysis &&
+                        <tr>
+                          <td>Analyze</td>
+                          <td>
+                            {
+                              links.useSlicr &&
+                                <a
+                                  className={`btn btn-secondary ${styles['btn-link']}`}
+                                  href="http://amp.pharm.mssm.edu/Slicr/"
+                                  target="_blank"
+                                >
+                                  Analysis with Slicr
+                                </a>
+                            }
+                            {
+                              links.usePiLINCS &&
+                                <a
+                                  className={`btn btn-secondary ${styles['btn-link']}`}
+                                  href="http://eh3.uc.edu/pilincs"
+                                  target="_blank"
+                                >
+                                  Analysis with piLINCS
+                                </a>
+                            }
+                            {
+                              links.useMosaic &&
+                                <a
+                                  className={`btn btn-secondary ${styles['btn-link']}`}
+                                  href="http://amp.pharm.mssm.edu/p100mosaic"
+                                  target="_blank"
+                                >
+                                  Analysis with P100 Mosaic
+                                </a>
+                            }
+                            {
+                              links.useILINCS &&
+                                <a
+                                  className={`btn btn-secondary ${styles['btn-link']}`}
+                                  href={`http://eh3.uc.edu/GenomicsPortals/DatasetLandingPage.do?data_set=${dataset.lincsId}`}
+                                  target="_blank"
+                                >
+                                  Analysis with iLINCS
+                                </a>
+                            }
+                          </td>
+                        </tr>
+                    }
+                    {
+                      numSmallMolecules !== 0 &&
+                        <tr>
+                          <td className={styles['small-molecules-cells-title']}>
+                            Small Molecules ({numSmallMolecules})
+                          </td>
+                          <td>
+                            <Paginator
+                              total={numSmallMolecules}
+                              range={smRange}
+                              onPrevClick={onPrevSMClick}
+                              onNextClick={onNextSMClick}
+                              onSearch={onSMSearch}
+                            />
+                            <CellsOrSMs
+                              objects={smallMolecules}
+                            />
+                          </td>
+                        </tr>
+                    }
+                    {
+                      numCells !== 0 &&
+                        <tr>
+                          <td className={styles['small-molecules-cells-title']}>
+                            Cells ({numCells})
+                          </td>
+                          <td>
+                            <Paginator
+                              total={numCells}
+                              range={cellRange}
+                              onPrevClick={onPrevCellClick}
+                              onNextClick={onNextCellClick}
+                              onSearch={onCellSearch}
+                            />
+                            <CellsOrSMs
+                              objects={cells}
+                            />
+                          </td>
+                        </tr>
+                    }
+                  </tbody>
+                </table>
+              </div>
             </div>
             <div className="col-xs-12">
               <Clustergram datasetId={dataset.id} />
@@ -202,11 +304,28 @@ export class DatasetView extends Component {
 }
 
 DatasetView.propTypes = {
-  loadDataset: PropTypes.func.isRequired,
   datasets: PropTypes.object.isRequired,
+  loadDataset: PropTypes.func.isRequired,
   params: PropTypes.object.isRequired,
+
+  // Small molecules
+  smallMolecules: PropTypes.object.isRequired,
+  numSmallMolecules: PropTypes.number.isRequired,
+  smRange: PropTypes.array.isRequired,
+  onNextSMClick: PropTypes.func.isRequired,
+  onPrevSMClick: PropTypes.func.isRequired,
+  onSMSearch: PropTypes.func.isRequired,
+
+  // Cells
+  cells: PropTypes.object.isRequired,
+  numCells: PropTypes.number.isRequired,
+  cellRange: PropTypes.array.isRequired,
+  onNextCellClick: PropTypes.func.isRequired,
+  onPrevCellClick: PropTypes.func.isRequired,
+  onCellSearch: PropTypes.func.isRequired,
 };
 
-export default connect(mapStateToProps, {
-  loadDataset,
-})(DatasetView);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(DatasetView);
