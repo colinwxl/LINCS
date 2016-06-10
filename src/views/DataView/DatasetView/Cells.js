@@ -29,31 +29,37 @@ const Cells = (props) => {
   const className = `table ${hiddenClass} ${styles.cells}`;
   const title = isVisible ? '' : 'Click for more...';
   return (
-    <table
-      className={className}
-      onClick={() => onTableClick(isVisible)}
-      title={title}
-    >
-      <thead>
-        <tr>
-          <td>Name</td>
-          <td>LINCS ID</td>
-          <td>Source</td>
-        </tr>
-      </thead>
-      <tbody>
-        {indicesToShow.map(index => {
-          const cell = cells[index];
-          return (
-            <Cell
-              key={cell.id}
-              cell={cell}
-              useLinks={isVisible}
-            />
-          );
-        })}
-      </tbody>
-    </table>
+    <div>
+      <table
+        className={className}
+        onClick={() => onTableClick(isVisible)}
+        title={title}
+      >
+        <thead>
+          <tr>
+            <td>Name</td>
+            <td>LINCS ID</td>
+            <td>Source</td>
+          </tr>
+        </thead>
+        <tbody>
+          {indicesToShow.map(index => {
+            const cell = cells[index];
+            return (
+              <Cell
+                key={cell.id}
+                cell={cell}
+                useLinks={isVisible}
+              />
+            );
+          })}
+        </tbody>
+      </table>
+      {
+        !isVisible &&
+        <p className={styles['btn-show-more']}>Show more</p>
+      }
+    </div>
   );
 };
 
