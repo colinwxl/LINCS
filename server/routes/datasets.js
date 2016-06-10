@@ -279,8 +279,8 @@ router.post('/clicks/increment', async (ctx) => {
           'cells',
           'cells.tissues',
           'cells.diseases',
-          'cells.synonyms'
-          // 'smallMolecules',
+          'cells.synonyms',
+          'smallMolecules',
         ]
       });
     // debug(dsModels);

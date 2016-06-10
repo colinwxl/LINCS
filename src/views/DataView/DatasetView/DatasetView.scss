@@ -15,6 +15,7 @@
   th {
     border-top: 1px solid $gray;
     line-height: 1.25;
+    padding: 8px;
     vertical-align: middle;
 
     .btn-link {
@@ -59,5 +60,23 @@
       color: $darker-gray;
       text-decoration: none;
     }
+  }
+}
+
+.small-molecules {
+
+  thead {
+
+    td {
+      border-bottom: 1px solid $gray;
+      font-weight: bold;
+      padding-bottom: 2px;
+    }
+  }
+
+  &.hidden {
+    cursor: pointer;
+    -webkit-mask-image: -webkit-gradient(linear, left top, left bottom,
+            from(rgba(0,0,0,1)), to(rgba(0,0,0,0)));
   }
 }
