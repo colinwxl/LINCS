@@ -197,21 +197,21 @@ export class DatasetView extends Component {
                     }
                     {
                       hasSmallMolecules &&
-                      <tr>
-                        <td>Small Molecules</td>
-                        <td>
-                          <SmallMolecules />
-                        </td>
-                      </tr>
+                        <tr>
+                          <td className={styles['small-molecules-cells-title']}>Small Molecules</td>
+                          <td>
+                            <SmallMolecules />
+                          </td>
+                        </tr>
                     }
                     {
                       hasCells &&
-                      <tr>
-                        <td>Cells</td>
-                        <td>
-                          <Cells />
-                        </td>
-                      </tr>
+                        <tr>
+                          <td className={styles['small-molecules-cells-title']}>Cells</td>
+                          <td>
+                            <Cells />
+                          </td>
+                        </tr>
                     }
                   </tbody>
                 </table>

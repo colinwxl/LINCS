@@ -12,27 +12,25 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  onTableClick: (isVisible) => {
+  onMoreLessClick: (isVisible) => {
     dispatch(toggleTable(isVisible));
   },
 });
 
 const Cells = (props) => {
-  const { cells, onTableClick, isVisible } = props;
+  const { cells, onMoreLessClick, isVisible } = props;
   let indicesToShow;
   if (isVisible) {
     indicesToShow = Object.keys(cells);
   } else {
     indicesToShow = Object.keys(cells).slice(0, 2);
   }
-  const hiddenClass = (isVisible ? ' ' : ` ${styles.hidden} `);
-  const className = `table ${hiddenClass} ${styles.cells}`;
-  const title = isVisible ? '' : 'Click for more...';
+  const tableClass = `table ${(isVisible ? '' : styles.hidden)}`;
+  const title = (isVisible ? '' : 'Click for more...');
   return (
-    <div>
+    <div className={styles.cells}>
       <table
-        className={className}
-        onClick={() => onTableClick(isVisible)}
+        className={tableClass}
         title={title}
       >
         <thead>
@@ -55,10 +53,19 @@ const Cells = (props) => {
           })}
         </tbody>
       </table>
-      {
-        !isVisible &&
-        <p className={styles['btn-show-more']}>Show more</p>
-      }
+      <p
+        onClick={() => onMoreLessClick(isVisible)}
+        className={styles['btn-show-more']}
+      >
+        {
+          !isVisible &&
+            <span>Show more...</span>
+        }
+        {
+          isVisible &&
+            <span>Show less</span>
+        }
+      </p>
     </div>
   );
 };
@@ -66,7 +73,7 @@ const Cells = (props) => {
 Cells.propTypes = {
   cells: React.PropTypes.object.isRequired,
   isVisible: React.PropTypes.bool.isRequired,
-  onTableClick: React.PropTypes.func.isRequired,
+  onMoreLessClick: React.PropTypes.func.isRequired,
 };
 
 export default connect(

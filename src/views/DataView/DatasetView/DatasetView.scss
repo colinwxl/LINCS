@@ -1,5 +1,7 @@
 @import 'variables';
 
+$btn-padding: 5px 10px;
+
 .wrapper {
 
   h2 {
@@ -21,7 +23,7 @@
     .btn-link {
       border-radius: 0;
       margin-right: .5rem;
-      padding: .25rem 1rem;
+      padding: $btn-padding;
     }
 
     .btn-link:last-child {
@@ -35,6 +37,18 @@
     th {
       border-top: 0;
     }
+  }
+
+  /* Ensures title stays in place when the content expands:
+   *
+   *   <tr>
+   *     <td>Title</td>
+   *     <td>EXPANDABLE CONTENT</td>
+   *   </tr>
+   */
+  .small-molecules-cells-title {
+    padding-top: 15px;
+    vertical-align: top;
   }
 }
 
@@ -65,18 +79,32 @@
 
 .cells,
 .small-molecules {
-  table-layout: fixed;
 
-  thead {
+  table {
+    table-layout: fixed;
 
-    td {
-      border-bottom: 1px solid $gray;
-      font-weight: bold;
-      padding-bottom: 2px;
+    thead {
+
+      td {
+        border-bottom: 1px solid $gray;
+        font-weight: bold;
+        padding-bottom: 2px;
+      }
     }
   }
 
-  &.hidden {
-    cursor: pointer;
+  .btn-show-more {
+    display: inline-block;
+    border: 1px solid $brand-primary-light;
+    color: $brand-primary-light;
+    padding: $btn-padding;
+    text-align: center;
+
+    &:hover {
+      cursor: pointer;
+      color: $brand-primary;
+      background-color: #e6e6e6;
+      border-color: #adadad;
+    }
   }
 }

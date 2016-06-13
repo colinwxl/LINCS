@@ -12,36 +12,36 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  onTableClick: (isVisible) => {
+  onMoreLessClick: (isVisible) => {
     dispatch(toggleTable(isVisible));
   },
 });
 
 const SmallMolecules = (props) => {
-  const { smallMolecules, onTableClick, isVisible } = props;
+  const { smallMolecules, onMoreLessClick, isVisible } = props;
   let indicesToShow;
   if (isVisible) {
     indicesToShow = Object.keys(smallMolecules);
   } else {
     indicesToShow = Object.keys(smallMolecules).slice(0, 2);
   }
-  const hiddenClass = (isVisible ? ' ' : ` ${styles.hidden} `);
-  const className = `table ${hiddenClass} ${styles['small-molecules']}`;
-  const title = isVisible ? '' : 'Click for more...';
+  const tableClass = `table ${(isVisible ? '' : styles.hidden)}`;
+  const title = (isVisible ? '' : 'Click for more...');
+
   return (
-    <table
-      className={className}
-      onClick={() => onTableClick(isVisible)}
-      title={title}
-    >
-      <thead>
-        <tr>
-          <td>Name</td>
-          <td>LINCS ID</td>
-          <td>Source</td>
-        </tr>
-      </thead>
-      <tbody>
+    <div className={styles.cells}>
+      <table
+        className={tableClass}
+        title={title}
+      >
+        <thead>
+          <tr>
+            <td>Name</td>
+            <td>LINCS ID</td>
+            <td>Source</td>
+          </tr>
+        </thead>
+        <tbody>
         {indicesToShow.map(index => {
           const sm = smallMolecules[index];
           return (
@@ -52,15 +52,29 @@ const SmallMolecules = (props) => {
             />
           );
         })}
-      </tbody>
-    </table>
+        </tbody>
+      </table>
+      <div
+        onClick={() => onMoreLessClick(isVisible)}
+        className={styles['btn-show-more']}
+      >
+        {
+          !isVisible &&
+            <span>Show more...</span>
+        }
+        {
+          isVisible &&
+            <span>Show less</span>
+        }
+      </div>
+    </div>
   );
 };
 
 SmallMolecules.propTypes = {
   smallMolecules: React.PropTypes.object.isRequired,
   isVisible: React.PropTypes.bool.isRequired,
-  onTableClick: React.PropTypes.func.isRequired,
+  onMoreLessClick: React.PropTypes.func.isRequired,
 };
 
 export default connect(
