@@ -26,13 +26,9 @@ const Cells = (props) => {
     indicesToShow = Object.keys(cells).slice(0, 2);
   }
   const tableClass = `table ${(isVisible ? '' : styles.hidden)}`;
-  const title = (isVisible ? '' : 'Click for more...');
   return (
     <div className={styles.cells}>
-      <table
-        className={tableClass}
-        title={title}
-      >
+      <table className={tableClass}>
         <thead>
           <tr>
             <td>Name</td>
