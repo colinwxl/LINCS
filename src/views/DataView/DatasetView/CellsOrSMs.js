@@ -1,23 +1,17 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import SmallMolecule from './SmallMolecule';
+import CellOrSM from './CellOrSM';
 import styles from './DatasetView.scss';
 
-
-const mapStateToProps = (state) => ({
-  smallMolecules: state.entities.smallMolecules,
-  range: state.smallMoleculesTable.range,
-  searchTerm: state.smallMoleculesTable.searchTerm,
-});
-
-const getIndicesToShow = (props, smallMolecules) => {
+/*
+const getIndicesToShow = (props, objects) => {
   const indicesToShow = [];
   const { searchTerm, range } = props;
   if (searchTerm) {
     const searchTermLower = searchTerm.toLowerCase();
-    Object.keys(smallMolecules).forEach((i) => {
-      const sm = smallMolecules[i];
+    Object.keys(objects).forEach((i) => {
+      const sm = objects[i];
       if (sm.name.toLowerCase().indexOf(searchTermLower) >= 0) {
         indicesToShow.push(i);
       }
@@ -29,7 +23,7 @@ const getIndicesToShow = (props, smallMolecules) => {
       }
     });
   } else {
-    const allIndices = Object.keys(smallMolecules);
+    const allIndices = Object.keys(objects);
     for (let i = range[0]; i < range[1]; i++) {
       const idx = allIndices[i];
       if (!!idx) {
@@ -39,10 +33,23 @@ const getIndicesToShow = (props, smallMolecules) => {
   }
   return indicesToShow;
 };
+*/
 
-const SmallMolecules = (props) => {
-  const { smallMolecules } = props;
-  const indicesToShow = getIndicesToShow(props, smallMolecules);
+const getIndicesToShow = (range, objects) => {
+  const indicesToShow = [];
+  const allIndices = Object.keys(objects);
+  for (let i = range[0]; i < range[1]; i++) {
+    const idx = allIndices[i];
+    if (!!idx) {
+      indicesToShow.push(allIndices[i]);
+    }
+  }
+  return indicesToShow;
+};
+
+const CellsOrSMs = (props) => {
+  const { objects, range } = props;
+  const indicesToShow = getIndicesToShow(range, objects);
   return (
     <div className={styles.cells}>
       <table className="table">
@@ -55,11 +62,11 @@ const SmallMolecules = (props) => {
         </thead>
         <tbody>
         {indicesToShow.map(index => {
-          const sm = smallMolecules[index];
+          const obj = objects[index];
           return (
-            <SmallMolecule
-              key={sm.id}
-              sm={sm}
+            <CellOrSM
+              key={obj.id}
+              obj={obj}
             />
           );
         })}
@@ -69,11 +76,9 @@ const SmallMolecules = (props) => {
   );
 };
 
-SmallMolecules.propTypes = {
-  smallMolecules: React.PropTypes.object.isRequired,
+CellsOrSMs.propTypes = {
+  objects: React.PropTypes.object.isRequired,
   range: React.PropTypes.array.isRequired,
 };
 
-export default connect(
-  mapStateToProps
-)(SmallMolecules);
+export default connect()(CellsOrSMs);

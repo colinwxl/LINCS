@@ -1,16 +1,33 @@
-export const SHOW_CELLS = 'SHOW_CELLS';
-export const HIDE_CELLS = 'HIDE_CELLS';
+export const INCREMENT_CELLS = 'INCREMENT_CELLS';
+export const DECREMENT_CELLS = 'DECREMENT_CELLS';
+export const SHOW_ALL_CELLS = 'SHOW_ALL_CELLS';
+export const FILTER_CELLS = 'FILTER_CELLS';
+
 
 /**
- * This action is sent when the user clicks on the cells table on the dataset
- * pages. It toggles whether or not the cells are visible.
+ * This action is sent when the user clicks "next" or "prev" on the
+ * small molecules table on the dataset pages.
  */
-export function toggleTable(cellsAreVisible) {
+export function updateCellRange(increment) {
   let type;
-  if (cellsAreVisible) {
-    type = HIDE_CELLS;
+  if (increment) {
+    type = INCREMENT_CELLS;
   } else {
-    type = SHOW_CELLS;
+    type = DECREMENT_CELLS;
   }
   return { type };
+}
+
+/**
+ * This action is sent when the user types in the small molecule search bar.
+ */
+export function filterCells(searchTerm) {
+  console.log('filterCells');
+  let type;
+  if (!!searchTerm) {
+    type = FILTER_CELLS;
+  } else {
+    type = SHOW_ALL_CELLS;
+  }
+  return { type, searchTerm };
 }

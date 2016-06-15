@@ -1,7 +1,8 @@
 import { combineReducers } from 'redux';
 import { routerReducer as router } from 'react-router-redux';
 import { reducer as formReducer } from 'redux-form';
-import merge from 'lodash/merge';
+
+import entities from './entities';
 import community from './community';
 import twitter from './twitter';
 import pubsNews from './pubsNews';
@@ -9,25 +10,9 @@ import toolsWorkflows from './toolsWorkflows';
 import tree from './tree';
 import modals from './modals';
 import pendingRequests from './pendingRequests';
-import smallMoleculesTable from './smallMoleculesTable';
-import cellsTable from './cellsTable';
-// import * as EntityActionTypes from 'actions/entities';
+import cellsAndSMs from './cellsAndSMs';
 
-// Updates an entity cache in response to any action with response.entities.
-const initialEntities = {
-  datasets: {},
-  cells: {},
-  tissues: {},
-  diseases: {},
-  smallMolecules: {},
-};
-function entities(state = initialEntities, action) {
-  const { response } = action;
-  if (response && response.entities) {
-    return merge({}, state, response.entities);
-  }
-  return state;
-}
+console.log(entities);
 
 export default combineReducers({
   entities,
@@ -40,6 +25,5 @@ export default combineReducers({
   router,
   pendingRequests,
   form: formReducer,
-  smallMoleculesTable,
-  cellsTable,
+  cellsAndSMs,
 });

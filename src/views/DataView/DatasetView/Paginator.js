@@ -3,8 +3,9 @@ import styles from './DatasetView.scss';
 
 
 const Paginator = (props) => {
-  const { items, range, onPrevClick, onNextClick, onSearch } = props;
-  const showNext = range[1] <= Object.keys(items).length;
+  const { objects, range, onPrevClick, onNextClick, onSearch } = props;
+  console.log(range);
+  const showNext = range[1] <= Object.keys(objects).length;
   const showPrev = range[0] !== 0;
   return (
     <div id={styles.paginator}>
@@ -39,7 +40,7 @@ const Paginator = (props) => {
 };
 
 Paginator.propTypes = {
-  items: React.PropTypes.object.isRequired,
+  objects: React.PropTypes.object.isRequired,
   range: React.PropTypes.array.isRequired,
   onPrevClick: React.PropTypes.func.isRequired,
   onNextClick: React.PropTypes.func.isRequired,
