@@ -2,34 +2,50 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import SmallMolecule from './SmallMolecule';
-import { toggleTable } from '../../../actions/smallMolecules';
 import styles from './DatasetView.scss';
 
 
 const mapStateToProps = (state) => ({
   smallMolecules: state.entities.smallMolecules,
-  isVisible: state.smallMoleculesTable.isVisible,
+  range: state.smallMoleculesTable.range,
+  searchTerm: state.smallMoleculesTable.searchTerm,
 });
 
-const mapDispatchToProps = (dispatch) => ({
-  onMoreLessClick: (isVisible) => {
-    dispatch(toggleTable(isVisible));
-  },
-});
+const getIndicesToShow = (props, smallMolecules) => {
+  const indicesToShow = [];
+  const { searchTerm, range } = props;
+  if (searchTerm) {
+    const searchTermLower = searchTerm.toLowerCase();
+    Object.keys(smallMolecules).forEach((i) => {
+      const sm = smallMolecules[i];
+      if (sm.name.toLowerCase().indexOf(searchTermLower) >= 0) {
+        indicesToShow.push(i);
+      }
+      if (sm.source.toLowerCase().indexOf(searchTermLower) >= 0) {
+        indicesToShow.push(i);
+      }
+      if (sm.lincs_id.toLowerCase().indexOf(searchTermLower) >= 0) {
+        indicesToShow.push(i);
+      }
+    });
+  } else {
+    const allIndices = Object.keys(smallMolecules);
+    for (let i = range[0]; i < range[1]; i++) {
+      const idx = allIndices[i];
+      if (!!idx) {
+        indicesToShow.push(allIndices[i]);
+      }
+    }
+  }
+  return indicesToShow;
+};
 
 const SmallMolecules = (props) => {
-  const { smallMolecules, onMoreLessClick, isVisible } = props;
-  let indicesToShow;
-  if (isVisible) {
-    indicesToShow = Object.keys(smallMolecules);
-  } else {
-    indicesToShow = Object.keys(smallMolecules).slice(0, 2);
-  }
-  const tableClass = `table ${(isVisible ? '' : styles.hidden)}`;
-
+  const { smallMolecules } = props;
+  const indicesToShow = getIndicesToShow(props, smallMolecules);
   return (
     <div className={styles.cells}>
-      <table className={tableClass}>
+      <table className="table">
         <thead>
           <tr>
             <td>Name</td>
@@ -44,36 +60,20 @@ const SmallMolecules = (props) => {
             <SmallMolecule
               key={sm.id}
               sm={sm}
-              useLinks={isVisible}
             />
           );
         })}
         </tbody>
       </table>
-      <div
-        onClick={() => onMoreLessClick(isVisible)}
-        className={styles['btn-show-more']}
-      >
-        {
-          !isVisible &&
-            <span>Show more...</span>
-        }
-        {
-          isVisible &&
-            <span>Show less</span>
-        }
-      </div>
     </div>
   );
 };
 
 SmallMolecules.propTypes = {
   smallMolecules: React.PropTypes.object.isRequired,
-  isVisible: React.PropTypes.bool.isRequired,
-  onMoreLessClick: React.PropTypes.func.isRequired,
+  range: React.PropTypes.array.isRequired,
 };
 
 export default connect(
-  mapStateToProps,
-  mapDispatchToProps
+  mapStateToProps
 )(SmallMolecules);

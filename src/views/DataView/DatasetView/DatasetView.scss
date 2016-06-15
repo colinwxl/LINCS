@@ -77,6 +77,36 @@ $btn-padding: 5px 10px;
   }
 }
 
+#paginator {
+
+  .range {
+    border: 1px solid $gray;
+    padding: $btn-padding;
+  }
+
+  .btn {
+    display: inline-block;
+    border: 1px solid $brand-primary-light;
+    color: $brand-primary-light;
+    margin-left: 10px;
+    padding: $btn-padding;
+    text-align: center;
+
+    &:hover {
+      cursor: pointer;
+      color: $brand-primary;
+      background-color: #e6e6e6;
+      border-color: #adadad;
+    }
+  }
+
+  input {
+    border: 1px solid $gray;
+    margin-left: 10px;
+    padding: $btn-padding;
+  }
+}
+
 .cells,
 .small-molecules {
 
@@ -93,18 +123,5 @@ $btn-padding: 5px 10px;
     }
   }
 
-  .btn-show-more {
-    display: inline-block;
-    border: 1px solid $brand-primary-light;
-    color: $brand-primary-light;
-    padding: $btn-padding;
-    text-align: center;
 
-    &:hover {
-      cursor: pointer;
-      color: $brand-primary;
-      background-color: #e6e6e6;
-      border-color: #adadad;
-    }
-  }
 }

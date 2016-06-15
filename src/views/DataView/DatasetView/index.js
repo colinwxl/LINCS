@@ -4,20 +4,39 @@ import moment from 'moment';
 
 import getIconLinks from 'utils/getIconLinks';
 import { loadDataset } from 'actions/entities';
+import { updateRange, filterSmallMolecules } from 'actions/smallMolecules';
 import PageBanner from 'components/PageBanner';
 import Clustergram from 'containers/Clustergram';
 import styles from './DatasetView.scss';
 import SmallMolecules from './SmallMolecules';
 import Cells from './Cells';
+import Paginator from './Paginator';
 
 
 const mapStateToProps = (state) => ({
   datasets: state.entities.datasets,
-  hasSmallMolecules: Object.keys(state.entities.smallMolecules).length !== 0,
+  smallMolecules: state.entities.smallMolecules,
+  smallMoleculeRange: state.smallMoleculesTable.range,
   hasCells: Object.keys(state.entities.cells).length !== 0,
 });
 
+const mapDispatchToProps = (dispatch) => ({
+  loadDataset: (datasetId) => {
+    dispatch(loadDataset(datasetId));
+  },
+  onNextClick: () => {
+    dispatch(updateRange(true));
+  },
+  onPrevClick: () => {
+    dispatch(updateRange(false));
+  },
+  onSmallMoleculeSearch: (e) => {
+    dispatch(filterSmallMolecules(e.target.value));
+  },
+});
+
 export class DatasetView extends Component {
+
   componentWillMount() {
     this.props.loadDataset(this.props.params.datasetId);
   }
@@ -27,7 +46,16 @@ export class DatasetView extends Component {
     if (!dataset) {
       return null;
     }
-    const { hasSmallMolecules, hasCells } = this.props;
+    const {
+      smallMolecules,
+      hasCells,
+      onNextClick,
+      onPrevClick,
+      onSmallMoleculeSearch,
+      smallMoleculeRange,
+    } = this.props;
+    const numSmallMolecules = Object.keys(smallMolecules).length;
+    const hasSmallMolecules = numSmallMolecules !== 0;
     const links = getIconLinks(dataset);
     const hasAnalysis = links.useSlicr || links.usePiLINCS || links.useMosaic || links.useILINCS;
     const validLincsId = !!dataset.lincsId && dataset.lincsId !== 'LDS-*';
@@ -198,8 +226,17 @@ export class DatasetView extends Component {
                     {
                       hasSmallMolecules &&
                         <tr>
-                          <td className={styles['small-molecules-cells-title']}>Small Molecules</td>
+                          <td className={styles['small-molecules-cells-title']}>
+                            Small Molecules ({numSmallMolecules})
+                          </td>
                           <td>
+                            <Paginator
+                              items={smallMolecules}
+                              range={smallMoleculeRange}
+                              onPrevClick={onPrevClick}
+                              onNextClick={onNextClick}
+                              onSearch={onSmallMoleculeSearch}
+                            />
                             <SmallMolecules />
                           </td>
                         </tr>
@@ -228,13 +265,18 @@ export class DatasetView extends Component {
 }
 
 DatasetView.propTypes = {
-  loadDataset: PropTypes.func.isRequired,
   datasets: PropTypes.object.isRequired,
-  hasSmallMolecules: PropTypes.bool.isRequired,
+  loadDataset: PropTypes.func.isRequired,
+  onNextClick: PropTypes.func.isRequired,
+  onPrevClick: PropTypes.func.isRequired,
+  smallMolecules: PropTypes.object.isRequired,
+  smallMoleculeRange: PropTypes.array.isRequired,
+  onSmallMoleculeSearch: PropTypes.func.isRequired,
   hasCells: PropTypes.bool.isRequired,
   params: PropTypes.object.isRequired,
 };
 
-export default connect(mapStateToProps, {
-  loadDataset,
-})(DatasetView);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(DatasetView);
