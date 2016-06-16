@@ -1,19 +1,20 @@
 import React from 'react';
 import styles from './DatasetView.scss';
-import { MAX as MAX_ITEMS } from '../../../reducers/entities.js';
+import { MAX_ITEMS_PER_PAGE } from '../../../reducers/entities.js';
 
 
 const Paginator = (props) => {
   const { total, range, onPrevClick, onNextClick, onSearch } = props;
-  if (total <= MAX_ITEMS) {
+  if (total <= MAX_ITEMS_PER_PAGE) {
     return false;
   }
   const showNext = range[1] <= total;
   const showPrev = range[0] !== 0;
+  const max = total < range[1] ? total : range[1];
   return (
     <div id={styles.paginator}>
       <span className={styles.range}>
-        {range[0]}–{range[1]}
+        {range[0]}&#8211;{max}
       </span>
       {
         showPrev &&

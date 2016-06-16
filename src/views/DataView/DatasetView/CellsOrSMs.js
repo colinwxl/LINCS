@@ -7,7 +7,6 @@ import styles from './DatasetView.scss';
 
 const CellsOrSMs = (props) => {
   const { objects } = props;
-  console.log(objects);
   return (
     <div className={styles.cells}>
       <table className="table">
