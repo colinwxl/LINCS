@@ -1,11 +1,14 @@
 import React from 'react';
 import styles from './DatasetView.scss';
+import { MAX as MAX_ITEMS } from '../../../reducers/entities.js';
 
 
 const Paginator = (props) => {
-  const { objects, range, onPrevClick, onNextClick, onSearch } = props;
-  console.log(range);
-  const showNext = range[1] <= Object.keys(objects).length;
+  const { total, range, onPrevClick, onNextClick, onSearch } = props;
+  if (total <= MAX_ITEMS) {
+    return false;
+  }
+  const showNext = range[1] <= total;
   const showPrev = range[0] !== 0;
   return (
     <div id={styles.paginator}>
@@ -33,14 +36,14 @@ const Paginator = (props) => {
       <input
         onChange={onSearch}
         type="text"
-        placeholder="Search by name..."
+        placeholder="Search..."
       />
     </div>
   );
 };
 
 Paginator.propTypes = {
-  objects: React.PropTypes.object.isRequired,
+  total: React.PropTypes.number.isRequired,
   range: React.PropTypes.array.isRequired,
   onPrevClick: React.PropTypes.func.isRequired,
   onNextClick: React.PropTypes.func.isRequired,

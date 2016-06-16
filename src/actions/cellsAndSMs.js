@@ -9,41 +9,23 @@ export const SHOW_ALL_CELLS = 'SHOW_ALL_CELLS';
 export const FILTER_CELLS = 'FILTER_CELLS';
 
 export function updateSmallMoleculeRange(increment) {
-  return (dispatch, getState) => {
-    const cells = getState().entities.cells;
-    const smallMolecules = getState().entities.smallMolecules;
-    let type;
-    if (increment) {
-      type = INCREMENT_SMALL_MOLECULES;
-    } else {
-      type = DECREMENT_SMALL_MOLECULES;
-    }
-    return dispatch({
-      type,
-      cells,
-      smallMolecules,
-      searchTerm: null,
-    });
-  };
+  let type;
+  if (increment) {
+    type = INCREMENT_SMALL_MOLECULES;
+  } else {
+    type = DECREMENT_SMALL_MOLECULES;
+  }
+  return { type };
 }
 
 export function filterSmallMolecules(searchTerm) {
-  return (dispatch, getState) => {
-    const cells = getState().entities.cells;
-    const smallMolecules = getState().entities.smallMolecules;
-    let type;
-    if (!!searchTerm) {
-      type = FILTER_SMALL_MOLECULES;
-    } else {
-      type = SHOW_ALL_SMALL_MOLECULES;
-    }
-    return dispatch({
-      type,
-      cells,
-      smallMolecules,
-      searchTerm,
-    });
-  };
+  let type;
+  if (!!searchTerm) {
+    type = FILTER_SMALL_MOLECULES;
+  } else {
+    type = SHOW_ALL_SMALL_MOLECULES;
+  }
+  return { type, searchTerm };
 }
 
 export function updateCellRange(increment) {
@@ -57,7 +39,6 @@ export function updateCellRange(increment) {
 }
 
 export function filterCells(searchTerm) {
-  console.log('filterCells');
   let type;
   if (!!searchTerm) {
     type = FILTER_CELLS;

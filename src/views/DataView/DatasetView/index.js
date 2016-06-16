@@ -17,13 +17,21 @@ import CellsOrSMs from './CellsOrSMs';
 import Paginator from './Paginator';
 
 
-const mapStateToProps = (state) => ({
-  datasets: state.entities.datasets,
-  smallMolecules: state.entities.smallMolecules,
-  smRange: state.cellsAndSMs.smRange,
-  cells: state.entities.cells,
-  cellRange: state.cellsAndSMs.cellRange,
-});
+const mapStateToProps = (state) => {
+  const entities = state.entities;
+  const cache = entities.cache;
+  const filters = entities.filters;
+  const hasCache = Object.keys(cache).length > 0;
+  return {
+    datasets: entities.datasets,
+    smallMolecules: entities.smallMolecules,
+    numSmallMolecules: hasCache ? Object.keys(cache.smallMolecules).length : 0,
+    smRange: filters.smRange,
+    cells: entities.cells,
+    numCells: hasCache ? Object.keys(cache.cells).length : 0,
+    cellRange: filters.cellRange,
+  };
+};
 
 const mapDispatchToProps = (dispatch) => ({
   loadDataset: (datasetId) => {
@@ -62,20 +70,18 @@ export class DatasetView extends Component {
     }
     const {
       smallMolecules,
+      numSmallMolecules,
       smRange,
       onNextSMClick,
       onPrevSMClick,
       onSMSearch,
       cells,
+      numCells,
       cellRange,
       onNextCellClick,
       onPrevCellClick,
       onCellSearch,
     } = this.props;
-    const numSmallMolecules = Object.keys(smallMolecules).length;
-    const hasSmallMolecules = numSmallMolecules !== 0;
-    const numCells = Object.keys(cells).length;
-    const hasCells = numCells !== 0;
     const links = getIconLinks(dataset);
     const hasAnalysis = links.useSlicr || links.usePiLINCS || links.useMosaic || links.useILINCS;
     const validLincsId = !!dataset.lincsId && dataset.lincsId !== 'LDS-*';
@@ -244,14 +250,14 @@ export class DatasetView extends Component {
                         </tr>
                     }
                     {
-                      hasSmallMolecules &&
+                      numSmallMolecules !== 0 &&
                         <tr>
                           <td className={styles['small-molecules-cells-title']}>
                             Small Molecules ({numSmallMolecules})
                           </td>
                           <td>
                             <Paginator
-                              objects={smallMolecules}
+                              total={numSmallMolecules}
                               range={smRange}
                               onPrevClick={onPrevSMClick}
                               onNextClick={onNextSMClick}
@@ -259,20 +265,19 @@ export class DatasetView extends Component {
                             />
                             <CellsOrSMs
                               objects={smallMolecules}
-                              range={smRange}
                             />
                           </td>
                         </tr>
                     }
                     {
-                      hasCells &&
+                      numCells !== 0 &&
                         <tr>
                           <td className={styles['small-molecules-cells-title']}>
                             Cells ({numCells})
                           </td>
                           <td>
                             <Paginator
-                              objects={cells}
+                              total={numCells}
                               range={cellRange}
                               onPrevClick={onPrevCellClick}
                               onNextClick={onNextCellClick}
@@ -280,7 +285,6 @@ export class DatasetView extends Component {
                             />
                             <CellsOrSMs
                               objects={cells}
-                              range={cellRange}
                             />
                           </td>
                         </tr>
@@ -306,6 +310,7 @@ DatasetView.propTypes = {
 
   // Small molecules
   smallMolecules: PropTypes.object.isRequired,
+  numSmallMolecules: PropTypes.number.isRequired,
   smRange: PropTypes.array.isRequired,
   onNextSMClick: PropTypes.func.isRequired,
   onPrevSMClick: PropTypes.func.isRequired,
@@ -313,6 +318,7 @@ DatasetView.propTypes = {
 
   // Cells
   cells: PropTypes.object.isRequired,
+  numCells: PropTypes.number.isRequired,
   cellRange: PropTypes.array.isRequired,
   onNextCellClick: PropTypes.func.isRequired,
   onPrevCellClick: PropTypes.func.isRequired,
