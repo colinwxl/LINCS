@@ -13,7 +13,10 @@ import PageNav from 'components/PageNav';
 import SearchBar from 'components/SearchBar';
 import styles from './Releases.scss';
 
-const mapStateToProps = (state) => ({ datasets: state.entities.datasets });
+const mapStateToProps = (state) => ({
+  datasets: state.entities.datasets,
+});
+
 export class Releases extends Component {
   constructor(props) {
     super(props);
