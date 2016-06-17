@@ -21,7 +21,7 @@ export const INCREMENT_DATASET_CLICKS_SUCCESS = 'INCREMENT_DATASET_CLICKS_SUCCES
 export const INCREMENT_DATASET_CLICKS_FAILURE = 'INCREMENT_DATASET_CLICKS_FAILURE';
 
 // The default include options for loading datasets
-const defaultInclude = ['center', 'cells', 'cells.tissues', 'cells.diseases', 'smallMolecules'];
+const defaultInclude = ['center', 'cells', 'cells.tissues', 'cells.diseases'];
 
 /**
  * This redux action creator load the datasets from the server with the
@@ -32,10 +32,12 @@ const defaultInclude = ['center', 'cells', 'cells.tissues', 'cells.diseases', 's
  * from the database. For example, ['center'] will return the dataset object
  * with a 'center' key that contains the information about the center who
  * created the dataset.
+ * @param {Boolean} forceFetch forces fetching the data from the server. Useful for
+ * moderating how much data is fetched depending on page context.
  * @return {Function} An immediately invoking function that dispatches an API redux action
  * if needed.
  */
-export function loadDataset(datasetId, include = defaultInclude) {
+export function loadDataset(datasetId, include = defaultInclude, forceFetch = false) {
   return (dispatch, getState) => {
     // Get the dataset from the store (undefined if not there yet)
     const state = getState();
@@ -44,7 +46,7 @@ export function loadDataset(datasetId, include = defaultInclude) {
     const dataset = datasets[datasetId];
 
     // Check if the dataset exists and that all of the required fields are there.
-    if (!!dataset || datasetsPending) {
+    if (!forceFetch && (!!dataset || datasetsPending)) {
       return null;
     }
 
