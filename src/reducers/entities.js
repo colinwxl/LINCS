@@ -10,9 +10,13 @@ const initialState = {
   tissues: {},
   diseases: {},
   smallMolecules: {},
-  filters: {
+  ranges: {
     cellRange: [0, MAX_ITEMS_PER_PAGE],
     smRange: [0, MAX_ITEMS_PER_PAGE],
+  },
+  filtered: {
+    smallMolecules: {},
+    cells: {},
   },
   cache: {},
 };
@@ -83,104 +87,138 @@ function decrementRange(r) {
  */
 export function entities(state = initialState, action) {
   const { response } = action;
-  if (response && response.entities) {
-    const newState = Object.assign({}, state, response.entities);
-    return {
-      ...newState,
-      // This cache allows us to undo filters based on search terms and
-      // pagination. My (GWG) intuition is that there is a better way to do
-      // this with Redux, but the only way I can think of would be to re-fetch
-      // a clean state from the API, which seems wasteful. This is clear enough
-      // for now.
-      cache: {
-        smallMolecules: newState.smallMolecules,
-        cells: newState.cells,
-      },
-    };
-  }
+  console.log(action);
 
+  let respState;
+  let newState;
   let smallMolecules;
   let cells;
   let range;
   const cache = state.cache;
-  const filters = state.filters;
+  const ranges = state.ranges;
+  const filtered = state.filtered;
 
   switch (action.type) {
-    case actionTypes.INIT_CELL_AND_SM_FILTERS:
-      smallMolecules = filterByRange(cache.smallMolecules);
-      cells = filterByRange(cache.cells);
+    case actionTypes.DATASET_SUCCESS:
+      respState = response.entities;
+      newState = Object.assign({}, state, respState);
+      respState.smallMolecules = respState.smallMolecules || {};
+      respState.cells = respState.cells || {};
+      smallMolecules = filterByRange(respState.smallMolecules);
+      cells = filterByRange(respState.cells);
       return {
-        ...state,
-        smallMolecules,
-        cells,
+        ...newState,
+        // This cache allows us to undo filters based on search terms and
+        // pagination. My (GWG) intuition is that there is a better way to do
+        // this with Redux, but the only way I can think of would be to re-fetch
+        // a clean state from the API, which seems wasteful. This is clear enough
+        // for now.
+        cache: {
+          smallMolecules: respState.smallMolecules,
+          cells: respState.cells,
+        },
+        filtered: {
+          smallMolecules,
+          cells,
+        },
       };
+    case actionTypes.DATASETS_SUCCESS:
+      return Object.assign({}, state, response.entities);
     case actionTypes.INCREMENT_CELLS:
-      range = incrementRange(filters.cellRange);
+      range = incrementRange(ranges.cellRange);
       cells = filterByRange(cache.cells, range);
       return {
         ...state,
         cells,
-        filters: {
-          ...filters,
+        ranges: {
+          ...ranges,
           cellRange: range,
+        },
+        filtered: {
+          ...filtered,
+          cells,
         },
       };
     case actionTypes.DECREMENT_CELLS:
-      range = decrementRange(filters.cellRange);
+      range = decrementRange(ranges.cellRange);
       cells = filterByRange(cache.cells, range);
       return {
         ...state,
         cells,
-        filters: {
-          ...filters,
+        ranges: {
+          ...ranges,
           cellRange: range,
+        },
+        filtered: {
+          ...filtered,
+          cells,
         },
       };
     case actionTypes.FILTER_CELLS:
       cells = filterBySearchTerm(cache.cells, action.searchTerm);
       return {
         ...state,
-        cells,
+        filtered: {
+          ...filtered,
+          cells,
+        },
       };
     case actionTypes.UNDO_FILTER_CELLS:
-      cells = filterByRange(cache.cells, filters.cellRange);
+      cells = filterByRange(cache.cells, ranges.cellRange);
       return {
         ...state,
-        cells,
+        filtered: {
+          ...filtered,
+          cells,
+        },
       };
     case actionTypes.INCREMENT_SMALL_MOLECULES:
-      range = incrementRange(filters.smRange);
+      range = incrementRange(ranges.smRange);
       smallMolecules = filterByRange(cache.smallMolecules, range);
       return {
         ...state,
         smallMolecules,
-        filters: {
-          ...filters,
+        ranges: {
+          ...ranges,
           smRange: range,
+        },
+        filtered: {
+          ...filtered,
+          smallMolecules,
         },
       };
     case actionTypes.DECREMENT_SMALL_MOLECULES:
-      range = decrementRange(filters.smRange);
+      range = decrementRange(ranges.smRange);
       smallMolecules = filterByRange(cache.smallMolecules, range);
       return {
         ...state,
         smallMolecules,
-        filters: {
-          ...filters,
+        ranges: {
+          ...ranges,
           smRange: range,
+        },
+        filtered: {
+          ...filtered,
+          smallMolecules,
         },
       };
     case actionTypes.FILTER_SMALL_MOLECULES:
       smallMolecules = filterBySearchTerm(cache.smallMolecules, action.searchTerm);
       return {
         ...state,
-        smallMolecules,
+        filtered: {
+          ...filtered,
+          smallMolecules,
+        },
       };
     case actionTypes.UNDO_FILTER_SMALL_MOLECULES:
-      smallMolecules = filterByRange(cache.smallMolecules, filters.smRange);
+      smallMolecules = filterByRange(cache.smallMolecules, ranges.smRange);
       return {
         ...state,
-        smallMolecules,
+        filtered: {
+          ...filtered,
+          smallMolecules,
+        },
       };
     default:
       return state;

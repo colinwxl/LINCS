@@ -20,8 +20,6 @@ export const INCREMENT_DATASET_CLICKS_REQUEST = 'INCREMENT_DATASET_CLICKS_REQUES
 export const INCREMENT_DATASET_CLICKS_SUCCESS = 'INCREMENT_DATASET_CLICKS_SUCCESS';
 export const INCREMENT_DATASET_CLICKS_FAILURE = 'INCREMENT_DATASET_CLICKS_FAILURE';
 
-export const INIT_CELL_AND_SM_FILTERS = 'INIT_CELL_AND_SM_FILTERS';
-
 export const INCREMENT_SMALL_MOLECULES = 'INCREMENT_SMALL_MOLECULES';
 export const DECREMENT_SMALL_MOLECULES = 'DECREMENT_SMALL_MOLECULES';
 export const FILTER_SMALL_MOLECULES = 'FILTER_SMALL_MOLECULES';
@@ -59,15 +57,11 @@ export function loadDataset(datasetId) {
         types: [
           DATASET_REQUEST,
           DATASET_SUCCESS,
-          DATASET_FAILURE
+          DATASET_FAILURE,
         ],
         endpoint,
         schema: Schemas.DATASET,
       },
-    }).then(() => {
-      dispatch({
-        type: INIT_CELL_AND_SM_FILTERS,
-      });
     });
   };
 }
@@ -87,7 +81,7 @@ export function loadDatasets() {
         types: [
           DATASETS_REQUEST,
           DATASETS_SUCCESS,
-          DATASETS_FAILURE
+          DATASETS_FAILURE,
         ],
         endpoint,
         schema: Schemas.DATASET_ARRAY,
@@ -97,13 +91,11 @@ export function loadDatasets() {
 }
 
 /**
- * This redux action creator increments the clicks count for each
- * dataset specified.
+ * Increments the clicks count for each dataset specified.
  */
 export function incrementDatasetClicks(datasetIds = []) {
   return (dispatch) => {
     // Only update dataset clicks when in production.
-    // Prevents running up stats during development.
     if (!datasetIds.length || process.env.NODE_ENV !== 'production') {
       return null;
     }
@@ -126,21 +118,19 @@ export function incrementDatasetClicks(datasetIds = []) {
   };
 }
 
-export function initCellAndSMFilters() {
-  return { type: INIT_CELL_AND_SM_FILTERS, };
-}
-
-export function resetCellAndSmFilters() {
-  return { type: RESET_CELL_AND_SM_FILTERS, };
-}
-
+/**
+ * Increment and decrement small molecule range on dataset pages.
+ */
 export function updateSmallMoleculeRange(increment) {
   if (increment) {
-    return { type: INCREMENT_SMALL_MOLECULES, };
+    return { type: INCREMENT_SMALL_MOLECULES };
   }
-  return { type: DECREMENT_SMALL_MOLECULES, };
+  return { type: DECREMENT_SMALL_MOLECULES };
 }
 
+/**
+ * Filter visible small molecules based on user input on dataset pages.
+ */
 export function filterSmallMolecules(searchTerm) {
   let type;
   if (!!searchTerm) {
@@ -151,13 +141,19 @@ export function filterSmallMolecules(searchTerm) {
   return { type, searchTerm };
 }
 
+/**
+ * Increment and decrement cell range on dataset pages.
+ */
 export function updateCellRange(increment) {
   if (increment) {
-    return { type: INCREMENT_CELLS, };
+    return { type: INCREMENT_CELLS };
   }
-  return { type: DECREMENT_CELLS, };
+  return { type: DECREMENT_CELLS };
 }
 
+/**
+ * Filter visible cells based on user input on dataset pages.
+ */
 export function filterCells(searchTerm) {
   let type;
   if (!!searchTerm) {

@@ -9,7 +9,6 @@ import {
   filterSmallMolecules,
   updateCellRange,
   filterCells,
-  initCellAndSMFilters,
 } from 'actions/entities';
 import PageBanner from 'components/PageBanner';
 import Clustergram from 'containers/Clustergram';
@@ -21,16 +20,16 @@ import Paginator from './Paginator';
 const mapStateToProps = (state) => {
   const entities = state.entities;
   const cache = entities.cache;
-  const filters = entities.filters;
+  const ranges = entities.ranges;
   const hasCache = Object.keys(cache).length > 0;
   return {
     datasets: entities.datasets,
-    smallMolecules: entities.smallMolecules,
+    smallMolecules: entities.filtered.smallMolecules,
     numSmallMolecules: hasCache ? Object.keys(cache.smallMolecules).length : 0,
-    smRange: filters.smRange,
-    cells: entities.cells,
+    smRange: ranges.smRange,
+    cells: entities.filtered.cells,
     numCells: hasCache ? Object.keys(cache.cells).length : 0,
-    cellRange: filters.cellRange,
+    cellRange: ranges.cellRange,
   };
 };
 

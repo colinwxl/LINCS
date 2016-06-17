@@ -53,11 +53,7 @@ export function treeFailure(error) {
  * keys: assays, classes, methods, centers, alphabetical, dates, dateDatasetMap
  */
 export function loadTree() {
-  return (dispatch, getState) => {
-    const tree = getState().tree;
-    if (tree.isLoaded) {
-      return null;
-    }
+  return (dispatch) => {
     // Dispatch a redux action to let the app know that we are currently
     // requesting the tree from the server.
     dispatch(treeRequest());

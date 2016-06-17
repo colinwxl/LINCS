@@ -5,7 +5,7 @@ import range from 'lodash/range';
 
 import DataTree from 'containers/DataTree';
 import PageBanner from 'components/PageBanner';
-import { loadDatasets, resetCellAndSmFilters } from 'actions/entities';
+import { loadDatasets } from 'actions/entities';
 import handleResponse from 'utils/handleResponse';
 import SearchResult from './SearchResult';
 import ResultPlaceholder from './ResultPlaceholder';
