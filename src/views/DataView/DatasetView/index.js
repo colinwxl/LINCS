@@ -34,8 +34,8 @@ const mapStateToProps = (state) => {
 };
 
 const mapDispatchToProps = (dispatch) => ({
-  loadDataset: (datasetId) => {
-    dispatch(loadDataset(datasetId));
+  loadDataset: (datasetId, includes, forceRefetch) => {
+    dispatch(loadDataset(datasetId, includes, forceRefetch));
   },
   onNextSMClick: () => {
     dispatch(updateSmallMoleculeRange(true));
@@ -60,7 +60,14 @@ const mapDispatchToProps = (dispatch) => ({
 export class DatasetView extends Component {
 
   componentWillMount() {
-    this.props.loadDataset(this.props.params.datasetId);
+    const datasetId = this.props.params.datasetId;
+    const includes = ['center', 'cells', 'smallMolecules'];
+    // If the user navigates from the data tree to an individual dataset page,
+    // we need to force refetch the dataset data. This is because we did not
+    // load the datasets with small molecules, since there are thousands of
+    // them.
+    const forceFetch = true;
+    this.props.loadDataset(datasetId, includes, forceFetch);
   }
 
   render() {
