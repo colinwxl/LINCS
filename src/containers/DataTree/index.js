@@ -1,7 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 
-import { loadDatasets } from 'actions/entities';
 import { loadTree } from 'actions/tree';
 import AssayTree from './AssayTree';
 import CenterTree from './CenterTree';
@@ -16,7 +15,6 @@ const mapStateToProps = ({ entities, tree }) => ({ entities, tree });
 
 export class DataTree extends Component {
   componentWillMount() {
-    this.props.loadDatasets(['center', 'cells', 'cells.tissues']);
     this.props.loadTree();
   }
 
@@ -53,13 +51,11 @@ export class DataTree extends Component {
 }
 
 DataTree.propTypes = {
-  loadDatasets: PropTypes.func.isRequired,
   loadTree: PropTypes.func.isRequired,
   entities: PropTypes.object,
   tree: PropTypes.object,
 };
 
 export default connect(mapStateToProps, {
-  loadDatasets,
   loadTree,
 })(DataTree);
