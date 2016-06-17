@@ -1,6 +1,5 @@
 import handleResponse from 'utils/handleResponse';
 
-// Tree action types
 export const TREE_REQUEST = 'TREE_REQUEST';
 export const TREE_SUCCESS = 'TREE_SUCCESS';
 export const TREE_FAILURE = 'TREE_FAILURE';
@@ -55,9 +54,7 @@ export function treeFailure(error) {
  */
 export function loadTree() {
   return (dispatch, getState) => {
-    // Get the tree from the current redux state.
     const tree = getState().tree;
-    // Check if the tree has already been loaded.
     if (tree.isLoaded) {
       return null;
     }
@@ -67,9 +64,7 @@ export function loadTree() {
     return fetch('/LINCS/api/v1/datasets/tree')
       .then(response => handleResponse(response))
       .then(response => response.json())
-      // Dispatch a success action if retrieving the tree was successful.
       .then(treeObj => dispatch(treeSuccess(treeObj)))
-      // Dispatch a failure action if retrieving the tree was unsuccessful.
       .catch(error => dispatch(treeFailure(error)));
   };
 }
