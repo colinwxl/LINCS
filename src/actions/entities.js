@@ -20,93 +20,75 @@ export const INCREMENT_DATASET_CLICKS_REQUEST = 'INCREMENT_DATASET_CLICKS_REQUES
 export const INCREMENT_DATASET_CLICKS_SUCCESS = 'INCREMENT_DATASET_CLICKS_SUCCESS';
 export const INCREMENT_DATASET_CLICKS_FAILURE = 'INCREMENT_DATASET_CLICKS_FAILURE';
 
-// The default include options for loading datasets
-const defaultInclude = ['center', 'cells', 'cells.tissues', 'cells.diseases'];
+export const INIT_CELL_AND_SM_FILTERS = 'INIT_CELL_AND_SM_FILTERS';
+
+export const INCREMENT_SMALL_MOLECULES = 'INCREMENT_SMALL_MOLECULES';
+export const DECREMENT_SMALL_MOLECULES = 'DECREMENT_SMALL_MOLECULES';
+export const FILTER_SMALL_MOLECULES = 'FILTER_SMALL_MOLECULES';
+export const UNDO_FILTER_SMALL_MOLECULES = 'UNDO_FILTER_SMALL_MOLECULES';
+
+export const INCREMENT_CELLS = 'INCREMENT_CELLS';
+export const DECREMENT_CELLS = 'DECREMENT_CELLS';
+export const FILTER_CELLS = 'FILTER_CELLS';
+export const UNDO_FILTER_CELLS = 'UNDO_FILTER_CELLS';
 
 /**
- * This redux action creator load the datasets from the server with the
- * specified relationships.
- *
- * @param {Number} datasetId The id of the dataset you would like to load.
- * @param {Array} include The relationships that you would like to include
- * from the database. For example, ['center'] will return the dataset object
- * with a 'center' key that contains the information about the center who
- * created the dataset.
- * @param {Boolean} forceFetch forces fetching the data from the server. Useful for
- * moderating how much data is fetched depending on page context.
- * @return {Function} An immediately invoking function that dispatches an API redux action
- * if needed.
+ * Return endpoint. This will be appended to the baseUrl, e.g.:
+ * /datasets?include=center,cells
  */
-export function loadDataset(datasetId, include = defaultInclude, forceFetch = false) {
-  return (dispatch, getState) => {
-    // Get the dataset from the store (undefined if not there yet)
-    const state = getState();
-    const { datasets } = state.entities;
-    const { datasetsPending } = state.pendingRequests;
-    const dataset = datasets[datasetId];
+function getEndpoint(include, datasetId = null) {
+  let endpoint = 'datasets';
+  if (datasetId) {
+    endpoint += `/${datasetId}`;
+  }
+  endpoint += `?include=${include.join(',')}`;
+  return endpoint;
+}
 
-    // Check if the dataset exists and that all of the required fields are there.
-    if (!forceFetch && (!!dataset || datasetsPending)) {
-      return null;
-    }
-
-    // Create the endpoint. This will be appended to the baseUrl.
-    // An example is /datasets/:datasetId?include=center,cells
-    let endpoint = `datasets/${datasetId}`;
-    if (include.length) {
-      endpoint += `?include=${include.join(',')}`;
-    }
-
-    // This action takes a REQUEST, SUCCESS, and FAILURE action type to be dispatched
-    // in a similar fashion to the other action creators (loadTools(), loadPublications()).
-    // The schema is also specified. This is used for normalizr: https://github.com/gaearon/normalizr
+/**
+ * Returns fresh dataset from server. Does not rely on
+ * `state.entities.datasets` because we want additional properties such as
+ * small molecules.
+ */
+export function loadDataset(datasetId) {
+  const include = ['center', 'cells', 'cells.tissues', 'cells.diseases', 'smallMolecules'];
+  return (dispatch) => {
+    const endpoint = getEndpoint(include, datasetId);
     return dispatch({
       [CALL_API]: {
-        types: [DATASET_REQUEST, DATASET_SUCCESS, DATASET_FAILURE],
+        types: [
+          DATASET_REQUEST,
+          DATASET_SUCCESS,
+          DATASET_FAILURE
+        ],
         endpoint,
         schema: Schemas.DATASET,
       },
+    }).then(() => {
+      dispatch({
+        type: INIT_CELL_AND_SM_FILTERS,
+      });
     });
   };
 }
 
 /**
- * This redux action creator load the datasets from the server with the
- * specified relationships.
- *
- * @param {Array} include The relationships that you would like to include
- * from the database. For example, ['center'] will return the dataset object
- * with a 'center' key that contains the information about the center who
- * created the dataset.
- * @return {Function} A function that returns a dispatch()
+ * Returns all datasets from server.
  */
-export function loadDatasets(include = defaultInclude) {
-  // TODO: Improve check to see if loaded.
-  return (dispatch, getState) => {
-    const state = getState();
-    const { datasets } = state.entities;
-    const { datasetsPending } = state.pendingRequests;
-
-    // Check if there are datasets in the state.entities.datasets object or
-    // that a request for the datasets is already pending. If either is true,
-    // a request to the server is not needed.
-    if ((datasets && Object.keys(datasets).length) || datasetsPending) {
-      return null;
-    }
-
-    // Create the endpoint. This will be appended to the baseUrl.
-    // An example is /datasets?include=center,cells
-    let endpoint = 'datasets';
-    if (include.length) {
-      endpoint += `?include=${include.join(',')}`;
-    }
-
+export function loadDatasets() {
+  const include = ['center', 'cells', 'cells.tissues', 'cells.diseases'];
+  return (dispatch) => {
+    const endpoint = getEndpoint(include);
     // This action takes a REQUEST, SUCCESS, and FAILURE action type to be dispatched
     // in a similar fashion to the other action creators (loadTools(), loadPublications()).
     // The schema is also specified. This is used for normalizr: https://github.com/gaearon/normalizr
     return dispatch({
       [CALL_API]: {
-        types: [DATASETS_REQUEST, DATASETS_SUCCESS, DATASETS_FAILURE],
+        types: [
+          DATASETS_REQUEST,
+          DATASETS_SUCCESS,
+          DATASETS_FAILURE
+        ],
         endpoint,
         schema: Schemas.DATASET_ARRAY,
       },
@@ -117,10 +99,6 @@ export function loadDatasets(include = defaultInclude) {
 /**
  * This redux action creator increments the clicks count for each
  * dataset specified.
- *
- * @param {Array} datasetIds The ids of the datasets whose clicks will be
- * incremented.
- * @return {Function} A function that returns a dispatch()
  */
 export function incrementDatasetClicks(datasetIds = []) {
   return (dispatch) => {
@@ -146,4 +124,46 @@ export function incrementDatasetClicks(datasetIds = []) {
       },
     });
   };
+}
+
+export function initCellAndSMFilters() {
+  return { type: INIT_CELL_AND_SM_FILTERS, };
+}
+
+export function resetCellAndSmFilters() {
+  return { type: RESET_CELL_AND_SM_FILTERS, };
+}
+
+export function updateSmallMoleculeRange(increment) {
+  if (increment) {
+    return { type: INCREMENT_SMALL_MOLECULES, };
+  }
+  return { type: DECREMENT_SMALL_MOLECULES, };
+}
+
+export function filterSmallMolecules(searchTerm) {
+  let type;
+  if (!!searchTerm) {
+    type = FILTER_SMALL_MOLECULES;
+  } else {
+    type = UNDO_FILTER_SMALL_MOLECULES;
+  }
+  return { type, searchTerm };
+}
+
+export function updateCellRange(increment) {
+  if (increment) {
+    return { type: INCREMENT_CELLS, };
+  }
+  return { type: DECREMENT_CELLS, };
+}
+
+export function filterCells(searchTerm) {
+  let type;
+  if (!!searchTerm) {
+    type = FILTER_CELLS;
+  } else {
+    type = UNDO_FILTER_CELLS;
+  }
+  return { type, searchTerm };
 }

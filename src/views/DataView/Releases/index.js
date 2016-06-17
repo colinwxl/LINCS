@@ -5,7 +5,7 @@ import range from 'lodash/range';
 
 import DataTree from 'containers/DataTree';
 import PageBanner from 'components/PageBanner';
-import { loadDatasets } from 'actions/entities';
+import { loadDatasets, resetCellAndSmFilters } from 'actions/entities';
 import handleResponse from 'utils/handleResponse';
 import SearchResult from './SearchResult';
 import ResultPlaceholder from './ResultPlaceholder';
@@ -15,6 +15,12 @@ import styles from './Releases.scss';
 
 const mapStateToProps = (state) => ({
   datasets: state.entities.datasets,
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  loadDatasets: () => {
+    dispatch(loadDatasets());
+  },
 });
 
 export class Releases extends Component {
@@ -168,4 +174,7 @@ Releases.propTypes = {
   loadDatasets: PropTypes.func,
 };
 
-export default connect(mapStateToProps, { loadDatasets })(Releases);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Releases);

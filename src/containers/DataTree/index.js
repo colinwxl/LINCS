@@ -15,12 +15,11 @@ const mapStateToProps = ({ entities, tree }) => ({ entities, tree });
 
 export class DataTree extends Component {
   componentWillMount() {
+    // If the user navigates to a dataset page, `state.entities` will change to
+    // reflect only the necessary information. We need to reload the data tree
+    // from stratch every time to make sure it's up-to-date.
+    this.forceUpdate();
     this.props.loadTree();
-  }
-
-  shouldComponentUpdate(nextProps) {
-    const { entities, tree } = nextProps;
-    return !!entities && !!tree && tree.isLoaded;
   }
 
   render() {

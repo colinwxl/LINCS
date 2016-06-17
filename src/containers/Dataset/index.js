@@ -2,24 +2,18 @@ import React, { PropTypes, Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router';
 import moment from 'moment';
-// import each from 'lodash/each';
 
-import { loadDataset } from 'actions/entities';
 import styles from './Dataset.scss';
 
-const mapStateToProps = ({ entities }) => ({
-  datasets: entities.datasets,
+const mapStateToProps = (state) => ({
+  datasets: state.entities.datasets,
 });
 
 export class Dataset extends Component {
-  componentWillMount() {
-    this.props.loadDataset(this.props.datasetId);
-  }
-
   render() {
     const { className, datasets, datasetId } = this.props;
-    const ds = datasets[datasetId];
-    if (!ds) {
+    const dataset = datasets[datasetId];
+    if (!dataset) {
       return null;
     }
     return (
@@ -28,21 +22,21 @@ export class Dataset extends Component {
           <div className="row">
             <div className="col-xs-7">
               <h5>
-                <Link to={`/data/releases/${datasetId}`}>{ds.method}</Link>
+                <Link to={`/data/releases/${datasetId}`}>{dataset.method}</Link>
               </h5>
-              <p className={styles.creator}>{ds.center.name}</p>
+              <p className={styles.creator}>{dataset.center.name}</p>
             </div>
             <div className="col-xs-5">
               <p className={`text-muted ${styles['info-date']}`}>
-                {ds.lincsId}
+                {dataset.lincsId}
               </p>
               <p className={`text-muted ${styles['info-date']}`}>
-                <em>{moment(ds.dateRetrieved).format('MMM Do, YYYY')}</em>
+                <em>{moment(dataset.dateRetrieved).format('MMM Do, YYYY')}</em>
               </p>
             </div>
           </div>
         </div>
-        <p className={styles.description}>{ds.description}</p>
+        <p className={styles.description}>{dataset.description}</p>
         <Link to={`/data/releases/${datasetId}`}>Click here to view dataset page</Link>
       </div>
     );
@@ -56,4 +50,6 @@ Dataset.propTypes = {
   loadDataset: PropTypes.func,
 };
 
-export default connect(mapStateToProps, { loadDataset })(Dataset);
+export default connect(
+  mapStateToProps
+)(Dataset);

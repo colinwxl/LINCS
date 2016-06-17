@@ -9,7 +9,6 @@ import pubsNews from './pubsNews';
 import toolsWorkflows from './toolsWorkflows';
 import tree from './tree';
 import modals from './modals';
-import pendingRequests from './pendingRequests';
 
 export default combineReducers({
   entities,
@@ -20,6 +19,5 @@ export default combineReducers({
   tree,
   modals,
   router,
-  pendingRequests,
   form: formReducer,
 });

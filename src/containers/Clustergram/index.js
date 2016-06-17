@@ -1,8 +1,6 @@
 import React, { PropTypes, Component } from 'react';
 import { connect } from 'react-redux';
-// import extend from 'extend';
 
-import { loadDataset } from 'actions/entities';
 import renderClustgram from './clustergrammer/main';
 import handleResponse from 'utils/handleResponse';
 import styles from './Clustergram.scss';
@@ -20,11 +18,6 @@ export class Clustergram extends Component {
       clustergramLoaded: false,
       windowWidth: !!window ? window.innerWidth : null,
     };
-  }
-
-  componentWillMount() {
-    // Load dataset if not already
-    this.props.loadDataset(this.props.datasetId);
   }
 
   componentDidMount() {
@@ -142,11 +135,10 @@ export class Clustergram extends Component {
 }
 
 Clustergram.propTypes = {
-  loadDataset: PropTypes.func.isRequired,
   datasets: PropTypes.object.isRequired,
   datasetId: PropTypes.number.isRequired,
 };
 
-export default connect(mapStateToProps, {
-  loadDataset,
-})(Clustergram);
+export default connect(
+  mapStateToProps
+)(Clustergram);

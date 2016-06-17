@@ -3,13 +3,14 @@ import { connect } from 'react-redux';
 import moment from 'moment';
 
 import getIconLinks from 'utils/getIconLinks';
-import { loadDataset } from 'actions/entities';
 import {
+  loadDataset,
   updateSmallMoleculeRange,
   filterSmallMolecules,
   updateCellRange,
   filterCells,
-} from 'actions/cellsAndSMs';
+  initCellAndSMFilters,
+} from 'actions/entities';
 import PageBanner from 'components/PageBanner';
 import Clustergram from 'containers/Clustergram';
 import styles from './DatasetView.scss';
@@ -34,8 +35,8 @@ const mapStateToProps = (state) => {
 };
 
 const mapDispatchToProps = (dispatch) => ({
-  loadDataset: (datasetId, includes, forceRefetch) => {
-    dispatch(loadDataset(datasetId, includes, forceRefetch));
+  loadDataset: (datasetId) => {
+    dispatch(loadDataset(datasetId));
   },
   onNextSMClick: () => {
     dispatch(updateSmallMoleculeRange(true));
@@ -61,13 +62,7 @@ export class DatasetView extends Component {
 
   componentWillMount() {
     const datasetId = this.props.params.datasetId;
-    const includes = ['center', 'cells', 'smallMolecules'];
-    // If the user navigates from the data tree to an individual dataset page,
-    // we need to force refetch the dataset data. This is because we did not
-    // load the datasets with small molecules, since there are thousands of
-    // them.
-    const forceFetch = true;
-    this.props.loadDataset(datasetId, includes, forceFetch);
+    this.props.loadDataset(datasetId);
   }
 
   render() {

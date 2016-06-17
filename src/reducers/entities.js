@@ -1,4 +1,4 @@
-import * as CSMActionTypes from 'actions/cellsAndSMs';
+import * as actionTypes from 'actions/entities';
 
 
 export const MAX_ITEMS_PER_PAGE = 10;
@@ -85,12 +85,8 @@ export function entities(state = initialState, action) {
   const { response } = action;
   if (response && response.entities) {
     const newState = Object.assign({}, state, response.entities);
-    const smallMolecules = filterByRange(newState.smallMolecules);
-    const cells = filterByRange(newState.cells);
     return {
       ...newState,
-      smallMolecules,
-      cells,
       // This cache allows us to undo filters based on search terms and
       // pagination. My (GWG) intuition is that there is a better way to do
       // this with Redux, but the only way I can think of would be to re-fetch
@@ -110,7 +106,15 @@ export function entities(state = initialState, action) {
   const filters = state.filters;
 
   switch (action.type) {
-    case CSMActionTypes.INCREMENT_CELLS:
+    case actionTypes.INIT_CELL_AND_SM_FILTERS:
+      smallMolecules = filterByRange(cache.smallMolecules);
+      cells = filterByRange(cache.cells);
+      return {
+        ...state,
+        smallMolecules,
+        cells,
+      };
+    case actionTypes.INCREMENT_CELLS:
       range = incrementRange(filters.cellRange);
       cells = filterByRange(cache.cells, range);
       return {
@@ -121,7 +125,7 @@ export function entities(state = initialState, action) {
           cellRange: range,
         },
       };
-    case CSMActionTypes.DECREMENT_CELLS:
+    case actionTypes.DECREMENT_CELLS:
       range = decrementRange(filters.cellRange);
       cells = filterByRange(cache.cells, range);
       return {
@@ -132,19 +136,19 @@ export function entities(state = initialState, action) {
           cellRange: range,
         },
       };
-    case CSMActionTypes.FILTER_CELLS:
+    case actionTypes.FILTER_CELLS:
       cells = filterBySearchTerm(cache.cells, action.searchTerm);
       return {
         ...state,
         cells,
       };
-    case CSMActionTypes.UNDO_FILTER_CELLS:
+    case actionTypes.UNDO_FILTER_CELLS:
       cells = filterByRange(cache.cells, filters.cellRange);
       return {
         ...state,
         cells,
       };
-    case CSMActionTypes.INCREMENT_SMALL_MOLECULES:
+    case actionTypes.INCREMENT_SMALL_MOLECULES:
       range = incrementRange(filters.smRange);
       smallMolecules = filterByRange(cache.smallMolecules, range);
       return {
@@ -155,7 +159,7 @@ export function entities(state = initialState, action) {
           smRange: range,
         },
       };
-    case CSMActionTypes.DECREMENT_SMALL_MOLECULES:
+    case actionTypes.DECREMENT_SMALL_MOLECULES:
       range = decrementRange(filters.smRange);
       smallMolecules = filterByRange(cache.smallMolecules, range);
       return {
@@ -166,13 +170,13 @@ export function entities(state = initialState, action) {
           smRange: range,
         },
       };
-    case CSMActionTypes.FILTER_SMALL_MOLECULES:
+    case actionTypes.FILTER_SMALL_MOLECULES:
       smallMolecules = filterBySearchTerm(cache.smallMolecules, action.searchTerm);
       return {
         ...state,
         smallMolecules,
       };
-    case CSMActionTypes.UNDO_FILTER_SMALL_MOLECULES:
+    case actionTypes.UNDO_FILTER_SMALL_MOLECULES:
       smallMolecules = filterByRange(cache.smallMolecules, filters.smRange);
       return {
         ...state,
