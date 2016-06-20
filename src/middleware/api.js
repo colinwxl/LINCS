@@ -52,12 +52,15 @@ function callApi(endpoint, schema, body) {
   } else {
     apiPromise = fetch(fullUrl);
   }
-  return apiPromise
+  apiPromise = apiPromise
     .then(response => handleResponse(response))
-    .then(response => response.json())
+    .then(response => response.json());
+  if (schema) {
     // Normalize the response based on the schema. https://github.com/gaearon/normalizr
-    .then(response => Object.assign({}, normalize(response, schema)))
-    .catch(e => Promise.reject(e));
+    apiPromise = apiPromise
+      .then(response => Object.assign({}, normalize(response, schema)));
+  }
+  return apiPromise.catch(e => Promise.reject(e));
 }
 
 // Normalize JSON response using normalizr: https://github.com/gaearon/normalizr
@@ -128,9 +131,6 @@ export default store => next => action => {
 
   if (typeof endpoint !== 'string') {
     throw new Error('Specify a string endpoint URL.');
-  }
-  if (!schema) {
-    throw new Error('Specify one of the exported Schemas.');
   }
   if (!Array.isArray(types) || types.length !== 3) {
     throw new Error('Expected an array of three action types.');
