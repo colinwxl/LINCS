@@ -87,7 +87,6 @@ function decrementRange(r) {
  */
 export function datasetPage(state = initialState, action) {
   const { response } = action;
-  console.log(action);
 
   let dataset;
   let smallMolecules;

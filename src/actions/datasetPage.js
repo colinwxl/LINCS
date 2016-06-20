@@ -4,7 +4,7 @@
 // redux real-world example:
 // https://github.com/reactjs/redux/blob/master/docs/introduction/Examples.md#real-world
 
-import { CALL_API, Schemas } from 'middleware/api';
+import { CALL_API } from 'middleware/api';
 import { getEndpoint } from './entities';
 
 export const DATASET_REQUEST = 'DATASET_REQUEST';
