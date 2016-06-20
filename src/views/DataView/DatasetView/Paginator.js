@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './DatasetView.scss';
-import { MAX_ITEMS_PER_PAGE } from '../../../reducers/entities.js';
+import { MAX_ITEMS_PER_PAGE } from '../../../reducers/datasetPage';
 
 
 const Paginator = (props) => {

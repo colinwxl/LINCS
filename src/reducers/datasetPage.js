@@ -1,11 +1,11 @@
-import * as actionTypes from 'actions/entities';
+import * as actionTypes from 'actions/datasetPage';
 
 
 export const MAX_ITEMS_PER_PAGE = 10;
 
 // Updates an entity cache in response to any action with response.entities.
 const initialState = {
-  datasets: {},
+  dataset: {},
   cells: {},
   tissues: {},
   diseases: {},
@@ -85,12 +85,11 @@ function decrementRange(r) {
 /**
  * Updates all entities based on current page and filters.
  */
-export function entities(state = initialState, action) {
+export function datasetPage(state = initialState, action) {
   const { response } = action;
   console.log(action);
 
-  let respState;
-  let newState;
+  let dataset;
   let smallMolecules;
   let cells;
   let range;
@@ -100,30 +99,29 @@ export function entities(state = initialState, action) {
 
   switch (action.type) {
     case actionTypes.DATASET_SUCCESS:
-      respState = response.entities;
-      newState = Object.assign({}, state, respState);
-      respState.smallMolecules = respState.smallMolecules || {};
-      respState.cells = respState.cells || {};
-      smallMolecules = filterByRange(respState.smallMolecules);
-      cells = filterByRange(respState.cells);
+      dataset = response;
+      dataset.smallMolecules = dataset.smallMolecules || {};
+      dataset.cells = dataset.cells || {};
+      smallMolecules = filterByRange(dataset.smallMolecules);
+      cells = filterByRange(dataset.cells);
       return {
-        ...newState,
-        // This cache allows us to undo filters based on search terms and
-        // pagination. My (GWG) intuition is that there is a better way to do
-        // this with Redux, but the only way I can think of would be to re-fetch
-        // a clean state from the API, which seems wasteful. This is clear enough
-        // for now.
+        ...state,
+        dataset,
+        smallMolecules,
+        cells,
         cache: {
-          smallMolecules: respState.smallMolecules,
-          cells: respState.cells,
+          // These are the full lists of small molecules and cells, allowing us
+          // to reset after a user search and handle pagination.
+          smallMolecules: dataset.smallMolecules,
+          cells: dataset.cells,
         },
         filtered: {
+          // These are the visible small molecules and cells based on the
+          // current page.
           smallMolecules,
           cells,
         },
       };
-    case actionTypes.DATASETS_SUCCESS:
-      return Object.assign({}, state, response.entities);
     case actionTypes.INCREMENT_CELLS:
       range = incrementRange(ranges.cellRange);
       cells = filterByRange(cache.cells, range);

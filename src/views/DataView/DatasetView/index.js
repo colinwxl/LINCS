@@ -9,7 +9,7 @@ import {
   filterSmallMolecules,
   updateCellRange,
   filterCells,
-} from 'actions/entities';
+} from 'actions/datasetPage';
 import PageBanner from 'components/PageBanner';
 import Clustergram from 'containers/Clustergram';
 import styles from './DatasetView.scss';
@@ -17,17 +17,16 @@ import CellsOrSMs from './CellsOrSMs';
 import Paginator from './Paginator';
 
 
-const mapStateToProps = (state) => {
-  const entities = state.entities;
-  const cache = entities.cache;
-  const ranges = entities.ranges;
+const mapStateToProps = ({ datasetPage }) => {
+  const cache = datasetPage.cache;
+  const ranges = datasetPage.ranges;
   const hasCache = Object.keys(cache).length > 0;
   return {
-    datasets: entities.datasets,
-    smallMolecules: entities.filtered.smallMolecules,
+    dataset: datasetPage.dataset,
+    smallMolecules: datasetPage.filtered.smallMolecules,
     numSmallMolecules: hasCache ? Object.keys(cache.smallMolecules).length : 0,
     smRange: ranges.smRange,
-    cells: entities.filtered.cells,
+    cells: datasetPage.filtered.cells,
     numCells: hasCache ? Object.keys(cache.cells).length : 0,
     cellRange: ranges.cellRange,
   };
@@ -65,8 +64,8 @@ export class DatasetView extends Component {
   }
 
   render() {
-    const dataset = this.props.datasets[this.props.params.datasetId];
-    if (!dataset) {
+    const { dataset } = this.props;
+    if (Object.keys(dataset).length === 0) {
       return null;
     }
     const {
@@ -305,7 +304,7 @@ export class DatasetView extends Component {
 }
 
 DatasetView.propTypes = {
-  datasets: PropTypes.object.isRequired,
+  dataset: PropTypes.object.isRequired,
   loadDataset: PropTypes.func.isRequired,
   params: PropTypes.object.isRequired,
 

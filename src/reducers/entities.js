@@ -9,7 +9,7 @@ const initialState = {
   smallMolecules: {},
 };
 
-export function datasets(state = initialState, action) {
+export function entities(state = initialState, action) {
   const { response } = action;
   switch (action.type) {
     case actionTypes.DATASETS_SUCCESS:
