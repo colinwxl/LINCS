@@ -25,11 +25,16 @@ There are a number of technologies you need to learn in order to manage this web
 ### Client side
 
 - ECMAScript 6
+  - The code is written in ES6, but we use [Babel](https://babeljs.io/) to compile it ES5 for cross-browser support.
   - [Understanding ECMAScript 6](https://leanpub.com/understandinges6/read)
   - [ES6 equivalents in ES6](https://github.com/addyosmani/es6-equivalents-in-es5)
 - React
-  - [Facebook's React tutorial](https://facebook.github.io/react/docs/tutorial.html)
-- [Redux](https://egghead.io/lessons/javascript-redux-react-todo-list-example-adding-a-todo#/tab-code)
+  - React is a JavaScript library for modularizing user interfaces into easy-to-manage components. Each component is a combination of JavaScript and HTML, which makes it easy to see the data, behavior, and view all in a single file. React handles rendering the component through the lifecycle of the application.
+  - [Facebook's React tutorial](https://facebook.github.io/react/docs/tutorial.html) is a good place to start.
+- Redux
+  - Redux is a JavaScript library for making the state of an application easier to reason about. Using Redux, the state of an application is represented by an immutable "store". Each time part of the application changes, Redux recomputes the store and rerenders the application.
+  - [These Redux videos](https://egghead.io/lessons/javascript-redux-react-todo-list-example-adding-a-todo#/tab-code) are very good. We recommend watching all of them.
+  - Install the [Redux DevTools Chrome Extension](https://github.com/zalmoxisus/redux-devtools-extension).
 - `await` keyword
   - Allow asynchronous code to be written in a synchronous fashion
   - [Twilio explanation](https://www.twilio.com/blog/2015/10/asyncawait-the-hero-javascript-deserved.html)
@@ -42,15 +47,22 @@ There are a number of technologies you need to learn in order to manage this web
 
 - [Node.js](https://nodejs.org/en/) web server
 - [Koa](http://koajs.com/) for a web framework
-- [Bookshelf.js](http://bookshelfjs.org/) ORM
+- [Bookshelf.js](http://bookshelfjs.org/) for an ORM
+
+### Deployment
+- [Docker](https://www.docker.com/). Follow the instructions for installing the [Docker Toolbox](https://www.docker.com/products/docker-toolbox) if you do not have it installed already.
 
 ## Building and Deploying
 
 ### Running in Development
-To run the application in development, first install the [Redux DevTools Chrome Extension](https://github.com/zalmoxisus/redux-devtools-extension). It makes viewing changes in your data over the lifetime of your app very easy. Once installed, start the application with `npm run dev`. This may take some time as webpack needs to compile the application. If any problems arise in this part of the process, I would review the [react-redux-starter-kit](https://www.github.com/davezuko/react-redux-starter-kit) as the webpack configs are almost identical to the ones there.
+
+Execute
+
+```
+npm run dev
+```
 
 ### Building the Application for Production
-This application is built using Docker. In order to build it for production, you must first have docker-machine installed. Follow the instructions on the [Docker website](https://www.docker.com/products/docker-toolbox) for installing the Docker Toolbox (which contains docker-machine amongst other things).
 
 With docker-machine installed, you'll need to create a new machine. I would delete the current 'default' machine by running `docker-machine rm default`. Following the answer from [this StackOverflow answer](http://stackoverflow.com/questions/30654306/allow-insecure-registry-in-host-provisioned-with-docker-machine),
 run the following command to create a machine with our insecure registry:
@@ -66,5 +78,5 @@ If the deployment process finishes without errors, visit http://amp.pharm.mssm.e
 
 ## Developers
 
-- [Michael McDermott](https://github.com/mgmcdermott) (lead developer)
+- [Michael McDermott](https://github.com/mgmcdermott) (original developer)
 - [Gregory Gundersen](https://github.com/gwgundersen) (current maintainer)
