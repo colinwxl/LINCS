@@ -18,17 +18,44 @@ export default function Story20160602() {
       <p>
         Current Versions of Standards Released: 5-13-16
       </p>
-      <ul>
-        <li>Antibody reagents <a href="http://www.lincsproject.org/wp-content/uploads/2016/05/Antibody_Metadata_2016_General.pdf" target="_blank">pdf</a> <a href="http://www.lincsproject.org/wp-content/uploads/2016/05/Antibody_Metadata_2016_General.xlsx" target="_blank">xlsx</a></li>
-        <li>Cell lines <a href="http://www.lincsproject.org/wp-content/uploads/2016/05/Cell_Line_Metadata_2016_General.pdf" target="_blank">pdf</a> <a href="http://www.lincsproject.org/wp-content/uploads/2016/05/Cell_Line_Metadata_2016_General.xlsx" target="_blank">xlsx</a></li>
-        <li>Differentiated cells <a href="http://www.lincsproject.org/wp-content/uploads/2016/05/Differentiated_Cell_Metadata_2016_General.pdf" target="_blank">pdf</a> <a href="http://www.lincsproject.org/wp-content/uploads/2016/05/Differentiated_Cell_Metadata_2016_General.xlsx" target="_blank">xlsx</a></li>
-        <li>Embryonic stem cells <a href="http://www.lincsproject.org/wp-content/uploads/2016/05/Embryonic_Stem_Cell_Metadata_2016_General.pdf" target="_blank">pdf</a> <a href="http://www.lincsproject.org/wp-content/uploads/2016/05/Embryonic_Stem_Cell_Metadata_2016_General.xlsx" target="_blank">xlsx</a></li>
-        <li>iPSCs <a href="http://www.lincsproject.org/wp-content/uploads/2016/05/iPSC_Metadata_2016_General.pdf" target="_blank">pdf</a> <a href="http://www.lincsproject.org/wp-content/uploads/2016/05/iPSC_Metadata_2016_General.xlsx" target="_blank">xlsx</a></li>
-        <li>Other reagents <a href="http://www.lincsproject.org/wp-content/uploads/2016/05/Other_Reagent_Metadata_2016_General.pdf" target="_blank">pdf</a> <a href="http://www.lincsproject.org/wp-content/uploads/2016/05/Other_Reagent_Metadata_2016_General.xlsx" target="_blank">xlsx</a></li>
-        <li> Primary cells <a href="http://www.lincsproject.org/wp-content/uploads/2016/05/Primary_Cell_Metadata_2016_General.pdf" target="_blank">pdf</a> <a href="http://www.lincsproject.org/wp-content/uploads/2016/05/Primary_Cell_Metadata_2016_General.xlsx" target="_blank">xlsx</a></li>
-        <li> Proteins <a href="http://www.lincsproject.org/wp-content/uploads/2016/05/Protein_Metadata_2016_General.pdf" target="_blank">pdf</a> <a href="http://www.lincsproject.org/wp-content/uploads/2016/05/Protein_Metadata_2016_General.xlsx" target="_blank">xlsx</a></li>
-        <li> Small molecules <a href="http://www.lincsproject.org/wp-content/uploads/2016/05/Small_Molecule_Metadata_2016_General.pdf" target="_blank">pdf</a> <a href="http://www.lincsproject.org/wp-content/uploads/2016/05/Small_Molecule_Metadata_2016_General.xlsx" target="_blank">xlsx</a></li>
-      </ul>
-    </Story>
+<ul>
+ <li>
+                <a href="/LINCS/files/Antibody_Metadata_2016_General.pdf">Antibody reagents</a>              </li>
+              <li>
+                <a href="/LINCS/files/Cell_Line_Metadata_2016_General.pdf">
+                Cell lines</a> 
+              </li>
+              <li>
+                <a href="/LINCS/files/Differentiated_Cell_Metadata_2016_General.pdf">Differentiated cells</a>
+              </li>
+              <li>
+                <a href="/LINCS/files/Embryonic_Stem_Cell_Metadata_2016_General.pdf">
+                Embryonic stem cells</a>
+              </li>
+              <li>
+                <a href="/LINCS/files/iPSC_Metadata_2016_General.pdf">
+                iPSCs</a> 
+              </li>
+              <li>
+                <a href="/LINCS/files/Other_Reagent_Metadata_2016_General.pdf">Other reagents</a> 
+              </li>
+              <li>
+                <a href="/LINCS/files/Primary_Cell_Metadata_2016_General.pdf">
+                Primary cells</a> 
+              </li>
+              <li>
+                <a href="/LINCS/files/Protein_Metadata_2016_General.pdf">
+                Proteins</a>
+              </li>
+		<li>
+                <a href="/LINCS/files/Small_Molecule_Metadata_2016_General.pdf">
+                Small Molecules</a>
+              </li>
+
+            </ul>
+<p><a href="/LINCS/files/Standards5132016.zip">Download pdf and xlsx formats</a>
+</p>
+
+          </Story>
   );
 }
