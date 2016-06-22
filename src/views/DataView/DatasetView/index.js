@@ -85,7 +85,6 @@ export class DatasetView extends Component {
     const links = getIconLinks(dataset);
     const hasAnalysis = links.useSlicr || links.usePiLINCS || links.useMosaic || links.useILINCS;
     const validLincsId = !!dataset.lincsId && dataset.lincsId !== 'LDS-*';
-    const dateRow = this.getDateRow();
     let pageTitle = dataset.method;
     if (validLincsId) {
       pageTitle += ` (${dataset.lincsId})`;
@@ -136,7 +135,7 @@ export class DatasetView extends Component {
                     {
                       dataset.dateReleased &&
                         <tr>
-                          <td>Date Released</td>
+                          <td>Release&nbsp;Date</td>
                           <td>{moment(dataset.dateReleased).format('MMMM Do, YYYY')}</td>
                         </tr>
                     }
