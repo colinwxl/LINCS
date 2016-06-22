@@ -199,7 +199,7 @@ router.get('/search', async (ctx) => {
 
   const smIds = await getIdsFromFullTextSearch(
     'small_molecules',
-    ['pubchem_cid', 'name', 'source', 'lincs_id'],
+    ['pubchem_cid', 'name', 'source', 'broad_id', 'lincs_id'],
     ctx.query.q,
     limit
   );
@@ -536,7 +536,6 @@ async function getIdsFromFullTextSearch(table, fields, searchTerm, limit) {
     bindings.push(searchTerm);
   });
   sql += ' LIMIT ' + limit;
-
   const resp = await knex.raw(sql, bindings);
   resp[0].forEach(doc => {
     const id = parseInt(doc.id, 10);
