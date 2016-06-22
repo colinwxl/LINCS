@@ -2,9 +2,9 @@ import React from 'react';
 
 import styles from './Workflow.scss';
 import PageBanner from 'components/PageBanner';
-import omeroScreenshot from './omero-screenshot.png';
-import mepLincsScreenshot from './mep-lincs-screenshot.png';
-import neuroLINCSScreenshot from './neurolincs-screenshot.png';
+import omeroScreenshot from './images/omero-screenshot.png';
+import mepLincsScreenshot from './images/mep-lincs-screenshot.png';
+import neuroLINCSScreenshot from './images/neurolincs-screenshot.png';
 
 
 export default function Workflow() {

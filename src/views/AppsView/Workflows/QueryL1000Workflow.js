@@ -2,10 +2,10 @@ import React from 'react';
 
 import styles from './Workflow.scss';
 import PageBanner from 'components/PageBanner';
-import l1000QueryImg from './l1000-query-process.png';
-import l1000cds2InputImg from './l1000cds2-input-box.png';
-import l1000cds2ResultImg from './l1000cds2-result-table.png';
-import l1000cds2EnrichrImg from './l1000cds2-enrichr.png';
+import l1000QueryImg from './images/l1000-query-process.png';
+import l1000cds2InputImg from './images/l1000cds2-input-box.png';
+import l1000cds2ResultImg from './images/l1000cds2-result-table.png';
+import l1000cds2EnrichrImg from './images/l1000cds2-enrichr.png';
 
 export default function Workflow() {
   return (

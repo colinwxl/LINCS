@@ -2,7 +2,7 @@ import React from 'react';
 
 import styles from './Workflow.scss';
 import PageBanner from 'components/PageBanner';
-import lincsMlImg from './lincs-ml.png';
+import lincsMlImg from './images/lincs-ml.png';
 
 export default function Workflow() {
   return (

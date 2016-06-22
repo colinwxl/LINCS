@@ -3,8 +3,8 @@ import React from 'react';
 import styles from './Workflow.scss';
 import PageBanner from 'components/PageBanner';
 // Images
-import piLincsScreenshotImg from './pilincs-screenshot.png';
-import iLincsScreenshotImg from './ilincs-screenshot.png';
+import piLincsScreenshotImg from './images/pilincs-screenshot.png';
+import iLincsScreenshotImg from './images/ilincs-screenshot.png';
 
 export default function Workflow() {
   return (

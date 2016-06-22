@@ -3,16 +3,16 @@ import React from 'react';
 import styles from './Workflow.scss';
 import PageBanner from 'components/PageBanner';
 // Images
-import ldpPanelImg from './ldp-panel.png';
-import ldpDataBrowserImg from './ldp-data-browser.png';
-import dtoxsDataIcon from './dtoxs-data-icon.png';
-import dtoxsRequestDataImg from './dtoxs-request-data.png';
-import neurolincsDsPageImg from './neurolincs-ds-page.png';
-import neurolincsDsDownloadImg from './neurolincs-ds-download.png';
-import iLincsDropdownImg from './ilincs-dropdown.png';
-import iLincsAnalysisImg from './ilincs-analysis.png';
-import iLincsFilterImg from './ilincs-filter.png';
-import lincsTreeViewImg from './lincs-tree-view.png';
+import ldpPanelImg from './images/ldp-panel.png';
+import ldpDataBrowserImg from './images/ldp-data-browser.png';
+import dtoxsDataIcon from './images/dtoxs-data-icon.png';
+import dtoxsRequestDataImg from './images/dtoxs-request-data.png';
+import neurolincsDsPageImg from './images/neurolincs-ds-page.png';
+import neurolincsDsDownloadImg from './images/neurolincs-ds-download.png';
+import iLincsDropdownImg from './images/ilincs-dropdown.png';
+import iLincsAnalysisImg from './images/ilincs-analysis.png';
+import iLincsFilterImg from './images/ilincs-filter.png';
+import lincsTreeViewImg from './images/lincs-tree-view.png';
 
 export default function Workflow() {
   return (

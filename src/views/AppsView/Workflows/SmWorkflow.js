@@ -3,7 +3,7 @@ import { Link } from 'react-router';
 
 import styles from './Workflow.scss';
 import PageBanner from 'components/PageBanner';
-import ldpScreenshot from './ldp-sm-screenshot.png';
+import ldpScreenshot from './images/ldp-sm-screenshot.png';
 
 export default function Workflow() {
   return (

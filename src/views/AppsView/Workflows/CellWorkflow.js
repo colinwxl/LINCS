@@ -3,8 +3,8 @@ import { Link } from 'react-router';
 
 import styles from './Workflow.scss';
 import PageBanner from 'components/PageBanner';
-import lincsDataPortalScreenshot from './lincs-data-portal-screenshot.png';
-import lincsDatasetPageScreenshot from './lincs-dataset-page-screenshot.png';
+import lincsDataPortalScreenshot from './images/lincs-data-portal-screenshot.png';
+import lincsDatasetPageScreenshot from './images/lincs-dataset-page-screenshot.png';
 
 
 export default function Workflow() {

@@ -6,8 +6,8 @@ import styles from './Workflow.scss';
 import PageBanner from 'components/PageBanner';
 
 // Images
-import arrowDownImg from './arrow-down.png';
-import creedsLogoImg from './creeds-logo.png';
+import arrowDownImg from './images/arrow-down.png';
+import creedsLogoImg from './images/creeds-logo.png';
 
 const lcEngineFieldMap = {
   geneinfo: 'pr_gene_symbol',
