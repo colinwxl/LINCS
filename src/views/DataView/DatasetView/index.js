@@ -63,25 +63,6 @@ export class DatasetView extends Component {
     this.props.loadDataset(datasetId);
   }
 
-  getDateRow() {
-    const { dataset } = this.props;
-    let row;
-    if (dataset.dateReleased) {
-      row =
-        (<tr>
-          <td>Date Released</td>
-          <td>{moment(dataset.dateReleased).format('MMMM Do, YYYY')}</td>
-        </tr>);
-    } else {
-      row =
-        (<tr>
-          <td>Date Retrieved</td>
-          <td>{moment(dataset.dateRetrieved).format('MMMM Do, YYYY')}</td>
-        </tr>);
-    }
-    return row;
-  }
-
   render() {
     const { dataset } = this.props;
     if (Object.keys(dataset).length === 0) {
@@ -153,7 +134,11 @@ export class DatasetView extends Component {
                         </tr>
                     }
                     {
-                      dateRow
+                      dataset.dateReleased &&
+                        <tr>
+                          <td>Date Released</td>
+                          <td>{moment(dataset.dateReleased).format('MMMM Do, YYYY')}</td>
+                        </tr>
                     }
                     <tr>
                       <td>Links</td>

@@ -65,7 +65,7 @@ router.get('/recent', async (ctx) => {
     const centers = await Center
       .fetchAll({
         withRelated: [
-          { datasets: (query) => query.orderBy('date_retrieved', 'desc') },
+          { datasets: (query) => query.orderBy('date_released', 'desc') },
         ],
       })
       .then(models => models.toJSON({ omitPivot: true }));
@@ -130,7 +130,7 @@ router.get('/tree', async (ctx) => {
   // a way to sort the keys of dateDatasetMap to ensure that we can sort the years and
   // months in the proper order in the tree.
   datasets.forEach((ds) => {
-    const date = moment(ds.dateRetrieved);
+    const date = moment(ds.dateReleased);
     const month = date.month();
     const year = date.year();
     // Check if an object exists in dates with the year of the current dataset
@@ -555,14 +555,14 @@ async function getIdsFromFullTextSearch(table, fields, searchTerm, limit) {
  */
 function generateRIS(ds) {
   return new Promise(resolve => {
-    const dateRetrieved = moment(ds.dateRetrieved);
+    const dateReleased = moment(ds.dateReleased);
     const filename = `${ds.method.replace(/\s/g, '_')}-${ds.lincsId}.ris`;
     const filePath = path.join(__dirname, '/', filename);
     const stream = fs.createWriteStream(filePath);
     stream.write('TY  - DATA\n');
     stream.write(`AU  - ${ds.center.name}\n`);
-    stream.write(`PY  - ${dateRetrieved.format('YYYY')}\n`);
-    stream.write(`DA  - ${dateRetrieved.format('YYYY/MM/DD')}\n`);
+    stream.write(`PY  - ${dateReleased.format('YYYY')}\n`);
+    stream.write(`DA  - ${dateReleased.format('YYYY/MM/DD')}\n`);
     if (ds.method && ds.method.length && ds.description && ds.description.length) {
       stream.write(`TI  - ${ds.method}\n`);
       stream.write(`AB  - ${ds.description}\n`);
@@ -587,13 +587,13 @@ function generateRIS(ds) {
  */
 function generateENW(ds) {
   return new Promise(resolve => {
-    const dateRetrieved = moment(ds.dateRetrieved);
+    const dateReleased = moment(ds.dateReleased);
     const filename = `${ds.method.replace(/\s/g, '_')}-${ds.lincsId}.enw`;
     const filePath = path.join(__dirname, '/', filename);
     const stream = fs.createWriteStream(filePath);
     stream.write('%0 Dataset\n');
     stream.write(`%A ${ds.center.name}\n`);
-    stream.write(`%D ${dateRetrieved.format('YYYY')}\n`);
+    stream.write(`%D ${dateReleased.format('YYYY')}\n`);
     if (ds.method && ds.method.length) {
       stream.write(`%T ${ds.method}\n`);
     } else if (ds.description && ds.description.length) {
@@ -615,7 +615,7 @@ function generateENW(ds) {
  */
 function generateBIB(ds) {
   return new Promise(resolve => {
-    const year = moment(ds.dateRetrieved).format('YYYY');
+    const year = moment(ds.dateReleased).format('YYYY');
     const filename = `${ds.method.replace(/\s/g, '_')}-${ds.lincsId}.bib`;
     const filePath = path.join(__dirname, '/', filename);
     const stream = fs.createWriteStream(filePath);

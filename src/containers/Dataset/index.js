@@ -31,7 +31,7 @@ export class Dataset extends Component {
                 {dataset.lincsId}
               </p>
               <p className={`text-muted ${styles['info-date']}`}>
-                <em>{moment(dataset.dateRetrieved).format('MMM Do, YYYY')}</em>
+                <em>{moment(dataset.dateReleased).format('MMM Do, YYYY')}</em>
               </p>
             </div>
           </div>

@@ -18,7 +18,7 @@ export default function SearchResult(props) {
         <p>Center: <span className={styles.creator}>{ds.center.name}</span></p>
       </div>
       <p className={`text-muted ${styles['info-date']}`}>
-        Release date: <em>{moment(ds.dateRetrieved).format('MMM Do, YYYY')}</em>
+        Release date: <em>{moment(ds.dateReleased).format('MMM Do, YYYY')}</em>
       </p>
       <p className={styles.description}>Summary: {ds.description}</p>
       <Link to={`/data/releases/${ds.id}`} className={styles.link}>

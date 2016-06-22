@@ -18,7 +18,7 @@ router.get('/', async (ctx) => {
       .fetch({
         withRelated: [
           'tools',
-          { datasets: (query) => query.orderBy('date_retrieved', 'desc') },
+          { datasets: (query) => query.orderBy('date_released', 'desc') },
         ],
       });
     ctx.body = centers.toJSON();
