@@ -79,7 +79,7 @@ export default function Standards(/* props */) {
                 Differentiated iPSCs</a>
               </li>
               <li>
-                <a href="/LINCS/files/small-molecule-standards.pdf">
+                <a href="/LINCS/files/small-molecules-standards.pdf">
                 Small molecules</a> 
               </li>
               <li>
