@@ -121,34 +121,41 @@ export class HomeView extends Component {
                       <h5>LINCS Data Science Webinar</h5>
                       <div className={styles.group}>
                         <p className={`clearfix ${styles.left}`}>
-                          June 28, 2016: Construction, Characterization and Validation of Multiscale Gene Networks in Cancer (Bin Zhang PhD, Icahn School of Medicine at Mount Sinai).
+                          June 28, 2016: Construction, Characterization and Validation of
+                          Multiscale Gene Networks in Cancer (Bin Zhang PhD, Icahn School
+                          of Medicine at Mount Sinai).
                         </p>
-                         <Link to="/community/webinars">Webinar Details</Link>
+                        <Link to="/community/webinars">Webinar Details</Link>
                       </div>
                     </div>
                   </div>
                   <div className="col-xs-12 col-md-4">
                     <div className={styles.card}>
- 			<h5>Connectivity Map Challenge</h5>
+                      <h5>Connectivity Map Challenge</h5>
                       <div className={styles.group}>
                         <p className={`clearfix ${styles.left}`}>
-                         The LINCS Center for Transcriptomics, in partnership with the Crowd Innovation Lab at Harvard Business School, is launching their first challenge, “Infer the Transcriptome”.</p>
-                         <a href="http://crowdsourcing.topcoder.com/cmap">Register</a>
+                          The LINCS Center for Transcriptomics, in partnership with the Crowd
+                          Innovation Lab at Harvard Business School, is launching their first
+                          challenge, "Infer the Transcriptome".
+                        </p>
+                        <a href="http://crowdsourcing.topcoder.com/cmap">Register</a>
                       </div>
                     </div>
                   </div>
- <div className="col-xs-12 col-md-4">
+                  <div className="col-xs-12 col-md-4">
                     <div className={styles.card}>
- 			<h5>Editorial in Sci Transl Med.</h5>
+                      <h5>Editorial in Sci Transl Med.</h5>
                       <div className={styles.group}>
                         <p className={`clearfix ${styles.left}`}>
-                         Mohammed AlQuraishi and Peter Sorger from the HMS LINCS Center make the case for improving accessibility and usability of published experimental data of all types.</p>
-                         <a href="http://www.ncbi.nlm.nih.gov/pubmed/27194726">Read More</a>
+                          Mohammed AlQuraishi and Peter Sorger from the HMS LINCS Center make the
+                          case for improving accessibility and usability of published experimental
+                          data of all types.
+                        </p>
+                        <a href="http://www.ncbi.nlm.nih.gov/pubmed/27194726">Read More</a>
                       </div>
                     </div>
                   </div>
-
-                                   </div>
+                </div>
               </div>
             </div>
           </div>

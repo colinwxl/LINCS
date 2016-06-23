@@ -5,6 +5,7 @@ import PageNav from 'components/PageNav';
 import styles from './Standards.scss';
 
 export default function Standards(/* props */) {
+  const dir = '/LINCS/files/';
   return (
     <div className={styles.wrapper}>
       <PageBanner title="Data Standards" includeSearchBar />
@@ -23,75 +24,100 @@ export default function Standards(/* props */) {
               strategies by LINCS investigators, and also the development of databases and data
               repositories in which to store and share LINCS data.
             </p>
-	   <p><strong>Current Versions of Standards Released: 5-13-2016</strong></p>
- <ul>
-              <li>
-                <a href="/LINCS/files/Antibody_Metadata_2016_General.pdf">Antibody reagents</a>              </li>
-              <li>
-                <a href="/LINCS/files/Cell_Line_Metadata_2016_General.pdf">
-                Cell lines</a> 
-              </li>
-              <li>
-                <a href="/LINCS/files/Differentiated_Cell_Metadata_2016_General.pdf">Differentiated cells</a>
-              </li>
-              <li>
-                <a href="/LINCS/files/Embryonic_Stem_Cell_Metadata_2016_General.pdf">
-                Embryonic stem cells</a>
-              </li>
-              <li>
-                <a href="/LINCS/files/iPSC_Metadata_2016_General.pdf">
-                iPSCs</a> 
-              </li>
-              <li>
-                <a href="/LINCS/files/Other_Reagent_Metadata_2016_General.pdf">Other reagents</a> 
-              </li>
-              <li>
-                <a href="/LINCS/files/Primary_Cell_Metadata_2016_General.pdf">
-                Primary cells</a> 
-              </li>
-              <li>
-                <a href="/LINCS/files/Protein_Metadata_2016_General.pdf">
-                Proteins</a>
-              </li>
-		<li>
-                <a href="/LINCS/files/Small_Molecule_Metadata_2016_General.pdf">
-                Small Molecules</a>
-              </li>
-
-            </ul>
-<p><a href="/LINCS/files/Standards5132016.zip">Download pdf and xlsx formats</a>
-</p>
-
-
-	    <p><strong>Previous Versions of Standards Released: 8-14-15</strong></p>
+            <p><strong>Current Versions of Standards Released: 5-13-2016</strong></p>
             <ul>
               <li>
-                <a href="/LINCS/files/cell-line-standards.pdf">Cell lines</a>              </li>
-              <li>
-                <a href="/LINCS/files/primary-cell-standards.pdf">
-                Primary cells</a> 
+                <a href={`${dir}Antibody_Metadata_2016_General.pdf`}>
+                  Antibody reagents
+                </a>
               </li>
               <li>
-                <a href="/LINCS/files/iPSC-standards.pdf">iPSCs</a>
+                <a href={`${dir}Cell_Line_Metadata_2016_General.pdf`}>
+                  Cell lines
+                </a>
               </li>
               <li>
-                <a href="/LINCS/files/differentiated-iPSC-standards.pdf">
-                Differentiated iPSCs</a>
+                <a href={`${dir}Differentiated_Cell_Metadata_2016_General.pdf`}>
+                  Differentiated cells
+                </a>
               </li>
               <li>
-                <a href="/LINCS/files/small-molecules-standards.pdf">
-                Small molecules</a> 
+                <a href={`${dir}Embryonic_Stem_Cell_Metadata_2016_General.pdf`}>
+                  Embryonic stem cells
+                </a>
               </li>
               <li>
-                <a href="/LINCS/files/RNAi-standards.pdf">RNAi reagents</a> 
+                <a href={`${dir}iPSC_Metadata_2016_General.pdf`}>
+                  iPSCs
+                </a>
               </li>
               <li>
-                <a href="/LINCS/files/antibody-standards.pdf">
-                Antibody reagents</a> 
+                <a href={`${dir}Other_Reagent_Metadata_2016_General.pdf`}>
+                  Other reagents
+                </a>
               </li>
               <li>
-                <a href="/LINCS/files/other-reagent-standards.pdf">
-                Other reagents</a>
+                <a href={`${dir}Primary_Cell_Metadata_2016_General.pdf`}>
+                  Primary cells
+                </a>
+              </li>
+              <li>
+                <a href={`${dir}Protein_Metadata_2016_General.pdf`}>
+                  Proteins
+                </a>
+              </li>
+              <li>
+                <a href={`${dir}Small_Molecule_Metadata_2016_General.pdf`}>
+                  Small Molecules
+                </a>
+              </li>
+            </ul>
+            <p>
+              <a href={`${dir}Standards5132016.zip`}>
+                Download pdf and xlsx formats
+              </a>
+            </p>
+            <p><strong>Previous Versions of Standards Released: 8-14-15</strong></p>
+            <ul>
+              <li>
+                <a href={`${dir}cell-line-standards.pdf`}>
+                  Cell lines
+                </a>
+              </li>
+              <li>
+                <a href={`${dir}primary-cell-standards.pdf`}>
+                  Primary cells
+                </a>
+              </li>
+              <li>
+                <a href={`${dir}iPSC-standards.pdf`}>
+                  iPSCs
+                </a>
+              </li>
+              <li>
+                <a href={`${dir}differentiated-iPSC-standards.pdf`}>
+                  Differentiated iPSCs
+                </a>
+              </li>
+              <li>
+                <a href={`${dir}small-molecules-standards.pdf`}>
+                  Small molecules
+                </a>
+              </li>
+              <li>
+                <a href={`${dir}RNAi-standards.pdf`}>
+                  RNAi reagents
+                </a>
+              </li>
+              <li>
+                <a href={`${dir}antibody-standards.pdf`}>
+                  Antibody reagents
+                </a>
+              </li>
+              <li>
+                <a href={`${dir}other-reagent-standards.pdf`}>
+                  Other reagents
+                </a>
               </li>
             </ul>
             <h2>LINCS Pilot Phase I Metadata Standards</h2>
@@ -105,34 +131,39 @@ export default function Standards(/* props */) {
             </p>
             <ul>
               <li>
-                <a href="/LINCS/files/LINCS_DWG_CellLine_Metadata_Release_Apr-11-2012.pdf">
-                Cell lines</a> (Released 4-11-12)
+                <a href={`${dir}LINCS_DWG_CellLine_Metadata_Release_Apr-11-2012.pdf`}>
+                  Cell lines
+                </a> (Released 4-11-12)
               </li>
               <li>
-                <a href="/LINCS/files/LINCS_DWG_PrimaryCell_Metadata_Release_Apr-11-2012.pdf">
-                Primary cells</a> (Released 4-11-12)
+                <a href={`${dir}LINCS_DWG_PrimaryCell_Metadata_Release_Apr-11-2012.pdf`}>
+                  Primary cells
+                </a> (Released 4-11-12)
               </li>
               <li>
-                <a href="/LINCS/files/LINCS_DWG_SmallMolecule_Metadata_Released_May-04-2012.pdf">
-                Small molecules</a> (Released 5-4-12)
+                <a href={`${dir}LINCS_DWG_SmallMolecule_Metadata_Released_May-04-2012.pdf`}>
+                  Small molecules
+                </a> (Released 5-4-12)
               </li>
               <li>
-                <a
-                  href="/LINCS/files/LINCS_DWG_siRNAshRNAReagents_Metadata_Release_Jul-31-2012.pdf"
-                >
-                RNAi reagents</a> (Released 7-31-12)
+                <a href={`${dir}LINCS_DWG_siRNAshRNAReagents_Metadata_Release_Jul-31-2012.pdf`}>
+                  RNAi reagents
+                </a> (Released 7-31-12)
               </li>
               <li>
-                <a href="/LINCS/files/LINCS_DWG_ProteinReagents_Metadata_Release_Jul-31-2012.pdf">
-                Protein reagents</a> (Released 7-31-12)
+                <a href={`${dir}LINCS_DWG_ProteinReagents_Metadata_Release_Jul-31-2012.pdf`}>
+                  Protein reagents
+                </a> (Released 7-31-12)
               </li>
               <li>
-                <a href="/LINCS/files/LINCS_DWG_AntibodyReagents_Metadata_Release_Oct-12-2012.pdf">
-                Antibody reagents</a> (Released 10-12-12)
+                <a href={`${dir}LINCS_DWG_AntibodyReagents_Metadata_Release_Oct-12-2012.pdf`}>
+                  Antibody reagents
+                </a> (Released 10-12-12)
               </li>
               <li>
-                <a href="/LINCS/files/LINCS_DWG_OtherReagents_Metadata_Release_Nov-07-12.pdf">
-                Other reagents</a> (Released 11-7-12)
+                <a href={`${dir}LINCS_DWG_OtherReagents_Metadata_Release_Nov-07-12.pdf`}>
+                  Other reagents
+                </a> (Released 11-7-12)
               </li>
             </ul>
             <h2>Experiment Metadata</h2>
