@@ -2,7 +2,37 @@ import React, { Component, PropTypes } from 'react';
 import { Link } from 'react-router';
 import { reduxForm } from 'redux-form';
 
+import FindKnowledgeAboutASpecificGeneOrProtein
+  from 'views/AppsView/Workflows/FindKnowledgeAboutASpecificGeneOrProtein';
+import ExploreMicroscopyImagingData from 'views/AppsView/Workflows/ExploreMicroscopyImagingData';
+import FindOutIfLINCSHasCollectedDataFromASpecificCellLine
+  from 'views/AppsView/Workflows/FindOutIfLINCSHasCollectedDataFromASpecificCellLine';
+import CheckIfASmallMoleculeHasBeenProfiled
+  from 'views/AppsView/Workflows/CheckIfASmallMoleculeHasBeenProfiled';
+import QueryAGeneExpressionSignatureAgainst
+  from 'views/AppsView/Workflows/QueryAGeneExpressionSignatureAgainst';
+import FindNovelCompoundsThatMimicOrReverseADiseaseSignature
+  from 'views/AppsView/Workflows/FindNovelCompoundsThatMimicOrReverseADiseaseSignature';
+import FindTheBestPlaceToObtainTheLINCSL1000Data
+  from 'views/AppsView/Workflows/FindTheBestPlaceToObtainTheLINCSL1000Data';
+import DownloadRNASeqDataFromLINCS from 'views/AppsView/Workflows/DownloadRNASeqDataFromLINCS';
+import SearchLINCSMetadataThroughAPIs
+  from 'views/AppsView/Workflows/SearchLINCSMetadataThroughAPIs';
+import FindAttributesAboutGenesAndProteinsForMachineLearning
+  from 'views/AppsView/Workflows/FindAttributesAboutGenesAndProteinsForMachineLearning';
+import FindProteomicAndEpigenomicDataFromTheSameConditions
+  from 'views/AppsView/Workflows/FindProteomicAndEpigenomicDataFromTheSameConditions';
+import FindDataAboutCellViabilityAndOther
+  from 'views/AppsView/Workflows/FindDataAboutCellViabilityAndOther';
+import AnalyzeMyGenesAgainstLINCSData
+  from 'views/AppsView/Workflows/AnalyzeMyGenesAgainstLINCSData';
+import AnalyzeLINCSTranscriptomicAndProteomicDatasets
+  from 'views/AppsView/Workflows/AnalyzeLINCSTranscriptomicAndProteomicDatasets';
+import AnalyzeADrugSignatureAndFindOtherDrugs
+  from 'views/AppsView/Workflows/AnalyzeADrugSignatureAndFindOtherDrugs';
+
 import styles from './AppsView.scss';
+
 
 export const fields = ['question', 'email'];
 
@@ -29,28 +59,28 @@ class WorkflowInputForm extends Component {
   get expWorkflows() {
     return [
       {
-        link: `${awRoute}/knowledge-about-a-gene-or-protein`,
-        text: 'Find knowledge about a specific gene or protein',
+        link: `${awRoute}/${FindKnowledgeAboutASpecificGeneOrProtein.path}`,
+        text: FindKnowledgeAboutASpecificGeneOrProtein.subTitle,
       },
       {
-        link: `${awRoute}/understand-mechanism-of-action-of-sm`,
-        text: 'Explore microscopy imaging data collected across the LINCS centers',
+        link: `${awRoute}/${ExploreMicroscopyImagingData.path}`,
+        text: ExploreMicroscopyImagingData.subTitle,
       },
       {
-        link: `${awRoute}/find-novel-compounds-that-mimic-or-reverse-disease-sig`,
-        text: 'Find novel compounds that mimic or reverse a disease signature',
+        link: `${awRoute}/${FindNovelCompoundsThatMimicOrReverseADiseaseSignature.path}`,
+        text: FindNovelCompoundsThatMimicOrReverseADiseaseSignature.subTitle,
       },
       {
-        link: `${awRoute}/data-from-a-specific-cell-line`,
-        text: 'Find out if LINCS has collected data from a specific cell line',
+        link: `${awRoute}/${FindOutIfLINCSHasCollectedDataFromASpecificCellLine.path}`,
+        text: FindOutIfLINCSHasCollectedDataFromASpecificCellLine.subTitle,
       },
       {
-        link: `${awRoute}/data-from-a-specific-sm`,
-        text: 'Find out if LINCS has collected data from a specific small molecule',
+        link: `${awRoute}/${CheckIfASmallMoleculeHasBeenProfiled.path}`,
+        text: CheckIfASmallMoleculeHasBeenProfiled.subTitle,
       },
       {
-        link: `${awRoute}/query-signature-against-l1000`,
-        text: 'Query my own gene expression signature against the LINCS L1000 data',
+        link: `${awRoute}/${QueryAGeneExpressionSignatureAgainst.path}`,
+        text: QueryAGeneExpressionSignatureAgainst.subTitle,
       },
     ];
   }
@@ -58,32 +88,40 @@ class WorkflowInputForm extends Component {
   get compBioWorkflows() {
     return [
       {
-        link: `${awRoute}/obtaining-l1000-data`,
-        text: 'Find the best place to obtain the LINCS L1000 data',
+        link: `${awRoute}/${FindTheBestPlaceToObtainTheLINCSL1000Data.path}`,
+        text: FindTheBestPlaceToObtainTheLINCSL1000Data.subTitle,
       },
       {
-        link: `${awRoute}/download-rna-seq-data`,
-        text: 'Download RNA-seq data from LINCS',
+        link: `${awRoute}/${DownloadRNASeqDataFromLINCS.path}`,
+        text: DownloadRNASeqDataFromLINCS.subTitle,
       },
       {
-        link: `${awRoute}/collect-attrs-to-predict-gene-function-using-machine-learning`,
-        text: 'Collect attributes about genes and proteins for predicting gene ' +
-          'function using machine learning, where can I find such data?',
+        link: `${awRoute}/${FindAttributesAboutGenesAndProteinsForMachineLearning.path}`,
+        text: FindAttributesAboutGenesAndProteinsForMachineLearning.subTitle,
       },
       {
-        link: `${awRoute}/search-lincs-metadata`,
-        text: 'Search LINCS metadata through their API\'s',
+        link: `${awRoute}/${SearchLINCSMetadataThroughAPIs.path}`,
+        text: SearchLINCSMetadataThroughAPIs.subTitle,
       },
       {
-        link: `${awRoute}/proteomic-epigenomic-data-l1000`,
-        text: 'Find proteomic and epigenomic data from the same ' +
-          'conditions profiled by the L1000 assay',
+        link: `${awRoute}/${FindProteomicAndEpigenomicDataFromTheSameConditions.path}`,
+        text: FindProteomicAndEpigenomicDataFromTheSameConditions.subTitle,
       },
       {
-        link: `${awRoute}/viability-phenotype-data-following-sm-perturbations`,
-        text: 'Find data about cell viability and other cellular-level phenotypes ' +
-          'besides gene and protein expression in response to small molecule ' +
-          'perturbations',
+        link: `${awRoute}/${FindDataAboutCellViabilityAndOther.path}`,
+        text: FindDataAboutCellViabilityAndOther.subTitle,
+      },
+      {
+        link: `${awRoute}/${AnalyzeMyGenesAgainstLINCSData.path}`,
+        text: AnalyzeMyGenesAgainstLINCSData.subTitle,
+      },
+      {
+        link: `${awRoute}/${AnalyzeLINCSTranscriptomicAndProteomicDatasets.path}`,
+        text: AnalyzeLINCSTranscriptomicAndProteomicDatasets.subTitle,
+      },
+      {
+        link: `${awRoute}/${AnalyzeADrugSignatureAndFindOtherDrugs.path}`,
+        text: AnalyzeADrugSignatureAndFindOtherDrugs.subTitle,
       },
     ];
   }

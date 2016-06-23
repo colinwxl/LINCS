@@ -13,6 +13,10 @@ import slicrLogo from './images/slicr-logo.png';
 import slicrScreenshot from './images/slicr-screenshot.png';
 
 export default class Workflow extends Component {
+
+  static subTitle = 'Find the best place to obtain the LINCS L1000 data'
+  static path = 'find-the-best-place-to-obtain-the-lincs-l1000-data'
+
   constructor(props) {
     super(props);
     this.state = {
@@ -36,7 +40,7 @@ export default class Workflow extends Component {
       <div className={styles.wrapper}>
         <PageBanner
           title="LINCS Workflow"
-          subTitle="Finding the best place to obtain the LINCS L1000 data"
+          subTitle={this.constructor.subTitle}
         />
         <div className="container">
           <div className="row">

@@ -15,6 +15,10 @@ const lcEngineFieldMap = {
 };
 
 export default class Workflow extends Component {
+
+  static subTitle = 'Find knowledge about a specific gene or protein'
+  static path = 'find-knowledge-about-a-specific-gene-or-protein'
+
   constructor(props) {
     super(props);
     this.state = {
@@ -74,7 +78,7 @@ export default class Workflow extends Component {
       <div className={styles.wrapper}>
         <PageBanner
           title="LINCS Workflow"
-          subTitle="Finding knowledge about a specific gene or protein"
+          subTitle={this.constructor.subTitle}
         />
         <div className="container">
           <div className="row">

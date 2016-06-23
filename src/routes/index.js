@@ -51,18 +51,34 @@ import NewsView from 'views/NewsView';
 import AppsView from 'views/AppsView';
 
 // Workflows
-import GeneProteinWorkflow from 'views/AppsView/Workflows/GeneProteinWorkflow';
-import SmMechanismWorkflow from 'views/AppsView/Workflows/SmMechanismWorkflow';
-import CellWorkflow from 'views/AppsView/Workflows/CellWorkflow';
-import SmWorkflow from 'views/AppsView/Workflows/SmWorkflow';
-import QueryL1000Workflow from 'views/AppsView/Workflows/QueryL1000Workflow';
-import MimicReverseWorkflow from 'views/AppsView/Workflows/MimicReverseWorkflow';
-import L1000DataWorkflow from 'views/AppsView/Workflows/L1000DataWorkflow';
-import RnaSeqWorkflow from 'views/AppsView/Workflows/RnaSeqWorkflow';
-import SearchMetaWorkflow from 'views/AppsView/Workflows/SearchMetaWorkflow';
-import PredictFuncWorkflow from 'views/AppsView/Workflows/PredictFuncWorkflow';
-import ProteomicEpigenomicWorkflow from 'views/AppsView/Workflows/ProteomicEpigenomicWorkflow';
-import ViabilityWorkflow from 'views/AppsView/Workflows/ViabilityWorkflow';
+import FindKnowledgeAboutASpecificGeneOrProtein
+  from 'views/AppsView/Workflows/FindKnowledgeAboutASpecificGeneOrProtein';
+import ExploreMicroscopyImagingData from 'views/AppsView/Workflows/ExploreMicroscopyImagingData';
+import FindOutIfLINCSHasCollectedDataFromASpecificCellLine
+  from 'views/AppsView/Workflows/FindOutIfLINCSHasCollectedDataFromASpecificCellLine';
+import CheckIfASmallMoleculeHasBeenProfiled
+  from 'views/AppsView/Workflows/CheckIfASmallMoleculeHasBeenProfiled';
+import QueryAGeneExpressionSignatureAgainst
+  from 'views/AppsView/Workflows/QueryAGeneExpressionSignatureAgainst';
+import FindNovelCompoundsThatMimicOrReverseADiseaseSignature
+  from 'views/AppsView/Workflows/FindNovelCompoundsThatMimicOrReverseADiseaseSignature';
+import FindTheBestPlaceToObtainTheLINCSL1000Data
+  from 'views/AppsView/Workflows/FindTheBestPlaceToObtainTheLINCSL1000Data';
+import DownloadRNASeqDataFromLINCS from 'views/AppsView/Workflows/DownloadRNASeqDataFromLINCS';
+import SearchLINCSMetadataThroughAPIs
+  from 'views/AppsView/Workflows/SearchLINCSMetadataThroughAPIs';
+import FindAttributesAboutGenesAndProteinsForMachineLearning
+  from 'views/AppsView/Workflows/FindAttributesAboutGenesAndProteinsForMachineLearning';
+import FindProteomicAndEpigenomicDataFromTheSameConditions
+  from 'views/AppsView/Workflows/FindProteomicAndEpigenomicDataFromTheSameConditions';
+import FindDataAboutCellViabilityAndOther
+  from 'views/AppsView/Workflows/FindDataAboutCellViabilityAndOther';
+import AnalyzeMyGenesAgainstLINCSData
+  from 'views/AppsView/Workflows/AnalyzeMyGenesAgainstLINCSData';
+import AnalyzeLINCSTranscriptomicAndProteomicDatasets
+  from 'views/AppsView/Workflows/AnalyzeLINCSTranscriptomicAndProteomicDatasets';
+import AnalyzeADrugSignatureAndFindOtherDrugs
+  from 'views/AppsView/Workflows/AnalyzeADrugSignatureAndFindOtherDrugs';
 
 import NotFoundView from 'views/NotFoundView';
 
@@ -75,20 +91,20 @@ const wf = 'applications/workflows';
 export default (/* store */) => (
   <Route path="/" component={CoreLayout}>
     {
-      /**
-      * The CoreLayout component is essentially a wrapper for all of the routes.
-      * It is the first component hit no matter what the request is and then whatever
-      * route inside matches the current url will be passed as a prop to props.children.
-      * This allows us to do things like add Navigation on every route.
-      */
+    /**
+     * The CoreLayout component is essentially a wrapper for all of the routes.
+     * It is the first component hit no matter what the request is and then whatever
+     * route inside matches the current url will be passed as a prop to props.children.
+     * This allows us to do things like add Navigation on every route.
+     */
     }
     {
-      /**
-      * The IndexRoute is loaded if the endpoint is just '/'.
-      * This is where the homepage lives.
-      * For more info on IndexRoute, view the docs:
-      * https://github.com/reactjs/react-router/blob/master/docs/guides/IndexRoutes.md
-      */
+    /**
+     * The IndexRoute is loaded if the endpoint is just '/'.
+     * This is where the homepage lives.
+     * For more info on IndexRoute, view the docs:
+     * https://github.com/reactjs/react-router/blob/master/docs/guides/IndexRoutes.md
+     */
     }
     <IndexRoute component={HomeView} />
 
@@ -131,31 +147,67 @@ export default (/* store */) => (
     <Route path="applications" component={AppsView} />
 
     {/* Experimentalist Workflow Routes */}
-    <Route path={`${wf}/knowledge-about-a-gene-or-protein`} component={GeneProteinWorkflow} />
-    <Route path={`${wf}/understand-mechanism-of-action-of-sm`} component={SmMechanismWorkflow} />
-    <Route path={`${wf}/data-from-a-specific-cell-line`} component={CellWorkflow} />
-    <Route path={`${wf}/data-from-a-specific-sm`} component={SmWorkflow} />
-    <Route path={`${wf}/query-signature-against-l1000`} component={QueryL1000Workflow} />
     <Route
-      path={`${wf}/find-novel-compounds-that-mimic-or-reverse-disease-sig`}
-      component={MimicReverseWorkflow}
+      path={`${wf}/${FindKnowledgeAboutASpecificGeneOrProtein.path}`}
+      component={FindKnowledgeAboutASpecificGeneOrProtein}
+    />
+    <Route
+      path={`${wf}/${ExploreMicroscopyImagingData.path}`}
+      component={ExploreMicroscopyImagingData}
+    />
+    <Route
+      path={`${wf}/${FindOutIfLINCSHasCollectedDataFromASpecificCellLine.path}`}
+      component={FindOutIfLINCSHasCollectedDataFromASpecificCellLine}
+    />
+    <Route
+      path={`${wf}/${CheckIfASmallMoleculeHasBeenProfiled.path}`}
+      component={CheckIfASmallMoleculeHasBeenProfiled}
+    />
+    <Route
+      path={`${wf}/${QueryAGeneExpressionSignatureAgainst.path}`}
+      component={QueryAGeneExpressionSignatureAgainst}
+    />
+    <Route
+      path={`${wf}/${FindNovelCompoundsThatMimicOrReverseADiseaseSignature.path}`}
+      component={FindNovelCompoundsThatMimicOrReverseADiseaseSignature}
     />
 
     {/* Computational Biologist Routes */}
-    <Route path={`${wf}/obtaining-l1000-data`} component={L1000DataWorkflow} />
-    <Route path={`${wf}/download-rna-seq-data`} component={RnaSeqWorkflow} />
-    <Route path={`${wf}/search-lincs-metadata`} component={SearchMetaWorkflow} />
     <Route
-      path={`${wf}/collect-attrs-to-predict-gene-function-using-machine-learning`}
-      component={PredictFuncWorkflow}
+      path={`${wf}/${FindTheBestPlaceToObtainTheLINCSL1000Data.path}`}
+      component={FindTheBestPlaceToObtainTheLINCSL1000Data}
     />
     <Route
-      path={`${wf}/proteomic-epigenomic-data-l1000`}
-      component={ProteomicEpigenomicWorkflow}
+      path={`${wf}/${DownloadRNASeqDataFromLINCS.path}`}
+      component={DownloadRNASeqDataFromLINCS}
     />
     <Route
-      path={`${wf}/viability-phenotype-data-following-sm-perturbations`}
-      component={ViabilityWorkflow}
+      path={`${wf}/${SearchLINCSMetadataThroughAPIs.path}`}
+      component={SearchLINCSMetadataThroughAPIs}
+    />
+    <Route
+      path={`${wf}/${FindAttributesAboutGenesAndProteinsForMachineLearning.path}`}
+      component={FindAttributesAboutGenesAndProteinsForMachineLearning}
+    />
+    <Route
+      path={`${wf}/${FindProteomicAndEpigenomicDataFromTheSameConditions.path}`}
+      component={FindProteomicAndEpigenomicDataFromTheSameConditions}
+    />
+    <Route
+      path={`${wf}/${FindDataAboutCellViabilityAndOther.path}`}
+      component={FindDataAboutCellViabilityAndOther}
+    />
+    <Route
+      path={`${wf}/${AnalyzeMyGenesAgainstLINCSData.path}`}
+      component={AnalyzeMyGenesAgainstLINCSData}
+    />
+    <Route
+      path={`${wf}/${AnalyzeLINCSTranscriptomicAndProteomicDatasets.path}`}
+      component={AnalyzeLINCSTranscriptomicAndProteomicDatasets}
+    />
+    <Route
+      path={`${wf}/${AnalyzeADrugSignatureAndFindOtherDrugs.path}`}
+      component={AnalyzeADrugSignatureAndFindOtherDrugs}
     />
 
     {/* Not Found Route */}
