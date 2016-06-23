@@ -23,35 +23,75 @@ export default function Standards(/* props */) {
               strategies by LINCS investigators, and also the development of databases and data
               repositories in which to store and share LINCS data.
             </p>
+	   <p><strong>Current Versions of Standards Released: 5-13-2016</strong></p>
+ <ul>
+              <li>
+                <a href="/LINCS/files/Antibody_Metadata_2016_General.pdf">Antibody reagents</a>              </li>
+              <li>
+                <a href="/LINCS/files/Cell_Line_Metadata_2016_General.pdf">
+                Cell lines</a> 
+              </li>
+              <li>
+                <a href="/LINCS/files/Differentiated_Cell_Metadata_2016_General.pdf">Differentiated cells</a>
+              </li>
+              <li>
+                <a href="/LINCS/files/Embryonic_Stem_Cell_Metadata_2016_General.pdf">
+                Embryonic stem cells</a>
+              </li>
+              <li>
+                <a href="/LINCS/files/iPSC_Metadata_2016_General.pdf">
+                iPSCs</a> 
+              </li>
+              <li>
+                <a href="/LINCS/files/Other_Reagent_Metadata_2016_General.pdf">Other reagents</a> 
+              </li>
+              <li>
+                <a href="/LINCS/files/Primary_Cell_Metadata_2016_General.pdf">
+                Primary cells</a> 
+              </li>
+              <li>
+                <a href="/LINCS/files/Protein_Metadata_2016_General.pdf">
+                Proteins</a>
+              </li>
+		<li>
+                <a href="/LINCS/files/Small_Molecule_Metadata_2016_General.pdf">
+                Small Molecules</a>
+              </li>
+
+            </ul>
+<p><a href="/LINCS/files/Standards5132016.zip">Download pdf and xlsx formats</a>
+</p>
+
+
+	    <p><strong>Previous Versions of Standards Released: 8-14-15</strong></p>
             <ul>
               <li>
-                <a href="/LINCS/files/cell-line-standards.pdf">Cell lines</a> (Released 8-14-15)
-              </li>
+                <a href="/LINCS/files/cell-line-standards.pdf">Cell lines</a>              </li>
               <li>
                 <a href="/LINCS/files/primary-cell-standards.pdf">
-                Primary cells</a> (Released 8-14-15)
+                Primary cells</a> 
               </li>
               <li>
-                <a href="/LINCS/files/iPSC-standards.pdf">iPSCs</a> (Released 8-14-15)
+                <a href="/LINCS/files/iPSC-standards.pdf">iPSCs</a>
               </li>
               <li>
                 <a href="/LINCS/files/differentiated-iPSC-standards.pdf">
-                Differentiated iPSCs</a> (Released 8-14-15)
+                Differentiated iPSCs</a>
               </li>
               <li>
                 <a href="/LINCS/files/small-molecule-standards.pdf">
-                Small molecules</a> (Released 8-14-15)
+                Small molecules</a> 
               </li>
               <li>
-                <a href="/LINCS/files/RNAi-standards.pdf">RNAi reagents</a> (Released 8-14-15)
+                <a href="/LINCS/files/RNAi-standards.pdf">RNAi reagents</a> 
               </li>
               <li>
                 <a href="/LINCS/files/antibody-standards.pdf">
-                Antibody reagents</a> (Released 8-14-15)
+                Antibody reagents</a> 
               </li>
               <li>
                 <a href="/LINCS/files/other-reagent-standards.pdf">
-                Other reagents</a> (Released 8-14-15)
+                Other reagents</a>
               </li>
             </ul>
             <h2>LINCS Pilot Phase I Metadata Standards</h2>

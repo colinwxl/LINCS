@@ -108,56 +108,47 @@ export class HomeView extends Component {
           </div>
         </div>
 
-        {/* Events
+        {/* Announcements
           * ================================================================ */}
         <div className={styles.ann}>
           <div className="container">
             <div className="row">
               <div className={`col-xs-12 ${styles.section} ${styles['ann-section']}`}>
-                <h3 className={styles.title}>Events</h3>
+                <h3 className={styles.title}>Announcements</h3>
                 <div className="row">
                   <div className="col-xs-12 col-md-4">
                     <div className={styles.card}>
-                      <h5>LINCS Outreach Meeting 2016</h5>
+                      <h5>LINCS Data Science Webinar</h5>
                       <div className={styles.group}>
-                        <p className={`clearfix ${styles.justify}`}>
-                          On March 10-11, 2016, the LINCS Outreach Meeting was held at the
-                          UC Irvine. The meeting included an outreach program with experts
-                          in stem cell biology, and big data management.
+                        <p className={`clearfix ${styles.left}`}>
+                          June 28, 2016: Construction, Characterization and Validation of Multiscale Gene Networks in Cancer (Bin Zhang PhD, Icahn School of Medicine at Mount Sinai).
                         </p>
-                        <a href="https://www.youtube.com/playlist?list=PLQw7KTnzkpXdpO1WMpW8fJeriqZEuFR1i">
-                          Watch Videos
-                        </a>
+                         <Link to="/community/webinars">Webinar Details</Link>
                       </div>
                     </div>
                   </div>
                   <div className="col-xs-12 col-md-4">
                     <div className={styles.card}>
-                      <h5>Data Science Research Webinar</h5>
+ 			<h5>Connectivity Map Challenge</h5>
                       <div className={styles.group}>
-                        <h6>Detection and Removal of Spatial Bias in Multi-Well Assays</h6>
-                        <p><em>May 24, 2016</em> - Alexander Lachmann PhD, Columbia University</p>
-                        <Link to="/community/webinars">Learn More</Link>
+                        <p className={`clearfix ${styles.left}`}>
+                         The LINCS Center for Transcriptomics, in partnership with the Crowd Innovation Lab at Harvard Business School, is launching their first challenge, “Infer the Transcriptome”.</p>
+                         <a href="http://crowdsourcing.topcoder.com/cmap">Register</a>
                       </div>
                     </div>
                   </div>
-                  <div className="col-xs-12 col-md-4">
+ <div className="col-xs-12 col-md-4">
                     <div className={styles.card}>
-                      <h5>Data Science Research Webinar</h5>
+ 			<h5>Editorial in Sci Transl Med.</h5>
                       <div className={styles.group}>
-                        <h6>
-                          Construction, Characterization and Validation of Multiscale
-                          Gene Networks in Cancer
-                        </h6>
-                        <p>
-                          <em>June 28, 2016</em> - Bin Zhang PhD, Icahn School of Medicine at
-                          Mount Sinai
-                        </p>
-                        <Link to="/community/webinars">Learn More</Link>
+                        <p className={`clearfix ${styles.left}`}>
+                         Mohammed AlQuraishi and Peter Sorger from the HMS LINCS Center make the case for improving accessibility and usability of published experimental data of all types.</p>
+                         <a href="http://www.ncbi.nlm.nih.gov/pubmed/27194726">Read More</a>
                       </div>
                     </div>
                   </div>
-                </div>
+
+                                   </div>
               </div>
             </div>
           </div>
