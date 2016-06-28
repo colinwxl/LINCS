@@ -63,6 +63,9 @@ export default class Workflow extends Component {
                 src={iLINCSDatasetsWorkflow}
                 alt="iLINCS screenshot"
               />
+              <p className={styles['post-script']}>
+                For more, see the <a href="https://www.youtube.com/playlist?list=PL0Bwuj8819U8d0lSxu4hxaPX64yJUOlzQ" target="_blank">iLINCS video tutorial</a> on YouTube
+              </p>
             </div>
           </div>
         </div>
