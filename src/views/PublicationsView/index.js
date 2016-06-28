@@ -14,22 +14,27 @@ const mapStateToProps = (state) => ({
   isFetchingPubs: state.pubsNews.isFetching,
 });
 
+export const initialCategories = {
+  assayDevelopment: true,
+  dataGeneration: true,
+  dataAnalysis: true,
+  dataIntegration: true,
+  signatureGeneration: true,
+  analyticalMethodDevelopment: true,
+  softwareDevelopment: true,
+  dataStandards: true,
+  review: true,
+};
+
 export class PublicationsView extends Component {
+
   constructor(props) {
     super(props);
-    this.state = {
-      categories: {
-        assayDevelopment: true,
-        dataAnalysis: true,
-        dataGeneration: true,
-        dataIntegration: true,
-        dataStandards: true,
-        signatureGeneration: true,
-        softwareDevelopment: true,
-        review: true,
-      },
+    this.initialState = {
+      categories: initialCategories,
       sortOrder: 'descending',
     };
+    this.state = this.initialState;
   }
 
   componentWillMount() {
@@ -49,14 +54,14 @@ export class PublicationsView extends Component {
   // the publication falls under that category (p[category] is true)
   filterCategories = (p) => {
     const { categories } = this.state;
-    return (p.assayDevelopment && categories.assayDevelopment) ||
-      (p.dataAnalysis && categories.dataAnalysis) ||
-      (p.dataGeneration && categories.dataGeneration) ||
-      (p.dataIntegration && categories.dataIntegration) ||
-      (p.dataStandards && categories.dataStandards) ||
-      (p.signatureGeneration && categories.signatureGeneration) ||
-      (p.softwareDevelopment && categories.softwareDevelopment) ||
-      (p.review && categories.review);
+    const keys = Object.keys(categories);
+    for (let i = 0; i < keys.length; i++) {
+      const key = keys[i];
+      if (p[key] && categories[key]) {
+        return true;
+      }
+    }
+    return false;
   };
 
   sortPublications = (a, b) => {
@@ -84,41 +89,31 @@ export class PublicationsView extends Component {
   }
 
   handleCatClicked = (key) => {
-    const categories = {
-      assayDevelopment: false,
-      dataAnalysis: false,
-      dataGeneration: false,
-      dataIntegration: false,
-      dataStandards: false,
-      signatureGeneration: false,
-      softwareDevelopment: false,
-      review: false,
-    };
-    if (categories.hasOwnProperty(key)) {
-      categories[key] = true;
-      this.setState({ categories });
-      if (window) {
-        window.scrollTo(0, 0);
+    const { categories } = this.state;
+    const newCategories = {};
+    Object.keys(categories).forEach((k) => {
+      if (k === key) {
+        newCategories[k] = true;
+      } else {
+        newCategories[k] = false;
       }
+    });
+    this.setState({ categories: newCategories });
+    if (window) {
+      window.scrollTo(0, 0);
     }
   }
 
+  categoryKeyToName = (key) => key
+    .replace(/([A-Z])/g, ' $1')
+    .replace(/^./, (str) => str.toUpperCase());
+
   selectAll = () => {
-    this.setState({
-      categories: {
-        assayDevelopment: true,
-        dataAnalysis: true,
-        dataGeneration: true,
-        dataIntegration: true,
-        dataStandards: true,
-        signatureGeneration: true,
-        softwareDevelopment: true,
-        review: true,
-      },
-    });
+    this.setState(this.initialState);
   }
 
   render() {
+    const { categories } = this.state;
     let publications = this.props.publications;
     publications = publications.sort(this.sortPublications).filter(this.filterCategories);
     return (
@@ -145,54 +140,15 @@ export class PublicationsView extends Component {
               </div>
               <div className="form-group">
                 <label className={styles.label} htmlFor="">Categories</label>
-                <PubCheckBox
-                  name="assayDevelopment"
-                  label="Assay Development"
-                  checked={this.state.categories.assayDevelopment}
-                  onChange={this.handleCategoryChecked}
-                />
-                <PubCheckBox
-                  name="dataAnalysis"
-                  label="Data Analysis"
-                  checked={this.state.categories.dataAnalysis}
-                  onChange={this.handleCategoryChecked}
-                />
-                <PubCheckBox
-                  name="dataGeneration"
-                  label="Data Generation"
-                  checked={this.state.categories.dataGeneration}
-                  onChange={this.handleCategoryChecked}
-                />
-                <PubCheckBox
-                  name="dataIntegration"
-                  label="Data Integration"
-                  checked={this.state.categories.dataIntegration}
-                  onChange={this.handleCategoryChecked}
-                />
-                <PubCheckBox
-                  name="dataStandards"
-                  label="Data Standards"
-                  checked={this.state.categories.dataStandards}
-                  onChange={this.handleCategoryChecked}
-                />
-                <PubCheckBox
-                  name="signatureGeneration"
-                  label="Signature Generation"
-                  checked={this.state.categories.signatureGeneration}
-                  onChange={this.handleCategoryChecked}
-                />
-                <PubCheckBox
-                  name="softwareDevelopment"
-                  label="Software Development"
-                  checked={this.state.categories.softwareDevelopment}
-                  onChange={this.handleCategoryChecked}
-                />
-                <PubCheckBox
-                  name="review"
-                  label="Review"
-                  checked={this.state.categories.review}
-                  onChange={this.handleCategoryChecked}
-                />
+                {Object.keys(categories).map((category, i) =>
+                  <PubCheckBox
+                    key={i}
+                    name={category}
+                    label={this.categoryKeyToName(category)}
+                    checked={this.state.categories[category]}
+                    onChange={this.handleCategoryChecked}
+                  />
+                )}
                 <button
                   className={`btn btn-secondary ${styles['select-all-btn']}`}
                   onClick={this.selectAll}
@@ -204,7 +160,12 @@ export class PublicationsView extends Component {
             <div className="col-md-9 col-md-pull-3">
               {
                 publications.map(p =>
-                  <Publication key={p.id} pub={p} onCatClicked={this.handleCatClicked} />
+                  <Publication
+                    key={p.id}
+                    pub={p}
+                    categories={Object.keys(categories)}
+                    onCatClicked={this.handleCatClicked}
+                  />
                 )
               }
               {

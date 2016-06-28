@@ -5,6 +5,7 @@ import { openCitationsModal, closeCitationsModal } from 'actions/modals';
 import styles from './Publication.scss';
 
 export class Publication extends Component {
+
   openCitationsModal = () => {
     this.props.openCitationsModal({
       pubId: this.props.pub.id,
@@ -12,122 +13,68 @@ export class Publication extends Component {
     });
   }
 
-  handleADClicked = () => this.props.onCatClicked('assayDevelopment');
-  handleDAClicked = () => this.props.onCatClicked('dataAnalysis');
-  handleDGClicked = () => this.props.onCatClicked('dataGeneration');
-  handleDIClicked = () => this.props.onCatClicked('dataIntegration');
-  handleDSClicked = () => this.props.onCatClicked('dataStandards');
-  handleSGClicked = () => this.props.onCatClicked('signatureGeneration');
-  handleSDClicked = () => this.props.onCatClicked('softwareDevelopment');
-  handleRClicked = () => this.props.onCatClicked('review');
+  categoryKeyToName = (key) => key
+    .replace(/([A-Z])/g, ' $1')
+    .replace(/^./, (str) => str.toUpperCase());
+
+  categoryToCssClass = (category) => {
+    const cssClass = category
+      .replace(/([a-z])([A-Z])/g, '$1-$2')
+      .toLowerCase();
+    return `cat-${cssClass}`;
+  }
 
   render() {
-    const p = this.props.pub;
-    const authorNames = p.authors.map(author => author.name);
-    let articleTitle = p.articleName;
-    if (p.pmId) {
+    const { pub, categories } = this.props;
+    const authorNames = pub.authors.map(author => author.name);
+    let articleTitle = pub.articleName;
+    if (pub.pmId) {
       articleTitle = (
-        <a href={`http://www.ncbi.nlm.nih.gov/pubmed/${p.pmId}`} target="_blank">
-          {p.articleName}
+        <a href={`http://www.ncbi.nlm.nih.gov/pubmed/${pub.pmId}`} target="_blank">
+          {pub.articleName}
         </a>
       );
-    } else if (p.pmcId) {
+    } else if (pub.pmcId) {
       articleTitle = (
-        <a href={`http://www.ncbi.nlm.nih.gov/pmc/articles/${p.pmcId}`} target="_blank">
-          {p.articleName}
+        <a href={`http://www.ncbi.nlm.nih.gov/pmc/articles/${pub.pmcId}`} target="_blank">
+          {pub.articleName}
         </a>
       );
-    } else if (p.doi) {
+    } else if (pub.doi) {
       articleTitle = (
-        <a href={`http://dx.doi.org/${p.doi}`} target="_blank">{p.articleName}</a>
+        <a href={`http://dx.doi.org/${pub.doi}`} target="_blank">{pub.articleName}</a>
       );
-    } else if (p.otherLink) {
+    } else if (pub.otherLink) {
       articleTitle = (
-        <a href={p.otherLink} target="_blank">{p.articleName}</a>
+        <a href={pub.otherLink} target="_blank">{pub.articleName}</a>
       );
     }
     return (
-      <div key={p.id} className={styles.pub}>
+      <div key={pub.id} className={styles.pub}>
         <p>
-          {authorNames.join(', ')}. {p.yearPublished}.
+          {authorNames.join(', ')}. {pub.yearPublished}.
           <strong> {articleTitle} </strong>
-          {p.journalName}. {p.volume}
-          {!!p.issue ? `(${p.issue})` : ''}
-          {!!p.ppPages ? `:${p.ppPages}` : ''}.
+          {pub.journalName}. {pub.volume}
+          {!!pub.issue ? `(${pub.issue})` : ''}
+          {!!pub.ppPages ? `:${pub.ppPages}` : ''}.
         </p>
         <p className={styles.categories}>
-          {
-            p.assayDevelopment &&
-              <span
-                onClick={this.handleADClicked}
-                className={`${styles.cat} ${styles['cat-ad']}`}
-              >
-                Assay Development
-              </span>
-          }
-          {
-            p.dataAnalysis &&
-              <span
-                onClick={this.handleDAClicked}
-                className={`${styles.cat} ${styles['cat-da']}`}
-              >
-                Data Analysis
-              </span>
-          }
-          {
-            p.dataGeneration &&
-              <span
-                onClick={this.handleDGClicked}
-                className={`${styles.cat} ${styles['cat-dg']}`}
-              >
-                Data Generation
-              </span>
-          }
-          {
-            p.dataIntegration &&
-              <span
-                onClick={this.handleDIClicked}
-                className={`${styles.cat} ${styles['cat-di']}`}
-              >
-                Data Integration
-              </span>
-          }
-          {
-            p.dataStandards &&
-              <span
-                onClick={this.handleDSClicked}
-                className={`${styles.cat} ${styles['cat-ds']}`}
-              >
-                Data Standards
-              </span>
-          }
-          {
-            p.signatureGeneration &&
-              <span
-                onClick={this.handleSGClicked}
-                className={`${styles.cat} ${styles['cat-sg']}`}
-              >
-                Signature Generation
-              </span>
-          }
-          {
-            p.softwareDevelopment &&
-              <span
-                onClick={this.handleSDClicked}
-                className={`${styles.cat} ${styles['cat-sd']}`}
-              >
-                Software Development
-              </span>
-          }
-          {
-            p.review &&
-              <span
-                onClick={this.handleRClicked}
-                className={`${styles.cat} ${styles['cat-review']}`}
-              >
-                Review
-              </span>
-          }
+          {categories.map((category, i) => {
+            const cssClass = this.categoryToCssClass(category);
+            const categoryName = this.categoryKeyToName(category);
+            if (pub[category]) {
+              return (
+                <span
+                  key={i}
+                  onClick={() => this.props.onCatClicked(category)}
+                  className={`${styles.cat} ${styles[cssClass]}`}
+                >
+                  {categoryName}
+                </span>
+              );
+            }
+            return null;
+          })}
           <span
             onClick={this.openCitationsModal}
             className={`${styles.cat} ${styles['cat-cite']}`}
@@ -136,12 +83,12 @@ export class Publication extends Component {
           </span>
         </p>
         {
-          p.resourceLinks &&
+          pub.resourceLinks &&
             <p className={styles.resources}>
               <em>Relevant Resources: </em>
               {
-                Object.keys(p.resourceLinks).map((resource, index) => {
-                  const val = p.resourceLinks[resource];
+                Object.keys(pub.resourceLinks).map((resource, index) => {
+                  const val = pub.resourceLinks[resource];
                   return (
                     <span key={index} className={styles.resource}>
                       {index !== 0 && <span> - </span>}
@@ -163,6 +110,7 @@ export class Publication extends Component {
 
 Publication.propTypes = {
   pub: PropTypes.object,
+  categories: PropTypes.array,
   onCatClicked: PropTypes.func,
   openCitationsModal: PropTypes.func,
   closeCitationsModal: PropTypes.func,

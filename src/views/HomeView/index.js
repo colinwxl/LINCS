@@ -8,6 +8,7 @@ import Twitter from 'containers/Twitter';
 import Publication from 'containers/Publication';
 import { loadPublications } from 'actions/pubsNews';
 import { loadTools } from 'actions/toolsWorkflows';
+import { initialCategories as categories } from '../PublicationsView';
 import styles from './HomeView.scss';
 
 // Images
@@ -94,7 +95,11 @@ export class HomeView extends Component {
                     <h3>Featured Recent Publications</h3>
                     {
                       pubs && pubs.map(p =>
-                        <Publication key={p.id} pub={p} />
+                        <Publication
+                          key={p.id}
+                          pub={p}
+                          categories={Object.keys(categories)}
+                        />
                       )
                     }
                     <Link to="/publications">More publications...</Link>

@@ -20,6 +20,7 @@
 }
 
 .cat {
+  background-color: $gray;
   border-radius: .25rem;
   color: $white;
   cursor: pointer;
@@ -34,32 +35,36 @@
   white-space: nowrap;
 }
 
-.cat-ad {
+.cat-assay-development {
   background-color: $dark-red;
 }
 
-.cat-da {
-  background-color: darken($teal, 5);
-}
-
-.cat-dg {
+.cat-data-generation {
   background-color: $green;
 }
 
-.cat-di {
+.cat-data-analysis {
+  background-color: darken($teal, 5);
+}
+
+.cat-data-integration {
   background-color: darken($orange, 5);
 }
 
-.cat-ds {
-  background-color: $brand-secondary-dark;
-}
-
-.cat-sg {
+.cat-signature-generation {
   background-color: $brand-primary-light;
 }
 
-.cat-sd {
+.cat-analytical-method-development {
+  background-color: darken($yellow, 30);
+}
+
+.cat-software-development {
   background-color: $red;
+}
+
+.cat-data-standards {
+  background-color: $brand-secondary-dark;
 }
 
 .cat-review {
@@ -68,11 +73,11 @@
 
 .cat-cite {
   background-color: $brand-primary;
-  // border: 1px solid darken($brand-primary, 5);
   color: $white;
   cursor: pointer;
   float: right;
-  margin: 1rem 0;
+  // Align button with publication labels.
+  margin-top: 4px;
   width: 100%;
 
   &:hover {
@@ -82,7 +87,6 @@
   }
 
   @media (min-width: 544px) {
-    margin: 0;
     width: auto;
   }
 }
