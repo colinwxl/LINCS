@@ -52,6 +52,7 @@ $hover-color: #cacaca;
   a {
     color: $white;
     cursor: pointer;
+    white-space: nowrap;
 
     &:hover {
       color: $hover-color;
@@ -102,6 +103,10 @@ $hover-color: #cacaca;
 
   @media (min-width: 768px) {
     padding-top: 0;
+  }
+
+  @media (max-width: 990px) {
+    margin-top: 15px;
   }
 }
 

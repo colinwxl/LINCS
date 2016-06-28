@@ -4,6 +4,7 @@ import styles from './Footer.scss';
 
 export default function FooterDropDown(props) {
   const { title, children, collapsed, onClick } = props;
+  const widthClass = props.widthClass || 'col-md-2';
 
   let containerClassName = styles['dropdown-children'];
   let iconClassName = 'fa fa-chevron-up';
@@ -13,13 +14,19 @@ export default function FooterDropDown(props) {
   }
 
   return (
-    <div className="col-xs-12 hidden-lg-up">
-      <div className={styles.dropdown}>
-        <h5 className={styles['dropdown-target']} onClick={onClick}>
-          {title} <i className={iconClassName} />
-        </h5>
-        <div className={containerClassName}>
-          {children}
+    <div>
+      <div className={`${widthClass} hidden-md-down`}>
+        <h5>{title}</h5>
+        {children}
+      </div>
+      <div className="col-xs-12 hidden-lg-up">
+        <div className={styles.dropdown}>
+          <h5 className={styles['dropdown-target']} onClick={onClick}>
+            {title} <i className={iconClassName} />
+          </h5>
+          <div className={containerClassName}>
+            {children}
+          </div>
         </div>
       </div>
     </div>
@@ -30,6 +37,7 @@ FooterDropDown.propTypes = {
   title: PropTypes.string,
   collapsed: PropTypes.bool,
   onClick: PropTypes.func,
+  widthClass: PropTypes.string,
   children: PropTypes.oneOfType([
     PropTypes.object,
     PropTypes.array,
