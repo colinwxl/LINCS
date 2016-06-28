@@ -147,21 +147,19 @@ export function webinarsFailure(error) {
  */
 export function fetchWebinars() {
   return (dispatch, getState) => {
-    // Get the community object from the current redux state.
     const community = getState().community;
-    // Return null if the redux state already has webinars.
     if (community.webinars.length) {
       return null;
     }
     // Dispatch a redux action to let the app know that we are requesting webinars.
     dispatch(webinarsRequest());
     return fetch('/LINCS/api/v1/community/webinars')
-    .then(response => handleResponse(response))
-    .then(response => response.json())
-    // Loading the webinars was successful. Dispatch a success action with the response.
-    .then(response => dispatch(webinarsSuccess(response)))
-    // Loading the webinars failed. Dispatch a failure action with the response.
-    .catch(error => dispatch(webinarsFailure(error)));
+      .then(response => handleResponse(response))
+      .then(response => response.json())
+      // Loading the webinars was successful. Dispatch a success action with the response.
+      .then(response => dispatch(webinarsSuccess(response)))
+      // Loading the webinars failed. Dispatch a failure action with the response.
+      .catch(error => dispatch(webinarsFailure(error)));
   };
 }
 
