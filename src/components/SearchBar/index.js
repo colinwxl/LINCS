@@ -55,8 +55,8 @@ export class SearchBar extends Component {
         </form>
         <p className="text-xs-center">
           <strong>Examples: </strong>
-          <Link to="/data/releases?q=MCF7">MCF7</Link>, <Link to="/data/releases?q=Vandetanib">
-          Vandetanib</Link>, <Link to="/data/releases?q=HMS">
+          <Link to="/data/releases?q=MCF7">MCF7</Link>, <Link to="/data/releases?q=Imatinib">
+          Imatinib</Link>, <Link to="/data/releases?q=HMS">
           HMS</Link>, <Link to="/data/releases?q=L1000">L1000</Link>
         </p>
       </div>
