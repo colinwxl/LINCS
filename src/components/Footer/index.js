@@ -10,11 +10,10 @@ const commRoute = `${base}/community`;
 const centersRoute = `${base}/centers`;
 const dsgcRoute = `${centersRoute}/data-and-signature-generating-centers`;
 
-const mgm = 'michael.mcdermott@mssm.edu';
 const sherry = 'sherry.jenkins@mssm.edu';
 const subject = 'Questions/Comments regarding lincsproject.org';
 
-const mailLink = `mailto:${mgm},${sherry}?Subject=[${subject}]`;
+const mailLink = `mailto:${sherry}?Subject=[${subject}]`;
 
 // Can't use react-router { Link } here because this component is outside of the <Router />
 export default class Footer extends Component {
