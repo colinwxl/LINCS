@@ -8,8 +8,8 @@ import natMethods from './images/hafner-natmethods.jpg';
 export default function Story20160517() {
   return (
     <Story
-      title="HMS LINCS Center: Growth Rate Inhibition Metrics Correct For Confounders In Measuring
-      Sensitivity To Cancer Drugs"
+      title="HMS LINCS Center: Growth Rate Inhibition Metrics Correct for Confounders in Measuring
+      Sensitivity to Cancer Drugs"
       date="May 17th, 2016"
     >
       <div className="clearfix">

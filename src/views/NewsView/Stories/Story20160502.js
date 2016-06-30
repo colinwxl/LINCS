@@ -9,7 +9,7 @@ import proteomicsFigure from './images/proteomics-figure.png';
 export default function Story20160502() {
   return (
     <Story
-      title="Cover Of Molecular And Cellular Proteomics: Phosphosignatures From The P100
+      title="Cover of Molecular and Cellular Proteomics: Phosphosignatures from the P100
       Sentinel Assay"
       date="May 2nd, 2016"
     >

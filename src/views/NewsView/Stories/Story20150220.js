@@ -8,7 +8,7 @@ import chemblImg from './images/chembl.png';
 export default function Story20150220() {
   return (
     <Story
-      title="LINCS Cell Line Data Integrated Into ChEMBL"
+      title="LINCS Cell Line Data Integrated into ChEMBL"
       date="February 20th, 2015"
     >
       <p>

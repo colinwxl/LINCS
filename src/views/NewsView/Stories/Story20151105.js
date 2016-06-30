@@ -8,7 +8,7 @@ import dcicScreenshot from './images/lincs-dcic-screenshot.jpg';
 export default function Story20151105() {
   return (
     <Story
-      title="BD2K-LINCS DCIC | Accepting Applications For 2016 Summer Research Training Program"
+      title="BD2K-LINCS DCIC | Accepting Applications for 2016 Summer Research Training Program"
       date="November 5th, 2015"
     >
       <p className="clearfix">

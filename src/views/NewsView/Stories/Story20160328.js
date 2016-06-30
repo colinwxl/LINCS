@@ -7,7 +7,7 @@ import quickStartImg from './images/quick-start-lincs.png';
 export default function Story20160328() {
   return (
     <Story
-      title="New Feature For LINCS Tools: ‘Quick Start With LINCS’"
+      title="New Feature for LINCS Tools: ‘Quick Start with LINCS’"
       date="March 28th, 2016"
     >
       <img

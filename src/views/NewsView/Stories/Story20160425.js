@@ -8,7 +8,7 @@ import youtubeSreenshot from './images/nih-lincs-youtube.jpg';
 export default function Story20160425() {
   return (
     <Story
-      title="NIH LINCS Program On Social Media"
+      title="NIH LINCS Program on Social Media"
       date="April 25th, 2016"
     >
       <div className="clearfix">
