@@ -7,5 +7,6 @@ resources/graphics/
 
 server-es5/
 
+# Sensitive files
 **/serverConf.js
-*.sqlite
+**/db.ini
