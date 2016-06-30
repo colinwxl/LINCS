@@ -136,7 +136,7 @@ export default class Footer extends Component {
                   Funded by <a href="http://commonfund.nih.gov/lincs/" target="_blank">
                   The NIH Common Fund</a>.
                   Developed by the <a href="http://lincs-dcic.org/" target="_blank">
-                  BD2K-LINCS DCIC</a>.
+                  BD2K-LINCS DCIC</a>
                 </p>
               </div>
             </div>
