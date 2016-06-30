@@ -40,27 +40,36 @@ export class Webinars extends Component {
   }
 
   generateWebinarElems(webinars) {
-    return webinars.map((web, i) =>
-      <div key={i} className={styles.webinar}>
-        <h5>{web.title}</h5>
-        <p><em>Published on {formatDate(web.date)}</em></p>
-        {
-          web.presenterUrl && !!web.presenterUrl.length
-          ? <p><a href={web.presenterUrl}>{web.presenterName}</a></p>
-          : <p>{web.presenterName}</p>
-        }
-        {
-          web.presenterAffiliation && !!web.presenterAffiliation.length
-          ? <p>{web.presenterAffiliation}</p>
-          : <p></p>
-        }
-        {
-          web.url && web.url && !!web.url.length
-          ? <p><a href={web.url}>Go to video</a></p>
-          : <p></p>
-        }
-      </div>
-    );
+    return webinars.map((web, i) => {
+      const hasVideo = web.url && !!web.url.length;
+      return (
+        <div key={i} className={styles.webinar}>
+          <h5>
+            {
+              hasVideo
+                ? <a href={web.url}>{web.title}</a>
+                : web.title
+            }
+          </h5>
+          <p><em>Published on {formatDate(web.date)}</em></p>
+          {
+            web.presenterUrl && !!web.presenterUrl.length
+              ? <p><a href={web.presenterUrl}>{web.presenterName}</a></p>
+              : <p>{web.presenterName}</p>
+          }
+          {
+            web.presenterAffiliation && !!web.presenterAffiliation.length
+              ? <p>{web.presenterAffiliation}</p>
+              : <p></p>
+          }
+          {
+            hasVideo
+              ? <p><a href={web.url}>Watch webinar on YouTube</a></p>
+              : <p></p>
+          }
+        </div>
+      );
+    });
   }
 
   render() {
