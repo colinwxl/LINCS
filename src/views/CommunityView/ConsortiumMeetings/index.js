@@ -22,6 +22,10 @@ export default function ConsortiumMeetings() {
         <div className="row">
           <PageNav isCommunityPage mainPage="LINCS Consortium Meetings" />
           <div className="col-md-9 col-md-pull-3">
+
+            {/* Introductory text
+             * ------------------------------------------------------------------------------- */}
+
             <p>
               Each year a meeting is held by, and for,
               the <a href="https://commonfund.nih.gov/LINCS/index">
@@ -30,13 +34,35 @@ export default function ConsortiumMeetings() {
               present research efforts and plans, and to work along with NIH program staff to
               continue to develop a successful LINCS program.
             </p>
-            <h2>2015 Consortium Meeting</h2>
-            <div className="text-xs-center">
-              <img
-                src={meeting2015Img}
-                alt="2015 Consortium Meeting"
-              />
+
+            {/* 2016 meeting
+             * ------------------------------------------------------------------------------- */}
+
+            <h2>2016 Consortium Meeting</h2>
+            <div className={styles.header}>
+              <h5>University of California, Irvine</h5>
+              <em>March 10-11</em>
             </div>
+            <p>
+              The first day of the meeting brought together the
+              <Link to="/centers/data-and-signature-generating-centers">LINCS Data and Signature
+              Generation Centers</Link> and the <Link to="/centers/dcic">
+              BD2K-LINCS Data Coordination and Integration Center</Link> to review progress to date
+              and discuss the next steps for data integration and analysis across the centers.
+              This meeting included an <a href="/LINCS/files/March-2016-LINCS-Meeting.pdf">
+              outreach program</a> with experts in stem cell biology, and big data management
+              focused on the use of current datasets.
+            </p>
+
+            {/* 2015 meeting
+              * ------------------------------------------------------------------------------- */}
+
+            <h2>2015 Consortium Meeting</h2>
+            <img
+              className={styles['pull-left']}
+              src={meeting2015Img}
+              alt="2015 Consortium Meeting"
+            />
             <p>
               The 2015 LINCS Consortium Meeting was held September 24-25, at the National
               Cancer Institute, Rockville, MD.
@@ -94,6 +120,10 @@ export default function ConsortiumMeetings() {
               </li>
               <li>Articulate suggestions for future improvement.</li>
             </ol>
+
+            {/* Previous years
+             * ------------------------------------------------------------------------------- */}
+
             <h2>Previous Years</h2>
             <div className={styles['info-flex']}>
               <div>

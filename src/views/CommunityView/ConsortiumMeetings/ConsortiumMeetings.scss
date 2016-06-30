@@ -48,3 +48,9 @@
 .img-bordered {
   border: 1px solid $gray;
 }
+
+img.pull-left {
+  float: left;
+  padding-top: 5px;
+  padding-right: 15px;
+}
