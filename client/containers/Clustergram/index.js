@@ -5,9 +5,6 @@ import renderClustgram from './clustergrammer/main';
 import handleResponse from 'utils/handleResponse';
 import styles from './Clustergram.scss';
 
-const mapStateToProps = (state) => ({
-  datasets: state.entities.datasets,
-});
 
 export class Clustergram extends Component {
   constructor(props) {
@@ -24,7 +21,7 @@ export class Clustergram extends Component {
     if (window) {
       window.addEventListener('resize', this.handleResize);
     }
-    fetch(`/LINCS/api/v1/datasets/${this.props.datasetId}/network`)
+    fetch(`/LINCS/api/v1/datasets/${this.props.dataset.id}/network`)
       .then(handleResponse)
       .then(response => response.json())
       .then((network) => {
@@ -79,10 +76,9 @@ export class Clustergram extends Component {
   }
 
   render() {
-    const { datasets, datasetId } = this.props;
+    const { dataset } = this.props;
     const { clustergram, clustergramLoaded, clustergramError, windowWidth } = this.state;
-    const ds = datasets[datasetId];
-    if (!ds) {
+    if (!dataset) {
       return null;
     }
     const clustLoading = !clustergramLoaded && !clustergramError;
@@ -135,10 +131,7 @@ export class Clustergram extends Component {
 }
 
 Clustergram.propTypes = {
-  datasets: PropTypes.object.isRequired,
-  datasetId: PropTypes.number.isRequired,
+  dataset: PropTypes.object.isRequired,
 };
 
-export default connect(
-  mapStateToProps
-)(Clustergram);
+export default connect()(Clustergram);

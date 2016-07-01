@@ -294,7 +294,7 @@ export class DatasetView extends Component {
               </div>
             </div>
             <div className="col-xs-12">
-              <Clustergram datasetId={dataset.id} />
+              <Clustergram dataset={dataset} />
             </div>
           </div>
         </div>

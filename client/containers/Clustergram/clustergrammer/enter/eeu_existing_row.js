@@ -3,6 +3,8 @@ var enter_existing_row = require('./enter_existing_row');
 var update_split_tiles = require('../update/update_split_tiles');
 var mouseover_tile = require('../matrix/mouseover_tile');
 var mouseout_tile = require('../matrix/mouseout_tile');
+import _ from 'lodash';
+
 
 // TODO add tip back to arguments
 module.exports = function eeu_existing_row(params, ini_inp_row_data, delays, duration, row_selection, tip) {
@@ -44,7 +46,7 @@ module.exports = function eeu_existing_row(params, ini_inp_row_data, delays, dur
       .attr('width', params.viz.rect_width)
       .attr('height', params.viz.rect_height)
       .attr('transform', function(d) {
-        if (_.contains(col_nodes_names, d.col_name)){
+        if (_.hasIn(col_nodes_names, d.col_name)){
           var inst_col_index = _.indexOf(col_nodes_names, d.col_name);
           var x_pos = params.viz.x_scale(inst_col_index) + 0.5*params.viz.border_width;
           return 'translate(' + x_pos + ',0)';
@@ -55,7 +57,7 @@ module.exports = function eeu_existing_row(params, ini_inp_row_data, delays, dur
       .attr('width', params.viz.rect_width)
       .attr('height', params.viz.rect_height)
       .attr('transform', function(d) {
-        if (_.contains(col_nodes_names, d.col_name)){
+        if (_.hasIn(col_nodes_names, d.col_name)){
           var inst_col_index = _.indexOf(col_nodes_names, d.col_name);
           var x_pos = params.viz.x_scale(inst_col_index) + 0.5*params.viz.border_width;
           return 'translate(' + x_pos + ',0)';
