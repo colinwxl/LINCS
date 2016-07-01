@@ -359,8 +359,16 @@ router.get('/:id/network', async (ctx) => {
   // the JSON. If it doesn't exist, an error will be thrown and a 400 response will be sent
   // in the catch {} block.
   let network;
+
+  // Try curated JSON first, then default to automatically processed JSON next.
   try {
-    network = require(`../networks/${dataset.lincsId}.json`); // eslint-disable-line
+    const curatedJson = `../networks/${dataset.lincsId}-vis.json`;
+    network = require(curatedJson); // eslint-disable-line
+  } catch (e) {}
+
+  try {
+    const json = `../networks/${dataset.lincsId}.json`;
+    network = require(json); // eslint-disable-line
   } catch (e) {
     debug(e);
     ctx.throw(400, 'Network is not available for this dataset.');
