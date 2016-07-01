@@ -8,7 +8,7 @@ import dcicMooc from './images/dcic-mooc.png';
 export default function Story20150917() {
   return (
     <Story
-      title="New Course: Big Data Science With the BD2K-LINCS Data Coordination
+      title="New Course: Big Data Science with the BD2K-LINCS Data Coordination
       and Integration Center"
       date="September 17th, 2015"
     >

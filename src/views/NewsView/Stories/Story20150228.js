@@ -7,7 +7,7 @@ import Story from './Story';
 export default function Story20150228() {
   return (
     <Story
-      title="Administrative Supplements To Extend The Scope And Reach Of LINCS Datasets"
+      title="Administrative Supplements to Extend the Scope and Reach of LINCS Datasets"
       date="February 28th, 2015"
     >
       <p>

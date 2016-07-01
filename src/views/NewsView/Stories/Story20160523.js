@@ -8,13 +8,13 @@ import reproducibility from './images/reproducibility-header.png';
 export default function Story20160523() {
   return (
     <Story
-      title="Editorial In Science Translational Medicine"
+      title="Editorial in Science Translational Medicine"
       date="May 23rd, 2016"
     >
       <h5>Reproducibility will only come with data liberation</h5>
       <p>
         In a recent editorial in Science Translational Medicine, Mohammed AlQuraishi and Peter
-        Sorger from the <a href="http://lincs.hms.harvard.edu/" target="_blank">HMS LINCS Center</a>
+        Sorger from the <a href="http://lincs.hms.harvard.edu/" target="_blank">HMS LINCS Center </a>
         make the case for improving accessibility and usability of published experimental data of
         all data types.
       </p>

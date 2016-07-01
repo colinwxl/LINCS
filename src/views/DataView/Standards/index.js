@@ -55,7 +55,7 @@ export default function Standards(/* props */) {
               </li>
 		<li>
                 <a href="/LINCS/files/Small_Molecule_Metadata_2016_General.pdf">
-                Small Molecules</a>
+                Small molecules</a>
               </li>
 
             </ul>

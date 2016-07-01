@@ -8,7 +8,7 @@ import dcicScreenshot from './images/lincs-dcic-screenshot.jpg';
 export default function Story20151105() {
   return (
     <Story
-      title="BD2K-LINCS DCIC | Accepting Applications For 2016 Summer Research Training Program"
+      title="BD2K-LINCS DCIC | Accepting Applications for 2016 Summer Research Training Program"
       date="November 5th, 2015"
     >
       <p className="clearfix">
@@ -22,7 +22,7 @@ export default function Story20151105() {
         Data Science</a> is a research intensive ten-week training program for
         undergraduate and graduate students interested in participating in cutting
         edge research projects aimed at solving data-intensive biomedical problems.
-        <a href="http://lincs-dcic.org/#/summer-fellows-2015#nav" target="_blank">Summer fellows</a>
+        <a href="http://lincs-dcic.org/#/summer-fellows-2015#nav" target="_blank"> Summer fellows </a>
         conduct faculty-mentored independent research projects
         within laboratories affiliated with the Center in the following areas: data
         integration, dynamic data visualization, machine learning, data harmonization,
@@ -48,7 +48,7 @@ export default function Story20151105() {
       <p><strong>Application Deadline: March 4, 2016 at 11:00 PM ET</strong></p>
       <p>
         For the program description and information on how to
-        apply, <a href="" target="_blank">click here</a>.
+        apply, <a href="http://lincs-dcic.org/#/summer-research-app#nav" target="_blank">click here</a>.
       </p>
     </Story>
   );

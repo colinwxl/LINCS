@@ -7,6 +7,7 @@ import styles from './Overview.scss';
 // Images
 import neuroOutreachImg from './neuro_outreach.jpg';
 import sbdssImg from './SBDSS.jpg';
+import dcicImg from './dcic.png';
 import youtubeImg from './youtube.png';
 
 export default class Overview extends Component {
@@ -52,8 +53,8 @@ export default class Overview extends Component {
                     <a href="http://lincs-dcic.org/#/summer-research-app#nav">
                       <img
                         className="m-b-1"
-                        src="http://www.lincsproject.org/wp-content/uploads/2015/02/DCIC_FINAL_2015.01.19-expanded-500x375.png"
-                        alt="DCIC_FINAL_2015.01.19-expanded-500x375"
+                        src={dcicImg}
+                        alt="dcic"
                         width="231"
                         height="173"
                       />
@@ -62,33 +63,44 @@ export default class Overview extends Component {
                 </div>
                 <div className={styles.left}>
                   <p>
-                    The BD2K-LINCS DCIC Summer Research Training Program in Biomedical Big Data
-                    Science is a research intensive ten-week training program for undergraduate and
+                    The <a href="http://lincs-dcic.org/#/summer-research-app#nav">BD2K-LINCS DCIC Summer Research Training Program in Biomedical Big Data
+                    Science</a> is a research intensive ten-week training program for undergraduate and
                     graduate students. The DCIC supports data science research focusing on
                     interpreting and integrating LINCS-generated data from different data types and
                     databases in LINCS-funded projects.
                   </p>
-                  <a href="http://lincs-dcic.org/#/summer-research-app#nav">Learn more</a>
                   <ul>
-                    <li><strong>Program Dates</strong>: June 6 – August 12, 2016</li>
-                    <li><strong>Application Deadline</strong>: March 4, 2016</li>
-                    <li>
-                      <strong>
+                    <li>Program Dates: June 6 – August 12, 2016</li>
+                                     <li>
+                      
                         <a href="http://www.lincsproject.org/wp-content/uploads/2012/11/dcic_summer_program.pdf">
                           2016 Program Poster
                         </a>
-                      </strong>
+                      
                     </li>
                     <li>
-                      <strong>
+                      
                         <a href="http://lincs-dcic.org/#/summer-fellows-2015#nav">
                           2015 BD2K-LINCS DCIC Summer Fellows and Research Projects
                         </a>
-                      </strong>
+                      
                     </li>
                   </ul>
                 </div>
               </div>
+               <div className={styles['info-block']}>
+                <h5>
+                  Big Data Science with the BD2K-LINCS Data Coordination and Integration Center
+                </h5>
+                <p>
+                  This course covers various methods of analysis including: unsupervised clustering,
+                  gene-set enrichment analyses, data visualization, and supervised machine learning
+                  applications to LINCS data. This course also covers basic data processing and data
+                  normalization methods to clean and harmonize LINCS data and other relevant data. 
+                    </p>
+<p><a href="https://www.coursera.org/course/bd2klincs">Visit Course</a></p>
+                            </div>
+
               <h2>LINCS Outreach Meeting 2016</h2>
               <div className={`${styles['info-split']}`}>
                 <div className={`${styles.left} text-xs-center`}>
@@ -104,93 +116,15 @@ export default class Overview extends Component {
                 </div>
                 <div className={styles.right}>
                   <p>
-                    On March 10-11, 2016 the LINCS Outreach Meeting will be held at the University
-                    of California, Irvine. We invite the research community to come see examples of
-                    LINCS in action and learn how to effectively work with these unprecedented data
-                    sets.
-                  </p>
-                  <p className="text-xs-center">
-                    <a href="https://meetings.ninds.nih.gov/Home/General/13365">
-                    General Info</a> | <a href="https://meetings.ninds.nih.gov/Home/Agenda/13365">
-                    Agenda</a> | <a href="https://meetings.ninds.nih.gov/Home/Registration/13365">
-                    Registration</a> | <a href="http://www.lincsproject.org/wp-content/uploads/2016/02/lincs_outeach_2016.pdf">
-                    Meeting Flyer</a>
-                  </p>
-                  <p>
-                    <strong>Confirmed Speakers:</strong>
-                  </p>
-                  <ul>
-                    <li>Walter Koroshetz, NINDS</li>
-                    <li>Zak Kohane, Harvard Medical School</li>
-                    <li>Henry Rodriguez, NCI</li>
-                    <li>Jane Roskams, Allen Institute for Brain Science</li>
-                    <li>Fred Gage, The Salk Institute</li>
-                    <li>Gustavo Stolovitzky, IBM</li>
-                    <li>Phil Nelson, Google</li>
-                    <li>Trey Ideker, UCSD</li>
-                  </ul>
-                </div>
+                    On March 10-11, 2016 the LINCS Outreach Meeting was held at the University
+                    of California, Irvine. We invited the research community to come see examples of LINCS in action and learn how to effectively work with these unprecedented datasets. The first day of the workshop brought together the six LINCS Data and Signature Generation Centers and the BD2K-LINCS Data Coordination and Integration Center (DCIC) to review progress to date and discuss the next steps for data integration and analysis across the centers. The afternoon of the first day and the morning of the second day of the workshop included an outreach program with experts in stem cell biology, and big data management and analysis and focused on the use of current datasets.                   </p>
+<p><ul>
+<li><a href="https://meetings.ninds.nih.gov/Home/Index/13365">General Information</a></li>
+<li><a href="https://www.youtube.com/channel/UCNcDd4x8PsUZpt4U2Xa8sfg">Watch on YouTube</a></li></ul>
+</p>
+                 </div>
               </div>
-              <p>
-                Meet investigators from
-                the <Link to="/centers/data-and-signature-generating-centers">
-                LINCS Data and Signature Generation Centers</Link> and
-                the <Link to="/centers/dcic">
-                BD2K-LINCS Data Coordination and Integration Center</Link> to
-                establish collaborations!
-              </p>
-              <p>
-                Present your work at our poster session! A limited number
-                of <a href="https://meetings.ninds.nih.gov/Home/Tab1/13365">travel fellowships</a> are
-                available.
-              </p>
-              <div className={styles['info-block']}>
-                <h5>
-                  Big Data Science with the BD2K-LINCS Data Coordination and Integration Center
-                </h5>
-                <p>
-                  This course covers various methods of analysis including: unsupervised clustering,
-                  gene-set enrichment analyses, data visualization, and supervised machine learning
-                  applications to LINCS data. This course also covers basic data processing and data
-                  normalization methods to clean and harmonize LINCS data and other relevant data.
-                  This free massive open online course (MOOC) on Coursera started September 15, 2015
-                  but it is free and open for users to join at anytime.
-                </p>
-                <a href="https://www.coursera.org/course/bd2klincs">Visit course</a>
-              </div>
-              <h2>Molecular Medicine Tri-Conference 2016</h2>
-              <p>
-                On March 8, 2016, as part of the BD2K-LINCS DCIC’s community outreach efforts,
-                Avi Ma’ayan PhD and Stephan Schurer PhD will present in
-                the <a href="http://www.triconference.com/Informatics/">Informatics channel</a> at
-                the Molecular Medicine Tri-Conference 2016 in San Francisco, CA.
-              </p>
-              <div className={styles['info-block']}>
-                <h5>Bioinformatics for Big Data</h5>
-                <p>
-                  <strong>
-                    L1000CDS2: LINCS L1000 Characteristic Direction Signature Search Engine Predicts
-                    Kenpaullone as a Potential Therapeutic for Ebola
-                  </strong>
-                </p>
-                <p><em>Avi Ma’ayan, PhD, Icahn School of Medicine at Mount Sinai</em></p>
-                <a href="http://www.triconference.com/Bioinformatics-Big-Data/">Learn more</a>
-              </div>
-              <div className={styles['info-block']}>
-                <h5>
-                  Integrated Informatics Driving Translational Research and Precision Medicine
-                </h5>
-                <p>
-                  <strong>
-                    Rational Data-Driven Development of Novel Poly-Pharmacology Small Molecules
-                  </strong>
-                </p>
-                <p>
-                  <em>Stephan Schurer, PhD, Miller School of Medicine, University of Miami</em>
-                </p>
-                <a href="http://www.triconference.com/Integrated-Pharma-Informatics/">Learn more</a>
-              </div>
-              <h2>Systems Biology Data Science Symposium 2016</h2>
+            <h2>Systems Biology Data Science Symposium 2016</h2>
               <div className={styles['info-split']}>
                 <div className={styles.left}>
                   <a href="http://lincs-dcic.org/#/2016-data-science-symposium">
@@ -206,21 +140,16 @@ export default class Overview extends Component {
                     The <a href="http://lincs-dcic.org/#/">BD2K-LINCS DCIC</a> and the University
                     of Miami hosted the
                     two-day <a href="http://lincs-dcic.org/#/2016-data-science-symposium">
-                    Systems Biology Data Science Symposium (SBDSS)</a> on January 19-20, 2016
-                    at the University of Miami.
-                  </p>
-                  <p className="m-b-0">
-                    This SBDSS 2016 brought together the BD2K-LINCS DCIC, local researchers, and
+                    Systems Biology Data Science Symposium (SBDSS)</a> on January 19-20, 2016. This symposium brought together the BD2K-LINCS DCIC, local researchers, and
                     outside experts who apply or develop computational systems biology resources.
                     In presentations, a poster reception and several working sessions, the DCIC
                     showcased <a href="http://lincs-dcic.org/#/resources">
                     tools/resources</a> and <a href="http://lincs-dcic.org/#/about#nav">
                     scientific projects</a>, connected developers with users, and initiated
                     new collaborations and obtained feedback from expert and casual users of
-                    computational systems biology resources.
-                  </p>
-                  <a href="http://lincs-dcic.org/#/2016-data-science-symposium">Learn more</a>
-                </div>
+                    computational systems biology resources. <a href="https://www.youtube.com/playlist?list=PL0Bwuj8819U-FM6lY39xWJmHXe87TT-GZ">Watch on YouTube</a>
+                     </p>
+                  </div>
               </div>
               <h2>Crowdsourcing Projects</h2>
               <div className={styles['info-block']}>
@@ -231,7 +160,7 @@ export default class Overview extends Component {
                   a crowdsourcing portal which engages the research community in various
                   micro- and megatasks.
                 </p>
-                <a href="http://www.maayanlab.net/crowdsourcing/">Learn more</a>
+                <a href="http://www.maayanlab.net/crowdsourcing/">Learn More</a>
               </div>
               <h2>LINCS Data Science Research Webinars</h2>
               <div className={styles['info-block']}>
@@ -240,7 +169,7 @@ export default class Overview extends Component {
                   scientists within and outside of the LINCS project to work on problems related to
                   LINCS data analysis and integration.
                 </p>
-                <Link to="/community/webinars">Learn more</Link>
+                <Link to="/community/webinars">Learn More</Link>
               </div>
               <h2>LINCS Tutorials and Training Resources</h2>
               <p>

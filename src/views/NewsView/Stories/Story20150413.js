@@ -6,7 +6,7 @@ import Story from './Story';
 export default function Story20150413() {
   return (
     <Story
-      title="Workshop: Genomic And Computational Approaches For Biomarker And
+      title="Workshop: Genomic and Computational Approaches for Biomarker and
                 Drug Discovery | June 19, 2015"
       date="April 13th, 2015"
     >

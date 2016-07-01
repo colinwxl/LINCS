@@ -7,8 +7,8 @@ import Story from './Story';
 export default function Story20150224() {
   return (
     <Story
-      title="Call For External Collaborations With The BD2K-LINCS Data Coordination
-                And Integration Center"
+      title="Call for External Collaborations with the BD2K-LINCS Data Coordination
+                and Integration Center"
       date="February 24th, 2015"
     >
       <p>

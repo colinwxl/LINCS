@@ -8,8 +8,8 @@ import natMethods from './images/hafner-natmethods.jpg';
 export default function Story20160517() {
   return (
     <Story
-      title="HMS LINCS Center: Growth Rate Inhibition Metrics Correct For Confounders In Measuring
-      Sensitivity To Cancer Drugs"
+      title="HMS LINCS Center: Growth Rate Inhibition Metrics Correct for Confounders in Measuring
+      Sensitivity to Cancer Drugs"
       date="May 17th, 2016"
     >
       <div className="clearfix">
@@ -24,7 +24,7 @@ export default function Story20160517() {
           Hafner, Niepel et al (2016)</a>) which describes new “GR” metrics that account for
           variation in cell growth when quantifying cellular dose response to perturbagens, was
           published in Nature Methods. <a href="http://lincs.hms.harvard.edu/hafner-natmethods-2016/" target="_blank">
-          Explore the publication in more detail</a>, or, through the online <a href="http://eh3.uc.edu/apps/grtutorial/Home.html" target="_blank">
+          Explore the publication in more detail</a>, or, through the online <a href="http://grcalculator.org/" target="_blank">
           GR Browser</a> developed in collaboration with the BD2K-LINCS DCIC, calculate GR metrics
           from your own data and browse several available LINCS dose-response datasets.
         </p>

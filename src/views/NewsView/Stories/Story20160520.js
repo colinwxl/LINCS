@@ -8,7 +8,7 @@ import grCalculator from './images/gr-calculator.jpg';
 export default function Story20160520() {
   return (
     <Story
-      title="GR Metrics Calculator And Browser"
+      title="GR Metrics Calculator and Browser"
       date="May 20th, 2016"
     >
       <div className="clearfix">
@@ -28,7 +28,7 @@ export default function Story20160520() {
           PMID: 27135972</a>
         </p>
         <div className={styles['img-wrap']}>
-          <a href="http://eh3.uc.edu/apps/grtutorial/Home.html" target="_blank">GR Metrics
+          <a href="http://grcalculator.org/" target="_blank">GR Metrics
           Calculator and Browser</a>
           <img
             className={`${styles['img-border']}`}

@@ -6,7 +6,7 @@ import Story from './Story';
 export default function Story20150806() {
   return (
     <Story
-      title="Workshop: Interdisciplinary Approaches To Biomedical Data Science
+      title="Workshop: Interdisciplinary Approaches to Biomedical Data Science
                 Challenges: SAMSI Innovations Lab | July 20-24, 2015"
       date="August 6th, 2015"
     >

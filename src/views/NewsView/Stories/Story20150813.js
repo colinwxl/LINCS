@@ -7,8 +7,8 @@ import Story from './Story';
 export default function Story20150813() {
   return (
     <Story
-      title="Data Releases: DToxS, HMS LINCS, LINCS Center For Transcriptomics,
-                LINCS PCCSE, And NeuroLINCS"
+      title="Data Releases: DToxS, HMS LINCS, LINCS Center for Transcriptomics,
+                LINCS PCCSE, and NeuroLINCS"
       date="August 13th, 2015"
     >
       <p>

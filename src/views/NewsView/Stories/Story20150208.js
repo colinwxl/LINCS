@@ -6,8 +6,8 @@ import Story from './Story';
 export default function Story20150208() {
   return (
     <Story
-      title="LINCS Investigators Present At The AACR Special Conference On
-                Computational And Systems Biology Of Cancer"
+      title="LINCS Investigators Present at the AACR Special Conference on
+                Computational and Systems Biology of Cancer"
       date="February 8th, 2015"
     >
       <p>

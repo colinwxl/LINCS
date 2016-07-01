@@ -8,7 +8,7 @@ import natureCoverImg from './images/nature-cover.png';
 export default function Story201511192() {
   return (
     <Story
-      title="LINCS In The News"
+      title="LINCS in the News"
       date="November 19th, 2015"
     >
       <div className="clearfix">
