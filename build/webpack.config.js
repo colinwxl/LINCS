@@ -166,7 +166,7 @@ const cssLoader = !config.compilerCssModules
 
 webpackConfig.module.loaders.push({
   test: /\.scss$/,
-  include: /src/,
+  include: /client/,
   loaders: [
     'style',
     cssLoader,
@@ -177,7 +177,7 @@ webpackConfig.module.loaders.push({
 
 webpackConfig.module.loaders.push({
   test: /\.css$/,
-  include: /src/,
+  include: /client/,
   loaders: [
     'style',
     cssLoader,
@@ -188,7 +188,7 @@ webpackConfig.module.loaders.push({
 // Don't treat global SCSS as modules
 webpackConfig.module.loaders.push({
   test: /\.scss$/,
-  exclude: /src/,
+  exclude: /client/,
   loaders: [
     'style',
     'css?sourceMap',
@@ -200,7 +200,7 @@ webpackConfig.module.loaders.push({
 // Don't treat global, third-party CSS as modules
 webpackConfig.module.loaders.push({
   test: /\.css$/,
-  exclude: /src/,
+  exclude: /client/,
   loaders: [
     'style',
     'css?sourceMap',

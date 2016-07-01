@@ -9,7 +9,7 @@ const config = {
   // Project Structure
   // ----------------------------------
   pathBase: path.resolve(__dirname, '../'),
-  dirClient: 'src',
+  dirClient: 'client',
   dirDist: 'dist',
   dirServer: 'server',
   dirTest: 'tests',

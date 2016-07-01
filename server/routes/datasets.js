@@ -374,7 +374,7 @@ router.get('/:id/network', async (ctx) => {
  * @param  {String} id The dataset id for which the raw data package will be downloaded.
  */
 router.get('/:id/download', async (ctx) => {
-  // Dataset files exist in /usr/src/dist/files/datasets/...
+  // Dataset files exist in /usr/client/dist/files/datasets/...
   // However, this folder is mounted from HDFS when the application is deployed.
   // This is done because the files can get very large. The files can be found at
   // http://elizabeth:50070/explorer.html#/apps/lincs/datasets
@@ -388,10 +388,10 @@ router.get('/:id/download', async (ctx) => {
     let filePath = `/usr/src/dist/files/datasets/${dataset.lincsId}.tar.gz`;
     if (dataset.method === 'KINOMEScan') {
       filename = `${dataset.classification}-KINOMEScan.tar.gz`;
-      filePath = '/usr/src/dist/files/datasets/KINOMEScan.zip';
+      filePath = '/usr/client/dist/files/datasets/KINOMEScan.zip';
     } else if (dataset.method === 'KiNativ') {
       filename = `${dataset.classification}-KiNativ.tar.gz`;
-      filePath = '/usr/src/dist/files/datasets/KiNativ.zip';
+      filePath = '/usr/client/dist/files/datasets/KiNativ.zip';
     }
     ctx.set('Content-disposition', `attachment; filename=${filename}`);
     // Use koa-sendfile to send the file, given the path.
@@ -410,7 +410,7 @@ router.get('/:id/download', async (ctx) => {
  * @param  {String} id The dataset id for which the gct file will be downloaded.
  */
 router.get('/:id/download/gct', async (ctx) => {
-  // Dataset files exist in /usr/src/dist/files/datasets/...
+  // Dataset files exist in /usr/client/dist/files/datasets/...
   // However, this folder is mounted from HDFS when the application is deployed.
   // This is done because the files can get very large. The files can be found at
   // http://elizabeth:50070/explorer.html#/apps/lincs/datasets
@@ -426,10 +426,10 @@ router.get('/:id/download/gct', async (ctx) => {
     let filePath = `/usr/src/dist/files/datasets/${dataset.lincsId}.gct`;
     if (dataset.method === 'KINOMEScan') {
       filename = `${dataset.classification}-KINOMEScan.gct`;
-      filePath = '/usr/src/dist/files/datasets/KINOMEScan.gct';
+      filePath = '/usr/client/dist/files/datasets/KINOMEScan.gct';
     } else if (dataset.method === 'KiNativ') {
       filename = `${dataset.classification}-KiNativ.gct`;
-      filePath = '/usr/src/dist/files/datasets/KiNativ.gct';
+      filePath = '/usr/client/dist/files/datasets/KiNativ.gct';
     }
     ctx.set('Content-disposition', `attachment; filename=${filename}`);
     // Use koa-sendfile to send the file, given the path.
@@ -454,7 +454,7 @@ router.get('/:id/download/gct', async (ctx) => {
  * @param  {String} id The dataset id for which the gctx file will be downloaded.
  */
 router.get('/:id/download/gctx', async (ctx) => {
-  // Dataset files exist in /usr/src/dist/files/datasets/...
+  // Dataset files exist in /usr/client/dist/files/datasets/...
   // However, this folder is mounted from HDFS when the application is deployed.
   // This is done because the files can get very large. The files can be found at
   // http://elizabeth:50070/explorer.html#/apps/lincs/datasets
@@ -468,11 +468,11 @@ router.get('/:id/download/gctx', async (ctx) => {
     const filePath = `/usr/src/dist/files/datasets/${dataset.lincsId}.gctx`;
     if (dataset.method === 'KINOMEScan') {
       // filename = `${dataset.classification}-KINOMEScan.gctx`;
-      // filePath = '/usr/src/dist/files/datasets/KINOMEScan.gctx';
+      // filePath = '/usr/client/dist/files/datasets/KINOMEScan.gctx';
       ctx.throw(400, 'GCTX file is not currently available for KINOMEScan.');
     } else if (dataset.method === 'KiNativ') {
       // filename = `${dataset.classification}-KiNativ.gctx`;
-      // filePath = '/usr/src/dist/files/datasets/KiNativ.gctx';
+      // filePath = '/usr/client/dist/files/datasets/KiNativ.gctx';
       ctx.throw(400, 'GCTX file is not currently available for KiNativ.');
     }
     ctx.set('Content-disposition', `attachment; filename=${filename}`);
