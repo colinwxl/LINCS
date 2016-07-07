@@ -9,6 +9,7 @@ import neuroOutreachImg from './neuro_outreach.jpg';
 import sbdssImg from './SBDSS.jpg';
 import dcicImg from './dcic.png';
 import youtubeImg from './youtube.png';
+import cmapImg from './cmap.png';
 
 export default class Overview extends Component {
   componentDidMount() {
@@ -43,6 +44,40 @@ export default class Overview extends Component {
                 courses, training seminars, challenges, workshops and symposia to create
                 an active LINCS community.
               </p>
+             <h2>Crowdsourcing Challenges</h2>
+              <h5>
+                Connectivity Map Challenge
+              </h5>
+              <div className={styles['info-split-reverse']}>
+                <div className={`${styles.right} text-xs-center`}>
+                  <p>
+                       <img
+                        className="m-b-1"
+                        src={cmapImg}
+                        alt="cmap"           
+                      />
+                   </p>
+                </div>
+                <div className={styles.left}>
+                             <p>
+The <strong>LINCS Center for Transcriptomics</strong>, in partnership with the Crowd Innovation Lab at Harvard Business School, is launching their first challenge, “Infer the Transcriptome”. Contestants will be provided with a large dataset of ~100,000 gene expression profiles on which to train an inference model. Models will be scored based on their accuracy in predicting gene expression values for non-landmark genes in a separate test dataset. The contest format will be a 2-week marathon featuring a continuously updated leaderboard. To determine winners, each contestant’s best model will be scored on its performance on a holdout dataset. <a href="http://crowdsourcing.topcoder.com/cmap" target="_blank">Registration</a>
+
+         
+                 </p>
+                              </div>
+              </div>
+               <div className={styles['info-block']}>
+                <h5>
+                  BD2K-LINCS DCIC Crowdsourcing Portal
+                </h5>
+                <p> As part of our educational efforts to bring awareness to LINCS data and
+                  explain the efforts of LINCS to the general public, the DCIC developed
+                  a crowdsourcing portal which engages the research community in various
+                  micro- and megatasks. <a href="http://www.maayanlab.net/crowdsourcing/">Learn More</a>
+                                      </p>
+                            </div>
+
+	    
               <h2>Training in Big Data Science</h2>
               <h5>
                 BD2K-LINCS DCIC Summer Research Training Program in Biomedical Big Data Science
@@ -65,15 +100,13 @@ export default class Overview extends Component {
                   <p>
                     The <a href="http://lincs-dcic.org/#/summer-research-app#nav">BD2K-LINCS DCIC Summer Research Training Program in Biomedical Big Data
                     Science</a> is a research intensive ten-week training program for undergraduate and
-                    graduate students. The DCIC supports data science research focusing on
-                    interpreting and integrating LINCS-generated data from different data types and
-                    databases in LINCS-funded projects.
+                    graduate students. The DCIC supports data science research focused on developing methods that would further extract knowledge from LINCS data by integrating LINCS data with other relevant resources. Summer fellows conduct faculty-mentored independent research projects within laboratories affiliated with the Center in the following areas: data integration, dynamic data visualization, machine learning, data harmonization, computational drug discovery, metadata and APIs, knowledge modeling, Bayesian networks and statistical mining.
                   </p>
                   <ul>
                     <li>Program Dates: June 6 – August 12, 2016</li>
                                      <li>
                       
-                        <a href="http://www.lincsproject.org/wp-content/uploads/2012/11/dcic_summer_program.pdf">
+                        <a href="http://lincs-dcic.org/static/dcic_summer_program.pdf">
                           2016 Program Poster
                         </a>
                       
@@ -96,9 +129,8 @@ export default class Overview extends Component {
                   This course covers various methods of analysis including: unsupervised clustering,
                   gene-set enrichment analyses, data visualization, and supervised machine learning
                   applications to LINCS data. This course also covers basic data processing and data
-                  normalization methods to clean and harmonize LINCS data and other relevant data. 
+                  normalization methods to clean and harmonize LINCS data and other relevant data. <a href="https://www.coursera.org/course/bd2klincs">Visit Course</a>
                     </p>
-<p><a href="https://www.coursera.org/course/bd2klincs">Visit Course</a></p>
                             </div>
 
               <h2>LINCS Outreach Meeting 2016</h2>
@@ -151,26 +183,15 @@ export default class Overview extends Component {
                      </p>
                   </div>
               </div>
-              <h2>Crowdsourcing Projects</h2>
-              <div className={styles['info-block']}>
-                <h5>BD2K-LINCS DCIC Crowdsourcing Portal</h5>
-                <p>
-                  As part of our educational efforts to bring awareness to LINCS data and
-                  explain the efforts of LINCS to the general public, the DCIC developed
-                  a crowdsourcing portal which engages the research community in various
-                  micro- and megatasks.
-                </p>
-                <a href="http://www.maayanlab.net/crowdsourcing/">Learn More</a>
-              </div>
-              <h2>LINCS Data Science Research Webinars</h2>
+                            <h2>LINCS Data Science Research Webinars</h2>
               <div className={styles['info-block']}>
                 <p>
                   The LINCS Data Science Research Webinars serve as a general forum to engage data
                   scientists within and outside of the LINCS project to work on problems related to
-                  LINCS data analysis and integration.
+                  LINCS data analysis and integration.  <Link to="/community/webinars">Learn More</Link>
+
                 </p>
-                <Link to="/community/webinars">Learn More</Link>
-              </div>
+                             </div>
               <h2>LINCS Tutorials and Training Resources</h2>
               <p>
                 <a href="https://www.youtube.com/playlist?list=PL0Bwuj8819U8817LbRWK0VdoKcVEMYb8Z">BD2K-LINCS DCIC Tutorials</a>: The BD2K-LINCS DCIC YouTube channel includes a series of demo and tutorial videos on data analysis and visualization with the <a href="http://bd2k-lincs.org/#/resources">BD2K-LINCS DCIC tools</a>.

@@ -10,12 +10,7 @@ export default function Story20160602() {
       date="June 2nd, 2016"
     >
       <h5>Metadata Standards – New Versions Released</h5>
-      <p>
-        The <a href="http://www.lincsproject.org/data/data-standards/" target="_blank">Data
-        Standards</a> page has been updated to reflect the most recent standards releases in
-        LINCS Production Phase 2.
-      </p>
-      <p>
+           <p>
         Current Versions of Standards Released: 5-13-16
       </p>
 <ul>
