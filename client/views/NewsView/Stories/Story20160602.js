@@ -11,11 +11,6 @@ export default function Story20160602() {
     >
       <h5>Metadata Standards – New Versions Released</h5>
       <p>
-        The <a href="http://www.lincsproject.org/data/data-standards/" target="_blank">Data
-        Standards</a> page has been updated to reflect the most recent standards releases in
-        LINCS Production Phase 2.
-      </p>
-      <p>
         Current Versions of Standards Released: 5-13-16
       </p>
       <ul>
@@ -61,13 +56,14 @@ export default function Story20160602() {
         </li>
         <li>
           <a href="/LINCS/files/Small_Molecule_Metadata_2016_General.pdf">
-            Small Molecules
+            Small molecules
           </a>
         </li>
       </ul>
-      <p><a href="/LINCS/files/Standards5132016.zip">
-        Download pdf and xlsx formats
-      </a>
+      <p>
+        <a href="/LINCS/files/Standards5132016.zip">
+          Download pdf and xlsx formats
+        </a>
       </p>
     </Story>
   );

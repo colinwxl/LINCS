@@ -33,7 +33,7 @@ export default class Overview extends Component {
 
         <div className="container">
           <div className="row">
-            <PageNav isCommunityPage mainPage="Overview"/>
+            <PageNav isCommunityPage mainPage="Overview" />
 
             <div className="col-md-9 col-md-pull-3">
               <h1 className={styles.title}>Overview</h1>
@@ -65,15 +65,16 @@ export default class Overview extends Component {
                 </div>
                 <div className={styles.left}>
                   <p>
-                    The <strong>LINCS Center for Transcriptomics</strong>, in partnership with the Crowd Innovation Lab
-                    at Harvard Business School, is launching their first challenge, “Infer the Transcriptome”.
-                    Contestants will be provided with a large dataset of ~100,000 gene expression profiles on which to
-                    train an inference model. Models will be scored based on their accuracy in predicting gene
-                    expression values for non-landmark genes in a separate test dataset. The contest format will be a
-                    2-week marathon featuring a continuously updated leaderboard. To determine winners, each
-                    contestant’s best model will be scored on its performance on a holdout dataset. <a
-                    href="http://crowdsourcing.topcoder.com/cmap" target="_blank">Registration</a>
-
+                    The <strong>LINCS Center for Transcriptomics</strong>, in partnership with the
+                    Crowd Innovation Lab at Harvard Business School, is launching their first
+                    challenge, “Infer the Transcriptome”. Contestants will be provided with a
+                    large dataset of ~100,000 gene expression profiles on which to train an
+                    inference model. Models will be scored based on their accuracy in predicting
+                    gene expression values for non-landmark genes in a separate test dataset.
+                    The contest format will be a 2-week marathon featuring a continuously updated
+                    leaderboard. To determine winners, each contestant’s best model will be scored
+                    on its performance on a holdout dataset.
+                    <a href="http://crowdsourcing.topcoder.com/cmap" target="_blank">Registration</a>
                   </p>
                 </div>
               </div>
@@ -112,13 +113,15 @@ export default class Overview extends Component {
                   <p>
                     The <a href="http://lincs-dcic.org/#/summer-research-app#nav">BD2K-LINCS DCIC Summer Research
                     Training Program in Biomedical Big Data
-                    Science</a> is a research intensive ten-week training program for undergraduate and
-                    graduate students. The DCIC supports data science research focused on developing methods that would
-                    further extract knowledge from LINCS data by integrating LINCS data with other relevant resources.
-                    Summer fellows conduct faculty-mentored independent research projects within laboratories affiliated
-                    with the Center in the following areas: data integration, dynamic data visualization, machine
-                    learning, data harmonization, computational drug discovery, metadata and APIs, knowledge modeling,
-                    Bayesian networks and statistical mining.
+                    Science</a> is a research intensive ten-week training program for undergraduate
+                    and graduate students. The DCIC supports data science research focused on
+                    developing methods that would further extract knowledge from LINCS data by
+                    integrating LINCS data with other relevant resources. Summer fellows conduct
+                    faculty-mentored independent research projects within laboratories affiliated
+                    with the Center in the following areas: data integration, dynamic data
+                    visualization, machine learning, data harmonization, computational drug
+                    discovery, metadata and APIs, knowledge modeling, Bayesian networks and
+                    statistical mining.
                   </p>
                   <ul>
                     <li>Program Dates: June 6 – August 12, 2016</li>
@@ -148,8 +151,8 @@ export default class Overview extends Component {
                   This course covers various methods of analysis including: unsupervised clustering,
                   gene-set enrichment analyses, data visualization, and supervised machine learning
                   applications to LINCS data. This course also covers basic data processing and data
-                  normalization methods to clean and harmonize LINCS data and other relevant data. <a
-                  href="https://www.coursera.org/course/bd2klincs">Visit Course</a>
+                  normalization methods to clean and harmonize LINCS data and other relevant data.
+                  <a href="https://www.coursera.org/course/bd2klincs">Visit Course</a>
                 </p>
               </div>
 
@@ -164,26 +167,26 @@ export default class Overview extends Component {
                       alt="neuro_outreach"
                       width="218"
                       height="300"
-                      />
+                    />
                   </a>
                 </div>
                 <div className={styles.right}>
                   <p>
                     On March 10-11, 2016 the LINCS Outreach Meeting was held at the University
-                    of California, Irvine. We invited the research community to come see examples of LINCS in action and
-                    learn how to effectively work with these unprecedented datasets. The first day of the workshop
-                    brought together the six LINCS Data and Signature Generation Centers and the BD2K-LINCS Data
-                    Coordination and Integration Center (DCIC) to review progress to date and discuss the next steps for
-                    data integration and analysis across the centers. The afternoon of the first day and the morning of
-                    the second day of the workshop included an outreach program with experts in stem cell biology, and
-                    big data management and analysis and focused on the use of current datasets. </p>
-
-                  <p>
-                    <ul>
-                      <li><a href="https://meetings.ninds.nih.gov/Home/Index/13365">General Information</a></li>
-                      <li><a href="https://www.youtube.com/channel/UCNcDd4x8PsUZpt4U2Xa8sfg">Watch on YouTube</a></li>
-                    </ul>
+                    of California, Irvine. We invited the research community to come see examples
+                    of LINCS in action and learn how to effectively work with these unprecedented
+                    datasets. The first day of the workshop brought together the six LINCS Data
+                    and Signature Generation Centers and the BD2K-LINCS Data Coordination and
+                    Integration Center (DCIC) to review progress to date and discuss the next
+                    steps for data integration and analysis across the centers. The afternoon
+                    of the first day and the morning of the second day of the workshop included
+                    an outreach program with experts in stem cell biology, and big data management
+                    and analysis and focused on the use of current datasets.
                   </p>
+                  <ul>
+                    <li><a href="https://meetings.ninds.nih.gov/Home/Index/13365">General Information</a></li>
+                    <li><a href="https://www.youtube.com/channel/UCNcDd4x8PsUZpt4U2Xa8sfg">Watch on YouTube</a></li>
+                  </ul>
                 </div>
               </div>
               <h2>Systems Biology Data Science Symposium 2016</h2>
@@ -195,7 +198,7 @@ export default class Overview extends Component {
                       src={sbdssImg}
                       alt="SBDSS"
                       width="350"
-                      />
+                    />
                   </a>
                 </div>
                 <div className={styles.right}>
@@ -203,16 +206,15 @@ export default class Overview extends Component {
                     The <a href="http://lincs-dcic.org/#/">BD2K-LINCS DCIC</a> and the University
                     of Miami hosted the
                     two-day <a href="http://lincs-dcic.org/#/2016-data-science-symposium">
-                    Systems Biology Data Science Symposium (SBDSS)</a> on January 19-20, 2016. This symposium brought
-                    together the BD2K-LINCS DCIC, local researchers, and
+                    Systems Biology Data Science Symposium (SBDSS)</a> on January 19-20, 2016.
+                    This symposium brought together the BD2K-LINCS DCIC, local researchers, and
                     outside experts who apply or develop computational systems biology resources.
                     In presentations, a poster reception and several working sessions, the DCIC
                     showcased <a href="http://lincs-dcic.org/#/resources">
                     tools/resources</a> and <a href="http://lincs-dcic.org/#/about#nav">
                     scientific projects</a>, connected developers with users, and initiated
                     new collaborations and obtained feedback from expert and casual users of
-                    computational systems biology resources. <a
-                    href="https://www.youtube.com/playlist?list=PL0Bwuj8819U-FM6lY39xWJmHXe87TT-GZ">Watch on YouTube</a>
+                    computational systems biology resources. <a href="https://www.youtube.com/playlist?list=PL0Bwuj8819U-FM6lY39xWJmHXe87TT-GZ">Watch on YouTube</a>
                   </p>
                 </div>
               </div>
@@ -222,23 +224,24 @@ export default class Overview extends Component {
                 <p>
                   The LINCS Data Science Research Webinars serve as a general forum to engage data
                   scientists within and outside of the LINCS project to work on problems related to
-                  LINCS data analysis and integration. <Link to="/community/webinars">Learn More</Link>
-
+                  LINCS data analysis and integration. <Link to="/community/webinars">Learn
+                  More</Link>
                 </p>
               </div>
               <h2>LINCS Tutorials and Training Resources</h2>
 
               <p>
-                <a href="https://www.youtube.com/playlist?list=PL0Bwuj8819U8817LbRWK0VdoKcVEMYb8Z">BD2K-LINCS DCIC
-                  Tutorials</a>: The BD2K-LINCS DCIC YouTube channel includes a series of demo and tutorial videos on
-                data analysis and visualization with the <a href="http://bd2k-lincs.org/#/resources">BD2K-LINCS DCIC
-                tools</a>.
+                <a href="https://www.youtube.com/playlist?list=PL0Bwuj8819U8817LbRWK0VdoKcVEMYb8Z">BD2K-LINCS
+                DCIC Tutorials</a>: The BD2K-LINCS DCIC YouTube channel includes a series of demo
+                and tutorial videos on data analysis and visualization with the <a href="http://bd2k-lincs.org/#/resources">BD2K-LINCS
+                DCIC tools</a>.
               </p>
 
               <p>
-                <a href="http://lincs.hms.harvard.edu/resources/tutorials-presentations/">HMS LINCS Center Tutorials and
-                  Presentations</a>: Instructional tutorials on topics such as how to use and access certain kinds of
-                HMS LINCS data and HMS LINCS-related talks and presentations.
+                <a href="http://lincs.hms.harvard.edu/resources/tutorials-presentations/">HMS
+                LINCS Center Tutorials and Presentations</a>: Instructional tutorials on topics
+                such as how to use and access certain kinds of HMS LINCS data and HMS
+                LINCS-related talks and presentations.
               </p>
 
               <p>
@@ -254,7 +257,7 @@ export default class Overview extends Component {
                     alt="YouTube"
                     title="BD2K-LINCS DCIC Youtube Channel"
                     height="60"
-                    />
+                  />
                 </a>
 
                 <div
@@ -263,7 +266,7 @@ export default class Overview extends Component {
                   data-height="20"
                   data-href="https://plus.google.com/114413939991307460842"
                   data-rel="author"
-                  />
+                />
                 <div className={styles.twitter}>
                   <iframe
                     id="twitter-widget-0"
@@ -274,7 +277,7 @@ export default class Overview extends Component {
                     title="Twitter Follow Button"
                     src="http://platform.twitter.com/widgets/follow_button.b9740740e0bcf9b0657c5b11bd4388da.en.html#dnt=false&amp;id=twitter-widget-0&amp;lang=en&amp;screen_name=BD2KLINCSDCIC&amp;show_count=false&amp;show_screen_name=true&amp;size=m&amp;time=1458571889834"
                     data-screen-name="BD2KLINCSDCIC"
-                    />
+                  />
                   {
                     /* eslint-disable */
                     // <![CDATA[
@@ -299,7 +302,7 @@ export default class Overview extends Component {
                     title="Twitter Follow Button"
                     src="http://platform.twitter.com/widgets/follow_button.b9740740e0bcf9b0657c5b11bd4388da.en.html#dnt=false&amp;id=twitter-widget-1&amp;lang=en&amp;screen_name=CMap_Broad&amp;show_count=false&amp;show_screen_name=true&amp;size=m&amp;time=1458571889836"
                     data-screen-name="CMap_Broad"
-                    />
+                  />
                   <iframe
                     id="twitter-widget-2"
                     scrolling="no"
@@ -309,7 +312,7 @@ export default class Overview extends Component {
                     title="Twitter Follow Button"
                     src="http://platform.twitter.com/widgets/follow_button.b9740740e0bcf9b0657c5b11bd4388da.en.html#dnt=false&amp;id=twitter-widget-2&amp;lang=en&amp;screen_name=NeuroLINCS&amp;show_count=false&amp;show_screen_name=true&amp;size=m&amp;time=145857188987"
                     data-screen-name="NeuroLINCS"
-                    />
+                  />
                 </div>
               </div>
             </div>
