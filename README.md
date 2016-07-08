@@ -76,7 +76,8 @@ Now that you have docker-machine configured, you are ready to run this in produc
 
 If the deployment process finishes without errors, visit http://amp.pharm.mssm.edu/LINCS to view the updated product.
 
-## Developers
+## Developers and maintainers
 
 - [Michael McDermott](https://github.com/mgmcdermott) (original developer)
 - [Gregory Gundersen](https://github.com/gwgundersen) (current maintainer)
+- [Sherry Jenkins](https://github.com/sherry-jenkins) (content)
