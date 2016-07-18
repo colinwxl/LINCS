@@ -10,6 +10,19 @@ const mapStateToProps = (state) => ({
 });
 
 export class Dataset extends Component {
+
+  // This is static so that it can be used in SearchResult.js
+  static getLink(dataset, contents) {
+    let link;
+    if (dataset.hasBeenReleased) {
+      const url = `http://dev3.ccs.miami.edu:8080/datasets-beta/#/view/${dataset.lincsId}`;
+      link = <a href={url} target="_blank">{contents}</a>;
+    } else {
+      link = <Link to={`/data/releases/${dataset.id}`}>{contents}</Link>;
+    }
+    return link;
+  }
+
   render() {
     const { className, datasets, datasetId } = this.props;
     const dataset = datasets[datasetId];
@@ -21,9 +34,7 @@ export class Dataset extends Component {
         <div className={styles['ds-header']}>
           <div className="row">
             <div className="col-xs-7">
-              <h5>
-                <Link to={`/data/releases/${datasetId}`}>{dataset.method}</Link>
-              </h5>
+              <h5>{this.constructor.getLink(dataset, dataset.method)}</h5>
               <p className={styles.creator}>{dataset.center.name}</p>
             </div>
             <div className="col-xs-5">
@@ -37,7 +48,7 @@ export class Dataset extends Component {
           </div>
         </div>
         <p className={styles.description}>{dataset.description}</p>
-        <Link to={`/data/releases/${datasetId}`}>Click here to view dataset page</Link>
+        {this.constructor.getLink(dataset, 'Click here to view dataset page')}
       </div>
     );
   }

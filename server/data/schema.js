@@ -27,6 +27,7 @@ export default {
     date_released: { type: 'dateTime', nullable: true },
     clicks: { type: 'integer', nullable: false, defaultTo: 0 },
     source_link: { type: 'text', maxlength: 2000, nullable: true },
+    has_been_released: { type: 'bool', nullable: false, defaultTo: 0 },
     created_at: { type: 'dateTime', nullable: false },
     updated_at: { type: 'dateTime', nullable: true },
   },
