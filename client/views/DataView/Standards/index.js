@@ -56,6 +56,12 @@ export default function Standards(/* props */) {
                 </a>
               </li>
               <li>
+                <a href={`${d} Nucleic_Acid_Metadata_2016.pdf`}>
+                  Nucleic acids
+                </a>
+              </li>
+
+              <li>
                 <a href={`${d}Other_Reagent_Metadata_2016_General.pdf`}>
                   Other reagents
                 </a>

@@ -40,6 +40,11 @@ export default function Story20160602() {
           </a>
         </li>
         <li>
+          <a href="/LINCS/files/Nucleic_Acid_Metadata_2016.pdf">
+            Nucleic acids
+          </a>
+        </li>
+        <li>
           <a href="/LINCS/files/Other_Reagent_Metadata_2016_General.pdf">
             Other reagents
           </a>
