@@ -30,7 +30,9 @@ router.get('/opportunities', async (ctx) => {
  */
 router.get('/webinars', async (ctx) => {
   try {
-    const webinars = await Webinar.forge().fetchAll();
+    const webinars = await Webinar.forge()
+      .orderBy('date', 'desc')
+      .fetchAll();
     ctx.body = webinars.toJSON();
   } catch (e) {
     debug(e);

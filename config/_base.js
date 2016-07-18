@@ -9,7 +9,7 @@ const config = {
   // Project Structure
   // ----------------------------------
   pathBase: path.resolve(__dirname, '../'),
-  dirClient: 'src',
+  dirClient: 'client',
   dirDist: 'dist',
   dirServer: 'server',
   dirTest: 'tests',
@@ -85,6 +85,7 @@ Edit at Your Own Risk
 config.globals = {
   'process.env': {
     NODE_ENV: JSON.stringify(config.env),
+    TZ: 'America/New_York',
   },
   NODE_ENV: config.env,
   __DEV__: config.env === 'development',

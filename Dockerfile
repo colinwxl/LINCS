@@ -4,6 +4,9 @@ ENV SOURCE_DIR /usr/src
 RUN mkdir -p $SOURCE_DIR && cd $SOURCE_DIR
 WORKDIR $SOURCE_DIR
 
+ENV TZ=America/New_York
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
+
 ENV NODE_ENV production
 ENV DEBUG app:*
 

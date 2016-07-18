@@ -65,7 +65,7 @@ router.get('/recent', async (ctx) => {
     const centers = await Center
       .fetchAll({
         withRelated: [
-          { datasets: (query) => query.orderBy('date_retrieved', 'desc') },
+          { datasets: (query) => query.orderBy('date_released', 'desc') },
         ],
       })
       .then(models => models.toJSON({ omitPivot: true }));
@@ -130,7 +130,7 @@ router.get('/tree', async (ctx) => {
   // a way to sort the keys of dateDatasetMap to ensure that we can sort the years and
   // months in the proper order in the tree.
   datasets.forEach((ds) => {
-    const date = moment(ds.dateRetrieved);
+    const date = moment(ds.dateReleased);
     const month = date.month();
     const year = date.year();
     // Check if an object exists in dates with the year of the current dataset
@@ -199,7 +199,7 @@ router.get('/search', async (ctx) => {
 
   const smIds = await getIdsFromFullTextSearch(
     'small_molecules',
-    ['pubchem_cid', 'name', 'source', 'lincs_id'],
+    ['pubchem_cid', 'name', 'source', 'broad_id', 'lincs_id'],
     ctx.query.q,
     limit
   );
@@ -359,8 +359,16 @@ router.get('/:id/network', async (ctx) => {
   // the JSON. If it doesn't exist, an error will be thrown and a 400 response will be sent
   // in the catch {} block.
   let network;
+
+  // Try curated JSON first, then default to automatically processed JSON next.
   try {
-    network = require(`../networks/${dataset.lincsId}.json`); // eslint-disable-line
+    const curatedJson = `../networks/${dataset.lincsId}-vis.json`;
+    network = require(curatedJson); // eslint-disable-line
+  } catch (e) {}
+
+  try {
+    const json = `../networks/${dataset.lincsId}.json`;
+    network = require(json); // eslint-disable-line
   } catch (e) {
     debug(e);
     ctx.throw(400, 'Network is not available for this dataset.');
@@ -374,7 +382,7 @@ router.get('/:id/network', async (ctx) => {
  * @param  {String} id The dataset id for which the raw data package will be downloaded.
  */
 router.get('/:id/download', async (ctx) => {
-  // Dataset files exist in /usr/src/dist/files/datasets/...
+  // Dataset files exist in /usr/client/dist/files/datasets/...
   // However, this folder is mounted from HDFS when the application is deployed.
   // This is done because the files can get very large. The files can be found at
   // http://elizabeth:50070/explorer.html#/apps/lincs/datasets
@@ -388,10 +396,10 @@ router.get('/:id/download', async (ctx) => {
     let filePath = `/usr/src/dist/files/datasets/${dataset.lincsId}.tar.gz`;
     if (dataset.method === 'KINOMEScan') {
       filename = `${dataset.classification}-KINOMEScan.tar.gz`;
-      filePath = '/usr/src/dist/files/datasets/KINOMEScan.zip';
+      filePath = '/usr/client/dist/files/datasets/KINOMEScan.zip';
     } else if (dataset.method === 'KiNativ') {
       filename = `${dataset.classification}-KiNativ.tar.gz`;
-      filePath = '/usr/src/dist/files/datasets/KiNativ.zip';
+      filePath = '/usr/client/dist/files/datasets/KiNativ.zip';
     }
     ctx.set('Content-disposition', `attachment; filename=${filename}`);
     // Use koa-sendfile to send the file, given the path.
@@ -410,7 +418,7 @@ router.get('/:id/download', async (ctx) => {
  * @param  {String} id The dataset id for which the gct file will be downloaded.
  */
 router.get('/:id/download/gct', async (ctx) => {
-  // Dataset files exist in /usr/src/dist/files/datasets/...
+  // Dataset files exist in /usr/client/dist/files/datasets/...
   // However, this folder is mounted from HDFS when the application is deployed.
   // This is done because the files can get very large. The files can be found at
   // http://elizabeth:50070/explorer.html#/apps/lincs/datasets
@@ -426,10 +434,10 @@ router.get('/:id/download/gct', async (ctx) => {
     let filePath = `/usr/src/dist/files/datasets/${dataset.lincsId}.gct`;
     if (dataset.method === 'KINOMEScan') {
       filename = `${dataset.classification}-KINOMEScan.gct`;
-      filePath = '/usr/src/dist/files/datasets/KINOMEScan.gct';
+      filePath = '/usr/client/dist/files/datasets/KINOMEScan.gct';
     } else if (dataset.method === 'KiNativ') {
       filename = `${dataset.classification}-KiNativ.gct`;
-      filePath = '/usr/src/dist/files/datasets/KiNativ.gct';
+      filePath = '/usr/client/dist/files/datasets/KiNativ.gct';
     }
     ctx.set('Content-disposition', `attachment; filename=${filename}`);
     // Use koa-sendfile to send the file, given the path.
@@ -454,7 +462,7 @@ router.get('/:id/download/gct', async (ctx) => {
  * @param  {String} id The dataset id for which the gctx file will be downloaded.
  */
 router.get('/:id/download/gctx', async (ctx) => {
-  // Dataset files exist in /usr/src/dist/files/datasets/...
+  // Dataset files exist in /usr/client/dist/files/datasets/...
   // However, this folder is mounted from HDFS when the application is deployed.
   // This is done because the files can get very large. The files can be found at
   // http://elizabeth:50070/explorer.html#/apps/lincs/datasets
@@ -468,11 +476,11 @@ router.get('/:id/download/gctx', async (ctx) => {
     const filePath = `/usr/src/dist/files/datasets/${dataset.lincsId}.gctx`;
     if (dataset.method === 'KINOMEScan') {
       // filename = `${dataset.classification}-KINOMEScan.gctx`;
-      // filePath = '/usr/src/dist/files/datasets/KINOMEScan.gctx';
+      // filePath = '/usr/client/dist/files/datasets/KINOMEScan.gctx';
       ctx.throw(400, 'GCTX file is not currently available for KINOMEScan.');
     } else if (dataset.method === 'KiNativ') {
       // filename = `${dataset.classification}-KiNativ.gctx`;
-      // filePath = '/usr/src/dist/files/datasets/KiNativ.gctx';
+      // filePath = '/usr/client/dist/files/datasets/KiNativ.gctx';
       ctx.throw(400, 'GCTX file is not currently available for KiNativ.');
     }
     ctx.set('Content-disposition', `attachment; filename=${filename}`);
@@ -536,7 +544,6 @@ async function getIdsFromFullTextSearch(table, fields, searchTerm, limit) {
     bindings.push(searchTerm);
   });
   sql += ' LIMIT ' + limit;
-
   const resp = await knex.raw(sql, bindings);
   resp[0].forEach(doc => {
     const id = parseInt(doc.id, 10);
@@ -556,14 +563,14 @@ async function getIdsFromFullTextSearch(table, fields, searchTerm, limit) {
  */
 function generateRIS(ds) {
   return new Promise(resolve => {
-    const dateRetrieved = moment(ds.dateRetrieved);
+    const dateReleased = moment(ds.dateReleased);
     const filename = `${ds.method.replace(/\s/g, '_')}-${ds.lincsId}.ris`;
     const filePath = path.join(__dirname, '/', filename);
     const stream = fs.createWriteStream(filePath);
     stream.write('TY  - DATA\n');
     stream.write(`AU  - ${ds.center.name}\n`);
-    stream.write(`PY  - ${dateRetrieved.format('YYYY')}\n`);
-    stream.write(`DA  - ${dateRetrieved.format('YYYY/MM/DD')}\n`);
+    stream.write(`PY  - ${dateReleased.format('YYYY')}\n`);
+    stream.write(`DA  - ${dateReleased.format('YYYY/MM/DD')}\n`);
     if (ds.method && ds.method.length && ds.description && ds.description.length) {
       stream.write(`TI  - ${ds.method}\n`);
       stream.write(`AB  - ${ds.description}\n`);
@@ -588,13 +595,13 @@ function generateRIS(ds) {
  */
 function generateENW(ds) {
   return new Promise(resolve => {
-    const dateRetrieved = moment(ds.dateRetrieved);
+    const dateReleased = moment(ds.dateReleased);
     const filename = `${ds.method.replace(/\s/g, '_')}-${ds.lincsId}.enw`;
     const filePath = path.join(__dirname, '/', filename);
     const stream = fs.createWriteStream(filePath);
     stream.write('%0 Dataset\n');
     stream.write(`%A ${ds.center.name}\n`);
-    stream.write(`%D ${dateRetrieved.format('YYYY')}\n`);
+    stream.write(`%D ${dateReleased.format('YYYY')}\n`);
     if (ds.method && ds.method.length) {
       stream.write(`%T ${ds.method}\n`);
     } else if (ds.description && ds.description.length) {
@@ -616,7 +623,7 @@ function generateENW(ds) {
  */
 function generateBIB(ds) {
   return new Promise(resolve => {
-    const year = moment(ds.dateRetrieved).format('YYYY');
+    const year = moment(ds.dateReleased).format('YYYY');
     const filename = `${ds.method.replace(/\s/g, '_')}-${ds.lincsId}.bib`;
     const filePath = path.join(__dirname, '/', filename);
     const stream = fs.createWriteStream(filePath);

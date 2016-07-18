@@ -1,8 +1,8 @@
 {
   "name": "lincs",
-  "version": "3.0.1",
+  "version": "5.2.0",
   "description": "A home for the LINCS project.",
-  "main": "src/main.js",
+  "main": "client/main.js",
   "engines": {
     "node": ">=4.2.0",
     "npm": "^3.0.0"

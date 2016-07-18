@@ -9,7 +9,6 @@
 import bookshelf from 'bookshelf';
 import moment from 'moment';
 import _ from 'lodash';
-// import camelize from 'camelize';
 
 import { knex } from '../../serverConf';
 import schema from '../../data/schema';

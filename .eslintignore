@@ -2,7 +2,7 @@
 **/node_modules/**
 **/dist/**
 *.spec.js
-**/src/index.html
+**/client/index.html
 
 **/clustergrammer/**
 **/resources/**
