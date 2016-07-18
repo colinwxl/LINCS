@@ -38,7 +38,11 @@ export default function ConsortiumMeetings() {
             {/* 2016 meeting
              * ------------------------------------------------------------------------------- */}
 
-            <h2>2016 Consortium Meeting</h2>
+            <h2>2016 Consortium Meetings</h2>
+            <div className={styles.header}>
+              <h5>NIH Campus in Bethesda</h5>
+              <em>September 19-20</em>
+            </div>
             <div className={styles.header}>
               <h5>University of California, Irvine</h5>
               <em>March 10-11</em>
