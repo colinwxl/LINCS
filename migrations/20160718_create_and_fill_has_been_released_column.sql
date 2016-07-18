@@ -1,5 +1,5 @@
 ALTER TABLE datasets
-ADD COLUMN has_been_releasedd TINYINT DEFAULT 0
+ADD COLUMN has_been_released TINYINT DEFAULT 0
 AFTER source_link;
 
 UPDATE datasets SET has_been_released = 1;
