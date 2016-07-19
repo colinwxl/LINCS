@@ -123,14 +123,13 @@ export class HomeView extends Component {
                 <div className="row">
                   <div className="col-xs-12 col-md-4">
                     <div className={styles.card}>
-                      <h5>LINCS Data Science Webinar</h5>
+                      <h5>LINCS Consortium Meeting</h5>
                       <div className={styles.group}>
                         <p className={`clearfix ${styles.left}`}>
-                          June 28, 2016: Construction, Characterization and Validation of
-                          Multiscale Gene Networks in Cancer (Bin Zhang PhD, Icahn School
-                          of Medicine at Mount Sinai).
+                          Mark your calendars for the upcoming LINCS Consortium Face-to-Face
+                          Meeting which will be held on September 19-20, 2016 at the
+                          NIH Campus in Bethesda, MD.
                         </p>
-                        <Link to="/community/webinars">Webinar Details</Link>
                       </div>
                     </div>
                   </div>
