@@ -51,7 +51,7 @@ export class Webinars extends Component {
                 : web.title
             }
           </h5>
-          <p><em>Published on {formatDate(web.date)}</em></p>
+          <p><em>{formatDate(web.date)}</em></p>
           {
             web.presenterUrl && !!web.presenterUrl.length
               ? <p><a href={web.presenterUrl}>{web.presenterName}</a></p>
