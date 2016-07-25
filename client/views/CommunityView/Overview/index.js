@@ -66,15 +66,14 @@ export default class Overview extends Component {
                 <div className={styles.left}>
                   <p>
                     The <strong>LINCS Center for Transcriptomics</strong>, in partnership with the
-                    Crowd Innovation Lab at Harvard Business School, is launching their first
-                    challenge, “Infer the Transcriptome”. Contestants will be provided with a
+                    Crowd Innovation Lab at Harvard Business School, launched their first
+                    challenge, “Infer the Transcriptome”. Contestants were provided with a
                     large dataset of ~100,000 gene expression profiles on which to train an
-                    inference model. Models will be scored based on their accuracy in predicting
+                    inference model. Models were scored based on their accuracy in predicting
                     gene expression values for non-landmark genes in a separate test dataset.
-                    The contest format will be a 2-week marathon featuring a continuously updated
-                    leaderboard. To determine winners, each contestant’s best model will be scored
-                    on its performance on a holdout dataset.
-                    <a href="http://crowdsourcing.topcoder.com/cmap" target="_blank">Registration</a>
+                    The contest format was a 2-week marathon featuring a continuously updated
+                    leaderboard. To determine winners, each contestant’s best model was scored
+                    on its performance on a holdout dataset. <a href="https://community.topcoder.com/longcontest/stats/?module=ViewOverview&rd=16753" target="_blank">Leaderboard</a>
                   </p>
                 </div>
               </div>
@@ -151,8 +150,7 @@ export default class Overview extends Component {
                   This course covers various methods of analysis including: unsupervised clustering,
                   gene-set enrichment analyses, data visualization, and supervised machine learning
                   applications to LINCS data. This course also covers basic data processing and data
-                  normalization methods to clean and harmonize LINCS data and other relevant data.
-                  <a href="https://www.coursera.org/course/bd2klincs">Visit Course</a>
+                  normalization methods to clean and harmonize LINCS data and other relevant data. <a href="https://www.coursera.org/course/bd2klincs">Visit Course</a>
                 </p>
               </div>
 
