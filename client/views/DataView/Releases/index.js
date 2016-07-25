@@ -12,6 +12,7 @@ import ResultPlaceholder from './ResultPlaceholder';
 import PageNav from 'components/PageNav';
 import SearchBar from 'components/SearchBar';
 import styles from './Releases.scss';
+import { LINCS_DATA_PORTAL_DATASETS } from 'constants';
 
 const mapStateToProps = (state) => ({
   datasets: state.entities.datasets,
@@ -97,7 +98,7 @@ export class Releases extends Component {
               <p>
                 <strong>
                   For more expansive access to all LINCS datasets, please visit
-                  the <a href="http://lincsportal.ccs.miami.edu/datasets" target="_blank">
+                  the <a href={LINCS_DATA_PORTAL_DATASETS} target="_blank">
                   LINCS Data Portal</a>.
                 </strong>
               </p>
