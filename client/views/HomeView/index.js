@@ -130,6 +130,7 @@ export class HomeView extends Component {
                           Meeting which will be held on September 19-20, 2016 at the
                           NIH Campus in Bethesda, MD.
                         </p>
+                        <a href="https://twitter.com/hashtag/LINCSDATA?src=hash">#LINCSDATA</a>
                       </div>
                     </div>
                   </div>
@@ -139,23 +140,23 @@ export class HomeView extends Component {
                       <div className={styles.group}>
                         <p className={`clearfix ${styles.left}`}>
                           The LINCS Center for Transcriptomics, in partnership with the Crowd
-                          Innovation Lab at Harvard Business School, is launching their first
+                          Innovation Lab at Harvard Business School, completed their first
                           challenge, "Infer the Transcriptome".
                         </p>
-                        <a href="http://crowdsourcing.topcoder.com/cmap">Register</a>
+                        <a href="/LINCS/community/overview">Read More</a>
                       </div>
                     </div>
                   </div>
                   <div className="col-xs-12 col-md-4">
                     <div className={styles.card}>
-                      <h5>Editorial in Sci Transl Med.</h5>
+                      <h5>New Release for Data Standards</h5>
                       <div className={styles.group}>
                         <p className={`clearfix ${styles.left}`}>
-                          Mohammed AlQuraishi and Peter Sorger from the HMS LINCS Center make the
-                          case for improving accessibility and usability of published experimental
-                          data of all types.
+                          The Data Standards section of this website has been updated to
+                          reflect the most recent standards releases (version dated 5-13-2016)
+                          in LINCS Production Phase 2.
                         </p>
-                        <a href="http://www.ncbi.nlm.nih.gov/pubmed/27194726">Read More</a>
+                        <a href="/LINCS/data/standards">Read More</a>
                       </div>
                     </div>
                   </div>
