@@ -61,9 +61,10 @@ export default function DCIC() {
             </p>
             <h2>Data Science Research (DSR)</h2>
             <p>
-              The DCIC performs, supports and funds several internal and
-              external <a href="http://lincs-dcic.org/#/about#data-science-research" target="_blank">
-              data science research projects</a>, addressing various data integration
+              The DCIC has several <a href="http://lincs-dcic.org/#/internal-dsrp#nav" target="_blank">
+              internal research projects</a> and supports
+              several <a href="http://lincs-dcic.org/#/external-dsrp#nav" target="_blank">
+              external data science research projects</a>, addressing various data integration
               and intracellular molecular regulatory network challenges.
             </p>
             <h2>Community Training and Outreach (CTO)</h2>
