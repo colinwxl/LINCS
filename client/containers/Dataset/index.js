@@ -2,6 +2,7 @@ import React, { PropTypes, Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router';
 import moment from 'moment';
+import { LINCS_DATA_PORTAL_DATASETS } from 'constants';
 
 import styles from './Dataset.scss';
 
@@ -15,7 +16,7 @@ export class Dataset extends Component {
   static getLink(dataset, contents) {
     let link;
     if (dataset.hasBeenReleased) {
-      const url = `http://dev3.ccs.miami.edu:8080/datasets-beta/#/view/${dataset.lincsId}`;
+      const url = `${LINCS_DATA_PORTAL_DATASETS}/#/view/${dataset.lincsId}`;
       link = <a href={url} target="_blank">{contents}</a>;
     } else {
       link = <Link to={`/data/releases/${dataset.id}`}>{contents}</Link>;
