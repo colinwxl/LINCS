@@ -127,7 +127,7 @@ export class HomeView extends Component {
                       <div className={styles.group}>
                         <p className={`clearfix ${styles.left}`}>
                           Mark your calendars for the upcoming LINCS Consortium Face-to-Face
-                          Meeting which will be held on September 19-20, 2016 at the
+                          Meeting that will be held on September 19-20, 2016 at the
                           NIH Campus in Bethesda, MD.
                         </p>
                         <a href="https://twitter.com/hashtag/LINCSDATA?src=hash" target="_blank">#LINCSDATA</a>
@@ -136,12 +136,12 @@ export class HomeView extends Component {
                   </div>
                   <div className="col-xs-12 col-md-4">
                     <div className={styles.card}>
-                      <h5>Connectivity Map Challenge</h5>
+                      <h5>Connectivity Map Challenge 1</h5>
                       <div className={styles.group}>
                         <p className={`clearfix ${styles.left}`}>
-                          The LINCS Center for Transcriptomics, in partnership with the Crowd
-                          Innovation Lab at Harvard Business School, completed their first
-                          challenge, "Infer the Transcriptome".
+                          The LINCS Center for Transcriptomics completed their first
+                          crowdsourcing challenge, "Infer the Transcriptome". Stay
+                          tuned for details about the upcoming Connectivity Map Challenge 2.
                         </p>
                         <Link to="/community/overview">Read More</Link>
                       </div>
