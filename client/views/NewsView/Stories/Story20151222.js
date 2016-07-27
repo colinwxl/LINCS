@@ -19,7 +19,7 @@ export default function Story20151222() {
         The BD2K-LINCS DCIC recently released a new tool
         called <a href="http://amp.pharm.mssm.edu/Slicr" target="_blank">Slicr</a> which
         is a metadata search engine that searches for LINCS L1000 gene expression
-        profiles and signatures matching user’s input parameters. It features download
+        profiles and signatures matching users' input parameters. It features download
         of selected search results as csv files in a zipped folder and visualization of
         selected results in a 3D scatter plot using PCA or MDS.
       </p>
@@ -29,7 +29,7 @@ export default function Story20151222() {
       <p>
         The BD2K-LINCS DCIC recently released an updated version of
         the <a href="http://lincsportal.ccs.miami.edu/dcic-portal/">
-        LINCS Data Portal</a> which provides a unified interface for searching
+        LINCS Data Portal</a> that provides a unified interface for searching
         LINCS dataset packages and reagents
       </p>
     </Story>
