@@ -130,7 +130,7 @@ export class HomeView extends Component {
                           Meeting that will be held on September 19-20, 2016 at the
                           NIH Campus in Bethesda, MD.
                         </p>
-                        <a href="https://twitter.com/hashtag/LINCSDATA?src=hash">#LINCSDATA</a>
+                        <a href="https://twitter.com/hashtag/LINCSDATA?src=hash" target="_blank">#LINCSDATA</a>
                       </div>
                     </div>
                   </div>
@@ -143,7 +143,7 @@ export class HomeView extends Component {
                           crowdsourcing challenge, "Infer the Transcriptome". Stay
                           tuned for details about the upcoming Connectivity Map Challenge 2.
                         </p>
-                        <a href="/LINCS/community/overview">Read More</a>
+                        <Link to="/community/overview">Read More</Link>
                       </div>
                     </div>
                   </div>
@@ -156,7 +156,7 @@ export class HomeView extends Component {
                           reflect the most recent standards releases (version dated 5-13-2016)
                           in LINCS Production Phase 2.
                         </p>
-                        <a href="/LINCS/data/standards">Read More</a>
+                        <Link to="/data/standards">Read More</Link>
                       </div>
                     </div>
                   </div>
