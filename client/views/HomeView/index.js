@@ -126,9 +126,10 @@ export class HomeView extends Component {
                       <h5>LINCS Consortium Meeting</h5>
                       <div className={styles.group}>
                         <p className={`clearfix ${styles.left}`}>
-                          Mark your calendars for the upcoming LINCS Consortium Face-to-Face
-                          Meeting that will be held on September 19-20, 2016 at the
-                          NIH Campus in Bethesda, MD.
+                          Mark your calendars for the upcoming <strong>LINCS Consortium
+                          Face-to-Face Meeting</strong> that will be held
+                          on <strong>September 19-20, 2016</strong> at the NIH Campus
+                          in Bethesda, MD.
                         </p>
                         <a href="https://twitter.com/hashtag/LINCSDATA?src=hash" target="_blank">#LINCSDATA</a>
                       </div>
@@ -136,14 +137,15 @@ export class HomeView extends Component {
                   </div>
                   <div className="col-xs-12 col-md-4">
                     <div className={styles.card}>
-                      <h5>Connectivity Map Challenge 1</h5>
+                      <h5>LINCS Data Science Webinar</h5>
                       <div className={styles.group}>
                         <p className={`clearfix ${styles.left}`}>
-                          The LINCS Center for Transcriptomics completed their first
-                          crowdsourcing challenge, "Infer the Transcriptome". Stay
-                          tuned for details about the upcoming Connectivity Map Challenge 2.
+                          <strong>Dynamic Logic-Based Models Integrating Cardiac Signaling
+                          Networks and Cellular Phenotypes</strong> (Jeff Saucerman PhD,
+                          University of Virginia, <a href="http://lincs-dcic.org/#/external-dsrp#nav" target="_blank">
+                          DCIC eDSR</a>) <strong>November 29, 2016 at 3:00 PM ET</strong>.
                         </p>
-                        <Link to="/community/overview">Read More</Link>
+                        <Link to="/community/webinars">Details</Link>
                       </div>
                     </div>
                   </div>
@@ -182,8 +184,8 @@ export class HomeView extends Component {
                     networks to their normal states. The LINCS website is a source of
                     information for the research community and general public about the
                     LINCS project. The website contains details about the assays, cell
-                    types, and perturbagens currently part of the library, as well as links
-                    to participating sites, the data releases from the sites, and software
+                    types, and perturbagens that are currently part of the library, as well as links
+                    to participating sites, data releases from the sites, and software
                     that can be used for analyzing the data.
                   </p>
                   <Link to="/centers">Learn More</Link>
@@ -224,8 +226,8 @@ export class HomeView extends Component {
                 <div className="col-xs-12 col-lg-6 col-lg-push-6">
                   <h3 className={styles.title}>Featured LINCS Tools</h3>
                   <p className={styles['section-lead']}>
-                    Scroll through some of the LINCS tools developed by the BD2K
-                    LINCS Data Coordination and Integration Center (DCIC) and the DSGCs
+                    Scroll through some of the LINCS tools developed by the BD2K-LINCS
+                    Data Coordination and Integration Center (DCIC) and the DSGCs
                   </p>
                   <Link
                     to="/applications#tools"
