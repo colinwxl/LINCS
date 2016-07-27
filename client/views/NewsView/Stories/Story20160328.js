@@ -16,9 +16,12 @@ export default function Story20160328() {
       />
       <p>
         The <a href="http://lincs-dcic.org/#/">‘Quick Start with LINCS‘</a> analysis tool
-        feature enables users to search signatures (L1000CDS2), access data
-        (LINCS Data Portal), analyze data (iLINCS), search transcriptomics (Slicr) and
-        visualize proteomics (piLINCS).
+        feature enables users to search signatures
+        (<a href="http://amp.pharm.mssm.edu/L1000CDS2/">L1000CDS2</a>), access data
+        (<a href="http://lincsportal.ccs.miami.edu/dcic-portal/">LINCS Data Portal</a>),
+        analyze data (<a href="http://eh3.uc.edu/GenomicsPortals/viewiLincs.jsp">iLINCS</a>),
+        search transcriptomics (<a href="http://amp.pharm.mssm.edu/Slicr">Slicr</a>)
+        and visualize proteomics (<a href="http://eh3.uc.edu/pilincs">piLINCS</a>).
       </p>
     </Story>
   );

@@ -44,7 +44,7 @@ export default class Overview extends Component {
                 The <a href="http://lincs-dcic.org/#/">BD2K-LINCS Data Coordination and Integration Center</a>,
                 together with the <Link to="/centers/data-and-signature-generating-centers/">
                 data and signature generation centers</Link>, use approaches like webinars,
-                courses, training seminars, challenges, workshops and symposia to create
+                courses, training seminars, challenges, workshops and symposia to foster
                 an active LINCS community.
               </p>
 
@@ -82,9 +82,9 @@ export default class Overview extends Component {
                   BD2K-LINCS DCIC Crowdsourcing Portal
                 </h5>
 
-                <p> As part of our educational efforts to bring awareness to LINCS data and
+                <p> As part of our educational efforts to enhance awareness of LINCS data and
                   explain the efforts of LINCS to the general public, the DCIC developed
-                  a crowdsourcing portal which engages the research community in various
+                  a crowdsourcing portal that engages the research community in various
                   micro- and megatasks. <a href="http://www.maayanlab.net/crowdsourcing/">Learn More</a>
                 </p>
               </div>
@@ -210,8 +210,8 @@ export default class Overview extends Component {
                     In presentations, a poster reception and several working sessions, the DCIC
                     showcased <a href="http://lincs-dcic.org/#/resources">
                     tools/resources</a> and <a href="http://lincs-dcic.org/#/about#nav">
-                    scientific projects</a>, connected developers with users, and initiated
-                    new collaborations and obtained feedback from expert and casual users of
+                    scientific projects</a>, connected developers with users, initiated
+                    new collaborations, and obtained feedback from expert and casual users of
                     computational systems biology resources. <a href="https://www.youtube.com/playlist?list=PL0Bwuj8819U-FM6lY39xWJmHXe87TT-GZ">Watch on YouTube</a>
                   </p>
                 </div>
@@ -238,7 +238,7 @@ export default class Overview extends Component {
               <p>
                 <a href="http://lincs.hms.harvard.edu/resources/tutorials-presentations/">HMS
                 LINCS Center Tutorials and Presentations</a>: Instructional tutorials on topics
-                such as how to use and access certain kinds of HMS LINCS data and HMS
+                such as how to use and access certain kinds of HMS LINCS data, and HMS
                 LINCS-related talks and presentations.
               </p>
 

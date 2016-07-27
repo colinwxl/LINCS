@@ -11,7 +11,7 @@ export default function Story20150413() {
       date="April 13th, 2015"
     >
       <p>
-        Purpose of this workshop is to bring together (Library of Integrated
+        The purpose of this workshop is to bring together (Library of Integrated
         Network-based Cellular Signatures) LINCS scientists and scientists from
         the alcohol research community to explore how LINCS resources can facilitate
         identification of druggable targets and novel and/or repurposed compounds
@@ -46,7 +46,7 @@ export default function Story20150413() {
         for Transcriptomics</a>
       </p>
       <p>
-        This session will consist of a hands on demonstration of currently
+        This session will consist of a hands-on demonstration of currently
         available web apps and tools from the LINCS Common Fund program.
         Participants will learn how to apply these tools to their own research
         programs. Please bring your laptop computer and gene expression or other
@@ -56,7 +56,7 @@ export default function Story20150413() {
       <ul>
         <li>
           Please register and create
-          a <a href="lincscloud.org" target="_blank">lincscloud.org</a> account
+          a lincscloud.org account
           before the workshop.
         </li>
         <li>
