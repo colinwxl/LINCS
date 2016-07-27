@@ -21,9 +21,6 @@ export default function Story20150806() {
         Center at the NC Biotechnology Center, 15 TW Alexander Drive in Research
         Triangle Park, North Carolina.
       </p>
-      <p>
-        <a href="http://www.samsi.info/workshop/interdisciplinary-approaches-biomedical-data-science-challenges-samsi-innovations-lab-july-" target="_blank">Workshop Summary</a> | <a href="http://www.samsi.info/sites/default/files/InnovationsLab_ScienceDescriptionApril21.pdf" target="_blank">Detailed Description</a>
-      </p>
     </Story>
   );
 }
