@@ -10,7 +10,7 @@ export default function AboutView() {
     <div className={styles.wrapper}>
       <PageBanner
         title="About"
-        subTitle="Information about the LINCS Consortium, including common questions and answers."
+        subTitle="Information about the LINCS Consortium, including common questions and answers"
       />
       <div className="container">
         <div className="row">
@@ -40,7 +40,7 @@ export default function AboutView() {
             </p>
             <p>
               The LINCS program is an <a href="http://commonfund.nih.gov/" target="_blank">
-              NIH Common Fund</a> program and is implemented in two phases.
+              NIH Common Fund</a> program and has been implemented in two phases.
               The pilot phase of the program was completed in FY 2013 and focused on the
               following activities:
             </p>
@@ -57,16 +57,16 @@ export default function AboutView() {
               <li>Integration of existing datasets into LINCS</li>
             </ul>
             <p>
-              Phase 2 which began in FY 2014 supports
+              Phase 2, which began in FY 2014, supports
               six <Link to={dsgcRoute}>
               LINCS Data and Signature Generation Centers</Link>. Phase 2 also
               synergizes with the efforts of the NIH Big Data to Knowledge
               (BD2K) program through the <Link to="/centers/dcic">
-              BD2K-LINCS Data Coordination and Integration Center (DCIC)</Link> which
+              BD2K-LINCS Data Coordination and Integration Center (DCIC)</Link>, which
               focuses on the following activities:
             </p>
             <ul>
-              <li>Work with data/signature generators to ensure common annotation on data</li>
+              <li>Work with data/signature generators to ensure common annotation of data</li>
               <li>
                 Coordinate data and signature accessibility across data generators so that data
                 can be easily accessed
@@ -145,7 +145,7 @@ export default function AboutView() {
               </li>
               <li>
                 To develop meaningful signatures, data from diverse assays must be scaled and
-                normalized. Integration, normalization and scaling of heterogeneous,
+                normalized. Integration, normalization, and scaling of heterogeneous,
                 multi-parameter dose-response data is a non-trivial task involving
                 conceptual and practical hurdles.
               </li>
@@ -166,7 +166,7 @@ export default function AboutView() {
                     Drug Toxicity Signature Generation Center’s</Link> assays monitor gene and
                     protein expression, as well as phenotype assays that are applied to
                     understand the response of differentiated iPSCs to single and combinations
-                    of FDA approved drug perturbations.
+                    of FDA-approved drug perturbations.
                   </li>
                   <li>
                     The <Link to={`${dsgcRoute}/hms-lincs`}>HMS LINCS Center</Link> monitors
@@ -187,16 +187,16 @@ export default function AboutView() {
                     L1000 assay</a> which is a gene-expression profiling assay based on the
                     direct measurement of a reduced representation of the transcriptome and
                     computational inference of the portion of the transcriptome not explicitly
-                    measured. Measurements are (a) of endogenous mRNA (i.e not reporter-based
-                    system) (b) from treated whole cell lysates (c) current detection method
-                    is by optically-addressed microspheres based Luminex system.
+                    measured. Measurements are (a) of endogenous mRNA (i.e. not reporter-based
+                    system); (b) from treated whole cell lysates. The current detection method
+                    is by optically-addressed microspheres-based Luminex system.
                   </li>
                   <li>
                     The <Link to={`${dsgcRoute}/lincs-pccse`}>LINCS Proteomic Characterization
                     Center for Signaling and Epigenetics</Link> performs
                     two assays: P100 reduced representation phosphoprofiling (3 hour time point)
                     and GCP global chromatin profiling (24 hour time point).
-                    The <a href="http://www.lincscloud.org/p100/" target="_blank">P100 assay</a> is
+                    The P100 assay is
                     a mass spectrometry-based targeted proteomics assay that detects and
                     quantifies a representative set of ~100 phosphopeptide probes that are
                     present in a wide range of cell types and have been demonstrated to be
@@ -207,15 +207,15 @@ export default function AboutView() {
                   </li>
                   <li>
                     The <Link to={`${dsgcRoute}/mep-lincs`}>MEP LINCS Center’s</Link> assays
-                    start with a novel assay that image cancer cell lines placed in a
+                    start with a novel assay that images cancer cell lines placed in a
                     micro-environment array. Selected conditions are then followed with
-                    transcriptomics (L1000) and proteomics assays (RPPA).
+                    transcriptomics (L1000) and proteomics assays.
                   </li>
                   <li>
                     The <Link to={`${dsgcRoute}/neurolincs`}>NeuroLINCS Center</Link> is
                     focused on studying the properties of iPSCs derived from normal, familial
                     and sporadic ALS patients. These cells are differentiated into motor
-                    neurons and assayed using targeted proteomics, transcriptomics (RNA-seq)
+                    neurons and assayed using targeted proteomics, transcriptomics (RNA-seq),
                     and imaging assays.
                   </li>
                 </ul>
@@ -237,11 +237,11 @@ export default function AboutView() {
                   <li>
                     The <Link to={`${dsgcRoute}/dtoxs`}>
                     Drug Toxicity Signature Generation Center’s</Link> perturbations are FDA
-                    approved drugs applied individually or in combinations.
+                    -approved drugs applied individually or in combinations.
                   </li>
                   <li>
                     The <Link to={`${dsgcRoute}/hms-lincs`}>HMS LINCS Center</Link> currently
-                    focuses on two types of perturbagens, small molecule protein kinase
+                    focuses on two types of perturbagens, small-molecule protein kinase
                     inhibitors and naturally occurring growth factors, cytokines and
                     chemokines in various combinations. Complete information about all
                     perturbagens used at HMS LINCS can be found in
@@ -253,7 +253,7 @@ export default function AboutView() {
                     LINCS Center for Transcriptomics</Link> and
                     the <Link to={`${dsgcRoute}/lincs-pccse`}>LINCS Proteomic Characterization
                     Center for Signaling and Epigenetics</Link> profile over 20,000
-                    small-molecules and 5,000 human genes.
+                    small molecules and 5,000 human genes.
                     See <a href="http://lincscloud.org/" target="_blank">lincscloud.org</a> for
                     more details.
                   </li>
@@ -265,7 +265,7 @@ export default function AboutView() {
                   </li>
                   <li>
                     The <Link to={`${dsgcRoute}/neurolincs`}>
-                    NeuroLINCS Center's</Link> perturbations are simply the disease ALS motor
+                    NeuroLINCS Center's</Link> perturbations invlove the disease ALS motor
                     neuron cells compared with cells from subjects that do not have the disease.
                   </li>
                 </ul>
@@ -274,7 +274,7 @@ export default function AboutView() {
             <h5 id="timeline">Is there a timeline available for release of data?</h5>
             <ul>
               <li>
-                New releases of data will become available every quarter and the release
+                New releases of data will become available every quarter, and the release
                 schedule is summarized <Link to="/data/releases">here</Link>.
               </li>
               <li>
@@ -286,9 +286,9 @@ export default function AboutView() {
                 In addition to the data generated by the LINCS Data and Signature Generation
                 Centers, the <Link to="/centers/dcic">
                 BD2K-LINCS Data Coordination and Integration Center</Link> is extracting
-                signatures from the public domain and these can be
+                signatures from the public domain, and these can be
                 accessed <a href="http://amp.pharm.mssm.edu/Enrichr/#stats" target="_blank">
-                here</a>. APIs, attribute tables and meta-data are expected to be provided
+                here</a>. APIs, attribute tables, and metadata are expected to be provided
                 soon.
               </li>
             </ul>
@@ -308,7 +308,7 @@ export default function AboutView() {
                 and signatures, and publications demonstrating the utility of the LINCS approach.
               </li>
               <li>
-                We are also focusing on generating data in primary cells and iPS cells
+                We are also focusing on generating data in primary cells and iPS cells,
                 and data pertaining to these will be available soon.
               </li>
             </ul>
@@ -317,25 +317,25 @@ export default function AboutView() {
               <li>
                 Data is being collected via a joint project called the “Dense Cube”
                 between all the data and signature generation centers. This project
-                will focus on five common cell lines to explore the relationship between
-                immediate early cell signaling events, transcription and phenotypes. This
+                will focus on five common cell lines to explore the relationships between
+                immediate early cell signaling events, transcription, and phenotypes. This
                 will constitute the largest such public dataset, generated in a coherent
                 manner, available for download and querying.
               </li>
               <li>
-                One of the biggest challenges we have is to build standards for
-                metadata for all of LINCS perturbations, assays and experiments. We want
-                to annotate these consistently, and to make them available consistently
-                so that outside groups can perform their own analysis and build better
+                One of the most significant challenges we have is to establish standards for
+                metadata for all LINCS perturbations, assays, and experiments. We want
+                to annotate these consistently, and to make them widely available
+                so that outside groups can perform their own analysis and develop better
                 methods to extract signatures from the LINCS data.
               </li>
             </ul>
             <h5 id="collaborations">Any opportunities to collaborate?</h5>
             <ul>
               <li>
-                There are several <Link to="/community/funding-opportunities">
-                funding opportunities</Link> to enable collaborations with the BD2K-LINCS DCIC
-                and the LINCS data and signature generation centers.
+                <Link to="/community/funding-opportunities">
+                Funding opportunities</Link> often exist to enable collaborations
+                with the BD2K-LINCS DCIC and the LINCS Data and Signature Generation Centers.
               </li>
               <li>
                 There are also <Link to="/community/webinars">
