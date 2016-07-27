@@ -11,7 +11,7 @@ export default function DCIC() {
       <PageBanner
         title="BD2K-LINCS DCIC"
         subTitle={
-          'The BD2K-LINCS Data Coordination and Integration Center is' +
+          'The BD2K-LINCS Data Coordination and Integration Center is ' +
           'responsible for harmonizing LINCS data with other available resources'
         }
         imgSrc="/LINCS/files/DCIC.svg"
