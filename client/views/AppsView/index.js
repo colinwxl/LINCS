@@ -9,15 +9,13 @@ import CompBioWorkflows from './CompBioWorkflows';
 import Tool from 'components/Tool';
 import styles from './AppsView.scss';
 
-const sortFeatures = [
-  'All', 'Access', 'Search', 'Navigation', 'Integration', 'Visualization',
-  'Download', 'Leverages Ontology', 'Image Analysis',
+const sortCategories = [
+  'All', 'Epigenomics', 'Imaging', 'Integration', 'Viability'
 ];
 
-const sortCategories = [
-  'All', 'API', 'Data Viz', 'Database', 'Enrichment', 'Epigenomics', 'Imaging',
-  'Integration', 'Networks', 'Ontology', 'Proteomics', 'Search Engine',
-  'Transcriptomics', 'Viability', 'Web-based',
+const sortFeatures = [
+  'All', 'API', 'Data Viz', 'Database', 'Enrichment', 'Networks', 'Ontology',
+  'Proteomics', 'Search Engine', 'Transcriptomics', 'Web-based'
 ];
 
 const sub = 'Tutorials, walkthroughs, and tools to help you be more productive with LINCS datasets';
@@ -44,33 +42,25 @@ export class AppsView extends Component {
   checkAllCategories = (tool) => {
     const { sortCategory } = this.state;
     return (sortCategory === 'All') ||
-      (sortCategory === 'API' && tool.api) ||
-      (sortCategory === 'Data Viz' && tool.dataViz) ||
-      (sortCategory === 'Database' && tool.database) ||
-      (sortCategory === 'Enrichment' && tool.enrichment) ||
       (sortCategory === 'Epigenomics' && tool.epigenomics) ||
       (sortCategory === 'Imaging' && tool.imaging) ||
       (sortCategory === 'Integration' && tool.integration) ||
-      (sortCategory === 'Networks' && tool.networks) ||
-      (sortCategory === 'Ontology' && tool.ontology) ||
-      (sortCategory === 'Proteomics' && tool.proteomics) ||
-      (sortCategory === 'Search Engine' && tool.searchEngine) ||
-      (sortCategory === 'Transcriptomics' && tool.transcriptomics) ||
-      (sortCategory === 'Viability' && tool.viability) ||
-      (sortCategory === 'Web-based' && tool.webBased);
+      (sortCategory === 'Viability' && tool.viability);
   }
 
   checkAllFeatures = (tool) => {
     const { sortFeature } = this.state;
     return (sortFeature === 'All') ||
-      (sortFeature === 'Access' && tool.featureAccess) ||
-      (sortFeature === 'Search' && tool.featureSearch) ||
-      (sortFeature === 'Navigation' && tool.featureNavigation) ||
-      (sortFeature === 'Integration' && tool.featureIntegration) ||
-      (sortFeature === 'Visualization' && tool.featureVisualization) ||
-      (sortFeature === 'Download' && tool.featureDownload) ||
-      (sortFeature === 'Leverages Ontology' && tool.featureLeverageOntology) ||
-      (sortFeature === 'Image Analysis' && tool.featureImageAnalysis);
+      (sortFeature === 'API' && tool.api) ||
+      (sortFeature === 'Data Viz' && tool.dataViz) ||
+      (sortFeature === 'Database' && tool.database) ||
+      (sortFeature === 'Enrichment' && tool.enrichment) ||
+      (sortFeature === 'Networks' && tool.networks) ||
+      (sortFeature === 'Ontology' && tool.ontology) ||
+      (sortFeature === 'Proteomics' && tool.proteomics) ||
+      (sortFeature === 'Search Engine' && tool.searchEngine) ||
+      (sortFeature === 'Transcriptomics' && tool.transcriptomics) ||
+      (sortFeature === 'Web-based' && tool.webBased);
   }
 
   filterTools = (tool) => {
@@ -108,12 +98,11 @@ export class AppsView extends Component {
 
   render() {
     const { workflowCategory, fetchingTools, sortCenter, sortCategory, sortFeature } = this.state;
-    console.log(this.state);
     const isExp = workflowCategory === 'exp';
     const isCompBio = workflowCategory === 'compBio';
     // http://stackoverflow.com/questions/15125920/how-to-get-distinct-values-from-an-array-of-objects-in-javascript
     // ES6 get unique elements
-    const centers = ['All', ...new Set(this.props.tools.map(tool => tool.center.name))];
+    const centers = ['All', ...new Set(this.props.tools.map(tool => tool.center.name))].sort();
     const tools = this.props.tools.filter(this.filterTools);
     return (
       <div className={styles.wrapper}>
