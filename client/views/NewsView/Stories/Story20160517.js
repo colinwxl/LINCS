@@ -21,7 +21,7 @@ export default function Story20160517() {
         <p>
           The HMS LINCS Center’s most recent study (
           <a href="http://www.nature.com/nmeth/journal/v13/n6/full/nmeth.3853.html" target="_blank">
-          Hafner, Niepel et al. (2016)</a>), which describes new “GR” metrics that account for
+          Hafner, Niepel et al. (2016)</a>), which describes new "GR" metrics that account for
           variation in cell growth when quantifying cellular dose response to perturbagens, was
           published in Nature Methods. <a href="http://lincs.hms.harvard.edu/hafner-natmethods-2016/" target="_blank">
           Explore the publication in more detail</a>, or, through the online <a href="http://grcalculator.org/" target="_blank">

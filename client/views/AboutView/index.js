@@ -265,7 +265,7 @@ export default function AboutView() {
                   </li>
                   <li>
                     The <Link to={`${dsgcRoute}/neurolincs`}>
-                    NeuroLINCS Center's</Link> perturbations invlove the disease ALS motor
+                    NeuroLINCS Center's</Link> perturbations involve the disease ALS motor
                     neuron cells compared with cells from subjects that do not have the disease.
                   </li>
                 </ul>
