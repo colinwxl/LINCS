@@ -9,14 +9,15 @@ import CompBioWorkflows from './CompBioWorkflows';
 import Tool from 'components/Tool';
 import styles from './AppsView.scss';
 
-const sortTypes = [
-  'All', 'Web Based UI', 'Processed L1000 Data',
-  'Enrichment Analysis', 'APIs', 'MATLAB/Python Script',
-];
-
 const sortFeatures = [
   'All', 'Access', 'Search', 'Navigation', 'Integration', 'Visualization',
   'Download', 'Leverages Ontology', 'Image Analysis',
+];
+
+const sortCategories = [
+  'All', 'API', 'Data Viz', 'Database', 'Enrichment', 'Epigenomics', 'Imaging',
+  'Integration', 'Networks', 'Ontology', 'Proteomics', 'Search Engine',
+  'Transcriptomics', 'Viability', 'Web-based',
 ];
 
 const sub = 'Tutorials, walkthroughs, and tools to help you be more productive with LINCS datasets';
@@ -31,7 +32,7 @@ export class AppsView extends Component {
     this.state = {
       workflowCategory: 'exp',
       sortCenter: 'All',
-      sortType: 'All',
+      sortCategory: 'All',
       sortFeature: 'All',
     };
   }
@@ -40,14 +41,23 @@ export class AppsView extends Component {
     this.props.loadTools();
   }
 
-  checkAllTypes = (tool) => {
-    const { sortType } = this.state;
-    return (sortType === 'All') ||
-      (sortType === 'Web Based UI' && tool.webBasedUi) ||
-      (sortType === 'Processed L1000 Data' && tool.processedL1000Data) ||
-      (sortType === 'Enrichment Analysis' && tool.enrichmentAnalysis) ||
-      (sortType === 'APIs' && tool.api) ||
-      (sortType === 'MATLAB/Python Script' && tool.matlabPythonScript);
+  checkAllCategories = (tool) => {
+    const { sortCategory } = this.state;
+    return (sortCategory === 'All') ||
+      (sortCategory === 'API' && tool.api) ||
+      (sortCategory === 'Data Viz' && tool.dataViz) ||
+      (sortCategory === 'Database' && tool.database) ||
+      (sortCategory === 'Enrichment' && tool.enrichment) ||
+      (sortCategory === 'Epigenomics' && tool.epigenomics) ||
+      (sortCategory === 'Imaging' && tool.imaging) ||
+      (sortCategory === 'Integration' && tool.integration) ||
+      (sortCategory === 'Networks' && tool.networks) ||
+      (sortCategory === 'Ontology' && tool.ontology) ||
+      (sortCategory === 'Proteomics' && tool.proteomics) ||
+      (sortCategory === 'Search Engine' && tool.searchEngine) ||
+      (sortCategory === 'Transcriptomics' && tool.transcriptomics) ||
+      (sortCategory === 'Viability' && tool.viability) ||
+      (sortCategory === 'Web-based' && tool.webBased);
   }
 
   checkAllFeatures = (tool) => {
@@ -65,19 +75,20 @@ export class AppsView extends Component {
 
   filterTools = (tool) => {
     const centerName = tool.center.name;
-    const { sortCenter, sortType, sortFeature } = this.state;
-    if (sortCenter === 'All' && sortType === 'All' && sortFeature === 'All') {
+    const { sortCenter, sortCategory, sortFeature } = this.state;
+    if (sortCenter === 'All' && sortCategory === 'All' && sortFeature === 'All') {
       return true;
     } else if (sortCenter === 'All') {
-      return this.checkAllTypes(tool) && this.checkAllFeatures(tool);
-    } else if (sortType === 'All' && sortFeature === 'All') {
+      return this.checkAllCategories(tool) && this.checkAllFeatures(tool);
+    } else if (sortCategory === 'All' && sortFeature === 'All') {
       return centerName === sortCenter;
-    } else if (sortType === 'All') {
+    } else if (sortCategory === 'All') {
       return centerName === sortCenter && this.checkAllFeatures(tool);
     } else if (sortFeature === 'All') {
-      return centerName === sortCenter && this.checkAllTypes(tool);
+      return centerName === sortCenter && this.checkAllCategories(tool);
     }
-    return centerName === sortCenter && this.checkAllTypes(tool) && this.checkAllFeatures(tool);
+    return centerName === sortCenter && this.checkAllCategories(tool) &&
+    this.checkAllFeatures(tool);
   }
 
   handleExpClicked = () => { this.setState({ workflowCategory: 'exp' }); }
@@ -87,8 +98,8 @@ export class AppsView extends Component {
     this.setState({ sortCenter: e.target.value });
   }
 
-  handleSortTypeChanged = (e) => {
-    this.setState({ sortType: e.target.value });
+  handleSortCategoryChanged = (e) => {
+    this.setState({ sortCategory: e.target.value });
   }
 
   handleSortFeatureChanged = (e) => {
@@ -96,7 +107,8 @@ export class AppsView extends Component {
   }
 
   render() {
-    const { workflowCategory, fetchingTools, sortCenter, sortType, sortFeature } = this.state;
+    const { workflowCategory, fetchingTools, sortCenter, sortCategory, sortFeature } = this.state;
+    console.log(this.state);
     const isExp = workflowCategory === 'exp';
     const isCompBio = workflowCategory === 'compBio';
     // http://stackoverflow.com/questions/15125920/how-to-get-distinct-values-from-an-array-of-objects-in-javascript
@@ -160,18 +172,21 @@ export class AppsView extends Component {
                   </select>
                 </div>
                 <div className={styles.filter}>
-                  <label htmlFor="sort-type">Type</label>
+                  <label htmlFor="sort-type">Category</label>
                   <select
                     id="sort-type"
                     className={`form-control ${styles.select}`}
-                    onChange={this.handleSortTypeChanged}
-                    value={sortType}
+                    onChange={this.handleSortCategoryChanged}
+                    value={sortCategory}
                   >
-                    {sortTypes.map((type, i) => <option key={i} value={type}>{type}</option>)}
+                    {
+                      sortCategories.map((category, i) =>
+                        <option key={i} value={category}>{category}</option>)
+                    }
                   </select>
                 </div>
                 <div className={styles.filter}>
-                  <label htmlFor="sort-feature">Features</label>
+                  <label htmlFor="sort-feature">Feature</label>
                   <select
                     id="sort-feature"
                     className={`form-control ${styles.select}`}
