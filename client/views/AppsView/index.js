@@ -9,13 +9,22 @@ import CompBioWorkflows from './CompBioWorkflows';
 import Tool from 'components/Tool';
 import styles from './AppsView.scss';
 
-const sortCategories = [
-  'All', 'Epigenomics', 'Imaging', 'Integration', 'Viability'
+// const sortCategories = [
+//   'All', 'Epigenomics', 'Imaging', 'Integration', 'Viability',
+// ];
+
+const sortRoles = [
+  'All', 'Analysis', 'Formatting', 'Integration', 'Storage', 'Visualization',
+  'Network Analysis', 'Signature Generation',
+];
+
+const sortDataTypes = [
+  'All', 'Cell State', 'Drug Binding','Morphology', 'Protein', 'Transcript',
 ];
 
 const sortFeatures = [
-  'All', 'API', 'Data Viz', 'Database', 'Enrichment', 'Networks', 'Ontology',
-  'Proteomics', 'Search Engine', 'Transcriptomics', 'Web-based'
+  'All', 'API', 'Database', 'Ontology', 'Open Source', 'Search Engine',
+  'Web-based',
 ];
 
 const sub = 'Tutorials, walkthroughs, and tools to help you be more productive with LINCS datasets';
@@ -30,7 +39,9 @@ export class AppsView extends Component {
     this.state = {
       workflowCategory: 'exp',
       sortCenter: 'All',
-      sortCategory: 'All',
+      // sortCategory: 'All',
+      sortDataType: 'All',
+      sortRole: 'All',
       sortFeature: 'All',
     };
   }
@@ -39,45 +50,83 @@ export class AppsView extends Component {
     this.props.loadTools();
   }
 
-  checkAllCategories = (tool) => {
-    const { sortCategory } = this.state;
-    return (sortCategory === 'All') ||
-      (sortCategory === 'Epigenomics' && tool.epigenomics) ||
-      (sortCategory === 'Imaging' && tool.imaging) ||
-      (sortCategory === 'Integration' && tool.integration) ||
-      (sortCategory === 'Viability' && tool.viability);
+  // checkAllCategories = (tool) => {
+  //   const { sortCategory } = this.state;
+  //   return (sortCategory === 'All') ||
+  //     (sortCategory === 'Epigenomics' && tool.epigenomics) ||
+  //     (sortCategory === 'Imaging' && tool.imaging) ||
+  //     (sortCategory === 'Integration' && tool.integration) ||
+  //     (sortCategory === 'Viability' && tool.viability);
+  // }
+
+  checkAllDataTypes = (tool) => {
+    const { sortDataType } = this.state;
+    return (sortDataType === 'All') ||
+      (sortDataType === 'Cell State' && tool.cellState) ||
+      (sortDataType === 'Drug Binding' && tool.drugBinding) ||
+      (sortDataType === 'Morphology' && tool.morphology) ||
+      (sortDataType === 'Protein' && tool.protein) ||
+      (sortDataType === 'Transcript' && tool.transcript);
+  }
+
+  checkAllRoles = (tool) => {
+    const { sortRole } = this.state;
+    return (sortRole === 'All') ||
+      (sortRole === 'Analysis' && tool.analysis) ||
+      (sortRole === 'Formatting' && tool.formatting) ||
+      (sortRole === 'Integration' && tool.integration) ||
+      (sortRole === 'Storage' && tool.storage) ||
+      (sortRole === 'Visualization' && tool.visualization) ||
+      (sortRole === 'Network Analysis' && tool.networkAnalysis) ||
+      (sortRole === 'Signature Generation' && tool.signatureGeneration);
   }
 
   checkAllFeatures = (tool) => {
     const { sortFeature } = this.state;
     return (sortFeature === 'All') ||
       (sortFeature === 'API' && tool.api) ||
-      (sortFeature === 'Data Viz' && tool.dataViz) ||
       (sortFeature === 'Database' && tool.database) ||
-      (sortFeature === 'Enrichment' && tool.enrichment) ||
-      (sortFeature === 'Networks' && tool.networks) ||
       (sortFeature === 'Ontology' && tool.ontology) ||
-      (sortFeature === 'Proteomics' && tool.proteomics) ||
+      (sortFeature === 'Open Source' && tool.openSource) ||
       (sortFeature === 'Search Engine' && tool.searchEngine) ||
-      (sortFeature === 'Transcriptomics' && tool.transcriptomics) ||
       (sortFeature === 'Web-based' && tool.webBased);
   }
 
+  // filterTools = (tool) => {
+  //   const centerName = tool.center.name;
+  //   const { sortCenter, sortRole, sortFeature } = this.state;
+  //   if (sortCenter === 'All' && sortRole === 'All' && sortFeature === 'All') {
+  //     return true;
+  //   } else if (sortCenter === 'All') {
+  //     return this.checkAllRoles(tool) && this.checkAllFeatures(tool);
+  //   } else if (sortRole === 'All' && sortFeature === 'All') {
+  //     return centerName === sortCenter;
+  //   } else if (sortRole === 'All') {
+  //     return centerName === sortCenter && this.checkAllFeatures(tool);
+  //   } else if (sortFeature === 'All') {
+  //     return centerName === sortCenter && this.checkAllRoles(tool);
+  //   }
+  //   return centerName === sortCenter && this.checkAllRoles(tool) &&
+  //   this.checkAllFeatures(tool);
+  // }
+
   filterTools = (tool) => {
     const centerName = tool.center.name;
-    const { sortCenter, sortCategory, sortFeature } = this.state;
-    if (sortCenter === 'All' && sortCategory === 'All' && sortFeature === 'All') {
+    const { sortCenter, sortDataType, sortRole, sortFeature } = this.state;
+    if (sortCenter === 'All' && sortDataType === 'All' && sortRole === 'All' && sortFeature === 'All') {
       return true;
     } else if (sortCenter === 'All') {
-      return this.checkAllCategories(tool) && this.checkAllFeatures(tool);
-    } else if (sortCategory === 'All' && sortFeature === 'All') {
+      return this.checkAllDataTypes(tool) && this.checkAllRoles(tool) && this.checkAllFeatures(tool);
+    } else if (sortDataType === 'All' && sortRole === 'All' && sortFeature === 'All') {
       return centerName === sortCenter;
-    } else if (sortCategory === 'All') {
-      return centerName === sortCenter && this.checkAllFeatures(tool);
+    } else if (sortDataType === 'All') {
+      return centerName === sortCenter && this.checkAllRoles(tool) && this.checkAllFeatures(tool);
+    } else if (sortRole === 'All') {
+      return centerName === sortCenter && this.checkAllDataTypes(tool) && this.checkAllFeatures(tool);
     } else if (sortFeature === 'All') {
-      return centerName === sortCenter && this.checkAllCategories(tool);
+      return centerName === sortCenter && this.checkAllDataTypes(tool) && this.checkAllRoles(tool);
     }
-    return centerName === sortCenter && this.checkAllCategories(tool) &&
+    return centerName === sortCenter && this.checkAllDataTypes(tool) && this.checkAllRoles(tool) &&
     this.checkAllFeatures(tool);
   }
 
@@ -88,8 +137,16 @@ export class AppsView extends Component {
     this.setState({ sortCenter: e.target.value });
   }
 
-  handleSortCategoryChanged = (e) => {
-    this.setState({ sortCategory: e.target.value });
+  // handleSortCategoryChanged = (e) => {
+  //   this.setState({ sortCategory: e.target.value });
+  // }
+
+  handleSortRoleChanged = (e) => {
+    this.setState({ sortRole: e.target.value });
+  }
+
+  handleSortDataTypeChanged = (e) => {
+    this.setState({ sortDataType: e.target.value });
   }
 
   handleSortFeatureChanged = (e) => {
@@ -97,7 +154,7 @@ export class AppsView extends Component {
   }
 
   render() {
-    const { workflowCategory, fetchingTools, sortCenter, sortCategory, sortFeature } = this.state;
+    const { workflowCategory, fetchingTools, sortCenter, sortDataType, sortRole, sortFeature } = this.state;
     const isExp = workflowCategory === 'exp';
     const isCompBio = workflowCategory === 'compBio';
     // http://stackoverflow.com/questions/15125920/how-to-get-distinct-values-from-an-array-of-objects-in-javascript
@@ -161,16 +218,30 @@ export class AppsView extends Component {
                   </select>
                 </div>
                 <div className={styles.filter}>
-                  <label htmlFor="sort-type">Category</label>
+                  <label htmlFor="sort-type">Type</label>
                   <select
                     id="sort-type"
                     className={`form-control ${styles.select}`}
-                    onChange={this.handleSortCategoryChanged}
-                    value={sortCategory}
+                    onChange={this.handleSortDataTypeChanged}
+                    value={sortDataType}
                   >
                     {
-                      sortCategories.map((category, i) =>
-                        <option key={i} value={category}>{category}</option>)
+                      sortDataTypes.map((type, i) =>
+                        <option key={i} value={type}>{type}</option>)
+                    }
+                  </select>
+                </div>
+                <div className={styles.filter}>
+                  <label htmlFor="sort-role">Role</label>
+                  <select
+                    id="sort-role"
+                    className={`form-control ${styles.select}`}
+                    onChange={this.handleSortRoleChanged}
+                    value={sortRole}
+                  >
+                    {
+                      sortRoles.map((role, i) =>
+                        <option key={i} value={role}>{role}</option>)
                     }
                   </select>
                 </div>
