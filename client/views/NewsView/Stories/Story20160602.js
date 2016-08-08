@@ -11,7 +11,7 @@ export default function Story20160602() {
     >
       <h5>Metadata Standards – New Versions Released</h5>
       <p>
-        Current Versions of Standards Released: 5-13-16
+        Current Versions of Standards Released: 8-8-16
       </p>
       <ul>
         <li>
@@ -40,8 +40,8 @@ export default function Story20160602() {
           </a>
         </li>
         <li>
-          <a href="/LINCS/files/Nucleic_Acid_Metadata_2016.pdf">
-            Nucleic acids
+          <a href="/LINCS/files/Nucleic_Acid_Metadata_2016_8_8.pdf">
+            Nucleic acid reagents
           </a>
         </li>
         <li>
@@ -66,7 +66,7 @@ export default function Story20160602() {
         </li>
       </ul>
       <p>
-        <a href="/LINCS/files/Standards5132016.zip">
+        <a href="/LINCS/files/Standards5132016_Updated882016.zip">
           Download pdf and xlsx formats
         </a>
       </p>

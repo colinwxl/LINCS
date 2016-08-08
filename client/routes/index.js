@@ -54,8 +54,8 @@ import AppsView from 'views/AppsView';
 import FindKnowledgeAboutASpecificGeneOrProtein
   from 'views/AppsView/Workflows/FindKnowledgeAboutASpecificGeneOrProtein';
 import ExploreMicroscopyImagingData from 'views/AppsView/Workflows/ExploreMicroscopyImagingData';
-import FindOutIfLINCSHasCollectedDataFromASpecificCellLine
-  from 'views/AppsView/Workflows/FindOutIfLINCSHasCollectedDataFromASpecificCellLine';
+import DetermineWhetherLINCSHasCollectedDataFromASpecificCellLine
+  from 'views/AppsView/Workflows/DetermineWhetherLINCSHasCollectedDataFromASpecificCellLine';
 import CheckIfASmallMoleculeHasBeenProfiled
   from 'views/AppsView/Workflows/CheckIfASmallMoleculeHasBeenProfiled';
 import QueryAGeneExpressionSignatureAgainst
@@ -156,8 +156,8 @@ export default (/* store */) => (
       component={ExploreMicroscopyImagingData}
     />
     <Route
-      path={`${wf}/${FindOutIfLINCSHasCollectedDataFromASpecificCellLine.path}`}
-      component={FindOutIfLINCSHasCollectedDataFromASpecificCellLine}
+      path={`${wf}/${DetermineWhetherLINCSHasCollectedDataFromASpecificCellLine.path}`}
+      component={DetermineWhetherLINCSHasCollectedDataFromASpecificCellLine}
     />
     <Route
       path={`${wf}/${CheckIfASmallMoleculeHasBeenProfiled.path}`}

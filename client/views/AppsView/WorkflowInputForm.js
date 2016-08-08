@@ -5,8 +5,8 @@ import { reduxForm } from 'redux-form';
 import FindKnowledgeAboutASpecificGeneOrProtein
   from 'views/AppsView/Workflows/FindKnowledgeAboutASpecificGeneOrProtein';
 import ExploreMicroscopyImagingData from 'views/AppsView/Workflows/ExploreMicroscopyImagingData';
-import FindOutIfLINCSHasCollectedDataFromASpecificCellLine
-  from 'views/AppsView/Workflows/FindOutIfLINCSHasCollectedDataFromASpecificCellLine';
+import DetermineWhetherLINCSHasCollectedDataFromASpecificCellLine
+  from 'views/AppsView/Workflows/DetermineWhetherLINCSHasCollectedDataFromASpecificCellLine';
 import CheckIfASmallMoleculeHasBeenProfiled
   from 'views/AppsView/Workflows/CheckIfASmallMoleculeHasBeenProfiled';
 import QueryAGeneExpressionSignatureAgainst
@@ -71,8 +71,8 @@ class WorkflowInputForm extends Component {
         text: FindNovelCompoundsThatMimicOrReverseADiseaseSignature.subTitle,
       },
       {
-        link: `${awRoute}/${FindOutIfLINCSHasCollectedDataFromASpecificCellLine.path}`,
-        text: FindOutIfLINCSHasCollectedDataFromASpecificCellLine.subTitle,
+        link: `${awRoute}/${DetermineWhetherLINCSHasCollectedDataFromASpecificCellLine.path}`,
+        text: DetermineWhetherLINCSHasCollectedDataFromASpecificCellLine.subTitle,
       },
       {
         link: `${awRoute}/${CheckIfASmallMoleculeHasBeenProfiled.path}`,

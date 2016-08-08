@@ -9,8 +9,8 @@ import lincsDatasetPageScreenshot from './images/lincs-dataset-page-screenshot.p
 
 export default class Workflow extends Component {
 
-  static subTitle = 'Find out if LINCS has collected data from a specific cell line'
-  static path = 'find-out-if-lincs-has-collected-data-from-a-specific-cell-line'
+  static subTitle = 'Determine whether LINCS has collected data from a specific cell line'
+  static path = 'determine-whether-lincs-has-collected-data-from-a-specific-cell-line'
 
   render() {
     return (
