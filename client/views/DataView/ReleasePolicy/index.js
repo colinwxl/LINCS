@@ -8,7 +8,7 @@ import styles from './ReleasePolicy.scss';
 export default function ReleasePolicy(/* props */) {
   return (
     <div className={styles.wrapper}>
-      <PageBanner title="Data Release Policy" includeSearchBar />
+      <PageBanner title="Data Release Policy" />
       <div className="container">
         <div className="row">
           <PageNav mainPage="Release Policy" isDataPage />

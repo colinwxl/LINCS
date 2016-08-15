@@ -133,7 +133,7 @@ export default (/* store */) => (
     <Route path={`${communityBase}/workshops-and-symposia`} component={WorkshopsAndSymposia} />
 
     {/* Data Routes */}
-    <Redirect from={dataBase} to={`${dataBase}/releases`} />
+    <Redirect from={dataBase} to={`${dataBase}/overview`} />
     <Route path={`${dataBase}/overview`} component={DataOverview} />
     <Route path={`${dataBase}/releases`} component={DataReleases} />
     <Route path={`${dataBase}/releases/:datasetId`} component={DatasetView} />

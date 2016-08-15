@@ -8,7 +8,7 @@ export default function previousStandards(/* props */) {
   const d = '/LINCS/files/';
   return (
     <div className={styles.wrapper}>
-      <PageBanner title="Previous Data Standards" includeSearchBar />
+      <PageBanner title="Previous Data Standards" />
 
       <div className="container">
         <div className="row">
