@@ -28,7 +28,7 @@ export default function Standards(/* props */) {
               repositories in which to store and share LINCS data.
             </p>
 
-            <p><strong>Current Versions of Standards Released: 8-8-2016</strong></p>
+            <p><strong>Current Versions of Standards Released: 5-13-2016</strong></p>
             <ul>
               <li>
                 <a href={`${d}Antibody_Metadata_2016_General.pdf`}>
@@ -56,7 +56,7 @@ export default function Standards(/* props */) {
                 </a>
               </li>
               <li>
-                <a href={`${d}Nucleic_Acid_Metadata_2016_8_8.pdf`}>
+                <a href={`${d}Nucleic_Acid_Metadata_2016.pdf`}>
                   Nucleic acid reagents
                 </a>
               </li>
@@ -84,7 +84,7 @@ export default function Standards(/* props */) {
 
             </ul>
             <p>
-              <a href={`${d}Standards5132016_Updated882016.zip`}>Download pdf and xlsx formats</a>
+              <a href={`${d}Standards5132016.zip`}>Download pdf and xlsx formats</a>
             </p>
 
             <p><strong>Previous Versions of Standards Released: 8-14-15</strong></p>
