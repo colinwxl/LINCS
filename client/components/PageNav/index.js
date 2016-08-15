@@ -103,6 +103,11 @@ export default class PageNav extends Component {
         route: `${dataRoute}/standards`,
         children: [],
       },
+      {
+        title: 'Previous Standards',
+        route: `${dataRoute}/previous-standards`,
+        children: [],
+      },
     ];
   }
 

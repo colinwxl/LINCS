@@ -31,14 +31,15 @@ export default class Workflow extends Component {
               <div className={styles.section}>
                 <p>
                   The <strong><a href="http://lincs.hms.harvard.edu" target="_blank">HMS-LINCS
-                  </a> center </strong>collect various types of imaging data such as florescence imaging of cell viability and
-                  proliferation through apototic and mitotic markers. HMS-LINCS, additionally, monitors the activity of
-                  key protein kinases using florescence microscopy and some of those experiments are conducted in
+                  </a> center </strong>collect various types of imaging data such as florescence
+                  imaging of cell viability and proliferation through apototic and mitotic
+                  markers. HMS-LINCS, additionally, monitors the activity of key protein kinases
+                   using florescence microscopy and some of those experiments are conducted in
                   live cells. The best place to obtain access to these datasets is through the
-                  <a href="http://lincs.hms.harvard.edu/db" target="_blank"> HMS-LINCS Database</a>. Collected images are
-                  made available through the <a href="https://lincs-omero.hms.harvard.edu/webclient/userdata/?experimenter=-1" target="_blank">
-                   OMERO</a> web-client. See for example this link and image below: <br/>
-                  <a href="https://lincs-omero.hms.harvard.edu/webclient/img_detail/317001/" target="_blank">https://lincs-omero.hms.harvard.edu/webclient/img_detail/317001/</a>
+                  <a href="http://lincs.hms.harvard.edu/db" target="_blank"> HMS-LINCS Database</a>.
+                  Collected images are made available through the <a href="https://lincs-omero.hms.harvard.edu/webclient/userdata/?experimenter=-1" target="_blank">
+                  OMERO </a> web-client. See for example this link and image below: <br />
+                  <a href="https://lincs-omero.hms.harvard.edu/webclient/img_detail/317001/" target="_blank">https://lincs-omero.hms.harvard.edu/webclient/img_detail/317001/ </a>
                 </p>
                 <div>
                   <img src={omeroScreenshot} alt="OMERO screenshot" />
