@@ -30,15 +30,13 @@ export default class Workflow extends Component {
               </p>
               <div className={styles.section}>
                 <p>
-                  <strong>The <a href="http://sorger.med.harvard.edu/" target="_blank">Sorger Lab</a> at <a href="http://hms.harvard.edu/" target="_blank">Harvard Medical School</a>
-                  </strong> collect various types of imaging data.
-                  For example, the Sorger Lab is measuring cell viability and proliferation using
-                  florescence imaging with apoptosis and mitotic markers. In addition, the Sorger
-                  Lab monitors the activity of key protein kinases using florescence microscopy and
+                  The <strong><a href="http://lincs.hms.harvard.edu" target="_blank">Harvard Medical School LINCS center
+                  </a></strong> collect various types of imaging data such as florescence imaging of cell viability and proliferation through apototic and mitotic markers.
+                  In addition, HMS LINCS monitors the activity of key protein kinases using florescence microscopy and
                   some of those experiments are conducted in live cells. The best place to obtain
-                  access to these datasets is through the <a href="http://lincs.hms.harvard.edu/" target="_blank">
+                  access to these datasets is through the <a href="http://lincs.hms.harvard.edu/db" target="_blank">
                   HMS LINCS Database</a>. Collected images are
-                  made available through the <a href="http://www.openmicroscopy.org/site/products/omero" target="_blank">
+                  made available through the <a href="https://lincs-omero.hms.harvard.edu/webclient/userdata/?experimenter=-1" target="_blank">
                   OMERO</a> web-client. See for example this link and image below: <a href="https://lincs-omero.hms.harvard.edu/webclient/img_detail/317001/" target="_blank">https://lincs-omero.hms.harvard.edu/webclient/img_detail/317001/</a>
                 </p>
                 <div>
