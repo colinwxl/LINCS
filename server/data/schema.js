@@ -167,6 +167,7 @@ export default {
     integration: { type: 'integer', nullable: false, defaultTo: false },
     signature_generation: { type: 'integer', nullable: false, defaultTo: false },
     network_analysis: { type: 'integer', nullable: false, defaultTo: false },
+    data_documentation: { type: 'integer', nullable: false, defaultTo: false },
     api: { type: 'integer', nullable: false, defaultTo: false },
     command_line: { type: 'integer', nullable: false, defaultTo: false },
     database: { type: 'integer', nullable: false, defaultTo: false },
@@ -174,6 +175,10 @@ export default {
     open_source: { type: 'integer', nullable: false, defaultTo: false },
     search_engine: { type: 'integer', nullable: false, defaultTo: false },
     web_based: { type: 'integer', nullable: false, defaultTo: false },
+    scripting: { type: 'integer', nullable: false, defaultTo: false },
+    provenance: { type: 'integer', nullable: false, defaultTo: false },
+    documentation: { type: 'integer', nullable: false, defaultTo: false },
+    versioning: { type: 'integer', nullable: false, defaultTo: false },
   },
   tools_publications: {
     id: { type: 'increments', nullable: false, primary: true },

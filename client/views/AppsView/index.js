@@ -9,22 +9,19 @@ import CompBioWorkflows from './CompBioWorkflows';
 import Tool from 'components/Tool';
 import styles from './AppsView.scss';
 
-// const sortCategories = [
-//   'All', 'Epigenomics', 'Imaging', 'Integration', 'Viability',
-// ];
-
-const sortRoles = [
-  'All', 'Analysis', 'Formatting', 'Integration', 'Storage', 'Visualization',
-  'Network Analysis', 'Signature Generation',
-];
 
 const sortDataTypes = [
   'All', 'Cell State', 'Drug Binding','Morphology', 'Protein', 'Transcript',
 ];
 
+const sortRoles = [
+  'All', 'Analysis', 'Data Documentation', 'Formatting', 'Integration', 'Storage',
+  'Visualization', 'Network Analysis', 'Signature Generation',
+];
+
 const sortFeatures = [
-  'All', 'API', 'Database', 'Ontology', 'Open Source', 'Search Engine',
-  'Web-based',
+  'All', 'API', 'Command Line', 'Database', 'Documentation', 'Ontology', 'Open Source',
+  'Provenance','Scripting', 'Search Engine', 'Versioning', 'Web-based',
 ];
 
 const sub = 'Tutorials, walkthroughs, and tools to help you be more productive with LINCS datasets';
@@ -39,7 +36,6 @@ export class AppsView extends Component {
     this.state = {
       workflowCategory: 'exp',
       sortCenter: 'All',
-      // sortCategory: 'All',
       sortDataType: 'All',
       sortRole: 'All',
       sortFeature: 'All',
@@ -49,15 +45,6 @@ export class AppsView extends Component {
   componentDidMount() {
     this.props.loadTools();
   }
-
-  // checkAllCategories = (tool) => {
-  //   const { sortCategory } = this.state;
-  //   return (sortCategory === 'All') ||
-  //     (sortCategory === 'Epigenomics' && tool.epigenomics) ||
-  //     (sortCategory === 'Imaging' && tool.imaging) ||
-  //     (sortCategory === 'Integration' && tool.integration) ||
-  //     (sortCategory === 'Viability' && tool.viability);
-  // }
 
   checkAllDataTypes = (tool) => {
     const { sortDataType } = this.state;
@@ -73,6 +60,7 @@ export class AppsView extends Component {
     const { sortRole } = this.state;
     return (sortRole === 'All') ||
       (sortRole === 'Analysis' && tool.analysis) ||
+      (sortRole === 'Data Documentation' && tool.dataDocumentation) ||
       (sortRole === 'Formatting' && tool.formatting) ||
       (sortRole === 'Integration' && tool.integration) ||
       (sortRole === 'Storage' && tool.storage) ||
@@ -85,30 +73,17 @@ export class AppsView extends Component {
     const { sortFeature } = this.state;
     return (sortFeature === 'All') ||
       (sortFeature === 'API' && tool.api) ||
+      (sortFeature === 'Command Line' && tool.commandLine) ||
       (sortFeature === 'Database' && tool.database) ||
+      (sortFeature === 'Documentation' && tool.documentation) ||
       (sortFeature === 'Ontology' && tool.ontology) ||
       (sortFeature === 'Open Source' && tool.openSource) ||
+      (sortFeature === 'Provenance' && tool.provenance) ||
+      (sortFeature === 'Scripting' && tool.scripting) ||
       (sortFeature === 'Search Engine' && tool.searchEngine) ||
+      (sortFeature === 'Versioning' && tool.versioning) ||
       (sortFeature === 'Web-based' && tool.webBased);
   }
-
-  // filterTools = (tool) => {
-  //   const centerName = tool.center.name;
-  //   const { sortCenter, sortRole, sortFeature } = this.state;
-  //   if (sortCenter === 'All' && sortRole === 'All' && sortFeature === 'All') {
-  //     return true;
-  //   } else if (sortCenter === 'All') {
-  //     return this.checkAllRoles(tool) && this.checkAllFeatures(tool);
-  //   } else if (sortRole === 'All' && sortFeature === 'All') {
-  //     return centerName === sortCenter;
-  //   } else if (sortRole === 'All') {
-  //     return centerName === sortCenter && this.checkAllFeatures(tool);
-  //   } else if (sortFeature === 'All') {
-  //     return centerName === sortCenter && this.checkAllRoles(tool);
-  //   }
-  //   return centerName === sortCenter && this.checkAllRoles(tool) &&
-  //   this.checkAllFeatures(tool);
-  // }
 
   filterTools = (tool) => {
     const centerName = tool.center.name;
@@ -136,10 +111,6 @@ export class AppsView extends Component {
   handleSortCenterChanged = (e) => {
     this.setState({ sortCenter: e.target.value });
   }
-
-  // handleSortCategoryChanged = (e) => {
-  //   this.setState({ sortCategory: e.target.value });
-  // }
 
   handleSortRoleChanged = (e) => {
     this.setState({ sortRole: e.target.value });
