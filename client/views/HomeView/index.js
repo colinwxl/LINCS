@@ -69,12 +69,13 @@ export class HomeView extends Component {
               and other cellular processes that occur when cells are exposed to a variety of
               perturbing agents
             </p>
-            <Link
-              to="/data"
+            <a
+              href="http://dev3.ccs.miami.edu:8080/datasets-beta/"
+              target="_blank"
               className={`btn btn-outline-inverse btn-lg ${styles['btn-discover']}`}
             >
               Discover LINCS Data
-            </Link>
+            </a>
             <Link
               to="/applications"
               className={`btn btn-outline-inverse btn-lg ${styles['btn-td']}`}
