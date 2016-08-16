@@ -78,7 +78,7 @@ $img-width: 9rem;
 }
 
 .tool-details {
-  max-height: 7rem;
+  max-height: 8rem;
   overflow: hidden;
   padding: .5rem .75rem 0;
 }
@@ -87,58 +87,38 @@ $title-line-height: 1.5rem;
 
 .tool-title {
   color: $off-black;
-  display: block;
-  font-size: 1.25rem;
-  font-weight: 400;
-  line-height: $title-line-height;
-  margin: 0;
+  display: inline-block;
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-top: 0.8rem;
   max-height: 2rem;
   min-height: 1.1rem;
   overflow: hidden;
   position: relative;
-  text-decoration: none;
+  text-decoration: none !important;
   white-space: nowrap;
-
-  .end {
-    height: $title-line-height;
-  }
-}
-
-.end {
-  background: linear-gradient(to right, transparent, $white);
-  bottom: 0;
-  max-height: 100%;
-  position: absolute;
-  right: 0;
-  width: 45px;
 }
 
 .tool-creator {
   color: $dark-gray;
-  font-size: .9rem;
+  font-size: .8rem;
   font-weight: 400;
-  line-height: 1rem;
-  margin: 1px 0;
+  margin: 0;
   overflow: hidden;
   white-space: nowrap;
+  text-decoration: none !important;
   width: 10rem;
 }
 
 $desc-line-height: 1.125rem; // 18px
 
 .tool-description {
-  display: block;
+  display: inline-block;
   font-size: .8rem; // ~13px
-  line-height: $desc-line-height;
-  margin-top: .625rem; // 10px
   max-height: $desc-line-height * 3;
   min-height: 1.25rem;
   position: relative;
   word-wrap: break-word;
-
-  .end {
-    height: $desc-line-height;
-  }
 }
 
 .tool-ranking {

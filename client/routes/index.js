@@ -39,6 +39,7 @@ import WorkshopsAndSymposia from 'views/CommunityView/WorkshopsAndSymposia';
 import DataOverview from 'views/DataView/Overview';
 import DataReleases from 'views/DataView/Releases';
 import DataStandards from 'views/DataView/Standards';
+import DataPreviousStandards from 'views/DataView/PreviousStandards';
 import DataReleasePolicy from 'views/DataView/ReleasePolicy';
 
 import DatasetView from 'views/DataView/DatasetView';
@@ -132,11 +133,12 @@ export default (/* store */) => (
     <Route path={`${communityBase}/workshops-and-symposia`} component={WorkshopsAndSymposia} />
 
     {/* Data Routes */}
-    <Redirect from={dataBase} to={`${dataBase}/releases`} />
+    <Redirect from={dataBase} to={`${dataBase}/overview`} />
     <Route path={`${dataBase}/overview`} component={DataOverview} />
     <Route path={`${dataBase}/releases`} component={DataReleases} />
     <Route path={`${dataBase}/releases/:datasetId`} component={DatasetView} />
     <Route path={`${dataBase}/standards`} component={DataStandards} />
+    <Route path={`${dataBase}/previous-standards`} component={DataPreviousStandards} />
     <Route path={`${dataBase}/release-policy`} component={DataReleasePolicy} />
 
     {/* Publications/News Routes */}

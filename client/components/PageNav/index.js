@@ -103,6 +103,11 @@ export default class PageNav extends Component {
         route: `${dataRoute}/standards`,
         children: [],
       },
+      {
+        title: 'Previous Standards',
+        route: `${dataRoute}/previous-standards`,
+        children: [],
+      },
     ];
   }
 
@@ -124,6 +129,25 @@ export default class PageNav extends Component {
                 let navClasses = styles['nav-item'];
                 if (navObj.title === mainPage) {
                   navClasses = `${styles['nav-item']} ${styles.active}`;
+                }
+                if (navObj.title === 'Releases') {
+                  return (
+                    <div>
+                      <a
+                        href="http://dev3.ccs.miami.edu:8080/datasets-beta/"
+                        target="_blank"
+                        className={styles.link}
+                        style={{ display: 'inline-block' }}
+                      >
+                        Releases
+                      </a>
+                      <i
+                        style={{ display: 'inline-block' }}
+                        className="fa fa-external-link"
+                        aria-hidden="true"
+                      />
+                    </div>
+                  );
                 }
                 return (
                   <div key={index} className={navClasses}>

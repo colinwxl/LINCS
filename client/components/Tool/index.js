@@ -18,16 +18,14 @@ export default function Tool(props) {
           </a>
         </div>
         <div className={styles['tool-details']}>
-          <p className={styles['tool-title']}>
+          <a href={tool.url} className={styles['tool-title']} target="_blank">
             {tool.name}
-            <span className={styles.end} />
-          </p>
+          </a>
           <p className={styles['tool-creator']}>
-            <a href={tool.center.website}>{tool.center.name}</a>
+            <a href={tool.center.website} target="_blank">{tool.center.name}</a>
           </p>
           <div className={styles['tool-description']}>
             {tool.description}
-            <span className={styles.end} />
           </div>
         </div>
         <div className={styles['tool-ranking']}></div>

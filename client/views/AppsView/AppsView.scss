@@ -150,7 +150,8 @@ $apple-blue: #1390ff;
 .flex {
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
+  // justify-content: flex-end;
+  justify-content: center;
 
   @media (min-width: 992px) {
     align-items: center;
