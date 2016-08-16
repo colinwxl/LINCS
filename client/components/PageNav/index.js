@@ -103,11 +103,6 @@ export default class PageNav extends Component {
         route: `${dataRoute}/standards`,
         children: [],
       },
-      {
-        title: 'Previous Standards',
-        route: `${dataRoute}/previous-standards`,
-        children: [],
-      },
     ];
   }
 
@@ -119,6 +114,16 @@ export default class PageNav extends Component {
     }
     if (isDataPage) {
       navItems = this.dataNavItems;
+      // Only show "Previous Standards" tab if current tab is on
+      // "Standards" or "Previous Standards"
+      if (mainPage === 'Standards' || mainPage === 'Previous Standards') {
+        const prevStandards = {
+          title: 'Previous Standards',
+          route: `${dataRoute}/previous-standards`,
+          children: [],
+        };
+        navItems.push(prevStandards);
+      }
     }
     return (
       <div className={`col-md-3 col-md-push-9 ${styles.wrapper}`}>
@@ -132,7 +137,7 @@ export default class PageNav extends Component {
                 }
                 if (navObj.title === 'Releases') {
                   return (
-                    <div>
+                    <div key={index} className={navClasses}>
                       <a
                         href="http://dev3.ccs.miami.edu:8080/datasets-beta/"
                         target="_blank"
