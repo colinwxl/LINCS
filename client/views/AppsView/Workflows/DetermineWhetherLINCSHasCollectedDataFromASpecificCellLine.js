@@ -4,7 +4,6 @@ import { Link } from 'react-router';
 import styles from './Workflow.scss';
 import PageBanner from 'components/PageBanner';
 import lincsDataPortalScreenshot from './images/lincs-data-portal-screenshot.png';
-import lincsDatasetPageScreenshot from './images/lincs-dataset-page-screenshot.png';
 
 
 export default class Workflow extends Component {
@@ -33,12 +32,6 @@ export default class Workflow extends Component {
                 If you found a match, you can explore the data generated
                 by each of the DSGCs.
                 <img src={lincsDataPortalScreenshot} alt="LINCS Data Portal screenshot" />
-              </p>
-              <p>
-                If you are not sure about the cell line name but curious about cell lines from a
-                specific tissue of origin, please try the tree view available from
-                <Link to="/data/releases">here</Link>.
-                <img src={lincsDatasetPageScreenshot} alt="LINCS dataset page screenshot" />
               </p>
             </div>
           </div>
