@@ -114,16 +114,6 @@ export default class PageNav extends Component {
     }
     if (isDataPage) {
       navItems = this.dataNavItems;
-      // Only show "Previous Standards" tab if current tab is on
-      // "Standards" or "Previous Standards"
-      if (mainPage === 'Standards' || mainPage === 'Previous Standards') {
-        const prevStandards = {
-          title: 'Previous Standards',
-          route: `${dataRoute}/previous-standards`,
-          children: [],
-        };
-        navItems.push(prevStandards);
-      }
     }
     return (
       <div className={`col-md-3 col-md-push-9 ${styles.wrapper}`}>

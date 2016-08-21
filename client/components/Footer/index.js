@@ -79,7 +79,6 @@ export default class Footer extends Component {
                 <li><a href="http://dev3.ccs.miami.edu:8080/datasets-beta/">Releases</a></li>
                 <li><a href={`${dataRoute}/release-policy`}>Release Policy</a></li>
                 <li><a href={`${dataRoute}/standards`}>Standards</a></li>
-                <li><a href={`${dataRoute}/previous-standards`}>Previous Standards</a></li>
               </ul>
             </FooterDropDown>
             <FooterDropDown

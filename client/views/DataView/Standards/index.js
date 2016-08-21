@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { Link } from 'react-router';
 import PageBanner from 'components/PageBanner';
 import PageNav from 'components/PageNav';
 import styles from './Standards.scss';
@@ -85,6 +85,11 @@ export default function Standards(/* props */) {
             </ul>
             <p>
               <a href={`${d}Standards5132016.zip`}>Download pdf and xlsx formats</a>
+            </p>
+            <p>
+              <Link to='/data/previous-standards'>
+                <strong>Previous Versions of Standards</strong>
+              </Link>
             </p>
             <h2>Experiment Metadata</h2>
 
