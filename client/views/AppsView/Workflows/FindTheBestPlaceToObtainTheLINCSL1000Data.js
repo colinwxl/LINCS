@@ -102,7 +102,12 @@ export default class Workflow extends Component {
               <h5>Downloading annotated level 4 data packages from the BD2K-LINCS DCIC</h5>
               <p>
                 You can search for L1000 data packages on the
-                LINCS <Link to="/data/releases?q=L1000">Data Releases</Link> page.
+                LINCS <a
+                  href="http://dev3.ccs.miami.edu:8080/datasets-beta/"
+                  target="_blank"
+                >
+                  Data Releases
+                </a> page.
               </p>
               <div className="row">
                 <div className="col-xs-10 col-xs-offset-1">
