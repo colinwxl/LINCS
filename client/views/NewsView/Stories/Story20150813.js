@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router';
 
 import Story from './Story';
 
@@ -17,7 +16,12 @@ export default function Story20150813() {
         human cell lines treated with many drugs and small molecules.
       </p>
       <p>
-        The <Link to="/data/releases">Data Releases</Link> page describes the
+        The <a
+          href="http://dev3.ccs.miami.edu:8080/datasets-beta/"
+          target="_blank"
+        >
+          Data Releases
+        </a> page describes the
         collections of data released and planned to be released to the public by
         the LINCS Consortium.
       </p>

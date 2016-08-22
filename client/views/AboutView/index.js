@@ -26,15 +26,21 @@ export default function AboutView() {
             </p>
             <p>
               LINCS data are being made openly available as a community resource through a
-              series of <Link to="/data/releases">data releases</Link>, so as to enable
-              scientists to address a broad range of basic research questions and to
-              facilitate the identification of biological targets for new disease
-              therapies. LINCS datasets consist of assay results from cultured and primary
-              human cells treated with bioactive small molecules, ligands such as growth
-              factors and cytokines, or genetic perturbations. Many different assays are
-              used to monitor cell responses, including assays measuring transcript and
-              protein expression; cell phenotype data are captured by biochemical and
-              imaging readouts. Assays are typically carried out on multiple cell types,
+              series of
+              <a
+                href="http://dev3.ccs.miami.edu:8080/datasets-beta/"
+                target="_blank"
+              >
+                data releases
+              </a>
+              , so as to enable scientists to address a broad range
+              of basic research questions and to facilitate the identification of biological
+              targets for new disease therapies. LINCS datasets consist of assay results
+              from cultured and primary human cells treated with bioactive small molecules,
+              ligands such as growth factors and cytokines, or genetic perturbations. Many
+              different assays are used to monitor cell responses, including assays measuring
+              transcript and protein expression; cell phenotype data are captured by biochemical
+              and imaging readouts. Assays are typically carried out on multiple cell types,
               and at multiple timepoints; perturbagen activity is monitored at multiple
               doses.
             </p>
@@ -275,7 +281,13 @@ export default function AboutView() {
             <ul>
               <li>
                 New releases of data will become available every quarter, and the release
-                schedule is summarized <Link to="/data/releases">here</Link>.
+                schedule is summarized
+                <a
+                  href="http://dev3.ccs.miami.edu:8080/datasets-beta/"
+                  target="_blank"
+                >
+                  here
+                </a>.
               </li>
               <li>
                 Metadata annotations of LINCS data will be available along with each data

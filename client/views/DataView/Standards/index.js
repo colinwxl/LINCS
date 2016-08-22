@@ -87,7 +87,7 @@ export default function Standards(/* props */) {
               <a href={`${d}Standards5132016.zip`}>Download pdf and xlsx formats</a>
             </p>
             <p>
-              <Link to='/data/previous-standards'>
+              <Link to="/data/previous-standards">
                 <strong>Previous Versions of Standards</strong>
               </Link>
             </p>
