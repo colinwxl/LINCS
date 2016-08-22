@@ -3,8 +3,10 @@ import { Link } from 'react-router';
 
 import PageBanner from 'components/PageBanner';
 import PageNav from 'components/PageNav';
+import InteractiveMap from 'components/InteractiveMap';
 import styles from './Overview.scss';
 import centersMapImg from './centers-map.png';
+
 
 const dsgcRoute = '/centers/data-and-signature-generating-centers';
 
@@ -26,7 +28,7 @@ export default function Overview() {
               and Coordination Center. The LINCS program is currently in phase II after
               the completion of pilot phase I in fiscal year 2013.
             </p>
-            <img src={centersMapImg} alt="Map of LINCS Centers" />
+            <InteractiveMap />
             <h2>LINCS Production Phase II</h2>
             <h5>LINCS Data and Signature Generation Centers</h5>
             <p>

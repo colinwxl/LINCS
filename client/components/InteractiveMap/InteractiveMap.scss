@@ -1,0 +1,21 @@
+@import 'variables';
+
+
+.hoverinfo {
+  border: 1px solid gray;
+  border-radius: 3px;
+  padding: 2rem;
+  width: 15rem;
+  background: $white;
+}
+
+.title {
+  text-align: center;
+  margin: auto;
+  font-size: 0.8rem;
+  font-weight: 1000;
+}
+
+.logo {
+  width: 10rem;
+}
