@@ -1,4 +1,4 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
 import Datamaps from 'datamaps';
 
 import styles from './InteractiveMap.scss';
@@ -36,7 +36,7 @@ export default class InteractiveMap extends Component {
 
   componentWillUnmount() {
     this.clear();
-    window.removeEventListener('resize', this.resize);
+    window.removeEventListener('resize', this.resize.bind(this));
   }
 
   clear() {
@@ -58,9 +58,13 @@ export default class InteractiveMap extends Component {
       scope: 'usa',
       responsive: true,
       fills: {
-        // darker-blue is #306596
-        // crimson-red is #cc4731
+        'RED': '#cc4731',
+        'BLUE': '#306596',
         defaultFill: '#a9c0de',
+      },
+      data: {
+        'RED': { fillKey: 'RED'},
+        'BLUE': { fillKey: 'BLUE'},
       },
       geographyConfig: {
         highlightOnHover: false,
@@ -73,15 +77,14 @@ export default class InteractiveMap extends Component {
 
   drawBubbles() {
     this.map.bubbles(this.dataset, {
-      popupTemplate: function (geo, data) {
-        const htmlStr = (
+      popupTemplate: (geo, data) => {
+        return (
           `<div class='${styles.hoverinfo}'>
             <img src='${data.logo}' class='${styles.logo}' />
             <h1 class='${styles.title}'>${data.name}</h1>
           </div>`
-        )
-        return htmlStr;
-      }
+        );
+      },
     });
   }
 
@@ -94,12 +97,3 @@ export default class InteractiveMap extends Component {
     return <div ref="intMap" style={style}> </div>;
   }
 }
-
-InteractiveMap.propTypes = {
-  arc: React.PropTypes.array,
-  arcOptions: React.PropTypes.object,
-  bubbleOptions: React.PropTypes.object,
-  bubbles: React.PropTypes.array,
-  graticule: React.PropTypes.bool,
-  labels: React.PropTypes.bool,
-};
