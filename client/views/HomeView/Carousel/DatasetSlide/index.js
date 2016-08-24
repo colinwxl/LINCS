@@ -21,7 +21,7 @@ export default function DatasetSlide(props) {
         <div className={`col-xs-7 ${styles['table-wrap']} ${styles['card-title-wrap']}`}>
           <div className={styles['card-title']}>
             <h4>{dataset.method}</h4>
-            <p><Link to={`/data/releases/${dataset.id}`}>{dataset.lincsId}</Link></p>
+            {/* <p><Link to={`/data/releases/${dataset.id}`}>{dataset.lincsId}</Link></p> */}
             <p>{moment(dataset.dateReleased).format('MMM Do, YYYY')}</p>
             <p className={styles['card-creator']}>{dataset.center.name}</p>
           </div>
