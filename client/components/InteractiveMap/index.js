@@ -18,18 +18,20 @@ export default class InteractiveMap extends Component {
     }
   }
 
-  // this will create the map when the component mounts
   componentDidMount() {
-    this.drawMap.bind(this)();
-    this.drawBubbles.bind(this)();
+    // Containing component for InteractiveMap isn't yet rendered when map is drawn
+    // This causes the map size to be rendered erroneously. SetTimeout here is to to
+    // draw map once the containing component is fully rendered.
+    setTimeout(() => {
+      this.drawMap.bind(this)();
+      this.drawBubbles.bind(this)();
+    }, 0);
   }
 
-// this will remove the map from the dom when the react component is unmounted
   componentWillReceiveProps() {
     this.clear();
   }
 
-// this will update the map with the latest props
   componentDidUpdate() {
     this.drawMap.bind(this)();
   }
@@ -51,9 +53,7 @@ export default class InteractiveMap extends Component {
     const map = new Datamaps(Object.assign({}, {
       ...this.props,
     }, {
-      // this is the place where the react dom and the Datamaps dom will be wired
       element: this.refs.intMap,
-      // this is hardcoded here as we want the projection to be constant
       projection: 'mercator',
       scope: 'usa',
       responsive: true,
@@ -91,7 +91,7 @@ export default class InteractiveMap extends Component {
   render() {
     const style = {
       position: 'relative',
-      width: '100%',
+      width: '70%',
     };
 
     return <div ref="intMap" style={style}> </div>;

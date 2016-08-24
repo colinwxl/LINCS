@@ -6,8 +6,8 @@ import dtoxsLogo from './logos/dtoxs_logo.png';
 import mepLogo from './logos/mep_lincs_logo.png';
 import lincsPccseLogo from './logos/lincs_pccse_logo.png';
 
-const mediumRadius = 8;
-const largeRadius = 9;
+const mediumRadius = 5;
+const largeRadius = 7;
 const fillKey = 'BLUE';
 
 export default [
@@ -54,8 +54,8 @@ export default [
   {
     name: 'Icahn School of Medicine at Mt. Sinai',
     radius: largeRadius,
-    latitude: 42.309764,
-    longitude: -73.952906,
+    latitude: 42.349764,
+    longitude: -74.352906,
     logo: dtoxsLogo,
     fillKey: fillKey,
   },

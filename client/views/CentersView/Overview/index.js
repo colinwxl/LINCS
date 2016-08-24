@@ -28,7 +28,9 @@ export default function Overview() {
               and Coordination Center. The LINCS program is currently in phase II after
               the completion of pilot phase I in fiscal year 2013.
             </p>
-            <InteractiveMap />
+            <div style={{ width: '100%' }}>
+              <InteractiveMap />
+            </div>
             <h2>LINCS Production Phase II</h2>
             <h5>LINCS Data and Signature Generation Centers</h5>
             <p>
