@@ -11,12 +11,12 @@ import styles from './AppsView.scss';
 
 
 const sortDataTypes = [
-  'All', 'Cell State', 'Drug Binding', 'Morphology', 'Protein', 'Transcript',
+  'All', 'Cell State Data', 'Drug Binding Data', 'Morphology Data', 'Protein Data', 'Transcript Data',
 ];
 
 const sortRoles = [
-  'All', 'Analysis', 'Data Documentation', 'Formatting', 'Integration', 'Storage',
-  'Visualization', 'Network Analysis', 'Signature Generation',
+  'All', 'Data Analysis', 'Data Documentation', 'Data Formatting', 'Data Integration', 'Data Storage',
+  'Data Visualization', 'Network Analysis', 'Signature Generation',
 ];
 
 const sortFeatures = [
@@ -49,22 +49,22 @@ export class AppsView extends Component {
   checkAllDataTypes = (tool) => {
     const { sortDataType } = this.state;
     return (sortDataType === 'All') ||
-      (sortDataType === 'Cell State' && tool.cellState) ||
-      (sortDataType === 'Drug Binding' && tool.drugBinding) ||
-      (sortDataType === 'Morphology' && tool.morphology) ||
-      (sortDataType === 'Protein' && tool.protein) ||
-      (sortDataType === 'Transcript' && tool.transcript);
+      (sortDataType === 'Cell State Data' && tool.cellStateData) ||
+      (sortDataType === 'Drug Binding Data' && tool.drugBindingData) ||
+      (sortDataType === 'Morphology Data' && tool.morphologyData) ||
+      (sortDataType === 'Protein Data' && tool.proteinData) ||
+      (sortDataType === 'Transcript Data' && tool.transcriptData);
   }
 
   checkAllRoles = (tool) => {
     const { sortRole } = this.state;
     return (sortRole === 'All') ||
-      (sortRole === 'Analysis' && tool.analysis) ||
+      (sortRole === 'Data Analysis' && tool.dataAnalysis) ||
       (sortRole === 'Data Documentation' && tool.dataDocumentation) ||
-      (sortRole === 'Formatting' && tool.formatting) ||
-      (sortRole === 'Integration' && tool.integration) ||
-      (sortRole === 'Storage' && tool.storage) ||
-      (sortRole === 'Visualization' && tool.visualization) ||
+      (sortRole === 'Data Formatting' && tool.dataFormatting) ||
+      (sortRole === 'Data Integration' && tool.dataIntegration) ||
+      (sortRole === 'Data Storage' && tool.dataStorage) ||
+      (sortRole === 'Data Visualization' && tool.dataVisualization) ||
       (sortRole === 'Network Analysis' && tool.networkAnalysis) ||
       (sortRole === 'Signature Generation' && tool.signatureGeneration);
   }
@@ -205,7 +205,7 @@ export class AppsView extends Component {
                   </select>
                 </div>
                 <div className={styles.filter}>
-                  <label htmlFor="sort-type">Type</label>
+                  <label htmlFor="sort-type">Data Type</label>
                   <select
                     id="sort-type"
                     className={`form-control ${styles.select}`}
