@@ -135,25 +135,7 @@ class WorkflowInputForm extends Component {
         <div className="col-xs-12 col-sm-10 col-sm-offset-1 col-lg-8 col-lg-offset-2">
           <div className={styles.question}>
             <h4 className="text-xs-center">What would you like to achieve with LINCS?</h4>
-            <p className={`text-muted ${styles.small} ${styles['p-half']}`}>
-              You may request a workflow below and we will create one for you.
-              Alternatively, examine the existing workflows to determine if any
-              satisfy your requirements.
-            </p>
             <form onSubmit={handleSubmit}>
-              <div className={`row ${styles['form-row']}`}>
-                <label htmlFor="question" className="col-md-3">Your Question/Aim</label>
-                <div className="col-md-9">
-                  <input
-                    id="question"
-                    ref="question"
-                    type="text"
-                    placeholder=""
-                    className={styles['workflow-input']}
-                    {...question}
-                  />
-                </div>
-              </div>
               <div className={`row ${styles['form-row']} ${styles.examples}`}>
                 <div className={`col-md-3 ${styles.base}`}>
                   <p className={`text-muted ${styles.small}`}><em>Examples</em></p>
@@ -173,6 +155,24 @@ class WorkflowInputForm extends Component {
                       )
                     }
                   </ul>
+                </div>
+              </div>
+              <p className={`text-muted ${styles.small} ${styles['p-half']}`}>
+                You may request a workflow below and we will create one for you.
+                Alternatively, examine the existing workflows above to determine
+                if any satisfy your requirements.
+              </p>
+              <div className={`row ${styles['form-row']}`}>
+                <label htmlFor="question" className="col-md-3">Your Question/Aim</label>
+                <div className={`col-md-9 ${styles['form-box']}`}>
+                  <input
+                    id="question"
+                    ref="question"
+                    type="text"
+                    placeholder=""
+                    className={styles['workflow-input']}
+                    {...question}
+                  />
                 </div>
               </div>
               <div className="row">

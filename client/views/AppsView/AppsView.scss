@@ -195,6 +195,15 @@ $apple-blue: #1390ff;
   margin-bottom: .5rem;
 }
 
+.form-box {
+  @media (min-width: 768px) {
+    margin-top: 1rem;
+  }
+  @media (min-width: 1200px) {
+    margin-top: 0;
+  }
+}
+
 .workflow-input {
   padding-left: .375rem;
   width: 100%;
