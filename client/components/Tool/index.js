@@ -4,7 +4,8 @@ import styles from './Tool.scss';
 
 export default function Tool(props) {
   const { tool } = props;
-  const creatorList = tool.centers.map((center, idx) =>
+  let creatorList = tool.centers.sort((a, b) => a.name > b.name);
+  creatorList = creatorList.map((center, idx) =>
     <li key={idx}>
       <a href={center.website} target="_blank">{center.name}</a>
     </li>
