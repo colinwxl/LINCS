@@ -87,7 +87,7 @@ export class AppsView extends Component {
   }
 
   filterTools = (tool) => {
-    const centerName = tool.center.name;
+    const centersName = tool.centers.map(center => center.name);
     const { sortCenter, sortDataType, sortRole, sortFeature } = this.state;
     if (sortCenter === 'All' &&
         sortDataType === 'All' &&
@@ -101,19 +101,19 @@ export class AppsView extends Component {
     } else if (sortDataType === 'All' &&
                sortRole === 'All' &&
                sortFeature === 'All') {
-      return centerName === sortCenter;
+      return centersName.includes(sortCenter);
     } else if (sortDataType === 'All') {
-      return centerName === sortCenter &&
+      return centersName.includes(sortCenter) &&
              this.checkAllRoles(tool) &&
              this.checkAllFeatures(tool);
     } else if (sortRole === 'All') {
-      return centerName === sortCenter &&
+      return centersName.includes(sortCenter) &&
              this.checkAllDataTypes(tool) &&
              this.checkAllFeatures(tool);
     } else if (sortFeature === 'All') {
-      return centerName === sortCenter && this.checkAllDataTypes(tool) && this.checkAllRoles(tool);
+      return centersName.includes(sortCenter) && this.checkAllDataTypes(tool) && this.checkAllRoles(tool);
     }
-    return centerName === sortCenter && this.checkAllDataTypes(tool) && this.checkAllRoles(tool) &&
+    return centersName.includes(sortCenter) && this.checkAllDataTypes(tool) && this.checkAllRoles(tool) &&
     this.checkAllFeatures(tool);
   }
 
@@ -147,7 +147,7 @@ export class AppsView extends Component {
     const isCompBio = workflowCategory === 'compBio';
     // http://stackoverflow.com/questions/15125920/how-to-get-distinct-values-from-an-array-of-objects-in-javascript
     // ES6 get unique elements
-    const centers = ['All', ...new Set(this.props.tools.map(tool => tool.center.name))].sort();
+    const centers = ['All', ...new Set(this.props.tools.map(tool => tool.centers[0].name))].sort();
     const tools = this.props.tools.filter(this.filterTools);
     return (
       <div className={styles.wrapper}>

@@ -10,7 +10,7 @@ const model = lincsBookshelf.Model.extend({
     return this.hasMany('Dataset');
   },
   tools() {
-    return this.hasMany('Tool');
+    return this.belongsToMany('Tool', 'center_tools');
   },
 });
 

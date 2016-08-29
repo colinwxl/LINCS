@@ -17,7 +17,7 @@ router.get('/tools', async (ctx) => {
   try {
     const tools = await Tools
       .query(qb => qb.select().orderBy('order', 'asc'))
-      .fetch({ withRelated: ['center'] });
+      .fetch({ withRelated: ['centers'] });
     ctx.body = tools.toJSON({ omitPivot: true });
   } catch (e) {
     debug(e);

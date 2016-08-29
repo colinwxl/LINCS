@@ -4,6 +4,11 @@ import styles from './Tool.scss';
 
 export default function Tool(props) {
   const { tool } = props;
+  const creatorList = tool.centers.map((center, idx) =>
+    <li key={idx}>
+      <a href={center.website} target="_blank">{center.name}</a>
+    </li>
+  );
   return (
     <div className={styles.tool}>
       <div className={styles['tool-inner']}>
@@ -21,9 +26,9 @@ export default function Tool(props) {
           <a href={tool.url} className={styles['tool-title']} target="_blank">
             {tool.name}
           </a>
-          <p className={styles['tool-creator']}>
-            <a href={tool.center.website} target="_blank">{tool.center.name}</a>
-          </p>
+          <ul className={styles['tool-creator']}>
+            {creatorList}
+          </ul>
           <div className={styles['tool-description']}>
             {tool.description}
           </div>
