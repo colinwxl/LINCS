@@ -78,7 +78,7 @@ $img-width: 9rem;
 }
 
 .tool-details {
-  max-height: 8rem;
+  max-height: 9rem;
   overflow: hidden;
   padding: .5rem .75rem 0;
 }
@@ -90,13 +90,14 @@ $title-line-height: 1.5rem;
   display: inline-block;
   font-size: 0.9rem;
   font-weight: 600;
-  margin-top: 0.8rem;
+  margin-top: 0.6rem;
   max-height: 2rem;
-  min-height: 1.1rem;
+  min-height: 1.0rem;
   overflow: hidden;
   position: relative;
   text-decoration: none !important;
   white-space: nowrap;
+  line-height: 0.8rem;
 }
 
 .tool-creator {
@@ -108,17 +109,22 @@ $title-line-height: 1.5rem;
   white-space: nowrap;
   text-decoration: none !important;
   width: 10rem;
+  // line-height: 1rem;
 }
 
 $desc-line-height: 1.125rem; // 18px
 
 .tool-description {
   display: inline-block;
-  font-size: .8rem; // ~13px
+  font-size: .75rem; // ~13px
   max-height: $desc-line-height * 3;
   min-height: 1.25rem;
   position: relative;
   word-wrap: break-word;
+}
+
+.tool-multi-center {
+  line-height: 1.1rem !important;
 }
 
 .tool-ranking {
