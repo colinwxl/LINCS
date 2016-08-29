@@ -62,8 +62,8 @@ export default class Footer extends Component {
               <ul>
                 <li><a href={`${centersRoute}/overview`}>Overview</a></li>
                 <li><a href={`${centersRoute}/dcic`}>BD2K-LINCS DCIC</a></li>
-                <li><a href={`${dsgcRoute}/hms-lincs`}>HMS LINCS</a></li>
                 <li><a href={`${dsgcRoute}/dtoxs`}>DToxS</a></li>
+                <li><a href={`${dsgcRoute}/hms-lincs`}>HMS LINCS</a></li>
                 <li><a href={`${dsgcRoute}/lincs-pccse`}>LINCS Proteomics</a></li>
                 <li><a href={`${dsgcRoute}/lincs-transcriptomics`}>LINCS Transcriptomics</a></li>
                 <li><a href={`${dsgcRoute}/mep-lincs`}>MEP LINCS</a></li>
