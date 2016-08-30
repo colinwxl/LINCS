@@ -15,6 +15,7 @@
 
     &:hover {
       color: $brand-primary;
+      text-decoration: none;
     }
   }
 }
@@ -22,7 +23,7 @@
 .cat {
   background-color: $gray;
   border-radius: .25rem;
-  color: $white;
+  color: $white !important;
   cursor: pointer;
   display: inline-block;
   font-size: 75%;

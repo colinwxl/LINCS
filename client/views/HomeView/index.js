@@ -97,6 +97,7 @@ export class HomeView extends Component {
                     {
                       pubs && pubs.map(p =>
                         <Publication
+                          redirect
                           key={p.id}
                           pub={p}
                           categories={Object.keys(categories)}
