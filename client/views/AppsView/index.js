@@ -111,10 +111,14 @@ export class AppsView extends Component {
              this.checkAllDataTypes(tool) &&
              this.checkAllFeatures(tool);
     } else if (sortFeature === 'All') {
-      return centersName.includes(sortCenter) && this.checkAllDataTypes(tool) && this.checkAllRoles(tool);
+      return centersName.includes(sortCenter) &&
+             this.checkAllDataTypes(tool) &&
+             this.checkAllRoles(tool);
     }
-    return centersName.includes(sortCenter) && this.checkAllDataTypes(tool) && this.checkAllRoles(tool) &&
-    this.checkAllFeatures(tool);
+    return centersName.includes(sortCenter) &&
+           this.checkAllDataTypes(tool) &&
+           this.checkAllRoles(tool) &&
+           this.checkAllFeatures(tool);
   }
 
   handleExpClicked = () => { this.setState({ workflowCategory: 'exp' }); }

@@ -229,6 +229,7 @@ export default {
     review: { type: 'bool', nullable: false, defaultTo: false },
     created_at: { type: 'dateTime', nullable: false },
     updated_at: { type: 'dateTime', nullable: true },
+    center_pub: { type: 'integer', nullable: false },
   },
   centers_tools: {
     id: { type: 'increments', nullable: false, primary: true },

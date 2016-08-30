@@ -30,11 +30,17 @@ export class PublicationsView extends Component {
 
   constructor(props) {
     super(props);
+    this.homePageInitialCat = props.location.state;
     this.initialState = {
       categories: initialCategories,
       sortOrder: 'descending',
+      pubSource: 'all',
     };
-    this.state = this.initialState;
+    const mergedCategories = this.falseAllCategoriesExcept(
+      initialCategories,
+      this.homePageInitialCat
+    );
+    this.state = { ...this.initialState, categories: mergedCategories };
   }
 
   componentWillMount() {
@@ -47,7 +53,22 @@ export class PublicationsView extends Component {
     // This prevents the publications from swapping everytime you click 'Select All'
     return !this.props.publications.length
       || !isEqual(this.state.categories, nextState.categories)
-      || this.state.sortOrder !== nextState.sortOrder;
+      || this.state.sortOrder !== nextState.sortOrder
+      || this.state.pubSource !== nextState.pubSource;
+  }
+
+  // Used when clicking a publication category from Home View.
+  // Makes all values of initialCategories false except the one clicked
+  // from Home View.
+  falseAllCategoriesExcept(initCategories, passedCategory) {
+    if (!passedCategory) return initCategories;
+    const initCatDup = Object.assign({}, initCategories);
+    Object.keys(initCatDup).forEach((key) => {
+      if (key !== Object.keys(passedCategory)[0]) {
+        initCatDup[key] = false;
+      }
+    });
+    return initCatDup;
   }
 
   // Check if category is wanted (this.state.categories[category] is true) and that
@@ -63,6 +84,17 @@ export class PublicationsView extends Component {
     }
     return false;
   };
+
+  filterSources = (p) => {
+    const currStateSource = this.state.pubSource;
+    const currPubSource = p.centerPub;
+    if (currStateSource === 'all' ||
+        currStateSource === 'center' && !!currPubSource ||
+        currStateSource === 'community' && !currPubSource) {
+      return true;
+    }
+    return false;
+  }
 
   sortPublications = (a, b) => {
     let result = a.yearPublished > b.yearPublished;
@@ -80,6 +112,10 @@ export class PublicationsView extends Component {
 
   handleSortOrderChanged = (event) => {
     this.setState({ sortOrder: event.target.value });
+  }
+
+  handleSourceChanged = (event) => {
+    this.setState({ pubSource: event.target.value });
   }
 
   handleCategoryChecked = (name, checked) => {
@@ -109,13 +145,19 @@ export class PublicationsView extends Component {
     .replace(/^./, (str) => str.toUpperCase());
 
   selectAll = () => {
+    this.setState({ ...this.state, categories: initialCategories });
+  }
+
+  resetAllFields = () => {
     this.setState(this.initialState);
   }
 
   render() {
     const { categories } = this.state;
     let publications = this.props.publications;
-    publications = publications.sort(this.sortPublications).filter(this.filterCategories);
+    publications = publications.sort(this.sortPublications)
+                               .filter(this.filterCategories)
+                               .filter(this.filterSources);
     return (
       <div className={styles.wrapper}>
         <PageBanner
@@ -127,7 +169,7 @@ export class PublicationsView extends Component {
             <div className={`col-md-3 col-md-push-9 ${styles.filter}`}>
               <h5 className="text-xs-center">Filter Publications</h5>
               <div className="form-group">
-                <label className={styles.label} htmlFor="sort-order">Sort Order</label>
+                <label className={styles.label} htmlFor="sort-order">Sort By Year</label>
                 <select
                   id="sort-order"
                   className="form-control"
@@ -138,6 +180,21 @@ export class PublicationsView extends Component {
                   <option value="ascending">Ascending</option>
                 </select>
               </div>
+              {/* ---------------------Source-------------------- */}
+              <div className="form-group">
+                <label className={styles.label} htmlFor="pub-source">Source</label>
+                <select
+                  id="pub-source"
+                  className="form-control"
+                  onChange={this.handleSourceChanged}
+                  value={this.state.pubSource}
+                >
+                  <option value="all">All</option>
+                  <option value="center">Center</option>
+                  <option value="community">Community</option>
+                </select>
+              </div>
+              {/* ------------------------------------------------- */}
               <div className="form-group">
                 <label className={styles.label} htmlFor="">Categories</label>
                 {Object.keys(categories).map((category, i) =>
@@ -155,12 +212,19 @@ export class PublicationsView extends Component {
                 >
                   Select All
                 </button>
+                <button
+                  className={`btn btn-secondary ${styles['select-all-btn']}`}
+                  onClick={this.resetAllFields}
+                >
+                  Reset All
+                </button>
               </div>
             </div>
             <div className="col-md-9 col-md-pull-3">
               {
                 publications.map(p =>
                   <Publication
+                    redirect={false}
                     key={p.id}
                     pub={p}
                     categories={Object.keys(categories)}
@@ -181,6 +245,7 @@ export class PublicationsView extends Component {
 }
 
 PublicationsView.propTypes = {
+  location: PropTypes.object,
   loadPublications: PropTypes.func,
   publications: PropTypes.array,
   isFetchingPubs: PropTypes.bool,

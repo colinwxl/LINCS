@@ -45,11 +45,12 @@ export default function Overview(/* props */) {
             </p>
             <p>
               The L1000 data-levels definitions can be found
-              at: <a href="http://www.lincscloud.org/l1000/">http://www.lincscloud.org/l1000/</a>.
+              <a href="http://support.lincscloud.org/hc/en-us/articles/202055903-L1000-Data"> here
+              </a>.
             </p>
             <p>
               The TCGA data-level definitions can be found
-              at: <a href="https://tcga-data.nci.nih.gov/tcga/tcgaDataType.jsp">https://tcga-data.nci.nih.gov/tcga/tcgaDataType.jsp</a>
+              <a href="https://tcga-data.nci.nih.gov/tcga/tcgaDataType.jsp"> here</a>.
             </p>
           </div>
         </div>
