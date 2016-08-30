@@ -149,7 +149,6 @@ export default {
   tools: {
     id: { type: 'increments', nullable: false, primary: true },
     name: { type: 'string', maxlength: 255, nullable: false },
-    // center_id: { type: 'integer', nullable: false, unsigned: true, references: 'centers.id' },
     description: { type: 'text', maxlength: 16777215, fieldtype: 'medium', nullable: true },
     url: { type: 'string', maxlength: 255, nullable: true, unique: true },
     icon_url: { type: 'string', maxlength: 255, nullable: true },
