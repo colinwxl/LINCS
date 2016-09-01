@@ -177,6 +177,20 @@ export class PublicationsView extends Component {
           <div className="row">
             <div className={`col-md-3 col-md-push-9 ${styles.filter}`}>
               <h5 className="text-xs-center">Filter Publications</h5>
+              {/* ---------------------Source-------------------- */}
+              <div className="form-group">
+                <div className={`${styles['source-toggle']}`}>
+                  <label className={`${styles.label} ${styles.toggleLabel}`}>LINCS-Funded</label>
+                  <Toggle
+                    handleSourceChanged={this.handleSourceChanged}
+                    leftColor={"#e74c3c"}
+                    rightColor={"#0275d8"}
+                    borderMatch
+                  />
+                  <label className={`${styles.label} ${styles.toggleLabel}`}>Community</label>
+                </div>
+              </div>
+              {/* ----------------Sort Order----------------- */}
               <div className="form-group">
                 <label className={styles.label} htmlFor="sort-order">
                   Sort By Publication Year
@@ -191,20 +205,7 @@ export class PublicationsView extends Component {
                   <option value="ascending">Ascending</option>
                 </select>
               </div>
-              {/* ---------------------Source-------------------- */}
-              <div className="form-group">
-                <div className={`${styles['source-toggle']}`}>
-                  <label className={`${styles.label} ${styles.toggleLabel}`}>LINCS-Funded</label>
-                  <Toggle
-                    handleSourceChanged={this.handleSourceChanged}
-                    leftColor={"#e74c3c"}
-                    rightColor={"#0275d8"}
-                    borderMatch
-                  />
-                  <label className={`${styles.label} ${styles.toggleLabel}`}>Community</label>
-                </div>
-              </div>
-              {/* ------------------------------------------------- */}
+              {/* ------------------Categories-------------------- */}
               <div className="form-group">
                 <label className={styles.label} htmlFor="">Categories</label>
                 {Object.keys(categories).map((category, i) =>
