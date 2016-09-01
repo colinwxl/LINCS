@@ -28,7 +28,9 @@ export const initialCategories = {
 };
 
 export class PublicationsView extends Component {
-
+  // need to consider when user clicks on category of publication from home page
+  // the source needs to be adjusted to the source of the publication
+  // this is only necessary when a featured publication is from community.
   constructor(props) {
     super(props);
     this.homePageInitialCat = props.location.state;
@@ -190,28 +192,17 @@ export class PublicationsView extends Component {
                 </select>
               </div>
               {/* ---------------------Source-------------------- */}
-              {/* <div className="form-group">
-                <label className={styles.label} htmlFor="pub-source">Source</label>
-                <select
-                  id="pub-source"
-                  className="form-control"
-                  onChange={this.handleSourceChanged}
-                  value={this.state.pubSource}
-                >
-                  <option value="all">All</option>
-                  <option value="center">Center</option>
-                  <option value="community">Community</option>
-                </select>
-              </div> */}
               <div className="form-group">
-                <label className={`${styles.label} ${styles.toggleLabel}`}>LINCS-Funded</label>
-                <Toggle
-                  handleSourceChanged={this.handleSourceChanged}
-                  leftColor={"#e74c3c"}
-                  rightColor={"#0275d8"}
-                  borderMatch
-                />
-                <label className={`${styles.label} ${styles.toggleLabel}`}>Community</label>
+                <div className={`${styles['source-toggle']}`}>
+                  <label className={`${styles.label} ${styles.toggleLabel}`}>LINCS-Funded</label>
+                  <Toggle
+                    handleSourceChanged={this.handleSourceChanged}
+                    leftColor={"#e74c3c"}
+                    rightColor={"#0275d8"}
+                    borderMatch
+                  />
+                  <label className={`${styles.label} ${styles.toggleLabel}`}>Community</label>
+                </div>
               </div>
               {/* ------------------------------------------------- */}
               <div className="form-group">
