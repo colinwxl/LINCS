@@ -5,7 +5,7 @@ import styles from '../NewsView.scss';
 import summerInterns2016 from './images/dcic_ismms_summer-1.jpg';
 
 
-export default function Story20160616() {
+export default function Story20160812() {
   return (
     <Story
       title="BD2K-LINCS DCIC Summer Research Training Program in Biomedical Big Data Science"
