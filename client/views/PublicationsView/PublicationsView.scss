@@ -18,3 +18,15 @@
   margin-bottom: 2rem;
   width: 100%;
 }
+
+.toggleLabel {
+  width: auto;
+  display: inline-block;
+  overflow: hidden;
+  transition: all .3s ease-in-out;
+  margin: auto 0.25rem 0 0.25rem;
+
+  @media (min-width: 767px) and (max-width: 1200px) {
+    display: block;
+  }
+}

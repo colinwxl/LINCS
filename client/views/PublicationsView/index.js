@@ -7,6 +7,7 @@ import styles from './PublicationsView.scss';
 import PageBanner from 'components/PageBanner';
 import Publication from 'containers/Publication';
 import PubCheckBox from './PubCheckBox';
+import Toggle from 'components/Toggle';
 import { loadPublications } from 'actions/pubsNews';
 
 const mapStateToProps = (state) => ({
@@ -34,7 +35,7 @@ export class PublicationsView extends Component {
     this.initialState = {
       categories: initialCategories,
       sortOrder: 'descending',
-      pubSource: 'all',
+      pubSource: 'centerPub',
     };
     const mergedCategories = this.falseAllCategoriesExcept(
       initialCategories,
@@ -88,8 +89,8 @@ export class PublicationsView extends Component {
   filterSources = (p) => {
     const currStateSource = this.state.pubSource;
     const currPubSource = p.centerPub;
-    if (currStateSource === 'all' ||
-        currStateSource === 'center' && !!currPubSource ||
+    if (
+        currStateSource === 'centerPub' && !!currPubSource ||
         currStateSource === 'community' && !currPubSource) {
       return true;
     }
@@ -114,8 +115,14 @@ export class PublicationsView extends Component {
     this.setState({ sortOrder: event.target.value });
   }
 
-  handleSourceChanged = (event) => {
-    this.setState({ pubSource: event.target.value });
+  // handleSourceChanged = (event) => {
+  //   this.setState({ pubSource: event.target.value });
+  // }
+
+  handleSourceChanged = () => {
+    const otherSource = this.state.pubSource === 'centerPub' ?
+    'community' : 'centerPub';
+    this.setState({ pubSource: otherSource });
   }
 
   handleCategoryChecked = (name, checked) => {
@@ -162,14 +169,16 @@ export class PublicationsView extends Component {
       <div className={styles.wrapper}>
         <PageBanner
           title="LINCS Publications"
-          subTitle="Discover and cite publications from members of the LINCS Consortium"
+          subTitle="Discover and cite publications from the LINCS Consortium and community"
         />
         <div className="container">
           <div className="row">
             <div className={`col-md-3 col-md-push-9 ${styles.filter}`}>
               <h5 className="text-xs-center">Filter Publications</h5>
               <div className="form-group">
-                <label className={styles.label} htmlFor="sort-order">Sort By Year</label>
+                <label className={styles.label} htmlFor="sort-order">
+                  Sort By Publication Year
+                </label>
                 <select
                   id="sort-order"
                   className="form-control"
@@ -181,7 +190,7 @@ export class PublicationsView extends Component {
                 </select>
               </div>
               {/* ---------------------Source-------------------- */}
-              <div className="form-group">
+              {/* <div className="form-group">
                 <label className={styles.label} htmlFor="pub-source">Source</label>
                 <select
                   id="pub-source"
@@ -193,6 +202,16 @@ export class PublicationsView extends Component {
                   <option value="center">Center</option>
                   <option value="community">Community</option>
                 </select>
+              </div> */}
+              <div className="form-group">
+                <label className={`${styles.label} ${styles.toggleLabel}`}>LINCS-Funded</label>
+                <Toggle
+                  handleSourceChanged={this.handleSourceChanged}
+                  leftColor={"#e74c3c"}
+                  rightColor={"#0275d8"}
+                  borderMatch
+                />
+                <label className={`${styles.label} ${styles.toggleLabel}`}>Community</label>
               </div>
               {/* ------------------------------------------------- */}
               <div className="form-group">
