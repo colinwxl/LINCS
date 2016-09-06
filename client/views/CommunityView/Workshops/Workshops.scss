@@ -11,8 +11,7 @@
   }
 }
 
-.workshop,
-.symposium {
+.workshop {
   border-bottom: 1px solid $gray;
   margin-bottom: 2rem;
   padding-bottom: 2rem;
@@ -30,13 +29,6 @@
   }
 
   .workshop:last-child {
-    border-bottom: 0;
-  }
-}
-
-.symposia {
-
-  .symposium:last-child {
     border-bottom: 0;
   }
 }

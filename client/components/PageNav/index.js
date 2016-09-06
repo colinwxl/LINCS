@@ -74,8 +74,13 @@ export default class PageNav extends Component {
         children: [],
       },
       {
-        title: 'Workshops and Symposia',
-        route: `${communityRoute}/workshops-and-symposia`,
+        title: 'Workshops',
+        route: `${communityRoute}/workshops`,
+        children: [],
+      },
+      {
+        title: 'Symposia',
+        route: `${communityRoute}/symposia`,
         children: [],
       },
     ];

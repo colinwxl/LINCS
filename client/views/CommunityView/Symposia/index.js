@@ -1,74 +1,32 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
-// import { Link } from 'react-router';
 
 import formatDate from 'utils/formatDate';
-import { fetchWorkshops, fetchSymposia } from 'actions/community';
+import { fetchSymposia } from 'actions/community';
 import PageBanner from 'components/PageBanner';
 import PageNav from 'components/PageNav';
-import styles from './WorkshopsAndSymposia.scss';
+import styles from './Symposia.scss';
 
 const mapStateToProps = (state) => ({
-  workshops: state.community.workshops,
   symposia: state.community.symposia,
 });
-export class WorkshopsAndSymposia extends Component {
+export class Symposia extends Component {
   componentWillMount() {
-    this.props.fetchWorkshops();
     this.props.fetchSymposia();
   }
 
   render() {
-    const { workshops, symposia } = this.props;
+    const { symposia } = this.props;
     return (
       <div className={styles.wrapper}>
         <PageBanner
-          title="Workshops &&nbsp;Symposia"
+          title="Symposia"
           subTitle="Members of the Consortium present LINCS-related topics at scientific meetings"
         />
         <div className="container">
           <div className="row">
-            <PageNav isCommunityPage mainPage="Workshops and Symposia" />
+            <PageNav isCommunityPage mainPage="Symposia" />
             <div className="col-md-9 col-md-pull-3">
-              <div className={styles.workshops}>
-                <h2>Workshops</h2>
-                {workshops.length === 0 && <p>No workshops available</p>}
-                {
-                  workshops.map((workshop, index) => {
-                    const links = workshop.keyLinks;
-                    const startDate = formatDate(new Date(workshop.startDate));
-                    let endDate;
-                    if (workshop.endDate) {
-                      endDate = formatDate(new Date(workshop.endDate));
-                    }
-                    return (
-                      <div key={`workshop ${index}`} className={styles.workshop}>
-                        <div className={styles.header}>
-                          <h5>{workshop.title}</h5>
-                          {
-                            !!endDate
-                              ? <p><em>{startDate} to {endDate}</em></p>
-                                : <p><em>{startDate}</em></p>
-                          }
-                          <p><em>{workshop.location}</em></p>
-                        </div>
-                        <p>{workshop.description}</p>
-                        {
-                          !!links && !!Object.keys(links).length &&
-                            <p><strong>Links</strong></p>
-                        }
-                        <ul>
-                          {
-                            !!links && Object.keys(links).map((linkTitle, i) =>
-                              <li key={i}><a href={links[linkTitle]}>{linkTitle}</a></li>
-                            )
-                          }
-                        </ul>
-                      </div>
-                    );
-                  })
-                }
-              </div>
               <div className={styles.symposia}>
                 <h2>Symposia</h2>
                 {symposia.length === 0 && <p>No symposia available</p>}
@@ -116,14 +74,11 @@ export class WorkshopsAndSymposia extends Component {
   }
 }
 
-WorkshopsAndSymposia.propTypes = {
-  workshops: PropTypes.array.isRequired,
+Symposia.propTypes = {
   symposia: PropTypes.array.isRequired,
-  fetchWorkshops: PropTypes.func.isRequired,
   fetchSymposia: PropTypes.func.isRequired,
 };
 
 export default connect(mapStateToProps, {
-  fetchWorkshops,
   fetchSymposia,
-})(WorkshopsAndSymposia);
+})(Symposia);
