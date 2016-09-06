@@ -3,7 +3,7 @@ import { Link } from 'react-router';
 
 import PageBanner from 'components/PageBanner';
 import PageNav from 'components/PageNav';
-import InteractiveMap from 'components/InteractiveMap';
+import Map from 'components/InteractiveMap/Map';
 import styles from './Overview.scss';
 import centersMapImg from './centers-map.png';
 
@@ -29,7 +29,7 @@ export default function Overview() {
               the completion of pilot phase I in fiscal year 2013.
             </p>
             <div style={{ width: '100%' }}>
-              <InteractiveMap />
+              <Map />
             </div>
             <h2>LINCS Production Phase II</h2>
             <h5>LINCS Data and Signature Generation Centers</h5>

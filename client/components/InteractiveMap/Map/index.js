@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Datamaps from 'datamaps';
 
-import styles from './InteractiveMap.scss';
+import styles from './Map.scss';
 import dataset from './dataset';
 
 export default class InteractiveMap extends Component {
