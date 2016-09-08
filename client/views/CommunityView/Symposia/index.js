@@ -28,7 +28,6 @@ export class Symposia extends Component {
             <PageNav isCommunityPage mainPage="Symposia" />
             <div className="col-md-9 col-md-pull-3">
               <div className={styles.symposia}>
-                <h2>Symposia</h2>
                 {symposia.length === 0 && <p>No symposia available</p>}
                 {
                   symposia.map((sym, index) => {

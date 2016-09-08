@@ -28,7 +28,6 @@ export class Workshops extends Component {
             <PageNav isCommunityPage mainPage="Workshops" />
             <div className="col-md-9 col-md-pull-3">
               <div className={styles.workshops}>
-                <h2>Workshops</h2>
                 {workshops.length === 0 && <p>No workshops available</p>}
                 {
                   workshops.map((workshop, index) => {
