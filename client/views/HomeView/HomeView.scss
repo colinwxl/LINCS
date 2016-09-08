@@ -1,7 +1,5 @@
 @import 'variables';
 
-$font-white: #f1f1f1;
-
 @keyframes from-bottom {
   0% { opacity: 0; transform: translate3d(0, 10px, 0); }
   75% { opacity: 0; transform: translate3d(0, 10px, 0); }
@@ -38,7 +36,7 @@ $font-white: #f1f1f1;
 $text-shadow-color: #051933;
 
 .lead {
-  color: $font-white;
+  color: $lighter-white;
   font-size: 1.2rem;
   font-weight: 400;
   margin-bottom: 2rem;
@@ -59,15 +57,19 @@ $btn-width: 16.25rem;
 
 .btn-discover,
 .btn-td {
+
   background-color: $brand-primary;
-  border-color: $font-white;
-  color: $font-white;
+  border-color: $lighter-white;
+  color: $lighter-white;
   font-size: 1.25rem;
   font-weight: 500;
   padding: 1rem 2rem;
   width: 100%;
+  &:visited {
+    color: $white;
+  }
   &:hover {
-    background-color: $font-white;
+    background-color: $lighter-white;
     color: $off-black;
   }
 
@@ -202,8 +204,8 @@ $about-background: $purple;
 
   &:hover,
   &:focus {
-    background-color: $brand-primary;
-    border-color: darken($brand-primary, 5);
+    background-color: $white;
+    border-color: darken($white, 5);
     color: $white;
   }
 }
