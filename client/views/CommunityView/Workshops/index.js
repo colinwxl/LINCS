@@ -21,7 +21,7 @@ export class Workshops extends Component {
       <div className={styles.wrapper}>
         <PageBanner
           title="Workshops"
-          subTitle="The Consortium holds many workshops for LINCS-related opportunities"
+          subTitle="Members of the Consortium conduct LINCS-related workshops"
         />
         <div className="container">
           <div className="row">

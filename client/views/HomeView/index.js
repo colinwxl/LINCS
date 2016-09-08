@@ -12,7 +12,7 @@ import { initialCategories as categories } from '../PublicationsView';
 import styles from './HomeView.scss';
 
 // Images
-import bannerImg from './backgroundps1.png';
+import bannerImg from './background.png';
 import cubeImg from './cube.png';
 
 const mapStateToProps = (state) => ({

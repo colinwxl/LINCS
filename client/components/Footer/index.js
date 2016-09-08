@@ -100,9 +100,8 @@ export default class Footer extends Component {
               <ul>
                 <li><a href={`${base}/news`}>News</a></li>
                 <li><a href={`${commRoute}/webinars`}>Webinars</a></li>
-                <li>
-                  <a href={`${commRoute}/workshops-and-symposia`}>Workshops &amp; Symposia</a>
-                </li>
+                <li><a href={`${commRoute}/workshops`}>Workshops</a></li>
+                <li><a href={`${commRoute}/symposia`}>Symposia</a></li>
               </ul>
             </FooterDropDown>
             <div className={`col-xs-12 col-md-3 ${styles.contact}`}>

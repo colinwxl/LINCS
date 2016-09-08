@@ -1,28 +1,23 @@
 @import 'variables';
 
+$font-white: #f1f1f1;
+
 @keyframes from-bottom {
   0% { opacity: 0; transform: translate3d(0, 10px, 0); }
   75% { opacity: 0; transform: translate3d(0, 10px, 0); }
   100% { opacity: 1; transform: translate3d(0, 0, 0); }
 }
 
-// .wrapper {
-// }
-
 .banner {
   background-position: 0 2.2rem;
   background-repeat: no-repeat;
-  // height: 31rem;
   background-size: cover;
   padding: 4rem .9375rem 3rem .9375rem;
   position: relative;
   text-align: center;
 
   img {
-    width: 80%;
-    @media (min-width: 600px) {
-      width: 540px;
-    }
+    width: 240px;
   }
 
 }
@@ -43,7 +38,7 @@
 $text-shadow-color: #051933;
 
 .lead {
-  color: $yellow;
+  color: $font-white;
   font-size: 1.2rem;
   font-weight: 400;
   margin-bottom: 2rem;
@@ -65,14 +60,14 @@ $btn-width: 16.25rem;
 .btn-discover,
 .btn-td {
   background-color: $brand-primary;
-  border-color: $yellow;
-  color: $yellow;
+  border-color: $font-white;
+  color: $font-white;
   font-size: 1.25rem;
   font-weight: 500;
   padding: 1rem 2rem;
   width: 100%;
   &:hover {
-    background-color: $yellow;
+    background-color: $font-white;
     color: $off-black;
   }
 
@@ -97,23 +92,6 @@ $btn-width: 16.25rem;
 .center {
   text-align: center;
   width: 100%;
-}
-
-.btn-lincs {
-  border-color: $brand-primary;
-  color: $brand-primary;
-  margin-bottom: 1rem;
-  margin-top: .5rem;
-
-  @media (max-width: 544px) {
-    width: 100%;
-  }
-
-  &:hover {
-    background-color: $brand-primary;
-    border-color: $brand-primary;
-    color: $white;
-  }
 }
 
 .content {
