@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router';
 import styles from './PageHasBeenMoved.scss';
 
 export default function PageHasBeenMoved() {
@@ -9,7 +8,8 @@ export default function PageHasBeenMoved() {
       <p>You can find the new LINCS Data Portal site&nbsp;
         <a
           href="http://dev3.ccs.miami.edu:8080/datasets-beta/"
-          target="_blank">
+          target="_blank"
+        >
           here
         </a>.
       </p>
