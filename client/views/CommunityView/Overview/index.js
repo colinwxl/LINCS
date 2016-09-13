@@ -123,11 +123,10 @@ export default class Overview extends Component {
                     statistical mining.
                   </p>
                   <ul>
-                    <li>Program Dates: June 6 – August 12, 2016</li>
                     <li>
 
-                      <a href="http://lincs-dcic.org/static/dcic_summer_program.pdf">
-                        2016 Program Poster
+                      <a href="http://lincs-dcic.org/#/summer-fellows-2016" target="_blank">
+                        2016 BD2K-LINCS DCIC Summer Fellows and Research Projects
                       </a>
 
                     </li>
