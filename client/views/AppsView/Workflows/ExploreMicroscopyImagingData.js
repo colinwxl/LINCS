@@ -24,7 +24,7 @@ export default class Workflow extends Component {
             <div className={`col-xl-9 ${styles.workflow} ${styles['sm-mechanism-workflow']}`}>
               <p>
                 <strong>
-                  Three LINCS data generation centers: HMS-LINCS, MEP-LINCS, and NeuroLINCS
+                  Three LINCS data generation centers: HMS LINCS, MEP LINCS, and NeuroLINCS
                   collect microscopy imaging data:
                 </strong>
               </p>
@@ -35,7 +35,7 @@ export default class Workflow extends Component {
                   viability, cell proliferation, and the abundance and activity of key proteins.
                   These imaging datasets, including raw and processed image data as well as
                   derived numerical data, are available through the&nbsp;
-                  <a href="http://lincs.hms.harvard.edu/db" target="_blank">HMS-LINCS Database</a>
+                  <a href="http://lincs.hms.harvard.edu/db" target="_blank">HMS LINCS Database</a>
                   &nbsp;and the associated&nbsp;
                   <a href="https://lincs-omero.hms.harvard.edu/webclient/userdata/?experimenter=-1" target="_blank">
                     HMS LINCS OMERO
@@ -53,7 +53,7 @@ export default class Workflow extends Component {
               </div>
               <div className={styles.section}>
                 <p>
-                  <strong>The <a href="https://www.synapse.org/#!Synapse:syn2862345/wiki/72486" target="_blank">MEP-LINCS</a> center, and in particular the <a href="http://www.ohsu.edu/xd/education/schools/school-of-medicine/departments/basic-science-departments/biomedical-engineering/bme-labs/gray-lab/" target="_blank">Gray Lab</a>
+                  <strong>The <a href="https://www.synapse.org/#!Synapse:syn2862345/wiki/72486" target="_blank">MEP LINCS</a> center, and in particular the <a href="http://www.ohsu.edu/xd/education/schools/school-of-medicine/departments/basic-science-departments/biomedical-engineering/bme-labs/gray-lab/" target="_blank">Gray Lab</a>
                   </strong>, collects images of cancer cell lines growing in different
                   micro-environments and treated with different endogenous extracellular ligands.
                   The cells are visualized with advanced microscopy that provides layered
