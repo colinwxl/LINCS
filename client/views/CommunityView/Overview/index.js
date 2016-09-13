@@ -241,10 +241,6 @@ export default class Overview extends Component {
                 LINCS-related talks and presentations.
               </p>
 
-              <p>
-                <a href="http://www.lincscloud.org/training/">LINCSCLOUD Training</a>: Learn about LINCSCLOUD resources
-              </p>
-
               <h2>Social Media</h2>
 
               <div className={styles.social}>
