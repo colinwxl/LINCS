@@ -30,16 +30,14 @@ export default class Workflow extends Component {
               </p>
               <div className={styles.section}>
                 <p>
-                  The <strong><a href="http://lincs.hms.harvard.edu" target="_blank">HMS-LINCS
-                  </a> center </strong>collect various types of imaging data such as florescence
-                  imaging of cell viability and proliferation through apototic and mitotic
-                  markers. HMS-LINCS, additionally, monitors the activity of key protein kinases
-                   using florescence microscopy and some of those experiments are conducted in
-                  live cells. The best place to obtain access to these datasets is through the
-                  <a href="http://lincs.hms.harvard.edu/db" target="_blank"> HMS-LINCS Database</a>.
-                  Collected images are made available through the <a href="https://lincs-omero.hms.harvard.edu/webclient/userdata/?experimenter=-1" target="_blank">
-                  OMERO </a> web-client. See for example this link and image below: <br />
-                  <a href="https://lincs-omero.hms.harvard.edu/webclient/img_detail/317001/" target="_blank">https://lincs-omero.hms.harvard.edu/webclient/img_detail/317001/ </a>
+                  The <strong><a href="http://lincs.hms.harvard.edu" target="_blank">HMS LINCS Center</a></strong> collects
+                  various types of fixed- and live-cell fluorescence imaging data to assess cell viability,
+                  cell proliferation, and the abundance and activity of key proteins. These imaging datasets,
+                  including raw and processed image data as well as derived numerical data, are available through
+                  the <a href="http://lincs.hms.harvard.edu/db" target="_blank"> HMS-LINCS Database</a> and the
+                  associated <a href="https://lincs-omero.hms.harvard.edu/webclient/userdata/?experimenter=-1" target="_blank">
+                  HMS LINCS OMERO</a> server. An <a href="https://lincs-omero.hms.harvard.edu/webclient/img_detail/1375309/"
+                  target="_blank">example image</a> from the HMS LINCS OMERO server is shown below.
                 </p>
                 <div>
                   <img src={omeroScreenshot} alt="OMERO screenshot" />
