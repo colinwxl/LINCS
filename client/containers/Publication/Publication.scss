@@ -75,14 +75,15 @@
 .cat-cite {
   background-color: $brand-primary;
   color: $white;
-  cursor: pointer;
   float: right;
+  cursor: pointer;
   // Align button with publication labels.
   margin-top: 4px;
   width: 100%;
 
   &:hover {
     background-color: darken($brand-primary, 5);
+    cursor: pointer;
     // border-color: darken($brand-primary, 10);
     color: $white;
   }

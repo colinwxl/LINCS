@@ -201,6 +201,12 @@ $about-background: $purple;
   @media (max-width: 544px) {
     width: 100%;
   }
+
+  &:hover,
+  &:focus {
+    background-color: $brand-primary;
+    color: $white;
+  }
 }
 
 .btn-secondary-outline {
