@@ -41,7 +41,7 @@ export default function previousStandards(/* props */) {
                 </a>
               </li>
               <li>
-                <a href={`${d}small-molecule-standards.pdf`}>
+                <a href={`${d}small-molecules-standards.pdf`}>
                   Small molecules
                 </a>
               </li>

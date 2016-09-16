@@ -201,13 +201,6 @@ $about-background: $purple;
   @media (max-width: 544px) {
     width: 100%;
   }
-
-  &:hover,
-  &:focus {
-    background-color: $white;
-    border-color: darken($white, 5);
-    color: $white;
-  }
 }
 
 .btn-secondary-outline {

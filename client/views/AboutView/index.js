@@ -285,7 +285,7 @@ export default function AboutView() {
             <ul>
               <li>
                 New releases of data will become available every quarter, and the release
-                schedule is summarized
+                schedule is summarized&nbsp;
                 <a
                   href="http://dev3.ccs.miami.edu:8080/datasets-beta/"
                   target="_blank"
