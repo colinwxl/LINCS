@@ -99,7 +99,6 @@ export default class Workflow extends Component {
                   <img src={l1000cds2EnrichrImg} alt="L1000CDS2 & Enrichr" />
                 </div>
               </div>
-              <h4>Querying signatures with the lincscloud CLUE Query Tool</h4>
             </div>
           </div>
         </div>

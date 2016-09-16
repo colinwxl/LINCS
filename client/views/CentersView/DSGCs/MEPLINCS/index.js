@@ -5,7 +5,7 @@ import PageNav from 'components/PageNav';
 import styles from '../DSGCs.scss';
 
 const bmeLink =
-  'http://www.ohsu.edu/xd/education/schools/school-of-medicine/departments/basic-science-departments';
+  'http://www.ohsu.edu/xd/education/schools/school-of-medicine/departments/basic-science-departments/biomedical-engineering';
 
 const bmeStaffLink = `${bmeLink}/biomedical-engineering/people`;
 
@@ -84,12 +84,18 @@ export default function MEPLINCS() {
             <h2>Resources</h2>
             <ul>
               <li>
-                <a href="https://www.synapse.org/#!Synapse:syn2862345/wiki/72486">
+                <a
+                  href="https://www.synapse.org/#!Synapse:syn2862345/wiki/72486"
+                  target="_blank"
+                >
                   MEP LINCS Synapse Website
                 </a>
               </li>
               <li>
-                <a href="https://www.synapse.org/#!Synapse:syn2346643/wiki/">
+                <a
+                  href="https://www.synapse.org/#!Synapse:syn2346643/wiki/"
+                  target="_blank"
+                >
                   Breast Cancer Cell Line Panel
                 </a>
               </li>
