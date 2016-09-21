@@ -13,7 +13,6 @@ import styles from './HomeView.scss';
 
 // Images
 import bannerImg from './background.png';
-import cubeImg from './cube.png';
 
 const mapStateToProps = (state) => ({
   publications: state.pubsNews.publications,
@@ -62,7 +61,6 @@ export class HomeView extends Component {
           style={{ backgroundImage: `url(${bannerImg})` }}
         >
           <div className={`container ${styles.animated}`}>
-            <img src={cubeImg} alt="NIH LINCS Program" />
             <p className={styles.lead}>
               The Library of Network-Based Cellular Signatures (LINCS) Program aims to create a
               network-based understanding of biology by cataloging changes in gene expression

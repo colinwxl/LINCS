@@ -7,12 +7,12 @@
 }
 
 .banner {
-  background-position: 0 2.2rem;
+  // background-position: 0 0;
   background-repeat: no-repeat;
   background-size: cover;
   padding: 4rem .9375rem 3rem .9375rem;
   position: relative;
-  text-align: center;
+  // text-align: center;
 
   img {
     width: 240px;
@@ -40,8 +40,8 @@ $text-shadow-color: #051933;
   font-size: 1.2rem;
   font-weight: 400;
   margin-bottom: 2rem;
-  margin-left: auto;
-  margin-right: auto;
+  // margin-left: auto;
+  // margin-right: auto;
   text-shadow: 1px 1px 1px $text-shadow-color;
 
   @media (min-width: 768px) {
@@ -49,7 +49,8 @@ $text-shadow-color: #051933;
   }
 
   @media (min-width: 992px) {
-    width: 90%;
+    // width: 90%;
+    width: 40rem;
   }
 }
 
@@ -57,7 +58,8 @@ $btn-width: 16.25rem;
 
 .btn-discover,
 .btn-td {
-
+  
+  margin-bottom: 1rem;
   background-color: $brand-primary;
   border-color: $lighter-white;
   color: $lighter-white;
@@ -73,16 +75,15 @@ $btn-width: 16.25rem;
     color: $off-black;
   }
 
-  @media (min-width: 544px) {
+  @media (min-width: 767px) {
     width: $btn-width;
   }
 }
 
 .btn-discover {
-  margin-bottom: 1rem;
 
   @media (min-width: 600px) {
-    margin-bottom: 0;
+    // margin-bottom: 0;
     margin-right: .5rem;
   }
 

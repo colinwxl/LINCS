@@ -53,12 +53,12 @@ $brand-primary-opaque: rgba(58, 82, 120, .2);
     }
   }
 }
-
-.dd-nav {
-  @media (max-width: 768px) {
-    top: $nav-height + 1rem;
-  }
-}
+//
+// .dd-nav {
+//   @media (max-width: 768px) {
+//     top: $nav-height + 1rem;
+//   }
+// }
 
 .link {
   display: block;

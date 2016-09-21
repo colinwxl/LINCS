@@ -1,15 +1,13 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
 import { Link } from 'react-router';
 import styles from './Navigation.scss';
 import cubeImg from './cube_no-lines.png';
 
 
 export default function Navigation(props) {
-  const { atHome } = props;
-  const atHomeClass = atHome ? styles['main-nav-home'] : '';
   return (
     <header
-      className={`navbar bg-faded ${styles['main-nav']} ${atHomeClass}`}
+      className={`navbar bg-faded ${styles['main-nav']}`}
       role="banner"
     >
       <div className="container">
@@ -61,7 +59,3 @@ export default function Navigation(props) {
     </header>
   );
 }
-
-Navigation.propTypes = {
-  atHome: PropTypes.bool,
-};
