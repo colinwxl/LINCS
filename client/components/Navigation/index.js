@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import { Link } from 'react-router';
 import styles from './Navigation.scss';
 import cubeImg from './cube_no-lines.png';
 
 
 export default function Navigation(props) {
+  const { atHome } = props;
+  
   return (
     <header
       className={`navbar bg-faded ${styles['main-nav']}`}
@@ -59,3 +61,7 @@ export default function Navigation(props) {
     </header>
   );
 }
+
+Navigation.propTypes = {
+  atHome: PropTypes.bool,
+};
