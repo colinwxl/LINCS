@@ -54,18 +54,17 @@ $text-shadow-color: #051933;
   }
 }
 
-$btn-width: 16.25rem;
+$btn-width: 12rem;
 
 .btn-discover,
 .btn-td {
-  
   margin-bottom: 1rem;
   background-color: $brand-primary;
   border-color: $lighter-white;
   color: $lighter-white;
-  font-size: 1.25rem;
+  font-size: 1rem;
   font-weight: 500;
-  padding: 1rem 2rem;
+  padding: 1rem 1rem;
   width: 100%;
   &:visited {
     color: $white;
