@@ -118,7 +118,7 @@ $btn-width: 16.25rem;
 
   .dd-nav {
     @media (max-width: 768px) {
-      top: $nav-height + 1rem;
+      top: $nav-height + 7.5rem;
     }
   }
 }
@@ -135,16 +135,27 @@ $btn-width: 16.25rem;
   }
 }
 
-  .link {
-    color: $white;
+.link {
+  color: $white;
 
-    &:hover,
-    &:focus {
-      background-color: transparent;
-      color: $gray;
-      text-decoration: none;
-    }
+  &:hover,
+  &:focus {
+    background-color: transparent;
+    color: $gray;
+    text-decoration: none;
   }
+}
+
+
+.banner {
+  // background-position: 0;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 3rem .9375rem 2rem .9375rem;
+  position: relative;
+  margin: auto;
+}
+
 
 // ------------------------------------------
 // .main-nav {
