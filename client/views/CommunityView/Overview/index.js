@@ -47,53 +47,27 @@ export default class Overview extends Component {
                 courses, training seminars, challenges, workshops and symposia to foster
                 an active LINCS community.
               </p>
-
-              <h2>Crowdsourcing Challenges</h2>
-              <h5>
-                Connectivity Map Challenge
-              </h5>
-
-              <div className={styles['info-split-reverse']}>
-                <div className={`${styles.right} text-xs-center`}>
-                  <p>
-                    <img
-                      className="m-b-1"
-                      src={cmapImg}
-                      alt="cmap"
-                    />
-                  </p>
-                </div>
-                <div className={styles.left}>
-                  <p>
-                    The <strong>LINCS Center for Transcriptomics</strong>, in partnership with the
-                    Crowd Innovation Lab at Harvard Business School, launched their first
-                    challenge, “Infer the Transcriptome”. Contestants were provided with a
-                    large dataset of ~100,000 gene expression profiles on which to train an
-                    inference model. Models were scored based on their accuracy in predicting
-                    gene expression values for non-landmark genes in a separate test dataset.
-                    The contest format was a 2-week marathon featuring a continuously updated
-                    leaderboard. To determine winners, each contestant’s best model was scored
-                    on its performance on a holdout dataset. <a href="https://community.topcoder.com/longcontest/stats/?module=ViewOverview&rd=16753" target="_blank">Leaderboard</a>
-                  </p>
-                </div>
-              </div>
+              <h2>Training in Big Data Science</h2>
               <div className={styles['info-block']}>
                 <h5>
-                  BD2K-LINCS DCIC Crowdsourcing Portal
+                  Big Data Science with the BD2K-LINCS Data Coordination and Integration Center
                 </h5>
-
-                <p> As part of our educational efforts to enhance awareness of LINCS data and
-                  explain the efforts of LINCS to the general public, the DCIC developed
-                  a crowdsourcing portal that engages the research community in various
-                  micro- and megatasks. <a href="http://www.maayanlab.net/crowdsourcing/">Learn More</a>
+                <p>
+                  Mark your calendars for the upcoming session of the BD2K-LINCS Big Data Science
+                  MOOC on Coursera organized by the BD2K-LINCS DCIC that begins October 3, 2016!
+                </p>
+                <p>
+                  This course covers various methods of analysis including: unsupervised clustering,
+                  gene-set enrichment analyses, data visualization, and supervised machine learning
+                  applications to LINCS data. This course also covers basic data processing and data
+                  normalization methods to clean and harmonize LINCS data and other relevant data.
+                  <br/>
+                  <a href="https://www.coursera.org/course/bd2klincs">Enroll Now</a>
                 </p>
               </div>
-
-              <h2>Training in Big Data Science</h2>
               <h5>
                 BD2K-LINCS DCIC Summer Research Training Program in Biomedical Big Data Science
               </h5>
-
               <div className={styles['info-split-reverse']}>
                 <div className={`${styles.right} text-xs-center`}>
                   <p>
@@ -140,16 +114,45 @@ export default class Overview extends Component {
                   </ul>
                 </div>
               </div>
+
+              <h2>Crowdsourcing Challenges</h2>
+              <h5>
+                Connectivity Map Challenge
+              </h5>
+
+              <div className={styles['info-split-reverse']}>
+                <div className={`${styles.right} text-xs-center`}>
+                  <p>
+                    <img
+                      className="m-b-1"
+                      src={cmapImg}
+                      alt="cmap"
+                    />
+                  </p>
+                </div>
+                <div className={styles.left}>
+                  <p>
+                    The <strong>LINCS Center for Transcriptomics</strong>, in partnership with the
+                    Crowd Innovation Lab at Harvard Business School, launched their first
+                    challenge, “Infer the Transcriptome”. Contestants were provided with a
+                    large dataset of ~100,000 gene expression profiles on which to train an
+                    inference model. Models were scored based on their accuracy in predicting
+                    gene expression values for non-landmark genes in a separate test dataset.
+                    The contest format was a 2-week marathon featuring a continuously updated
+                    leaderboard. To determine winners, each contestant’s best model was scored
+                    on its performance on a holdout dataset. <a href="https://community.topcoder.com/longcontest/stats/?module=ViewOverview&rd=16753" target="_blank">Leaderboard</a>
+                  </p>
+                </div>
+              </div>
               <div className={styles['info-block']}>
                 <h5>
-                  Big Data Science with the BD2K-LINCS Data Coordination and Integration Center
+                  BD2K-LINCS DCIC Crowdsourcing Portal
                 </h5>
 
-                <p>
-                  This course covers various methods of analysis including: unsupervised clustering,
-                  gene-set enrichment analyses, data visualization, and supervised machine learning
-                  applications to LINCS data. This course also covers basic data processing and data
-                  normalization methods to clean and harmonize LINCS data and other relevant data. <a href="https://www.coursera.org/course/bd2klincs">Visit Course</a>
+                <p> As part of our educational efforts to enhance awareness of LINCS data and
+                  explain the efforts of LINCS to the general public, the DCIC developed
+                  a crowdsourcing portal that engages the research community in various
+                  micro- and megatasks. <a href="http://www.maayanlab.net/crowdsourcing/">Learn More</a>
                 </p>
               </div>
 

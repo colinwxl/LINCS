@@ -123,15 +123,15 @@ export class HomeView extends Component {
                 <div className="row">
                   <div className="col-xs-12 col-md-4">
                     <div className={styles.card}>
-                      <h5>LINCS Consortium Meeting</h5>
+                      <h5>BD2K-LINCS MOOC</h5>
                       <div className={styles.group}>
                         <p className={`clearfix ${styles.left}`}>
-                          Mark your calendars for the upcoming <strong>LINCS Consortium
-                          Face-to-Face Meeting</strong> that will be held
-                          on <strong>September 19-20, 2016</strong> at the NIH Campus
-                          in Bethesda, MD.
+                          Mark your calendars for the upcoming session of
+                          the BD2K-LINCS Big Data Science MOOC on Coursera
+                          organized by the BD2K-LINCS DCIC that begins
+                          October 3, 2016!
                         </p>
-                        <a href="https://twitter.com/hashtag/LINCSDATA?src=hash" target="_blank">#LINCSDATA</a>
+                        <a href="https://www.coursera.org/learn/bd2k-lincs" target="_blank">Enroll Now</a>
                       </div>
                     </div>
                   </div>
@@ -151,14 +151,19 @@ export class HomeView extends Component {
                   </div>
                   <div className="col-xs-12 col-md-4">
                     <div className={styles.card}>
-                      <h5>New Release for Data Standards</h5>
+                      <h5>LINCS Consortium Meeting</h5>
                       <div className={styles.group}>
                         <p className={`clearfix ${styles.left}`}>
-                          The Data Standards section of this website has been updated to
-                          reflect the most recent standards releases (version dated 5-13-2016)
-                          in LINCS Production Phase 2.
+                          On September 19-20, the LINCS F2F Meeting brought
+                          together the LINCS DSGCs, the BD2K-LINCS DCIC, NIH
+                          extramural staff, and external LINCS collaborators.
                         </p>
-                        <Link to="/data/standards">Read More</Link>
+                        <a
+                          href="http://www.lincsproject.org/LINCS/community/consortium-meetings"
+                          target="_blank"
+                        >
+                          Meeting Highlights
+                        </a>
                       </div>
                     </div>
                   </div>
