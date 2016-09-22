@@ -2,7 +2,6 @@ import React, { PropTypes } from 'react';
 import { Link } from 'react-router';
 import styles from './Navigation.scss';
 import bannerImg from './banner-img.jpg';
-// import cubeImg from './cube_no-lines.png';
 import logoWithLines from './logoWithLines-min.png';
 import fillerImg from './fillerImg.jpg';
 

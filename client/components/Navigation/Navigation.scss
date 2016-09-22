@@ -9,25 +9,15 @@ $btn-width: 16.25rem;
 }
 
 .main-nav {
-  background-color: $brand-primary;
   border-radius: 0;
   min-height: $nav-height;
-
-  .cubeImg {
-    width: 50px;
-    float: left;
-    margin-right: 10px;
-  }
-
   button,
   a {
-
     &:hover,
     &:focus {
       text-decoration: none;
     }
   }
-
   .toggle {
     color: $white;
   }
@@ -37,13 +27,11 @@ $btn-width: 16.25rem;
   display: block;
   padding-left: 0;
   padding-right: 0;
-
   .header, .logo {
     position: absolute;
-    z-index: 100;
+    z-index: 1;
     user-select: none;
   }
-
   .header {
     text-transform: uppercase;
     line-height: 1.5rem;
@@ -51,18 +39,14 @@ $btn-width: 16.25rem;
     font-family: serif;
     font-size: 2.0rem;
   }
-
   .logo {
     height: 107px;
   }
-
   .title {
     margin: 2rem auto auto 11.7rem;
-
     .nih {
       color: $brand-primary;
     }
-
     .program {
       margin-left: 0.8rem;
       font-size: 1rem;
@@ -70,14 +54,12 @@ $btn-width: 16.25rem;
       font-family: Lato;
     }
   }
-
   .filler {
     position: relative;
     background-repeat: repeat;
     height: 107px;
     width: 100%;
   }
-
   .sub-title {
     display: none;
     cursor: pointer;
@@ -99,7 +81,6 @@ $btn-width: 16.25rem;
   .dd-nav {
     background-color: #cc9;
     width: 100%;
-
     @media (max-width: 768px) {
       left: 0;
       margin-top: -.5rem;
@@ -107,7 +88,6 @@ $btn-width: 16.25rem;
       padding-right: 2rem;
       position: absolute;
       z-index: 1;
-
     }
     @media (max-width: 1000px) {
       img {
@@ -115,7 +95,6 @@ $btn-width: 16.25rem;
       }
     }
   }
-
   .dd-nav {
     @media (max-width: 768px) {
       top: $nav-height + 7.5rem;
@@ -127,8 +106,6 @@ $btn-width: 16.25rem;
   display: block;
   padding-bottom: .425rem;
   padding-top: .425rem;
-  // color: $white;
-
   @media (min-width: 768px) {
     float: left;
     margin-left: 1rem;
@@ -137,7 +114,6 @@ $btn-width: 16.25rem;
 
 .link {
   color: $white;
-
   &:hover,
   &:focus {
     background-color: transparent;
@@ -148,40 +124,9 @@ $btn-width: 16.25rem;
 
 
 .banner {
-  // background-position: 0;
   background-repeat: no-repeat;
   background-size: cover;
   padding: 3rem .9375rem 2rem .9375rem;
   position: relative;
   margin: auto;
 }
-
-
-// ------------------------------------------
-// .main-nav {
-//   background-color: $brand-primary;
-//   border-radius: 0;
-//   min-height: $nav-height;
-//   padding: 0;
-//
-//   .cubeImg {
-//     width: 50px;
-//     float: left;
-//     margin-right: 10px;
-//   }
-//   button,
-//   a {
-//     color: $white;
-//
-//     &:hover,
-//     &:focus {
-//       background-color: transparent;
-//       color: $gray;
-//       text-decoration: none;
-//     }
-//   }
-//
-//   .toggle {
-//     color: $white;
-//   }
-// }

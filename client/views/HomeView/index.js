@@ -12,7 +12,7 @@ import { initialCategories as categories } from '../PublicationsView';
 import styles from './HomeView.scss';
 
 // Images
-import bannerImg from './background.png';
+import bannerImg from './background-original.jpg';
 
 const mapStateToProps = (state) => ({
   publications: state.pubsNews.publications,
