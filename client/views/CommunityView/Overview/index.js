@@ -61,7 +61,7 @@ export default class Overview extends Component {
                   gene-set enrichment analyses, data visualization, and supervised machine learning
                   applications to LINCS data. This course also covers basic data processing and data
                   normalization methods to clean and harmonize LINCS data and other relevant data.
-                  <br/>
+                  <br />
                   <a href="https://www.coursera.org/course/bd2klincs">Enroll Now</a>
                 </p>
               </div>

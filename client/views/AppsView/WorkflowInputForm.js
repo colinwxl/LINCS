@@ -184,7 +184,7 @@ class WorkflowInputForm extends Component {
                 </div>
               </div>
               <div className={`row ${styles['form-row']}`}>
-                <label htmlFor="email" className="col-md-3">Email (optional)</label>
+                <label htmlFor="email" className="col-md-3">Email</label>
                 <div className="col-md-6 col-xl-7">
                   <input
                     id="email"
