@@ -44,7 +44,7 @@ export default function ConsortiumMeetings() {
               <a href="http://lincsproject.org/LINCS/files/2016-consortium-meeting.jpg">
                 <img
                   className={styles['pull-left']}
-                  style={{height:'250px'}}
+                  style={{ height: '250px' }}
                   src={meeting2016Img}
                   alt="2016 Consortium Meeting"
                 />
@@ -82,7 +82,8 @@ export default function ConsortiumMeetings() {
                         <li>
                           <h6><strong>Integrative Omics and Macrophage Biology</strong></h6>
                           <em>
-                            Shankar Subramaniam PhD, Chair of Bioengineering Department, UC San Diego
+                            Shankar Subramaniam PhD, Chair of Bioengineering Department,
+                            UC San Diego
                           </em>
                         </li>
                         <br />
@@ -222,7 +223,11 @@ export default function ConsortiumMeetings() {
                         </li>
                         <br />
                         <li>
-                          <h6><strong>Data Generation Update on the Common MCF10A Project</strong></h6>
+                          <h6>
+                            <strong>
+                              Data Generation Update on the Common MCF10A Project
+                            </strong>
+                          </h6>
                           <em>
                             <a href="http://www.lincsproject.org/LINCS/centers/data-and-signature-generating-centers/lincs-transcriptomics" target="_blank">
                               LINCS Center for Transcriptomics
