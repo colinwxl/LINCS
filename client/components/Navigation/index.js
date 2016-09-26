@@ -45,7 +45,7 @@ export default function Navigation(props) {
 
       <div className={`${styles['navbar-mid']}`} style={{ backgroundColor: '#cc9' }}>
         <div className="container">
-          <div className={`clearfix hidden-md-up ${styles['nav-mobile']}`}>
+          <div className={`clearfix collapsed hidden-md-up ${styles['nav-mobile']}`}>
             <button
               className={`navbar-toggler pull-xs-right ${styles.toggle}`}
               type="button"

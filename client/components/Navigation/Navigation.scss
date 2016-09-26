@@ -75,7 +75,6 @@ $btn-width: 16.25rem;
 }
 
 .navbar-mid {
-  height: 2.5rem;
   z-index: 10000;
   .nav-mobile,
   .dd-nav {
@@ -97,7 +96,7 @@ $btn-width: 16.25rem;
   }
   .dd-nav {
     @media (max-width: 768px) {
-      top: $nav-height + 7.5rem;
+      top: $nav-height + 7.1rem;
     }
   }
 }
