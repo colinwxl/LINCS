@@ -17,7 +17,6 @@ export default function Navigation(props) {
       </div>
     );
   }
-  const base = '/LINCS';
   return (
     <header
       className={`navbar bg-faded ${styles['main-nav']} ${styles['landing-nav']}`}
@@ -58,42 +57,30 @@ export default function Navigation(props) {
           </div>
           <div className={`collapse navbar-toggleable-sm ${styles['dd-nav']}`} id="main-navbar">
             <nav className="nav navbar-nav pull-md-left">
-              <a href={`${base}/`} className={`${styles['tab-item']}`}>Home</a>
-              <a href={`${base}/about`} className={`${styles['tab-item']}`}>About</a>
-              <a href={`${base}/centers`} className={`${styles['tab-item']}`}>Centers</a>
-              <a href={`${base}/data`} className={`${styles['tab-item']}`}>Data</a>
-              <a href={`${base}/applications`} className={`${styles['tab-item']}`}>Tools</a>
-              <a href={`${base}/community`} className={`${styles['tab-item']}`}>Community</a>
-              <a href={`${base}/publications`} className={`${styles['tab-item']}`}>Publications</a>
-              <a href={`${base}/news`} className={`${styles['tab-item']}`}>News</a>
-              {/*
-                // Bootstrap and React conflicts on DOM manipulation for responsiveness
-                // When clicking Link, drop down on mobile does not "un-collapse"
-                <Link className={`${styles['tab-item']}`} to="/">
-                  Home
-                </Link>
-                <Link className={`${styles['tab-item']}`} to="/about">
-                  About
-                </Link>
-                <Link className={`${styles['tab-item']}`} to="/centers">
-                  Centers
-                </Link>
-                <Link className={`${styles['tab-item']}`} to="/data">
-                  Data
-                </Link>
-                <Link className={`${styles['tab-item']}`} to="/applications">
-                  Tools
-                </Link>
-                <Link className={`${styles['tab-item']}`} to="/community">
-                  Community
-                </Link>
-                <Link className={`${styles['tab-item']}`} to="/publications">
-                  Publications
-                </Link>
-                <Link className={`${styles['tab-item']}`} to="/news">
-                  News
-                </Link>
-                */}
+              <Link className={`${styles['tab-item']}`} to="/">
+                Home
+              </Link>
+              <Link className={`${styles['tab-item']}`} to="/about">
+                About
+              </Link>
+              <Link className={`${styles['tab-item']}`} to="/centers">
+                Centers
+              </Link>
+              <Link className={`${styles['tab-item']}`} to="/data">
+                Data
+              </Link>
+              <Link className={`${styles['tab-item']}`} to="/applications">
+                Tools
+              </Link>
+              <Link className={`${styles['tab-item']}`} to="/community">
+                Community
+              </Link>
+              <Link className={`${styles['tab-item']}`} to="/publications">
+                Publications
+              </Link>
+              <Link className={`${styles['tab-item']}`} to="/news">
+                News
+              </Link>
             </nav>
           </div>
         </div>

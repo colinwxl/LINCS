@@ -38,12 +38,21 @@ $btn-width: 16.25rem;
     color: $white;
     font-family: serif;
     font-size: 2.0rem;
+    @media(max-width: 400px) {
+      font-size: 1.7rem;
+    }
   }
   .logo {
     height: 107px;
+    @media(max-width: 400px) {
+      left: -1rem;
+    }
   }
   .title {
     margin: 2rem auto auto 11.7rem;
+    @media(max-width: 400px) {
+      left: -1rem;
+    }
     .nih {
       color: $brand-primary;
     }
@@ -52,6 +61,10 @@ $btn-width: 16.25rem;
       font-size: 1rem;
       letter-spacing: 0.5rem;
       font-family: Lato;
+      @media(max-width: 400px) {
+        font-size: 0.8rem;
+        margin-left: 0.4rem;
+      }
     }
   }
   .filler {
