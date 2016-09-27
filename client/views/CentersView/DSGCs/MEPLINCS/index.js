@@ -20,7 +20,7 @@ export default function MEPLINCS() {
           'profile the effects of different microenvironments on the response ' +
           'of human cell lines to many perturbations'
         }
-        imgSrc="/LINCS/files/mep-lincs-logo.png"
+        imgSrc="/LINCS/files/centers_logos/mep-lincs-logo.png"
         imgAlt="MEP LINCS Logo"
       />
       <div className="container">

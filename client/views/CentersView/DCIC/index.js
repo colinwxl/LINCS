@@ -14,7 +14,7 @@ export default function DCIC() {
           'The BD2K-LINCS Data Coordination and Integration Center is ' +
           'responsible for harmonizing LINCS data with other available resources'
         }
-        imgSrc="/LINCS/files/DCIC.svg"
+        imgSrc="/LINCS/files/centers_logos/DCIC.svg"
         imgAlt="BD2K-LINCS DCIC Logo"
       />
       <div className="container">

@@ -97,7 +97,7 @@ export default class Workflow extends Component {
               </p>
               <div className={styles.harmonizome}>
                 <img
-                  src="/LINCS/files/harmonizome-logo-lg.png"
+                  src="/LINCS/files/tools_logos/harmonizome-logo-lg.png"
                   alt="Harmonizome Logo"
                 />
                 <h1>Harmonizome</h1>
@@ -145,7 +145,7 @@ export default class Workflow extends Component {
               </p>
               <div className={styles.lincscloud}>
                 <img
-                  src="/LINCS/files/lincscloud-logo.png"
+                  src="/LINCS/files/tools_logos/lincscloud-logo.png"
                   alt="Lincscloud Logo"
                 />
                 <form
