@@ -114,13 +114,17 @@ $btn-width: 16.25rem;
   }
 }
 
-.link, .tab-item {
+$light-blue: #669acc;
+.tab-item {
   display: block;
-  padding-bottom: .425rem;
-  padding-top: .425rem;
+  padding: 0.425rem 0.85rem;
+  &:hover,
+  &:focus {
+    color: $white;
+    background-color: $light-blue
+  }
   @media (min-width: 768px) {
     float: left;
-    margin-left: 1rem;
   }
 }
 

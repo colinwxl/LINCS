@@ -141,8 +141,8 @@ export class HomeView extends Component {
                       <div className={styles.group}>
                         <p className={`clearfix ${styles.left}`}>
                           <strong>
-                            Unravelling Hairballs: Biological Pathways From Protein Modification Cluster
-                            Networks
+                            Unravelling Hairballs: Biological Pathways From Protein Modification
+                            Cluster Networks
                           </strong>&nbsp;
                           (Mark Grimes PhD, University of Montana, DCIC eDSR)
                           <br />
