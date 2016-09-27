@@ -135,28 +135,28 @@ class WorkflowInputForm extends Component {
         <div className="col-xs-12 col-sm-10 col-sm-offset-1 col-lg-8 col-lg-offset-2">
           <div className={styles.question}>
             <h4 className="text-xs-center">What would you like to achieve with LINCS?</h4>
-            <form onSubmit={handleSubmit}>
-              <div className={`row ${styles['form-row']} ${styles.examples}`}>
-                <div className={`col-md-3 ${styles.base}`}>
-                  <p className={`text-muted ${styles.small}`}><em>Examples</em></p>
-                  <h5>I would like to...</h5>
-                </div>
-                <div className="col-xs-12 col-md-9">
-                  <ul>
-                    {
-                      examples.length && examples.map((wfObj, i) =>
-                        <li key={i}>
-                          {
-                            wfObj.disabled
-                            ? <span>{wfObj.text}</span>
-                            : <Link to={wfObj.link}>{wfObj.text}</Link>
-                          }
-                        </li>
-                      )
-                    }
-                  </ul>
-                </div>
+            <div className={`row ${styles['form-row']} ${styles.examples}`}>
+              <div className={`col-md-3 ${styles.base}`}>
+                <p className={`text-muted ${styles.small}`}><em>Examples</em></p>
+                <h5>I would like to...</h5>
               </div>
+              <div className="col-xs-12 col-md-9">
+                <ul>
+                  {
+                    examples.length && examples.map((wfObj, i) =>
+                      <li key={i}>
+                        {
+                          wfObj.disabled
+                          ? <span>{wfObj.text}</span>
+                          : <Link to={wfObj.link}>{wfObj.text}</Link>
+                        }
+                      </li>
+                    )
+                  }
+                </ul>
+              </div>
+            </div>
+            <form onSubmit={handleSubmit}>
               <p className={`text-muted ${styles.small} ${styles['p-half']}`}>
                 You may request a workflow below and we will create one for you.
                 Alternatively, examine the existing workflows above to determine
