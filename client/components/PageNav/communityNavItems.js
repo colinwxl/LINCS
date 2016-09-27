@@ -1,0 +1,34 @@
+const communityRoute = '/community';
+
+export default [
+  {
+    title: 'Overview',
+    route: `${communityRoute}/overview`,
+    children: [],
+  },
+  {
+    title: 'Funding Opportunities',
+    route: `${communityRoute}/funding-opportunities`,
+    children: [],
+  },
+  {
+    title: 'LINCS Consortium Meetings',
+    route: `${communityRoute}/consortium-meetings`,
+    children: [],
+  },
+  {
+    title: 'Webinars',
+    route: `${communityRoute}/webinars`,
+    children: [],
+  },
+  {
+    title: 'Workshops',
+    route: `${communityRoute}/workshops`,
+    children: [],
+  },
+  {
+    title: 'Symposia',
+    route: `${communityRoute}/symposia`,
+    children: [],
+  },
+];

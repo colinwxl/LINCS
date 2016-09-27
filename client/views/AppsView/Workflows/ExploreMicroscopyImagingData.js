@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import styles from './Workflow.scss';
+import PageNav from 'components/PageNav';
 import PageBanner from 'components/PageBanner';
 import omeroScreenshot from './images/omero-screenshot.png';
 import mepLincsScreenshot from './images/mep-lincs-screenshot.png';
@@ -21,7 +22,12 @@ export default class Workflow extends Component {
         />
         <div className="container">
           <div className="row">
-            <div className={`col-xl-9 ${styles.workflow} ${styles['sm-mechanism-workflow']}`}>
+            <PageNav
+              mainPage="Experimentalist Workflow"
+              subPage={this.constructor.subTitle}
+              isWorkflowPage
+            />
+            <div className={`col-md-9 col-md-pull-3 ${styles.workflow} ${styles['sm-mechanism-workflow']}`}>
               <p>
                 <strong>
                   Three LINCS data generation centers: HMS LINCS, MEP LINCS, and NeuroLINCS

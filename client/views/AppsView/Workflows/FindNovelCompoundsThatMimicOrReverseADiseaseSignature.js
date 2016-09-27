@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import styles from './Workflow.scss';
+import PageNav from 'components/PageNav';
 import PageBanner from 'components/PageBanner';
 // Images
 import lcQueryToolImg from './images/lc-query-tool.png';
@@ -27,7 +28,12 @@ export default class Workflow extends Component {
         />
         <div className="container">
           <div className="row">
-            <div className={`col-xl-9 ${styles.workflow} ${styles.mimic}`}>
+            <PageNav
+              mainPage="Experimentalist Workflow"
+              subPage={this.constructor.subTitle}
+              isWorkflowPage
+            />
+            <div className={`col-md-9 col-md-pull-3 ${styles.workflow} ${styles.mimic}`}>
               <p>
                 The Broad Transcriptomics Center within LINCS collected gene expression data
                 from human cells treated with thousands of chemical and biological perturbagens

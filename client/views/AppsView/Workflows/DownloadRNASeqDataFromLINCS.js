@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import styles from './Workflow.scss';
+import PageNav from 'components/PageNav';
 import PageBanner from 'components/PageBanner';
 // Images
 import ldpPanelImg from './images/ldp-panel.png';
@@ -28,7 +29,12 @@ export default class Workflow extends Component {
         />
         <div className="container">
           <div className="row">
-            <div className={`col-xl-9 ${styles.workflow} ${styles['rna-seq-workflow']}`}>
+            <PageNav
+              mainPage="Computational Biologist Workflow"
+              subPage={this.constructor.subTitle}
+              isWorkflowPage
+            />
+            <div className={`col-md-9 col-md-pull-3 ${styles.workflow} ${styles['rna-seq-workflow']}`}>
               <p>
                 Within the LINCS Consortium there are two centers that collect RNA-Seq data.
                 These are <a href="http://www.neurolincs.org" target="_blank">NeuroLINCS</a>

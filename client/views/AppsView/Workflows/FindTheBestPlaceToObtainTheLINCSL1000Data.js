@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import styles from './Workflow.scss';
+import PageNav from 'components/PageNav';
 import PageBanner from 'components/PageBanner';
 import lcScreenshotOne from './images/lc-screenshot-1.png';
 import lcScreenshotTwo from './images/lc-screenshot-2.png';
@@ -43,7 +44,12 @@ export default class Workflow extends Component {
         />
         <div className="container">
           <div className="row">
-            <div className={`col-xl-9 ${styles.workflow} ${styles['l1000-data']}`}>
+            <PageNav
+              mainPage="Computational Biologist Workflow"
+              subPage={this.constructor.subTitle}
+              isWorkflowPage
+            />
+            <div className={`col-md-9 col-md-pull-3 ${styles.workflow} ${styles['l1000-data']}`}>
               <p>
                 The LINCS L1000 project has collected gene expression profiles for
                 thousands of perturbagens at a variety of time points, doses, and cell

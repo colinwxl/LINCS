@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import styles from './Workflow.scss';
+import PageNav from 'components/PageNav';
 import PageBanner from 'components/PageBanner';
 import l1000QueryImg from './images/l1000-query-process.png';
 import l1000cds2InputImg from './images/l1000cds2-input-box.png';
@@ -21,7 +22,12 @@ export default class Workflow extends Component {
         />
         <div className="container">
           <div className="row">
-            <div className={`col-xl-9 ${styles.workflow} ${styles['query-l1000']}`}>
+            <PageNav
+              mainPage="Experimentalist Workflow"
+              subPage={this.constructor.subTitle}
+              isWorkflowPage
+            />
+            <div className={`col-md-9 col-md-pull-3 ${styles.workflow} ${styles['query-l1000']}`}>
               <p>
                 The LINCS L1000 dataset is a comprehensive resource for gene expression
                 changes observed in human cell lines perturbed with small molecules and

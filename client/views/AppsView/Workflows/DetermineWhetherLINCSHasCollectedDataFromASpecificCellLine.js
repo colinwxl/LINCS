@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router';
 
 import styles from './Workflow.scss';
+import PageNav from 'components/PageNav';
 import PageBanner from 'components/PageBanner';
 import lincsDataPortalScreenshot from './images/cell-lines.png';
 
@@ -20,7 +21,12 @@ export default class Workflow extends Component {
         />
         <div className="container">
           <div className="row">
-            <div className={`col-xl-9 ${styles.workflow} ${styles['cell-line']}`}>
+            <PageNav
+              mainPage="Experimentalist Workflow"
+              subPage={this.constructor.subTitle}
+              isWorkflowPage
+            />
+            <div className={`col-md-9 col-md-pull-3 ${styles.workflow} ${styles['cell-line']}`}>
               <p>
                 The <Link to="/centers/data-and-signature-generating-centers">LINCS Data and
                 Signature Generation Centers (DSGCs)</Link> generate data concerning the response

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import styles from './Workflow.scss';
+import PageNav from 'components/PageNav';
 import PageBanner from 'components/PageBanner';
 // Images
 import piLincsScreenshotImg from './images/pilincs-screenshot.png';
@@ -22,7 +23,12 @@ export default class Workflow extends Component {
         />
         <div className="container">
           <div className="row">
-            <div className={`col-xl-9 ${styles.workflow} ${styles['pw-workflow']}`}>
+            <PageNav
+              mainPage="Computational Biologist Workflow"
+              subPage={this.constructor.subTitle}
+              isWorkflowPage
+            />
+            <div className={`col-md-9 col-md-pull-3 ${styles.workflow} ${styles['pw-workflow']}`}>
               <p>
                 The LINCS Proteomic Characterization Center for Signaling and Epigenetics
                 (PCCSE) generates small molecule perturbations for (i) epigenetic modulators;

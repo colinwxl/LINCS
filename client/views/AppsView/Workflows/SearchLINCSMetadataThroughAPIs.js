@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import styles from './Workflow.scss';
+import PageNav from 'components/PageNav';
 import PageBanner from 'components/PageBanner';
 
 export default class Workflow extends Component {
@@ -17,7 +18,12 @@ export default class Workflow extends Component {
         />
         <div className="container">
           <div className="row">
-            <div className={`col-xl-9 ${styles.workflow} ${styles['search-meta']}`}>
+            <PageNav
+              mainPage="Computational Biologist Workflow"
+              subPage={this.constructor.subTitle}
+              isWorkflowPage
+            />
+            <div className={`col-md-9 col-md-pull-3 ${styles.workflow} ${styles['search-meta']}`}>
               <h3>What is an API?</h3>
               <p>
                 An application programming interface (API) is a set of functions publicly

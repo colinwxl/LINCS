@@ -3,6 +3,7 @@ import { Link } from 'react-router';
 import extend from 'extend';
 
 import styles from './Workflow.scss';
+import PageNav from 'components/PageNav';
 import PageBanner from 'components/PageBanner';
 
 // Images
@@ -82,7 +83,12 @@ export default class Workflow extends Component {
         />
         <div className="container">
           <div className="row">
-            <div className={`col-xl-9 ${styles.workflow}`}>
+            <PageNav
+              mainPage='Experimentalist Workflow'
+              subPage={this.constructor.subTitle}
+              isWorkflowPage
+            />
+            <div className={`col-md-9 col-md-pull-3 ${styles.workflow}`}>
               <p>
                 The BD2K-LINCS DCIC is systematically collecting knowledge about the
                 properties of genes and proteins from online available omics resources

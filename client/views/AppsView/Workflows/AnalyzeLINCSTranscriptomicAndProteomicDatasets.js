@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 // import { Link } from 'react-router';
 
 import styles from './Workflow.scss';
+import PageNav from 'components/PageNav';
 import PageBanner from 'components/PageBanner';
 import iLINCSDatasetsWorkflow from './images/ilincs-datasets-workflow.png';
 
@@ -20,7 +21,12 @@ export default class Workflow extends Component {
         />
         <div className="container">
           <div className="row">
-            <div className={`col-xl-9 ${styles.workflow}`}>
+            <PageNav
+              mainPage="Computational Biologist Workflow"
+              subPage={this.constructor.subTitle}
+              isWorkflowPage
+            />
+            <div className={`col-md-9 col-md-pull-3 ${styles.workflow}`}>
               <p>
                 The <a href="http://www.ilincs.org/" target="_blank">iLINCS (Integrative LINCS) portal</a> is
                 an web platform for analysis of LINCS data
