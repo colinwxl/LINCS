@@ -128,10 +128,32 @@ export class HomeView extends Component {
                         <p className={`clearfix ${styles.left}`}>
                           Mark your calendars for the upcoming session of
                           the BD2K-LINCS Big Data Science MOOC on Coursera
-                          organized by the BD2K-LINCS DCIC that begins
-                          October 3, 2016!
+                          organized by the BD2K-LINCS DCIC that begins&nbsp;
+                          <strong>October 3, 2016!</strong>
                         </p>
                         <a href="https://www.coursera.org/learn/bd2k-lincs" target="_blank">Enroll Now</a>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="col-xs-12 col-md-4">
+                    <div className={styles.card}>
+                      <h5>LINCS Data Science Webinar</h5>
+                      <div className={styles.group}>
+                        <p className={`clearfix ${styles.left}`}>
+                          <strong>
+                            Unravelling Hairballs: Biological Pathways From Protein Modification Cluster
+                            Networks
+                          </strong>&nbsp;
+                          (Mark Grimes PhD, University of Montana, DCIC eDSR)
+                          <br />
+                          <strong>October 4, 2016 at 3:00 PM ET</strong>.
+                        </p>
+                        <a
+                          href="http://www.lincsproject.org/LINCS/community/webinars"
+                          target="_blank"
+                        >
+                          Details
+                        </a>
                       </div>
                     </div>
                   </div>
@@ -143,27 +165,10 @@ export class HomeView extends Component {
                           <strong>Dynamic Logic-Based Models Integrating Cardiac Signaling
                           Networks and Cellular Phenotypes</strong> (Jeff Saucerman PhD,
                           University of Virginia, <a href="http://lincs-dcic.org/#/external-dsrp#nav" target="_blank">
-                          DCIC eDSR</a>) <strong>November 29, 2016 at 3:00 PM ET</strong>.
+                          DCIC eDSR</a>)&nbsp;
+                          <strong>November 29, 2016 at 3:00 PM ET</strong>.
                         </p>
                         <Link to="/community/webinars">Details</Link>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="col-xs-12 col-md-4">
-                    <div className={styles.card}>
-                      <h5>LINCS Consortium Meeting</h5>
-                      <div className={styles.group}>
-                        <p className={`clearfix ${styles.left}`}>
-                          On September 19-20, the LINCS F2F Meeting brought
-                          together the LINCS DSGCs, the BD2K-LINCS DCIC, NIH
-                          extramural staff, and external LINCS collaborators.
-                        </p>
-                        <a
-                          href="http://www.lincsproject.org/LINCS/community/consortium-meetings"
-                          target="_blank"
-                        >
-                          Meeting Highlights
-                        </a>
                       </div>
                     </div>
                   </div>
