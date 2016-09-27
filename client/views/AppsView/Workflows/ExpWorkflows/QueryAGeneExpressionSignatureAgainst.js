@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 
-import styles from './Workflow.scss';
+import styles from '../Workflow.scss';
 import PageNav from 'components/PageNav';
 import PageBanner from 'components/PageBanner';
-import l1000QueryImg from './images/l1000-query-process.png';
-import l1000cds2InputImg from './images/l1000cds2-input-box.png';
-import l1000cds2ResultImg from './images/l1000cds2-result-table.png';
-import l1000cds2EnrichrImg from './images/l1000cds2-enrichr.png';
+import l1000QueryImg from '../images/l1000-query-process.png';
+import l1000cds2InputImg from '../images/l1000cds2-input-box.png';
+import l1000cds2ResultImg from '../images/l1000cds2-result-table.png';
+import l1000cds2EnrichrImg from '../images/l1000cds2-enrichr.png';
 
 export default class Workflow extends Component {
 

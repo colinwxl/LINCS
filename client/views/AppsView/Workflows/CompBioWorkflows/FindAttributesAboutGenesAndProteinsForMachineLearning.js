@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 
-import styles from './Workflow.scss';
+import styles from '../Workflow.scss';
 import PageNav from 'components/PageNav';
 import PageBanner from 'components/PageBanner';
-import lincsMlImg from './images/lincs-ml.png';
+import lincsMlImg from '../images/lincs-ml.png';
 
 export default class Workflow extends Component {
 

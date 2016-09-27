@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 // import { Link } from 'react-router';
 
-import styles from './Workflow.scss';
+import styles from '../Workflow.scss';
 import PageNav from 'components/PageNav';
 import PageBanner from 'components/PageBanner';
-import iLINCSDrugsWorkflow from './images/ilincs-drugs-workflow.png';
+import iLINCSDrugsWorkflow from '../images/ilincs-drugs-workflow.png';
 
 
 export default class Workflow extends Component {

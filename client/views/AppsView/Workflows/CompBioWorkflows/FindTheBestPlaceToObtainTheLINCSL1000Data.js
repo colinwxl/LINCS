@@ -1,16 +1,16 @@
 import React, { Component } from 'react';
 
-import styles from './Workflow.scss';
+import styles from '../Workflow.scss';
 import PageNav from 'components/PageNav';
 import PageBanner from 'components/PageBanner';
-import lcScreenshotOne from './images/lc-screenshot-1.png';
-import lcScreenshotTwo from './images/lc-screenshot-2.png';
-import l1000PipelineImg from './images/l1000-pipeline.png';
-import l1000ResultImg from './images/l1000-result.png';
-import geoScreenshot from './images/geo-screenshot.png';
-import lincscloudApiImg from './images/lincscloud-api-ex.png';
-import slicrLogo from './images/slicr-logo.png';
-import slicrScreenshot from './images/slicr-screenshot.png';
+import lcScreenshotOne from '../images/lc-screenshot-1.png';
+import lcScreenshotTwo from '../images/lc-screenshot-2.png';
+import l1000PipelineImg from '../images/l1000-pipeline.png';
+import l1000ResultImg from '../images/l1000-result.png';
+import geoScreenshot from '../images/geo-screenshot.png';
+import lincscloudApiImg from '../images/lincscloud-api-ex.png';
+import slicrLogo from '../images/slicr-logo.png';
+import slicrScreenshot from '../images/slicr-screenshot.png';
 
 export default class Workflow extends Component {
 

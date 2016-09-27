@@ -1,14 +1,15 @@
-import FindKnowledgeAboutASpecificGeneOrProtein
-  from 'views/AppsView/Workflows/FindKnowledgeAboutASpecificGeneOrProtein';
-import ExploreMicroscopyImagingData from 'views/AppsView/Workflows/ExploreMicroscopyImagingData';
-import FindNovelCompoundsThatMimicOrReverseADiseaseSignature
-  from 'views/AppsView/Workflows/FindNovelCompoundsThatMimicOrReverseADiseaseSignature';
-import DetermineWhetherLINCSHasCollectedDataFromASpecificCellLine
-  from 'views/AppsView/Workflows/DetermineWhetherLINCSHasCollectedDataFromASpecificCellLine';
-import CheckIfASmallMoleculeHasBeenProfiled
-  from 'views/AppsView/Workflows/CheckIfASmallMoleculeHasBeenProfiled';
-import QueryAGeneExpressionSignatureAgainst
-  from 'views/AppsView/Workflows/QueryAGeneExpressionSignatureAgainst';
+import FindKnowledgeAboutASpecificGeneOrProtein from
+'views/AppsView/Workflows/ExpWorkflows/FindKnowledgeAboutASpecificGeneOrProtein';
+import ExploreMicroscopyImagingData from
+'views/AppsView/Workflows/ExpWorkflows/ExploreMicroscopyImagingData';
+import FindNovelCompoundsThatMimicOrReverseADiseaseSignature from
+'views/AppsView/Workflows/ExpWorkflows/FindNovelCompoundsThatMimicOrReverseADiseaseSignature';
+import DetermineWhetherLINCSHasCollectedDataFromASpecificCellLine from
+'views/AppsView/Workflows/ExpWorkflows/DetermineWhetherLINCSHasCollectedDataFromASpecificCellLine';
+import CheckIfASmallMoleculeHasBeenProfiled from
+'views/AppsView/Workflows/ExpWorkflows/CheckIfASmallMoleculeHasBeenProfiled';
+import QueryAGeneExpressionSignatureAgainst from
+'views/AppsView/Workflows/ExpWorkflows/QueryAGeneExpressionSignatureAgainst';
 
 const awRoute = '/applications/workflows';
 
@@ -49,4 +50,4 @@ export default [
       },
     ],
   },
-]
+];

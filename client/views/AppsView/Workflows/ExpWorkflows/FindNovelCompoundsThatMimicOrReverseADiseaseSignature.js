@@ -1,18 +1,18 @@
 import React, { Component } from 'react';
 
-import styles from './Workflow.scss';
+import styles from '../Workflow.scss';
 import PageNav from 'components/PageNav';
 import PageBanner from 'components/PageBanner';
 // Images
-import lcQueryToolImg from './images/lc-query-tool.png';
-import lcResultsScreenshot from './images/lc-results-screenshot.png';
-import l1000cds2QueryImg from './images/l1000cds2-query.png';
-import l1000cds2ResultsImg from './images/l1000cds2-results.png';
-import l1000cds2ClustImg from './images/l1000cds2-clust.png';
-import g2eMarketplaceImg from './images/g2e-marketplace.png';
-import g2eSelectionImg from './images/g2e-selection.png';
-import g2eFormImg from './images/g2e-form.png';
-import g2eResultsImg from './images/g2e-results.png';
+import lcQueryToolImg from '../images/lc-query-tool.png';
+import lcResultsScreenshot from '../images/lc-results-screenshot.png';
+import l1000cds2QueryImg from '../images/l1000cds2-query.png';
+import l1000cds2ResultsImg from '../images/l1000cds2-results.png';
+import l1000cds2ClustImg from '../images/l1000cds2-clust.png';
+import g2eMarketplaceImg from '../images/g2e-marketplace.png';
+import g2eSelectionImg from '../images/g2e-selection.png';
+import g2eFormImg from '../images/g2e-form.png';
+import g2eResultsImg from '../images/g2e-results.png';
 
 export default class Workflow extends Component {
 

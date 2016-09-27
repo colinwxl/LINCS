@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 
-import styles from './Workflow.scss';
+import styles from '../Workflow.scss';
 import PageNav from 'components/PageNav';
 import PageBanner from 'components/PageBanner';
 // Images
-import piLincsScreenshotImg from './images/pilincs-screenshot.png';
-import iLincsScreenshotImg from './images/ilincs-screenshot.png';
+import piLincsScreenshotImg from '../images/pilincs-screenshot.png';
+import iLincsScreenshotImg from '../images/ilincs-screenshot.png';
 
 export default class Workflow extends Component {
 

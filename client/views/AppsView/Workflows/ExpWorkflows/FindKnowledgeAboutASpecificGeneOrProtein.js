@@ -2,13 +2,13 @@ import React, { Component } from 'react';
 import { Link } from 'react-router';
 import extend from 'extend';
 
-import styles from './Workflow.scss';
+import styles from '../Workflow.scss';
 import PageNav from 'components/PageNav';
 import PageBanner from 'components/PageBanner';
 
 // Images
-import arrowDownImg from './images/arrow-down.png';
-import creedsLogoImg from './images/creeds-logo.png';
+import arrowDownImg from '../images/arrow-down.png';
+import creedsLogoImg from '../images/creeds-logo.png';
 
 const lcEngineFieldMap = {
   geneinfo: 'pr_gene_symbol',
@@ -84,7 +84,7 @@ export default class Workflow extends Component {
         <div className="container">
           <div className="row">
             <PageNav
-              mainPage='Experimentalist Workflow'
+              mainPage="Experimentalist Workflow"
               subPage={this.constructor.subTitle}
               isWorkflowPage
             />

@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 
-import styles from './Workflow.scss';
+import styles from '../Workflow.scss';
 import PageNav from 'components/PageNav';
 import PageBanner from 'components/PageBanner';
-import omeroScreenshot from './images/omero-screenshot.png';
-import mepLincsScreenshot from './images/mep-lincs-screenshot.png';
-import neuroLINCSScreenshot from './images/neurolincs-screenshot.png';
+import omeroScreenshot from '../images/omero-screenshot.png';
+import mepLincsScreenshot from '../images/mep-lincs-screenshot.png';
+import neuroLINCSScreenshot from '../images/neurolincs-screenshot.png';
 
 
 export default class Workflow extends Component {
@@ -27,7 +27,13 @@ export default class Workflow extends Component {
               subPage={this.constructor.subTitle}
               isWorkflowPage
             />
-            <div className={`col-md-9 col-md-pull-3 ${styles.workflow} ${styles['sm-mechanism-workflow']}`}>
+            <div
+              className={
+                `col-md-9 col-md-pull-3
+                ${styles.workflow}
+                ${styles['sm-mechanism-workflow']}`
+              }
+            >
               <p>
                 <strong>
                   Three LINCS data generation centers: HMS LINCS, MEP LINCS, and NeuroLINCS

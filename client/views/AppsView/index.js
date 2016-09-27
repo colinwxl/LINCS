@@ -4,8 +4,8 @@ import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
 import PageBanner from 'components/PageBanner';
 import { loadTools } from 'actions/toolsWorkflows';
-import ExpWorkflows from './ExpWorkflows';
-import CompBioWorkflows from './CompBioWorkflows';
+import ExpWorkflows from './Workflows/ExpWorkflows/ExpWorkflows';
+import CompBioWorkflows from './Workflows/CompBioWorkflows/CompBioWorkflows';
 import Tool from 'components/Tool';
 import styles from './AppsView.scss';
 

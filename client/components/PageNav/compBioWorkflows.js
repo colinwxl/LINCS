@@ -1,20 +1,21 @@
-import FindTheBestPlaceToObtainTheLINCSL1000Data
-  from 'views/AppsView/Workflows/FindTheBestPlaceToObtainTheLINCSL1000Data';
-import DownloadRNASeqDataFromLINCS from 'views/AppsView/Workflows/DownloadRNASeqDataFromLINCS';
-import SearchLINCSMetadataThroughAPIs
-  from 'views/AppsView/Workflows/SearchLINCSMetadataThroughAPIs';
-import FindAttributesAboutGenesAndProteinsForMachineLearning
-  from 'views/AppsView/Workflows/FindAttributesAboutGenesAndProteinsForMachineLearning';
-import FindProteomicAndEpigenomicDataFromTheSameConditions
-  from 'views/AppsView/Workflows/FindProteomicAndEpigenomicDataFromTheSameConditions';
-import FindDataAboutCellViabilityAndOther
-  from 'views/AppsView/Workflows/FindDataAboutCellViabilityAndOther';
-import AnalyzeMyGenesAgainstLINCSData
-  from 'views/AppsView/Workflows/AnalyzeMyGenesAgainstLINCSData';
-import AnalyzeLINCSTranscriptomicAndProteomicDatasets
-  from 'views/AppsView/Workflows/AnalyzeLINCSTranscriptomicAndProteomicDatasets';
-import AnalyzeADrugSignatureAndFindOtherDrugs
-  from 'views/AppsView/Workflows/AnalyzeADrugSignatureAndFindOtherDrugs';
+import FindTheBestPlaceToObtainTheLINCSL1000Data from
+'views/AppsView/Workflows/CompBioWorkflows/FindTheBestPlaceToObtainTheLINCSL1000Data';
+import DownloadRNASeqDataFromLINCS from
+'views/AppsView/Workflows/CompBioWorkflows/DownloadRNASeqDataFromLINCS';
+import SearchLINCSMetadataThroughAPIs from
+'views/AppsView/Workflows/CompBioWorkflows/SearchLINCSMetadataThroughAPIs';
+import FindAttributesAboutGenesAndProteinsForMachineLearning from
+'views/AppsView/Workflows/CompBioWorkflows/FindAttributesAboutGenesAndProteinsForMachineLearning';
+import FindProteomicAndEpigenomicDataFromTheSameConditions from
+'views/AppsView/Workflows/CompBioWorkflows/FindProteomicAndEpigenomicDataFromTheSameConditions';
+import FindDataAboutCellViabilityAndOther from
+'views/AppsView/Workflows/CompBioWorkflows/FindDataAboutCellViabilityAndOther';
+import AnalyzeMyGenesAgainstLINCSData from
+'views/AppsView/Workflows/CompBioWorkflows/AnalyzeMyGenesAgainstLINCSData';
+import AnalyzeLINCSTranscriptomicAndProteomicDatasets from
+'views/AppsView/Workflows/CompBioWorkflows/AnalyzeLINCSTranscriptomicAndProteomicDatasets';
+import AnalyzeADrugSignatureAndFindOtherDrugs from
+'views/AppsView/Workflows/CompBioWorkflows/AnalyzeADrugSignatureAndFindOtherDrugs';
 
 const awRoute = '/applications/workflows';
 

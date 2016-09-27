@@ -1,10 +1,10 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 
-import WorkflowSentModal from './WorkflowSentModal';
+import WorkflowSentModal from '../../WorkflowSentModal';
 import { addWorkflow } from 'actions/toolsWorkflows';
-import WorkflowInputForm from './WorkflowInputForm';
-import styles from './AppsView.scss';
+import WorkflowInputForm from '../../WorkflowInputForm';
+import styles from '../../AppsView.scss';
 
 export class ExpWorkflows extends Component {
   constructor(props) {

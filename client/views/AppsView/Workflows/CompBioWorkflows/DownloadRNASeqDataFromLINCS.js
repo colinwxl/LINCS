@@ -1,19 +1,19 @@
 import React, { Component } from 'react';
 
-import styles from './Workflow.scss';
+import styles from '../Workflow.scss';
 import PageNav from 'components/PageNav';
 import PageBanner from 'components/PageBanner';
 // Images
-import ldpPanelImg from './images/ldp-panel.png';
-import ldpDataBrowserImg from './images/ldp-data-browser.png';
-import dtoxsDataIcon from './images/dtoxs-data-icon.png';
-import dtoxsRequestDataImg from './images/dtoxs-request-data.png';
-import neurolincsDsPageImg from './images/neurolincs-ds-page.png';
-import neurolincsDsDownloadImg from './images/neurolincs-ds-download.png';
-import iLincsDropdownImg from './images/ilincs-dropdown.png';
-import iLincsAnalysisImg from './images/ilincs-analysis.png';
-import iLincsFilterImg from './images/ilincs-filter.png';
-import lincsTreeViewImg from './images/lincs-tree-view.png';
+import ldpPanelImg from '../images/ldp-panel.png';
+import ldpDataBrowserImg from '../images/ldp-data-browser.png';
+import dtoxsDataIcon from '../images/dtoxs-data-icon.png';
+import dtoxsRequestDataImg from '../images/dtoxs-request-data.png';
+import neurolincsDsPageImg from '../images/neurolincs-ds-page.png';
+import neurolincsDsDownloadImg from '../images/neurolincs-ds-download.png';
+import iLincsDropdownImg from '../images/ilincs-dropdown.png';
+import iLincsAnalysisImg from '../images/ilincs-analysis.png';
+import iLincsFilterImg from '../images/ilincs-filter.png';
+import lincsTreeViewImg from '../images/lincs-tree-view.png';
 
 export default class Workflow extends Component {
 
@@ -34,7 +34,13 @@ export default class Workflow extends Component {
               subPage={this.constructor.subTitle}
               isWorkflowPage
             />
-            <div className={`col-md-9 col-md-pull-3 ${styles.workflow} ${styles['rna-seq-workflow']}`}>
+            <div
+              className={
+                `col-md-9 col-md-pull-3 
+                ${styles.workflow}
+                ${styles['rna-seq-workflow']}`
+              }
+            >
               <p>
                 Within the LINCS Consortium there are two centers that collect RNA-Seq data.
                 These are <a href="http://www.neurolincs.org" target="_blank">NeuroLINCS</a>
