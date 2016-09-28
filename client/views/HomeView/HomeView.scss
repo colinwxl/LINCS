@@ -109,10 +109,6 @@ $btn-width: 12rem;
   }
 }
 
-.recent {
-  // background-color: $light-gray;
-}
-
 .hr-small {
   margin: 0 auto 2.5rem;
   width: 6rem;
@@ -123,31 +119,7 @@ $btn-width: 12rem;
   }
 }
 
-.recent-ds-section {
-  border-bottom: 1px solid $gray;
-}
-
-.recent-ds-section,
-.tools-section {
-  padding-bottom: 35px;
-  padding-top: 35px;
-}
-
 $border-color: #4e709b;
-
-.tools-section {
-  border: 0;
-  border-radius: 0;
-  text-align: left;
-}
-
-.ds {
-  margin-bottom: 1rem;
-}
-
-.ds-center {
-  margin-bottom: 0;
-}
 
 // $about-background: #cfcfcf;
 $about-background: $purple;
@@ -258,7 +230,7 @@ $about-background: $purple;
   border: 1px solid;
   border-color: $gray-border-top $gray-border-side $gray-border-bottom;
   border-radius: .25rem;
-  min-height: 12.5rem;
+  min-height: 18rem;
   padding: 1rem;
 
   p,

@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 
 import handleResponse from 'utils/handleResponse';
 import Carousel from './Carousel';
+import Tool from 'components/Tool';
 import Twitter from 'containers/Twitter';
 import Publication from 'containers/Publication';
 import { loadPublications } from 'actions/pubsNews';
@@ -56,6 +57,8 @@ export class HomeView extends Component {
       });
     return (
       <div className={styles.wrapper}>
+      {/* Banner
+        * ================================================================ */}
         <div
           className={styles.banner}
           style={{ backgroundImage: `url(${bannerImg})` }}
@@ -83,7 +86,7 @@ export class HomeView extends Component {
           </div>
         </div>
 
-        {/* Publications / Twitter
+        {/* Publications / Tools
           * ================================================================ */}
         <div className={styles['pubs-wrap']}>
           <div className="container">
@@ -105,7 +108,16 @@ export class HomeView extends Component {
                     <Link to="/publications">More publications...</Link>
                   </div>
                   <div className="col-xs-12 col-md-5">
-                    <Twitter />
+                    {/*<Twitter />*/}
+                    <h3 className={styles.title}>Featured LINCS Tools</h3>
+                    {
+                      tools && tools.map((tool, idx) =>
+                        <Tool
+                          key={idx}
+                          tool={tool}
+                        />
+                      )
+                    }
                   </div>
                 </div>
               </div>
@@ -121,7 +133,9 @@ export class HomeView extends Component {
               <div className={`col-xs-12 ${styles.section} ${styles['ann-section']}`}>
                 <h3 className={styles.title}>Announcements</h3>
                 <div className="row">
-                  <div className="col-xs-12 col-md-4">
+                {/* Announcement 1
+                  * ================================================================ */}
+                  <div className="col-xs-12 col-md-3">
                     <div className={styles.card}>
                       <h5>BD2K-LINCS MOOC</h5>
                       <div className={styles.group}>
@@ -135,7 +149,9 @@ export class HomeView extends Component {
                       </div>
                     </div>
                   </div>
-                  <div className="col-xs-12 col-md-4">
+                  {/* Announcement 2
+                    * ================================================================ */}
+                  <div className="col-xs-12 col-md-3">
                     <div className={styles.card}>
                       <h5>LINCS Data Science Webinar</h5>
                       <div className={styles.group}>
@@ -157,7 +173,9 @@ export class HomeView extends Component {
                       </div>
                     </div>
                   </div>
-                  <div className="col-xs-12 col-md-4">
+                  {/* Announcement 3
+                    * ================================================================ */}
+                  <div className="col-xs-12 col-md-3">
                     <div className={styles.card}>
                       <h5>LINCS Data Science Webinar</h5>
                       <div className={styles.group}>
@@ -172,9 +190,42 @@ export class HomeView extends Component {
                       </div>
                     </div>
                   </div>
+                  {/* Announcement 4
+                    * ================================================================ */}
+                  <div className="col-xs-12 col-md-3">
+                    <div className={styles.card}>
+                      <h5>LINCS Data Science Webinar</h5>
+                      <div className={styles.group}>
+                        <p className={`clearfix ${styles.left}`}>
+                          <strong>
+                            Unravelling Hairballs: Biological Pathways From Protein Modification
+                            Cluster Networks
+                          </strong>&nbsp;
+                          (Mark Grimes PhD, University of Montana, DCIC eDSR)
+                          <br />
+                          <strong>October 4, 2016 at 3:00 PM ET</strong>.
+                        </p>
+                        <a
+                          href="http://www.lincsproject.org/LINCS/community/webinars"
+                          target="_blank"
+                        >
+                          Details
+                        </a>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+        {/* Twitter
+          *================================================================= */}
+        <div className="container">
+          <div className="row">
+
+            <Twitter/>
+
           </div>
         </div>
 
@@ -199,56 +250,6 @@ export class HomeView extends Component {
                     that can be used for analyzing the data.
                   </p>
                   <Link to="/centers">Learn More</Link>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Recent data releases
-          * ================================================================ */}
-        <div className={`${styles.content}`}>
-          <div className={styles['recent-ds-section']}>
-            <div className="container">
-              <div className="row">
-                <div className="col-xs-12 col-lg-6">
-                  <h3 className={styles.title}>Recent Data Releases from the DSGCs</h3>
-                  <p className={styles['section-lead']}>
-                    Scroll through the most recent data releases from the six
-                    LINCS Data and Signature Generation Centers (DSGCs)
-                  </p>
-                  <a
-                    href="http://dev3.ccs.miami.edu:8080/datasets-beta/"
-                    className={`btn ${styles['btn-primary-outline']}`}
-                    target="_blank"
-                  >
-                    Explore more data releases
-                  </a>
-                </div>
-                <div className="col-xs-12 col-lg-5 col-lg-push-1">
-                  <Carousel datasets={this.state.recentDatasets} />
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className={styles['tools-section']}>
-            <div className="container">
-              <div className="row">
-                <div className="col-xs-12 col-lg-6 col-lg-push-6">
-                  <h3 className={styles.title}>Featured LINCS Tools</h3>
-                  <p className={styles['section-lead']}>
-                    Scroll through some of the LINCS tools developed by the BD2K-LINCS
-                    Data Coordination and Integration Center (DCIC) and the DSGCs
-                  </p>
-                  <Link
-                    to="/applications#tools"
-                    className={`btn ${styles['btn-primary-outline']}`}
-                  >
-                    Explore more LINCS tools
-                  </Link>
-                </div>
-                <div className="col-xs-12 col-lg-5 col-lg-pull-6">
-                  <Carousel tools={tools} />
                 </div>
               </div>
             </div>
