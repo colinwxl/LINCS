@@ -208,29 +208,6 @@ export class HomeView extends Component {
         {/* Recent data releases
           * ================================================================ */}
         <div className={`${styles.content}`}>
-          <div className={styles['recent-ds-section']}>
-            <div className="container">
-              <div className="row">
-                <div className="col-xs-12 col-lg-6">
-                  <h3 className={styles.title}>Recent Data Releases from the DSGCs</h3>
-                  <p className={styles['section-lead']}>
-                    Scroll through the most recent data releases from the six
-                    LINCS Data and Signature Generation Centers (DSGCs)
-                  </p>
-                  <a
-                    href="http://dev3.ccs.miami.edu:8080/datasets-beta/"
-                    className={`btn ${styles['btn-primary-outline']}`}
-                    target="_blank"
-                  >
-                    Explore more data releases
-                  </a>
-                </div>
-                <div className="col-xs-12 col-lg-5 col-lg-push-1">
-                  <Carousel datasets={this.state.recentDatasets} />
-                </div>
-              </div>
-            </div>
-          </div>
           <div className={styles['tools-section']}>
             <div className="container">
               <div className="row">
