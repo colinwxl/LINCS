@@ -3,7 +3,6 @@ import { Link } from 'react-router';
 import { connect } from 'react-redux';
 
 import handleResponse from 'utils/handleResponse';
-import Carousel from './Carousel';
 import Tool from 'components/Tool';
 import Twitter from 'containers/Twitter';
 import Publication from 'containers/Publication';
@@ -108,7 +107,6 @@ export class HomeView extends Component {
                     <Link to="/publications">More publications...</Link>
                   </div>
                   <div className="col-xs-12 col-md-5">
-                    {/*<Twitter />*/}
                     <h3 className={styles.title}>Featured LINCS Tools</h3>
                     {
                       tools && tools.map((tool, idx) =>
@@ -221,15 +219,15 @@ export class HomeView extends Component {
         </div>
         {/* Twitter
           *================================================================= */}
-          <div className={styles.ann}>
-            <div className="container">
-              <div className="row">
-                <div className={`col-xs-12 ${styles.section} ${styles['ann-section']}`}>
-                  <div className="row">
-                    <Twitter/>
-                  </div>
+        <div className={styles.tw}>
+          <div className="container">
+            <div className="row">
+              <div className={`col-xs-12 ${styles.section} ${styles['ann-section']}`}>
+                <div className="row">
+                  <Twitter />
                 </div>
               </div>
+            </div>
           </div>
           {/*
             <div className={`${styles.section} ${styles['social-section']}`}>

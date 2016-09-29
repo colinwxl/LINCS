@@ -146,7 +146,7 @@ $about-background: $purple;
 }
 
 .title {
-  font-size: 2rem;
+  margin-bottom: 1.5rem;
   font-weight: 400;
   text-align: center;
 
@@ -223,6 +223,12 @@ $about-background: $purple;
 .ann-section {
   padding-bottom: 30px;
   padding-top: 30px;
+}
+
+$twitter-blue: #eceeef;
+.tw {
+  background-color: $twitter-blue;
+  border-bottom: 1px solid $gray;
 }
 
 .card {

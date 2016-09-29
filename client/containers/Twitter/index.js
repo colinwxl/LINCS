@@ -80,7 +80,7 @@ export class Twitter extends Component {
             const userLink = `https://twitter.com/${user.screenName}`;
             return (
               <div key={idStr} className="col-xs-12 col-md-4">
-                <div className={styles.card}>
+                <div className={styles['tweet-card']}>
                   <div className={styles.tweet}>
                     <div className={`clearfix ${styles.tweeter}`}>
                       <div className={styles['img-wrap']}>
@@ -98,10 +98,6 @@ export class Twitter extends Component {
                       </p>
                     </div>
                     <div className={styles.group}>
-
-
-
-
                       <div className={styles.status}>
                         <p dangerouslySetInnerHTML={this.rawTweetHtml(status)} />
                         <p className={styles.info}>
@@ -130,9 +126,6 @@ export class Twitter extends Component {
                         </p>
                       </div>
                     </div>
-
-
-
                   </div>
                 </div>
               </div>
