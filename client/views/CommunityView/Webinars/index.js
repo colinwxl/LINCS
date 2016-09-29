@@ -32,7 +32,7 @@ export class Webinars extends Component {
         if (web.date < now) {
           pastWebinars.push(web);
         } else {
-          upcomingWebinars.push(web);
+          upcomingWebinars.unshift(web);
         }
       }
     });
