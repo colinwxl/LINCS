@@ -221,38 +221,15 @@ export class HomeView extends Component {
         </div>
         {/* Twitter
           *================================================================= */}
-        <div className="container">
-          <div className="row">
-
-            <Twitter/>
-
-          </div>
-        </div>
-
-        {/* Consortium description
-          * ================================================================ */}
-        <div className={styles.about}>
-          <div className="container">
-            <div className="row">
-              <div className={`col-xs-12 ${styles.section}`}>
-                <div className={styles.group}>
-                  <h3 className={styles.title}>The LINCS Consortium</h3>
-                  <p>
-                    By generating and making public data that indicates how cells respond to
-                    various genetic and environmental stressors, the LINCS project will
-                    help us gain a more detailed understanding of cell pathways and aid
-                    efforts to develop therapies that might restore perturbed pathways and
-                    networks to their normal states. The LINCS website is a source of
-                    information for the research community and general public about the
-                    LINCS project. The website contains details about the assays, cell
-                    types, and perturbagens that are currently part of the library, as well as links
-                    to participating sites, data releases from the sites, and software
-                    that can be used for analyzing the data.
-                  </p>
-                  <Link to="/centers">Learn More</Link>
+          <div className={styles.ann}>
+            <div className="container">
+              <div className="row">
+                <div className={`col-xs-12 ${styles.section} ${styles['ann-section']}`}>
+                  <div className="row">
+                    <Twitter/>
+                  </div>
                 </div>
               </div>
-            </div>
           </div>
           {/*
             <div className={`${styles.section} ${styles['social-section']}`}>
