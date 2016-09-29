@@ -11,9 +11,6 @@ import { loadTools } from 'actions/toolsWorkflows';
 import { initialCategories as categories } from '../PublicationsView';
 import styles from './HomeView.scss';
 
-// Images
-import bannerImg from './background-original.jpg';
-
 const mapStateToProps = (state) => ({
   publications: state.pubsNews.publications,
   tools: state.toolsWorkflows.tools,
@@ -58,17 +55,40 @@ export class HomeView extends Component {
       <div className={styles.wrapper}>
       {/* Banner
         * ================================================================ */}
-        {/*<div
-          className={styles.banner}
-          style={{ backgroundImage: `url(${bannerImg})` }}
-        >
-          <div className={`container ${styles.animated}`}>
-            <p className={styles.lead}>
+      {/* <div
+        className={styles.banner}
+        style={{ backgroundImage: `url(${bannerImg})` }}
+      >
+        <div className={`container ${styles.animated}`}>
+          <p className={styles.lead}>
+            The Library of Network-Based Cellular Signatures (LINCS) Program aims to create a
+            network-based understanding of biology by cataloging changes in gene expression
+            and other cellular processes that occur when cells are exposed to a variety of
+            perturbing agents
+          </p>
+          <a
+            href="http://dev3.ccs.miami.edu:8080/datasets-beta/"
+            target="_blank"
+            className={`btn btn-outline-inverse btn-lg ${styles['btn-discover']}`}
+          >
+            Discover LINCS Data
+          </a>
+          <Link
+            to="/applications"
+            className={`btn btn-outline-inverse btn-lg ${styles['btn-td']}`}
+          >
+            Apps &amp; Workflows
+          </Link>
+        </div>
+      </div> */}
+        <div className={styles.homeBannerWrap}>
+          <div className={`container ${styles.homeBanner}`}>
+            <div className={styles.intro_Home}>
               The Library of Network-Based Cellular Signatures (LINCS) Program aims to create a
               network-based understanding of biology by cataloging changes in gene expression
               and other cellular processes that occur when cells are exposed to a variety of
-              perturbing agents
-            </p>
+              perturbing agents.
+            </div>
             <a
               href="http://dev3.ccs.miami.edu:8080/datasets-beta/"
               target="_blank"
@@ -83,30 +103,7 @@ export class HomeView extends Component {
               Apps &amp; Workflows
             </Link>
           </div>
-        </div>*/}
-          <div className={styles.homeBannerWrap}>
-            <div className={`container ${styles.homeBanner}`}>
-              <div className={styles.intro_Home}>
-                The Library of Network-Based Cellular Signatures (LINCS) Program aims to create a
-                network-based understanding of biology by cataloging changes in gene expression
-                and other cellular processes that occur when cells are exposed to a variety of
-                perturbing agents.
-              </div>
-              <a
-                href="http://dev3.ccs.miami.edu:8080/datasets-beta/"
-                target="_blank"
-                className={`btn btn-outline-inverse btn-lg ${styles['btn-discover']}`}
-              >
-                Discover LINCS Data
-              </a>
-              <Link
-                to="/applications"
-                className={`btn btn-outline-inverse btn-lg ${styles['btn-td']}`}
-              >
-                Apps &amp; Workflows
-              </Link>
-            </div>
-          </div>
+        </div>
 
         {/* Publications / Tools
           * ================================================================ */}

@@ -75,11 +75,11 @@ export class Twitter extends Component {
           <img src={twitterBirdImg} alt="Twitter logo" />
         </div>
         {
-          timeline.slice(0, 3).map(status => {
+          timeline.slice(0, 4).map(status => {
             const { idStr, createdAt, user, favoriteCount, retweetCount } = status;
             const userLink = `https://twitter.com/${user.screenName}`;
             return (
-              <div key={idStr} className="col-xs-12 col-md-4">
+              <div key={idStr} className="col-xs-12 col-md-3">
                 <div className={styles['tweet-card']}>
                   <div className={styles.tweet}>
                     <div className={`clearfix ${styles.tweeter}`}>
