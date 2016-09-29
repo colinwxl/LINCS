@@ -79,5 +79,6 @@ If the deployment process finishes without errors, visit http://amp.pharm.mssm.e
 ## Developers and maintainers
 
 - [Michael McDermott](https://github.com/mgmcdermott) (original developer)
-- [Gregory Gundersen](https://github.com/gwgundersen) (current maintainer)
+- [Ned He](https://github.com/NedYork) (current developer)
+- [Gregory Gundersen](https://github.com/gwgundersen) (previous maintainer)
 - [Sherry Jenkins](https://github.com/sherry-jenkins) (content)
