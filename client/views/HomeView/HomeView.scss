@@ -6,6 +6,113 @@
   100% { opacity: 1; transform: translate3d(0, 0, 0); }
 }
 
+// Code from designer
+.homeBannerWrap {
+	background: #000 url(./views/HomeView/HomeBanner/AccentBanner-bkg-1200.jpg) repeat-y left top;
+}
+
+.homeBanner {
+	background: url(./views/HomeView/HomeBanner/HomeAccentBanner-1200.jpg) no-repeat left top;
+	height: 300px;
+}
+
+.intro_Home {
+	color: #FFF;
+	width: 600px;
+	display: block;
+	padding-top: 70px;
+	padding-left: 50px;
+	padding-right: 50px;
+	padding-bottom: 25px;
+}
+
+
+@media only screen and (max-width: 1199px) {
+  .homeBannerWrap {
+  	background: #000 url(./views/HomeView/HomeBanner/AccentBannerHome-bkg-940.jpg) repeat-y left top;
+  }
+
+  .homeBanner {
+  	background: url(./views/HomeView/HomeBanner/HomeAccentBanner-940.jpg) no-repeat left top;
+  }
+
+  .intro_Home {
+  	color: #FFF;
+  	width: 500px;
+  	display: block;
+  	padding-top: 70px;
+  	padding-left: 50px;
+  	padding-right: 50px;
+  	padding-bottom: 25px;
+	}
+}
+
+
+
+@media only screen and (max-width: 991px) {
+  .homeBannerWrap {
+  	background: #000 url(./views/HomeView/HomeBanner/AccentBannerHome-bkg-720.jpg) repeat-y left top;
+  }
+
+  .homeBanner {
+  	background: url(./views/HomeView/HomeBanner/HomeAccentBanner-720.jpg) no-repeat left top;
+  }
+
+  .intro_Home {
+  	color: #FFF;
+  	width: 400px;
+  	display: block;
+  	padding-top: 70px;
+  	padding-left: 15px;
+  	padding-right: 50px;
+  	padding-bottom: 25px;
+	}
+}
+
+@media only screen and (max-width: 768px) {
+  .homeBannerWrap {
+  	background: #000 url(./views/HomeView/HomeBanner/AccentBannerHome-bkg-576.jpg) repeat-y left top;
+  }
+
+  .homeBanner {
+  	background: url(./views/HomeView/HomeBanner/HomeAccentBanner-576.jpg) no-repeat left top;
+  	margin-top: 30px;
+  }
+  .intro_Home {
+  	color: #FFF;
+  	width: 400px;
+  	display: block;
+  	padding-top: 40px;
+  	padding-left: 15px;
+  	padding-right: 15px;
+  	padding-bottom: 10px;
+	}
+}
+
+@media only screen and (max-width: 360px) {
+  .homeBannerWrap {
+  	background: #000 url(./views/HomeView/HomeBanner/AccentBannerHome-bkg-360.jpg) repeat-y left top;
+  }
+
+  .homeBanner {
+  	background: url(./views/HomeView/HomeBanner/HomeAccentBanner-360.jpg) no-repeat left top;
+  	height: auto;
+  }
+
+  .intro_Home {
+  	color: #FFF;
+  	display: block;
+  	width:100%;
+  	padding-top: 40px;
+  	padding-left: 15px;
+  	padding-right: 15px;
+  	padding-bottom: 10px;
+  }
+}
+
+
+
+// Our code
 .banner {
   // background-position: 0 0;
   background-repeat: no-repeat;
@@ -39,8 +146,6 @@ $text-shadow-color: #051933;
   font-size: 1.2rem;
   font-weight: 400;
   margin-bottom: 2rem;
-  // margin-left: auto;
-  // margin-right: auto;
   text-shadow: 1px 1px 1px $text-shadow-color;
 
   @media (min-width: 768px) {
@@ -48,22 +153,21 @@ $text-shadow-color: #051933;
   }
 
   @media (min-width: 992px) {
-    // width: 90%;
     width: 40rem;
   }
 }
 
-$btn-width: 12rem;
+$btn-width: 11rem;
 
 .btn-discover,
 .btn-td {
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
   background-color: $brand-primary;
   border-color: $lighter-white;
   color: $lighter-white;
   font-size: 1rem;
   font-weight: 500;
-  padding: 1rem 1rem;
+  padding: 0.75rem 0.5rem;
   width: 100%;
   &:visited {
     color: $white;
@@ -79,14 +183,24 @@ $btn-width: 12rem;
 }
 
 .btn-discover {
-
   @media (min-width: 600px) {
-    // margin-bottom: 0;
-    margin-right: .5rem;
+    margin-left: 0.5rem;
   }
 
-  @media (min-width: 768px) {
-    margin-right: 1rem;
+  @media (min-width: 992px) {
+    margin-left: 3rem;
+  }
+
+}
+
+.btn-td {
+  margin-left: 1rem;
+
+  @media (max-width: 600px) {
+    margin: auto;
+  }
+  @media (min-width: 600px) and (max-width: 768px) {
+    margin-left: 0.5rem;
   }
 }
 
@@ -109,10 +223,6 @@ $btn-width: 12rem;
   }
 }
 
-.recent {
-  // background-color: $light-gray;
-}
-
 .hr-small {
   margin: 0 auto 2.5rem;
   width: 6rem;
@@ -123,31 +233,7 @@ $btn-width: 12rem;
   }
 }
 
-.recent-ds-section {
-  border-bottom: 1px solid $gray;
-}
-
-.recent-ds-section,
-.tools-section {
-  padding-bottom: 35px;
-  padding-top: 35px;
-}
-
 $border-color: #4e709b;
-
-.tools-section {
-  border: 0;
-  border-radius: 0;
-  text-align: left;
-}
-
-.ds {
-  margin-bottom: 1rem;
-}
-
-.ds-center {
-  margin-bottom: 0;
-}
 
 // $about-background: #cfcfcf;
 $about-background: $purple;
@@ -174,7 +260,7 @@ $about-background: $purple;
 }
 
 .title {
-  font-size: 2rem;
+  margin-bottom: 1.5rem;
   font-weight: 400;
   text-align: center;
 
@@ -253,12 +339,18 @@ $about-background: $purple;
   padding-top: 30px;
 }
 
+$twitter-blue: #eceeef;
+.tw {
+  background-color: $twitter-blue;
+  border-bottom: 1px solid $gray;
+}
+
 .card {
   background-color: $white;
   border: 1px solid;
   border-color: $gray-border-top $gray-border-side $gray-border-bottom;
   border-radius: .25rem;
-  min-height: 12.5rem;
+  min-height: 18rem;
   padding: 1rem;
 
   p,

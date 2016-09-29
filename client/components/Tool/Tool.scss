@@ -9,7 +9,7 @@ $shadow: rgba(0, 0, 0, .1);
   border-color: $gray-border-top $gray-border-side $gray-border-bottom;
   border-radius: .2rem;
   margin: 0 auto 1rem;
-  width: $tool-width;
+  min-width: $tool-width;
 }
 
 .tool-inner {
@@ -88,7 +88,7 @@ $title-line-height: 1.5rem;
 .tool-title {
   color: $off-black;
   display: inline-block;
-  font-size: 0.9rem;
+  font-size: 1rem;
   font-weight: 600;
   margin-top: 0.6rem;
   max-height: 2rem;

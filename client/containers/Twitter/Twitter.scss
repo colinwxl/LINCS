@@ -1,10 +1,29 @@
 @import 'vendor/bootstrap/variables';
 @import 'variables';
 
+.tweet-card {
+  background-color: $white;
+  border: 1px solid;
+  border-color: $gray-border-top $gray-border-side $gray-border-bottom;
+  border-radius: .25rem;
+  min-height: 18rem;
+  padding: 1rem;
+}
+
+.group {
+  margin-bottom: 1rem;
+
+  h6,
+  h5,
+  p,
+  a {
+    margin-bottom: 0;
+  }
+}
+
 .wrapper {
   color: $base-font-color;
   margin: 0 auto;
-  max-width: 600px;
   width: 100%;
 }
 

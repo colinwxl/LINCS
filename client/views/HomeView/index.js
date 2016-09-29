@@ -3,7 +3,7 @@ import { Link } from 'react-router';
 import { connect } from 'react-redux';
 
 import handleResponse from 'utils/handleResponse';
-import Carousel from './Carousel';
+import Tool from 'components/Tool';
 import Twitter from 'containers/Twitter';
 import Publication from 'containers/Publication';
 import { loadPublications } from 'actions/pubsNews';
@@ -56,7 +56,9 @@ export class HomeView extends Component {
       });
     return (
       <div className={styles.wrapper}>
-        <div
+      {/* Banner
+        * ================================================================ */}
+        {/*<div
           className={styles.banner}
           style={{ backgroundImage: `url(${bannerImg})` }}
         >
@@ -81,9 +83,32 @@ export class HomeView extends Component {
               Apps &amp; Workflows
             </Link>
           </div>
-        </div>
+        </div>*/}
+          <div className={styles.homeBannerWrap}>
+            <div className={`container ${styles.homeBanner}`}>
+              <div className={styles.intro_Home}>
+                The Library of Network-Based Cellular Signatures (LINCS) Program aims to create a
+                network-based understanding of biology by cataloging changes in gene expression
+                and other cellular processes that occur when cells are exposed to a variety of
+                perturbing agents.
+              </div>
+              <a
+                href="http://dev3.ccs.miami.edu:8080/datasets-beta/"
+                target="_blank"
+                className={`btn btn-outline-inverse btn-lg ${styles['btn-discover']}`}
+              >
+                Discover LINCS Data
+              </a>
+              <Link
+                to="/applications"
+                className={`btn btn-outline-inverse btn-lg ${styles['btn-td']}`}
+              >
+                Apps &amp; Workflows
+              </Link>
+            </div>
+          </div>
 
-        {/* Publications / Twitter
+        {/* Publications / Tools
           * ================================================================ */}
         <div className={styles['pubs-wrap']}>
           <div className="container">
@@ -105,7 +130,15 @@ export class HomeView extends Component {
                     <Link to="/publications">More publications...</Link>
                   </div>
                   <div className="col-xs-12 col-md-5">
-                    <Twitter />
+                    <h3 className={styles.title}>Featured LINCS Tools</h3>
+                    {
+                      tools && tools.map((tool, idx) =>
+                        <Tool
+                          key={idx}
+                          tool={tool}
+                        />
+                      )
+                    }
                   </div>
                 </div>
               </div>
@@ -121,7 +154,9 @@ export class HomeView extends Component {
               <div className={`col-xs-12 ${styles.section} ${styles['ann-section']}`}>
                 <h3 className={styles.title}>Announcements</h3>
                 <div className="row">
-                  <div className="col-xs-12 col-md-4">
+                {/* Announcement 1
+                  * ================================================================ */}
+                  <div className="col-xs-12 col-md-3">
                     <div className={styles.card}>
                       <h5>BD2K-LINCS MOOC</h5>
                       <div className={styles.group}>
@@ -135,7 +170,9 @@ export class HomeView extends Component {
                       </div>
                     </div>
                   </div>
-                  <div className="col-xs-12 col-md-4">
+                  {/* Announcement 2
+                    * ================================================================ */}
+                  <div className="col-xs-12 col-md-3">
                     <div className={styles.card}>
                       <h5>LINCS Data Science Webinar</h5>
                       <div className={styles.group}>
@@ -157,7 +194,9 @@ export class HomeView extends Component {
                       </div>
                     </div>
                   </div>
-                  <div className="col-xs-12 col-md-4">
+                  {/* Announcement 3
+                    * ================================================================ */}
+                  <div className="col-xs-12 col-md-3">
                     <div className={styles.card}>
                       <h5>LINCS Data Science Webinar</h5>
                       <div className={styles.group}>
@@ -172,60 +211,43 @@ export class HomeView extends Component {
                       </div>
                     </div>
                   </div>
+                  {/* Announcement 4
+                    * ================================================================ */}
+                  <div className="col-xs-12 col-md-3">
+                    <div className={styles.card}>
+                      <h5>LINCS Data Science Webinar</h5>
+                      <div className={styles.group}>
+                        <p className={`clearfix ${styles.left}`}>
+                          <strong>
+                            Unravelling Hairballs: Biological Pathways From Protein Modification
+                            Cluster Networks
+                          </strong>&nbsp;
+                          (Mark Grimes PhD, University of Montana, DCIC eDSR)
+                          <br />
+                          <strong>October 4, 2016 at 3:00 PM ET</strong>.
+                        </p>
+                        <a
+                          href="http://www.lincsproject.org/LINCS/community/webinars"
+                          target="_blank"
+                        >
+                          Details
+                        </a>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-
-        {/* Consortium description
-          * ================================================================ */}
-        <div className={styles.about}>
+        {/* Twitter
+          *================================================================= */}
+        <div className={styles.tw}>
           <div className="container">
             <div className="row">
-              <div className={`col-xs-12 ${styles.section}`}>
-                <div className={styles.group}>
-                  <h3 className={styles.title}>The LINCS Consortium</h3>
-                  <p>
-                    By generating and making public data that indicates how cells respond to
-                    various genetic and environmental stressors, the LINCS project will
-                    help us gain a more detailed understanding of cell pathways and aid
-                    efforts to develop therapies that might restore perturbed pathways and
-                    networks to their normal states. The LINCS website is a source of
-                    information for the research community and general public about the
-                    LINCS project. The website contains details about the assays, cell
-                    types, and perturbagens that are currently part of the library, as well as links
-                    to participating sites, data releases from the sites, and software
-                    that can be used for analyzing the data.
-                  </p>
-                  <Link to="/centers">Learn More</Link>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Recent data releases
-          * ================================================================ */}
-        <div className={`${styles.content}`}>
-          <div className={styles['tools-section']}>
-            <div className="container">
-              <div className="row">
-                <div className="col-xs-12 col-lg-6 col-lg-push-6">
-                  <h3 className={styles.title}>Featured LINCS Tools</h3>
-                  <p className={styles['section-lead']}>
-                    Scroll through some of the LINCS tools developed by the BD2K-LINCS
-                    Data Coordination and Integration Center (DCIC) and the DSGCs
-                  </p>
-                  <Link
-                    to="/applications#tools"
-                    className={`btn ${styles['btn-primary-outline']}`}
-                  >
-                    Explore more LINCS tools
-                  </Link>
-                </div>
-                <div className="col-xs-12 col-lg-5 col-lg-pull-6">
-                  <Carousel tools={tools} />
+              <div className={`col-xs-12 ${styles.section} ${styles['ann-section']}`}>
+                <div className="row">
+                  <Twitter />
                 </div>
               </div>
             </div>

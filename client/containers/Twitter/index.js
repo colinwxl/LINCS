@@ -75,52 +75,58 @@ export class Twitter extends Component {
           <img src={twitterBirdImg} alt="Twitter logo" />
         </div>
         {
-          timeline.slice(0, 4).map(status => {
+          timeline.slice(0, 3).map(status => {
             const { idStr, createdAt, user, favoriteCount, retweetCount } = status;
             const userLink = `https://twitter.com/${user.screenName}`;
             return (
-              <div key={idStr} className={styles.tweet}>
-                <div className={`clearfix ${styles.tweeter}`}>
-                  <div className={styles['img-wrap']}>
-                    <img
-                      src={user.profileImageUrlHttps}
-                      className={styles.avatar}
-                      alt="User's Twitter avatar"
-                    />
+              <div key={idStr} className="col-xs-12 col-md-4">
+                <div className={styles['tweet-card']}>
+                  <div className={styles.tweet}>
+                    <div className={`clearfix ${styles.tweeter}`}>
+                      <div className={styles['img-wrap']}>
+                        <img
+                          src={user.profileImageUrlHttps}
+                          className={styles.avatar}
+                          alt="User's Twitter avatar"
+                        />
+                      </div>
+                      <p className={styles.username}>
+                        <a href={userLink} target="_blank">{user.name}</a>
+                      </p>
+                      <p className={styles['screen-name']}>
+                        <a href={userLink} target="_blank">@{user.screenName}</a>
+                      </p>
+                    </div>
+                    <div className={styles.group}>
+                      <div className={styles.status}>
+                        <p dangerouslySetInnerHTML={this.rawTweetHtml(status)} />
+                        <p className={styles.info}>
+                          <span className={styles.date}>{this.humanDate(createdAt)}</span>
+                          <a
+                            href={`https://twitter.com/intent/tweet?in_reply_to=${idStr}`}
+                            target="_blank"
+                          >
+                            <i className="fa fa-reply" />
+                          </a>
+                          {'  '}
+                          <a
+                            href={`https://twitter.com/intent/retweet?tweet_id=${idStr}`}
+                            target="_blank"
+                          >
+                            <i className="fa fa-retweet" />
+                          </a>
+                          {` ${retweetCount}`}
+                          <a
+                            href={`https://twitter.com/intent/favorite?tweet_id=${idStr}`}
+                            target="_blank"
+                          >
+                            <i className="fa fa-star" />
+                          </a>
+                          {` ${favoriteCount}`}
+                        </p>
+                      </div>
+                    </div>
                   </div>
-                  <p className={styles.username}>
-                    <a href={userLink} target="_blank">{user.name}</a>
-                  </p>
-                  <p className={styles['screen-name']}>
-                    <a href={userLink} target="_blank">@{user.screenName}</a>
-                  </p>
-                </div>
-                <div className={styles.status}>
-                  <p dangerouslySetInnerHTML={this.rawTweetHtml(status)} />
-                  <p className={styles.info}>
-                    <span className={styles.date}>{this.humanDate(createdAt)}</span>
-                    <a
-                      href={`https://twitter.com/intent/tweet?in_reply_to=${idStr}`}
-                      target="_blank"
-                    >
-                      <i className="fa fa-reply" />
-                    </a>
-                    {'  '}
-                    <a
-                      href={`https://twitter.com/intent/retweet?tweet_id=${idStr}`}
-                      target="_blank"
-                    >
-                      <i className="fa fa-retweet" />
-                    </a>
-                    {` ${retweetCount}`}
-                    <a
-                      href={`https://twitter.com/intent/favorite?tweet_id=${idStr}`}
-                      target="_blank"
-                    >
-                      <i className="fa fa-star" />
-                    </a>
-                    {` ${favoriteCount}`}
-                  </p>
                 </div>
               </div>
             );
