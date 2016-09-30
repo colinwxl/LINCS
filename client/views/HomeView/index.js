@@ -55,32 +55,6 @@ export class HomeView extends Component {
       <div className={styles.wrapper}>
       {/* Banner
         * ================================================================ */}
-      {/* <div
-        className={styles.banner}
-        style={{ backgroundImage: `url(${bannerImg})` }}
-      >
-        <div className={`container ${styles.animated}`}>
-          <p className={styles.lead}>
-            The Library of Network-Based Cellular Signatures (LINCS) Program aims to create a
-            network-based understanding of biology by cataloging changes in gene expression
-            and other cellular processes that occur when cells are exposed to a variety of
-            perturbing agents
-          </p>
-          <a
-            href="http://dev3.ccs.miami.edu:8080/datasets-beta/"
-            target="_blank"
-            className={`btn btn-outline-inverse btn-lg ${styles['btn-discover']}`}
-          >
-            Discover LINCS Data
-          </a>
-          <Link
-            to="/applications"
-            className={`btn btn-outline-inverse btn-lg ${styles['btn-td']}`}
-          >
-            Apps &amp; Workflows
-          </Link>
-        </div>
-      </div> */}
         <div className={styles.homeBannerWrap}>
           <div className={`container ${styles.homeBanner}`}>
             <div className={styles.intro_Home}>
@@ -194,7 +168,8 @@ export class HomeView extends Component {
                   </div>
                   {/* Announcement 3
                     * ================================================================ */}
-                  {/*<div className="col-xs-12 col-md-3">
+                  {/*
+                  <div className="col-xs-12 col-md-3">
                     <div className={styles.card}>
                       <h5>LINCS Data Science Webinar</h5>
                       <div className={styles.group}>
@@ -208,14 +183,16 @@ export class HomeView extends Component {
                         <Link to="/community/webinars">Details</Link>
                       </div>
                     </div>
-                  </div>*/}
+                  </div>
+                  */}
                   <div className="col-xs-12 col-md-3">
                     <div className={styles.card}>
                       <h5>LINCS Data Science Webinar</h5>
                       <div className={styles.group}>
                         <p className={`clearfix ${styles.left}`}>
                           <strong>TBA</strong> (Cathy Wu PhD and Karen Ross PhD,
-                          University of Delware, BD2K-LINCS DCIC External Data Science Research Project)
+                          University of Delware,
+                          BD2K-LINCS DCIC External Data Science Research Project)
                           <br />
                           <strong>November 8, 2016</strong>.
                         </p>
@@ -225,7 +202,8 @@ export class HomeView extends Component {
                   </div>
                   {/* Announcement 4
                     * ================================================================ */}
-                  {/*<div className="col-xs-12 col-md-3">
+                  {/*
+                  <div className="col-xs-12 col-md-3">
                     <div className={styles.card}>
                       <h5>LINCS Data Science Webinar</h5>
                       <div className={styles.group}>

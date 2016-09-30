@@ -88,6 +88,7 @@ $btn-width: 16.25rem;
 }
 
 .navbar-mid {
+  margin: 0.1rem auto;
   z-index: 10000;
   .nav-mobile,
   .dd-nav {
@@ -95,7 +96,6 @@ $btn-width: 16.25rem;
     width: 100%;
     @media (max-width: 768px) {
       left: 0;
-      margin-top: -.5rem;
       padding-left: 2rem;
       padding-right: 2rem;
       position: absolute;
