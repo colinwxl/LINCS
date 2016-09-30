@@ -152,7 +152,8 @@ export class HomeView extends Component {
                           <strong>
                             Unravelling Hairballs: Biological Pathways From Protein Modification
                             Cluster Networks
-                          </strong>&nbsp;
+                          </strong>
+                          <br />
                           (Mark Grimes PhD, University of Montana, DCIC eDSR)
                           <br />
                           <strong>October 4, 2016 at 3:00 PM ET</strong>.
@@ -190,7 +191,9 @@ export class HomeView extends Component {
                       <h5>LINCS Data Science Webinar</h5>
                       <div className={styles.group}>
                         <p className={`clearfix ${styles.left}`}>
-                          <strong>TBA</strong> (Cathy Wu PhD and Karen Ross PhD,
+                          <strong>TBA</strong>
+                          <br />
+                          (Cathy Wu PhD and Karen Ross PhD,
                           University of Delware,
                           BD2K-LINCS DCIC External Data Science Research Project)
                           <br />
@@ -233,7 +236,8 @@ export class HomeView extends Component {
                           <strong>
                             Cell Line Ontology-based Standardization, Integration
                             and Analysis of LINCS Cell Lines
-                          </strong>&nbsp;
+                          </strong>
+                          <br />
                           (Yongqun "Oliver" He DVM, PhD, University of Michigan Medical School,
                           BD2K-LINCS DCIC External Data Science Research Project)
                           <br />
