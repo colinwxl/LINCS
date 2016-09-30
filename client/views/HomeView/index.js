@@ -161,6 +161,7 @@ export class HomeView extends Component {
                           Mark your calendars for the upcoming session of
                           the BD2K-LINCS Big Data Science MOOC on Coursera
                           organized by the BD2K-LINCS DCIC that begins&nbsp;
+                          <br />
                           <strong>October 3, 2016!</strong>
                         </p>
                         <a href="https://www.coursera.org/learn/bd2k-lincs" target="_blank">Enroll Now</a>
@@ -193,7 +194,7 @@ export class HomeView extends Component {
                   </div>
                   {/* Announcement 3
                     * ================================================================ */}
-                  <div className="col-xs-12 col-md-3">
+                  {/*<div className="col-xs-12 col-md-3">
                     <div className={styles.card}>
                       <h5>LINCS Data Science Webinar</h5>
                       <div className={styles.group}>
@@ -207,10 +208,24 @@ export class HomeView extends Component {
                         <Link to="/community/webinars">Details</Link>
                       </div>
                     </div>
+                  </div>*/}
+                  <div className="col-xs-12 col-md-3">
+                    <div className={styles.card}>
+                      <h5>LINCS Data Science Webinar</h5>
+                      <div className={styles.group}>
+                        <p className={`clearfix ${styles.left}`}>
+                          <strong>TBA</strong> (Cathy Wu PhD and Karen Ross PhD,
+                          University of Delware, BD2K-LINCS DCIC External Data Science Research Project)
+                          <br />
+                          <strong>November 8, 2016</strong>.
+                        </p>
+                        <Link to="/community/webinars">Details</Link>
+                      </div>
+                    </div>
                   </div>
                   {/* Announcement 4
                     * ================================================================ */}
-                  <div className="col-xs-12 col-md-3">
+                  {/*<div className="col-xs-12 col-md-3">
                     <div className={styles.card}>
                       <h5>LINCS Data Science Webinar</h5>
                       <div className={styles.group}>
@@ -222,6 +237,29 @@ export class HomeView extends Component {
                           (Mark Grimes PhD, University of Montana, DCIC eDSR)
                           <br />
                           <strong>October 4, 2016 at 3:00 PM ET</strong>.
+                        </p>
+                        <a
+                          href="http://www.lincsproject.org/LINCS/community/webinars"
+                          target="_blank"
+                        >
+                          Details
+                        </a>
+                      </div>
+                    </div>
+                  </div>*/}
+                  <div className="col-xs-12 col-md-3">
+                    <div className={styles.card}>
+                      <h5>LINCS Data Science Webinar</h5>
+                      <div className={styles.group}>
+                        <p className={`clearfix ${styles.left}`}>
+                          <strong>
+                            Cell Line Ontology-based Standardization, Integration
+                            and Analysis of LINCS Cell Lines
+                          </strong>&nbsp;
+                          (Yongqun "Oliver" He DVM, PhD, University of Michigan Medical School,
+                          BD2K-LINCS DCIC External Data Science Research Project)
+                          <br />
+                          <strong>November 28, 2016</strong>.
                         </p>
                         <a
                           href="http://www.lincsproject.org/LINCS/community/webinars"
