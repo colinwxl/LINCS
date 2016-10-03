@@ -27,7 +27,7 @@ export default function AboutView() {
             <p>
               LINCS data are being made openly available as a community resource through a
               series of <a
-                href="http://dev3.ccs.miami.edu:8080/datasets-beta/"
+                href="http://dev3.ccs.miami.edu:8080/dcic-portal/"
                 target="_blank"
               >
                 data releases

@@ -1,4 +1,5 @@
 import React, { Component, PropTypes } from 'react';
+import Carousel from 'nuka-carousel';
 import { Link } from 'react-router';
 import { connect } from 'react-redux';
 
@@ -64,7 +65,7 @@ export class HomeView extends Component {
               perturbing agents.
             </div>
             <a
-              href="http://dev3.ccs.miami.edu:8080/datasets-beta/"
+              href="http://dev3.ccs.miami.edu:8080/dcic-portal/"
               target="_blank"
               className={`btn btn-outline-inverse btn-lg ${styles['btn-discover']}`}
             >
@@ -84,11 +85,11 @@ export class HomeView extends Component {
         <div className={styles['pubs-wrap']}>
           <div className="container">
             <div className="row">
-              <div className={`col-xs-12 ${styles.section} ${styles['description']}`}>
+              <div className={`col-xs-12 ${styles.section}`}>
                 <div className="row">
-                  <div className="col-xs-12 col-md-6">
+                  <div className={`col-xs-12 col-md-6 ${styles.consortium}`}>
                     <h3>The LINCS Consortium</h3>
-                    <p>
+                    <p className={styles.description}>
                       By generating and making public data that indicates how cells
                       respond to various genetic and environmental stressors, the
                       LINCS project will help us gain a more detailed understanding
@@ -102,9 +103,23 @@ export class HomeView extends Component {
                       sites, data releases from the sites, and software that can be
                       used for analyzing the data.
                     </p>
+
+                    <a href="http://dev3.ccs.miami.edu:8080/dcic-portal/">
+                      <div className={`${styles['data-portal']}`}>
+
+                      </div>
+                    </a>
                   </div>
                   <div className="col-xs-12 col-md-6">
                     <h3 className={styles.title}>Annual Meeting</h3>
+                    <Carousel />
+                    <p className={styles.meeting}>
+                      The 2016 LINCS Consortium Meeting was held September 19-20,
+                      at the NIH campus in Bethesda, MD. This two-day meeting brought
+                      together the six LINCS Data and Signature Generation Centers,
+                      the BD2K-LINCS Data Coordination and Integration Center, NIH
+                      extramural staff, and external LINCS collaborators. Meeting Agenda
+                    </p>
                   </div>
                 </div>
               </div>
