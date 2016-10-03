@@ -79,6 +79,39 @@ export class HomeView extends Component {
           </div>
         </div>
 
+        {/* Consortium / Annual Meeting
+          * ================================================================ */}
+        <div className={styles['pubs-wrap']}>
+          <div className="container">
+            <div className="row">
+              <div className={`col-xs-12 ${styles.section} ${styles['description']}`}>
+                <div className="row">
+                  <div className="col-xs-12 col-md-6">
+                    <h3>The LINCS Consortium</h3>
+                    <p>
+                      By generating and making public data that indicates how cells
+                      respond to various genetic and environmental stressors, the
+                      LINCS project will help us gain a more detailed understanding
+                      of cell pathways and aid efforts to develop therapies that
+                      might restore perturbed pathways and networks to their normal
+                      states. The LINCS website is a source of information for the
+                      research community and general public about the LINCS project.
+                      This website along with the LINCS Data Portal contains details
+                      about the assays, cell types, and perturbagens that are
+                      currently part of the library, as well as links to participating
+                      sites, data releases from the sites, and software that can be
+                      used for analyzing the data.
+                    </p>
+                  </div>
+                  <div className="col-xs-12 col-md-6">
+                    <h3 className={styles.title}>Annual Meeting</h3>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
         {/* Publications / Tools
           * ================================================================ */}
         <div className={styles['pubs-wrap']}>
