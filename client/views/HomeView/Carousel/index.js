@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import Slider from 'react-slick';
 
-export default function Carousel() {
+export default function Carousel(props) {
   const settings = {
     autoplay: true,
     autoplaySpeed: 5000,
@@ -14,14 +14,11 @@ export default function Carousel() {
   };
   return (
     <Slider {...settings}>
-      <img src="/LINCS/files/f2f_2016/2037.jpg" alt="presentation" />
-      <img src="/LINCS/files/f2f_2016/2038.jpg" alt="presentation" />
-      <img src="/LINCS/files/f2f_2016/2044.jpg" alt="presentation" />
-      <img src="/LINCS/files/f2f_2016/2045.jpg" alt="presentation" />
-      <img src="/LINCS/files/f2f_2016/2067.jpg" alt="presentation" />
-      <img src="/LINCS/files/f2f_2016/2078.jpg" alt="presentation" />
-      <img src="/LINCS/files/f2f_2016/2086.jpg" alt="presentation" />
-      <img src="/LINCS/files/f2f_2016/2098.jpg" alt="presentation" />
+      {props.children}
     </Slider>
   );
 }
+
+Carousel.propTypes = {
+  children: PropTypes.node,
+};

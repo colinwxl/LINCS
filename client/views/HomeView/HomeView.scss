@@ -393,11 +393,7 @@ $title-line-height: 1.5rem;
   font-size: 1rem;
   font-weight: 600;
   margin-top: 0.75rem;
-  max-height: 2rem;
-  // min-height: 1.0rem;
-  overflow: hidden;
   position: relative;
-  text-decoration: none !important;
   white-space: nowrap;
   line-height: 0.8rem;
 }
@@ -407,18 +403,27 @@ $desc-line-height: 1.125rem; // 18px
 .portal-description {
   display: inline-block;
   font-size: .75rem; // ~13px
-  max-height: $desc-line-height * 3;
-  min-height: 1.25rem;
   position: relative;
   word-wrap: break-word;
 }
 
 .carousel {
-  margin-left: 2.5rem;
-  width: 25rem;
+  margin: auto;
+  width: 22rem;
+  @media (max-width: 992px) {
+    width: 18rem;
+  }
+}
+
+.am {
+  align-items: center;
+  a {
+    text-decoration: none !important;
+  }
 }
 
 .meeting {
+  margin: auto;
   font-size: 0.8rem;
   display: block;
 }

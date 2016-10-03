@@ -89,7 +89,7 @@ export class HomeView extends Component {
                 <div className="row">
                   <div className={`col-xs-12 col-md-6 ${styles.consortium}`}>
                     <h3>The LINCS Consortium</h3>
-                    <p className={styles.description}>
+                    <p>
                       By generating and making public data that indicates how cells
                       respond to various genetic and environmental stressors, the
                       LINCS project will help us gain a more detailed understanding
@@ -103,7 +103,6 @@ export class HomeView extends Component {
                       sites, data releases from the sites, and software that can be
                       used for analyzing the data.
                     </p>
-
                     <a
                       href="http://dev3.ccs.miami.edu:8080/dcic-portal/"
                       target="_blank"
@@ -133,18 +132,35 @@ export class HomeView extends Component {
                       </div>
                     </a>
                   </div>
-
-                  <div className="col-xs-12 col-md-6">
+                  <div className={`col-xs-12 col-md-6 ${styles.am}`}>
                     <h3 className={styles.title}>Annual Meeting</h3>
                     <div className={styles.carousel}>
-                      <Carousel />
+                      <Carousel>
+                        <img src="/LINCS/files/f2f_2016/2037.jpg" alt="presentation" />
+                        <img src="/LINCS/files/f2f_2016/2038.jpg" alt="presentation" />
+                        <img src="/LINCS/files/f2f_2016/2044.jpg" alt="presentation" />
+                        <img src="/LINCS/files/f2f_2016/2045.jpg" alt="presentation" />
+                        <img src="/LINCS/files/f2f_2016/2067.jpg" alt="presentation" />
+                        <img src="/LINCS/files/f2f_2016/2078.jpg" alt="presentation" />
+                        <img src="/LINCS/files/f2f_2016/2086.jpg" alt="presentation" />
+                        <img src="/LINCS/files/f2f_2016/2098.jpg" alt="presentation" />
+                      </Carousel>
                     </div>
                     <p className={styles.meeting}>
                       The 2016 LINCS Consortium Meeting was held September 19-20,
                       at the NIH campus in Bethesda, MD. This two-day meeting brought
-                      together the six LINCS Data and Signature Generation Centers,
-                      the BD2K-LINCS Data Coordination and Integration Center, NIH
-                      extramural staff, and external LINCS collaborators. Meeting Agenda
+                      together the six&nbsp;
+                      <Link to="centers/data-and-signature-generating-centers">
+                        LINCS Data and Signature Generation Centers
+                      </Link>
+                      , the&nbsp;
+                      <Link to="centers/dcic">
+                        BD2K-LINCS Data Coordination and Integration Center
+                      </Link>&nbsp;, NIH
+                      extramural staff, and external LINCS collaborators.&nbsp;
+                      <Link to="community/consortium-meetings">
+                        Meeting Agenda
+                      </Link>
                     </p>
                   </div>
                 </div>
