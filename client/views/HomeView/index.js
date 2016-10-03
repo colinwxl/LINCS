@@ -1,10 +1,10 @@
 import React, { Component, PropTypes } from 'react';
-import Carousel from 'nuka-carousel';
 import { Link } from 'react-router';
 import { connect } from 'react-redux';
 
 import handleResponse from 'utils/handleResponse';
 import Tool from 'components/Tool';
+import Carousel from './Carousel';
 import Twitter from 'containers/Twitter';
 import Publication from 'containers/Publication';
 import { loadPublications } from 'actions/pubsNews';
@@ -82,7 +82,7 @@ export class HomeView extends Component {
 
         {/* Consortium / Annual Meeting
           * ================================================================ */}
-        <div className={styles['pubs-wrap']}>
+        <div className={styles['consortium-wrap']}>
           <div className="container">
             <div className="row">
               <div className={`col-xs-12 ${styles.section}`}>
@@ -104,15 +104,41 @@ export class HomeView extends Component {
                       used for analyzing the data.
                     </p>
 
-                    <a href="http://dev3.ccs.miami.edu:8080/dcic-portal/">
-                      <div className={`${styles['data-portal']}`}>
-
+                    <a
+                      href="http://dev3.ccs.miami.edu:8080/dcic-portal/"
+                      target="_blank"
+                    >
+                      <div className={styles.portal}>
+                        <div className={styles['portal-inner']}>
+                          <div className={styles.cover}>
+                            <div className={styles['portal-img-wrap']}>
+                              <div className={styles['portal-img-inner']}>
+                                <img
+                                  src="http://lincsproject.org/LINCS/files/tools_logos/ldp_logo.png"
+                                  alt="presentation"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                          <div className={styles['portal-details']}>
+                            <h5 className={styles['portal-title']}>
+                              LINCS DATA PORTAL
+                            </h5>
+                            <div className={styles['portal-description']}>
+                              Provides unified interface for searching all LINCS
+                              dataset packages and entities
+                            </div>
+                          </div>
+                        </div>
                       </div>
                     </a>
                   </div>
+
                   <div className="col-xs-12 col-md-6">
                     <h3 className={styles.title}>Annual Meeting</h3>
-                    <Carousel />
+                    <div className={styles.carousel}>
+                      <Carousel />
+                    </div>
                     <p className={styles.meeting}>
                       The 2016 LINCS Consortium Meeting was held September 19-20,
                       at the NIH campus in Bethesda, MD. This two-day meeting brought

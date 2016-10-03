@@ -153,7 +153,6 @@
     "mysql": "^2.10.2",
     "nodemailer": "^2.3.2",
     "normalizr": "^2.0.0",
-    "nuka-carousel": "^2.0.3",
     "react": "^15.0.1",
     "react-addons-css-transition-group": "^15.0.1",
     "react-dom": "^15.0.1",
