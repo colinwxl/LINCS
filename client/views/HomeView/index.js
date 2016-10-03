@@ -146,7 +146,7 @@ export class HomeView extends Component {
                     * ================================================================ */}
                   <div className="col-xs-12 col-md-3">
                     <div className={styles.card}>
-                      <h5>LINCS Data Science Webinar</h5>
+                      <h5>LINCS Webinar</h5>
                       <div className={styles.group}>
                         <p className={`clearfix ${styles.left}`}>
                           <strong>
@@ -154,7 +154,11 @@ export class HomeView extends Component {
                             Cluster Networks
                           </strong>
                           <br />
-                          (Mark Grimes PhD, University of Montana, DCIC eDSR)
+                          (Mark Grimes PhD, University of Montana,&nbsp;
+                          <a href="http://lincs-dcic.org/#/external-dsrp#nav" target="_blank">
+                            DCIC eDSR
+                          </a>
+                          )
                           <br />
                           <strong>October 4, 2016 at 3:00 PM ET</strong>.
                         </p>
@@ -172,7 +176,7 @@ export class HomeView extends Component {
                   {/*
                   <div className="col-xs-12 col-md-3">
                     <div className={styles.card}>
-                      <h5>LINCS Data Science Webinar</h5>
+                      <h5>LINCS Webinar</h5>
                       <div className={styles.group}>
                         <p className={`clearfix ${styles.left}`}>
                           <strong>Dynamic Logic-Based Models Integrating Cardiac Signaling
@@ -188,16 +192,21 @@ export class HomeView extends Component {
                   */}
                   <div className="col-xs-12 col-md-3">
                     <div className={styles.card}>
-                      <h5>LINCS Data Science Webinar</h5>
+                      <h5>LINCS Webinar</h5>
                       <div className={styles.group}>
                         <p className={`clearfix ${styles.left}`}>
-                          <strong>TBA</strong>
+                          <strong>
+                            Integration of Phosphorylation Knowledge Networks with LINCS Omics Data
+                            for Cancer Drug Analysis
+                          </strong>
                           <br />
-                          (Cathy Wu PhD and Karen Ross PhD,
-                          University of Delware,
-                          BD2K-LINCS DCIC External Data Science Research Project)
+                          (Karen Ross PhD & Cathy Wu PhD,
+                          University of Delware,&nbsp;
+                          <a href="http://lincs-dcic.org/#/external-dsrp#nav" target="_blank">
+                            DCIC eDSR
+                          </a>)
                           <br />
-                          <strong>November 8, 2016</strong>.
+                          <strong>November 8, 2016 at 3:00 PM ET</strong>.
                         </p>
                         <Link to="/community/webinars">Details</Link>
                       </div>
@@ -205,32 +214,9 @@ export class HomeView extends Component {
                   </div>
                   {/* Announcement 4
                     * ================================================================ */}
-                  {/*
                   <div className="col-xs-12 col-md-3">
                     <div className={styles.card}>
-                      <h5>LINCS Data Science Webinar</h5>
-                      <div className={styles.group}>
-                        <p className={`clearfix ${styles.left}`}>
-                          <strong>
-                            Unravelling Hairballs: Biological Pathways From Protein Modification
-                            Cluster Networks
-                          </strong>&nbsp;
-                          (Mark Grimes PhD, University of Montana, DCIC eDSR)
-                          <br />
-                          <strong>October 4, 2016 at 3:00 PM ET</strong>.
-                        </p>
-                        <a
-                          href="http://www.lincsproject.org/LINCS/community/webinars"
-                          target="_blank"
-                        >
-                          Details
-                        </a>
-                      </div>
-                    </div>
-                  </div>*/}
-                  <div className="col-xs-12 col-md-3">
-                    <div className={styles.card}>
-                      <h5>LINCS Data Science Webinar</h5>
+                      <h5>LINCS Webinar</h5>
                       <div className={styles.group}>
                         <p className={`clearfix ${styles.left}`}>
                           <strong>
@@ -239,9 +225,12 @@ export class HomeView extends Component {
                           </strong>
                           <br />
                           (Yongqun "Oliver" He DVM, PhD, University of Michigan Medical School,
-                          BD2K-LINCS DCIC External Data Science Research Project)
+                          &nbsp;
+                          <a href="http://lincs-dcic.org/#/external-dsrp#nav" target="_blank">
+                            DCIC eDSR
+                          </a>)
                           <br />
-                          <strong>November 28, 2016</strong>.
+                          <strong>November 15, 2016 at 3:00 PM ET</strong>.
                         </p>
                         <a
                           href="http://www.lincsproject.org/LINCS/community/webinars"
@@ -252,6 +241,7 @@ export class HomeView extends Component {
                       </div>
                     </div>
                   </div>
+                {/* end of announcement 4*/}
                 </div>
               </div>
             </div>
