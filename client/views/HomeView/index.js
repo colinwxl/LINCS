@@ -133,7 +133,7 @@ export class HomeView extends Component {
                     </a>
                   </div>
                   <div className={`col-xs-12 col-md-6 ${styles.am}`}>
-                    <h3 className={styles.title}>Annual Meeting</h3>
+                    <h3 className={styles.title}>2016 LINCS Consortium Meeting</h3>
                     <div className={styles.carousel}>
                       <Carousel>
                         <img src="/LINCS/files/f2f_2016/2037.jpg" alt="presentation" />
