@@ -407,7 +407,7 @@ $desc-line-height: 1.125rem; // 18px
   word-wrap: break-word;
 }
 
-.carousel {
+.carousel, .carousel-img {
   margin: auto;
   width: 22rem;
   @media (max-width: 992px) {
