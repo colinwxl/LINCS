@@ -52,6 +52,17 @@ export class HomeView extends Component {
         const result = a.homeOrder > b.homeOrder;
         return result ? 1 : -1;
       });
+    const carouselImgs = [2037, 2038, 2044, 2045, 2067, 2078, 2086, 2098].map((imgId) => {
+      return (
+        <div>
+          <img
+            src={"/LINCS/files/f2f_2016/" + imgId + ".jpg"}
+            className={`${styles['carousel-img']}`}
+            alt="presentation"
+          />
+        </div>
+      )
+    });
     return (
       <div className={styles.wrapper}>
       {/* Banner
@@ -136,62 +147,7 @@ export class HomeView extends Component {
                     <h3 className={styles.title}>2016 LINCS Consortium Meeting</h3>
                     <div className={styles.carousel}>
                       <Carousel>
-                        <div>
-                          <img
-                            src="/LINCS/files/f2f_2016/2037.jpg"
-                            className={`${styles['carousel-img']}`}
-                            alt="presentation"
-                          />
-                        </div>
-                        <div>
-                          <img
-                            src="/LINCS/files/f2f_2016/2038.jpg"
-                            className={`${styles['carousel-img']}`}
-                            alt="presentation"
-                          />
-                        </div>
-                        <div>
-                          <img
-                            src="/LINCS/files/f2f_2016/2044.jpg"
-                            className={`${styles['carousel-img']}`}
-                            alt="presentation"
-                          />
-                        </div>
-                        <div>
-                          <img
-                            src="/LINCS/files/f2f_2016/2045.jpg"
-                            className={`${styles['carousel-img']}`}
-                            alt="presentation"
-                          />
-                        </div>
-                        <div>
-                          <img
-                            src="/LINCS/files/f2f_2016/2067.jpg"
-                            className={`${styles['carousel-img']}`}
-                            alt="presentation"
-                          />
-                        </div>
-                        <div>
-                          <img
-                            src="/LINCS/files/f2f_2016/2078.jpg"
-                            className={`${styles['carousel-img']}`}
-                            alt="presentation"
-                          />
-                        </div>
-                        <div>
-                          <img
-                            src="/LINCS/files/f2f_2016/2086.jpg"
-                            className={`${styles['carousel-img']}`}
-                            alt="presentation"
-                          />
-                        </div>
-                        <div>
-                          <img
-                            src="/LINCS/files/f2f_2016/2098.jpg"
-                            className={`${styles['carousel-img']}`}
-                            alt="presentation"
-                          />
-                        </div>
+                        {carouselImgs}
                       </Carousel>
                     </div>
                     <p className={styles.meeting}>
