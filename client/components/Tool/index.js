@@ -6,12 +6,12 @@ const toolPageSize = {
   title: '1rem',
   creator: '0.8rem',
   description: '0.75rem',
-}
+};
 const homeViewSize = {
   title: '1.1rem',
   creator: '0.8rem',
   description: '0.88rem',
-}
+};
 
 export default function Tool(props) {
   const { tool, homeview } = props;
@@ -43,14 +43,14 @@ export default function Tool(props) {
             href={tool.url}
             className={styles['tool-title']}
             target="_blank"
-            style={{ fontSize: fontSizeSet.title}}
+            style={{ fontSize: fontSizeSet.title }}
           >
             {tool.name}
           </a>
-          <ul className={styles['tool-creator']} style={{ fontSize: fontSizeSet.creator}}>
+          <ul className={styles['tool-creator']} style={{ fontSize: fontSizeSet.creator }}>
             {creatorList}
           </ul>
-          <div style={{ fontSize: fontSizeSet.description}} className={styles['tool-description']}>
+          <div style={{ fontSize: fontSizeSet.description }} className={styles['tool-description']}>
             {tool.description}
           </div>
         </div>
@@ -61,5 +61,6 @@ export default function Tool(props) {
 }
 
 Tool.propTypes = {
+  homeview: PropTypes.bool,
   tool: PropTypes.object,
 };

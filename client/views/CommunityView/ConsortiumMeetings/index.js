@@ -58,11 +58,17 @@ export default function ConsortiumMeetings() {
                 LINCS Data and Signature Generation Centers, the BD2K-LINCS DCIC, NIH
                 extramural staff, and external LINCS collaborators.
                 <br />
-                <a href="/LINCS/files/f2f_2016/LINCS%20Annual%20Meeting%20-%20Flyer.pdf" target="_blank">
+                <a
+                  href="/LINCS/files/f2f_2016/LINCS%20Annual%20Meeting%20-%20Flyer.pdf"
+                  target="_blank"
+                >
                   Agenda
                 </a>
                 &nbsp;|&nbsp;
-                <a href="/LINCS/files/f2f_2016/LINCS_Sept%202016_F2F%20Agenda%20-%20Final.pdf" target="_blank">
+                <a
+                  href="/LINCS/files/f2f_2016/LINCS_Sept%202016_F2F%20Agenda%20-%20Final.pdf"
+                  target="_blank"
+                >
                   Meeting Flyer
                 </a>
                 <br />
