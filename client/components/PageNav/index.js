@@ -39,7 +39,7 @@ export default function PageNav(props) {
                 return (
                   <div key={index} className={navClasses}>
                     <a
-                      href="http://dev3.ccs.miami.edu:8080/datasets-beta/"
+                      href="http://lincsportal.ccs.miami.edu/dcic-portal/"
                       target="_blank"
                       className={styles.link}
                       style={{ display: 'inline-block' }}

@@ -7,7 +7,7 @@ export default function PageHasBeenMoved() {
       <h1 className={styles.header}>Sorry, this page has been moved.</h1>
       <p>You can find the new LINCS Data Portal site&nbsp;
         <a
-          href="http://dev3.ccs.miami.edu:8080/datasets-beta/"
+          href="http://lincsportal.ccs.miami.edu/dcic-portal/"
           target="_blank"
         >
           here

@@ -17,7 +17,7 @@ export default function Story20150813() {
       </p>
       <p>
         The <a
-          href="http://dev3.ccs.miami.edu:8080/datasets-beta/"
+          href="http://lincsportal.ccs.miami.edu/dcic-portal/"
           target="_blank"
         >
           Data Releases

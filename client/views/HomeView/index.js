@@ -76,7 +76,7 @@ export class HomeView extends Component {
               perturbing agents.
             </div>
             <a
-              href="http://dev3.ccs.miami.edu:8080/dcic-portal/"
+              href="http://lincsportal.ccs.miami.edu/dcic-portal/"
               target="_blank"
               className={`btn btn-outline-inverse btn-lg ${styles['btn-discover']}`}
             >
@@ -117,7 +117,7 @@ export class HomeView extends Component {
 
                     <div className={`${styles['datatype-links-container']}`}>
                       <div className={`${styles['datatype-link']}`}>
-                        <a href="http://dev3.ccs.miami.edu:8080/datasets-beta/" target="_blank">
+                        <a href="http://lincsportal.ccs.miami.edu/dcic-portal/" target="_blank">
                           <img
                             src="/LINCS/files/datatype_logos/dataset-logo.png"
                             className={`${styles['datatype-logo']}`}

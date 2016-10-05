@@ -76,7 +76,7 @@ export default class Footer extends Component {
               onClick={() => { this.handleClick('dataCollapsed'); }}
             >
               <ul>
-                <li><a href="http://dev3.ccs.miami.edu:8080/datasets-beta/">Releases</a></li>
+                <li><a href="http://lincsportal.ccs.miami.edu/dcic-portal/">Releases</a></li>
                 <li><a href={`${dataRoute}/release-policy`}>Release Policy</a></li>
                 <li><a href={`${dataRoute}/standards`}>Standards</a></li>
               </ul>
