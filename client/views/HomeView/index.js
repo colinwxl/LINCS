@@ -127,7 +127,7 @@ export class HomeView extends Component {
                         </a>
                       </div>
                       <div className={`${styles['datatype-link']}`}>
-                        <a href="http://dev3.ccs.miami.edu:8080/SmallMolecules/" target="_blank">
+                        <a href="http://lincsportal.ccs.miami.edu/SmallMolecules/" target="_blank">
                           <img
                             src="/LINCS/files/datatype_logos/small-molecule-logo.png"
                             className={`${styles['datatype-logo']}`}
@@ -137,7 +137,7 @@ export class HomeView extends Component {
                         </a>
                       </div>
                       <div className={`${styles['datatype-link']}`}>
-                        <a href="http://dev3.ccs.miami.edu:8080/cells/" target="_blank">
+                        <a href="http://lincsportal.ccs.miami.edu/cells/" target="_blank">
                           <img
                             src="/LINCS/files/datatype_logos/cellline-logo.png"
                             className={`${styles['datatype-logo']}`}
