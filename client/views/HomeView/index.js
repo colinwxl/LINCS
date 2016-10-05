@@ -54,7 +54,7 @@ export class HomeView extends Component {
       });
     const carouselImgs = [2037, 2038, 2044, 2045, 2067, 2078, 2086, 2098].map((imgId) =>
     (
-      <div>
+      <div key={imgId}>
         <img
           src={`/LINCS/files/f2f_2016/${imgId}.jpg`}
           className={`${styles['carousel-img']}`}
@@ -121,6 +121,7 @@ export class HomeView extends Component {
                           <img
                             src="/LINCS/files/datatype_logos/dataset-logo.png"
                             className={`${styles['datatype-logo']}`}
+                            alt="presentation"
                           />
                           <h5 className={`${styles['datatype-title']}`}>Datasets</h5>
                         </a>
@@ -130,6 +131,7 @@ export class HomeView extends Component {
                           <img
                             src="/LINCS/files/datatype_logos/small-molecule-logo.png"
                             className={`${styles['datatype-logo']}`}
+                            alt="presentation"
                           />
                           <h5 className={`${styles['datatype-title']}`}>Small Molecules</h5>
                         </a>
@@ -139,6 +141,7 @@ export class HomeView extends Component {
                           <img
                             src="/LINCS/files/datatype_logos/cellline-logo.png"
                             className={`${styles['datatype-logo']}`}
+                            alt="presentation"
                           />
                           <h5 className={`${styles['datatype-title']}`}>Cells</h5>
                         </a>
@@ -163,7 +166,7 @@ export class HomeView extends Component {
                       , the&nbsp;
                       <Link to="centers/dcic">
                         BD2K-LINCS Data Coordination and Integration Center
-                      </Link>&nbsp;, NIH
+                      </Link>, NIH
                       extramural staff, and external LINCS collaborators.&nbsp;
                       <Link to="community/consortium-meetings">
                         Meeting Agenda

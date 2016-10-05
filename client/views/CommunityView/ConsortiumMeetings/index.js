@@ -44,7 +44,7 @@ export default function ConsortiumMeetings() {
               <a href="http://lincsproject.org/LINCS/files/2016-consortium-meeting.jpg">
                 <img
                   className={styles['pull-left']}
-                  style={{ height: '250px' }}
+                  style={{ width: '315px' }}
                   src={meeting2016Img}
                   alt="2016 Consortium Meeting"
                 />
@@ -54,228 +54,33 @@ export default function ConsortiumMeetings() {
               <br />
               <br />
               <div>
-                The annual LINCS Consortium Face-to-Face Meeting brought together the six LINCS
-                Data and Signature Generation Centers, the BD2K-LINCS DCIC, NIH extramural staff,
-                and external LINCS collaborators.
+                The annual LINCS Consortium Face-to-Face Meeting brought together the six
+                LINCS Data and Signature Generation Centers, the BD2K-LINCS DCIC, NIH
+                extramural staff, and external LINCS collaborators.
+                <br />
+                <a href="/LINCS/files/f2f_2016/LINCS%20Annual%20Meeting%20-%20Flyer.pdf" target="_blank">
+                  Agenda
+                </a>
+                &nbsp;|&nbsp;
+                <a href="/LINCS/files/f2f_2016/LINCS_Sept%202016_F2F%20Agenda%20-%20Final.pdf" target="_blank">
+                  Meeting Flyer
+                </a>
                 <br />
                 <br />
                 <br />
-                <br />
-                <br />
-                <em><h5>Meeting Highlights</h5></em>
-                {/* -------------- Session 1 --------------*/}
-                <ul>
-                  <li>
-                    <div>
-                      <h5><strong>Session I – Data Challenges Facing Large Projects</strong></h5>
-                      <br />
-                      <ul style={{ listStyleType: 'none' }}>
-                        <li>
-                          <h6>
-                            <strong>
-                              The Cancer Moonshot Project Recommendations of the Blue Ribbon Panel
-                            </strong>
-                          </h6>
-                          <em>Dinah Singer PhD, Director of Division of Cancer Biology, NCI</em>
-                        </li>
-                        <br />
-                        <li>
-                          <h6><strong>Integrative Omics and Macrophage Biology</strong></h6>
-                          <em>
-                            Shankar Subramaniam PhD, Chair of Bioengineering Department,
-                            UC San Diego
-                          </em>
-                        </li>
-                        <br />
-                        <li>
-                          <h6><strong>On the Ground within the NIH BD2K Program</strong></h6>
-                          <em>
-                            Avi Ma’ayan PhD, Director of Mount Sinai Center for Bioinformatics,
-                            Icahn School of Medicine at Mount Sinai
-                            <br />
-                            <a href="http://www.lincsproject.org/LINCS/centers/dcic" target="_blank">
-                              BD2K-LINCS Data Coordination and Integration Center
-                            </a>
-                          </em>
-                        </li>
-                        <br />
-                        <li>
-                          <h6>
-                            <strong>
-                              Efforts to Integrate Cell-based Imaging and OMICs:
-                              Challenges and Opportunities
-                            </strong>
-                          </h6>
-                          <em>
-                            Steve Finkbeiner MD, PhD, Professor of Neurology, UC San Francisco
-                            <br />
-                            <a href="http://www.lincsproject.org/LINCS/centers/data-and-signature-generating-centers/neurolincs" target="_blank">
-                              NeuroLINCS Center
-                            </a>
-                          </em>
-                        </li>
-                        <br />
-                      </ul>
-                    </div>
-                  </li>
 
-                    {/* -------------- Session 2 --------------*/}
-                  <li>
-                    <div>
-                      <h5><strong>Session II – Introduction to LINCS</strong></h5>
-                      <br />
-                      <ul style={{ listStyleType: 'none' }} >
-                        <li>
-                          <p>
-                            This session included 20-minute presentations from the six&nbsp;
-                            <a href="http://www.lincsproject.org/LINCS/centers/data-and-signature-generating-centers" target="_blank">
-                              LINCS Data and Signature Generation Centers
-                            </a> and the&nbsp;
-                            <a href="http://www.lincsproject.org/LINCS/centers/dcic" target="_blank">
-                              BD2K-LINCS Data Coordination and Integration Center
-                            </a>.
-                          </p>
-                        </li>
-                      </ul>
-                      <br />
-                    </div>
-                  </li>
-                    {/* -------------- Session 3 --------------*/}
-                  <li>
-                    <div>
-                      <h5>
-                        <strong>
-                          Session III – Community Outreach Session Accessing LINCS Data
-                        </strong>
-                      </h5>
-                      <br />
-                      <ul style={{ listStyleType: 'none' }} >
-                        <li>
-                          <h6><strong>Lightning Talks and Poster Session</strong></h6>
-                          <p>
-                            This session included lightning talks to preview some of the
-                            posters. Posters were focused on outreach to NIH extramural
-                            staff at NCATS, NCI, NCCIH, NHGRI, NHLBI, NIA, NIAAA, NIAMS,
-                            NIBIB, NIDDK, NIEHS, NIGMS, NIMH, NINDS as well as FDA. The
-                            aim was to provide specific examples of how LINCS data can
-                            be used by researchers in different areas of biology.
-                          </p>
-                        </li>
-                      </ul>
-                    </div>
-                  </li>
-                    {/* -------------- Session 4 --------------*/}
-                  <li>
-                    <div>
-                      <h5><strong>Session IV – MCF10A Biology</strong></h5>
-                      <br />
-                      <ul style={{ listStyleType: 'none' }} >
-                        <li>
-                          <p>
-                            In this session we heard presentations from non-LINCS
-                            prominent researchers on MCF10A biology followed by
-                            presentations of preliminary results from LINCS centers
-                            bringing LINCS-type perturbation approaches to MCF10A cells.
-                          </p>
-                        </li>
-                        <br />
-                        <li>
-                          <h6>
-                            <strong>
-                              Lessons Learned from Modeling Morphogenesis, Oncogenesis,
-                              and Drug Sensitivity using MCF10A Cells
-                            </strong>
-                          </h6>
-                          <em>
-                            Joan Brugge PhD, Director of the Ludwig Center,
-                            Harvard Medical School
-                          </em>
-                        </li>
-                        <br />
-                        <li>
-                          <h6>
-                            <strong>
-                              Chemical Genetic Interaction Maps for Linking Tumor
-                              Mutations to Therapeutics in Breast Cancer
-                            </strong>
-                          </h6>
-                          <em>
-                            Sourav Bandyopadhyay PhD, Assistant Professor of
-                            Bioengineering and Therapeutic Sciences, UC San Francisco
-                          </em>
-                        </li>
-                        <br />
-                        <li>
-                          <h6>
-                            <strong>
-                              MCF10A as a Sensor for Drivers, Neomorphs and Passengers
-                            </strong>
-                          </h6>
-                          <em>
-                            Gordon Mills MD, PhD,
-                            Chair of Department of Systems Biology,
-                            University of Texas MD Anderson Cancer Center
-                            <br />
-                            <a href="http://www.lincsproject.org/LINCS/centers/data-and-signature-generating-centers/mep-lincs" target="_blank">
-                              MEP LINCS Center
-                            </a>
-                          </em>
-                        </li>
-                        <br />
-                        <li>
-                          <h6>
-                            <strong>
-                              Data Generation Update on the Common MCF10A Project
-                            </strong>
-                          </h6>
-                          <em>
-                            <a href="http://www.lincsproject.org/LINCS/centers/data-and-signature-generating-centers/lincs-transcriptomics" target="_blank">
-                              LINCS Center for Transcriptomics
-                            </a>,&nbsp;
-                            <a href="http://www.lincsproject.org/LINCS/centers/data-and-signature-generating-centers/lincs-pccse" target="_blank">
-                              LINCS Proteomic Characterization Center for Signaling and Epigenetics
-                            </a>,&nbsp;
-                            <a href="http://www.lincsproject.org/LINCS/centers/data-and-signature-generating-centers/hms-lincs" target="_blank">
-                              HMS LINCS Center
-                            </a>
-                          </em>
-                        </li>
-                        <br />
-
-                        <li>
-                          <h6>
-                            <strong>
-                              MCF10A Dose Response Assays – Inter-Center Reproducibility Experiments
-                            </strong>
-                          </h6>
-                          <em>
-                            <a href="http://www.lincsproject.org/LINCS/centers/data-and-signature-generating-centers/mep-lincs" target="_blank">
-                              MEP LINCS Center
-                            </a>,&nbsp;
-                            <a href="http://www.lincsproject.org/LINCS/centers/data-and-signature-generating-centers/dtoxs" target="_blank">
-                              DToxS Center
-                            </a>,&nbsp;
-                            <a href="http://www.lincsproject.org/LINCS/centers/data-and-signature-generating-centers/hms-lincs" target="_blank">
-                              HMS LINCS Center
-                            </a>
-                          </em>
-                        </li>
-                        <br />
-                        <li>
-                          <h6><strong>Integrating MCF10A Data</strong></h6>
-                          <em>
-                            <a href="http://www.lincsproject.org/LINCS/centers/dcic" target="_blank">
-                              BD2K-LINCS Data Coordination and Integration Center
-                            </a>
-                          </em>
-                        </li>
-                        <br />
-                      </ul>
-                    </div>
-                  </li>
-                </ul>
+                This two-day meeting was organized into the following sessions:
+                <br />
+                1) Data Challenges Facing Large Projects,
+                <br />
+                2) Introduction to LINCS,
+                <br />
+                3) Community Outreach - Accessing LINCS Data,
+                <br />
+                4) MCF10A Biology
+                <br />
+                5) Working Group Meetings (Proteomics, Transcriptomics and Imaging).
               </div>
-              {/* -------------- end --------------*/}
             </div>
             <div className={styles.header}>
               <h5>University of California, Irvine</h5>
