@@ -2,14 +2,29 @@ import React, { PropTypes } from 'react';
 
 import styles from './Tool.scss';
 
+const toolPageSize = {
+  title: '1rem',
+  creator: '0.8rem',
+  description: '0.75rem',
+}
+const homeViewSize = {
+  title: '1.1rem',
+  creator: '0.8rem',
+  description: '0.88rem',
+}
+
 export default function Tool(props) {
-  const { tool } = props;
+  const { tool, homeview } = props;
   let creatorList = tool.centers.sort((a, b) => a.name > b.name);
   creatorList = creatorList.map((center, idx) =>
     <li key={idx}>
       <a href={center.website} target="_blank">{center.name}</a>
     </li>
   );
+  let fontSizeSet = toolPageSize;
+  if (homeview) {
+    fontSizeSet = homeViewSize;
+  }
   return (
     <div className={styles.tool}>
       <div className={styles['tool-inner']}>
@@ -24,13 +39,18 @@ export default function Tool(props) {
           </a>
         </div>
         <div className={styles['tool-details']}>
-          <a href={tool.url} className={styles['tool-title']} target="_blank">
+          <a
+            href={tool.url}
+            className={styles['tool-title']}
+            target="_blank"
+            style={{ fontSize: fontSizeSet.title}}
+          >
             {tool.name}
           </a>
-          <ul className={styles['tool-creator']}>
+          <ul className={styles['tool-creator']} style={{ fontSize: fontSizeSet.creator}}>
             {creatorList}
           </ul>
-          <div className={styles['tool-description']}>
+          <div style={{ fontSize: fontSizeSet.description}} className={styles['tool-description']}>
             {tool.description}
           </div>
         </div>

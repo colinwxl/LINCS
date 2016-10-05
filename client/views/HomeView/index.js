@@ -205,6 +205,7 @@ export class HomeView extends Component {
                     {
                       tools && tools.map((tool, idx) =>
                         <Tool
+                          homeview
                           key={idx}
                           tool={tool}
                         />

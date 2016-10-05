@@ -88,7 +88,6 @@ $title-line-height: 1.5rem;
 .tool-title {
   color: $off-black;
   display: inline-block;
-  font-size: 1rem;
   font-weight: 600;
   margin-top: 0.6rem;
   max-height: 2rem;
@@ -97,12 +96,11 @@ $title-line-height: 1.5rem;
   position: relative;
   text-decoration: none !important;
   white-space: nowrap;
-  line-height: 0.8rem;
+  line-height: $title-line-height;
 }
 
 .tool-creator {
   color: $dark-gray;
-  font-size: .8rem;
   font-weight: 400;
   margin: 0;
   overflow: hidden;
@@ -111,14 +109,12 @@ $title-line-height: 1.5rem;
   width: 10rem;
   padding: 0;
   list-style-type: none;
-  // line-height: 1rem;
 }
 
 $desc-line-height: 1.125rem; // 18px
 
 .tool-description {
   display: inline-block;
-  font-size: .75rem; // ~13px
   max-height: $desc-line-height * 3;
   min-height: 1.25rem;
   position: relative;
