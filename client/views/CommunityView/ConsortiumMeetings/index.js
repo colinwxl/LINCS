@@ -59,14 +59,14 @@ export default function ConsortiumMeetings() {
                 extramural staff, and external LINCS collaborators.
                 <br />
                 <a
-                  href="/LINCS/files/f2f_2016/LINCS%20Annual%20Meeting%20-%20Flyer.pdf"
+                  href="/LINCS/files/f2f_2016/LINCS_Sept%202016_F2F%20Agenda%20-%20Final.pdf"
                   target="_blank"
                 >
                   Agenda
                 </a>
                 &nbsp;|&nbsp;
                 <a
-                  href="/LINCS/files/f2f_2016/LINCS_Sept%202016_F2F%20Agenda%20-%20Final.pdf"
+                  href="/LINCS/files/f2f_2016/LINCS%20Annual%20Meeting%20-%20Flyer.pdf"
                   target="_blank"
                 >
                   Meeting Flyer
@@ -74,18 +74,15 @@ export default function ConsortiumMeetings() {
                 <br />
                 <br />
                 <br />
-
                 This two-day meeting was organized into the following sessions:
                 <br />
-                1) Data Challenges Facing Large Projects,
-                <br />
-                2) Introduction to LINCS,
-                <br />
-                3) Community Outreach - Accessing LINCS Data,
-                <br />
-                4) MCF10A Biology
-                <br />
-                5) Working Group Meetings (Proteomics, Transcriptomics and Imaging).
+                <ul>
+                  <li>Data Challenges Facing Large Projects</li>
+                  <li>Introduction to LINCS</li>
+                  <li>Community Outreach - Accessing LINCS Data</li>
+                  <li>MCF10A Biology</li>
+                  <li>Working Group Meetings (Proteomics, Transcriptomics and Imaging)</li>
+                </ul>
               </div>
             </div>
             <div className={styles.header}>

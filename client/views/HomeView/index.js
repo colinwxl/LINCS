@@ -152,7 +152,7 @@ export class HomeView extends Component {
                   <div className={`col-xs-12 col-md-6 ${styles.am}`}>
                     <h3 className={styles.title}>2016 LINCS Consortium Meeting</h3>
                     <div className={styles.carousel}>
-                      <Carousel>
+                      <Carousel aps={5000}>
                         {carouselImgs}
                       </Carousel>
                     </div>
@@ -228,121 +228,149 @@ export class HomeView extends Component {
                 <div className="row">
                 {/* Announcement 1
                   * ================================================================ */}
-                  <div className="col-xs-12 col-md-3">
-                    <div className={styles.card}>
-                      <h5>BD2K-LINCS MOOC</h5>
-                      <div className={styles.group}>
-                        <p className={`clearfix ${styles.left}`}>
-                          Mark your calendars for the upcoming session of
-                          the BD2K-LINCS Big Data Science MOOC on Coursera
-                          organized by the BD2K-LINCS DCIC that begins&nbsp;
-                          <br />
-                          <strong>October 3, 2016!</strong>
-                        </p>
-                        <a href="https://www.coursera.org/learn/bd2k-lincs" target="_blank">Enroll Now</a>
+                  <Carousel aps={10000}>
+                    <div>
+                      <div className="col-xs-12 col-md-3">
+                        <div className={styles.card}>
+                          <h5>BD2K-LINCS MOOC</h5>
+                          <div className={styles.group}>
+                            <p className={`clearfix ${styles.left}`}>
+                              Mark your calendars for the upcoming session of
+                              the BD2K-LINCS Big Data Science MOOC on Coursera
+                              organized by the BD2K-LINCS DCIC that begins&nbsp;
+                              <br />
+                              <strong>October 3, 2016!</strong>
+                            </p>
+                            <a href="https://www.coursera.org/learn/bd2k-lincs" target="_blank">Enroll Now</a>
+                          </div>
+                        </div>
+                      </div>
+                      {/* Announcement 2
+                        * ================================================================ */}
+                      <div className="col-xs-12 col-md-3">
+                        <div className={styles.card}>
+                          <h5>LINCS Webinar</h5>
+                          <div className={styles.group}>
+                            <p className={`clearfix ${styles.left}`}>
+                              <strong>
+                                Unravelling Hairballs: Biological Pathways From Protein Modification
+                                Cluster Networks
+                              </strong>
+                              <br />
+                              (Mark Grimes PhD, University of Montana,&nbsp;
+                              <a href="http://lincs-dcic.org/#/external-dsrp#nav" target="_blank">
+                                DCIC eDSR
+                              </a>
+                              )
+                              <br />
+                              <strong>October 4, 2016 at 3:00 PM ET</strong>.
+                            </p>
+                            <a
+                              href="http://www.lincsproject.org/LINCS/community/webinars"
+                              target="_blank"
+                            >
+                              Details
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                      {/* Announcement 3
+                        * ================================================================ */}
+                      <div className="col-xs-12 col-md-3">
+                        <div className={styles.card}>
+                          <h5>LINCS Webinar</h5>
+                          <div className={styles.group}>
+                            <p className={`clearfix ${styles.left}`}>
+                              <strong>
+                                Integration of Phosphorylation Knowledge Networks with LINCS
+                                Omics Data for Cancer Drug Analysis
+                              </strong>
+                              <br />
+                              (Karen Ross PhD & Cathy Wu PhD,
+                              University of Delware,&nbsp;
+                              <a href="http://lincs-dcic.org/#/external-dsrp#nav" target="_blank">
+                                DCIC eDSR
+                              </a>)
+                              <br />
+                              <strong>November 8, 2016 at 3:00 PM ET</strong>.
+                            </p>
+                            <Link to="/community/webinars">Details</Link>
+                          </div>
+                        </div>
+                      </div>
+                    {/* Announcement 4
+                      * ================================================================ */}
+                      <div className="col-xs-12 col-md-3">
+                        <div className={styles.card}>
+                          <h5>LINCS Webinar</h5>
+                          <div className={styles.group}>
+                            <p className={`clearfix ${styles.left}`}>
+                              <strong>
+                                Cell Line Ontology-based Standardization, Integration
+                                and Analysis of LINCS Cell Lines
+                              </strong>
+                              <br />
+                              (Yongqun "Oliver" He DVM, PhD, University of Michigan Medical School,
+                              &nbsp;
+                              <a href="http://lincs-dcic.org/#/external-dsrp#nav" target="_blank">
+                                DCIC eDSR
+                              </a>)
+                              <br />
+                              <strong>November 15, 2016 at 3:00 PM ET</strong>.
+                            </p>
+                            <a
+                              href="http://www.lincsproject.org/LINCS/community/webinars"
+                              target="_blank"
+                            >
+                              Details
+                            </a>
+                          </div>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                  {/* Announcement 2
-                    * ================================================================ */}
-                  <div className="col-xs-12 col-md-3">
-                    <div className={styles.card}>
-                      <h5>LINCS Webinar</h5>
-                      <div className={styles.group}>
-                        <p className={`clearfix ${styles.left}`}>
-                          <strong>
-                            Unravelling Hairballs: Biological Pathways From Protein Modification
-                            Cluster Networks
-                          </strong>
-                          <br />
-                          (Mark Grimes PhD, University of Montana,&nbsp;
-                          <a href="http://lincs-dcic.org/#/external-dsrp#nav" target="_blank">
-                            DCIC eDSR
-                          </a>
-                          )
-                          <br />
-                          <strong>October 4, 2016 at 3:00 PM ET</strong>.
-                        </p>
-                        <a
-                          href="http://www.lincsproject.org/LINCS/community/webinars"
-                          target="_blank"
-                        >
-                          Details
-                        </a>
+                    <div>
+                      {/* Announcement 5
+                        * ================================================================ */}
+                      <div className="col-xs-12 col-md-3">
+                        <div className={styles.card}>
+                          <h5>LINCS Webinar</h5>
+                          <div className={styles.group}>
+                            <p className={`clearfix ${styles.left}`}>
+                              <strong>Docker Pipelines for RNASeq Alignment and Analyses</strong>
+                              &nbsp;
+                              (Ling-Hong Hung PhD, University of Washington,&nbsp;
+                              <a href="http://lincs-dcic.org/#/external-dsrp#nav" target="_blank">
+                                DCIC eDSR
+                              </a>)
+                              <br />
+                              <strong>November 22, 2016 at 3:00 PM ET</strong>.
+                            </p>
+                            <Link to="/community/webinars">Details</Link>
+                          </div>
+                        </div>
                       </div>
-                    </div>
-                  </div>
-                  {/* Announcement 3
-                    * ================================================================ */}
-                  {/*
-                  <div className="col-xs-12 col-md-3">
-                    <div className={styles.card}>
-                      <h5>LINCS Webinar</h5>
-                      <div className={styles.group}>
-                        <p className={`clearfix ${styles.left}`}>
-                          <strong>Dynamic Logic-Based Models Integrating Cardiac Signaling
-                          Networks and Cellular Phenotypes</strong> (Jeff Saucerman PhD,
-                          University of Virginia, <a href="http://lincs-dcic.org/#/external-dsrp#nav" target="_blank">
-                          DCIC eDSR</a>)&nbsp;
-                          <strong>November 29, 2016 at 3:00 PM ET</strong>.
-                        </p>
-                        <Link to="/community/webinars">Details</Link>
+                      {/* Announcement 6
+                        * ================================================================ */}
+                      <div className="col-xs-12 col-md-3">
+                        <div className={styles.card}>
+                          <h5>LINCS Webinar</h5>
+                          <div className={styles.group}>
+                            <p className={`clearfix ${styles.left}`}>
+                              <strong>Dynamic Logic-Based Models Integrating Cardiac Signaling
+                              Networks and Cellular Phenotypes</strong> (Jeff Saucerman PhD,
+                              University of Virginia, <a href="http://lincs-dcic.org/#/external-dsrp#nav" target="_blank">
+                              DCIC eDSR</a>)
+                              <br />
+                              <strong>November 29, 2016 at 3:00 PM ET</strong>.
+                            </p>
+                            <Link to="/community/webinars">Details</Link>
+                          </div>
+                        </div>
                       </div>
+                      {/* end of Announcement 6
+                        * ================================================================ */}
                     </div>
-                  </div>
-                  */}
-                  <div className="col-xs-12 col-md-3">
-                    <div className={styles.card}>
-                      <h5>LINCS Webinar</h5>
-                      <div className={styles.group}>
-                        <p className={`clearfix ${styles.left}`}>
-                          <strong>
-                            Integration of Phosphorylation Knowledge Networks with LINCS Omics Data
-                            for Cancer Drug Analysis
-                          </strong>
-                          <br />
-                          (Karen Ross PhD & Cathy Wu PhD,
-                          University of Delware,&nbsp;
-                          <a href="http://lincs-dcic.org/#/external-dsrp#nav" target="_blank">
-                            DCIC eDSR
-                          </a>)
-                          <br />
-                          <strong>November 8, 2016 at 3:00 PM ET</strong>.
-                        </p>
-                        <Link to="/community/webinars">Details</Link>
-                      </div>
-                    </div>
-                  </div>
-                  {/* Announcement 4
-                    * ================================================================ */}
-                  <div className="col-xs-12 col-md-3">
-                    <div className={styles.card}>
-                      <h5>LINCS Webinar</h5>
-                      <div className={styles.group}>
-                        <p className={`clearfix ${styles.left}`}>
-                          <strong>
-                            Cell Line Ontology-based Standardization, Integration
-                            and Analysis of LINCS Cell Lines
-                          </strong>
-                          <br />
-                          (Yongqun "Oliver" He DVM, PhD, University of Michigan Medical School,
-                          &nbsp;
-                          <a href="http://lincs-dcic.org/#/external-dsrp#nav" target="_blank">
-                            DCIC eDSR
-                          </a>)
-                          <br />
-                          <strong>November 15, 2016 at 3:00 PM ET</strong>.
-                        </p>
-                        <a
-                          href="http://www.lincsproject.org/LINCS/community/webinars"
-                          target="_blank"
-                        >
-                          Details
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                {/* end of announcement 4*/}
+                  </Carousel>
                 </div>
               </div>
             </div>
