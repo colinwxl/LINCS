@@ -321,13 +321,16 @@ $about-background: $purple;
 $mid-gray: #eee;
 .consortium-wrap {
   background-color: #f7f7f7;
-  padding-top: 50px;
+  padding-top: 40px;
   border-bottom: 1px solid $mid-gray;
 }
 
 .consortium {
   padding-bottom: 1rem;
   border-right: 1px solid $gray;
+  a {
+    text-decoration: none !important;
+  }
 }
 
 .carousel, .carousel-img {
@@ -336,6 +339,43 @@ $mid-gray: #eee;
   @media (max-width: 992px) {
     width: 18rem;
   }
+}
+
+.datatype-links-container {
+  max-height: 7rem;
+  max-width: 30rem;
+  margin: auto;
+  @media (max-width: 768px) {
+    max-width: 23rem;
+  }
+}
+
+.datatype-link {
+  vertical-align: top;
+  margin: 0 2rem;
+  display: inline-block;
+  &:focus, &:hover {
+    color: $brand-primary;
+    opacity: 0.9;
+  }
+  @media (max-width: 993px) {
+    margin: 0 0.8rem;
+  }
+}
+
+.datatype-logo {
+  width: 5rem;
+  margin: auto;
+  margin-bottom: 0.5rem;
+  border-radius: 50%;
+}
+
+.datatype-title {
+  margin: auto;
+  text-align: center;
+  max-width: 5rem;
+  font-size: 0.8rem;
+  font-weight: 500;
 }
 
 .am {

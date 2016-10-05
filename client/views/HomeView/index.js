@@ -115,6 +115,36 @@ export class HomeView extends Component {
                       used for analyzing the data.
                     </p>
 
+                    <div className={`${styles['datatype-links-container']}`}>
+                      <div className={`${styles['datatype-link']}`}>
+                        <a href="http://dev3.ccs.miami.edu:8080/datasets-beta/" target="_blank">
+                          <img
+                            src="/LINCS/files/datatype_logos/dataset-logo.png"
+                            className={`${styles['datatype-logo']}`}
+                          />
+                          <h5 className={`${styles['datatype-title']}`}>Datasets</h5>
+                        </a>
+                      </div>
+                      <div className={`${styles['datatype-link']}`}>
+                        <a href="http://dev3.ccs.miami.edu:8080/SmallMolecules/" target="_blank">
+                          <img
+                            src="/LINCS/files/datatype_logos/small-molecule-logo.png"
+                            className={`${styles['datatype-logo']}`}
+                          />
+                          <h5 className={`${styles['datatype-title']}`}>Small Molecules</h5>
+                        </a>
+                      </div>
+                      <div className={`${styles['datatype-link']}`}>
+                        <a href="http://dev3.ccs.miami.edu:8080/cells/" target="_blank">
+                          <img
+                            src="/LINCS/files/datatype_logos/cellline-logo.png"
+                            className={`${styles['datatype-logo']}`}
+                          />
+                          <h5 className={`${styles['datatype-title']}`}>Cells</h5>
+                        </a>
+                      </div>
+                    </div>
+
                   </div>
                   <div className={`col-xs-12 col-md-6 ${styles.am}`}>
                     <h3 className={styles.title}>2016 LINCS Consortium Meeting</h3>
