@@ -1,22 +1,12 @@
 import React, { PropTypes } from 'react';
 import { Link } from 'react-router';
 import styles from './Navigation.scss';
-import bannerImg from './banner-img.jpg';
 import logoWithLines from './logoWithLines-min.png';
 import fillerImg from './fillerImg.jpg';
 
 export default function Navigation(props) {
   const { atHome } = props;
   let banner;
-  // if (!atHome) {
-  //   banner = (
-  //     <div
-  //       className={`${styles.banner}`}
-  //       style={{ backgroundImage: `url(${bannerImg})` }}
-  //     >
-  //     </div>
-  //   );
-  // }
   if (!atHome) {
     banner = (
       <div className={`${styles.accentWrapper}`}>
