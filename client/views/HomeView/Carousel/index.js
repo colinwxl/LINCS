@@ -2,9 +2,9 @@ import React, { PropTypes } from 'react';
 import Slider from 'react-slick';
 
 export default function Carousel(props) {
-  const { aps } = props;
+  const { autoplay, aps } = props;
   const settings = {
-    autoplay: true,
+    autoplay: autoplay || false,
     autoplaySpeed: aps,
     dots: true,
     infinite: true,
@@ -21,6 +21,7 @@ export default function Carousel(props) {
 }
 
 Carousel.propTypes = {
-  aps: PropTypes.integer,
+  autoplay: PropTypes.bool,
+  aps: PropTypes.number,
   children: PropTypes.node,
 };

@@ -36,7 +36,7 @@ export default function Navigation(props) {
               <span className={`${styles.program}`}>program</span>
             </h2>
             <h2 className={`${styles.header} ${styles['sub-title']}`}>
-              The Library of Integrated Network-Based Cellular Signatures
+              Library of Integrated Network-Based Cellular Signatures
             </h2>
           </Link>
         </div>

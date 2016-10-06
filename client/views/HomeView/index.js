@@ -152,7 +152,7 @@ export class HomeView extends Component {
                   <div className={`col-xs-12 col-md-6 ${styles.am}`}>
                     <h3 className={styles.title}>2016 LINCS Consortium Meeting</h3>
                     <div className={styles.carousel}>
-                      <Carousel aps={5000}>
+                      <Carousel autoplay aps={5000}>
                         {carouselImgs}
                       </Carousel>
                     </div>
@@ -228,7 +228,7 @@ export class HomeView extends Component {
                 <div className="row">
                 {/* Announcement 1
                   * ================================================================ */}
-                  <Carousel aps={10000}>
+                  <Carousel>
                     <div>
                       <div className="col-xs-12 col-md-3">
                         <div className={styles.card}>
