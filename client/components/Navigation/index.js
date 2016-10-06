@@ -8,15 +8,24 @@ import fillerImg from './fillerImg.jpg';
 export default function Navigation(props) {
   const { atHome } = props;
   let banner;
+  // if (!atHome) {
+  //   banner = (
+  //     <div
+  //       className={`${styles.banner}`}
+  //       style={{ backgroundImage: `url(${bannerImg})` }}
+  //     >
+  //     </div>
+  //   );
+  // }
   if (!atHome) {
     banner = (
-      <div
-        className={`${styles.banner}`}
-        style={{ backgroundImage: `url(${bannerImg})` }}
-      >
+      <div className={`${styles.accentWrapper}`}>
+        <div className={`container ${styles.accentBanner}`}></div>
       </div>
     );
   }
+
+
   return (
     <header
       className={`navbar bg-faded ${styles['main-nav']} ${styles['landing-nav']}`}

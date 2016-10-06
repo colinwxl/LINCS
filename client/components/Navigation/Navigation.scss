@@ -141,11 +141,57 @@ $original-nav-color: #5670a5;
   }
 }
 
-
-.banner {
-  background-repeat: no-repeat;
-  background-size: cover;
-  padding: 3rem .9375rem 2rem .9375rem;
-  position: relative;
-  margin: auto;
+.accentWrapper {
+	background: #000 url(./components/Navigation/AccentBanner/AccentBanner-bkg-1200.jpg) repeat-y left top;
 }
+
+.accentBanner {
+	background: url(./components/Navigation/AccentBanner/AccentBanner-1200.jpg) no-repeat left top;
+	width:1200px;
+	height:59px;
+}
+
+
+@media only screen and (max-width: 1199px) {
+
+  .accentWrapper {
+  	background: #000 url(./components/Navigation/AccentBanner/AccentBanner-bkg-940.jpg) repeat-y left top;
+  }
+
+  .accentBanner {
+  	background: url(./components/Navigation/AccentBanner/AccentBanner-940.jpg) no-repeat left top;
+  }
+}
+
+
+
+@media only screen and (max-width: 991px) {
+  .accentWrapper {
+  	background: #000 url(./components/Navigation/AccentBanner/AccentBanner-bkg-720.jpg) repeat-y left top;
+  }
+
+  .accentBanner {
+  	background: url(./components/Navigation/AccentBanner/AccentBanner-720.jpg) no-repeat left top;
+  }
+}
+
+
+@media only screen and (max-width: 768px) {
+  .accentWrapper {
+  	background: #000 url(./components/Navigation/AccentBanner/AccentBanner-bkg-576.jpg) repeat-y left top;
+  }
+
+  .accentBanner {
+    margin-top: 38px;
+  	background: url(./components/Navigation/AccentBanner/AccentBanner-576.jpg) no-repeat left top;
+  }
+}
+
+
+// .banner {
+//   background-repeat: no-repeat;
+//   background-size: cover;
+//   padding: 3rem .9375rem 2rem .9375rem;
+//   position: relative;
+//   margin: auto;
+// }
