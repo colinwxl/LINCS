@@ -22,21 +22,25 @@ export default function Navigation(props) {
     >
       <div className={`${styles['navbar-top']}`}>
         <div className="container">
-          <Link to="/">
-            <img
-              className={`${styles.logo}`}
-              src={logoWithLines}
-              alt="NIH LINCS Program"
-            />
-            <h2 className={`${styles.header} ${styles.title}`}>
-              <span className={`${styles.nih}`}>NIH </span> LINCS
-              <br />
-              <span className={`${styles.program}`}>program</span>
-            </h2>
-            <h2 className={`${styles.header} ${styles['sub-title']}`}>
-              Library of Integrated Network-Based Cellular Signatures
-            </h2>
-          </Link>
+          <div className="row">
+            <div className={`col-xs-12`}>
+              <Link to="/">
+                <img
+                  className={`${styles.logo}`}
+                  src={logoWithLines}
+                  alt="NIH LINCS Program"
+                />
+                <h2 className={`${styles.header} ${styles.title}`}>
+                  <span className={`${styles.nih}`}>NIH </span> LINCS
+                  <br />
+                  <span className={`${styles.program}`}>program</span>
+                </h2>
+                <h2 className={`${styles.header} ${styles['sub-title']}`}>
+                  Library of Integrated Network-Based Cellular Signatures
+                </h2>
+              </Link>
+            </div>
+          </div>
         </div>
         <img className={`${styles.filler}`} src={fillerImg} alt="NIH LINCS Program" />
       </div>
