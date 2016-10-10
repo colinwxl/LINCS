@@ -23,7 +23,7 @@ export default function Navigation(props) {
       <div className={`${styles['navbar-top']}`}>
         <div className="container">
           <div className="row">
-            <div className={`col-xs-12`}>
+            <div className="col-xs-12">
               <Link to="/">
                 <img
                   className={`${styles.logo}`}
