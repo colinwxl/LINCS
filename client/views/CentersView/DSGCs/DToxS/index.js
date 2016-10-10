@@ -48,7 +48,7 @@ export default function DToxS() {
                 Center to Find Drug Combinations that Reduce Side Effects</a>
               </li>
               <li>
-                Center Website: <a href="http://dtoxs.org" target="_blank">dtoxs.org</a>
+                Center Website: <a href="https://martip03.u.hpc.mssm.edu/index.php" target="_blank">DToxS</a>
               </li>
             </ul>
             <h2>About</h2>

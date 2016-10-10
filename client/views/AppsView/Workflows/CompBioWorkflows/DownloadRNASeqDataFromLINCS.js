@@ -36,7 +36,7 @@ export default class Workflow extends Component {
             />
             <div
               className={
-                `col-md-9 col-md-pull-3 
+                `col-md-9 col-md-pull-3
                 ${styles.workflow}
                 ${styles['rna-seq-workflow']}`
               }
@@ -44,7 +44,7 @@ export default class Workflow extends Component {
               <p>
                 Within the LINCS Consortium there are two centers that collect RNA-Seq data.
                 These are <a href="http://www.neurolincs.org" target="_blank">NeuroLINCS</a>
-                and <a href="https://martip03.u.hpc.mssm.edu/index.php" target="_blank">DToXS</a>.
+                and <a href="https://martip03.u.hpc.mssm.edu/index.php" target="_blank">DToxS</a>.
                 The raw fastq files for this data are available on these two centers’ respective
                 web portals. In addition, processed data, scripts, pipelines and downstream
                 analyses are also available for these datasets.
@@ -78,7 +78,7 @@ export default class Workflow extends Component {
                 <li>
                   Open the “Downloads” tab on
                   the <a href="https://martip03.u.hpc.mssm.edu/index.php" target="_blank">
-                  DToXS website</a> and login
+                  DToxS website</a> and login
                 </li>
                 <li>
                   Open the "Data &amp; Resources" tab and click on the "DATA" icon shown below

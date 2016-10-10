@@ -40,7 +40,7 @@ export default function DSGCs() {
                       Drug Toxicity Signature Generation Center
                     </h5>
                     <p>Icahn School of Medicine at Mount Sinai</p>
-                    <a href="http://dtoxs.org">Visit Center website</a>
+                    <a href="https://martip03.u.hpc.mssm.edu/index.php">Visit Center website</a>
                   </div>
                   <p>
                     The Drug Toxicity Signature Generation Center aims to develop cell signatures

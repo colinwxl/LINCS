@@ -15,7 +15,6 @@ export default function Navigation(props) {
     );
   }
 
-
   return (
     <header
       className={`navbar bg-faded ${styles['main-nav']} ${styles['landing-nav']}`}
