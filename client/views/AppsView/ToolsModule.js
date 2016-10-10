@@ -33,7 +33,6 @@ export class ToolsModule extends Component {
       sortDataType: 'All',
       sortRole: 'All',
       sortFeature: 'All',
-      appsCategory: 'tools',
     };
   }
 
@@ -131,123 +130,95 @@ export class ToolsModule extends Component {
     this.setState({ sortFeature: e.target.value });
   }
 
-  handleToolTabClicked = () => { this.setState({ appsCategory: 'tools' }); }
-  handleDSATTabClicked = () => { this.setState({ appsCategory: 'dsat' }); }
-
   render() {
     const { fetchingTools,
             sortCenter,
             sortDataType,
             sortRole,
-            sortFeature,
-            appsCategory } = this.state;
-
-    const isTools = appsCategory === 'tools';
-    const isDSAT = appsCategory === 'dsat';
+            sortFeature } = this.state;
 
     const centers = ['All', ...new Set(this.props.tools.map(tool => tool.centers[0].name))].sort();
     const tools = this.props.tools.filter(this.filterTools);
 
+    const toolsList = (
+      <div>
+        <form className={styles.flex}>
+          <div className={styles.filter}>
+            <label htmlFor="sort-center">Center</label>
+            <select
+              id="sort-center"
+              className={`form-control ${styles.select}`}
+              onChange={this.handleSortCenterChanged}
+              value={sortCenter}
+            >
+              {centers.map((center, i) => <option key={i} value={center}>{center}</option>)}
+            </select>
+          </div>
+          <div className={styles.filter}>
+            <label htmlFor="sort-type">Data Type</label>
+            <select
+              id="sort-type"
+              className={`form-control ${styles.select}`}
+              onChange={this.handleSortDataTypeChanged}
+              value={sortDataType}
+            >
+              {
+                sortDataTypes.map((type, i) =>
+                  <option key={i} value={type}>{type}</option>)
+              }
+            </select>
+          </div>
+          <div className={styles.filter}>
+            <label htmlFor="sort-role">Role</label>
+            <select
+              id="sort-role"
+              className={`form-control ${styles.select}`}
+              onChange={this.handleSortRoleChanged}
+              value={sortRole}
+            >
+              {
+                sortRoles.map((role, i) =>
+                  <option key={i} value={role}>{role}</option>)
+              }
+            </select>
+          </div>
+          <div className={styles.filter}>
+            <label htmlFor="sort-feature">Feature</label>
+            <select
+              id="sort-feature"
+              className={`form-control ${styles.select}`}
+              onChange={this.handleSortFeatureChanged}
+              value={sortFeature}
+            >
+              {sortFeatures.map((feat, i) => <option key={i} value={feat}>{feat}</option>)}
+            </select>
+          </div>
+        </form>
+        <div className="row">
+          {
+            tools.map(tool =>
+              <div key={tool.id} className="col-xs-12 col-md-6 col-xl-4">
+                <Tool tool={tool} />
+              </div>
+            )
+          }
+          {
+            !tools.length &&
+              <h5 className="m-t-3 text-xs-center">
+                No tools found. Please try another filter.
+              </h5>
+          }
+        </div>
+      </div>
+    );
+
     return (
       <div>
         <h2 id="tools" className="text-xs-center text-sm-left">
-          LINCS Applications{' '}
+          LINCS Applications Marketplace{' '}
           {fetchingTools && <i className="fa fa-circle-o-notch fa-spin" />}
         </h2>
-        <div className={`btn-group ${styles.categories}`} data-toggle="buttons">
-          <label
-            onClick={this.handleToolTabClicked}
-            className={`btn ${styles['category-check']} ${isTools ? styles.active : ''}`}
-          >
-            <input
-              type="radio"
-              name="tools"
-              defaultChecked={isTools}
-            />
-            Tools
-          </label>
-          <label
-            onClick={this.handleDSATTabClicked}
-            className={`btn ${styles['category-check']} ${isDSAT ? styles.active : ''}`}
-          >
-            <input
-              type="radio"
-              name="dsat"
-              defaultChecked={isDSAT}
-            />
-            Dataset-associated Tools
-          </label>
-        </div>
-        
-        <div className={styles.toolsmodule}>
-          <form className={styles.flex}>
-            <div className={styles.filter}>
-              <label htmlFor="sort-center">Center</label>
-              <select
-                id="sort-center"
-                className={`form-control ${styles.select}`}
-                onChange={this.handleSortCenterChanged}
-                value={sortCenter}
-              >
-                {centers.map((center, i) => <option key={i} value={center}>{center}</option>)}
-              </select>
-            </div>
-            <div className={styles.filter}>
-              <label htmlFor="sort-type">Data Type</label>
-              <select
-                id="sort-type"
-                className={`form-control ${styles.select}`}
-                onChange={this.handleSortDataTypeChanged}
-                value={sortDataType}
-              >
-                {
-                  sortDataTypes.map((type, i) =>
-                    <option key={i} value={type}>{type}</option>)
-                }
-              </select>
-            </div>
-            <div className={styles.filter}>
-              <label htmlFor="sort-role">Role</label>
-              <select
-                id="sort-role"
-                className={`form-control ${styles.select}`}
-                onChange={this.handleSortRoleChanged}
-                value={sortRole}
-              >
-                {
-                  sortRoles.map((role, i) =>
-                    <option key={i} value={role}>{role}</option>)
-                }
-              </select>
-            </div>
-            <div className={styles.filter}>
-              <label htmlFor="sort-feature">Feature</label>
-              <select
-                id="sort-feature"
-                className={`form-control ${styles.select}`}
-                onChange={this.handleSortFeatureChanged}
-                value={sortFeature}
-              >
-                {sortFeatures.map((feat, i) => <option key={i} value={feat}>{feat}</option>)}
-              </select>
-            </div>
-          </form>
-          <div className="row">
-            {
-              tools.map(tool =>
-                <div key={tool.id} className="col-xs-12 col-md-6 col-xl-4">
-                  <Tool tool={tool} />
-                </div>
-              )
-            }
-            {
-              !tools.length &&
-                <h5 className="m-t-3 text-xs-center">
-                  No tools found. Please try another filter.
-                </h5>
-            }
-          </div>
-        </div>
+        {toolsList}
       </div>
     );
   }

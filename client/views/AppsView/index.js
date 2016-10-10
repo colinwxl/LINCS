@@ -14,8 +14,8 @@ export default function AppsView() {
       <div className="container">
         <div className="row">
           <div className="col-xs-12">
-            < WorkflowsModule />
-            < ToolsModule />
+            <WorkflowsModule />
+            <ToolsModule />
           </div>
         </div>
       </div>
