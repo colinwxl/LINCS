@@ -147,8 +147,8 @@ export class ToolsModule extends Component {
       });
     } else if (sortBy === 'A-Z') {
       return tools.sort((t1, t2) => {
-        const toolAName = t1.name;
-        const toolBName = t2.name;
+        const toolAName = t1.name.toUpperCase();
+        const toolBName = t2.name.toUpperCase();
         if (toolAName < toolBName) {
           return -1;
         }
@@ -161,10 +161,18 @@ export class ToolsModule extends Component {
       return tools.sort((t1, t2) => {
         const toolACenter = t1.centers[0].name.toUpperCase();
         const toolBCenter = t2.centers[0].name.toUpperCase();
+        const toolAName = t1.name.toUpperCase();
+        const toolBName = t2.name.toUpperCase();
         if (toolACenter < toolBCenter) {
           return -1;
         }
         if (toolACenter > toolBCenter) {
+          return 1;
+        }
+        if (toolAName < toolBName) {
+          return -1;
+        }
+        if (toolAName > toolBName) {
           return 1;
         }
         return 0;
