@@ -10,9 +10,9 @@ export default class MapInfo extends Component {
 
   render() {
     return (
-      <p>
+      <div className={styles.infoContainer}>
         Hello world!
-      </p>
+      </div>
     );
   }
 }

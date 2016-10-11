@@ -21,7 +21,7 @@ export default class InteractiveMap extends Component {
   componentDidMount() {
     // Containing component for InteractiveMap isn't yet rendered when map is drawn
     // This causes the map size to be rendered erroneously. SetTimeout here is to to
-    // draw map once the containing component is fully rendered.
+    // draw map once the containing component is fully rendered and solves this problem.
     setTimeout(() => {
       this.drawMap.bind(this)();
       this.drawBubbles.bind(this)();
