@@ -12,12 +12,6 @@ export default class InteractiveMap extends Component {
     window.addEventListener('resize', this.resize.bind(this));
   }
 
-  resize() {
-    if (this.map) {
-      this.map.resize();
-    }
-  }
-
   componentDidMount() {
     // Containing component for InteractiveMap isn't yet rendered when map is drawn
     // This causes the map size to be rendered erroneously. SetTimeout here is to to
@@ -41,6 +35,12 @@ export default class InteractiveMap extends Component {
     window.removeEventListener('resize', this.resize.bind(this));
   }
 
+  resize() {
+    if (this.map) {
+      this.map.resize();
+    }
+  }
+
   clear() {
     const intMap = this.refs.intMap;
 
@@ -58,13 +58,13 @@ export default class InteractiveMap extends Component {
       scope: 'usa',
       responsive: true,
       fills: {
-        'RED': '#cc4731',
-        'BLUE': '#306596',
+        RED: '#cc4731',
+        BLUE: '#306596',
         defaultFill: '#a9c0de',
       },
       data: {
-        'RED': { fillKey: 'RED'},
-        'BLUE': { fillKey: 'BLUE'},
+        RED: { fillKey: 'RED' },
+        BLUE: { fillKey: 'BLUE' },
       },
       geographyConfig: {
         highlightOnHover: false,
@@ -77,14 +77,11 @@ export default class InteractiveMap extends Component {
 
   drawBubbles() {
     this.map.bubbles(this.dataset, {
-      popupTemplate: (geo, data) => {
-        return (
-          `<div class='${styles.hoverinfo}'>
-            <img src='${data.logo}' class='${styles.logo}' />
-            <h1 class='${styles.title}'>${data.name}</h1>
-          </div>`
-        );
-      },
+      popupTemplate: (geo, data) =>
+        `<div class='${styles.hoverinfo}'>
+          <img src='${data.logo}' class='${styles.logo}' />
+          <h1 class='${styles.title}'>${data.name}</h1>
+        </div>`,
     });
   }
 

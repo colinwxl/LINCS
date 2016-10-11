@@ -5,7 +5,6 @@ import styles from './MapInfo.scss';
 export default class MapInfo extends Component {
   constructor(props) {
     super(props);
-
   }
 
   render() {
@@ -18,5 +17,4 @@ export default class MapInfo extends Component {
 }
 
 MapInfo.propTypes = {
-
-}
+};

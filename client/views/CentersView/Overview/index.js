@@ -5,7 +5,7 @@ import PageBanner from 'components/PageBanner';
 import PageNav from 'components/PageNav';
 import Map from 'components/InteractiveMap/Map';
 import styles from './Overview.scss';
-import centersMapImg from './centers-map.png';
+// import centersMapImg from './centers-map.png';
 
 
 const dsgcRoute = '/centers/data-and-signature-generating-centers';
