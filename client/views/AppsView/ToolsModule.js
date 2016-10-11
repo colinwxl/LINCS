@@ -5,18 +5,21 @@ import { loadTools } from 'actions/toolsWorkflows';
 import Tool from 'components/Tool';
 import styles from './AppsView.scss';
 
+const sortOptions = [
+  'Featured', 'A-Z', 'Center',
+];
 
-const sortDataTypes = [
+const filterByDataTypes = [
   'All', 'Cell State Data', 'Drug Binding Data', 'Morphology Data', 'Protein Data',
   'Transcript Data',
 ];
 
-const sortRoles = [
+const filterByRoles = [
   'All', 'Data Analysis', 'Data Documentation', 'Data Formatting', 'Data Integration',
   'Data Storage', 'Data Visualization', 'Network Analysis', 'Signature Generation',
 ];
 
-const sortFeatures = [
+const filterByFeatures = [
   'All', 'API', 'Command Line', 'Database', 'Documentation', 'Ontology', 'Open Source',
   'Provenance', 'Scripting', 'Search Engine', 'Versioning', 'Web-based',
 ];
@@ -29,10 +32,11 @@ export class ToolsModule extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      sortCenter: 'All',
-      sortDataType: 'All',
-      sortRole: 'All',
-      sortFeature: 'All',
+      sortBy: 'Featured',
+      filterByCenter: 'All',
+      filterByDataType: 'All',
+      filterByRole: 'All',
+      filterByFeature: 'All',
     };
   }
 
@@ -41,115 +45,193 @@ export class ToolsModule extends Component {
   }
 
   checkAllDataTypes = (tool) => {
-    const { sortDataType } = this.state;
-    return (sortDataType === 'All') ||
-      (sortDataType === 'Cell State Data' && tool.cellStateData) ||
-      (sortDataType === 'Drug Binding Data' && tool.drugBindingData) ||
-      (sortDataType === 'Morphology Data' && tool.morphologyData) ||
-      (sortDataType === 'Protein Data' && tool.proteinData) ||
-      (sortDataType === 'Transcript Data' && tool.transcriptData);
+    const { filterByDataType } = this.state;
+    return (filterByDataType === 'All') ||
+      (filterByDataType === 'Cell State Data' && tool.cellStateData) ||
+      (filterByDataType === 'Drug Binding Data' && tool.drugBindingData) ||
+      (filterByDataType === 'Morphology Data' && tool.morphologyData) ||
+      (filterByDataType === 'Protein Data' && tool.proteinData) ||
+      (filterByDataType === 'Transcript Data' && tool.transcriptData);
   }
 
   checkAllRoles = (tool) => {
-    const { sortRole } = this.state;
-    return (sortRole === 'All') ||
-      (sortRole === 'Data Analysis' && tool.dataAnalysis) ||
-      (sortRole === 'Data Documentation' && tool.dataDocumentation) ||
-      (sortRole === 'Data Formatting' && tool.dataFormatting) ||
-      (sortRole === 'Data Integration' && tool.dataIntegration) ||
-      (sortRole === 'Data Storage' && tool.dataStorage) ||
-      (sortRole === 'Data Visualization' && tool.dataVisualization) ||
-      (sortRole === 'Network Analysis' && tool.networkAnalysis) ||
-      (sortRole === 'Signature Generation' && tool.signatureGeneration);
+    const { filterByRole } = this.state;
+    return (filterByRole === 'All') ||
+      (filterByRole === 'Data Analysis' && tool.dataAnalysis) ||
+      (filterByRole === 'Data Documentation' && tool.dataDocumentation) ||
+      (filterByRole === 'Data Formatting' && tool.dataFormatting) ||
+      (filterByRole === 'Data Integration' && tool.dataIntegration) ||
+      (filterByRole === 'Data Storage' && tool.dataStorage) ||
+      (filterByRole === 'Data Visualization' && tool.dataVisualization) ||
+      (filterByRole === 'Network Analysis' && tool.networkAnalysis) ||
+      (filterByRole === 'Signature Generation' && tool.signatureGeneration);
   }
 
   checkAllFeatures = (tool) => {
-    const { sortFeature } = this.state;
-    return (sortFeature === 'All') ||
-      (sortFeature === 'API' && tool.api) ||
-      (sortFeature === 'Command Line' && tool.commandLine) ||
-      (sortFeature === 'Database' && tool.database) ||
-      (sortFeature === 'Documentation' && tool.documentation) ||
-      (sortFeature === 'Ontology' && tool.ontology) ||
-      (sortFeature === 'Open Source' && tool.openSource) ||
-      (sortFeature === 'Provenance' && tool.provenance) ||
-      (sortFeature === 'Scripting' && tool.scripting) ||
-      (sortFeature === 'Search Engine' && tool.searchEngine) ||
-      (sortFeature === 'Versioning' && tool.versioning) ||
-      (sortFeature === 'Web-based' && tool.webBased);
+    const { filterByFeature } = this.state;
+    return (filterByFeature === 'All') ||
+      (filterByFeature === 'API' && tool.api) ||
+      (filterByFeature === 'Command Line' && tool.commandLine) ||
+      (filterByFeature === 'Database' && tool.database) ||
+      (filterByFeature === 'Documentation' && tool.documentation) ||
+      (filterByFeature === 'Ontology' && tool.ontology) ||
+      (filterByFeature === 'Open Source' && tool.openSource) ||
+      (filterByFeature === 'Provenance' && tool.provenance) ||
+      (filterByFeature === 'Scripting' && tool.scripting) ||
+      (filterByFeature === 'Search Engine' && tool.searchEngine) ||
+      (filterByFeature === 'Versioning' && tool.versioning) ||
+      (filterByFeature === 'Web-based' && tool.webBased);
   }
 
   filterTools = (tool) => {
     const centersName = tool.centers.map(center => center.name);
-    const { sortCenter, sortDataType, sortRole, sortFeature } = this.state;
-    if (sortCenter === 'All' &&
-        sortDataType === 'All' &&
-        sortRole === 'All' &&
-        sortFeature === 'All') {
+    const { filterByCenter, filterByDataType, filterByRole, filterByFeature } = this.state;
+    if (filterByCenter === 'All' &&
+        filterByDataType === 'All' &&
+        filterByRole === 'All' &&
+        filterByFeature === 'All') {
       return true;
-    } else if (sortCenter === 'All') {
+    } else if (filterByCenter === 'All') {
       return this.checkAllDataTypes(tool) &&
              this.checkAllRoles(tool) &&
              this.checkAllFeatures(tool);
-    } else if (sortDataType === 'All' &&
-               sortRole === 'All' &&
-               sortFeature === 'All') {
-      return centersName.includes(sortCenter);
-    } else if (sortDataType === 'All') {
-      return centersName.includes(sortCenter) &&
+    } else if (filterByDataType === 'All' &&
+               filterByRole === 'All' &&
+               filterByFeature === 'All') {
+      return centersName.includes(filterByCenter);
+    } else if (filterByDataType === 'All') {
+      return centersName.includes(filterByCenter) &&
              this.checkAllRoles(tool) &&
              this.checkAllFeatures(tool);
-    } else if (sortRole === 'All') {
-      return centersName.includes(sortCenter) &&
+    } else if (filterByRole === 'All') {
+      return centersName.includes(filterByCenter) &&
              this.checkAllDataTypes(tool) &&
              this.checkAllFeatures(tool);
-    } else if (sortFeature === 'All') {
-      return centersName.includes(sortCenter) &&
+    } else if (filterByFeature === 'All') {
+      return centersName.includes(filterByCenter) &&
              this.checkAllDataTypes(tool) &&
              this.checkAllRoles(tool);
     }
-    return centersName.includes(sortCenter) &&
+    return centersName.includes(filterByCenter) &&
            this.checkAllDataTypes(tool) &&
            this.checkAllRoles(tool) &&
            this.checkAllFeatures(tool);
   }
 
-  handleSortCenterChanged = (e) => {
-    this.setState({ sortCenter: e.target.value });
+  // sortByProperty = (items, property) => {
+  //   return items.sort((a, b) => {
+  //     let propertyA = a[property]; // ignore upper and lowercase
+  //     let propertyB = b[property]; // ignore upper and lowercase
+  //     if (propertyA < propertyB) {
+  //       return -1;
+  //     }
+  //     if (propertyA > propertyB) {
+  //       return 1;
+  //     }
+  //     return 0;
+  //   });
+  // }
+
+  sortTools = (tools, sortBy) => {
+    if (sortBy === 'Featured') {
+      return tools.sort((t1, t2) => {
+        const toolAOrder = t1.order;
+        const toolBOrder = t2.order;
+        if (toolAOrder < toolBOrder) {
+          return -1;
+        }
+        if (toolAOrder > toolBOrder) {
+          return 1;
+        }
+        return 0;
+      });
+    } else if (sortBy === 'A-Z') {
+      return tools.sort((t1, t2) => {
+        const toolAName = t1.name;
+        const toolBName = t2.name;
+        if (toolAName < toolBName) {
+          return -1;
+        }
+        if (toolAName > toolBName) {
+          return 1;
+        }
+        return 0;
+      });
+    } else if (sortBy === 'Center') {
+      return tools.sort((t1, t2) => {
+        const toolACenter = t1.centers[0].name.toUpperCase();
+        const toolBCenter = t2.centers[0].name.toUpperCase();
+        if (toolACenter < toolBCenter) {
+          return -1;
+        }
+        if (toolACenter > toolBCenter) {
+          return 1;
+        }
+        return 0;
+      });
+    }
+    return tools;
   }
 
-  handleSortRoleChanged = (e) => {
-    this.setState({ sortRole: e.target.value });
+  handleSortByChanged = (e) => {
+    this.setState({ sortBy: e.target.value });
   }
 
-  handleSortDataTypeChanged = (e) => {
-    this.setState({ sortDataType: e.target.value });
+  handleFilterByCenterChanged = (e) => {
+    this.setState({ filterByCenter: e.target.value });
   }
 
-  handleSortFeatureChanged = (e) => {
-    this.setState({ sortFeature: e.target.value });
+  handleFilterByRoleChanged = (e) => {
+    this.setState({ filterByRole: e.target.value });
+  }
+
+  handleFilterByDataTypeChanged = (e) => {
+    this.setState({ filterByDataType: e.target.value });
+  }
+
+  handleFilterByFeatureChanged = (e) => {
+    this.setState({ filterByFeature: e.target.value });
   }
 
   render() {
     const { fetchingTools,
-            sortCenter,
-            sortDataType,
-            sortRole,
-            sortFeature } = this.state;
+            sortBy,
+            filterByCenter,
+            filterByDataType,
+            filterByRole,
+            filterByFeature } = this.state;
 
     const centers = ['All', ...new Set(this.props.tools.map(tool => tool.centers[0].name))].sort();
-    const tools = this.props.tools.filter(this.filterTools);
+    const tools = this.sortTools(this.props.tools.filter(this.filterTools), sortBy);
 
     const toolsList = (
       <div>
         <form className={styles.flex}>
           <div className={styles.filter}>
+            <label htmlFor="sort-center">Sort by</label>
+            <select
+              id="sort-center"
+              className={`form-control ${styles.select}`}
+              onChange={this.handleSortByChanged}
+              value={sortBy}
+            >
+              {
+                sortOptions.map((sortOption, i) =>
+                  <option key={i} value={sortOption}>
+                    {sortOption}
+                  </option>
+                )
+              }
+            </select>
+          </div>
+
+          <div className={styles.filter}>
             <label htmlFor="sort-center">Center</label>
             <select
               id="sort-center"
               className={`form-control ${styles.select}`}
-              onChange={this.handleSortCenterChanged}
-              value={sortCenter}
+              onChange={this.handleFilterByCenterChanged}
+              value={filterByCenter}
             >
               {centers.map((center, i) => <option key={i} value={center}>{center}</option>)}
             </select>
@@ -159,11 +241,11 @@ export class ToolsModule extends Component {
             <select
               id="sort-type"
               className={`form-control ${styles.select}`}
-              onChange={this.handleSortDataTypeChanged}
-              value={sortDataType}
+              onChange={this.handleFilterByDataTypeChanged}
+              value={filterByDataType}
             >
               {
-                sortDataTypes.map((type, i) =>
+                filterByDataTypes.map((type, i) =>
                   <option key={i} value={type}>{type}</option>)
               }
             </select>
@@ -173,11 +255,11 @@ export class ToolsModule extends Component {
             <select
               id="sort-role"
               className={`form-control ${styles.select}`}
-              onChange={this.handleSortRoleChanged}
-              value={sortRole}
+              onChange={this.handleFilterByRoleChanged}
+              value={filterByRole}
             >
               {
-                sortRoles.map((role, i) =>
+                filterByRoles.map((role, i) =>
                   <option key={i} value={role}>{role}</option>)
               }
             </select>
@@ -187,10 +269,10 @@ export class ToolsModule extends Component {
             <select
               id="sort-feature"
               className={`form-control ${styles.select}`}
-              onChange={this.handleSortFeatureChanged}
-              value={sortFeature}
+              onChange={this.handleFilterByFeatureChanged}
+              value={filterByFeature}
             >
-              {sortFeatures.map((feat, i) => <option key={i} value={feat}>{feat}</option>)}
+              {filterByFeatures.map((feat, i) => <option key={i} value={feat}>{feat}</option>)}
             </select>
           </div>
         </form>
