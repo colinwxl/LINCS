@@ -1,1 +1,39 @@
 @import 'variables';
+
+.mapInfo {
+    height: 350px;
+    display: inline-block;
+    width: 300px;
+    border: 1px solid #ebebeb;
+    border-radius: 5px;
+    box-shadow: rgba(0,0,0,0.14902) 0px 1px 1px 0px,rgba(0,0,0,0.09804) 0px 1px 2px 0px;
+    margin-top: 20px;
+    margin-bottom: 15px;
+    &:hover {
+      box-shadow: 0 1px 10px rgba(0,0,0,.4);
+    }
+}
+
+.mapContainer {
+    height: 350px;
+    width: 550px;
+    margin-top: -20px;
+    display: inline-block;
+    vertical-align: top;
+    float:right;
+    margin-right: 80px;
+    margin-bottom: 15px;
+}
+
+.mapTitle {
+    font-size: 20px;
+    text-align: center;
+    margin-top: 15px;
+}
+
+.mapContent {
+    width:280px;
+    height: 90px;
+    margin: auto;
+    margin-top: 10px;
+}
