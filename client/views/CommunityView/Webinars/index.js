@@ -1,7 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import extend from 'extend';
-// import { Link } from 'react-router';
 
 import { fetchWebinars } from 'actions/community';
 import formatDate from 'utils/formatDate';
