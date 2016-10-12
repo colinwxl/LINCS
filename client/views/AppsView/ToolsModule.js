@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 import { loadTools } from 'actions/toolsWorkflows';
 import Tool from 'components/Tool';
-import DatasetTool from 'components/DatasetTool';
+import CannedAnalysisTool from 'components/CannedAnalysisTool';
 import styles from './AppsView.scss';
 
 
@@ -279,7 +279,7 @@ export class ToolsModule extends Component {
           {
             tools.map(tool =>
               <div key={tool.id} className="col-xs-12 col-md-6 col-xl-4">
-                <DatasetTool tool={tool} />
+                <CannedAnalysisTool tool={tool} />
               </div>
             )
           }

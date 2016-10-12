@@ -1,0 +1,75 @@
+@import 'variables';
+
+$tool-height: 11rem;
+$tool-width: 13rem;
+$tool-details-height: 8rem;
+$shadow: rgba(0, 0, 0, .1);
+
+.tool {
+  border: 1px solid;
+  border-color: $gray-border-top $gray-border-side $gray-border-bottom;
+  border-radius: .2rem;
+  margin: 0 auto 1rem;
+  height: $tool-height;
+  width: $tool-width;
+  box-shadow: 0 2px 4px $shadow;
+  text-decoration: none !important;
+}
+
+.tool-details {
+  border-bottom: 1px solid;
+  border-color: $gray-border-top $gray-border-side $gray-border-bottom;
+  padding: 1rem 0.8rem;
+  height: $tool-details-height;
+  text-align: center;
+}
+
+.tool-desc {
+  margin-bottom: 0.7rem;
+}
+
+$img-width: 4.5rem;
+
+.tool-logo-wrap {
+  width: $img-width;
+  text-align: center;
+
+  img {
+    display: inline-block;
+    max-height: 100%;
+    width: 80%;
+  }
+}
+
+.tool-analysis {
+  font-size: 0.8rem;
+}
+
+.tool-click-target {
+  height: 100%;
+  width: $tool-width;
+  text-align: center;
+}
+
+.tool-click-button {
+  width: $tool-width;
+}
+
+.overlay {
+  background: $overlay-black;
+  border-radius: .2rem;
+  cursor: pointer;
+  filter: alpha(opacity = 0);
+  height: $tool-height;
+  left: 0;
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  transition: all .25s ease;
+  width: $tool-width;
+
+  &:hover {
+    filter: alpha(opacity = 1);
+    opacity: 1;
+  }
+}
