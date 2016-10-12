@@ -19,7 +19,8 @@ export default function Story20160916() {
       &nbsp;Center launched its&nbsp;
         <a
           href="http://www.cancerbrowser.org"
-          target="_blank">
+          target="_blank"
+        >
           Breast Cancer Browser
         </a>, a data portal that aggregates and visualizes both published and
         unpublished datasets of significant interest to researchers studying
