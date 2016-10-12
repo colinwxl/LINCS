@@ -10,10 +10,6 @@ export default function Story20160916() {
       title="Breast Cancer Browser"
       date="September 16th, 2016"
     >
-      <img
-        src={breastCancerBrowser}
-        alt="Breast Cancer Browser Screenshot"
-      />
       <p>
         The <a href="http://lincs.hms.harvard.edu" target="_blank">HMS LINCS</a>
       &nbsp;Center launched its&nbsp;
@@ -26,6 +22,10 @@ export default function Story20160916() {
         unpublished datasets of significant interest to researchers studying
         breast cancer biology, drug response, and drug polypharmacology.
       </p>
+      <img
+        src={breastCancerBrowser}
+        alt="Breast Cancer Browser Screenshot"
+      />
       <span className={styles['twitter-label']}>
         <a
           title="Follow @LINCSProgram on Twitter"
