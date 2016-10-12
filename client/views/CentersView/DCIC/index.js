@@ -44,6 +44,14 @@ export default function DCIC() {
                 Center Website: <a href="http://lincs-dcic.org/#/">lincs-dcic.org</a>
               </li>
             </ul>
+            <div className={styles.playlist}>
+              <iframe
+                width="560"
+                height="315"
+                src="https://www.youtube.com/embed/wpx3sHd-5fo"
+                frameborder="0"
+                allowfullscreen></iframe>
+            </div>
             <p>
               The Big Data to Knowledge (BD2K) Data Coordination and Integration Center (DCIC)
               for the Library of Integrated Network-based Signatures (LINCS) program consists
