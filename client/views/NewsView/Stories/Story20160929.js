@@ -13,7 +13,7 @@ export default function Story20160929() {
       <img
         src={hmsLincsLogo}
         alt="hmsLincsLogo"
-        style={{ width: "10rem" }}
+        style={{ width: '10rem' }}
         className={styles['inline-img-right']}
       />
       <p>
@@ -25,17 +25,17 @@ export default function Story20160929() {
         state and signaling pathway status in the MCF 10A breast
         cell line treated with EGF or selected kinase inhibitors
         (HMS LINCS Datasets&nbsp;
-          <a href="http://lincs.hms.harvard.edu/db/datasets/20265/" target="_blank">
-            #20265
-          </a>
-            ,&nbsp;
-          <a href="http://lincs.hms.harvard.edu/db/datasets/20266/" target="_blank">
-            #20266
-          </a>
-            , and&nbsp;
-          <a href="http://lincs.hms.harvard.edu/db/datasets/20267/" target="_blank">
-            #20267
-          </a>
+        <a href="http://lincs.hms.harvard.edu/db/datasets/20265/" target="_blank">
+          #20265
+        </a>
+          ,&nbsp;
+        <a href="http://lincs.hms.harvard.edu/db/datasets/20266/" target="_blank">
+          #20266
+        </a>
+          , and&nbsp;
+        <a href="http://lincs.hms.harvard.edu/db/datasets/20267/" target="_blank">
+          #20267
+        </a>
         ).
       </p>
       <span className={styles['twitter-label']}>
