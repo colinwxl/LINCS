@@ -49,8 +49,9 @@ export default function DCIC() {
                 width="560"
                 height="315"
                 src="https://www.youtube.com/embed/wpx3sHd-5fo"
-                frameborder="0"
-                allowfullscreen></iframe>
+                frameBorder="0"
+                allowFullScreen
+              />
             </div>
             <p>
               The Big Data to Knowledge (BD2K) Data Coordination and Integration Center (DCIC)
