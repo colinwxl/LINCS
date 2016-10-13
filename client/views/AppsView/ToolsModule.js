@@ -310,7 +310,7 @@ export class ToolsModule extends Component {
               name="tools"
               defaultChecked={isTools}
             />
-            Tools
+            Marketplace
           </label>
           <label
             onClick={this.handleDPTTabClicked}
@@ -321,7 +321,7 @@ export class ToolsModule extends Component {
               name="dpt"
               defaultChecked={isDPT}
             />
-            Dataset-preloaded Tools
+            Canned Analysis Tool
           </label>
         </div>
         {isTools ? toolsList : dpt}
