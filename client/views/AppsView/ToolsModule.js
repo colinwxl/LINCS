@@ -278,7 +278,7 @@ export class ToolsModule extends Component {
         <div className="row">
           {
             tools.map(tool =>
-              <div key={tool.id} className="col-xs-12 col-md-6 col-xl-4">
+              <div key={tool.id} className="col-xs-12 col-md-6 col-xl-3">
                 <CannedAnalysisTool tool={tool} />
               </div>
             )
