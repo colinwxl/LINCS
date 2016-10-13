@@ -5,7 +5,7 @@ import { loadTools } from 'actions/toolsWorkflows';
 import Tool from 'components/Tool';
 import CannedAnalysisTool from 'components/CannedAnalysisTool';
 import styles from './AppsView.scss';
-
+import cannedTools from './cannedTools.json';
 
 const sortDataTypes = [
   'All', 'Cell State Data', 'Drug Binding Data', 'Morphology Data', 'Protein Data',
@@ -148,6 +148,7 @@ export class ToolsModule extends Component {
 
     const centers = ['All', ...new Set(this.props.tools.map(tool => tool.centers[0].name))].sort();
     const tools = this.props.tools.filter(this.filterTools);
+    const cTools = cannedTools;
 
     const toolsList = (
       <div className={styles.toolsmodule}>
@@ -277,14 +278,14 @@ export class ToolsModule extends Component {
         </form>
         <div className="row">
           {
-            tools.map(tool =>
-              <div key={tool.id} className="col-xs-12 col-md-6 col-xl-3">
+            cTools.map(tool =>
+              <div key={tool.name + tool.dataset} className="col-xs-12 col-md-6 col-xl-3">
                 <CannedAnalysisTool tool={tool} />
               </div>
             )
           }
           {
-            !tools.length &&
+            !cTools.length &&
               <h5 className="m-t-3 text-xs-center">
                 No tools found. Please try another filter.
               </h5>

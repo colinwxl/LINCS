@@ -8,26 +8,29 @@ $shadow: rgba(0, 0, 0, .1);
   border: 1px solid;
   border-color: $gray-border-top $gray-border-side $gray-border-bottom;
   border-radius: .2rem;
-  margin: 0 auto 1rem;
   height: $tool-height;
   width: $tool-width;
+  margin: 0 auto 1rem;
   box-shadow: 0 2px 4px $shadow;
-  text-decoration: none !important;
+  a {
+    text-decoration: none !important;
+  }
 }
 
 $tool-details-height: 8rem;
 
 .tool-details {
+  height: $tool-details-height;
+  padding: 1rem;
   border-bottom: 1px solid;
   border-color: $gray-border-top $gray-border-side $gray-border-bottom;
-  padding: 1rem;
-  height: $tool-details-height;
 }
 
 .tool-desc {
+  height: 70px;
   margin-bottom: 0.7rem;
-  max-height: 4rem;
   overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 $desc-font-size: 0.9rem;
@@ -36,26 +39,25 @@ $desc-container-width: 6.5rem;
 .tool-info {
   display: inline-block;
   width: $desc-container-width;
-  margin-left: 0.5rem;
   font-size: $desc-font-size;
+  font-weight: 600;
   line-height: 1rem;
-  float: left;
 }
 
 $img-length: 4rem;
 
 .tool-logo-wrap {
-  float: left;
   display: inline-block;
+  position: relative;
+  float: left;
   height: $img-length;
   width: $img-length;
-  position: relative;
 
   img {
     display: block;
+    position: absolute;
     width: 80%;
     top: 50%;
-    position: absolute;
     transform: translateY(-50%);
   }
 }
@@ -69,34 +71,44 @@ $img-length: 4rem;
   display: block;
 }
 
+.info-icon {
+  position: absolute;
+  right: 2.25rem;
+  top: 0.5rem;
+  width: 1rem;
+  opacity: 0.8;
+  &:hover {
+    opacity: 0.6;
+  }
+}
+
 .tool-click-target {
   height: $tool-height - $tool-details-height;
   width: $tool-width;
   text-decoration: none !important;
   text-align: center;
   &:hover {
-    transition: all .25s ease;
     background: $overlay-black;
     filter: alpha(opacity = 1);
     opacity: 1;
+    transition: all .25s ease;
   }
 }
 
 .tool-click-button {
-  margin-top: 0.6rem;
-  font-weight: 600;
   width: $tool-width;
+  font-weight: 600;
+  margin-top: 0.6rem;
 }
 
 .analysis-overlay, .tool-overlay {
-  background: $overlay-black;
-  border-radius: .2rem;
-  cursor: pointer;
-  filter: alpha(opacity = 0);
-  float: left;
   position: absolute;
   top: $tool-details-height;
+  background: $overlay-black;
+  border-radius: .2rem;
   opacity: 0;
+  cursor: pointer;
+  filter: alpha(opacity = 0);
   transition: all .25s ease;
 
   &:hover {
@@ -111,5 +123,5 @@ $img-length: 4rem;
 }
 
 .tool-overlay {
-  
+
 }

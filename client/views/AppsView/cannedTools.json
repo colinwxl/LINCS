@@ -1,0 +1,173 @@
+[
+  {
+    "name": "Drug-Pathway Browser",
+    "dataset": "LDG-1103 (HMS 20120)",
+    "details": "Visualisation for LDS-1106 (HMS 20120) data.",
+    "link": "http://lincs.hms.harvard.edu/explore/pathway/",
+    "description": "NULL",
+    "datasetName": "Metrics other than potency reveal systematic variation in responses to cancer drugs",
+    "iconUrl": "http://lincsproject.org/LINCS/files/tools_logos/explore2.jpg"
+  },
+  {
+    "name": "Drug Response Browser",
+    "dataset": "LDG-1103 (HMS 20120)",
+    "details": "Visualisation for LDS-1106 (HMS 20120) data.",
+    "link": "http://lincs.hms.harvard.edu/explore/10.1038-nchembio.1337/fallahi-sichani-2013/",
+    "description": "NULL",
+    "datasetName": "Metrics other than potency reveal systematic variation in responses to cancer drugs",
+    "iconUrl": "http://lincsproject.org/LINCS/files/tools_logos/explore2.jpg"
+  },
+  {
+    "name": "iLINCS",
+    "dataset": "LDS-1196",
+    "details": "LINCS PCCSE - P100 validation set",
+    "link": "http://www.ilincs.org/GenomicsPortals/DatasetLandingPage.do?data_set=LDG-1193",
+    "description": "Protein expression profiles of human cancer cell lines treated with small-molecules",
+    "datasetName": "P100 validation dataset",
+    "iconUrl": "http://lincsproject.org/LINCS/files/tools_logos/i-lincs.png"
+  },
+  {
+    "name": "iLINCS",
+    "dataset": "LDS-1356",
+    "details": "NeuroLINCS - RNA-seq gene expression (August 2015)",
+    "link": "http://www.ilincs.org/GenomicsPortals/DatasetLandingPage.do?data_set=LDG-1232",
+    "description": "RNA-Seq was carried out on isolated mRNA obtained from induced Pluripotnent Stem Cells (iPSC) cell lines. These lines were derived from ALS, SMA and Control (unaffected) individuals (three of each)",
+    "datasetName": "iPSC (Exp 1) - ALS, SMA and Control (unaffected) subject-derived iPSC lines - RNA-seq",
+    "iconUrl": "http://lincsproject.org/LINCS/files/tools_logos/i-lincs.png"
+  },
+  {
+    "name": "iLINCS",
+    "dataset": "LDS-1237",
+    "details": "DToxS - RNA-seq gene expression (May 2015)",
+    "link": "http://www.ilincs.org/GenomicsPortals/DatasetLandingPage.do?data_set=LDG-1231",
+    "description": "Transcriptional profiles of three PromoCell cardiomyocytes treated with known toxic compounds alone and in combination with \"mitigating\" compounds.",
+    "datasetName": "Transcriptomics dataset (June 2015)",
+    "iconUrl": "http://lincsproject.org/LINCS/files/tools_logos/i-lincs.png"
+  },
+  {
+    "name": "iLINCS",
+    "dataset": "LDS-1239",
+    "details": "DToxS - RNA-seq gene expression (August 2015)",
+    "link": "http://www.ilincs.org/GenomicsPortals/DatasetLandingPage.do?data_set=LDG-1233",
+    "description": "Transcriptional profiles of four PromoCell cardiomyocytes treated with known toxic compounds alone and in combination with \"mitigating\" compounds",
+    "datasetName": "Transcriptomics dataset (August 2015)",
+    "iconUrl": "http://lincsproject.org/LINCS/files/tools_logos/i-lincs.png"
+  },
+  {
+    "name": "Gen3va",
+    "dataset": "LDS-1356                   ALS report",
+    "details": "28iALS-n2 , 29i ALS-n1, 30i ALS-n1, 52iALS-n6, ALS",
+    "link": "http://amp.pharm.mssm.edu/gen3va/report/approved/NeuroLINCS_ALS",
+    "description": "RNA-Seq was carried out on isolated mRNA obtained from induced Pluripotnent Stem Cells (iPSC) cell lines. These lines were derived from ALS, SMA and Control (unaffected) individuals (three of each).",
+    "datasetName": "iPSC (Exp 1) - ALS, SMA and Control (unaffected) subject-derived iPSC lines - RNA-seq",
+    "iconUrl": "http://lincsproject.org/LINCS/files/tools_logos/gen3va-logo.png"
+  },
+  {
+    "name": "Gen3va",
+    "dataset": "LDS-1356                 SMA report",
+    "details": "13iSMA-n1, 32iSMA-n3, 77iSMA-n5, 83iSMA-n5, SMA",
+    "link": "http://amp.pharm.mssm.edu/gen3va/report/approved/NeuroLINCS_SMA",
+    "description": "RNA-Seq was carried out on isolated mRNA obtained from induced Pluripotnent Stem Cells (iPSC) cell lines. These lines were derived from ALS, SMA and Control (unaffected) individuals (three of each).",
+    "datasetName": "iPSC (Exp 1) - ALS, SMA and Control (unaffected) subject-derived iPSC lines - RNA-seq",
+    "iconUrl": "http://lincsproject.org/LINCS/files/tools_logos/gen3va-logo.png"
+  },
+  {
+    "name": "Gen3va",
+    "dataset": "DToxS report LDS-1239",
+    "details": "Cardiomyocytes",
+    "link": "http://amp.pharm.mssm.edu/gen3va/tag/dtoxs",
+    "description": "Transcriptional profiles of four PromoCell cardiomyocytes treated with known toxic compounds alone and in combination with \"mitigating\" compounds.",
+    "datasetName": "Transcriptomics dataset (August 2015)",
+    "iconUrl": "http://lincsproject.org/LINCS/files/tools_logos/gen3va-logo.png"
+  },
+  {
+    "name": "LINCS Data Explorer",
+    "dataset": "LDS-1240",
+    "details": "PC3 SS2",
+    "link": "https://www.synapse.org/#!Synapse:syn5706745",
+    "description": "Cell cycle and nuclear state imaging readouts for PC3 cells treated with ligand and ECMp combinations to explore the role of microenvironmental signals in cancer growth",
+    "datasetName": "MEMA PC3 cell line dataset",
+    "iconUrl": "http://lincsproject.org/LINCS/files/tools_logos/mep-lincs-data-explorer.png"
+  },
+  {
+    "name": "LINCS Data Explorer",
+    "dataset": "LDS-1299",
+    "details": "MCF7 SS1",
+    "link": "https://www.synapse.org/#!Synapse:syn5706725",
+    "description": "Cell cycle and nuclear state imaging readouts for MCF7 cells treated with ligand and ECMp combinations to explore the role of microenvironmental signals in cancer growth.",
+    "datasetName": "MEMA MCF7 Staining Set 1",
+    "iconUrl": "http://lincsproject.org/LINCS/files/tools_logos/mep-lincs-data-explorer.png"
+  },
+  {
+    "name": "LINCS Data Explorer",
+    "dataset": "LDS-1303",
+    "details": "MCF7 SS2",
+    "link": "https://www.synapse.org/#!Synapse:syn5706727",
+    "description": "Cell cycle and nuclear state imaging readouts for MCF7 cells treated with ligand and ECMp combinations to explore the role of microenvironmental signals in cancer growth.",
+    "datasetName": "MEMA MCF7 Staining Set 2",
+    "iconUrl": "http://lincsproject.org/LINCS/files/tools_logos/mep-lincs-data-explorer.png"
+  },
+  {
+    "name": "LINCS Data Explorer",
+    "dataset": "LDS-1307",
+    "details": "MCF7 SS3",
+    "link": "https://www.synapse.org/#!Synapse:syn5706729",
+    "description": "Cell cycle and nuclear state imaging readouts for MCF7 cells treated with ligand and ECMp combinations to explore the role of microenvironmental signals in cancer growth.",
+    "datasetName": "MEMA MCF7 Staining Set 3",
+    "iconUrl": "http://lincsproject.org/LINCS/files/tools_logos/mep-lincs-data-explorer.png"
+  },
+  {
+    "name": "LINCS Data Explorer",
+    "dataset": "LDS-1311",
+    "details": "PC3 SS1",
+    "link": "https://www.synapse.org/#!Synapse:syn5706712",
+    "description": "Cell cycle and nuclear state imaging readouts for PC3 cells treated with ligand and ECMp combinations to explore the role of microenvironmental signals in cancer growth.",
+    "datasetName": "MEMA PC3 Staining Set 1",
+    "iconUrl": "http://lincsproject.org/LINCS/files/tools_logos/mep-lincs-data-explorer.png"
+  },
+  {
+    "name": "LINCS Data Explorer",
+    "dataset": "LDS-1319",
+    "details": "PC3 SS2noH3",
+    "link": "https://www.synapse.org/#!Synapse:syn5706747",
+    "description": "Cell cycle and nuclear state imaging readouts for PC3 cells treated with ligand and ECMp combinations to explore the role of microenvironmental signals in cancer growth.",
+    "datasetName": "MEMA PC3 Staining Set 2 no H3",
+    "iconUrl": "http://lincsproject.org/LINCS/files/tools_logos/mep-lincs-data-explorer.png"
+  },
+  {
+    "name": "LINCS Data Explorer",
+    "dataset": "LDS-1323",
+    "details": "PC3 SS3",
+    "link": "https://www.synapse.org/#!Synapse:syn5706749",
+    "description": "Cell cycle and nuclear state imaging readouts for PC3 cells treated with ligand and ECMp combinations to explore the role of microenvironmental signals in cancer growth.",
+    "datasetName": "MEMA PC3 Staining Set 3",
+    "iconUrl": "http://lincsproject.org/LINCS/files/tools_logos/mep-lincs-data-explorer.png"
+  },
+  {
+    "name": "LINCS Data Explorer",
+    "dataset": "LDS-1327",
+    "details": "YAPC SS1",
+    "link": "https://www.synapse.org/#!Synapse:syn5706751",
+    "description": "Cell cycle and nuclear state imaging readouts for YAPC cells treated with ligand and ECMp combinations to explore the role of microenvironmental signals in cancer growth.",
+    "datasetName": "MEMA YAPC Staining Set 1",
+    "iconUrl": "http://lincsproject.org/LINCS/files/tools_logos/mep-lincs-data-explorer.png"
+  },
+  {
+    "name": "LINCS Data Explorer",
+    "dataset": "LDS-1331",
+    "details": "YAPC SS2",
+    "link": "https://www.synapse.org/#!Synapse:syn5711121",
+    "description": "Cell cycle and nuclear state imaging readouts for YAPC cells treated with ligand and ECMp combinations to explore the role of microenvironmental signals in cancer growth.",
+    "datasetName": "MEMA YAPC Staining Set 2",
+    "iconUrl": "http://lincsproject.org/LINCS/files/tools_logos/mep-lincs-data-explorer.png"
+  },
+  {
+    "name": "LINCS Data Explorer",
+    "dataset": "LDS-1335",
+    "details": "YAPC SS3",
+    "link": "https://www.synapse.org/#!Synapse:syn5706755",
+    "description": "Cell cycle and nuclear state imaging readouts for YAPC cells treated with ligand and ECMp combinations to explore the role of microenvironmental signals in cancer growth.",
+    "datasetName": "MEMA YAPC Staining Set 3",
+    "iconUrl": "http://lincsproject.org/LINCS/files/tools_logos/mep-lincs-data-explorer.png"
+  }
+]
