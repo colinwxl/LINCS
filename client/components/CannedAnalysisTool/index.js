@@ -24,7 +24,9 @@ export default function CannedAnalysisTool(props) {
           <span className={styles['tool-analyze-with']}>Analyzed with</span>
           <a href={tool.link} target="_blank">{tool.name}</a>
         </h3>
-        <img src={infoIcon} className={styles['info-icon']} alt="info-icon" />
+        <span className={styles['tool-tip']} title={tool.description}>
+          <img src={infoIcon} className={styles['info-icon']} alt="info-icon" />
+        </span>
       </div>
       <a href={tool.link} target="_blank" className={styles['tool-click-target']}>
         <div className={styles['tool-click-button']}>View Analysis</div>
