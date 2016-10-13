@@ -1,7 +1,7 @@
 @import 'variables';
 
 $tool-height: 11rem;
-$tool-width: 14rem;
+$tool-width: 15.5rem;
 $shadow: rgba(0, 0, 0, .1);
 
 .tool {
@@ -10,8 +10,9 @@ $shadow: rgba(0, 0, 0, .1);
   border-radius: .2rem;
   height: $tool-height;
   width: $tool-width;
-  margin: 0 auto 1rem;
+  margin-bottom: 1.5rem;
   box-shadow: 0 2px 4px $shadow;
+
   a {
     text-decoration: none !important;
   }
@@ -21,20 +22,19 @@ $tool-details-height: 8rem;
 
 .tool-details {
   height: $tool-details-height;
-  padding: 0.75rem 1rem;
+  padding: 0.5rem 1rem;
   border-bottom: 1px solid;
   border-color: $gray-border-top $gray-border-side $gray-border-bottom;
 }
 
 .tool-desc {
   position: relative;
-  height: 85px;
-  margin-bottom: 0.1rem;
+  height: 75px;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
-$desc-font-size: 0.85rem;
+$desc-font-size: 0.83rem;
 $desc-container-width: 6.75rem;
 
 .tool-info {
@@ -42,7 +42,6 @@ $desc-container-width: 6.75rem;
   top: 50%;
   transform: translateY(-45%);
   display: inline-block;
-  width: $desc-container-width;
   font-size: $desc-font-size;
   font-weight: 600;
   line-height: $desc-font-size * 1.05;
@@ -62,8 +61,13 @@ $img-length: 4rem;
     position: absolute;
     width: 80%;
     top: 50%;
-    transform: translateY(-50%);
+    transform: translateY(-60%);
   }
+}
+
+.dataset-id {
+  font-size: $desc-font-size;
+  line-height: $desc-font-size;
 }
 
 .tool-analysis {
@@ -78,7 +82,7 @@ $img-length: 4rem;
 .tool-tip {
   display: inline;
   position: relative;
-  left: 11.5rem;
+  left: 13rem;
   bottom: 2.25rem;
 }
 
@@ -94,6 +98,7 @@ $img-length: 4rem;
 }
 
 .tool-tip:hover:after {
+  font-size: 0.8rem;
   background: #333;
   background: rgba(0,0,0,.8);
   border-radius: 5px;
@@ -151,10 +156,6 @@ $img-length: 4rem;
 }
 
 .analysis-overlay {
-  height: $tool-height - $tool-details-height;
-  width: $tool-width;
-}
-
-.tool-overlay {
-
+  height: $tool-height - $tool-details-height - 0.05rem;
+  width: $tool-width - 0.1rem;
 }
