@@ -147,30 +147,39 @@ $apple-blue: #1390ff;
   margin-bottom: .5rem;
 }
 
-.flex {
-  display: flex;
-  flex-direction: column;
-  // justify-content: flex-end;
-  justify-content: center;
-  margin-bottom: 1rem;
+// .flex {
+//   display: flex;
+//   flex-direction: column;
+//   justify-content: flex-end;
+//   justify-content: center;
+//   margin-bottom: 1rem;
+//
+//   @media (min-width: 992px) {
+//     align-items: center;
+//     flex-direction: row;
+//   }
+// }
 
-  @media (min-width: 992px) {
-    align-items: center;
-    flex-direction: row;
-  }
-}
-
-.filter {
+.filter, .sort {
   margin-bottom: 1rem;
-  margin-left: 1rem;
+  // margin-left: 1rem;
 
   label {
+    display: block;
     margin-right: .5rem;
   }
 
   @media (min-width: 992px) {
     margin-bottom: 0;
   }
+}
+
+// .label-title {
+//   font-weight: 500;
+// }
+
+.sort {
+  border-right: 1px solid $gray;
 }
 
 .select {

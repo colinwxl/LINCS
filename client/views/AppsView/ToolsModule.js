@@ -213,77 +213,101 @@ export class ToolsModule extends Component {
     const tools = this.sortTools(this.props.tools.filter(this.filterTools), sortBy);
 
     const toolsList = (
-      <div>
-        <form className={styles.flex}>
-          <div className={styles.filter}>
-            <label htmlFor="sort-center">Sort by</label>
-            <select
-              id="sort-center"
-              className={`form-control ${styles.select}`}
-              onChange={this.handleSortByChanged}
-              value={sortBy}
-            >
-              {
-                sortOptions.map((sortOption, i) =>
-                  <option key={i} value={sortOption}>
-                    {sortOption}
-                  </option>
-                )
-              }
-            </select>
-          </div>
+      <div className="row">
 
-          <div className={styles.filter}>
-            <label htmlFor="sort-center">Center</label>
-            <select
-              id="sort-center"
-              className={`form-control ${styles.select}`}
-              onChange={this.handleFilterByCenterChanged}
-              value={filterByCenter}
-            >
-              {centers.map((center, i) => <option key={i} value={center}>{center}</option>)}
-            </select>
+        <div className={`col-md-2 ${styles.sort}`}>
+          <div className="row">
+            <div className={`col-md-12`}>
+              <label className={styles['label-title']}>Sort by</label>
+              <select
+                id="sort-by"
+                className={`form-control ${styles.select}`}
+                onChange={this.handleSortByChanged}
+                value={sortBy}
+              >
+                {
+                  sortOptions.map((sortOption, i) =>
+                    <option key={i} value={sortOption}>
+                      {sortOption}
+                    </option>
+                  )
+                }
+              </select>
+            </div>
           </div>
-          <div className={styles.filter}>
-            <label htmlFor="sort-type">Data Type</label>
-            <select
-              id="sort-type"
-              className={`form-control ${styles.select}`}
-              onChange={this.handleFilterByDataTypeChanged}
-              value={filterByDataType}
-            >
-              {
-                filterByDataTypes.map((type, i) =>
-                  <option key={i} value={type}>{type}</option>)
-              }
-            </select>
+        </div>
+
+        <div className={`col-md-10 ${styles.filter}`}>
+          <div className="row">
+            <div className={`col-md-2 ${styles.filter}`}>
+              <label className={styles['label-title']}>Filter by</label>
+            </div>
+
+            <div className={`col-md-2 ${styles.filter}`}>
+              <label htmlFor="sort-center">Center</label>
+              <select
+                id="sort-center"
+                className={`form-control ${styles.select}`}
+                onChange={this.handleFilterByCenterChanged}
+                value={filterByCenter}
+              >
+                {centers.map((center, i) => <option key={i} value={center}>{center}</option>)}
+              </select>
+            </div>
+
+            <div className={`col-md-3 ${styles.filter}`}>
+              <label htmlFor="sort-type">Data Type</label>
+              <select
+                id="sort-type"
+                className={`form-control ${styles.select}`}
+                onChange={this.handleFilterByDataTypeChanged}
+                value={filterByDataType}
+              >
+                {
+                  filterByDataTypes.map((type, i) =>
+                    <option key={i} value={type}>{type}</option>)
+                }
+              </select>
+            </div>
+
+            <div className={`col-md-3 ${styles.filter}`}>
+              <label htmlFor="sort-role">Role</label>
+              <select
+                id="sort-role"
+                className={`form-control ${styles.select}`}
+                onChange={this.handleFilterByRoleChanged}
+                value={filterByRole}
+              >
+                {
+                  filterByRoles.map((role, i) =>
+                    <option key={i} value={role}>{role}</option>)
+                }
+              </select>
+            </div>
+
+            <div className={`col-md-2 ${styles.filter}`}>
+              <label htmlFor="sort-feature">Feature</label>
+              <select
+                id="sort-feature"
+                className={`form-control ${styles.select}`}
+                onChange={this.handleFilterByFeatureChanged}
+                value={filterByFeature}
+              >
+                {filterByFeatures.map((feat, i) => <option key={i} value={feat}>{feat}</option>)}
+              </select>
+            </div>
           </div>
-          <div className={styles.filter}>
-            <label htmlFor="sort-role">Role</label>
-            <select
-              id="sort-role"
-              className={`form-control ${styles.select}`}
-              onChange={this.handleFilterByRoleChanged}
-              value={filterByRole}
-            >
-              {
-                filterByRoles.map((role, i) =>
-                  <option key={i} value={role}>{role}</option>)
-              }
-            </select>
-          </div>
-          <div className={styles.filter}>
-            <label htmlFor="sort-feature">Feature</label>
-            <select
-              id="sort-feature"
-              className={`form-control ${styles.select}`}
-              onChange={this.handleFilterByFeatureChanged}
-              value={filterByFeature}
-            >
-              {filterByFeatures.map((feat, i) => <option key={i} value={feat}>{feat}</option>)}
-            </select>
-          </div>
-        </form>
+        </div>
+      </div>
+    );
+
+    return (
+      <div>
+        <h2 id="tools" className="text-xs-center text-sm-left">
+          LINCS Applications Marketplace{' '}
+          {fetchingTools && <i className="fa fa-circle-o-notch fa-spin" />}
+        </h2>
+        {toolsList}
         <div className="row">
           {
             tools.map(tool =>
@@ -299,16 +323,6 @@ export class ToolsModule extends Component {
               </h5>
           }
         </div>
-      </div>
-    );
-
-    return (
-      <div>
-        <h2 id="tools" className="text-xs-center text-sm-left">
-          LINCS Applications Marketplace{' '}
-          {fetchingTools && <i className="fa fa-circle-o-notch fa-spin" />}
-        </h2>
-        {toolsList}
       </div>
     );
   }
