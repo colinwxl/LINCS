@@ -214,7 +214,6 @@ export class ToolsModule extends Component {
 
     const toolsList = (
       <div className="row">
-
         <div className={`col-md-2 ${styles.sort}`}>
           <div className="row">
             <div className={`col-md-12`}>
@@ -239,62 +238,63 @@ export class ToolsModule extends Component {
 
         <div className={`col-md-10 ${styles.filter}`}>
           <div className="row">
-            <div className={`col-md-2 ${styles.filter}`}>
+            <div className={`col-md-12`}>
               <label className={styles['label-title']}>Filter by</label>
-            </div>
+              <div className="row">
+                <div className={`col-md-3 ${styles['filter-item']}`}>
+                  <label htmlFor="sort-center">Center</label>
+                  <select
+                    id="sort-center"
+                    className={`form-control ${styles.select}`}
+                    onChange={this.handleFilterByCenterChanged}
+                    value={filterByCenter}
+                  >
+                    {centers.map((center, i) => <option key={i} value={center}>{center}</option>)}
+                  </select>
+                </div>
 
-            <div className={`col-md-2 ${styles.filter}`}>
-              <label htmlFor="sort-center">Center</label>
-              <select
-                id="sort-center"
-                className={`form-control ${styles.select}`}
-                onChange={this.handleFilterByCenterChanged}
-                value={filterByCenter}
-              >
-                {centers.map((center, i) => <option key={i} value={center}>{center}</option>)}
-              </select>
-            </div>
+                <div className={`col-md-3 ${styles['filter-item']}`}>
+                  <label htmlFor="sort-type">Data Type</label>
+                  <select
+                    id="sort-type"
+                    className={`form-control ${styles.select}`}
+                    onChange={this.handleFilterByDataTypeChanged}
+                    value={filterByDataType}
+                  >
+                    {
+                      filterByDataTypes.map((type, i) =>
+                        <option key={i} value={type}>{type}</option>)
+                    }
+                  </select>
+                </div>
 
-            <div className={`col-md-3 ${styles.filter}`}>
-              <label htmlFor="sort-type">Data Type</label>
-              <select
-                id="sort-type"
-                className={`form-control ${styles.select}`}
-                onChange={this.handleFilterByDataTypeChanged}
-                value={filterByDataType}
-              >
-                {
-                  filterByDataTypes.map((type, i) =>
-                    <option key={i} value={type}>{type}</option>)
-                }
-              </select>
-            </div>
+                <div className={`col-md-3 ${styles['filter-item']}`}>
+                  <label htmlFor="sort-role">Role</label>
+                  <select
+                    id="sort-role"
+                    className={`form-control ${styles.select}`}
+                    onChange={this.handleFilterByRoleChanged}
+                    value={filterByRole}
+                  >
+                    {
+                      filterByRoles.map((role, i) =>
+                        <option key={i} value={role}>{role}</option>)
+                    }
+                  </select>
+                </div>
 
-            <div className={`col-md-3 ${styles.filter}`}>
-              <label htmlFor="sort-role">Role</label>
-              <select
-                id="sort-role"
-                className={`form-control ${styles.select}`}
-                onChange={this.handleFilterByRoleChanged}
-                value={filterByRole}
-              >
-                {
-                  filterByRoles.map((role, i) =>
-                    <option key={i} value={role}>{role}</option>)
-                }
-              </select>
-            </div>
-
-            <div className={`col-md-2 ${styles.filter}`}>
-              <label htmlFor="sort-feature">Feature</label>
-              <select
-                id="sort-feature"
-                className={`form-control ${styles.select}`}
-                onChange={this.handleFilterByFeatureChanged}
-                value={filterByFeature}
-              >
-                {filterByFeatures.map((feat, i) => <option key={i} value={feat}>{feat}</option>)}
-              </select>
+                <div className={`col-md-3 ${styles['filter-item']}`}>
+                  <label htmlFor="sort-feature">Feature</label>
+                  <select
+                    id="sort-feature"
+                    className={`form-control ${styles.select}`}
+                    onChange={this.handleFilterByFeatureChanged}
+                    value={filterByFeature}
+                  >
+                    {filterByFeatures.map((feat, i) => <option key={i} value={feat}>{feat}</option>)}
+                  </select>
+                </div>
+              </div>
             </div>
           </div>
         </div>

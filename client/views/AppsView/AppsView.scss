@@ -162,24 +162,33 @@ $apple-blue: #1390ff;
 
 .filter, .sort {
   margin-bottom: 1rem;
-  // margin-left: 1rem;
-
-  label {
-    display: block;
-    margin-right: .5rem;
-  }
 
   @media (min-width: 992px) {
     margin-bottom: 0;
   }
 }
 
-// .label-title {
-//   font-weight: 500;
-// }
+.label-title {
+  display: block;
+  font-weight: 600;
+}
 
 .sort {
-  border-right: 1px solid $gray;
+}
+
+.filter {
+  @media (min-width: 768px) {
+    border-left: 1px solid $gray;
+  }
+}
+
+.filter-item {
+  width: auto;
+  padding-left: 0.8375rem;
+  padding-right: 0.8375rem;
+  label {
+    margin-right: .5rem;
+  }
 }
 
 .select {
