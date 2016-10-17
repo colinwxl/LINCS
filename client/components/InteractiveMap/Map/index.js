@@ -5,6 +5,9 @@ import Datamaps from 'datamaps';
 import styles from './Map.scss';
 import { awardeeInstitutions, institutions } from './dataset';
 
+const starRadius = 6;
+const bubbleRadius = 5;
+
 export default class InteractiveMap extends Component {
   // NB: The interactivity of this map to affect mapInfo uses jQuery to directly
   // modify the DOM.
@@ -119,7 +122,7 @@ export default class InteractiveMap extends Component {
              .append('circle')
              .attr('cx', (datum) => self.latLngToXY(datum.latitude, datum.longitude)[0])
              .attr('cy', (datum) => self.latLngToXY(datum.latitude, datum.longitude)[1])
-             .attr('r', 4)
+             .attr('r', bubbleRadius)
              .on('click', that.appendToMapInfo);
     });
     this.map.smallBubbles(this.institutions);
@@ -141,7 +144,7 @@ export default class InteractiveMap extends Component {
            .attr('points', (datum) => {
              const pointX = self.latLngToXY(datum.latitude, datum.longitude)[0];
              const pointY = self.latLngToXY(datum.latitude, datum.longitude)[1];
-             return that.calculateStarPoints(pointX, pointY, 5, 5, 2.5);
+             return that.calculateStarPoints(pointX, pointY, 5, starRadius, starRadius / 2);
            })
            .on('click', that.appendToMapInfo);
     });
