@@ -214,7 +214,7 @@ export class ToolsModule extends Component {
 
     const toolsList = (
       <div className="row">
-        <div className={`col-md-2 ${styles.sort}`}>
+        <div className={`col-xl-2 ${styles.sort}`}>
           <label className={styles['label-title']}>Sort by</label>
           <select
             id="sort-by"
@@ -232,12 +232,12 @@ export class ToolsModule extends Component {
           </select>
         </div>
 
-        <div className={`col-md-10 ${styles.filter}`}>
+        <div className={`col-lg-10 ${styles.filter}`}>
           <div className="row">
-            <div className="col-md-12">
+            <div className="col-xl-12">
               <label className={styles['label-title']}>Filter by</label>
               <div className="row">
-                <div className={`col-md-3 ${styles['filter-item']}`}>
+                <div className={`col-xl-3 ${styles['filter-item']}`}>
                   <label htmlFor="sort-center">Center</label>
                   <select
                     id="sort-center"
@@ -249,7 +249,7 @@ export class ToolsModule extends Component {
                   </select>
                 </div>
 
-                <div className={`col-md-3 ${styles['filter-item']}`}>
+                <div className={`col-xl-3 ${styles['filter-item']}`}>
                   <label htmlFor="sort-type">Data Type</label>
                   <select
                     id="sort-type"
@@ -264,7 +264,7 @@ export class ToolsModule extends Component {
                   </select>
                 </div>
 
-                <div className={`col-md-3 ${styles['filter-item']}`}>
+                <div className={`col-xl-3 ${styles['filter-item']}`}>
                   <label htmlFor="sort-role">Role</label>
                   <select
                     id="sort-role"
@@ -279,7 +279,7 @@ export class ToolsModule extends Component {
                   </select>
                 </div>
 
-                <div className={`col-md-3 ${styles['filter-item']}`}>
+                <div className={`col-xl-3 ${styles['filter-item']}`}>
                   <label htmlFor="sort-feature">Feature</label>
                   <select
                     id="sort-feature"
