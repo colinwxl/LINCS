@@ -39,7 +39,7 @@ export function Tool(props) {
           <a
             href={tool.url}
             className={styles['tool-click-target']}
-            onClick={() => this.props.toolIncrementClick([tool.id])}
+            onClick={() => props.toolIncrementClick([tool.id])}
             target="_blank"
           >
             <span className={styles.overlay} />
@@ -49,7 +49,7 @@ export function Tool(props) {
           <a
             href={tool.url}
             className={styles['tool-title']}
-            onClick={() => this.props.toolIncrementClick([tool.id])}
+            onClick={() => props.toolIncrementClick([tool.id])}
             target="_blank"
             style={{ fontSize: fontSizeSet.title }}
           >
