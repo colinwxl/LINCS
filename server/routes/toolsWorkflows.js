@@ -26,16 +26,16 @@ router.get('/tools', async (ctx) => {
 });
 
 router.post('/tools/clicks/increment', async (ctx) => {
-  console.log(ctx.body.toolIds);
   const toolIds = ctx.request.body.toolIds;
+  console.log(toolIds);
   if (!toolIds || !toolIds.length) {
     ctx.throw(400, 'Tool Id required with request.');
     return;
   }
   try {
     const toolModels = await Tools
-      .query(qb => qb.whereIn(toolIds))
-      .fetchAll();
+      .query(qb => qb.whereIn('id', toolIds))
+      .fetch();
 
       ctx.body = await Promise.all(
         toolModels.map(model => {
