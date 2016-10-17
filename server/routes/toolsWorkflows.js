@@ -16,7 +16,7 @@ const router = new Router({
 router.get('/tools', async (ctx) => {
   try {
     const tools = await Tools
-      .query(qb => qb.select().orderBy('name', 'asc'))
+      .query(qb => qb.select())
       .fetch({ withRelated: ['centers'] });
     ctx.body = tools.toJSON({ omitPivot: true });
   } catch (e) {
