@@ -5,18 +5,13 @@ export default function MapInfo() {
   return (
     <div className={styles['map-info']} id="map-info">
       <div className={styles['map-title']}>
-        Learn about BD2K Centers
+        Learn about LINCS Centers
       </div>
 
       <div className={styles['map-img-container']}>
-        <img alt="img" />
       </div>
       <div className={styles['map-content']}>
-        Mouse over a center to display info. Click to select.
-        <br />
-        <br />
-          A list of all BD2K Centers is available
-        <a href="">here</a>.
+        Select a center to display info.
       </div>
     </div>
   );

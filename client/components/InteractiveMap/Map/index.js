@@ -117,10 +117,9 @@ export default class InteractiveMap extends Component {
 
       bubbles.enter()
              .append('circle')
-             .attr('class', className)
              .attr('cx', (datum) => self.latLngToXY(datum.latitude, datum.longitude)[0])
              .attr('cy', (datum) => self.latLngToXY(datum.latitude, datum.longitude)[1])
-             .attr('r', 5)
+             .attr('r', 4)
              .on('click', that.appendToMapInfo);
     });
     this.map.smallBubbles(this.institutions);
@@ -142,7 +141,7 @@ export default class InteractiveMap extends Component {
            .attr('points', (datum) => {
              const pointX = self.latLngToXY(datum.latitude, datum.longitude)[0];
              const pointY = self.latLngToXY(datum.latitude, datum.longitude)[1];
-             return that.calculateStarPoints(pointX, pointY, 5, 7, 3.5);
+             return that.calculateStarPoints(pointX, pointY, 5, 5, 2.5);
            })
            .on('click', that.appendToMapInfo);
     });
@@ -150,10 +149,11 @@ export default class InteractiveMap extends Component {
   }
 
 // This method creates the HTML that is appended directly to the mapInfo component
+// This can be done in a React way.
   appendToMapInfo(data) {
     const mapInfoStructure = (`
-      <strong>${data.name}</strong>
-      <img class='${styles.something}' src=${data.logo} />
+      <h4 class="${styles['center-title']}">${data.name}</h4>
+      <img class="${styles['center-logo']}" src=${data.logo} />
     `);
     $('#map-info').empty().append(mapInfoStructure);
   }
