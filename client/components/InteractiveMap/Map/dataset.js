@@ -67,7 +67,7 @@ export const awardeeInstitutions = [
     radius: mediumRadius,
     fillKey,
   },
-]
+];
 
 export const institutions = [
   {

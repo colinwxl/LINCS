@@ -1,3 +1,4 @@
+/* eslint no-undef: 0 */  // --> OFF
 import React, { Component } from 'react';
 import Datamaps from 'datamaps';
 
@@ -5,6 +6,8 @@ import styles from './Map.scss';
 import { awardeeInstitutions, institutions } from './dataset';
 
 export default class InteractiveMap extends Component {
+  // NB: The interactivity of this map to affect mapInfo uses jQuery to directly
+  // modify the DOM.
   constructor(props) {
     super(props);
     this.awardeeInstitutions = awardeeInstitutions;
@@ -88,16 +91,16 @@ export default class InteractiveMap extends Component {
   }
 
   calculateStarPoints(centerX, centerY, arms, outerRadius, innerRadius) {
-    let results = "";
+    let results = '';
     const angle = Math.PI / arms;
     for (let i = 0; i < 2 * arms; i++) {
-      const r = (i & 1) == 0 ? outerRadius : innerRadius;
+      const r = (i & 1) === 0 ? outerRadius : innerRadius;
       const currX = centerX + Math.cos(i * angle) * r;
       const currY = centerY + Math.sin(i * angle) * r;
-      if (i == 0) {
-        results = currX + "," + currY;
+      if (i === 0) {
+        results = `${currX},${currY}`;
       } else {
-        results += ", " + currX + "," + currY;
+        results += `, ${currX},${currY}`;
       }
     }
     return results;
@@ -105,40 +108,30 @@ export default class InteractiveMap extends Component {
 
   drawBubbles() {
     const that = this;
-    this.map.addPlugin('smallBubbles', function(layer, data) {
+    this.map.addPlugin('smallBubbles', function makeStar(layer, data) {
       const self = this;
-
       const className = 'smallBubbles';
-
-      let bubbles = layer
+      const bubbles = layer
           .selectAll(className)
           .data(data, JSON.stringify);
 
       bubbles.enter()
              .append('circle')
              .attr('class', className)
-             .attr('cx', (datum) => {
-               return self.latLngToXY(datum.latitude, datum.longitude)[0];
-             })
-             .attr('cy', (datum) => {
-               return self.latLngToXY(datum.latitude, datum.longitude)[1];
-             })
+             .attr('cx', (datum) => self.latLngToXY(datum.latitude, datum.longitude)[0])
+             .attr('cy', (datum) => self.latLngToXY(datum.latitude, datum.longitude)[1])
              .attr('r', 5)
-             .on('click', () => {
-               alert('hello world');
-             });
+             .on('click', that.appendToMapInfo);
     });
     this.map.smallBubbles(this.institutions);
   }
 
   drawStars() {
     const that = this;
-    this.map.addPlugin('smallStars', function(layer, data) {
+    this.map.addPlugin('smallStars', function makeStar(layer, data) {
       const self = this;
-
       const className = 'smallStars';
-
-      let stars = layer
+      const stars = layer
           .selectAll(className)
           .data(data, JSON.stringify);
 
@@ -156,8 +149,13 @@ export default class InteractiveMap extends Component {
     this.map.smallStars(this.awardeeInstitutions);
   }
 
+// This method creates the HTML that is appended directly to the mapInfo component
   appendToMapInfo(data) {
-    alert(data.name);
+    const mapInfoStructure = (`
+      <strong>${data.name}</strong>
+      <img class='${styles.something}' src=${data.logo} />
+    `);
+    $('#map-info').empty().append(mapInfoStructure);
   }
 
   render() {
