@@ -99,7 +99,7 @@ export function toolIncrementClick(toolIds = []) {
       return null;
     }
 
-    dispatch(addWorkflowRequest());
+    dispatch(toolIncrementClickRequest());
     return fetch('/LINCS/api/v1/tools/clicks/increment', {
       method: 'POST',
       headers: {
