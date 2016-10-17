@@ -6,7 +6,8 @@ import Tool from 'components/Tool';
 import styles from './AppsView.scss';
 
 const sortOptions = [
-  'Featured', 'A-Z', 'Center',
+  'Shuffled', 'Ascending', 'Descending', 'Center',
+  // 'Most Popular', 'Featured',
 ];
 
 const filterByDataTypes = [
@@ -32,7 +33,7 @@ export class ToolsModule extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      sortBy: 'Featured',
+      sortBy: 'Shuffled',
       filterByCenter: 'All',
       filterByDataType: 'All',
       filterByRole: 'All',
@@ -118,34 +119,47 @@ export class ToolsModule extends Component {
            this.checkAllFeatures(tool);
   }
 
-  // sortByProperty = (items, property) => {
-  //   return items.sort((a, b) => {
-  //     let propertyA = a[property]; // ignore upper and lowercase
-  //     let propertyB = b[property]; // ignore upper and lowercase
-  //     if (propertyA < propertyB) {
-  //       return -1;
-  //     }
-  //     if (propertyA > propertyB) {
-  //       return 1;
-  //     }
-  //     return 0;
-  //   });
-  // }
+  shuffleTools = (tools) => {
+    const result = tools.slice(0);
+    for (let i = result.length - 1; i > 0; i--) {
+      const randPos = Math.floor(Math.random() * (i + 1));
+      const temp = result[i];
+      result[i] = result[randPos];
+      result[randPos] = temp;
+    }
+    return result;
+  }
 
   sortTools = (tools, sortBy) => {
-    if (sortBy === 'Featured') {
-      return tools.sort((t1, t2) => {
-        const toolAOrder = t1.order;
-        const toolBOrder = t2.order;
-        if (toolAOrder < toolBOrder) {
-          return -1;
-        }
-        if (toolAOrder > toolBOrder) {
-          return 1;
-        }
-        return 0;
-      });
-    } else if (sortBy === 'A-Z') {
+    // if (sortBy === 'Featured') {
+    // return tools.sort((t1, t2) => {
+    //   const toolAOrder = t1.order;
+    //   const toolBOrder = t2.order;
+    //   if (toolAOrder < toolBOrder) {
+    //     return -1;
+    //   }
+    //   if (toolAOrder > toolBOrder) {
+    //     return 1;
+    //   }
+    //   return 0;
+    // });
+    // }
+  //   if (sortBy === 'Most Popular') {
+  //    return tools.sort((t1, t2) => {
+  //      const toolAClicks = t1.clicks;
+  //      const toolBClicks = t2.clicks;
+  //      if (toolAClicks < toolBClicks) {
+  //        return 1;
+  //      }
+  //      if (toolAClicks > toolBClicks) {
+  //        return -1;
+  //      }
+  //      return 0;
+  //    });
+  //  }
+    if (sortBy === 'Shuffled') {
+      return this.shuffleTools(tools);
+    } else if (sortBy === 'Ascending') {
       return tools.sort((t1, t2) => {
         const toolAName = t1.name.toUpperCase();
         const toolBName = t2.name.toUpperCase();
@@ -154,6 +168,18 @@ export class ToolsModule extends Component {
         }
         if (toolAName > toolBName) {
           return 1;
+        }
+        return 0;
+      });
+    } else if (sortBy === 'Descending') {
+      return tools.sort((t1, t2) => {
+        const toolAName = t1.name.toUpperCase();
+        const toolBName = t2.name.toUpperCase();
+        if (toolAName < toolBName) {
+          return 1;
+        }
+        if (toolAName > toolBName) {
+          return -1;
         }
         return 0;
       });
@@ -208,16 +234,15 @@ export class ToolsModule extends Component {
             filterByDataType,
             filterByRole,
             filterByFeature } = this.state;
-
     const centers = ['All', ...new Set(this.props.tools.map(tool => tool.centers[0].name))].sort();
     const tools = this.sortTools(this.props.tools.filter(this.filterTools), sortBy);
 
     const toolsList = (
       <div className="row">
         <div className={`col-xl-2 ${styles.sort}`}>
-          <label className={styles['label-title']}>Sort by</label>
+          <label className={styles['label-title']}>Order</label>
           <select
-            id="sort-by"
+            id="order"
             className={`form-control ${styles.select}`}
             onChange={this.handleSortByChanged}
             value={sortBy}

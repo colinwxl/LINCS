@@ -154,6 +154,7 @@ export default {
     icon_url: { type: 'string', maxlength: 255, nullable: true },
     home_order: { type: 'integer', nullable: true },
     order: { type: 'integer', nullable: false },
+    clicks: { type: 'integer', nullable: false, defaultTo: 0 },
     transcript_data: { type: 'integer', nullable: false, defaultTo: false },
     protein_data: { type: 'integer', nullable: false, defaultTo: false },
     cell_state_data: { type: 'integer', nullable: false, defaultTo: false },

@@ -16,9 +16,35 @@ const router = new Router({
 router.get('/tools', async (ctx) => {
   try {
     const tools = await Tools
-      .query(qb => qb.select().orderBy('name', 'asc'))
+      .query(qb => qb.select())
       .fetch({ withRelated: ['centers'] });
     ctx.body = tools.toJSON({ omitPivot: true });
+  } catch (e) {
+    debug(e);
+    ctx.throw(500, 'An error occurred obtaining tools.');
+  }
+});
+
+router.post('/tools/clicks/increment', async (ctx) => {
+  const toolIds = ctx.request.body.toolIds;
+  console.log(toolIds);
+  if (!toolIds || !toolIds.length) {
+    ctx.throw(400, 'Tool Id required with request.');
+    return;
+  }
+  try {
+    const toolModels = await Tools
+      .query(qb => qb.whereIn('id', toolIds))
+      .fetch();
+
+      ctx.body = await Promise.all(
+        toolModels.map(model => {
+          let clicks = model.get('clicks');
+          return model
+            .save({ clicks: ++clicks }, { patch: true, required: true })
+            .then(newModel => newModel.toJSON());
+        })
+      );
   } catch (e) {
     debug(e);
     ctx.throw(500, 'An error occurred obtaining tools.');

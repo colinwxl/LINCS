@@ -5,6 +5,7 @@ export const ADD_WORKFLOW_REQUEST = 'ADD_WORKFLOW_REQUEST';
 export const ADD_WORKFLOW_SUCCESS = 'ADD_WORKFLOW_SUCCESS';
 export const ADD_WORKFLOW_FAILURE = 'ADD_WORKFLOW_FAILURE';
 
+
 /**
  * This redux action creator that is sent out by addWorkflow() once a request to the
  * server to add a new workflow has been sent. This allows the for the `isFetching`
@@ -76,6 +77,47 @@ export function addWorkflow(workflow) {
 export const TOOLS_REQUEST = 'TOOLS_REQUEST';
 export const TOOLS_SUCCESS = 'TOOLS_SUCCESS';
 export const TOOLS_FAILURE = 'TOOLS_FAILURE';
+export const TOOL_CLICK_INCREMENT_REQUEST = 'TOOL_CLICK_INCREMENT_REQUEST';
+export const TOOL_CLICK_INCREMENT_SUCCESS = 'TOOL_CLICK_INCREMENT_SUCCESS';
+export const TOOL_CLICK_INCREMENT_FAILURE = 'TOOL_CLICK_INCREMENT_FAILURE';
+
+export function toolIncrementClickRequest() {
+  return { type: TOOL_CLICK_INCREMENT_REQUEST };
+}
+
+export function toolIncrementClickSuccess(payload) {
+  return { type: TOOL_CLICK_INCREMENT_SUCCESS, payload };
+}
+
+export function toolIncrementClickFailure(payload) {
+  return { type: TOOL_CLICK_INCREMENT_FAILURE, payload };
+}
+
+export function toolIncrementClick(toolIds = []) {
+  return (dispatch) => {
+    console.log(toolIds);
+    // if (!toolIds.length || process.env.NODE_ENV !== 'production') {
+    if (!toolIds.length) {
+      return null;
+    }
+
+    dispatch(addWorkflowRequest());
+    return fetch('/LINCS/api/v1/tools/clicks/increment', {
+      method: 'POST',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ toolIds }),
+    })
+      .then(response => handleResponse(response))
+      .then(response => response.json())
+      // Tool's click was incremented successfully, dispatch a success action.
+      .then(payload => dispatch(toolIncrementClickSuccess(payload)))
+      // Tool's click was not incremented successfully, dispatch a failure action.
+      .catch(error => dispatch(toolIncrementClickFailure(error)));
+  };
+}
 
 /**
  * This redux action creator generates a redux action that is sent out by
