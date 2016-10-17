@@ -147,34 +147,13 @@ $apple-blue: #1390ff;
   margin-bottom: .5rem;
 }
 
-// .flex {
-//   display: flex;
-//   flex-direction: column;
-//   justify-content: flex-end;
-//   justify-content: center;
-//   margin-bottom: 1rem;
-//
-//   @media (min-width: 992px) {
-//     align-items: center;
-//     flex-direction: row;
-//   }
-// }
-
-.sort-and-filter {
-  margin-bottom: 1rem;
-}
-
 .filter, .sort {
-  padding-bottom: 1rem;
+  margin-bottom: 1rem;
 
-  @media (min-width: 992px) {
-    padding-bottom: 0;
+  .label-title {
+    display: block;
+    font-weight: 600;
   }
-}
-
-.label-title {
-  display: block;
-  font-weight: 600;
 }
 
 .sort {
@@ -193,7 +172,7 @@ $apple-blue: #1390ff;
 
 .filter-item {
   width: auto;
-  padding-left: 0.8375rem;
+  padding-left: 0.9375rem;
   padding-right: 0.8375rem;
   label {
     margin-right: .5rem;

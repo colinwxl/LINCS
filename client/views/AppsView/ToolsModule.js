@@ -213,27 +213,23 @@ export class ToolsModule extends Component {
     const tools = this.sortTools(this.props.tools.filter(this.filterTools), sortBy);
 
     const toolsList = (
-      <div className={`row ${styles['sort-and-filter']}`}>
+      <div className="row">
         <div className={`col-md-2 ${styles.sort}`}>
-          <div className="row">
-            <div className="col-md-12">
-              <label className={styles['label-title']}>Sort by</label>
-              <select
-                id="sort-by"
-                className={`form-control ${styles.select}`}
-                onChange={this.handleSortByChanged}
-                value={sortBy}
-              >
-                {
-                  sortOptions.map((sortOption, i) =>
-                    <option key={i} value={sortOption}>
-                      {sortOption}
-                    </option>
-                  )
-                }
-              </select>
-            </div>
-          </div>
+          <label className={styles['label-title']}>Sort by</label>
+          <select
+            id="sort-by"
+            className={`form-control ${styles.select}`}
+            onChange={this.handleSortByChanged}
+            value={sortBy}
+          >
+            {
+              sortOptions.map((sortOption, i) =>
+                <option key={i} value={sortOption}>
+                  {sortOption}
+                </option>
+              )
+            }
+          </select>
         </div>
 
         <div className={`col-md-10 ${styles.filter}`}>
