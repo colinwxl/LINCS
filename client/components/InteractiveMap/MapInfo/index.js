@@ -9,15 +9,15 @@ export default class MapInfo extends Component {
 
   render() {
     return (
-      <div className={styles.mapInfo}>
-        <div className={styles.mapTitle}>
+      <div className={styles['map-info']}>
+        <div className={styles['map-title']}>
           Learn about BD2K Centers
         </div>
 
-        <div className={styles.mapImgContainer}>
+        <div className={styles['map-img-container']}>
           <img alt="img" />
         </div>
-        <div className={styles.mapContent}>
+        <div className={styles['map-content']}>
           Mouse over a center to display info. Click to select.
           <br />
           <br />

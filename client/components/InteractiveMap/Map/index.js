@@ -8,7 +8,10 @@ export default class InteractiveMap extends Component {
   constructor(props) {
     super(props);
     this.dataset = dataset;
-
+    this.bubbles = [
+      {latitude: 42.478319, longitude: -73.028895},
+      {latitude: 42.367086, longitude: -72.214419},
+    ];
     window.addEventListener('resize', this.resize.bind(this));
   }
 
@@ -18,7 +21,31 @@ export default class InteractiveMap extends Component {
     // draw map once the containing component is fully rendered and solves this problem.
     setTimeout(() => {
       this.drawMap.bind(this)();
-      this.drawBubbles.bind(this)();
+      this.map.addPlugin('bigCircle', function(layer, data) {
+        const self = this;
+
+        const className = 'bigCircles';
+
+        let bubbles = layer
+            .selectAll(className)
+            .data(data, JSON.stringify);
+
+        bubbles
+             .enter()
+             .append('circle')
+             .attr("class", className)
+             .attr('cx', function (datum) {
+               return self.latLngToXY(datum.latitude, datum.longitude)[0];
+             })
+             .attr('cy', function (datum) {
+               return self.latLngToXY(datum.latitude, datum.longitude)[1];
+             })
+             .attr('r', 5)
+             .on('click', function() {
+               alert("hello world");
+             })
+      });
+      this.map.bigCircle(this.bubbles)
     }, 0);
   }
 
@@ -76,13 +103,14 @@ export default class InteractiveMap extends Component {
   }
 
   drawBubbles() {
-    this.map.bubbles(this.dataset, {
-      popupTemplate: (geo, data) =>
-        `<div class='${styles.hoverinfo}'>
-          <img src='${data.logo}' class='${styles.logo}' />
-          <h1 class='${styles.title}'>${data.name}</h1>
-        </div>`,
-    });
+    // this.map.bubbles(this.dataset, {
+    //   popupTemplate: (geo, data) =>
+    //     `<div class='${styles.hoverinfo}'>
+    //       <img src='${data.logo}' class='${styles.logo}' />
+    //       <h1 class='${styles.title}'>${data.name}</h1>
+    //     </div>`,
+    // }
+
   }
 
   render() {
