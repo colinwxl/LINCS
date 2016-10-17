@@ -144,19 +144,19 @@ export class ToolsModule extends Component {
     //   return 0;
     // });
     // }
-    // if (sortBy === 'Most Popular') {
-    //  return tools.sort((t1, t2) => {
-    //    const toolAClicks = t1.clicks;
-    //    const toolBClicks = t2.clicks;
-    //    if (toolAClicks < toolBClicks) {
-    //      return -1;
-    //    }
-    //    if (toolAClicks > toolBClicks) {
-    //      return 1;
-    //    }
-    //    return 0;
-    //  });
-    // }
+  //   if (sortBy === 'Most Popular') {
+  //    return tools.sort((t1, t2) => {
+  //      const toolAClicks = t1.clicks;
+  //      const toolBClicks = t2.clicks;
+  //      if (toolAClicks < toolBClicks) {
+  //        return 1;
+  //      }
+  //      if (toolAClicks > toolBClicks) {
+  //        return -1;
+  //      }
+  //      return 0;
+  //    });
+  //  }
     if (sortBy === 'Shuffled') {
       return this.shuffleTools(tools);
     } else if (sortBy === 'Ascending') {

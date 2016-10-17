@@ -25,6 +25,32 @@ router.get('/tools', async (ctx) => {
   }
 });
 
+router.post('/tools/clicks/increment', async (ctx) => {
+  console.log(ctx.body.toolIds);
+  const toolIds = ctx.request.body.toolIds;
+  if (!toolIds || !toolIds.length) {
+    ctx.throw(400, 'Tool Id required with request.');
+    return;
+  }
+  try {
+    const toolModels = await Tools
+      .query(qb => qb.whereIn(toolIds))
+      .fetchAll();
+
+      ctx.body = await Promise.all(
+        toolModels.map(model => {
+          let clicks = model.get('clicks');
+          return model
+            .save({ clicks: ++clicks }, { patch: true, required: true })
+            .then(newModel => newModel.toJSON());
+        })
+      );
+  } catch (e) {
+    debug(e);
+    ctx.throw(500, 'An error occurred obtaining tools.');
+  }
+});
+
 /**
  * Fetch all workflows.
  */
