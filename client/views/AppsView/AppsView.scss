@@ -160,11 +160,15 @@ $apple-blue: #1390ff;
 //   }
 // }
 
-.filter, .sort {
+.sort-and-filter {
   margin-bottom: 1rem;
+}
+
+.filter, .sort {
+  padding-bottom: 1rem;
 
   @media (min-width: 992px) {
-    margin-bottom: 0;
+    padding-bottom: 0;
   }
 }
 
@@ -174,10 +178,15 @@ $apple-blue: #1390ff;
 }
 
 .sort {
+  @media (min-width: 768px) {
+    max-width: 9rem;
+  }
 }
 
 .filter {
-  @media (min-width: 768px) {
+  width: auto;
+  @media (min-width: 1200px) {
+    padding-left: 2rem;
     border-left: 1px solid $gray;
   }
 }
