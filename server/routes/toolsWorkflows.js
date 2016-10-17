@@ -27,7 +27,6 @@ router.get('/tools', async (ctx) => {
 
 router.post('/tools/clicks/increment', async (ctx) => {
   const toolIds = ctx.request.body.toolIds;
-  console.log(toolIds);
   if (!toolIds || !toolIds.length) {
     ctx.throw(400, 'Tool Id required with request.');
     return;

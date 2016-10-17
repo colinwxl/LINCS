@@ -95,9 +95,7 @@ export function toolIncrementClickFailure(payload) {
 
 export function toolIncrementClick(toolIds = []) {
   return (dispatch) => {
-    console.log(toolIds);
-    // if (!toolIds.length || process.env.NODE_ENV !== 'production') {
-    if (!toolIds.length) {
+    if (!toolIds.length || process.env.NODE_ENV !== 'production') {
       return null;
     }
 
