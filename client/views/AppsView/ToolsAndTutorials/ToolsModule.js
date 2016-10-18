@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 import { loadTools } from 'actions/toolsWorkflows';
 import Tool from 'components/Tool';
-import styles from './AppsView.scss';
+import styles from '../AppsView.scss';
 
 const sortOptions = [
   'Shuffled', 'Ascending', 'Descending', 'Center',
@@ -329,7 +329,6 @@ export class ToolsModule extends Component {
     return (
       <div>
         <h2 id="tools" className="text-xs-center text-sm-left">
-          LINCS Applications Marketplace{' '}
           {fetchingTools && <i className="fa fa-circle-o-notch fa-spin" />}
         </h2>
         {toolsList}

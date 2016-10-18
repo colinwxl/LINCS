@@ -1,7 +1,7 @@
 import React from 'react';
 
 import WorkflowsModule from './WorkflowsModule';
-import ToolsModule from './ToolsModule';
+import AppsContainerModule from './ToolsAndTutorials/AppsContainerModule';
 import PageBanner from 'components/PageBanner';
 import styles from './AppsView.scss';
 
@@ -15,7 +15,7 @@ export default function AppsView() {
         <div className="row">
           <div className="col-xs-12">
             <WorkflowsModule />
-            <ToolsModule />
+            <AppsContainerModule />
           </div>
         </div>
       </div>
