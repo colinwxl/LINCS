@@ -34,9 +34,11 @@ export class AppsContainerModule extends Component {
     const toolsWithTuts = tools
                             .filter(tool => tool.tutorialUrl)
                             .sort((t1, t2) => {
-                              if (t1.name > t2.name) {
+                              const tool1Name = t1.name.toUpperCase();
+                              const tool2Name = t2.name.toUpperCase();
+                              if (tool1Name > tool2Name) {
                                 return 1;
-                              } else if (t1.name < t2.name) {
+                              } else if (tool1Name < tool2Name) {
                                 return -1;
                               }
                               return 0;

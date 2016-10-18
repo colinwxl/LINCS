@@ -170,8 +170,7 @@ $apple-blue: #1390ff;
 }
 
 .filter-item {
-  width: auto;
-  padding-left: 0.7775rem;
+  display: inline-block;
   padding-right: 0.4375rem;
   label {
     margin-right: .5rem;
