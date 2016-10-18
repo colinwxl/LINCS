@@ -1,0 +1,87 @@
+@import 'variables';
+
+$tool-height: 15rem;
+$tool-width: 10rem;
+$shadow: rgba(0, 0, 0, .1);
+
+.tool {
+  border: 1px solid;
+  border-color: $gray-border-top $gray-border-side $gray-border-bottom;
+  border-radius: .2rem;
+  margin: 0 auto 1rem;
+  min-width: $tool-width;
+}
+
+.tool-inner {
+  background: $white;
+  border-radius: .2rem;
+  box-shadow: 0 2px 4px $shadow;
+  height: $tool-height;
+  position: relative;
+  text-decoration: none;
+  vertical-align: top;
+  padding: 1rem;
+}
+
+.thumbnail {
+  display: block;
+  margin: auto;
+  max-height: $tool-height / 2 - 1rem;
+  max-width: 80%;
+}
+
+.tool-details {
+  max-height: 9rem;
+  overflow: hidden;
+}
+
+$title-line-height: 1.5rem;
+
+.tool-title {
+  color: $off-black;
+  display: inline-block;
+  font-weight: 600;
+  margin-top: 0.6rem;
+  max-height: 2rem;
+  min-height: 1.0rem;
+  position: relative;
+  text-decoration: none !important;
+  white-space: nowrap;
+  line-height: $title-line-height;
+}
+
+.tool-creator {
+  color: $dark-gray;
+  font-weight: 400;
+  margin: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  text-decoration: none !important;
+  width: 10rem;
+  padding: 0;
+  list-style-type: none;
+}
+
+$desc-line-height: 1.125rem; // 18px
+
+.tool-description {
+  display: inline-block;
+  max-height: $desc-line-height * 3;
+  min-height: 1.25rem;
+  position: relative;
+  word-wrap: break-word;
+}
+
+.tool-multi-center {
+  line-height: 1.1rem !important;
+}
+
+.tool-ranking {
+  background: $white;
+  border-radius: 2px;
+  bottom: 0;
+  display: block;
+  padding: 0 .75rem;
+  position: absolute;
+  width: 100%;
+}
