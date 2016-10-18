@@ -155,6 +155,8 @@ export default {
     home_order: { type: 'integer', nullable: true },
     order: { type: 'integer', nullable: false },
     clicks: { type: 'integer', nullable: false, defaultTo: 0 },
+    tutorial_url: { type: 'string', maxlength: 255, nullable: true },
+    tutorial_preview_url: { type: 'string', maxlength: 255, nullable: true },
     transcript_data: { type: 'integer', nullable: false, defaultTo: false },
     protein_data: { type: 'integer', nullable: false, defaultTo: false },
     cell_state_data: { type: 'integer', nullable: false, defaultTo: false },

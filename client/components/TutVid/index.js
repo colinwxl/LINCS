@@ -1,7 +1,6 @@
 import React, { PropTypes } from 'react';
 import { toolIncrementClick } from 'actions/toolsWorkflows';
 import { connect } from 'react-redux';
-import thumbnail from './tutorial_thumbnails/enrichr.jpg';
 
 import styles from './TutVid.scss';
 
@@ -20,9 +19,7 @@ export function Tool(props) {
   const { tool, homeview } = props;
   let creatorList = tool.centers.sort((a, b) => a.name > b.name);
   creatorList = creatorList.map((center, idx) =>
-    <li key={idx}>
-      <a href={center.website} target="_blank">{center.name}</a>
-    </li>
+    <li key={idx}>{center.name}</li>
   );
   let fontSizeSet = toolPageSize;
   if (homeview) {
@@ -30,27 +27,22 @@ export function Tool(props) {
   }
   return (
     <div className={styles.tool}>
-      <div className={styles['tool-inner']}>
-        <img src={thumbnail} className={styles.thumbnail} alt={tool.name} />
-        <div className={styles['tool-details']}>
-          <a
-            href={tool.url}
-            className={styles['tool-title']}
-            onClick={() => props.toolIncrementClick([tool.id])}
-            target="_blank"
-            style={{ fontSize: fontSizeSet.title }}
-          >
-            {tool.name}
-          </a>
-          <ul className={styles['tool-creator']} style={{ fontSize: fontSizeSet.creator }}>
-            {creatorList}
-          </ul>
-          <div style={{ fontSize: fontSizeSet.description }} className={styles['tool-description']}>
-            {tool.description}
+      <a className={styles['tool-link']} href={tool.tutorialUrl}>
+        <div className={styles['tool-inner']}>
+          <img src={tool.tutorialPreviewUrl} className={styles.thumbnail} alt={tool.name} />
+
+          <div className={styles['tool-details']}>
+            <label className={styles['tool-title']}>{tool.name}</label>
+            <ul className={styles['tool-creator']} style={{ fontSize: fontSizeSet.creator }}>
+              {creatorList}
+            </ul>
+            <div style={{ fontSize: fontSizeSet.description }} className={styles['tool-description']}>
+              {tool.description}
+            </div>
           </div>
+          <div className={styles['tool-ranking']}></div>
         </div>
-        <div className={styles['tool-ranking']}></div>
-      </div>
+      </a>
     </div>
   );
 }

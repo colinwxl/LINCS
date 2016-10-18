@@ -23,6 +23,10 @@ $shadow: rgba(0, 0, 0, .1);
   padding: 1rem;
 }
 
+.tool-link {
+  text-decoration: none;
+}
+
 .thumbnail {
   display: block;
   margin: auto;
@@ -38,16 +42,14 @@ $shadow: rgba(0, 0, 0, .1);
 $title-line-height: 1.5rem;
 
 .tool-title {
+  margin-bottom: 0;
   color: $off-black;
-  display: inline-block;
+  display: block;
   font-weight: 600;
   margin-top: 0.6rem;
   max-height: 2rem;
-  min-height: 1.0rem;
   position: relative;
   text-decoration: none !important;
-  white-space: nowrap;
-  line-height: $title-line-height;
 }
 
 .tool-creator {
