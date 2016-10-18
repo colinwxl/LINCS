@@ -1,7 +1,5 @@
 import React, { PropTypes, Component } from 'react';
-import { connect } from 'react-redux';
 
-import { loadTools } from 'actions/toolsWorkflows';
 import Tool from 'components/Tool';
 import styles from '../AppsView.scss';
 
@@ -25,11 +23,7 @@ const filterByFeatures = [
   'Provenance', 'Scripting', 'Search Engine', 'Versioning', 'Web-based',
 ];
 
-const mapStateToProps = (state) => ({
-  tools: state.toolsWorkflows.tools,
-});
-
-export class ToolsModule extends Component {
+export default class ToolsModule extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -39,10 +33,6 @@ export class ToolsModule extends Component {
       filterByRole: 'All',
       filterByFeature: 'All',
     };
-  }
-
-  componentDidMount() {
-    this.props.loadTools();
   }
 
   checkAllDataTypes = (tool) => {
@@ -343,7 +333,7 @@ export class ToolsModule extends Component {
           {
             !tools.length &&
               <h5 className="m-t-3 text-xs-center">
-                No tools found. Please try another filter.
+                No tools found. Please try another filter or try again later.
               </h5>
           }
         </div>
@@ -353,8 +343,5 @@ export class ToolsModule extends Component {
 }
 
 ToolsModule.propTypes = {
-  loadTools: PropTypes.func,
   tools: PropTypes.array,
 };
-
-export default connect(mapStateToProps, { loadTools })(ToolsModule);

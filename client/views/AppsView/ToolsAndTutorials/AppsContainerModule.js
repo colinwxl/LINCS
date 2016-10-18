@@ -1,25 +1,46 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
+import { connect } from 'react-redux';
 
+import { loadTools } from 'actions/toolsWorkflows';
 import ToolsModule from './ToolsModule';
 import TutorialsModule from './TutorialsModule';
 import styles from '../AppsView.scss';
 
+const mapStateToProps = (state) => ({
+  tools: state.toolsWorkflows.tools,
+});
 
-export default class WorkflowsModule extends Component {
+export class AppsContainerModule extends Component {
   constructor(props) {
     super(props);
     this.state = {
       marketTutSelection: 'market',
     };
   }
+
+  componentDidMount() {
+    this.props.loadTools();
+  }
+
   handleMarketClicked = () => { this.setState({ marketTutSelection: 'market' }); }
   handleTutClicked = () => { this.setState({ marketTutSelection: 'tut' }); }
 
   render() {
+    const { tools } = this.props;
     const { marketTutSelection } = this.state;
     const isMarket = marketTutSelection === 'market';
     const isTut = marketTutSelection === 'tut';
+    const toolsWithTuts = tools
+                            .filter(tool => tool.tutorialUrl)
+                            .sort((t1, t2) => {
+                              if (t1.name > t2.name) {
+                                return 1;
+                              } else if (t1.name < t2.name) {
+                                return -1;
+                              }
+                              return 0;
+                            });
 
     return (
       <div>
@@ -57,10 +78,21 @@ export default class WorkflowsModule extends Component {
             transitionEnterTimeout={750}
             transitionLeave={false}
           >
-            {isMarket ? <ToolsModule key="market" /> : <TutorialsModule key="tut" />}
+            {
+              isMarket ?
+                <ToolsModule tools={tools} key="market" /> :
+                <TutorialsModule tools={toolsWithTuts} key="tut" />
+            }
           </ReactCSSTransitionGroup>
         </div>
       </div>
     );
   }
 }
+
+AppsContainerModule.propTypes = {
+  loadTools: PropTypes.func,
+  tools: PropTypes.array,
+};
+
+export default connect(mapStateToProps, { loadTools })(AppsContainerModule);

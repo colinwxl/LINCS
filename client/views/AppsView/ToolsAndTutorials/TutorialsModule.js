@@ -1,15 +1,9 @@
 import React, { PropTypes, Component } from 'react';
-import { connect } from 'react-redux';
-
-import { loadTools } from 'actions/toolsWorkflows';
-import TutVid from 'components/TutVid';
 import styles from '../AppsView.scss';
 
-const mapStateToProps = (state) => ({
-  tools: state.toolsWorkflows.tools,
-});
+import TutVid from 'components/TutVid';
 
-export class TutorialsModule extends Component {
+export default class TutorialsModule extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -17,16 +11,12 @@ export class TutorialsModule extends Component {
     };
   }
 
-  componentDidMount() {
-    this.props.loadTools();
-  }
-
   render() {
     const tools = this.props.tools;
 
     return (
       <div className="row">
-        <h3>Tutorials</h3>
+        <h3 className={styles['section-title']}>Tutorials</h3>
         {
           tools.map(tool =>
             <div key={tool.id} className="col-xs-12 col-md-6 col-xl-3">
@@ -37,7 +27,7 @@ export class TutorialsModule extends Component {
         {
           !tools.length &&
             <h5 className="m-t-3 text-xs-center">
-              No tools found. Please try another filter.
+              No tutorials found. Please try again later.
             </h5>
         }
       </div>
@@ -46,8 +36,5 @@ export class TutorialsModule extends Component {
 }
 
 TutorialsModule.propTypes = {
-  loadTools: PropTypes.func,
   tools: PropTypes.array,
 };
-
-export default connect(mapStateToProps, { loadTools })(TutorialsModule);

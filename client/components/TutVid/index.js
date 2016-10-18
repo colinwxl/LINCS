@@ -19,7 +19,7 @@ export function Tool(props) {
   const { tool, homeview } = props;
   let creatorList = tool.centers.sort((a, b) => a.name > b.name);
   creatorList = creatorList.map((center, idx) =>
-    <li key={idx}>{center.name}</li>
+    <li key={idx} className={styles['creator-list-item']}>{center.name}</li>
   );
   let fontSizeSet = toolPageSize;
   if (homeview) {
@@ -27,16 +27,18 @@ export function Tool(props) {
   }
   return (
     <div className={styles.tool}>
-      <a className={styles['tool-link']} href={tool.tutorialUrl}>
+      <a href={tool.tutorialUrl} className={styles['tool-link']} target="_blank">
         <div className={styles['tool-inner']}>
           <img src={tool.tutorialPreviewUrl} className={styles.thumbnail} alt={tool.name} />
-
           <div className={styles['tool-details']}>
             <label className={styles['tool-title']}>{tool.name}</label>
             <ul className={styles['tool-creator']} style={{ fontSize: fontSizeSet.creator }}>
               {creatorList}
             </ul>
-            <div style={{ fontSize: fontSizeSet.description }} className={styles['tool-description']}>
+            <div
+              style={{ fontSize: fontSizeSet.description }}
+              className={styles['tool-description']}
+            >
               {tool.description}
             </div>
           </div>
