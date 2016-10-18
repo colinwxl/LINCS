@@ -148,6 +148,7 @@ $apple-blue: #1390ff;
 }
 
 .filter, .sort {
+  display: inline-block;
   margin-bottom: 1rem;
 
   .label-title {
@@ -186,6 +187,7 @@ $apple-blue: #1390ff;
 .select {
   display: inline-block;
   vertical-align: middle;
+  font-size: 0.8rem;
   width: 100%;
 
   @media (min-width: 992px) {
