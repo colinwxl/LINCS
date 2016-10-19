@@ -44,11 +44,6 @@ export default function Overview(/* props */) {
               LINCS DSGCs and will be posted here soon.
             </p>
             <p>
-              The L1000 data-levels definitions can be found
-              <a href="http://support.lincscloud.org/hc/en-us/articles/202055903-L1000-Data"> here
-              </a>.
-            </p>
-            <p>
               The TCGA data-level definitions can be found
               <a href="https://tcga-data.nci.nih.gov/tcga/tcgaDataType.jsp"> here</a>.
             </p>

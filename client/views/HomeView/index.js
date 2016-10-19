@@ -187,7 +187,7 @@ export class HomeView extends Component {
               <div className={`col-xs-12 ${styles.section} ${styles['pub-section']}`}>
                 <div className="row">
                   <div className={`col-xs-12 col-md-7 ${styles.publications}`}>
-                    <h3>Featured Recent Publications</h3>
+                    <h3>Recent Publications</h3>
                     {
                       pubs && pubs.map(p =>
                         <Publication

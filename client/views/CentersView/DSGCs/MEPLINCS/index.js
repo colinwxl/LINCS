@@ -7,7 +7,7 @@ import styles from '../DSGCs.scss';
 const bmeLink =
   'http://www.ohsu.edu/xd/education/schools/school-of-medicine/departments/basic-science-departments/biomedical-engineering';
 
-const bmeStaffLink = `${bmeLink}/biomedical-engineering/people`;
+const bmeStaffLink = `${bmeLink}/people`;
 
 export default function MEPLINCS() {
   return (
@@ -37,10 +37,16 @@ export default function MEPLINCS() {
                 Networks (1U54HG008100)</a>
               </li>
               <li>
-                Principal Investigators: <a href={`${bmeStaffLink}/joe-gray.cfm`} target="_blank">
-                Joe Gray PhD</a>, <a href={`${bmeStaffLink}/laura-heiser.cfm`} target="_blank">
-                Laura Heiser PhD</a>, <a href={`${bmeStaffLink}/james-korkola.cfm`} target="_blank">
-                James Korkola PhD</a>
+                Principal Investigators:&nbsp;
+                <a href={`${bmeStaffLink}/joe-gray.cfm`} target="_blank">
+                  Joe Gray PhD
+                </a>,&nbsp;
+                <a href={`${bmeStaffLink}/laura-heiser.cfm`} target="_blank">
+                  Laura Heiser PhD
+                </a>,&nbsp;
+                <a href={`${bmeStaffLink}/james-korkola.cfm`} target="_blank">
+                  James Korkola PhD
+                </a>
               </li>
               <li>
                 Awardee Institution: <a title="OHSU" href="http://www.ohsu.edu/xd/" target="_blank">

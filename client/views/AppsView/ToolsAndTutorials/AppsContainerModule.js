@@ -70,7 +70,7 @@ export class AppsContainerModule extends Component {
               name="compBio"
               defaultChecked={isTut}
             />
-            Tutorials
+          Video Tutorials
           </label>
         </div>
 
