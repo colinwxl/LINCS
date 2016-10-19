@@ -24,7 +24,7 @@ export default class Workflow extends Component {
     super(props);
     this.state = {
       lincsCloudQ: {
-        engine: 'pr_gene_symbol',
+        engine: 'geneinfo',
         term: '',
       },
       creedsQ: '',
@@ -55,9 +55,10 @@ export default class Workflow extends Component {
     const key = 'lincsdemo';
     const { engine, term } = this.state.lincsCloudQ;
     const field = lcEngineFieldMap[engine];
-
     if (window) {
-      window.open(`${base}${engine}?q={"${field}":"${term}"}&user_key=${key}`, '_blank');
+      window.open(
+        `${base}${engine}?q={"${field}":"${term.toUpperCase()}"}&user_key=${key}`, '_blank'
+      );
     }
   }
 
