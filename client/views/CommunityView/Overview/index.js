@@ -75,8 +75,7 @@ export default class Overview extends Component {
                     data visualization, and supervised machine learning
                     applications to LINCS data. This course also covers
                     basic data processing and data normalization methods to
-                    clean and harmonize LINCS data and other relevant data.
-                    <br />
+                    clean and harmonize LINCS data and other relevant data.&nbsp;
                     <a href="https://www.coursera.org/course/bd2klincs">Enroll Now</a>
                   </p>
                 </div>
@@ -99,7 +98,7 @@ export default class Overview extends Component {
                 </div>
                 <div className={styles.left}>
                   <p>
-                    We are currently accepting applications for the
+                    We are currently accepting applications for the&nbsp;
                     <a href="http://lincs-dcic.org/#/summer-research-app#nav" target="_blank">
                       BD2K-LINCS DCIC Summer Research Training Program in Biomedical Big Data Science
                     </a>
