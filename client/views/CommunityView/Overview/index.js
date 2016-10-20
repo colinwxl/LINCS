@@ -100,7 +100,8 @@ export default class Overview extends Component {
                   <p>
                     We are currently accepting applications for the&nbsp;
                     <a href="http://lincs-dcic.org/#/summer-research-app#nav" target="_blank">
-                      BD2K-LINCS DCIC Summer Research Training Program in Biomedical Big Data Science
+                      BD2K-LINCS DCIC Summer Research Training
+                      Program in Biomedical Big Data Science
                     </a>
                     ,  a research intensive ten-week training program for undergraduate and
                     graduate students. The DCIC supports data science research focused on
