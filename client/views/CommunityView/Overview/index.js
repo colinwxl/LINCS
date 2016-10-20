@@ -8,6 +8,7 @@ import styles from './Overview.scss';
 import neuroOutreachImg from './neuro_outreach.jpg';
 import sbdssImg from './SBDSS.jpg';
 import dcicImg from './dcic.png';
+import summerInterns2016Img from 'static/files/summer_interns/dcic_ismms_summer-1.jpg';
 import youtubeImg from './youtube.png';
 import cmapImg from './cmap.png';
 
@@ -48,25 +49,9 @@ export default class Overview extends Component {
                 an active LINCS community.
               </p>
               <h2>Training in Big Data Science</h2>
-              <div className={styles['info-block']}>
-                <h5>
-                  Big Data Science with the BD2K-LINCS Data Coordination and Integration Center
-                </h5>
-                <p>
-                  Mark your calendars for the upcoming session of the BD2K-LINCS Big Data Science
-                  MOOC on Coursera organized by the BD2K-LINCS DCIC that begins October 3, 2016!
-                </p>
-                <p>
-                  This course covers various methods of analysis including: unsupervised clustering,
-                  gene-set enrichment analyses, data visualization, and supervised machine learning
-                  applications to LINCS data. This course also covers basic data processing and data
-                  normalization methods to clean and harmonize LINCS data and other relevant data.
-                  <br />
-                  <a href="https://www.coursera.org/course/bd2klincs">Enroll Now</a>
-                </p>
-              </div>
+
               <h5>
-                BD2K-LINCS DCIC Summer Research Training Program in Biomedical Big Data Science
+                Big Data Science with the BD2K-LINCS Data Coordination and Integration Center
               </h5>
               <div className={styles['info-split-reverse']}>
                 <div className={`${styles.right} text-xs-center`}>
@@ -82,37 +67,73 @@ export default class Overview extends Component {
                     </a>
                   </p>
                 </div>
+
                 <div className={styles.left}>
                   <p>
-                    The <a href="http://lincs-dcic.org/#/summer-research-app#nav">BD2K-LINCS DCIC Summer Research
-                    Training Program in Biomedical Big Data
-                    Science</a> is a research intensive ten-week training program for undergraduate
-                    and graduate students. The DCIC supports data science research focused on
-                    developing methods that would further extract knowledge from LINCS data by
-                    integrating LINCS data with other relevant resources. Summer fellows conduct
-                    faculty-mentored independent research projects within laboratories affiliated
-                    with the Center in the following areas: data integration, dynamic data
-                    visualization, machine learning, data harmonization, computational drug
-                    discovery, metadata and APIs, knowledge modeling, Bayesian networks and
-                    statistical mining.
+                    This course covers various methods of analysis including:
+                    unsupervised clustering, gene-set enrichment analyses,
+                    data visualization, and supervised machine learning
+                    applications to LINCS data. This course also covers
+                    basic data processing and data normalization methods to
+                    clean and harmonize LINCS data and other relevant data.
+                    <br />
+                    <a href="https://www.coursera.org/course/bd2klincs">Enroll Now</a>
                   </p>
-                  <ul>
-                    <li>
-
-                      <a href="http://lincs-dcic.org/#/summer-fellows-2016" target="_blank">
-                        2016 BD2K-LINCS DCIC Summer Fellows and Research Projects
-                      </a>
-
-                    </li>
-                    <li>
-
-                      <a href="http://lincs-dcic.org/#/summer-fellows-2015#nav">
-                        2015 BD2K-LINCS DCIC Summer Fellows and Research Projects
-                      </a>
-
-                    </li>
-                  </ul>
                 </div>
+              </div>
+
+              <h5>
+                BD2K-LINCS DCIC Summer Research Training Program in Biomedical Big Data Science
+              </h5>
+              <div className={styles['info-split-reverse']}>
+                <div className={`${styles.right} text-xs-center`}>
+                  <p>
+                    <img
+                      className="m-b-1"
+                      src={summerInterns2016Img}
+                      alt="summer-interns"
+                      width="331"
+                      height="173"
+                    />
+                  </p>
+                </div>
+                <div className={styles.left}>
+                  <p>
+                    We are currently accepting applications for the
+                    <a href="http://lincs-dcic.org/#/summer-research-app#nav" target="_blank">
+                      BD2K-LINCS DCIC Summer Research Training Program in Biomedical Big Data Science
+                    </a>
+                    ,  a research intensive ten-week training program for undergraduate and
+                    graduate students. The DCIC supports data science research focused on
+                    developing methods that would further extract knowledge from LINCS data
+                    by integrating LINCS data with other relevant resources. Summer fellows
+                    conduct faculty-mentored independent research projects
+                    within laboratories affiliated with the Center in the following areas: data
+                    integration, dynamic data visualization, machine learning, data harmonization,
+                    computational drug discovery, metadata and APIs, knowledge modeling, Bayesian
+                    networks and statistical mining.&nbsp;
+                    <a href="http://lincs-dcic.org/#/summer-research-app" target="_blank">
+                      How to Apply
+                    </a>
+                    <br />
+                  </p>
+                </div>
+              </div>
+              <div className={styles['info-block']}>
+                <strong>Application Deadline: March 1, 2017 at 12 Midnight Eastern Time</strong>
+                <ul>
+                  <li>
+                    Program Dates: June 5, 2017 - August 11, 2017 |&nbsp;
+                    <a href="http://lincs-dcic.org/#/summer-fellows-2016" target="_blank">
+                      2016 BD2K-LINCS DCIC Summer Fellows and Research Projects
+                    </a>
+                  </li>
+                  <li>
+                    <a href="http://lincs-dcic.org/#/summer-fellows-2015#nav">
+                      2015 BD2K-LINCS DCIC Summer Fellows and Research Projects
+                    </a>
+                  </li>
+                </ul>
               </div>
 
               <h2>Crowdsourcing Challenges</h2>
