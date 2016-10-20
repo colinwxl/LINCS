@@ -3,6 +3,7 @@ import React from 'react';
 import PageBanner from 'components/PageBanner';
 import styles from './NewsView.scss';
 
+import Story201610202 from './Stories/Story201610202.js';
 import Story20161020 from './Stories/Story20161020.js';
 import Story20160929 from './Stories/Story20160929.js';
 import Story20160923 from './Stories/Story20160923.js';
@@ -53,6 +54,7 @@ export default function NewsView() {
       <div className="container">
         <div className="row">
           <div className={`col-xs-12 col-xl-9 ${styles.news}`}>
+            <Story201610202 />
             <Story20161020 />
             <Story20160929 />
             <Story20160923 />

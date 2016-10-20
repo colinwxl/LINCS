@@ -53,22 +53,19 @@ export default class Overview extends Component {
               <h5>
                 Big Data Science with the BD2K-LINCS Data Coordination and Integration Center
               </h5>
-              <div className={styles['info-split-reverse']}>
-                <div className={`${styles.right} text-xs-center`}>
-                  <p>
-                    <a href="http://lincs-dcic.org/#/summer-research-app#nav">
-                      <img
-                        className="m-b-1"
-                        src={dcicImg}
-                        alt="dcic"
-                        width="231"
-                        height="173"
-                      />
-                    </a>
-                  </p>
+              <div className={`${styles['info-split']}`} style={{ alignItems: "inherit" }}>
+                <div className={`${styles.left} text-xs-center`}>
+                  <a href="http://lincs-dcic.org/#/summer-research-app#nav">
+                    <img
+                      className="m-b-1"
+                      src={dcicImg}
+                      alt="dcic"
+                      width="231"
+                      height="173"
+                    />
+                  </a>
                 </div>
-
-                <div className={styles.left}>
+                <div className={styles.right}>
                   <p>
                     This course covers various methods of analysis including:
                     unsupervised clustering, gene-set enrichment analyses,
@@ -80,7 +77,6 @@ export default class Overview extends Component {
                   </p>
                 </div>
               </div>
-
               <h5>
                 BD2K-LINCS DCIC Summer Research Training Program in Biomedical Big Data Science
               </h5>
@@ -120,10 +116,13 @@ export default class Overview extends Component {
                 </div>
               </div>
               <div className={styles['info-block']}>
-                <strong>Application Deadline: March 1, 2017 at 12 Midnight Eastern Time</strong>
+                <strong>
+                  Application Deadline: March 1, 2017 at 12 Midnight Eastern Time
+                </strong>
+                <br />
+                Program Dates: June 5, 2017 - August 11, 2017
                 <ul>
                   <li>
-                    Program Dates: June 5, 2017 - August 11, 2017 |&nbsp;
                     <a href="http://lincs-dcic.org/#/summer-fellows-2016" target="_blank">
                       2016 BD2K-LINCS DCIC Summer Fellows and Research Projects
                     </a>
