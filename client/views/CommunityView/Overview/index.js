@@ -53,7 +53,7 @@ export default class Overview extends Component {
               <h5>
                 Big Data Science with the BD2K-LINCS Data Coordination and Integration Center
               </h5>
-              <div className={`${styles['info-split']}`} style={{ alignItems: "inherit" }}>
+              <div className={`${styles['info-split']}`} style={{ alignItems: 'inherit' }}>
                 <div className={`${styles.left} text-xs-center`}>
                   <a href="http://lincs-dcic.org/#/summer-research-app#nav">
                     <img
