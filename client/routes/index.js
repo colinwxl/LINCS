@@ -143,7 +143,6 @@ export default (/* store */) => (
     <Route path={`${dataBase}/overview`} component={DataOverview} />
     <Route path={`${dataBase}/releases`} component={PageHasBeenMovedView} />
     <Route path={`${dataBase}/releases/*`} component={PageHasBeenMovedView} />
-    {/* <Route path={`${dataBase}/releases/:datasetId`} component={DatasetView} /> */}
     <Route path={`${dataBase}/standards`} component={DataStandards} />
     <Route path={`${dataBase}/data-standards`} component={DataStandards} />
     <Route path={`${dataBase}/previous-standards`} component={DataPreviousStandards} />
@@ -219,6 +218,24 @@ export default (/* store */) => (
       path={`${wf}/${AnalyzeADrugSignatureAndFindOtherDrugs.path}`}
       component={AnalyzeADrugSignatureAndFindOtherDrugs}
     />
+
+  {/*
+    Other websites have legacy links that existed on the old
+    lincsproject.org. This is a list of paths that we are
+    creating to fix those broken links.
+  */}
+    <Route path={`${dataBase}/data-release-policy`} component={DataReleasePolicy} />
+    <Route path={`${dataBase}/data-releases`} component={PageHasBeenMovedView} />
+    <Route path={`${dataBase}/tools-and-databases`} component={AppsView} />
+    <Route path={`${centersBase}/bd2k-lincs-dcic`} component={DCIC} />
+    <Route path={`${dsgcBase}/hms-lincs-u54`} component={HMSLINCS} />
+    <Route path={`${dsgcBase}/broad-prx`} component={LINCSPCCSE} />
+    <Route path={`${dsgcBase}/broad-trx`} component={LINCSTranscriptomics} />
+    <Route path={`${dsgcBase}/oregon-u`} component={MEPLINCS} />
+    <Route path={`${centersBase}/lincs-pilot-phase-centers`} component={PhaseOne} />
+    <Route path={`${communityBase}/workshops-and-symposia`} component={Workshops} />
+    <Route path={`${communityBase}/workshops-and-symposia`} component={Workshops} />
+    <Route path={`${communityBase}/lincs-consortium-meetings`} component={ConsortiumMeetings} />
 
     {/* Not Found Route */}
     <Route path="*" component={NotFoundView} />
