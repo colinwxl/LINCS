@@ -145,6 +145,7 @@ export default (/* store */) => (
     <Route path={`${dataBase}/releases/*`} component={PageHasBeenMovedView} />
     {/* <Route path={`${dataBase}/releases/:datasetId`} component={DatasetView} /> */}
     <Route path={`${dataBase}/standards`} component={DataStandards} />
+    <Route path={`${dataBase}/data-standards`} component={DataStandards} />
     <Route path={`${dataBase}/previous-standards`} component={DataPreviousStandards} />
     <Route path={`${dataBase}/release-policy`} component={DataReleasePolicy} />
 
