@@ -195,6 +195,11 @@ $apple-blue: #1390ff;
   }
 }
 
+.multiselect {
+  min-width: 10rem;
+  max-width: 13rem;
+}
+
 .tools {
   align-items: center;
   display: flex;

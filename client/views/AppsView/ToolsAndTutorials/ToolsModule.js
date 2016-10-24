@@ -1,4 +1,6 @@
 import React, { PropTypes, Component } from 'react';
+import Select from 'react-select-plus';
+import 'react-select-plus/dist/react-select-plus.css';
 
 import Tool from 'components/Tool';
 import styles from '../AppsView.scss';
@@ -6,6 +8,14 @@ import styles from '../AppsView.scss';
 const sortOptions = [
   'Shuffled', 'Ascending', 'Descending', 'Center',
   // 'Most Popular', 'Featured',
+];
+
+const multiSelectDataType = [
+  { value: 'Cell State Data', label: 'Cell State Data' },
+  { value: 'Drug Binding Data', label: 'Drug Binding Data' },
+  { value: 'Morphology Data', label: 'Morphology Data' },
+  { value: 'Protein Data', label: 'Protein Data' },
+  { value: 'Transcript Data', label: 'Transcript Data' },
 ];
 
 const filterByDataTypes = [
@@ -28,6 +38,11 @@ export default class ToolsModule extends Component {
     super(props);
     this.state = {
       sortBy: 'Shuffled',
+      dataTypeFilters: "",
+      centerFilters: "",
+      roleFilters: "",
+      featureFilters: "",
+      // unecessary below
       filterByCenter: 'All',
       filterByDataType: 'All',
       filterByRole: 'All',
@@ -217,6 +232,11 @@ export default class ToolsModule extends Component {
     this.setState({ filterByFeature: e.target.value });
   }
 
+  handleDataTypeSelect = (val) => {
+    this.setState({ dataTypeFilters: val });
+    console.log(this.state.dataTypeFilters);
+  }
+
   render() {
     const { fetchingTools,
             sortBy,
@@ -265,17 +285,16 @@ export default class ToolsModule extends Component {
 
               <div className={`${styles['filter-item']}`}>
                 <label htmlFor="sort-type">Data Type</label>
-                <select
-                  id="sort-type"
-                  className={`form-control ${styles.select}`}
-                  onChange={this.handleFilterByDataTypeChanged}
-                  value={filterByDataType}
-                >
-                  {
-                    filterByDataTypes.map((type, i) =>
-                      <option key={i} value={type}>{type}</option>)
-                  }
-                </select>
+                <Select
+                  className={styles.multiselect}
+                  value={this.state.dataTypeFilters}
+                  name="form-field-name"
+                  placeholder="All"
+                  options={multiSelectDataType}
+                  onChange={this.handleDataTypeSelect}
+                  multi
+                  simpleValue
+                />
               </div>
 
               <div className={`${styles['filter-item']}`}>

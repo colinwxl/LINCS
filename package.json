@@ -1,6 +1,6 @@
 {
   "name": "lincs",
-  "version": "6.36.0",
+  "version": "6.37.0",
   "description": "A home for the LINCS project.",
   "main": "client/main.js",
   "engines": {
@@ -160,6 +160,7 @@
     "react-redux": "^4.4.5",
     "react-router": "^2.2.4",
     "react-router-redux": "^4.0.0",
+    "react-select-plus": "^1.0.0-rc.1.patch1",
     "react-slick": "^0.12.2",
     "redux": "^3.3.1",
     "redux-form": "^5.0.1",
