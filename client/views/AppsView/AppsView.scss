@@ -159,7 +159,7 @@ $apple-blue: #1390ff;
 
 .sort {
   @media (min-width: 768px) {
-    max-width: 9rem;
+    // max-width: 9rem;
   }
 }
 
@@ -195,9 +195,33 @@ $apple-blue: #1390ff;
   }
 }
 
-.multiselect {
-  min-width: 10rem;
-  max-width: 13rem;
+.uniSelectSort {
+  min-width: 9rem;
+}
+
+.multiSelectCenter,
+.multiSelectDataType,
+.multiSelectRole,
+.multiSelectFeature {
+  min-width: 12rem;
+}
+
+.multiSelectCenter {
+  // min-width: 10rem;
+  // max-width: 14rem;
+}
+
+.multiSelectDataType {
+
+}
+
+.multiSelectRole {
+
+}
+
+
+.multiSelectFeature {
+
 }
 
 .tools {

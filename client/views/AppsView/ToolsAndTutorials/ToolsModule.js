@@ -5,12 +5,31 @@ import 'react-select-plus/dist/react-select-plus.css';
 import Tool from 'components/Tool';
 import styles from '../AppsView.scss';
 
+// const sortOptions = [
+//   'Shuffled', 'Ascending', 'Descending', 'Center',
+//   // 'Most Popular', 'Featured',
+// ];
+
 const sortOptions = [
-  'Shuffled', 'Ascending', 'Descending', 'Center',
-  // 'Most Popular', 'Featured',
+  { value: 'Shuffled', label: 'Shuffled' },
+  { value: 'Ascending', label: 'Ascending' },
+  { value: 'Descending', label: 'Descending' },
+  { value: 'Center', label: 'Center' },
+  // { value: 'Most Popular', label: 'Most Popular' },
+  // { value: 'Featured', label: 'Featured' },
 ];
 
-const multiSelectDataType = [
+const multiSelectCenters = [
+  { value: 'BD2K-LINCS DCIC', label: 'BD2K-LINCS DCIC' },
+  { value: 'BroadT LINCS', label: 'BroadT LINCS' },
+  { value: 'DToxS', label: 'DToxS' },
+  { value: 'HMS LINCS', label: 'HMS LINCS' },
+  { value: 'LINCS PCCSE', label: 'LINCS PCCSE' },
+  { value: 'MEP LINCS', label: 'MEP LINCS' },
+  { value: 'NeuroLINCS', label: 'NeuroLINCS' },
+];
+
+const multiSelectDataTypes = [
   { value: 'Cell State Data', label: 'Cell State Data' },
   { value: 'Drug Binding Data', label: 'Drug Binding Data' },
   { value: 'Morphology Data', label: 'Morphology Data' },
@@ -18,110 +37,135 @@ const multiSelectDataType = [
   { value: 'Transcript Data', label: 'Transcript Data' },
 ];
 
-const filterByDataTypes = [
-  'All', 'Cell State Data', 'Drug Binding Data', 'Morphology Data', 'Protein Data',
-  'Transcript Data',
+const multiSelectRoles = [
+  { value: 'Data Analysis', label: 'Data Analysis' },
+  { value: 'Data Documentation', label: 'Data Documentation' },
+  { value: 'Data Formatting', label: 'Data Formatting' },
+  { value: 'Data Integration', label: 'Data Integration' },
+  { value: 'Data Storage', label: 'Data Storage' },
+  { value: 'Data Visualization', label: 'Data Visualization' },
+  { value: 'Network Analysis', label: 'Network Analysis' },
+  { value: 'Signature Generation', label: 'Signature Generation' },
 ];
 
-const filterByRoles = [
-  'All', 'Data Analysis', 'Data Documentation', 'Data Formatting', 'Data Integration',
-  'Data Storage', 'Data Visualization', 'Network Analysis', 'Signature Generation',
-];
-
-const filterByFeatures = [
-  'All', 'API', 'Command Line', 'Database', 'Documentation', 'Ontology', 'Open Source',
-  'Provenance', 'Scripting', 'Search Engine', 'Versioning', 'Web-based',
+const multiSelectFeatures = [
+  { value: 'API', label: 'API' },
+  { value: 'Command Line', label: 'Command Line' },
+  { value: 'Database', label: 'Database' },
+  { value: 'Documentation', label: 'Documentation' },
+  { value: 'Ontology', label: 'Ontology' },
+  { value: 'Open Source', label: 'Open Source' },
+  { value: 'Provenance', label: 'Provenance' },
+  { value: 'Scripting', label: 'Scripting' },
+  { value: 'Search Engine', label: 'Search Engine' },
+  { value: 'Versioning', label: 'Versioning' },
+  { value: 'Web-based', label: 'Web-based' },
 ];
 
 export default class ToolsModule extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      sortBy: 'Shuffled',
-      dataTypeFilters: "",
-      centerFilters: "",
-      roleFilters: "",
-      featureFilters: "",
-      // unecessary below
-      filterByCenter: 'All',
-      filterByDataType: 'All',
-      filterByRole: 'All',
-      filterByFeature: 'All',
+      sortBy: '',
+      centerFilters: '',
+      dataTypeFilters: '',
+      roleFilters: '',
+      featureFilters: '',
     };
   }
 
+  checkAllCenters = (tool) => {
+    const { centerFilters } = this.state;
+    return (centerFilters.length === 0) ||
+    (centerFilters.indexOf('BD2K-LINCS DCIC') !== -1
+      && tool.centers.includes('BD2K-LINCS DCIC')) ||
+    (centerFilters.indexOf('BroadT LINCS') !== -1
+      && tool.centers.includes('BroadT LINCS')) ||
+    (centerFilters.indexOf('DToxS') !== -1
+      && tool.centers.includes('DToxS')) ||
+    (centerFilters.indexOf('HMS LINCS') !== -1
+      && tool.centers.includes('HMS LINCS')) ||
+    (centerFilters.indexOf('LINCS PCCSE') !== -1
+      && tool.centers.includes('LINCS PCCSE')) ||
+    (centerFilters.indexOf('MEP LINCS') !== -1
+      && tool.centers.includes('MEP LINCS')) ||
+    (centerFilters.indexOf('NeuroLINCS') !== -1
+      && tool.centers.includes('NeuroLINCS'));
+  }
+
   checkAllDataTypes = (tool) => {
-    const { filterByDataType } = this.state;
-    return (filterByDataType === 'All') ||
-      (filterByDataType === 'Cell State Data' && tool.cellStateData) ||
-      (filterByDataType === 'Drug Binding Data' && tool.drugBindingData) ||
-      (filterByDataType === 'Morphology Data' && tool.morphologyData) ||
-      (filterByDataType === 'Protein Data' && tool.proteinData) ||
-      (filterByDataType === 'Transcript Data' && tool.transcriptData);
+    const { dataTypeFilters } = this.state;
+    return (dataTypeFilters.length === 0) ||
+    (dataTypeFilters.indexOf('Cell State Data') !== -1 && tool.cellStateData) ||
+    (dataTypeFilters.indexOf('Drug Binding Data') !== -1 && tool.drugBindingData) ||
+    (dataTypeFilters.indexOf('Morphology Data') !== -1 && tool.morphologyData) ||
+    (dataTypeFilters.indexOf('Protein Data') !== -1 && tool.proteinData) ||
+    (dataTypeFilters.indexOf('Transcript Data') !== -1 && tool.transcriptData);
   }
 
   checkAllRoles = (tool) => {
-    const { filterByRole } = this.state;
-    return (filterByRole === 'All') ||
-      (filterByRole === 'Data Analysis' && tool.dataAnalysis) ||
-      (filterByRole === 'Data Documentation' && tool.dataDocumentation) ||
-      (filterByRole === 'Data Formatting' && tool.dataFormatting) ||
-      (filterByRole === 'Data Integration' && tool.dataIntegration) ||
-      (filterByRole === 'Data Storage' && tool.dataStorage) ||
-      (filterByRole === 'Data Visualization' && tool.dataVisualization) ||
-      (filterByRole === 'Network Analysis' && tool.networkAnalysis) ||
-      (filterByRole === 'Signature Generation' && tool.signatureGeneration);
+    const { roleFilters } = this.state;
+    return (roleFilters.length === 0) ||
+      (roleFilters.indexOf('Data Analysis') !== -1 && tool.dataAnalysis) ||
+      (roleFilters.indexOf('Data Documentation') !== -1 && tool.dataDocumentation) ||
+      (roleFilters.indexOf('Data Formatting') !== -1 && tool.dataFormatting) ||
+      (roleFilters.indexOf('Data Integration') !== -1 && tool.dataIntegration) ||
+      (roleFilters.indexOf('Data Storage') !== -1 && tool.dataStorage) ||
+      (roleFilters.indexOf('Data Visualization') !== -1 && tool.dataVisualization) ||
+      (roleFilters.indexOf('Network Analysis') !== -1 && tool.networkAnalysis) ||
+      (roleFilters.indexOf('Signature Generation') !== -1 && tool.signatureGeneration);
   }
 
   checkAllFeatures = (tool) => {
-    const { filterByFeature } = this.state;
-    return (filterByFeature === 'All') ||
-      (filterByFeature === 'API' && tool.api) ||
-      (filterByFeature === 'Command Line' && tool.commandLine) ||
-      (filterByFeature === 'Database' && tool.database) ||
-      (filterByFeature === 'Documentation' && tool.documentation) ||
-      (filterByFeature === 'Ontology' && tool.ontology) ||
-      (filterByFeature === 'Open Source' && tool.openSource) ||
-      (filterByFeature === 'Provenance' && tool.provenance) ||
-      (filterByFeature === 'Scripting' && tool.scripting) ||
-      (filterByFeature === 'Search Engine' && tool.searchEngine) ||
-      (filterByFeature === 'Versioning' && tool.versioning) ||
-      (filterByFeature === 'Web-based' && tool.webBased);
+    const { featureFilters } = this.state;
+    return (featureFilters.length === 0) ||
+      (featureFilters.indexOf('API') !== -1 && tool.api) ||
+      (featureFilters.indexOf('Command Line') !== -1 && tool.commandLine) ||
+      (featureFilters.indexOf('Database') !== -1 && tool.database) ||
+      (featureFilters.indexOf('Documentation') !== -1 && tool.documentation) ||
+      (featureFilters.indexOf('Ontology') !== -1 && tool.ontology) ||
+      (featureFilters.indexOf('Open Source') !== -1 && tool.openSource) ||
+      (featureFilters.indexOf('Provenance') !== -1 && tool.provenance) ||
+      (featureFilters.indexOf('Scripting') !== -1 && tool.scripting) ||
+      (featureFilters.indexOf('Search Engine') !== -1 && tool.searchEngine) ||
+      (featureFilters.indexOf('Versioning') !== -1 && tool.versioning) ||
+      (featureFilters.indexOf('Web-based') !== -1 && tool.webBased);
   }
 
   filterTools = (tool) => {
-    const centersName = tool.centers.map(center => center.name);
-    const { filterByCenter, filterByDataType, filterByRole, filterByFeature } = this.state;
-    if (filterByCenter === 'All' &&
-        filterByDataType === 'All' &&
-        filterByRole === 'All' &&
-        filterByFeature === 'All') {
-      return true;
-    } else if (filterByCenter === 'All') {
-      return this.checkAllDataTypes(tool) &&
-             this.checkAllRoles(tool) &&
-             this.checkAllFeatures(tool);
-    } else if (filterByDataType === 'All' &&
-               filterByRole === 'All' &&
-               filterByFeature === 'All') {
-      return centersName.includes(filterByCenter);
-    } else if (filterByDataType === 'All') {
-      return centersName.includes(filterByCenter) &&
-             this.checkAllRoles(tool) &&
-             this.checkAllFeatures(tool);
-    } else if (filterByRole === 'All') {
-      return centersName.includes(filterByCenter) &&
-             this.checkAllDataTypes(tool) &&
-             this.checkAllFeatures(tool);
-    } else if (filterByFeature === 'All') {
-      return centersName.includes(filterByCenter) &&
-             this.checkAllDataTypes(tool) &&
-             this.checkAllRoles(tool);
-    }
-    return centersName.includes(filterByCenter) &&
-           this.checkAllDataTypes(tool) &&
-           this.checkAllRoles(tool) &&
-           this.checkAllFeatures(tool);
+    return this.checkAllDataTypes(tool);
+    // const centersName = tool.centers.map(center => center.name);
+    // const { filterByCenter, filterByDataType, filterByRole, filterByFeature } = this.state;
+    // if (filterByCenter === 'All' &&
+    //     filterByDataType === 'All' &&
+    //     filterByRole === 'All' &&
+    //     filterByFeature === 'All') {
+    //   return true;
+    // } else if (filterByCenter === 'All') {
+    //   return this.checkAllDataTypes(tool) &&
+    //          this.checkAllRoles(tool) &&
+    //          this.checkAllFeatures(tool);
+    // } else if (filterByDataType === 'All' &&
+    //            filterByRole === 'All' &&
+    //            filterByFeature === 'All') {
+    //   return centersName.includes(filterByCenter);
+    // } else if (filterByDataType === 'All') {
+    //   return centersName.includes(filterByCenter) &&
+    //          this.checkAllRoles(tool) &&
+    //          this.checkAllFeatures(tool);
+    // } else if (filterByRole === 'All') {
+    //   return centersName.includes(filterByCenter) &&
+    //          this.checkAllDataTypes(tool) &&
+    //          this.checkAllFeatures(tool);
+    // } else if (filterByFeature === 'All') {
+    //   return centersName.includes(filterByCenter) &&
+    //          this.checkAllDataTypes(tool) &&
+    //          this.checkAllRoles(tool);
+    // }
+    // return centersName.includes(filterByCenter) &&
+    //        this.checkAllDataTypes(tool) &&
+    //        this.checkAllRoles(tool) &&
+    //        this.checkAllFeatures(tool);
   }
 
   shuffleTools = (tools) => {
@@ -212,59 +256,45 @@ export default class ToolsModule extends Component {
     return tools;
   }
 
-  handleSortByChanged = (e) => {
-    this.setState({ sortBy: e.target.value });
+  handleSortByChanged = (val) => {
+    this.setState({ sortBy: val });
   }
 
-  handleFilterByCenterChanged = (e) => {
-    this.setState({ filterByCenter: e.target.value });
-  }
-
-  handleFilterByRoleChanged = (e) => {
-    this.setState({ filterByRole: e.target.value });
-  }
-
-  handleFilterByDataTypeChanged = (e) => {
-    this.setState({ filterByDataType: e.target.value });
-  }
-
-  handleFilterByFeatureChanged = (e) => {
-    this.setState({ filterByFeature: e.target.value });
+  handleFilterByCenterChanged = (val) => {
+    this.setState({ centerFilters: val });
   }
 
   handleDataTypeSelect = (val) => {
     this.setState({ dataTypeFilters: val });
-    console.log(this.state.dataTypeFilters);
+  }
+
+  handleRoleSelect = (val) => {
+    this.setState({ roleFilters: val });
+  }
+
+  handleFeatureSelect = (val) => {
+    this.setState({ featureFilters: val });
   }
 
   render() {
-    const { fetchingTools,
-            sortBy,
-            filterByCenter,
-            filterByDataType,
-            filterByRole,
-            filterByFeature } = this.state;
-    const centers = ['All', ...new Set(this.props.tools.map(tool => tool.centers[0].name))].sort();
+    const { fetchingTools, sortBy } = this.state;
+    // const centers = ['All', ...new Set(this.props.tools.map(tool => tool.centers[0].name))].sort();
     const tools = this.sortTools(this.props.tools.filter(this.filterTools), sortBy);
+    console.log(tools);
 
     const toolsList = (
       <div className="row">
         <div className={`col-xl-2 ${styles.sort}`}>
           <label className={styles['label-title']}>Order</label>
-          <select
-            id="order"
-            className={`form-control ${styles.select}`}
+          <Select
+            className={styles.uniSelectSort}
+            value={this.state.sortBy}
+            name="form-field-name"
+            placeholder="Shuffled"
+            options={sortOptions}
             onChange={this.handleSortByChanged}
-            value={sortBy}
-          >
-            {
-              sortOptions.map((sortOption, i) =>
-                <option key={i} value={sortOption}>
-                  {sortOption}
-                </option>
-              )
-            }
-          </select>
+            simpleValue
+          />
         </div>
 
         <div className={`col-lg-10 ${styles.filter}`}>
@@ -273,24 +303,26 @@ export default class ToolsModule extends Component {
               <label className={styles['label-title']}>Filter by</label>
               <div className={`${styles['filter-item']}`}>
                 <label htmlFor="sort-center">Center</label>
-                <select
-                  id="sort-center"
-                  className={`form-control ${styles.select}`}
-                  onChange={this.handleFilterByCenterChanged}
-                  value={filterByCenter}
-                >
-                  {centers.map((center, i) => <option key={i} value={center}>{center}</option>)}
-                </select>
+                <Select
+                  className={styles.multiSelectCenter}
+                  value={this.state.dataTypeFilters}
+                  name="form-field-name"
+                  placeholder="All"
+                  options={multiSelectCenters}
+                  onChange={this.handleCentersSelect}
+                  multi
+                  simpleValue
+                />
               </div>
 
               <div className={`${styles['filter-item']}`}>
                 <label htmlFor="sort-type">Data Type</label>
                 <Select
-                  className={styles.multiselect}
+                  className={styles.multiSelectDataType}
                   value={this.state.dataTypeFilters}
                   name="form-field-name"
                   placeholder="All"
-                  options={multiSelectDataType}
+                  options={multiSelectDataTypes}
                   onChange={this.handleDataTypeSelect}
                   multi
                   simpleValue
@@ -299,33 +331,30 @@ export default class ToolsModule extends Component {
 
               <div className={`${styles['filter-item']}`}>
                 <label htmlFor="sort-role">Role</label>
-                <select
-                  id="sort-role"
-                  className={`form-control ${styles.select}`}
-                  onChange={this.handleFilterByRoleChanged}
-                  value={filterByRole}
-                >
-                  {
-                    filterByRoles.map((role, i) =>
-                      <option key={i} value={role}>{role}</option>)
-                  }
-                </select>
+                <Select
+                  className={styles.multiSelectRole}
+                  value={this.state.roleFilters}
+                  name="form-field-name"
+                  placeholder="All"
+                  options={multiSelectRoles}
+                  onChange={this.handleRoleSelect}
+                  multi
+                  simpleValue
+                />
               </div>
 
               <div className={`${styles['filter-item']}`}>
                 <label htmlFor="sort-feature">Feature</label>
-                <select
-                  id="sort-feature"
-                  className={`form-control ${styles.select}`}
-                  onChange={this.handleFilterByFeatureChanged}
-                  value={filterByFeature}
-                >
-                  {
-                    filterByFeatures.map(
-                      (feat, i) => <option key={i} value={feat}>{feat}</option>
-                    )
-                  }
-                </select>
+                <Select
+                  className={styles.multiSelectFeature}
+                  value={this.state.featureFilters}
+                  name="form-field-name"
+                  placeholder="All"
+                  options={multiSelectFeatures}
+                  onChange={this.handleFeatureSelect}
+                  multi
+                  simpleValue
+                />
               </div>
             </div>
           </div>
