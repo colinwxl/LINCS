@@ -5,11 +5,6 @@ import 'react-select-plus/dist/react-select-plus.css';
 import Tool from 'components/Tool';
 import styles from '../AppsView.scss';
 
-// const sortOptions = [
-//   'Shuffled', 'Ascending', 'Descending', 'Center',
-//   // 'Most Popular', 'Featured',
-// ];
-
 const sortOptions = [
   { value: 'Shuffled', label: 'Shuffled' },
   { value: 'Ascending', label: 'Ascending' },
@@ -76,26 +71,26 @@ export default class ToolsModule extends Component {
 
   checkAllCenters = (tool) => {
     const { centerFilters } = this.state;
-    return (centerFilters.length === 0) ||
+    return (centerFilters === '') ||
     (centerFilters.indexOf('BD2K-LINCS DCIC') !== -1
-      && tool.centers.includes('BD2K-LINCS DCIC')) ||
+      && tool.centers.some(center => center.name === 'BD2K-LINCS DCIC')) ||
     (centerFilters.indexOf('BroadT LINCS') !== -1
-      && tool.centers.includes('BroadT LINCS')) ||
+      && tool.centers.some(center => center.name === 'BroadT LINCS')) ||
     (centerFilters.indexOf('DToxS') !== -1
-      && tool.centers.includes('DToxS')) ||
+      && tool.centers.some(center => center.name === 'DToxS')) ||
     (centerFilters.indexOf('HMS LINCS') !== -1
-      && tool.centers.includes('HMS LINCS')) ||
+      && tool.centers.some(center => center.name === 'HMS LINCS')) ||
     (centerFilters.indexOf('LINCS PCCSE') !== -1
-      && tool.centers.includes('LINCS PCCSE')) ||
+      && tool.centers.some(center => center.name === 'LINCS PCCSE')) ||
     (centerFilters.indexOf('MEP LINCS') !== -1
-      && tool.centers.includes('MEP LINCS')) ||
+      && tool.centers.some(center => center.name === 'MEP LINCS')) ||
     (centerFilters.indexOf('NeuroLINCS') !== -1
-      && tool.centers.includes('NeuroLINCS'));
+      && tool.centers.some(center => center.name === 'NeuroLINCS'));
   }
 
   checkAllDataTypes = (tool) => {
     const { dataTypeFilters } = this.state;
-    return (dataTypeFilters.length === 0) ||
+    return (dataTypeFilters === '') ||
     (dataTypeFilters.indexOf('Cell State Data') !== -1 && tool.cellStateData) ||
     (dataTypeFilters.indexOf('Drug Binding Data') !== -1 && tool.drugBindingData) ||
     (dataTypeFilters.indexOf('Morphology Data') !== -1 && tool.morphologyData) ||
@@ -105,7 +100,7 @@ export default class ToolsModule extends Component {
 
   checkAllRoles = (tool) => {
     const { roleFilters } = this.state;
-    return (roleFilters.length === 0) ||
+    return (roleFilters === '') ||
       (roleFilters.indexOf('Data Analysis') !== -1 && tool.dataAnalysis) ||
       (roleFilters.indexOf('Data Documentation') !== -1 && tool.dataDocumentation) ||
       (roleFilters.indexOf('Data Formatting') !== -1 && tool.dataFormatting) ||
@@ -118,7 +113,7 @@ export default class ToolsModule extends Component {
 
   checkAllFeatures = (tool) => {
     const { featureFilters } = this.state;
-    return (featureFilters.length === 0) ||
+    return (featureFilters === '') ||
       (featureFilters.indexOf('API') !== -1 && tool.api) ||
       (featureFilters.indexOf('Command Line') !== -1 && tool.commandLine) ||
       (featureFilters.indexOf('Database') !== -1 && tool.database) ||
@@ -133,39 +128,33 @@ export default class ToolsModule extends Component {
   }
 
   filterTools = (tool) => {
-    return this.checkAllDataTypes(tool);
-    // const centersName = tool.centers.map(center => center.name);
-    // const { filterByCenter, filterByDataType, filterByRole, filterByFeature } = this.state;
-    // if (filterByCenter === 'All' &&
-    //     filterByDataType === 'All' &&
-    //     filterByRole === 'All' &&
-    //     filterByFeature === 'All') {
-    //   return true;
-    // } else if (filterByCenter === 'All') {
-    //   return this.checkAllDataTypes(tool) &&
-    //          this.checkAllRoles(tool) &&
-    //          this.checkAllFeatures(tool);
-    // } else if (filterByDataType === 'All' &&
-    //            filterByRole === 'All' &&
-    //            filterByFeature === 'All') {
-    //   return centersName.includes(filterByCenter);
-    // } else if (filterByDataType === 'All') {
-    //   return centersName.includes(filterByCenter) &&
-    //          this.checkAllRoles(tool) &&
-    //          this.checkAllFeatures(tool);
-    // } else if (filterByRole === 'All') {
-    //   return centersName.includes(filterByCenter) &&
-    //          this.checkAllDataTypes(tool) &&
-    //          this.checkAllFeatures(tool);
-    // } else if (filterByFeature === 'All') {
-    //   return centersName.includes(filterByCenter) &&
-    //          this.checkAllDataTypes(tool) &&
-    //          this.checkAllRoles(tool);
-    // }
-    // return centersName.includes(filterByCenter) &&
-    //        this.checkAllDataTypes(tool) &&
-    //        this.checkAllRoles(tool) &&
-    //        this.checkAllFeatures(tool);
+    const { centerFilters, dataTypeFilters, roleFilters, featureFilters } = this.state;
+    if (centerFilters === '' &&
+        dataTypeFilters === '' &&
+        roleFilters === '' &&
+        featureFilters === '') {
+      return true;
+    } else if (centerFilters === '') {
+      return this.checkAllDataTypes(tool) &&
+             this.checkAllRoles(tool) &&
+             this.checkAllFeatures(tool);
+    } else if (dataTypeFilters === '') {
+      return this.checkAllCenters(tool) &&
+             this.checkAllRoles(tool) &&
+             this.checkAllFeatures(tool);
+    } else if (roleFilters === '') {
+      return this.checkAllCenters(tool) &&
+             this.checkAllDataTypes(tool) &&
+             this.checkAllFeatures(tool);
+    } else if (featureFilters === '') {
+      return this.checkAllCenters(tool) &&
+             this.checkAllDataTypes(tool) &&
+             this.checkAllRoles(tool);
+    }
+    return this.checkAllCenters(tool) &&
+           this.checkAllDataTypes(tool) &&
+           this.checkAllRoles(tool) &&
+           this.checkAllFeatures(tool);
   }
 
   shuffleTools = (tools) => {
@@ -260,7 +249,7 @@ export default class ToolsModule extends Component {
     this.setState({ sortBy: val });
   }
 
-  handleFilterByCenterChanged = (val) => {
+  handleCentersSelect = (val) => {
     this.setState({ centerFilters: val });
   }
 
@@ -278,9 +267,8 @@ export default class ToolsModule extends Component {
 
   render() {
     const { fetchingTools, sortBy } = this.state;
-    // const centers = ['All', ...new Set(this.props.tools.map(tool => tool.centers[0].name))].sort();
-    const tools = this.sortTools(this.props.tools.filter(this.filterTools), sortBy);
-    console.log(tools);
+    const randomizedTools = this.shuffleTools(this.props.tools);
+    const tools = this.sortTools(randomizedTools.filter(this.filterTools), sortBy);
 
     const toolsList = (
       <div className="row">
@@ -297,7 +285,7 @@ export default class ToolsModule extends Component {
           />
         </div>
 
-        <div className={`col-lg-10 ${styles.filter}`}>
+        <div className={`col-xl-10 ${styles.filter}`}>
           <div className="row">
             <div className="col-xl-12">
               <label className={styles['label-title']}>Filter by</label>
@@ -305,7 +293,7 @@ export default class ToolsModule extends Component {
                 <label htmlFor="sort-center">Center</label>
                 <Select
                   className={styles.multiSelectCenter}
-                  value={this.state.dataTypeFilters}
+                  value={this.state.centerFilters}
                   name="form-field-name"
                   placeholder="All"
                   options={multiSelectCenters}

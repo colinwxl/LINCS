@@ -233,9 +233,12 @@ export default (/* store */) => (
     <Redirect from={`${dsgcBase}/oregon-u`} to={`${dsgcBase}/mep-lincs`} />
     <Redirect from={`${centersBase}/lincs-pilot-phase-centers`} to={`${centersBase}/phase-one`} />
     <Redirect from={`${communityBase}/workshops-and-symposia`} to={`${communityBase}/workshops`} />
-    <Redirect from={`${communityBase}/lincs-consortium-meetings`} to={`${communityBase}/consortium-meetings`} />
+    <Redirect
+      from={`${communityBase}/lincs-consortium-meetings`}
+      to={`${communityBase}/consortium-meetings`}
+    />
     <Route path={`${dataBase}/data-releases`} component={PageHasBeenMovedView} />
-    
+
     {/* Not Found Route */}
     <Route path="*" component={NotFoundView} />
   </Route>

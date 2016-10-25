@@ -199,29 +199,16 @@ $apple-blue: #1390ff;
   min-width: 9rem;
 }
 
-.multiSelectCenter,
-.multiSelectDataType,
-.multiSelectRole,
-.multiSelectFeature {
-  min-width: 12rem;
-}
-
-.multiSelectCenter {
-  // min-width: 10rem;
-  // max-width: 14rem;
-}
-
-.multiSelectDataType {
-
+.multiSelectCenter, .multiSelectDataType {
+  width: 13rem;
 }
 
 .multiSelectRole {
-
+  width: 14rem;
 }
 
-
 .multiSelectFeature {
-
+  width: 12rem;
 }
 
 .tools {
