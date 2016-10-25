@@ -196,6 +196,10 @@ $apple-blue: #1390ff;
 }
 
 .uniSelectSort {
+  @media (min-width: 1200px) {
+    margin-top: 2.5rem;
+  }
+
   min-width: 9rem;
 }
 
