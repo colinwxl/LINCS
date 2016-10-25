@@ -159,7 +159,7 @@ $apple-blue: #1390ff;
 
 .sort {
   @media (min-width: 768px) {
-    max-width: 9rem;
+    // max-width: 9rem;
   }
 }
 
@@ -193,6 +193,26 @@ $apple-blue: #1390ff;
   @media (min-width: 992px) {
     width: auto;
   }
+}
+
+.uniSelectSort {
+  @media (min-width: 1200px) {
+    margin-top: 2.5rem;
+  }
+
+  min-width: 9rem;
+}
+
+.multiSelectCenter, .multiSelectDataType {
+  width: 13rem;
+}
+
+.multiSelectRole {
+  width: 14rem;
+}
+
+.multiSelectFeature {
+  width: 12rem;
 }
 
 .tools {
