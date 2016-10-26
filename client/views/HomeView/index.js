@@ -57,7 +57,7 @@ export class HomeView extends Component {
         const result = a.showAtHomeOrder > b.showAtHomeOrder;
         return result ? 1 : -1;
       });
-    const tools = this.shuffleTools(this.props.tools).slice(0,6);
+    const tools = this.shuffleTools(this.props.tools).slice(0, 6);
     const carouselImgs = [2037, 2038, 2044, 2045, 2067, 2078, 2086, 2098].map((imgId) =>
     (
       <div key={imgId}>

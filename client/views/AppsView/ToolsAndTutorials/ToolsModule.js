@@ -166,8 +166,8 @@ export default class ToolsModule extends Component {
     return result;
   }
 
-  sortToolsByPopularity = (tools) => {
-    return tools.sort((t1, t2) => {
+  sortToolsByPopularity = (tools) =>
+    tools.sort((t1, t2) => {
       const toolAClicks = t1.clicks;
       const toolBClicks = t2.clicks;
       if (toolAClicks < toolBClicks) {
@@ -178,12 +178,11 @@ export default class ToolsModule extends Component {
       }
       return 0;
     });
-  }
 
   sortTools = (tools, sortBy) => {
     if (sortBy === 'Popularity') {
-     return this.sortToolsByPopularity(tools);
-   } else if (sortBy === 'Ascending') {
+      return this.sortToolsByPopularity(tools);
+    } else if (sortBy === 'Ascending') {
       return tools.sort((t1, t2) => {
         const toolAName = t1.name.toUpperCase();
         const toolBName = t2.name.toUpperCase();
