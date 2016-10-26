@@ -94,6 +94,27 @@ $img-width: 9rem;
   }
 }
 
+.category-column {
+  vertical-align: top;
+  max-width: 9rem;
+  display: inline-block;
+  margin-left: 0.5rem;
+  margin-right: 0.75rem;
+}
+
+.category-label {
+  font-size: 1rem;
+  weight: 500;
+}
+
+.category-ul {
+  padding-left: 1rem;
+}
+
+.category-li {
+
+}
+
 $title-line-height: 1.5rem;
 
 .tool-title {
