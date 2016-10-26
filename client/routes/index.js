@@ -226,11 +226,11 @@ export default (/* store */) => (
   */}
     <Redirect from={`${dataBase}/data-release-policy`} to={`${dataBase}/release-policy`} />
     <Redirect from={`${dataBase}/tools-and-databases`} to={"/applications"} />
-    <Redirect from={`${dataBase}/bd2k-lincs-dcic`} to={`${centersBase}/dcic`} />
     <Redirect from={`${dsgcBase}/hms-lincs-u54`} to={`${dsgcBase}/hms-lincs`} />
     <Redirect from={`${dsgcBase}/broad-prx`} to={`${dsgcBase}/lincs-pccse`} />
     <Redirect from={`${dsgcBase}/broad-trx`} to={`${dsgcBase}/lincs-transcriptomics`} />
     <Redirect from={`${dsgcBase}/oregon-u`} to={`${dsgcBase}/mep-lincs`} />
+    <Redirect from={`${centersBase}/bd2k-lincs-dcic`} to={`${centersBase}/dcic`} />
     <Redirect from={`${centersBase}/lincs-pilot-phase-centers`} to={`${centersBase}/phase-one`} />
     <Redirect from={`${communityBase}/workshops-and-symposia`} to={`${communityBase}/workshops`} />
     <Redirect
