@@ -1,4 +1,5 @@
 import React, { PropTypes } from 'react';
+import ReactTooltip from 'react-tooltip';
 import { toolIncrementClick } from 'actions/toolsWorkflows';
 import { connect } from 'react-redux';
 
@@ -46,6 +47,14 @@ export function Tool(props) {
           </a>
         </div>
         <div className={styles['tool-details']}>
+          <i
+            className={`fa fa-info-circle ${styles.tooltip}`}
+            aria-hidden="true"
+            data-tip="Information is not available at this time."
+          />
+        <ReactTooltip place="right" type="dark" effect="float">
+
+          </ReactTooltip>
           <a
             href={tool.url}
             className={styles['tool-title']}
