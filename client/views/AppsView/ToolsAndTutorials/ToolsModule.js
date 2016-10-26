@@ -186,7 +186,7 @@ export default class ToolsModule extends Component {
 
   sortTools = (tools, sortBy) => {
     if (sortBy === 'Popularity') {
-      return this.sortToolsByPopularityThenName(tools);
+      return tools.sort(this.sortToolsByPopularityThenName);
     } else if (sortBy === 'Ascending') {
       return tools.sort((t1, t2) => {
         const toolAName = t1.name.toUpperCase();
