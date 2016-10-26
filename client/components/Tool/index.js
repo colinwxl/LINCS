@@ -75,6 +75,7 @@ export function Tool(props) {
   }
 
   const toolTipItems = [dt, role, feat].map((cat, idx) => {
+    if (cat.length === 0) return null;
     let title;
     if (idx === 0) {
       title = 'Data Type';
@@ -84,7 +85,7 @@ export function Tool(props) {
       title = 'Feature';
     }
     return (
-      <div className={styles['category-column']}>
+      <div key={idx} className={styles['category-column']}>
         <label className={styles['category-label']}>
           {title}
         </label>
