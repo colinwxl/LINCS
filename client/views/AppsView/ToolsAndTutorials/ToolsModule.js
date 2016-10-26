@@ -166,18 +166,23 @@ export default class ToolsModule extends Component {
     return result;
   }
 
-  sortToolsByPopularity = (tools) =>
-    tools.sort((t1, t2) => {
-      const toolAClicks = t1.clicks;
-      const toolBClicks = t2.clicks;
-      if (toolAClicks < toolBClicks) {
-        return 1;
-      }
-      if (toolAClicks > toolBClicks) {
-        return -1;
-      }
-      return 0;
-    });
+  sortToolsByPopularityThenName = (t1, t2) => {
+    const toolAClicks = t1.clicks;
+    const toolBClicks = t2.clicks;
+    if (toolAClicks < toolBClicks) {
+      return 1;
+    } else if (toolAClicks > toolBClicks) {
+      return -1;
+    }
+    const toolAName = t1.name;
+    const toolBName = t2.name;
+    if (toolAName > toolBName) {
+      return 1;
+    } else if (toolAName < toolBName) {
+      return -1;
+    }
+    return 0;
+  }
 
   sortTools = (tools, sortBy) => {
     if (sortBy === 'Popularity') {
@@ -252,8 +257,12 @@ export default class ToolsModule extends Component {
 
   render() {
     const { fetchingTools, sortBy } = this.state;
-    const toolsSortedByPopularity = this.sortToolsByPopularity(this.props.tools);
-    const tools = this.sortTools(toolsSortedByPopularity.filter(this.filterTools), sortBy);
+    const { tools } = this.props;
+    const toolsSortedByPopularityThenName = tools.sort(this.sortToolsByPopularityThenName);
+    const sortedTools = this.sortTools(
+      toolsSortedByPopularityThenName.filter(this.filterTools),
+      sortBy
+    );
     const toolsList = (
       <div className="row">
         <div className={`col-xl-2 ${styles.sort}`}>
@@ -349,7 +358,7 @@ export default class ToolsModule extends Component {
         {toolsList}
         <div className="row">
           {
-            tools.map(tool =>
+            sortedTools.map(tool =>
               <div key={tool.id} className="col-xs-12 col-md-6 col-xl-4">
                 <Tool tool={tool} />
               </div>
