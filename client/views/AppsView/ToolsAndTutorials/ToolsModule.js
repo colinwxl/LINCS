@@ -257,7 +257,7 @@ export default class ToolsModule extends Component {
     const toolsList = (
       <div className="row">
         <div className={`col-xl-2 ${styles.sort}`}>
-          <label className={styles['label-title']}>Order</label>
+          <label className={styles['label-title']}>Sort by</label>
           <Select
             className={styles.uniSelectSort}
             value={this.state.sortBy}
