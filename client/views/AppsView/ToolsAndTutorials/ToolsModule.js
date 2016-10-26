@@ -6,12 +6,10 @@ import Tool from 'components/Tool';
 import styles from '../AppsView.scss';
 
 const sortOptions = [
-  { value: 'Shuffled', label: 'Shuffled' },
+  { value: 'Popularity', label: 'Popularity' },
   { value: 'Ascending', label: 'Ascending' },
   { value: 'Descending', label: 'Descending' },
   { value: 'Center', label: 'Center' },
-  // { value: 'Most Popular', label: 'Most Popular' },
-  // { value: 'Featured', label: 'Featured' },
 ];
 
 const multiSelectCenters = [
@@ -168,36 +166,24 @@ export default class ToolsModule extends Component {
     return result;
   }
 
+  sortToolsByPopularity = (tools) => {
+    return tools.sort((t1, t2) => {
+      const toolAClicks = t1.clicks;
+      const toolBClicks = t2.clicks;
+      if (toolAClicks < toolBClicks) {
+        return 1;
+      }
+      if (toolAClicks > toolBClicks) {
+        return -1;
+      }
+      return 0;
+    });
+  }
+
   sortTools = (tools, sortBy) => {
-    // if (sortBy === 'Featured') {
-    // return tools.sort((t1, t2) => {
-    //   const toolAOrder = t1.order;
-    //   const toolBOrder = t2.order;
-    //   if (toolAOrder < toolBOrder) {
-    //     return -1;
-    //   }
-    //   if (toolAOrder > toolBOrder) {
-    //     return 1;
-    //   }
-    //   return 0;
-    // });
-    // }
-  //   if (sortBy === 'Most Popular') {
-  //    return tools.sort((t1, t2) => {
-  //      const toolAClicks = t1.clicks;
-  //      const toolBClicks = t2.clicks;
-  //      if (toolAClicks < toolBClicks) {
-  //        return 1;
-  //      }
-  //      if (toolAClicks > toolBClicks) {
-  //        return -1;
-  //      }
-  //      return 0;
-  //    });
-  //  }
-    if (sortBy === 'Shuffled') {
-      return this.shuffleTools(tools);
-    } else if (sortBy === 'Ascending') {
+    if (sortBy === 'Popularity') {
+     return this.sortToolsByPopularity(tools);
+   } else if (sortBy === 'Ascending') {
       return tools.sort((t1, t2) => {
         const toolAName = t1.name.toUpperCase();
         const toolBName = t2.name.toUpperCase();
@@ -267,9 +253,8 @@ export default class ToolsModule extends Component {
 
   render() {
     const { fetchingTools, sortBy } = this.state;
-    const randomizedTools = this.shuffleTools(this.props.tools);
-    const tools = this.sortTools(randomizedTools.filter(this.filterTools), sortBy);
-
+    const toolsSortedByPopularity = this.sortToolsByPopularity(this.props.tools);
+    const tools = this.sortTools(toolsSortedByPopularity.filter(this.filterTools), sortBy);
     const toolsList = (
       <div className="row">
         <div className={`col-xl-2 ${styles.sort}`}>
@@ -278,7 +263,7 @@ export default class ToolsModule extends Component {
             className={styles.uniSelectSort}
             value={this.state.sortBy}
             name="form-field-name"
-            placeholder="Shuffled"
+            placeholder="Popularity"
             options={sortOptions}
             onChange={this.handleSortByChanged}
             simpleValue
@@ -304,7 +289,10 @@ export default class ToolsModule extends Component {
               </div>
 
               <div className={`${styles['filter-item']}`}>
-                <label htmlFor="sort-type">Data Type</label>
+                <label htmlFor="sort-type">
+                  Data Type
+                </label>
+
                 <Select
                   className={styles.multiSelectDataType}
                   value={this.state.dataTypeFilters}
@@ -318,7 +306,9 @@ export default class ToolsModule extends Component {
               </div>
 
               <div className={`${styles['filter-item']}`}>
-                <label htmlFor="sort-role">Role</label>
+                <label htmlFor="sort-role">
+                  Role
+                </label>
                 <Select
                   className={styles.multiSelectRole}
                   value={this.state.roleFilters}
@@ -332,7 +322,9 @@ export default class ToolsModule extends Component {
               </div>
 
               <div className={`${styles['filter-item']}`}>
-                <label htmlFor="sort-feature">Feature</label>
+                <label htmlFor="sort-feature">
+                  Feature
+                </label>
                 <Select
                   className={styles.multiSelectFeature}
                   value={this.state.featureFilters}
