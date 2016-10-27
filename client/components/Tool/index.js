@@ -13,7 +13,7 @@ const toolPageSize = {
 const homeViewSize = {
   title: '1.1rem',
   creator: '0.8rem',
-  description: '0.88rem',
+  description: '0.85rem',
 };
 
 const dataTypesCat = new Set(['Cell State Data',

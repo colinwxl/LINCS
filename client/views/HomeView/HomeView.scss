@@ -326,10 +326,15 @@ $mid-gray: #eee;
 }
 
 .consortium {
-  padding-bottom: 1rem;
-  border-right: 1px solid $gray;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid $gray;
   a {
     text-decoration: none !important;
+  }
+  @media (min-width: 768px) {
+    border-right: 1px solid $gray;
+    padding-bottom: 1rem;
+    border-bottom: 0;
   }
 }
 
@@ -380,8 +385,12 @@ $mid-gray: #eee;
 
 .am {
   align-items: center;
+  padding-top: 2rem;
   a {
     text-decoration: none !important;
+  }
+  @media (min-width: 768px) {
+    padding-top: 0;
   }
 }
 
@@ -434,7 +443,20 @@ $twitter-blue: #eceeef;
 }
 
 .publications {
-  border-right: 1px solid $gray;
+  border-bottom: 1px solid $gray;
+  padding-bottom: 2rem;
+  @media (min-width: 768px) {
+    padding-bottom: 0rem;
+    border-bottom: 0;
+    border-right: 1px solid $gray;
+  }
+}
+
+.tools {
+  padding-top: 2rem;
+  @media (min-width: 768px) {
+    padding-top: 0;
+  }
 }
 
 // .social-section {

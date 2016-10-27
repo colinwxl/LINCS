@@ -206,7 +206,7 @@ export class HomeView extends Component {
                     }
                     <Link to="/publications">More publications...</Link>
                   </div>
-                  <div className="col-xs-12 col-md-5">
+                  <div className={`col-xs-12 col-md-5 ${styles.tools}`}>
                     <h3 className={styles.title}>Featured LINCS Tools</h3>
                     {
                       tools && tools.map((tool, idx) =>
