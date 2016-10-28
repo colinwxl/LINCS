@@ -74,7 +74,7 @@ export default function DSGCs() {
                       LINCS Center for Transcriptomics
                     </h5>
                     <p>Broad Institute</p>
-                    <a href="http://www.lincscloud.org">Visit Center website</a>
+                    <a href="https://clue.io/lincs">Visit Center website</a>
                   </div>
                   <p>
                     The LINCS Center for Transcriptomics is studying up to 50 cell types

@@ -264,8 +264,6 @@ export default function AboutView() {
                     the <Link to={`${dsgcRoute}/lincs-pccse`}>LINCS Proteomic Characterization
                     Center for Signaling and Epigenetics</Link> profile over 20,000
                     small molecules and 5,000 human genes.
-                    See <a href="http://lincscloud.org/" target="_blank">lincscloud.org</a> for
-                    more details.
                   </li>
                   <li>
                     The <Link to={`${dsgcRoute}/mep-lincs`}>MEP LINCS Center’s</Link> perturbations
