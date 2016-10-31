@@ -179,11 +179,13 @@ export class PublicationsView extends Component {
         LINCS-funded
         <ReactTooltip
           id="lincs-funded-tool-tip"
-          place="right"
+          place="top"
           type="dark"
           effect="float"
         >
-          Publications by members of the LINCS Consortium
+          <p className={styles['label-tooltip-desc']}>
+            Publications by members of the LINCS Consortium
+          </p>
         </ReactTooltip>
       </label>
     );
@@ -198,12 +200,14 @@ export class PublicationsView extends Component {
         Community
         <ReactTooltip
           id="community-tool-tip"
-          place="right"
+          place="top"
           type="dark"
           effect="float"
         >
-          Publications that use LINCS data and/or tools, published
-          by authors not funded by LINCS
+          <p className={styles['label-tooltip-desc']}>
+            Publications that use LINCS data and/or tools, published
+            by authors not funded by LINCS
+          </p>
         </ReactTooltip>
       </label>
     );
@@ -221,14 +225,14 @@ export class PublicationsView extends Component {
               {/* ---------------------Source-------------------- */}
               <div className="form-group">
                 <div className={`${styles['source-toggle']}`}>
-                  { lincsFundedLabelwToolTip }
+                  {lincsFundedLabelwToolTip}
                   <Toggle
                     handleSourceChanged={this.handleSourceChanged}
                     leftColor={"#e74c3c"}
                     rightColor={"#0275d8"}
                     borderMatch
                   />
-                  { communityLabelwToolTip }
+                  {communityLabelwToolTip}
                 </div>
               </div>
               {/* ----------------Sort Order----------------- */}
