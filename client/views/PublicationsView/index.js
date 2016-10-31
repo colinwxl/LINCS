@@ -1,5 +1,6 @@
 import React, { PropTypes, Component } from 'react';
 import { connect } from 'react-redux';
+import ReactTooltip from 'react-tooltip';
 import extend from 'extend';
 import isEqual from 'lodash/isEqual';
 
@@ -167,6 +168,46 @@ export class PublicationsView extends Component {
     publications = publications.sort(this.sortPublications)
                                .filter(this.filterCategories)
                                .filter(this.filterSources);
+    const lincsFundedLabelwToolTip = (
+      <label
+        className={`${styles.label}
+        ${styles.toggleLabel}`}
+        aria-hidden="true"
+        data-tip="Information is not available at this time."
+        data-for="lincs-funded-tool-tip"
+      >
+        LINCS-funded
+        <ReactTooltip
+          id="lincs-funded-tool-tip"
+          place="right"
+          type="dark"
+          effect="float"
+        >
+          Publications by members of the LINCS Consortium
+        </ReactTooltip>
+      </label>
+    );
+    const communityLabelwToolTip = (
+      <label
+        className={`${styles.label}
+        ${styles.toggleLabel}`}
+        aria-hidden="true"
+        data-tip="Information is not available at this time."
+        data-for="community-tool-tip"
+      >
+        Community
+        <ReactTooltip
+          id="community-tool-tip"
+          place="right"
+          type="dark"
+          effect="float"
+        >
+          Publications that use LINCS data and/or tools, published
+          by authors not funded by LINCS
+        </ReactTooltip>
+      </label>
+    );
+
     return (
       <div className={styles.wrapper}>
         <PageBanner
@@ -180,14 +221,14 @@ export class PublicationsView extends Component {
               {/* ---------------------Source-------------------- */}
               <div className="form-group">
                 <div className={`${styles['source-toggle']}`}>
-                  <label className={`${styles.label} ${styles.toggleLabel}`}>LINCS-Funded</label>
+                  { lincsFundedLabelwToolTip }
                   <Toggle
                     handleSourceChanged={this.handleSourceChanged}
                     leftColor={"#e74c3c"}
                     rightColor={"#0275d8"}
                     borderMatch
                   />
-                  <label className={`${styles.label} ${styles.toggleLabel}`}>Community</label>
+                  { communityLabelwToolTip }
                 </div>
               </div>
               {/* ----------------Sort Order----------------- */}

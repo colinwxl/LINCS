@@ -89,7 +89,7 @@ export default class Footer extends Component {
               <ul>
                 <li><a href={`${base}/publications`}>Publications</a></li>
                 <li><a href={`${applicationsRoute}`}>Workflows</a></li>
-                <li><a href={`${applicationsRoute}`}>Applications</a></li>
+                <li><a href={`${applicationsRoute}`}>Tools</a></li>
               </ul>
             </FooterDropDown>
             <FooterDropDown

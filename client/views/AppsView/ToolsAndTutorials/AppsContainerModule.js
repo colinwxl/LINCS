@@ -46,7 +46,7 @@ export class AppsContainerModule extends Component {
 
     return (
       <div>
-        <h2 className={styles['wf-title']}>LINCS Applications</h2>
+        <h2 className={styles['wf-title']}>LINCS Tools</h2>
 
         <div className={`btn-group ${styles.categories}`} data-toggle="buttons">
           <label

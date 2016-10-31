@@ -92,7 +92,7 @@ export class HomeView extends Component {
               to="/applications"
               className={`btn btn-outline-inverse btn-lg ${styles['btn-td']}`}
             >
-              Apps &amp; Workflows
+              Workflows &amp; Tools
             </Link>
           </div>
         </div>
