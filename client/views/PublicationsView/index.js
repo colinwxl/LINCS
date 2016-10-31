@@ -172,11 +172,13 @@ export class PublicationsView extends Component {
       <label
         className={`${styles.label}
         ${styles.toggleLabel}`}
-        aria-hidden="true"
-        data-tip="Information is not available at this time."
-        data-for="lincs-funded-tool-tip"
       >
-        LINCS-funded
+        LINCS-funded&nbsp;
+        <i
+          className="fa fa-question-circle-o"
+          aria-hidden="true"
+          data-tip="Information is not available at this time."
+          data-for="lincs-funded-tool-tip" />
         <ReactTooltip
           id="lincs-funded-tool-tip"
           place="top"
@@ -193,11 +195,13 @@ export class PublicationsView extends Component {
       <label
         className={`${styles.label}
         ${styles.toggleLabel}`}
-        aria-hidden="true"
-        data-tip="Information is not available at this time."
-        data-for="community-tool-tip"
       >
-        Community
+        Community&nbsp;
+        <i
+          className="fa fa-question-circle-o"
+          aria-hidden="true"
+          data-tip="Information is not available at this time."
+          data-for="community-tool-tip" />
         <ReactTooltip
           id="community-tool-tip"
           place="top"
