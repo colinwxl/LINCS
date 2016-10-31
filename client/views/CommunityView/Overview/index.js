@@ -78,7 +78,7 @@ export default class Overview extends Component {
               <h5>
                 BD2K-LINCS DCIC Summer Research Training Program in Biomedical Big Data Science
               </h5>
-              <div className={`clearfix`}>
+              <div className="clearfix">
                 <p>
                   <img
                     className={styles['inline-img-right']}
