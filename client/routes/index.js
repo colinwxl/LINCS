@@ -224,6 +224,8 @@ export default (/* store */) => (
     lincsproject.org. This is a list of paths that we are
     creating to fix those broken links.
   */}
+    <Redirect from={'lincs'} to={'/'} />
+    <Redirect from={'lincs/*'} to={'/*'} />
     <Redirect from={`${dataBase}/data-release-policy`} to={`${dataBase}/release-policy`} />
     <Redirect from={`${dataBase}/tools-and-databases`} to={"/tools"} />
     <Redirect from={`${dsgcBase}/hms-lincs-u54`} to={`${dsgcBase}/hms-lincs`} />
@@ -234,8 +236,8 @@ export default (/* store */) => (
     <Redirect from={`${centersBase}/lincs-pilot-phase-centers`} to={`${centersBase}/phase-one`} />
     <Redirect from={`${communityBase}/workshops-and-symposia`} to={`${communityBase}/workshops`} />
     // /LINCS/applications/* was updated to /LINCS/tools/*
-    <Redirect from={`applications`} to={`tools`} />
-    <Redirect from={`applications/*`} to={`tools/*`} />
+    <Redirect from={'applications'} to={'tools'} />
+    <Redirect from={'applications/*'} to={'tools/*'} />
     <Redirect
       from={`${communityBase}/lincs-consortium-meetings`}
       to={`${communityBase}/consortium-meetings`}
