@@ -233,6 +233,9 @@ export default (/* store */) => (
     <Redirect from={`${centersBase}/bd2k-lincs-dcic`} to={`${centersBase}/dcic`} />
     <Redirect from={`${centersBase}/lincs-pilot-phase-centers`} to={`${centersBase}/phase-one`} />
     <Redirect from={`${communityBase}/workshops-and-symposia`} to={`${communityBase}/workshops`} />
+    // /LINCS/applications/* was updated to /LINCS/tools/*
+    <Redirect from={`applications`} to={`tools`} />
+    <Redirect from={`applications/*`} to={`tools/*`} />
     <Redirect
       from={`${communityBase}/lincs-consortium-meetings`}
       to={`${communityBase}/consortium-meetings`}
