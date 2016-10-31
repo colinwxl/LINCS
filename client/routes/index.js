@@ -92,7 +92,7 @@ const centersBase = 'centers';
 const dsgcBase = `${centersBase}/data-and-signature-generating-centers`;
 const communityBase = 'community';
 const dataBase = 'data';
-const wf = 'applications/workflows';
+const wf = 'tools/workflows';
 
 export default (/* store */) => (
   <Route path="/" component={CoreLayout}>
@@ -153,7 +153,7 @@ export default (/* store */) => (
     <Route path="news" component={NewsView} />
 
     {/* Apps & Workflows Route */}
-    <Route path="applications" component={AppsView} />
+    <Route path="tools" component={AppsView} />
 
     {/* Experimentalist Workflow Routes */}
     <Route
@@ -225,7 +225,7 @@ export default (/* store */) => (
     creating to fix those broken links.
   */}
     <Redirect from={`${dataBase}/data-release-policy`} to={`${dataBase}/release-policy`} />
-    <Redirect from={`${dataBase}/tools-and-databases`} to={"/applications"} />
+    <Redirect from={`${dataBase}/tools-and-databases`} to={"/tools"} />
     <Redirect from={`${dsgcBase}/hms-lincs-u54`} to={`${dsgcBase}/hms-lincs`} />
     <Redirect from={`${dsgcBase}/broad-prx`} to={`${dsgcBase}/lincs-pccse`} />
     <Redirect from={`${dsgcBase}/broad-trx`} to={`${dsgcBase}/lincs-transcriptomics`} />

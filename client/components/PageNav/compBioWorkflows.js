@@ -17,7 +17,7 @@ import AnalyzeLINCSTranscriptomicAndProteomicDatasets from
 import AnalyzeADrugSignatureAndFindOtherDrugs from
 'views/AppsView/Workflows/CompBioWorkflows/AnalyzeADrugSignatureAndFindOtherDrugs';
 
-const awRoute = '/applications/workflows';
+const awRoute = '/tools/workflows';
 
 export default [
   {

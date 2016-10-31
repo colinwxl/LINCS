@@ -311,7 +311,7 @@ export default function AboutView() {
               <li>
                 The signatures are available via multiple methods: (a) APIs to
                 programmatically search and download the signatures;
-                (b) <Link to="/applications">Tools</Link> that display the signatures and
+                (b) <Link to="/tools">Tools</Link> that display the signatures and
                 provide integrative analyses.
               </li>
             </ul>

@@ -5,7 +5,7 @@ import styles from './Footer.scss';
 
 const base = '/LINCS';
 const dataRoute = `${base}/data`;
-const applicationsRoute = `${base}/applications`;
+const toolsRoute = `${base}/tools`;
 const commRoute = `${base}/community`;
 const centersRoute = `${base}/centers`;
 const dsgcRoute = `${centersRoute}/data-and-signature-generating-centers`;
@@ -88,8 +88,8 @@ export default class Footer extends Component {
             >
               <ul>
                 <li><a href={`${base}/publications`}>Publications</a></li>
-                <li><a href={`${applicationsRoute}`}>Workflows</a></li>
-                <li><a href={`${applicationsRoute}`}>Tools</a></li>
+                <li><a href={`${toolsRoute}`}>Workflows</a></li>
+                <li><a href={`${toolsRoute}`}>Tools</a></li>
               </ul>
             </FooterDropDown>
             <FooterDropDown

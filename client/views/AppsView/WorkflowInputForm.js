@@ -50,7 +50,7 @@ const validate = (values) => {
   return errors;
 };
 
-const awRoute = '/applications/workflows';
+const awRoute = '/tools/workflows';
 
 class WorkflowInputForm extends Component {
   componentDidMount() {

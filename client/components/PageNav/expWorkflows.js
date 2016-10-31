@@ -11,7 +11,7 @@ import CheckIfASmallMoleculeHasBeenProfiled from
 import QueryAGeneExpressionSignatureAgainst from
 'views/AppsView/Workflows/ExpWorkflows/QueryAGeneExpressionSignatureAgainst';
 
-const awRoute = '/applications/workflows';
+const awRoute = '/tools/workflows';
 
 export default [
   {

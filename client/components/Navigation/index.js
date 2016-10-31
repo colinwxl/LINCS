@@ -71,7 +71,7 @@ export default function Navigation(props) {
               <Link className={`${styles['tab-item']}`} to="/data">
                 Data
               </Link>
-              <Link className={`${styles['tab-item']}`} to="/applications">
+              <Link className={`${styles['tab-item']}`} to="/tools">
                 Tools
               </Link>
               <Link className={`${styles['tab-item']}`} to="/community">
