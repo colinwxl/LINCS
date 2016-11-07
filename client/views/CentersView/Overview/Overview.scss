@@ -1,3 +1,7 @@
+@import 'variables';
+
+$background-color: $light-gray;
+$apple-blue: #1390ff;
 
 .wrapper {
 
@@ -17,4 +21,58 @@
   @media (min-width: 544px) {
     font-size: 2rem;
   }
+}
+
+.categories {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  label {
+    border: 0;
+    margin: 0;
+  }
+
+  @media (min-width: 600px) {
+    flex-direction: row;
+  }
+}
+
+.category-check {
+  background-color: $background-color;
+  color: lighten($base-font-color, 15);
+  margin: 0;
+  padding: .5rem 1rem;
+  position: relative;
+  z-index: 1;
+
+  &:hover {
+    color: $apple-blue;
+  }
+}
+
+.active {
+  color: $apple-blue;
+}
+
+.enter {
+  opacity: 0;
+}
+
+.enter-active {
+  opacity: 1;
+  transition: opacity 750ms ease-in;
+}
+
+.map-and-center-info {
+  background-color: $white;
+  border: 1px solid;
+  border-color: $apple-blue $gray-border-side $gray-border-bottom;
+  border-radius: .2rem;
+  border-top-width: 2px;
+  margin-bottom: 2rem;
+  min-height: 1px;
+  padding: 1rem;
+  position: relative;
 }
