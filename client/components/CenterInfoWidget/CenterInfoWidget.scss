@@ -83,27 +83,6 @@ $img-width: 9rem;
   padding: .5rem .75rem 0;
 }
 
-.category-column {
-  vertical-align: top;
-  max-width: 9rem;
-  display: inline-block;
-  margin-left: 0.5rem;
-  margin-right: 0.75rem;
-}
-
-.category-label {
-  font-size: 1rem;
-  weight: 500;
-}
-
-.category-ul {
-  padding-left: 1rem;
-}
-
-.category-li {
-
-}
-
 $title-line-height: 1.5rem;
 
 .tool-title {
@@ -143,18 +122,4 @@ $desc-line-height: 1.125rem; // 18px
   min-height: 1.25rem;
   position: relative;
   word-wrap: break-word;
-}
-
-.tool-multi-center {
-  line-height: 1.1rem !important;
-}
-
-.tool-ranking {
-  background: $white;
-  border-radius: 2px;
-  bottom: 0;
-  display: block;
-  padding: 0 .75rem;
-  position: absolute;
-  width: 100%;
 }

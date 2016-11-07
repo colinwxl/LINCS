@@ -36,7 +36,6 @@ export default function CenterInfoWidget(props) {
             {tool.description}
           </div>
         </div>
-        <div className={styles['tool-ranking']}></div>
       </div>
     </div>
   );
