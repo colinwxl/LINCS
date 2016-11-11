@@ -87,7 +87,7 @@ $title-line-height: 1.5rem;
 
 .center-title {
   color: $off-black;
-  font-size: 1rem,
+  font-size: 1rem;
   display: inline-block;
   font-weight: 600;
   margin-top: 0.6rem;
@@ -104,7 +104,7 @@ $desc-line-height: 1.125rem; // 18px
 
 .center-description {
   display: inline-block;
-  font-size: 0.75rem,
+  font-size: 0.75rem;
   max-height: $desc-line-height * 3;
   min-height: 1.25rem;
   position: relative;
