@@ -1,22 +1,22 @@
 @import 'variables';
 
-$tool-height: 10rem;
-$tool-width: 21rem;
+$center-height: 10rem;
+$center-width: 21rem;
 $shadow: rgba(0, 0, 0, .1);
 
-.tool {
+.center {
   border: 1px solid;
   border-color: $gray-border-top $gray-border-side $gray-border-bottom;
   border-radius: .2rem;
   margin: 0 auto 1rem;
-  min-width: $tool-width;
+  min-width: $center-width;
 }
 
-.tool-inner {
+.center-inner {
   background: $white;
   border-radius: .2rem;
   box-shadow: 0 2px 4px $shadow;
-  height: $tool-height;
+  height: $center-height;
   position: relative;
   text-decoration: none;
   vertical-align: top;
@@ -26,19 +26,19 @@ $img-width: 9rem;
 
 .cover {
   float: left;
-  height: $tool-height;
+  height: $center-height;
   overflow: hidden;
   position: relative;
   width: $img-width;
 }
 
-.tool-img-wrap {
+.center-img-wrap {
   display: table;
-  height: $tool-height;
+  height: $center-height;
   width: $img-width;
 }
 
-.tool-img-inner {
+.center-img-inner {
   display: table-cell;
   text-align: center;
   vertical-align: middle;
@@ -50,7 +50,7 @@ $img-width: 9rem;
   }
 }
 
-.tool-click-target {
+.center-click-target {
   bottom: 0;
   left: 0;
   position: absolute;
@@ -77,7 +77,7 @@ $img-width: 9rem;
   }
 }
 
-.tool-details {
+.center-details {
   max-height: 9rem;
   overflow: hidden;
   padding: .5rem .75rem 0;
@@ -85,7 +85,7 @@ $img-width: 9rem;
 
 $title-line-height: 1.5rem;
 
-.tool-title {
+.center-title {
   color: $off-black;
   font-size: 1rem,
   display: inline-block;
@@ -100,22 +100,9 @@ $title-line-height: 1.5rem;
   line-height: $title-line-height;
 }
 
-.tool-creator {
-  color: $dark-gray;
-  font-size: 0.8rem,
-  font-weight: 400;
-  margin: 0;
-  overflow: hidden;
-  white-space: nowrap;
-  text-decoration: none !important;
-  width: 10rem;
-  padding: 0;
-  list-style-type: none;
-}
-
 $desc-line-height: 1.125rem; // 18px
 
-.tool-description {
+.center-description {
   display: inline-block;
   font-size: 0.75rem,
   max-height: $desc-line-height * 3;

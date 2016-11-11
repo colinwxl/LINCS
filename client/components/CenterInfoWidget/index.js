@@ -5,35 +5,32 @@ export default function CenterInfoWidget(props) {
   const { center } = props;
 
   return (
-    <div className={styles.tool}>
-      <div className={styles['tool-inner']}>
+    <div className={styles.center}>
+      <div className={styles['center-inner']}>
         <div className={styles.cover}>
-          <div className={styles['tool-img-wrap']}>
-            <div className={styles['tool-img-inner']}>
-              <img src={tool.iconUrl} alt={tool.name} />
+          <div className={styles['center-img-wrap']}>
+            <div className={styles['center-img-inner']}>
+              <img src={center.iconUrl} alt={center.name} />
             </div>
           </div>
           <a
-            href={tool.url}
-            className={styles['tool-click-target']}
+            href={center.url}
+            className={styles['center-click-target']}
             target="_blank"
           >
             <span className={styles.overlay} />
           </a>
         </div>
-        <div className={styles['tool-details']}>
+        <div className={styles['center-details']}>
           <a
-            href={tool.url}
-            className={styles['tool-title']}
+            href={center.url}
+            className={styles['center-title']}
             target="_blank"
           >
-            {tool.name}
+            {center.name}
           </a>
-          <ul className={styles['tool-creator']}>
-            {creatorList}
-          </ul>
-          <div className={styles['tool-description']}>
-            {tool.description}
+          <div className={styles['center-description']}>
+            {center.description}
           </div>
         </div>
       </div>
