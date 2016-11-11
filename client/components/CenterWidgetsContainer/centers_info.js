@@ -17,4 +17,4 @@ export default [
     iconUrl: 'http://google.com',
     description: 'This is a test description3',
   },
-]
+];
