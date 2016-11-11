@@ -4,6 +4,7 @@ import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
 import PageBanner from 'components/PageBanner';
 import PageNav from 'components/PageNav';
+import CenterWidgetsContainer from 'components/CenterWidgetsContainer';
 import styles from './Overview.scss';
 import centersMapImg from './centers-map.png';
 
@@ -79,15 +80,11 @@ export default class Overview extends Component {
                     {
                       isStaticMap ?
                       <img src={centersMapImg} alt="Map of LINCS Centers" /> :
-                      null
+                      <CenterWidgetsContainer />
                     }
                   </ReactCSSTransitionGroup>
                 </div>
               </div>
-
-
-
-
 
 
 
