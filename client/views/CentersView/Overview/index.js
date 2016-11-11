@@ -44,13 +44,13 @@ export default class Overview extends Component {
                 the completion of pilot phase I in fiscal year 2013.
               </p>
 
-
-
               <div>
                 <div className={`btn-group ${styles.categories}`} data-toggle="buttons">
                   <label
                     onClick={this.handleSMClicked}
-                    className={`btn ${styles['category-check']} ${isStaticMap ? styles.active : ''}`}
+                    className={
+                      `btn ${styles['category-check']} ${isStaticMap ? styles.active : ''}`
+                    }
                   >
                     <input
                       type="radio"
@@ -61,7 +61,9 @@ export default class Overview extends Component {
                   </label>
                   <label
                     onClick={this.handleMWClicked}
-                    className={`btn ${styles['category-check']} ${isMapWidget ? styles.active : ''}`}
+                    className={
+                      `btn ${styles['category-check']} ${isMapWidget ? styles.active : ''}`
+                    }
                   >
                     <input
                       type="radio"
@@ -79,14 +81,12 @@ export default class Overview extends Component {
                   >
                     {
                       isStaticMap ?
-                      <img src={centersMapImg} alt="Map of LINCS Centers" /> :
-                      <CenterWidgetsContainer />
+                        <img src={centersMapImg} alt="Map of LINCS Centers" /> :
+                        <CenterWidgetsContainer />
                     }
                   </ReactCSSTransitionGroup>
                 </div>
               </div>
-
-
 
               <h2>LINCS Production Phase II</h2>
               <h5>LINCS Data and Signature Generation Centers</h5>
@@ -104,8 +104,8 @@ export default class Overview extends Component {
                 the data coordination center for the NIH Common Fund’s Library of Integrated
                 Network-based Cellular Signatures (LINCS) program, which aims to characterize how a
                 variety of types of cells, tissues and networks respond to disruption by drugs and
-                other factors. The center supports data science research focusing on interpreting and
-                integrating LINCS-generated data from different data types and databases in the
+                other factors. The center supports data science research focusing on interpreting
+                and integrating LINCS-generated data from different data types and databases in the
                 LINCS-funded projects. This center is co-funded
                 by <a title="Big Data to Knowledge" href="http://bd2k.nih.gov/#sthash.UHtPu2rQ.dpbs" target="_blank">
                 BD2K</a> and the <a title="NIH Common Fund" href="https://commonfund.nih.gov/" target="_blank">
@@ -120,12 +120,13 @@ export default class Overview extends Component {
               <p>
                 The <Link title="LINCS Pilot Phase I" to="/centers/phase-one">
                 LINCS Pilot Phase I</Link> was
-                composed of 10 centers: two data production/analysis centers, that generated data for
-                the LINCS matrix, four centers dedicated to developing technology to complement and
-                facilitate the collection of cellular signatures, and four centers that developed
-                computational tools for analyzing the data produced by the data production centers.
-                In addition, two external supplements, as well as a number of internal collaborations,
-                supported and augmented the work done by the LINCS centers.
+                composed of 10 centers: two data production/analysis centers, that generated data
+                for the LINCS matrix, four centers dedicated to developing technology to complement
+                and facilitate the collection of cellular signatures, and four centers that
+                developed computational tools for analyzing the data produced by the data
+                production centers. In addition, two external supplements, as well as a number
+                of internal collaborations, supported and augmented the work done by the LINCS
+                centers.
               </p>
             </div>
           </div>
