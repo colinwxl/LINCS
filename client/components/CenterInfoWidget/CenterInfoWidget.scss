@@ -34,9 +34,8 @@ $shadow: rgba(0, 0, 0, .1);
 
 .thumbnail {
   display: block;
-  margin: auto;
+  margin: auto !important;
   max-height: $tool-height / 3 - 1rem;
-  // max-width: 80%;
 }
 
 .tool-details {
