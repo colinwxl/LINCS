@@ -1,3 +1,4 @@
+/* eslint-disable */
 export default [
   {
     name: 'BD2K-LINCS DCIC',
