@@ -9,17 +9,17 @@ export default function CenterInfoWidget(props) {
   if (center.newsTitle) {
   // Not a center
     return (
-      <div className={styles.tool}>
-        <div className={styles['tool-inner']}>
-          <div className={styles['tool-logo']}>
+      <div className={styles.widget}>
+        <div className={styles['widget-inner']}>
+          <div className={styles['widget-logo']}>
             <img src={center.iconUrl} className={styles.thumbnail} alt={center.name} />
 
             <a href={center.url} className={styles['news-title']}>{center.newsTitle}</a>
           </div>
 
-          <div className={styles['tool-details']}>
-            <a href={center.url} className={styles['tool-title']}>{center.name}</a>
-            <div className={styles['tool-description']}>
+          <div className={styles['widget-details']}>
+            <a href={center.url} className={styles['widget-title']}>{center.name}</a>
+            <div className={styles['widget-description']}>
               {center.description}
             </div>
           </div>
@@ -29,22 +29,22 @@ export default function CenterInfoWidget(props) {
   } else {
     // Is a center
     return (
-      <div className={styles.tool}>
-        <div className={styles['tool-inner']}>
-          <Link to={center.internalLink} className={styles['tool-logo']}>
+      <div className={styles.widget}>
+        <div className={styles['widget-inner']}>
+          <Link to={center.internalLink} className={styles['widget-logo']}>
             <img src={center.iconUrl} className={styles.thumbnail} alt={center.name} />
           </Link>
 
-          <div className={styles['tool-details']}>
-            <Link to={center.internalLink} className={styles['tool-title']}>{center.name}</Link>
+          <div className={styles['widget-details']}>
+            <Link to={center.internalLink} className={styles['widget-title']}>{center.name}</Link>
             <a href={center.url}>
-              <i className={`fa fa-external-link ${styles.tooltip}`} />
+              <i className={`fa fa-external-link ${styles.glyphicon}`} />
             </a>
 
             <a href="">
-              <i className={`fa fa-wrench ${styles.tooltip2}`} />
+              <i className={`fa fa-wrench ${styles.glyphicon2}`} />
             </a>
-            <div className={styles['tool-description']}>
+            <div className={styles['widget-description']}>
               {center.description}
             </div>
           </div>
@@ -53,11 +53,6 @@ export default function CenterInfoWidget(props) {
     );
   }
 }
-//
-// name: 'Test',
-// url: 'http://google.com',
-// iconUrl: 'http://google.com',
-// description: 'This is a test description',
 
 CenterInfoWidget.propTypes = {
   center: PropTypes.object,

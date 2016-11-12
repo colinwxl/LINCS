@@ -1,25 +1,25 @@
 @import 'variables';
 
-$tool-height: 15rem;
-$tool-width: 15rem;
+$widget-height: 15rem;
+$widget-width: 15rem;
 $shadow: rgba(0, 0, 0, .1);
 
-.tool {
+.widget {
   border: 1px solid;
   border-color: $gray-border-top $gray-border-side $gray-border-bottom;
   border-radius: .2rem;
   display: inline-block;
   overflow: hidden;
   @media (min-width: 992px) {
-    width: $tool-width;
+    width: $widget-width;
   }
 }
 
-.tool-inner {
+.widget-inner {
   background: $white;
   border-radius: .2rem;
   box-shadow: 0 2px 4px $shadow;
-  height: $tool-height;
+  height: $widget-height;
   position: relative;
   text-decoration: none;
   vertical-align: top;
@@ -28,7 +28,7 @@ $shadow: rgba(0, 0, 0, .1);
   flex-direction: column;
 }
 
-.tool-link {
+.widget-link {
   text-decoration: none !important;
   color: $brand-primary;
   &:hover {
@@ -36,18 +36,18 @@ $shadow: rgba(0, 0, 0, .1);
   }
 }
 
-.tool-logo {
+.widget-logo {
   display: flex;
   flex: 1;
 
   .thumbnail {
     align-self: center;
     margin: auto !important;
-    max-height: $tool-height / 3 - 1rem;
+    max-height: $widget-height / 3 - 1rem;
   }
 }
 
-.tool-details {
+.widget-details {
   flex: 2;
   max-height: 9rem;
   overflow: hidden;
@@ -55,7 +55,7 @@ $shadow: rgba(0, 0, 0, .1);
 
 // $title-line-height: 1.5rem;
 
-.tool-title {
+.widget-title {
   margin-bottom: 0;
   display: inline-block;
   line-height: normal;
@@ -72,7 +72,7 @@ $shadow: rgba(0, 0, 0, .1);
 
 $desc-line-height: 1.125rem; // 18px
 
-.tool-description {
+.widget-description {
   font-size: 0.75rem;
   color: $off-black;
   display: inline-block;
@@ -89,21 +89,20 @@ $desc-line-height: 1.125rem; // 18px
   text-decoration: none !important;
 }
 
-.tooltip, .tooltip2 {
+.glyphicon, .glyphicon2 {
   color: $brand-primary;
   position: absolute;
   bottom: 0.5rem;
   height: 1rem;
-  // width: 1rem;
   &:hover {
     opacity: 0.9;
   }
 }
 
-.tooltip {
+.glyphicon {
   right: 0.5rem;
 }
 
-.tooltip2 {
+.glyphicon2 {
   right: 2rem;
 }
