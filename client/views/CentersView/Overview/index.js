@@ -57,7 +57,7 @@ export default class Overview extends Component {
                       name="map"
                       defaultChecked={isStaticMap}
                     />
-                    Map
+                  Map View
                   </label>
                   <label
                     onClick={this.handleMWClicked}
@@ -70,7 +70,7 @@ export default class Overview extends Component {
                       name="centerInfo"
                       defaultChecked={isMapWidget}
                     />
-                    Centers Info
+                  Cards View
                   </label>
                 </div>
                 <div className={styles['map-and-center-info']}>

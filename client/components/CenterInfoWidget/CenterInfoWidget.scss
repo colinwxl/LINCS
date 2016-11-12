@@ -8,9 +8,11 @@ $shadow: rgba(0, 0, 0, .1);
   border: 1px solid;
   border-color: $gray-border-top $gray-border-side $gray-border-bottom;
   border-radius: .2rem;
-  width: $tool-width;
   display: inline-block;
   overflow: hidden;
+  @media (min-width: 992px) {
+    width: $tool-width;
+  }
 }
 
 .tool-inner {
@@ -37,6 +39,7 @@ $shadow: rgba(0, 0, 0, .1);
 .tool-logo {
   display: flex;
   flex: 1;
+
   .thumbnail {
     align-self: center;
     margin: auto !important;
@@ -50,16 +53,21 @@ $shadow: rgba(0, 0, 0, .1);
   overflow: hidden;
 }
 
-$title-line-height: 1.5rem;
+// $title-line-height: 1.5rem;
 
 .tool-title {
   margin-bottom: 0;
   display: inline-block;
+  line-height: normal;
   font-weight: 600;
   margin-top: 0.6rem;
   max-height: 2rem;
   position: relative;
   text-decoration: none !important;
+  color: $brand-primary;
+  &:hover {
+    color: #2874b7;
+  }
 }
 
 $desc-line-height: 1.125rem; // 18px
@@ -72,4 +80,11 @@ $desc-line-height: 1.125rem; // 18px
   min-height: 1.25rem;
   position: relative;
   word-wrap: break-word;
+}
+
+.news-title {
+  font-size: 0.85rem;
+  color: $brand-primary;
+  font-weight: 600;
+  text-decoration: none !important;
 }
