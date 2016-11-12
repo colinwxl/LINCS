@@ -6,12 +6,16 @@ import centersInfo from './centers_info';
 
 export default function CenterWidgetsContainer() {
   const centers = centersInfo.map((center, idx) =>
-    <CenterInfoWidget key={idx} center={center} />
+    <li key={idx} className={styles['li-widget']}>
+      <CenterInfoWidget center={center} />
+    </li>
   );
 
   return (
     <div className={styles['center-widgets-container']}>
-      {centers}
+      <ul className={styles['ul-widgets']}>
+        {centers}
+      </ul>
     </div>
   );
 }
