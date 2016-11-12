@@ -24,7 +24,7 @@ export default [
     description: 'The Harvard Medical School LINCS Center collects and disseminates data and analytical tools needed to understand how human cells respond to perturbation by drugs, the environment, and mutation',
   },
   {
-    name: 'LINCS Center for Transcriptomics',
+    name: 'Center for Transcriptomics',
     internalLink: `${dsgcBaseUrl}/lincs-transcriptomics`,
     url: 'https://clue.io/',
     iconUrl: 'http://lincsproject.org/LINCS/files/centers_logos/CMap.svg',

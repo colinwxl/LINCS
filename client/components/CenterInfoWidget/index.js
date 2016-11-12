@@ -37,6 +37,13 @@ export default function CenterInfoWidget(props) {
 
           <div className={styles['tool-details']}>
             <Link to={center.internalLink} className={styles['tool-title']}>{center.name}</Link>
+            <a href={center.url}>
+              <i className={`fa fa-external-link ${styles.tooltip}`} />
+            </a>
+
+            <a href="">
+              <i className={`fa fa-wrench ${styles.tooltip2}`} />
+            </a>
             <div className={styles['tool-description']}>
               {center.description}
             </div>
