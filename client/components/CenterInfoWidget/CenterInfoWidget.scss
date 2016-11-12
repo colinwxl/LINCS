@@ -22,6 +22,8 @@ $shadow: rgba(0, 0, 0, .1);
   text-decoration: none;
   vertical-align: top;
   padding: 1rem;
+  display: flex;
+  flex-direction: column;
 }
 
 .tool-link {
@@ -32,13 +34,18 @@ $shadow: rgba(0, 0, 0, .1);
   }
 }
 
-.thumbnail {
-  display: block;
-  margin: auto !important;
-  max-height: $tool-height / 3 - 1rem;
+.tool-logo {
+  display: flex;
+  flex: 1;
+  .thumbnail {
+    align-self: center;
+    margin: auto !important;
+    max-height: $tool-height / 3 - 1rem;
+  }
 }
 
 .tool-details {
+  flex: 2;
   max-height: 9rem;
   overflow: hidden;
 }

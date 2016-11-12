@@ -9,7 +9,10 @@ export default function CenterInfoWidget(props) {
     <div className={styles.tool}>
       <a href={center.url} className={styles['tool-link']} target="_blank">
         <div className={styles['tool-inner']}>
-          <img src={center.iconUrl} className={styles.thumbnail} alt={center.name} />
+          <div className={styles['tool-logo']}>
+            <img src={center.iconUrl} className={styles.thumbnail} alt={center.name} />
+          </div>
+
           <div className={styles['tool-details']}>
             <label className={styles['tool-title']}>{center.name}</label>
             <div className={styles['tool-description']}>
