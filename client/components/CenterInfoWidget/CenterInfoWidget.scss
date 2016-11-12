@@ -10,6 +10,7 @@ $shadow: rgba(0, 0, 0, .1);
   border-radius: .2rem;
   width: $tool-width;
   display: inline-block;
+  overflow: hidden;
 }
 
 .tool-inner {
@@ -34,8 +35,8 @@ $shadow: rgba(0, 0, 0, .1);
 .thumbnail {
   display: block;
   margin: auto;
-  max-height: $tool-height / 2 - 1rem;
-  max-width: 80%;
+  max-height: $tool-height / 3 - 1rem;
+  // max-width: 80%;
 }
 
 .tool-details {
