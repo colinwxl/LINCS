@@ -5,8 +5,8 @@ import CenterInfoWidget from 'components/CenterInfoWidget';
 import centersInfo from './centers_info';
 
 export default function CenterWidgetsContainer() {
-  const centers = centersInfo.map(center =>
-    <CenterInfoWidget center={center} />
+  const centers = centersInfo.map((center, idx) =>
+    <CenterInfoWidget key={idx} center={center} />
   );
 
   return (
