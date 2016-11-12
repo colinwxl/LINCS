@@ -1,111 +1,67 @@
 @import 'variables';
 
-$center-height: 10rem;
-$center-width: 20rem;
+$tool-height: 15rem;
+$tool-width: 15rem;
 $shadow: rgba(0, 0, 0, .1);
 
-.center {
+.tool {
   border: 1px solid;
   border-color: $gray-border-top $gray-border-side $gray-border-bottom;
   border-radius: .2rem;
-  margin: 0 auto;
-  width: $center-width;
+  margin: 0.5rem;
+  width: $tool-width;
   display: inline-block;
 }
 
-.center-inner {
+.tool-inner {
   background: $white;
   border-radius: .2rem;
   box-shadow: 0 2px 4px $shadow;
-  height: $center-height;
+  height: $tool-height;
   position: relative;
   text-decoration: none;
   vertical-align: top;
+  padding: 1rem;
 }
 
-$img-width: 9rem;
-
-.cover {
-  float: left;
-  height: $center-height;
-  overflow: hidden;
-  position: relative;
-  width: $img-width;
-}
-
-.center-img-wrap {
-  display: table;
-  height: $center-height;
-  width: $img-width;
-}
-
-.center-img-inner {
-  display: table-cell;
-  text-align: center;
-  vertical-align: middle;
-
-  img {
-    display: inline-block;
-    max-height: 100%;
-    width: 80%;
-  }
-}
-
-.center-click-target {
-  bottom: 0;
-  left: 0;
-  position: absolute;
-  right: 0;
-  top: 0;
-}
-
-.overlay {
-  background: $overlay-black;
-  border-radius: .2rem;
-  cursor: pointer;
-  filter: alpha(opacity = 0);
-  height: 100%;
-  left: 0;
-  opacity: 0;
-  position: absolute;
-  top: 0;
-  transition: all .25s ease;
-  width: 100%;
-
+.tool-link {
+  text-decoration: none !important;
+  color: $brand-primary;
   &:hover {
-    filter: alpha(opacity = 1);
-    opacity: 1;
+    color: #2874b7;
   }
 }
 
-.center-details {
+.thumbnail {
+  display: block;
+  margin: auto;
+  max-height: $tool-height / 2 - 1rem;
+  max-width: 80%;
+}
+
+.tool-details {
   max-height: 9rem;
   overflow: hidden;
-  padding: .5rem .75rem 0;
 }
 
 $title-line-height: 1.5rem;
 
-.center-title {
-  color: $off-black;
-  font-size: 1rem;
+.tool-title {
+  margin-bottom: 0;
   display: inline-block;
   font-weight: 600;
   margin-top: 0.6rem;
   max-height: 2rem;
-  min-height: 1.0rem;
-  overflow: hidden;
   position: relative;
   text-decoration: none !important;
-  white-space: nowrap;
-  line-height: $title-line-height;
 }
 
 $desc-line-height: 1.125rem; // 18px
 
-.center-description {
-  display: inline-block;
+.tool-description {
   font-size: 0.75rem;
+  color: $off-black;
+  display: inline-block;
   max-height: $desc-line-height * 3;
   min-height: 1.25rem;
   position: relative;

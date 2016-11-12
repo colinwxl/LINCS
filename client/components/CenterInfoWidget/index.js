@@ -1,42 +1,32 @@
 import React, { PropTypes } from 'react';
+
 import styles from './CenterInfoWidget.scss';
 
 export default function CenterInfoWidget(props) {
   const { center } = props;
 
   return (
-    <div className={styles.center}>
-      <div className={styles['center-inner']}>
-        <div className={styles.cover}>
-          <div className={styles['center-img-wrap']}>
-            <div className={styles['center-img-inner']}>
-              <img src={center.iconUrl} alt={center.name} />
+    <div className={styles.tool}>
+      <a href={center.url} className={styles['tool-link']} target="_blank">
+        <div className={styles['tool-inner']}>
+          <img src={center.iconUrl} className={styles.thumbnail} alt={center.name} />
+          <div className={styles['tool-details']}>
+            <label className={styles['tool-title']}>{center.name}</label>
+            <div className={styles['tool-description']}>
+              {center.description}
             </div>
           </div>
-          <a
-            href={center.url}
-            className={styles['center-click-target']}
-            target="_blank"
-          >
-            <span className={styles.overlay} />
-          </a>
+          <div className={styles['tool-ranking']}></div>
         </div>
-        <div className={styles['center-details']}>
-          <a
-            href={center.url}
-            className={styles['center-title']}
-            target="_blank"
-          >
-            {center.name}
-          </a>
-          <div className={styles['center-description']}>
-            {center.description}
-          </div>
-        </div>
-      </div>
+      </a>
     </div>
   );
 }
+//
+// name: 'Test',
+// url: 'http://google.com',
+// iconUrl: 'http://google.com',
+// description: 'This is a test description',
 
 CenterInfoWidget.propTypes = {
   center: PropTypes.object,

@@ -15,7 +15,7 @@ const homeViewSize = {
   description: '0.88rem',
 };
 
-export function Tool(props) {
+export function TutVid(props) {
   const { tool, homeview } = props;
   let creatorList = tool.centers.sort((a, b) => a.name > b.name);
   creatorList = creatorList.map((center, idx) =>
@@ -49,10 +49,10 @@ export function Tool(props) {
   );
 }
 
-Tool.propTypes = {
+TutVid.propTypes = {
   homeview: PropTypes.bool,
   tool: PropTypes.object,
   toolIncrementClick: PropTypes.func,
 };
 
-export default connect(null, { toolIncrementClick })(Tool);
+export default connect(null, { toolIncrementClick })(TutVid);
