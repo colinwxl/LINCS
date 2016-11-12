@@ -1,15 +1,16 @@
 @import 'variables';
 
 $center-height: 10rem;
-$center-width: 21rem;
+$center-width: 20rem;
 $shadow: rgba(0, 0, 0, .1);
 
 .center {
   border: 1px solid;
   border-color: $gray-border-top $gray-border-side $gray-border-bottom;
   border-radius: .2rem;
-  margin: 0 auto 1rem;
-  min-width: $center-width;
+  margin: 0 auto;
+  width: $center-width;
+  display: inline-block;
 }
 
 .center-inner {
