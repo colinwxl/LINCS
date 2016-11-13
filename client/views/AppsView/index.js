@@ -7,7 +7,7 @@ import styles from './AppsView.scss';
 
 const sub = 'Tutorials, walkthroughs, and tools to help you be more productive with LINCS datasets';
 
-export default function AppsView() {
+export default function AppsView(props) {
   return (
     <div className={styles.wrapper}>
       <PageBanner title="LINCS Workflows and Tools" subTitle={sub} />
@@ -15,7 +15,7 @@ export default function AppsView() {
         <div className="row">
           <div className="col-xs-12">
             <WorkflowsModule />
-            <AppsContainerModule />
+            <AppsContainerModule initialCenter={props.location.state}/>
           </div>
         </div>
       </div>

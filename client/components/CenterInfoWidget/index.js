@@ -20,7 +20,7 @@ export default function CenterInfoWidget(props) {
             <a href={center.url}>
               <i className={`fa fa-external-link ${styles.glyphicon}`} />
             </a>
-            <Link to={{ pathname: '/tools', state: center.filterName }}>
+            <Link to={{ pathname: '/tools', state: center.name }}>
               <i className={`fa fa-wrench ${styles.glyphicon2}`} />
             </Link>
             <div className={styles['widget-description']}>

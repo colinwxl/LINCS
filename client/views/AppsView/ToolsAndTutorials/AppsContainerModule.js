@@ -27,7 +27,7 @@ export class AppsContainerModule extends Component {
   handleTutClicked = () => { this.setState({ marketTutSelection: 'tut' }); }
 
   render() {
-    const { tools } = this.props;
+    const { tools, initialCenter } = this.props;
     const { marketTutSelection } = this.state;
     const isMarket = marketTutSelection === 'market';
     const isTut = marketTutSelection === 'tut';
@@ -82,7 +82,7 @@ export class AppsContainerModule extends Component {
           >
             {
               isMarket ?
-                <ToolsModule tools={tools} key="market" /> :
+                <ToolsModule initialCenter={initialCenter} tools={tools} key="market" /> :
                 <TutorialsModule tools={toolsWithTuts} key="tut" />
             }
           </ReactCSSTransitionGroup>
