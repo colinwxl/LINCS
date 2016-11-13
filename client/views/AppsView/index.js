@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 
 import WorkflowsModule from './WorkflowsModule';
 import AppsContainerModule from './ToolsAndTutorials/AppsContainerModule';
@@ -15,10 +15,14 @@ export default function AppsView(props) {
         <div className="row">
           <div className="col-xs-12">
             <WorkflowsModule />
-            <AppsContainerModule initialCenter={props.location.state}/>
+            <AppsContainerModule initialCenter={props.location.state} />
           </div>
         </div>
       </div>
     </div>
   );
 }
+
+AppsView.propTypes = {
+  location: PropTypes.obj,
+};

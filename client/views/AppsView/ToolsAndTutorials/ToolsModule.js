@@ -380,4 +380,5 @@ export default class ToolsModule extends Component {
 ToolsModule.propTypes = {
   location: PropTypes.object,
   tools: PropTypes.array,
+  initialCenter: PropTypes.string,
 };

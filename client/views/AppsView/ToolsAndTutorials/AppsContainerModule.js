@@ -95,6 +95,7 @@ export class AppsContainerModule extends Component {
 AppsContainerModule.propTypes = {
   loadTools: PropTypes.func,
   tools: PropTypes.array,
+  initialCenter: PropTypes.string,
 };
 
 export default connect(mapStateToProps, { loadTools })(AppsContainerModule);
