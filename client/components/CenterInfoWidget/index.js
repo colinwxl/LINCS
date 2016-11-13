@@ -20,9 +20,9 @@ export default function CenterInfoWidget(props) {
             <a href={center.url}>
               <i className={`fa fa-external-link ${styles.glyphicon}`} />
             </a>
-            <a href="">
+            <Link to={{ pathname: '/tools', state: center.filterName }}>
               <i className={`fa fa-wrench ${styles.glyphicon2}`} />
-            </a>
+            </Link>
             <div className={styles['widget-description']}>
               {center.description}
             </div>
@@ -39,7 +39,6 @@ export default function CenterInfoWidget(props) {
           <img src={center.iconUrl} className={styles.thumbnail} alt={center.name} />
           <a href={center.url} className={styles['news-title']}>{center.newsTitle}</a>
         </div>
-
         <div className={styles['widget-details']}>
           <a href={center.url} className={styles['widget-title']}>{center.name}</a>
           <div className={styles['widget-description']}>
