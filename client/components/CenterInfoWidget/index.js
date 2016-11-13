@@ -6,27 +6,7 @@ import styles from './CenterInfoWidget.scss';
 export default function CenterInfoWidget(props) {
   const { center } = props;
 
-  if (center.newsTitle) {
-  // Not a center
-    return (
-      <div className={styles.widget}>
-        <div className={styles['widget-inner']}>
-          <div className={styles['widget-logo']}>
-            <img src={center.iconUrl} className={styles.thumbnail} alt={center.name} />
-
-            <a href={center.url} className={styles['news-title']}>{center.newsTitle}</a>
-          </div>
-
-          <div className={styles['widget-details']}>
-            <a href={center.url} className={styles['widget-title']}>{center.name}</a>
-            <div className={styles['widget-description']}>
-              {center.description}
-            </div>
-          </div>
-        </div>
-      </div>
-    );
-  } else {
+  if (!center.newsTitle) {
     // Is a center
     return (
       <div className={styles.widget}>
@@ -40,7 +20,6 @@ export default function CenterInfoWidget(props) {
             <a href={center.url}>
               <i className={`fa fa-external-link ${styles.glyphicon}`} />
             </a>
-
             <a href="">
               <i className={`fa fa-wrench ${styles.glyphicon2}`} />
             </a>
@@ -52,6 +31,24 @@ export default function CenterInfoWidget(props) {
       </div>
     );
   }
+  // Not a center
+  return (
+    <div className={styles.widget}>
+      <div className={styles['widget-inner']}>
+        <div className={styles['widget-logo']}>
+          <img src={center.iconUrl} className={styles.thumbnail} alt={center.name} />
+          <a href={center.url} className={styles['news-title']}>{center.newsTitle}</a>
+        </div>
+
+        <div className={styles['widget-details']}>
+          <a href={center.url} className={styles['widget-title']}>{center.name}</a>
+          <div className={styles['widget-description']}>
+            {center.description}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
 }
 
 CenterInfoWidget.propTypes = {
