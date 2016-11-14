@@ -367,7 +367,7 @@ export class HomeView extends Component {
                               University of Virginia, <a href="http://lincs-dcic.org/#/external-dsrp#nav" target="_blank">
                               DCIC eDSR</a>)
                               <br />
-                              <strong>November 29, 2016 at 3:00 PM ET</strong>.
+                              <strong>December 6th, 2016 at 3:00 PM ET</strong>.
                             </p>
                             <Link to="/community/webinars">Details</Link>
                           </div>
