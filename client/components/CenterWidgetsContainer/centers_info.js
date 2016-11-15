@@ -17,7 +17,7 @@ export default [
     url: 'https://clue.io/',
     iconUrl: 'http://lincsproject.org/LINCS/files/centers_logos/CMap.svg',
     description: 'The LINCS Center for Transcriptomics utilizes the L1000 technology to profile the response of human cells to thousands of perturbations',
-    awardeeInstitution: '',
+    awardeeInstitution: 'Broad Institute',
     status: 'Data and Signature Generation Center',
   },
   {
@@ -26,7 +26,7 @@ export default [
     url: 'https://martip03.u.hpc.mssm.edu/index.php',
     iconUrl: 'http://lincsproject.org/LINCS/files/centers_logos/DToxS.png',
     description: 'The Drug Toxicity Signature Generation Center develops cell signatures that predict adverse events that might be caused by drugs',
-    awardeeInstitution: '',
+    awardeeInstitution: 'Icahn School of Medicine at Mount Sinai',
     status: 'Data and Signature Generation Center',
   },
   {
@@ -35,7 +35,7 @@ export default [
     url: 'http://lincs.hms.harvard.edu/',
     iconUrl: 'http://lincsproject.org/LINCS/files/centers_logos/hms-lincs.png',
     description: 'The HMS LINCS Center collects and disseminates data and tools needed to understand how human cells respond to perturbations',
-    awardeeInstitution: '',
+    awardeeInstitution: 'Harvard Medical School',
     status: 'Data and Signature Generation Center',
   },
   {
@@ -44,7 +44,7 @@ export default [
     url: 'https://panoramaweb.org/labkey/project/LINCS/begin.view',
     iconUrl: 'http://lincsproject.org/LINCS/files/centers_logos/lincs-pccse.png',
     description: 'The LINCS PCCSE utilizes the P100 and GCP assays to profile the response of human cell lines to perturbations',
-    awardeeInstitution: '',
+    awardeeInstitution: 'Broad Institute',
     status: 'Data and Signature Generation Center',
   },
   {
@@ -53,7 +53,7 @@ export default [
     url: 'https://www.synapse.org/#!Synapse:syn2862345',
     iconUrl: 'http://lincsproject.org/LINCS/files/centers_logos/mep-lincs-logo.png',
     description: 'The MEP LINCS Center utilizes microscopy to profile the effects of different MEs on the response of human cell lines to perturbations',
-    awardeeInstitution: '',
+    awardeeInstitution: 'Oregon Health and Science University',
     status: 'Data and Signature Generation Center',
   },
   {
@@ -62,7 +62,7 @@ export default [
     url: 'http://www.neurolincs.org/',
     iconUrl: 'http://lincsproject.org/LINCS/files/centers_logos/NeuroLINCS.png',
     description: 'The NeuroLINCS Center studies human brain cells derived from patient-derived iPS cells to understand the causes of neurological disease',
-    awardeeInstitution: '',
+    awardeeInstitution: 'University of California-Irvine',
     status: 'Data and Signature Generation Center',
   },
   {
