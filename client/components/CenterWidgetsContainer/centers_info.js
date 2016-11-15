@@ -10,6 +10,13 @@ export default [
     description: 'The BD2K-LINCS Data Coordination and Integration Center is responsible for harmonizing LINCS data with other available resources',
   },
   {
+    name: 'BroadT LINCS',
+    internalLink: `${dsgcBaseUrl}/lincs-transcriptomics`,
+    url: 'https://clue.io/',
+    iconUrl: 'http://lincsproject.org/LINCS/files/centers_logos/CMap.svg',
+    description: 'The LINCS Center for Transcriptomics utilizes the L1000 technology to profile the response of human cells to thousands of perturbations',
+  },
+  {
     name: 'DToxS',
     internalLink: `${dsgcBaseUrl}/dtoxs`,
     url: 'https://martip03.u.hpc.mssm.edu/index.php',
@@ -22,13 +29,6 @@ export default [
     url: 'http://lincs.hms.harvard.edu/',
     iconUrl: 'http://lincsproject.org/LINCS/files/centers_logos/hms-lincs.png',
     description: 'The Harvard Medical School LINCS Center collects and disseminates data and analytical tools needed to understand how human cells respond to perturbation by drugs, the environment, and mutation',
-  },
-  {
-    name: 'BroadT LINCS',
-    internalLink: `${dsgcBaseUrl}/lincs-transcriptomics`,
-    url: 'https://clue.io/',
-    iconUrl: 'http://lincsproject.org/LINCS/files/centers_logos/CMap.svg',
-    description: 'The LINCS Center for Transcriptomics utilizes the L1000 technology to profile the response of human cells to thousands of perturbations',
   },
   {
     name: 'LINCS PCCSE',
