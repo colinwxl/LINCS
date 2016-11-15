@@ -5,7 +5,17 @@ import CenterInfoWidget from 'components/CenterInfoWidget';
 import centersInfo from './centers_info';
 
 export default function CenterWidgetsContainer() {
-  const centers = centersInfo.map((center, idx) =>
+  const centers = centersInfo
+  .sort((c1, c2) => {
+    if (c1.name < c2.name) {
+      return -1;
+    }
+    if (c1.name > c2.name) {
+      return 1;
+    }
+    return 0;
+  })
+  .map((center, idx) =>
     <li key={idx} className={styles['li-widget']}>
       <CenterInfoWidget center={center} />
     </li>
