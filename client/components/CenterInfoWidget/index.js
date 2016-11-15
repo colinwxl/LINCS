@@ -8,11 +8,12 @@ export default function CenterInfoWidget(props) {
   const { center } = props;
 
   const toolTipItem = (
-    <div>
+    <div className={styles.centerInfoTooltip}>
       <label className={styles.label}>{center.status}</label>
       <div className={styles.awardee}>
-        <label className={styles.label}>Awardee Insitution: </label>&nbsp;
-        {center.awardeeInstitution}
+        <label className={styles.label}>
+          Awardee Insitution:
+        </label> {center.awardeeInstitution}
       </div>
     </div>
   );
@@ -32,32 +33,35 @@ export default function CenterInfoWidget(props) {
               {center.description}
             </div>
           </div>
-          {/* Top right corner tooltip */}
-          <i
-            className={`fa fa-info-circle ${styles.info}`}
-            aria-hidden="true"
-            data-tip="Information is not available at this time."
-            data-for={center.name}
-          />
-          <ReactTooltip
-            id={center.name}
-            place="right"
-            type="dark"
-            effect="float"
-          >
-            {toolTipItem}
-          </ReactTooltip>
 
-          {/* Bottom right corner glyphicons */}
-          <a href={center.url} target="_blank">
-            <i className={`fa fa-external-link ${styles.glyphicon}`} />
-          </a>
-          <a href={center.grantsLink} target="_blank">
-            <i className={`fa fa-star ${styles.glyphicon2}`} />
-          </a>
-          <Link to={{ pathname: '/tools', state: center.name }}>
-            <i className={`fa fa-wrench ${styles.glyphicon3}`} />
-          </Link>
+          <div className={styles.glyphicons}>
+            {/* Top right corner tooltip */}
+            <i
+              className={`fa fa-info-circle ${styles['info-icon']}`}
+              aria-hidden="true"
+              data-tip="Information is not available at this time."
+              data-for={center.name}
+            />
+            <ReactTooltip
+              id={center.name}
+              place="right"
+              type="dark"
+              effect="float"
+            >
+              {toolTipItem}
+            </ReactTooltip>
+
+            {/* Bottom right corner glyphicons */}
+            <a href={center.url} target="_blank">
+              <i className={`fa fa-external-link ${styles.glyphicon1}`} />
+            </a>
+            <a href={center.grantsLink} target="_blank">
+              <i className={`fa fa-star ${styles.glyphicon2}`} />
+            </a>
+            <Link to={{ pathname: '/tools', state: center.name }}>
+              <i className={`fa fa-wrench ${styles.glyphicon3}`} />
+            </Link>
+          </div>
         </div>
       </div>
     );
