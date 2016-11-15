@@ -89,7 +89,7 @@ $desc-line-height: 1.125rem; // 18px
   text-decoration: none !important;
 }
 
-.info, .glyphicon, .glyphicon2 {
+.info, .glyphicon, .glyphicon2, .glyphicon3 {
   color: $brand-primary;
   position: absolute;
   height: 1rem;
@@ -111,6 +111,11 @@ $desc-line-height: 1.125rem; // 18px
 .glyphicon2 {
   bottom: 0.5rem;
   right: 2rem;
+}
+
+.glyphicon3 {
+  bottom: 0.5rem;
+  right: 3.5rem;
 }
 
 .awardee {

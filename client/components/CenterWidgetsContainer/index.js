@@ -4,6 +4,7 @@ import CenterInfoWidget from 'components/CenterInfoWidget';
 
 import centersInfo from './centers_info';
 
+// Probably best to make this database-driven
 export default function CenterWidgetsContainer() {
   const centers = centersInfo
   .sort((c1, c2) => {

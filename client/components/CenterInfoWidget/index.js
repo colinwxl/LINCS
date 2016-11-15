@@ -32,7 +32,7 @@ export default function CenterInfoWidget(props) {
               {center.description}
             </div>
           </div>
-
+          {/* Top right corner tooltip */}
           <i
             className={`fa fa-info-circle ${styles.info}`}
             aria-hidden="true"
@@ -48,11 +48,15 @@ export default function CenterInfoWidget(props) {
             {toolTipItem}
           </ReactTooltip>
 
-          <a href={center.url}>
+          {/* Bottom right corner glyphicons */}
+          <a href={center.url} target="_blank">
             <i className={`fa fa-external-link ${styles.glyphicon}`} />
           </a>
+          <a href={center.grantsLink} target="_blank">
+            <i className={`fa fa-star ${styles.glyphicon2}`} />
+          </a>
           <Link to={{ pathname: '/tools', state: center.name }}>
-            <i className={`fa fa-wrench ${styles.glyphicon2}`} />
+            <i className={`fa fa-wrench ${styles.glyphicon3}`} />
           </Link>
         </div>
       </div>

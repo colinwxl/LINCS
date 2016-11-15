@@ -10,6 +10,7 @@ export default [
     description: 'The BD2K-LINCS Data Coordination and Integration Center is responsible for harmonizing LINCS data with other available resources',
     awardeeInstitution: 'Icahn School of Medicine at Mount Sinai',
     status: 'Data Coordination Center',
+    grantsLink: 'http://projectreporter.nih.gov/project_description.cfm?projectnumber=1U54HL127624-01',
   },
   {
     name: 'BroadT LINCS',
@@ -19,6 +20,7 @@ export default [
     description: 'The LINCS Center for Transcriptomics utilizes the L1000 technology to profile the response of human cells to thousands of perturbations',
     awardeeInstitution: 'Broad Institute',
     status: 'Data and Signature Generation Center',
+    grantsLink: 'http://projectreporter.nih.gov/project_description.cfm?projectnumber=1U54HL127366-01',
   },
   {
     name: 'DToxS',
@@ -28,6 +30,7 @@ export default [
     description: 'The Drug Toxicity Signature Generation Center develops cell signatures that predict adverse events that might be caused by drugs',
     awardeeInstitution: 'Icahn School of Medicine at Mount Sinai',
     status: 'Data and Signature Generation Center',
+    grantsLink: 'http://projectreporter.nih.gov/project_description.cfm?projectnumber=1U54HG008098-01',
   },
   {
     name: 'HMS LINCS',
@@ -37,6 +40,7 @@ export default [
     description: 'The HMS LINCS Center collects and disseminates data and tools needed to understand how human cells respond to perturbations',
     awardeeInstitution: 'Harvard Medical School',
     status: 'Data and Signature Generation Center',
+    grantsLink: 'http://projectreporter.nih.gov/project_description.cfm?projectnumber=1U54HL127365-01',
   },
   {
     name: 'LINCS PCCSE',
@@ -46,6 +50,7 @@ export default [
     description: 'The LINCS PCCSE utilizes the P100 and GCP assays to profile the response of human cell lines to perturbations',
     awardeeInstitution: 'Broad Institute',
     status: 'Data and Signature Generation Center',
+    grantsLink: 'http://projectreporter.nih.gov/project_description.cfm?projectnumber=1U54HG008097-01',
   },
   {
     name: 'MEP LINCS',
@@ -55,6 +60,7 @@ export default [
     description: 'The MEP LINCS Center utilizes microscopy to profile the effects of different MEs on the response of human cell lines to perturbations',
     awardeeInstitution: 'Oregon Health and Science University',
     status: 'Data and Signature Generation Center',
+    grantsLink: 'http://projectreporter.nih.gov/project_description.cfm?projectnumber=1U54HG008100-01',
   },
   {
     name: 'NeuroLINCS',
@@ -64,6 +70,7 @@ export default [
     description: 'The NeuroLINCS Center studies human brain cells derived from patient-derived iPS cells to understand the causes of neurological disease',
     awardeeInstitution: 'University of California-Irvine',
     status: 'Data and Signature Generation Center',
+    grantsLink: 'http://projectreporter.nih.gov/project_description.cfm?projectnumber=1U54NS091046-01',
   },
   {
     newsTitle: 'NIH Awards Aim to Improve Understanding of Cell Pathways, Development of New Therapies',
