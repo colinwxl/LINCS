@@ -9,7 +9,11 @@ export default function CenterInfoWidget(props) {
 
   const toolTipItem = (
     <div>
-      Hello world!
+      <label className={styles.label}>{center.status}</label>
+      <div className={styles.awardee}>
+        <label className={styles.label}>Awardee Insitution: </label>&nbsp;
+        {center.awardeeInstitution}
+      </div>
     </div>
   );
 
