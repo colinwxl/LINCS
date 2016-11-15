@@ -1,10 +1,17 @@
 import React, { PropTypes } from 'react';
+import ReactTooltip from 'react-tooltip';
 import { Link } from 'react-router';
 
 import styles from './CenterInfoWidget.scss';
 
 export default function CenterInfoWidget(props) {
   const { center } = props;
+
+  const toolTipItem = (
+    <div>
+      Hello world!
+    </div>
+  );
 
   if (!center.newsTitle) {
     // Is a center
@@ -17,16 +24,32 @@ export default function CenterInfoWidget(props) {
 
           <div className={styles['widget-details']}>
             <Link to={center.internalLink} className={styles['widget-title']}>{center.name}</Link>
-            <a href={center.url}>
-              <i className={`fa fa-external-link ${styles.glyphicon}`} />
-            </a>
-            <Link to={{ pathname: '/tools', state: center.name }}>
-              <i className={`fa fa-wrench ${styles.glyphicon2}`} />
-            </Link>
             <div className={styles['widget-description']}>
               {center.description}
             </div>
           </div>
+
+          <i
+            className={`fa fa-info-circle ${styles.info}`}
+            aria-hidden="true"
+            data-tip="Information is not available at this time."
+            data-for={center.name}
+          />
+          <ReactTooltip
+            id={center.name}
+            place="right"
+            type="dark"
+            effect="float"
+          >
+            {toolTipItem}
+          </ReactTooltip>
+
+          <a href={center.url}>
+            <i className={`fa fa-external-link ${styles.glyphicon}`} />
+          </a>
+          <Link to={{ pathname: '/tools', state: center.name }}>
+            <i className={`fa fa-wrench ${styles.glyphicon2}`} />
+          </Link>
         </div>
       </div>
     );

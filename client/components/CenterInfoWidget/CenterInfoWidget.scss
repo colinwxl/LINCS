@@ -89,20 +89,26 @@ $desc-line-height: 1.125rem; // 18px
   text-decoration: none !important;
 }
 
-.glyphicon, .glyphicon2 {
+.info, .glyphicon, .glyphicon2 {
   color: $brand-primary;
   position: absolute;
-  bottom: 0.5rem;
   height: 1rem;
   &:hover {
     opacity: 0.9;
   }
 }
 
+.info {
+  right: 0.5rem;
+  top: 0.5rem;
+}
+
 .glyphicon {
+  bottom: 0.5rem;
   right: 0.5rem;
 }
 
 .glyphicon2 {
+  bottom: 0.5rem;
   right: 2rem;
 }
