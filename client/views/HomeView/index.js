@@ -322,7 +322,7 @@ export class HomeView extends Component {
                                 DCIC eDSR
                               </a>)
                               <br />
-                              <strong>November 15, 2016 at 3:00 PM ET</strong>.
+                              <strong>December 20, 2016 at 3:00 PM ET</strong>.
                             </p>
                             <a
                               href="http://www.lincsproject.org/LINCS/community/webinars"

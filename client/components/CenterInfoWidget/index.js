@@ -12,7 +12,7 @@ export default function CenterInfoWidget(props) {
       <label className={styles.label}>{center.status}</label>
       <div className={styles.awardee}>
         <label className={styles.label}>
-          Awardee Insitution:
+          Awardee Institution:
         </label> {center.awardeeInstitution}
       </div>
     </div>
