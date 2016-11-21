@@ -19,7 +19,7 @@ export default class Overview extends Component {
       mapTab: 'staticMap',
       centerSelected: '',
     };
-    imageMapResize($);
+    imageMapResize($); // eslint-disable-line no-undef
   }
 
   componentDidMount() {
@@ -34,7 +34,7 @@ export default class Overview extends Component {
     const { mapTab } = this.state;
     const isStaticMap = mapTab === 'staticMap';
     if (isStaticMap) {
-      $('img[usemap]').rwdImageMaps();
+      $('img[usemap]').rwdImageMaps(); // eslint-disable-line no-undef
     }
   }
 

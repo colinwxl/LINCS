@@ -84,4 +84,4 @@ export default [
     coords: '886,668,1065,831',
     center: 'BD2K-LINCS DCIC',
   },
-]
+];
