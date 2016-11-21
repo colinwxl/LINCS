@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import imageMapResize from './imageMapResize';
+import centersCoords from './centersCoords';
 
 import PageBanner from 'components/PageBanner';
 import PageNav from 'components/PageNav';
@@ -107,91 +108,16 @@ export default class Overview extends Component {
                         <div>
                           <img src={centersMapImg} alt="Map of LINCS Centers" useMap="#Map" />
                           <map name="Map" id="Map">
-                            <area
-                              onClick={() => this.handleCenterClicked('LINCS PCCSE')}
-                              coords="280,79,533,171"
-                              shape="rect"
-                            />
-                            <area
-                              onClick={() => this.handleCenterClicked('MEP LINCS')}
-                              coords="78,198,250,277"
-                              shape="rect"
-                            />
-                            <area
-                              onClick={() => this.handleCenterClicked('NeuroLINCS')}
-                              coords="223,313,470,375"
-                              shape="rect"
-                            />
-                            <area
-                              onClick={() => this.handleCenterClicked('HMS LINCS')}
-                              coords="31,359,205,457"
-                              shape="rect"
-                            />
-                            <area
-                              onClick={() => this.handleCenterClicked('NeuroLINCS')}
-                              coords="262,423,528,481"
-                              shape="rect"
-                            />
-                            <area
-                              onClick={() => this.handleCenterClicked('NeuroLINCS')}
-                              coords="35,497,291,589"
-                              shape="rect"
-                            />
-                            <area
-                              onClick={() => this.handleCenterClicked('MEP LINCS')}
-                              coords="619,631,797,699"
-                              shape="rect"
-                            />
-                            <area
-                              onClick={() => this.handleCenterClicked('BD2K-LINCS DCIC')}
-                              coords="814,33,1036,152"
-                              shape="rect"
-                            />
-                            <area
-                              onClick={() => this.handleCenterClicked('DToxS')}
-                              coords="847,162,1037,261"
-                              shape="rect"
-                            />
-                            <area
-                              onClick={() => this.handleCenterClicked('BD2K-LINCS DCIC')}
-                              coords="751,390,945,532"
-                              shape="rect"
-                            />
-                            <area
-                              onClick={() => this.handleCenterClicked('NeuroLINCS')}
-                              coords="1152,33,1404,105"
-                              shape="rect"
-                            />
-                            <area
-                              onClick={() => this.handleCenterClicked('HMS LINCS')}
-                              coords="1222,133,1420,205"
-                              shape="rect"
-                            />
-                            <area
-                              onClick={() => this.handleCenterClicked('BroadT LINCS')}
-                              coords="1233,235,1417,349"
-                              shape="rect"
-                            />
-                            <area
-                              onClick={() => this.handleCenterClicked('LINCS PCCSE')}
-                              coords="1196,372,1428,464"
-                              shape="rect"
-                            />
-                            <area
-                              onClick={() => this.handleCenterClicked('DToxS')}
-                              coords="1205,488,1380,581"
-                              shape="rect"
-                            />
-                            <area
-                              onClick={() => this.handleCenterClicked('NeuroLINCS')}
-                              coords="1071,599,1327,680"
-                              shape="rect"
-                            />
-                            <area
-                              onClick={() => this.handleCenterClicked('BD2K-LINCS DCIC')}
-                              coords="886,668,1065,831"
-                              shape="rect"
-                            />
+                            {
+                              centersCoords.map(center => (
+                                <area
+                                  key={center.name}
+                                  onClick={() => this.handleCenterClicked(center.center)}
+                                  coords={center.coords}
+                                  shape="rect"
+                                />
+                              ))
+                            }
                           </map>
                         </div> :
                         <CenterWidgetsContainer centerSelected={centerSelected} />
