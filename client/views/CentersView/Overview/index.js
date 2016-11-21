@@ -16,7 +16,7 @@ export default class Overview extends Component {
     super(props);
     this.state = {
       mapTab: 'staticMap',
-      institutionHighlighted: '',
+      centerSelected: '',
     };
     imageMapResize($);
   }
@@ -37,15 +37,15 @@ export default class Overview extends Component {
     }
   }
 
-  handleSMClicked = () => { this.setState({ mapTab: 'staticMap', institutionHighlighted: '' }); }
-  handleMWClicked = () => { this.setState({ mapTab: 'mapWidget', institutionHighlighted: '' }); }
+  handleSMClicked = () => { this.setState({ mapTab: 'staticMap', centerSelected: '' }); }
+  handleMWClicked = () => { this.setState({ mapTab: 'mapWidget', centerSelected: '' }); }
 
-  handleSpotClick = (institution) => {
-    this.setState({ mapTab: 'mapWidget', institutionHighlighted: institution });
+  handleCenterClicked = (institution) => {
+    this.setState({ mapTab: 'mapWidget', centerSelected: institution });
   }
 
   render() {
-    const { mapTab, institutionHighlighted } = this.state;
+    const { mapTab, centerSelected } = this.state;
     const isStaticMap = mapTab === 'staticMap';
     const isMapWidget = mapTab === 'mapWidget';
 
@@ -108,93 +108,93 @@ export default class Overview extends Component {
                           <img src={centersMapImg} alt="Map of LINCS Centers" useMap="#Map" />
                           <map name="Map" id="Map">
                             <area
-                              onClick={() => this.handleSpotClick('Broad Institute')}
+                              onClick={() => this.handleCenterClicked('LINCS PCCSE')}
                               coords="280,79,533,171"
                               shape="rect"
                             />
                             <area
-                              onClick={() => this.handleSpotClick('Broad Institute')}
+                              onClick={() => this.handleCenterClicked('MEP LINCS')}
                               coords="78,198,250,277"
                               shape="rect"
                             />
                             <area
-                              onClick={() => this.handleSpotClick('Broad Institute')}
+                              onClick={() => this.handleCenterClicked('NeuroLINCS')}
                               coords="223,313,470,375"
                               shape="rect"
                             />
                             <area
-                              onClick={() => this.handleSpotClick('Broad Institute')}
+                              onClick={() => this.handleCenterClicked('HMS LINCS')}
                               coords="31,359,205,457"
                               shape="rect"
                             />
                             <area
-                              onClick={() => this.handleSpotClick('Broad Institute')}
+                              onClick={() => this.handleCenterClicked('NeuroLINCS')}
                               coords="262,423,528,481"
                               shape="rect"
                             />
                             <area
-                              onClick={() => this.handleSpotClick('Broad Institute')}
+                              onClick={() => this.handleCenterClicked('NeuroLINCS')}
                               coords="35,497,291,589"
                               shape="rect"
                             />
                             <area
-                              onClick={() => this.handleSpotClick('Broad Institute')}
+                              onClick={() => this.handleCenterClicked('MEP LINCS')}
                               coords="619,631,797,699"
                               shape="rect"
                             />
                             <area
-                              onClick={() => this.handleSpotClick('Broad Institute')}
+                              onClick={() => this.handleCenterClicked('BD2K-LINCS DCIC')}
                               coords="814,33,1036,152"
                               shape="rect"
                             />
                             <area
-                              onClick={() => this.handleSpotClick('Broad Institute')}
+                              onClick={() => this.handleCenterClicked('DToxS')}
                               coords="847,162,1037,261"
                               shape="rect"
                             />
                             <area
-                              onClick={() => this.handleSpotClick('Broad Institute')}
+                              onClick={() => this.handleCenterClicked('BD2K-LINCS DCIC')}
                               coords="751,390,945,532"
                               shape="rect"
                             />
                             <area
-                              onClick={() => this.handleSpotClick('Broad Institute')}
+                              onClick={() => this.handleCenterClicked('NeuroLINCS')}
                               coords="1152,33,1404,105"
                               shape="rect"
                             />
                             <area
-                              onClick={() => this.handleSpotClick('Broad Institute')}
+                              onClick={() => this.handleCenterClicked('HMS LINCS')}
                               coords="1222,133,1420,205"
                               shape="rect"
                             />
                             <area
-                              onClick={() => this.handleSpotClick('Broad Institute')}
+                              onClick={() => this.handleCenterClicked('BroadT LINCS')}
                               coords="1233,235,1417,349"
                               shape="rect"
                             />
                             <area
-                              onClick={() => this.handleSpotClick('Broad Institute')}
+                              onClick={() => this.handleCenterClicked('LINCS PCCSE')}
                               coords="1196,372,1428,464"
                               shape="rect"
                             />
                             <area
-                              onClick={() => this.handleSpotClick('Broad Institute')}
+                              onClick={() => this.handleCenterClicked('DToxS')}
                               coords="1205,488,1380,581"
                               shape="rect"
                             />
                             <area
-                              onClick={() => this.handleSpotClick('Broad Institute')}
+                              onClick={() => this.handleCenterClicked('NeuroLINCS')}
                               coords="1071,599,1327,680"
                               shape="rect"
                             />
                             <area
-                              onClick={() => this.handleSpotClick('Broad Institute')}
+                              onClick={() => this.handleCenterClicked('BD2K-LINCS DCIC')}
                               coords="886,668,1065,831"
                               shape="rect"
                             />
                           </map>
                         </div> :
-                        <CenterWidgetsContainer institutionHighlighted={institutionHighlighted} />
+                        <CenterWidgetsContainer centerSelected={centerSelected} />
                     }
                   </ReactCSSTransitionGroup>
                 </div>
