@@ -24,5 +24,5 @@ export default function AppsView(props) {
 }
 
 AppsView.propTypes = {
-  location: PropTypes.obj,
+  location: PropTypes.object,
 };
