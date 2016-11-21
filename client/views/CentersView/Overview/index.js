@@ -31,17 +31,19 @@ export default class Overview extends Component {
     const { mapTab } = this.state;
     const isStaticMap = mapTab === 'staticMap';
     if (isStaticMap) {
-      window.$('img[usemap]').rwdImageMaps()
+      // window.$('img[usemap]').rwdImageMaps();
     }
   }
 
-  handleSMClicked = () => { this.setState({ mapTab: 'staticMap' }); }
-  handleMWClicked = () => { this.setState({ mapTab: 'mapWidget' }); }
+  handleSMClicked = () => { this.setState({ mapTab: 'staticMap', highlightedCards: [] }); }
+  handleMWClicked = () => { this.setState({ mapTab: 'mapWidget', highlightedCards: [] }); }
 
-  handleSpotClick = () => { this.setState({ mapTab: 'mapWidget' }); }
+  handleSpotClick = () => {
+    this.setState({ mapTab: 'mapWidget', highlightedCards: ['DCIC'] });
+  }
 
   render() {
-    const { mapTab } = this.state;
+    const { mapTab, highlightedCards } = this.state;
     const isStaticMap = mapTab === 'staticMap';
     const isMapWidget = mapTab === 'mapWidget';
 
@@ -103,11 +105,16 @@ export default class Overview extends Component {
                         <div>
                           <img src={centersMapImg} alt="Map of LINCS Centers" useMap="#Map" />
                           <map name="Map" id="Map">
-                            <area onClick={this.handleSpotClick} alt="" title="" shape="circle" coords="267,137,8"/>
-                            <area onClick={this.handleSpotClick} alt="" title="" shape="rect" coords="0,0,82,126" />
+                            <area
+                              onClick={this.handleSpotClick}
+                              alt=""
+                              title=""
+                              shape="circle"
+                              coords="0,0,40"
+                            />
                           </map>
                         </div> :
-                        <CenterWidgetsContainer />
+                        <CenterWidgetsContainer highlightedCards={highlightedCards} />
                     }
                   </ReactCSSTransitionGroup>
                 </div>

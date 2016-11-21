@@ -28,6 +28,21 @@ $shadow: rgba(0, 0, 0, .1);
   flex-direction: column;
 }
 
+@-webkit-keyframes yellow-fade {
+   0% {background: #FFFF66;}
+   100% {background: none;}
+}
+
+@keyframes yellow-fade {
+   0% {background: #FFFF66;}
+   100% {background: none;}
+}
+
+.selected {
+   -webkit-animation: yellow-fade 2s ease-out 1;
+   animation: yellow-fade 2s ease-out 1;
+}
+
 .widget-link {
   text-decoration: none !important;
   color: $brand-primary;

@@ -5,7 +5,7 @@ import { Link } from 'react-router';
 import styles from './CenterInfoWidget.scss';
 
 export default function CenterInfoWidget(props) {
-  const { center } = props;
+  const { center, highlighted } = props;
 
   const toolTipItem = (
     <div className={styles.centerInfoTooltip}>
@@ -20,9 +20,13 @@ export default function CenterInfoWidget(props) {
 
   if (!center.newsTitle) {
     // Is a center
+    let selected = '';
+    if (highlighted) {
+      selected = styles.selected;
+    }
     return (
       <div className={styles.widget}>
-        <div className={styles['widget-inner']}>
+        <div className={`${styles['widget-inner']} ${selected}`}>
           <Link to={center.internalLink} className={styles['widget-logo']}>
             <img src={center.iconUrl} className={styles.thumbnail} alt={center.name} />
           </Link>
@@ -87,4 +91,5 @@ export default function CenterInfoWidget(props) {
 
 CenterInfoWidget.propTypes = {
   center: PropTypes.object,
+  highlighted: PropTypes.bool,
 };
