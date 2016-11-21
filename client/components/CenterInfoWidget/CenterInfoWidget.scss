@@ -29,18 +29,18 @@ $shadow: rgba(0, 0, 0, .1);
 }
 
 @-webkit-keyframes yellow-fade {
-   0% {background: #FFFF66;}
+   0% {background: #ffffc8;}
    100% {background: none;}
 }
 
 @keyframes yellow-fade {
-   0% {background: #FFFF66;}
+   0% {background: #ffffc8;}
    100% {background: none;}
 }
 
 .selected {
-   -webkit-animation: yellow-fade 2s ease-out 1;
-   animation: yellow-fade 2s ease-out 1;
+   -webkit-animation: yellow-fade 3s ease-out 1;
+   animation: yellow-fade 3s ease-out 1;
 }
 
 .widget-link {

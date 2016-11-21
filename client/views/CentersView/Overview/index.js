@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
+import imageMapResize from './imageMapResize';
 
 import PageBanner from 'components/PageBanner';
 import PageNav from 'components/PageNav';
@@ -15,35 +16,36 @@ export default class Overview extends Component {
     super(props);
     this.state = {
       mapTab: 'staticMap',
-      institutionsHighlighted: [],
+      institutionHighlighted: '',
     };
+    imageMapResize($);
   }
 
   componentDidMount() {
-    const { mapTab } = this.state;
-    const isStaticMap = mapTab === 'staticMap';
-    if (isStaticMap) {
-      // $('img[usemap]').rwdImageMaps()
-    }
+    this.recalculateImageMap();
   }
 
   componentDidUpdate() {
+    this.recalculateImageMap();
+  }
+
+  recalculateImageMap() {
     const { mapTab } = this.state;
     const isStaticMap = mapTab === 'staticMap';
     if (isStaticMap) {
-      // window.$('img[usemap]').rwdImageMaps();
+      $('img[usemap]').rwdImageMaps();
     }
   }
 
-  handleSMClicked = () => { this.setState({ mapTab: 'staticMap', institutionsHighlighted: [] }); }
-  handleMWClicked = () => { this.setState({ mapTab: 'mapWidget', institutionsHighlighted: [] }); }
+  handleSMClicked = () => { this.setState({ mapTab: 'staticMap', institutionHighlighted: '' }); }
+  handleMWClicked = () => { this.setState({ mapTab: 'mapWidget', institutionHighlighted: '' }); }
 
-  handleSpotClick = () => {
-    this.setState({ mapTab: 'mapWidget', institutionsHighlighted: ['Icahn School of Medicine at Mount Sinai'] });
+  handleSpotClick = (institution) => {
+    this.setState({ mapTab: 'mapWidget', institutionHighlighted: institution });
   }
 
   render() {
-    const { mapTab, institutionsHighlighted } = this.state;
+    const { mapTab, institutionHighlighted } = this.state;
     const isStaticMap = mapTab === 'staticMap';
     const isMapWidget = mapTab === 'mapWidget';
 
@@ -106,15 +108,93 @@ export default class Overview extends Component {
                           <img src={centersMapImg} alt="Map of LINCS Centers" useMap="#Map" />
                           <map name="Map" id="Map">
                             <area
-                              onClick={this.handleSpotClick}
-                              alt=""
-                              title=""
-                              shape="circle"
-                              coords="0,0,40"
+                              onClick={() => this.handleSpotClick('Broad Institute')}
+                              coords="280,79,533,171"
+                              shape="rect"
+                            />
+                            <area
+                              onClick={() => this.handleSpotClick('Broad Institute')}
+                              coords="78,198,250,277"
+                              shape="rect"
+                            />
+                            <area
+                              onClick={() => this.handleSpotClick('Broad Institute')}
+                              coords="223,313,470,375"
+                              shape="rect"
+                            />
+                            <area
+                              onClick={() => this.handleSpotClick('Broad Institute')}
+                              coords="31,359,205,457"
+                              shape="rect"
+                            />
+                            <area
+                              onClick={() => this.handleSpotClick('Broad Institute')}
+                              coords="262,423,528,481"
+                              shape="rect"
+                            />
+                            <area
+                              onClick={() => this.handleSpotClick('Broad Institute')}
+                              coords="35,497,291,589"
+                              shape="rect"
+                            />
+                            <area
+                              onClick={() => this.handleSpotClick('Broad Institute')}
+                              coords="619,631,797,699"
+                              shape="rect"
+                            />
+                            <area
+                              onClick={() => this.handleSpotClick('Broad Institute')}
+                              coords="814,33,1036,152"
+                              shape="rect"
+                            />
+                            <area
+                              onClick={() => this.handleSpotClick('Broad Institute')}
+                              coords="847,162,1037,261"
+                              shape="rect"
+                            />
+                            <area
+                              onClick={() => this.handleSpotClick('Broad Institute')}
+                              coords="751,390,945,532"
+                              shape="rect"
+                            />
+                            <area
+                              onClick={() => this.handleSpotClick('Broad Institute')}
+                              coords="1152,33,1404,105"
+                              shape="rect"
+                            />
+                            <area
+                              onClick={() => this.handleSpotClick('Broad Institute')}
+                              coords="1222,133,1420,205"
+                              shape="rect"
+                            />
+                            <area
+                              onClick={() => this.handleSpotClick('Broad Institute')}
+                              coords="1233,235,1417,349"
+                              shape="rect"
+                            />
+                            <area
+                              onClick={() => this.handleSpotClick('Broad Institute')}
+                              coords="1196,372,1428,464"
+                              shape="rect"
+                            />
+                            <area
+                              onClick={() => this.handleSpotClick('Broad Institute')}
+                              coords="1205,488,1380,581"
+                              shape="rect"
+                            />
+                            <area
+                              onClick={() => this.handleSpotClick('Broad Institute')}
+                              coords="1071,599,1327,680"
+                              shape="rect"
+                            />
+                            <area
+                              onClick={() => this.handleSpotClick('Broad Institute')}
+                              coords="886,668,1065,831"
+                              shape="rect"
                             />
                           </map>
                         </div> :
-                        <CenterWidgetsContainer institutionsHighlighted={institutionsHighlighted} />
+                        <CenterWidgetsContainer institutionHighlighted={institutionHighlighted} />
                     }
                   </ReactCSSTransitionGroup>
                 </div>

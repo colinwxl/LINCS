@@ -6,7 +6,7 @@ import centersInfo from './centers_info';
 
 // Probably best to make this database-driven
 export default function CenterWidgetsContainer(props) {
-  const { institutionsHighlighted } = props;
+  const { institutionHighlighted } = props;
 
   const centers = centersInfo
   .sort((c1, c2) => {
@@ -20,7 +20,7 @@ export default function CenterWidgetsContainer(props) {
   })
   .map((center, idx) =>
     <li key={idx} className={styles['li-widget']}>
-      <CenterInfoWidget highlighted={institutionsHighlighted.includes(center.awardeeInstitution)} center={center} />
+      <CenterInfoWidget highlighted={institutionHighlighted.includes(center.awardeeInstitution)} center={center} />
     </li>
   );
 
@@ -34,5 +34,5 @@ export default function CenterWidgetsContainer(props) {
 }
 
 CenterWidgetsContainer.propTypes = {
-  institutionsHighlighted: PropTypes.array,
+  institutionHighlighted: PropTypes.string,
 };
