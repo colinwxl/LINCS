@@ -15,7 +15,7 @@ export default class Overview extends Component {
     super(props);
     this.state = {
       mapTab: 'staticMap',
-      highlightedCards: [],
+      institutionsHighlighted: [],
     };
   }
 
@@ -35,15 +35,15 @@ export default class Overview extends Component {
     }
   }
 
-  handleSMClicked = () => { this.setState({ mapTab: 'staticMap', highlightedCards: [] }); }
-  handleMWClicked = () => { this.setState({ mapTab: 'mapWidget', highlightedCards: [] }); }
+  handleSMClicked = () => { this.setState({ mapTab: 'staticMap', institutionsHighlighted: [] }); }
+  handleMWClicked = () => { this.setState({ mapTab: 'mapWidget', institutionsHighlighted: [] }); }
 
   handleSpotClick = () => {
-    this.setState({ mapTab: 'mapWidget', highlightedCards: ['DCIC'] });
+    this.setState({ mapTab: 'mapWidget', institutionsHighlighted: ['Icahn School of Medicine at Mount Sinai'] });
   }
 
   render() {
-    const { mapTab, highlightedCards } = this.state;
+    const { mapTab, institutionsHighlighted } = this.state;
     const isStaticMap = mapTab === 'staticMap';
     const isMapWidget = mapTab === 'mapWidget';
 
@@ -114,7 +114,7 @@ export default class Overview extends Component {
                             />
                           </map>
                         </div> :
-                        <CenterWidgetsContainer highlightedCards={highlightedCards} />
+                        <CenterWidgetsContainer institutionsHighlighted={institutionsHighlighted} />
                     }
                   </ReactCSSTransitionGroup>
                 </div>
