@@ -5,6 +5,7 @@ import path from 'path';
 import fs from 'fs';
 
 import { Publication } from '../models/Publication';
+import { News } from '../models/News';
 import _debug from 'debug';
 const debug = _debug('app:server:routes:pubsNews');
 
@@ -221,8 +222,17 @@ router.get('/publications/:id/reference/:refType', async (ctx) => {
 
 // News need to exist in database first
 router.get('/news', async (ctx) => {
-  ctx.body = [];
+  try {
+    const news = await News.forge()
+      .orderBy('date', 'desc')
+      .fetchAll();
+    ctx.body = news.toJSON();
+  } catch (e) {
+    debug(e);
+    ctx.throw(500, 'An error occurred obtaining news.');
+  }
 });
+
 
 export default router;
 

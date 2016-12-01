@@ -233,6 +233,17 @@ export default {
     updated_at: { type: 'dateTime', nullable: true },
     center_pub: { type: 'integer', nullable: false },
   },
+  news: {
+    id: { type: 'increments', nullable: false, primary: true },
+    title: { type: 'string', maxlength: 255, nullable: false },
+    presenter_name: { type: 'string', maxlength: 255, nullable: true },
+    presenter_affiliation: { type: 'text', maxlength: 65535, nullable: true },
+    presenter_url: { type: 'string', maxlength: 255, nullable: true },
+    url: { type: 'string', maxlength: 255, nullable: true },
+    date: { type: 'dateTime', nullable: false },
+    created_at: { type: 'dateTime', nullable: false },
+    updated_at: { type: 'dateTime', nullable: true },
+  },
   centers_tools: {
     id: { type: 'increments', nullable: false, primary: true },
     center_id: { type: 'integer', nullable: false, unsigned: true, references: 'centers.id' },
