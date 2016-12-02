@@ -238,6 +238,7 @@ export default {
     title: { type: 'string', maxlength: 255, nullable: false },
     presenter_name: { type: 'string', maxlength: 255, nullable: true },
     presenter_affiliation: { type: 'text', maxlength: 65535, nullable: true },
+    category: { type: 'string', maxlength: 255, nullable: false },
     presenter_url: { type: 'string', maxlength: 255, nullable: true },
     url: { type: 'string', maxlength: 255, nullable: true },
     date: { type: 'dateTime', nullable: false },
