@@ -97,6 +97,98 @@ export default function Story20161207() {
         </ul>
       </Collapsible>
 
+      <Collapsible trigger="BioCADDIE and Resource indexing">
+        <ul>
+          <li>
+            <p>
+              The LINCS Data Portal and FAIR LINCS Dataset Landing Pages
+            </p>
+          </li>
+        </ul>
+
+        <ul>
+          <li>
+            <p>
+              Datasets2Tools:
+              Enriching DataMed with Canned Analyses (Podium Presentation by Denis Torre)
+            </p>
+          </li>
+        </ul>
+      </Collapsible>
+
+      <Collapsible trigger="Software, Analysis, and Methods Development">
+        <ul>
+          <li>
+            <p>
+              GRcalculator: An Online Tool for Calculating and Mining Drug Response Data
+            </p>
+          </li>
+
+          <li>
+            <p>
+              Clustergrammer: Interactive Visualization and Analysis
+              Tool for High-Dimensional Biological Data
+            </p>
+          </li>
+
+          <li>
+            <p>
+              Dashboard Visualization and Tool Integration for Enrichr
+            </p>
+          </li>
+
+          <li>
+            <p>
+            GEN3VA: Aggregation and Analysis of Gene Expression
+            Signatures from Related Studies (Podium Presentation by Avi Ma’ayan)
+            </p>
+          </li>
+
+          <li>
+            <p>
+            Integrative LINCS (iLincs): Connecting Diseases, Drugs and Mechanisms of Actions
+            </p>
+          </li>
+
+          <li>
+            <p>
+              NetLINCS:
+              Correlation of Chemical Perturbagen and Signatures to Identify Biological Targets
+            </p>
+          </li>
+
+          <li>
+            <p>
+              Computational Tools and Resources for LINCS Proteomics Data
+            </p>
+          </li>
+
+          <li>
+            <p>
+              KEGGlincs Design and Application:
+              An R Package for Exploring Relationships in Biological Pathways
+            </p>
+          </li>
+
+          <li>
+            <p>
+              Multitask Deep Neural Net Kinase Activity Profiler
+            </p>
+          </li>
+
+        </ul>
+      </Collapsible>
+
+      <Collapsible trigger="Collaborative Presentations">
+        <ul>
+          <li>
+            <p>
+              FAIR LINCS Data and Metadata powered by the CEDAR Framework
+            </p>
+          </li>
+        </ul>
+      </Collapsible>
+
       <span className={styles['twitter-label']}>
         <a
           title="Follow @BD2KLINCSDCIC on Twitter"
