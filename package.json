@@ -155,6 +155,7 @@
     "normalizr": "^2.0.0",
     "react": "^15.0.1",
     "react-addons-css-transition-group": "^15.0.1",
+    "react-collapsible": "^1.2.0",
     "react-dom": "^15.0.1",
     "react-modal": "^1.1.1",
     "react-redux": "^4.4.5",
