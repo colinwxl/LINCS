@@ -120,3 +120,9 @@
 .collapsibles-container {
   margin-left: 1rem;
 }
+
+.collapsible {
+  &:hover {
+    cursor: pointer;
+  }
+}
