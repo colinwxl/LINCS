@@ -37,6 +37,7 @@ export default function WorkflowSentModal(props) {
       isOpen={isOpen}
       onRequestClose={onModalClose}
       style={modalStyles}
+      contentLabel=""
     >
       <div className={`modal-content ${styles['wf-modal-content']}`}>
         <div className={`modal-body ${styles['wf-modal-body']}`}>
