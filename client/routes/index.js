@@ -66,6 +66,13 @@ import QueryAGeneExpressionSignatureAgainst from
   'views/AppsView/Workflows/ExpWorkflows/QueryAGeneExpressionSignatureAgainst';
 import FindNovelCompoundsThatMimicOrReverseADiseaseSignature from
 'views/AppsView/Workflows/ExpWorkflows/FindNovelCompoundsThatMimicOrReverseADiseaseSignature';
+import IdentifyMicroenvironmentsThatPromoteProliferation from
+'views/AppsView/Workflows/ExpWorkflows/IdentifyMicroenvironmentsThatPromoteProliferation';
+import MicroenvironmentsThatAlterLineagesInHMECCellLines from
+'views/AppsView/Workflows/ExpWorkflows/MicroenvironmentsThatAlterLineagesInHMECCellLines';
+import DownloadDataFromMEPLINCS from
+'views/AppsView/Workflows/ExpWorkflows/DownloadDataFromMEPLINCS/DownloadDataFromMEPLINCS';
+
 
 import FindTheBestPlaceToObtainTheLINCSL1000Data from
 'views/AppsView/Workflows/CompBioWorkflows/FindTheBestPlaceToObtainTheLINCSL1000Data';
@@ -156,6 +163,18 @@ export default (/* store */) => (
     <Route path="tools" component={AppsView} />
 
     {/* Experimentalist Workflow Routes */}
+    <Route
+      path={`${wf}/${DownloadDataFromMEPLINCS.path}`}
+      component={DownloadDataFromMEPLINCS}
+    />
+    <Route
+      path={`${wf}/${MicroenvironmentsThatAlterLineagesInHMECCellLines.path}`}
+      component={MicroenvironmentsThatAlterLineagesInHMECCellLines}
+    />
+    <Route
+      path={`${wf}/${IdentifyMicroenvironmentsThatPromoteProliferation.path}`}
+      component={IdentifyMicroenvironmentsThatPromoteProliferation}
+    />
     <Route
       path={`${wf}/${FindKnowledgeAboutASpecificGeneOrProtein.path}`}
       component={FindKnowledgeAboutASpecificGeneOrProtein}
