@@ -16,6 +16,12 @@ import AnalyzeLINCSTranscriptomicAndProteomicDatasets from
 'views/AppsView/Workflows/CompBioWorkflows/AnalyzeLINCSTranscriptomicAndProteomicDatasets';
 import AnalyzeADrugSignatureAndFindOtherDrugs from
 'views/AppsView/Workflows/CompBioWorkflows/AnalyzeADrugSignatureAndFindOtherDrugs';
+import DownloadDataFromMEPLINCS from
+'views/AppsView/Workflows/CompBioWorkflows/DownloadDataFromMEPLINCS/DownloadDataFromMEPLINCS';
+import MicroenvironmentsThatAlterLineagesInHMECCellLines from
+'views/AppsView/Workflows/CompBioWorkflows/MicroenvironmentsThatAlterLineagesInHMECCellLines';
+import IdentifyMicroenvironmentsThatPromoteProliferation from
+'views/AppsView/Workflows/CompBioWorkflows/IdentifyMicroenvironmentsThatPromoteProliferation';
 
 const awRoute = '/tools/workflows';
 
@@ -67,6 +73,21 @@ export default [
       {
         title: AnalyzeADrugSignatureAndFindOtherDrugs.subTitle,
         route: `${awRoute}/${AnalyzeADrugSignatureAndFindOtherDrugs.path}`,
+        children: [],
+      },
+      {
+        title: DownloadDataFromMEPLINCS.subTitle,
+        route: `${awRoute}/${DownloadDataFromMEPLINCS.path}`,
+        children: [],
+      },
+      {
+        title: MicroenvironmentsThatAlterLineagesInHMECCellLines.subTitle,
+        route: `${awRoute}/${MicroenvironmentsThatAlterLineagesInHMECCellLines.path}`,
+        children: [],
+      },
+      {
+        title: IdentifyMicroenvironmentsThatPromoteProliferation.subTitle,
+        route: `${awRoute}/${IdentifyMicroenvironmentsThatPromoteProliferation.path}`,
         children: [],
       },
     ],

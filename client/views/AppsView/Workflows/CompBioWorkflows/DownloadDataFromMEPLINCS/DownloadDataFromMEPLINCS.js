@@ -25,11 +25,23 @@ export default class Workflow extends Component {
         <div className="container">
           <div className="row">
             <PageNav
-              mainPage="Experimentalist Workflow"
+              mainPage="Computational Biologist Workflow"
               subPage={this.constructor.subTitle}
               isWorkflowPage
             />
             <div className={`col-md-9 col-md-pull-3 ${styles.workflow} ${styles['sm-profiled']}`}>
+
+              <h3>Installing Synapse Client</h3>
+              <p>
+                If the Synapse client has already been installed on your machine,
+                you can skip this section and continue to the sections below. To
+                install the Synapse client, please follow the section titled
+                "Installing Synapse Clients" on the&nbsp;
+                <a href="http://docs.synapse.org/articles/getting_started.html" target="_blank">
+                  Getting Started
+                </a> page.
+              </p>
+
               <h3>Downloading from current data release</h3>
               <p>
                 The data from a release can be downloaded using one of the Synapse clients

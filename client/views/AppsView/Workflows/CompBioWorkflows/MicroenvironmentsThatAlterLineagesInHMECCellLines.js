@@ -23,7 +23,7 @@ export default class Workflow extends Component {
         <div className="container">
           <div className="row">
             <PageNav
-              mainPage="Experimentalist Workflow"
+              mainPage="Computational Biologist Workflow"
               subPage={this.constructor.subTitle}
               isWorkflowPage
             />

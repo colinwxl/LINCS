@@ -1,4 +1,4 @@
-```r
+```python
 library(synapseClient)
 synapseLogin(username, password)
 res <- synQuery("SELECT id FROM file WHERE projectId=='syn2862345' AND Level='4'")

@@ -66,13 +66,6 @@ import QueryAGeneExpressionSignatureAgainst from
   'views/AppsView/Workflows/ExpWorkflows/QueryAGeneExpressionSignatureAgainst';
 import FindNovelCompoundsThatMimicOrReverseADiseaseSignature from
 'views/AppsView/Workflows/ExpWorkflows/FindNovelCompoundsThatMimicOrReverseADiseaseSignature';
-import IdentifyMicroenvironmentsThatPromoteProliferation from
-'views/AppsView/Workflows/ExpWorkflows/IdentifyMicroenvironmentsThatPromoteProliferation';
-import MicroenvironmentsThatAlterLineagesInHMECCellLines from
-'views/AppsView/Workflows/ExpWorkflows/MicroenvironmentsThatAlterLineagesInHMECCellLines';
-import DownloadDataFromMEPLINCS from
-'views/AppsView/Workflows/ExpWorkflows/DownloadDataFromMEPLINCS/DownloadDataFromMEPLINCS';
-
 
 import FindTheBestPlaceToObtainTheLINCSL1000Data from
 'views/AppsView/Workflows/CompBioWorkflows/FindTheBestPlaceToObtainTheLINCSL1000Data';
@@ -92,6 +85,13 @@ import AnalyzeLINCSTranscriptomicAndProteomicDatasets from
 'views/AppsView/Workflows/CompBioWorkflows/AnalyzeLINCSTranscriptomicAndProteomicDatasets';
 import AnalyzeADrugSignatureAndFindOtherDrugs from
 'views/AppsView/Workflows/CompBioWorkflows/AnalyzeADrugSignatureAndFindOtherDrugs';
+import IdentifyMicroenvironmentsThatPromoteProliferation from
+'views/AppsView/Workflows/CompBioWorkflows/IdentifyMicroenvironmentsThatPromoteProliferation';
+import MicroenvironmentsThatAlterLineagesInHMECCellLines from
+'views/AppsView/Workflows/CompBioWorkflows/MicroenvironmentsThatAlterLineagesInHMECCellLines';
+import DownloadDataFromMEPLINCS from
+'views/AppsView/Workflows/CompBioWorkflows/DownloadDataFromMEPLINCS/DownloadDataFromMEPLINCS';
+
 
 import NotFoundView from 'views/NotFoundView';
 
