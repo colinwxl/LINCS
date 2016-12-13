@@ -14,6 +14,10 @@ import QueryAGeneExpressionSignatureAgainst from
 'views/AppsView/Workflows/ExpWorkflows/QueryAGeneExpressionSignatureAgainst';
 import FindNovelCompoundsThatMimicOrReverseADiseaseSignature from
 'views/AppsView/Workflows/ExpWorkflows/FindNovelCompoundsThatMimicOrReverseADiseaseSignature';
+import IdentifyMicroenvironmentsThatPromoteProliferation from
+'views/AppsView/Workflows/ExpWorkflows/IdentifyMicroenvironmentsThatPromoteProliferation';
+import MicroenvironmentsThatAlterLineagesInHMECCellLines from
+'views/AppsView/Workflows/ExpWorkflows/MicroenvironmentsThatAlterLineagesInHMECCellLines';
 
 import FindTheBestPlaceToObtainTheLINCSL1000Data from
 'views/AppsView/Workflows/CompBioWorkflows/FindTheBestPlaceToObtainTheLINCSL1000Data';
@@ -33,10 +37,6 @@ import AnalyzeLINCSTranscriptomicAndProteomicDatasets from
 'views/AppsView/Workflows/CompBioWorkflows/AnalyzeLINCSTranscriptomicAndProteomicDatasets';
 import AnalyzeADrugSignatureAndFindOtherDrugs from
 'views/AppsView/Workflows/CompBioWorkflows/AnalyzeADrugSignatureAndFindOtherDrugs';
-import IdentifyMicroenvironmentsThatPromoteProliferation from
-'views/AppsView/Workflows/CompBioWorkflows/IdentifyMicroenvironmentsThatPromoteProliferation';
-import MicroenvironmentsThatAlterLineagesInHMECCellLines from
-'views/AppsView/Workflows/CompBioWorkflows/MicroenvironmentsThatAlterLineagesInHMECCellLines';
 import DownloadDataFromMEPLINCS from
 'views/AppsView/Workflows/CompBioWorkflows/DownloadDataFromMEPLINCS/DownloadDataFromMEPLINCS';
 
@@ -92,15 +92,6 @@ class WorkflowInputForm extends Component {
         link: `${awRoute}/${QueryAGeneExpressionSignatureAgainst.path}`,
         text: QueryAGeneExpressionSignatureAgainst.subTitle,
       },
-    ];
-  }
-
-  get compBioWorkflows() {
-    return [
-      {
-        link: `${awRoute}/${DownloadDataFromMEPLINCS.path}`,
-        text: DownloadDataFromMEPLINCS.subTitle,
-      },
       {
         link: `${awRoute}/${MicroenvironmentsThatAlterLineagesInHMECCellLines.path}`,
         text: MicroenvironmentsThatAlterLineagesInHMECCellLines.subTitle,
@@ -109,6 +100,11 @@ class WorkflowInputForm extends Component {
         link: `${awRoute}/${IdentifyMicroenvironmentsThatPromoteProliferation.path}`,
         text: IdentifyMicroenvironmentsThatPromoteProliferation.subTitle,
       },
+    ];
+  }
+
+  get compBioWorkflows() {
+    return [
       {
         link: `${awRoute}/${FindTheBestPlaceToObtainTheLINCSL1000Data.path}`,
         text: FindTheBestPlaceToObtainTheLINCSL1000Data.subTitle,
@@ -144,6 +140,10 @@ class WorkflowInputForm extends Component {
       {
         link: `${awRoute}/${AnalyzeADrugSignatureAndFindOtherDrugs.path}`,
         text: AnalyzeADrugSignatureAndFindOtherDrugs.subTitle,
+      },
+      {
+        link: `${awRoute}/${DownloadDataFromMEPLINCS.path}`,
+        text: DownloadDataFromMEPLINCS.subTitle,
       },
     ];
   }
