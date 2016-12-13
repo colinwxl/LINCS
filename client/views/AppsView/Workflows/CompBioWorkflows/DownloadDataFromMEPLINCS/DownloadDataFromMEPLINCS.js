@@ -93,7 +93,8 @@ export default class Workflow extends Component {
                 For more information on how to use the Synapse clients for downloading
                 data, see the Synapse&nbsp;
                 <a href="http://docs.synapse.org/articles/downloading_data.html" target="_blank">
-                  user guide for downloading data</a>.
+                  user guide for downloading data
+                </a>.
               </p>
             </div>
           </div>
