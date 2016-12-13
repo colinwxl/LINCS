@@ -12,7 +12,7 @@ import previousMarkdown from 'raw!./mep-previous.md';
 
 export default class Workflow extends Component {
 
-  static subTitle = 'Download data release from MEP-LINCS'
+  static subTitle = 'Download data releases from MEP-LINCS'
   static path = 'download-most-recent-data-from-mep-lincs'
 
   render() {
