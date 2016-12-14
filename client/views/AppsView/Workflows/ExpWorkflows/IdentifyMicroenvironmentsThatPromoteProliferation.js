@@ -28,7 +28,7 @@ export default class Workflow extends Component {
             <div className={`col-md-9 col-md-pull-3 ${styles.workflow} ${styles['sm-profiled']}`}>
               <ul>
                 <li>
-                  How do I identify microenvironments that promote proliferation?
+                  How do I identify microenvironments that affect proliferation?
                 </li>
               </ul>
               <p>
@@ -40,13 +40,13 @@ export default class Workflow extends Component {
                 calculated and summarized across its replicates.
               </p>
               <p>
-                The proportion of cells that are proliferating in a population are shown in
+                The proportion of cells that are proliferating in a population is shown in
                 a <a href="https://dane.shinyapps.io/ProliferationDashboard/" target="_blank">
-                beta-version dashboard</a> and in figures and tables in the cell line Analysis
+                beta-version dashboard</a> and in figures and tables in the cell line analysis
                 report. Specific figures in the report are titled
-                "Proliferation Boxplots", "Proliferation vs Spot Cell Count Scatterplot" and
-                "Lineage vs. Proliferation Scatterplot". The MEP Level interactive datatables
-                can be ordered by proliferation and filtered by ligand, ECM protein or both
+                "Proliferation Boxplots", "Proliferation vs. Spot Cell Count Scatterplot", and
+                "Lineage vs. Proliferation Scatterplot". The MEP-Level interactive datatables
+                can be ordered by proliferation and filtered by ligand, ECM protein, or both
                 to show specific proliferation values. These can be used to define a set of
                 perturbations with extreme proliferation values.
               </p>

@@ -68,8 +68,8 @@ import FindNovelCompoundsThatMimicOrReverseADiseaseSignature from
 'views/AppsView/Workflows/ExpWorkflows/FindNovelCompoundsThatMimicOrReverseADiseaseSignature';
 import IdentifyMicroenvironmentsThatPromoteProliferation from
 'views/AppsView/Workflows/ExpWorkflows/IdentifyMicroenvironmentsThatPromoteProliferation';
-import MicroenvironmentsThatAlterLineagesInHMECCellLines from
-'views/AppsView/Workflows/ExpWorkflows/MicroenvironmentsThatAlterLineagesInHMECCellLines';
+import ExploreMicroenvironmentsThatAlterLineagesInHMECCellLines from
+'views/AppsView/Workflows/ExpWorkflows/ExploreMicroenvironmentsThatAlterLineagesInHMECCellLines';
 
 import FindTheBestPlaceToObtainTheLINCSL1000Data from
 'views/AppsView/Workflows/CompBioWorkflows/FindTheBestPlaceToObtainTheLINCSL1000Data';
@@ -168,8 +168,8 @@ export default (/* store */) => (
       component={DownloadDataFromMEPLINCS}
     />
     <Route
-      path={`${wf}/${MicroenvironmentsThatAlterLineagesInHMECCellLines.path}`}
-      component={MicroenvironmentsThatAlterLineagesInHMECCellLines}
+      path={`${wf}/${ExploreMicroenvironmentsThatAlterLineagesInHMECCellLines.path}`}
+      component={ExploreMicroenvironmentsThatAlterLineagesInHMECCellLines}
     />
     <Route
       path={`${wf}/${IdentifyMicroenvironmentsThatPromoteProliferation.path}`}

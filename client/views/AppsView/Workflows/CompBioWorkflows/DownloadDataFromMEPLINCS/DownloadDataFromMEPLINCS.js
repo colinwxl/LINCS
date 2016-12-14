@@ -35,7 +35,7 @@ export default class Workflow extends Component {
               <p>
                 If the Synapse client has already been installed on your machine,
                 you can skip this section and continue to the sections below. To
-                install the Synapse client, please follow the section titled
+                install the Synapse client, please refer to the section titled
                 "Installing Synapse Clients" on the&nbsp;
                 <a href="http://docs.synapse.org/articles/getting_started.html" target="_blank">
                   Getting Started
@@ -48,7 +48,7 @@ export default class Workflow extends Component {
                 (R, Python,&nbsp;
                 <a href="http://docs.synapse.org/python/CommandLineClient.html" target="_blank">
                   command line
-                </a>, or Java). All files are annotated and queries can
+                </a>, or Java). All files are annotated, and queries can
                 be performed to find those that are desired. For example, to get the Level 4
                 files for the current release, the following code snippets can be used:
               </p>

@@ -10,8 +10,8 @@ import CheckIfASmallMoleculeHasBeenProfiled from
 'views/AppsView/Workflows/ExpWorkflows/CheckIfASmallMoleculeHasBeenProfiled';
 import QueryAGeneExpressionSignatureAgainst from
 'views/AppsView/Workflows/ExpWorkflows/QueryAGeneExpressionSignatureAgainst';
-import MicroenvironmentsThatAlterLineagesInHMECCellLines from
-'views/AppsView/Workflows/ExpWorkflows/MicroenvironmentsThatAlterLineagesInHMECCellLines';
+import ExploreMicroenvironmentsThatAlterLineagesInHMECCellLines from
+'views/AppsView/Workflows/ExpWorkflows/ExploreMicroenvironmentsThatAlterLineagesInHMECCellLines';
 import IdentifyMicroenvironmentsThatPromoteProliferation from
 'views/AppsView/Workflows/ExpWorkflows/IdentifyMicroenvironmentsThatPromoteProliferation';
 
@@ -54,8 +54,8 @@ export default [
         children: [],
       },
       {
-        title: MicroenvironmentsThatAlterLineagesInHMECCellLines.subTitle,
-        route: `${awRoute}/${MicroenvironmentsThatAlterLineagesInHMECCellLines.path}`,
+        title: ExploreMicroenvironmentsThatAlterLineagesInHMECCellLines.subTitle,
+        route: `${awRoute}/${ExploreMicroenvironmentsThatAlterLineagesInHMECCellLines.path}`,
         children: [],
       },
       {

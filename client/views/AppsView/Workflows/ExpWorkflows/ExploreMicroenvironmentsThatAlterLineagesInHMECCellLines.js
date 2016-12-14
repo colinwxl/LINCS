@@ -10,8 +10,8 @@ import mepLineageMarker from '../images/meplincs-hmec240l-analysis_lineage_marke
 export default class Workflow extends Component {
 
   static subTitle =
-  'Microenvironments that alter the lineages in human mammary epithelial cells (HMEC) cell lines';
-  static path = 'microenvironments-that-alter-lineages-in-hmec-cell-lines';
+  'Explore microenvironments that alter the lineages in human mammary epithelial cells (HMEC) cell lines';
+  static path = 'explore-microenvironments-that-alter-lineages-in-hmec-cell-lines';
 
   render() {
     return (
@@ -43,7 +43,7 @@ export default class Workflow extends Component {
               <p>
                 The HMEC122L and HMEC240L cells often have subpopulations with distinct luminal
                 and basal lineages<sup>[1]</sup>. These cells have been stained for KRT19 and
-                KRT5 which are luminal and basal lineage markers, respectively. The ratio
+                KRT5, which are luminal and basal lineage markers, respectively. The ratio
                 of KRT19 to KRT5 intensity values (lineage ratio) is calculated at the cell level
                 and then summarized at the spot and MEP levels. In addition, the KRT19 intensities
                 have a bimodal distribution and are gated into KRT19 low and high classes.
@@ -51,12 +51,12 @@ export default class Workflow extends Component {
                 MEPs with altered lineage markers.
               </p>
               <p>
-                There are Beta-version HMEC lineage dashboards for the&nbsp;
+                Beta-version HMEC lineage dashboards are available for the&nbsp;
                 <a href="https://dane.shinyapps.io/HMEC240LLineageDashboard/" target="_blank">
                 HMEC 240L cell line</a> and the&nbsp;
                 <a href="https://dane.shinyapps.io/HMEC122LLineageDashboard/" target="_blank">
                 HMEC 122L cell line</a> that show the responses subsetted and stratified
-                by ligand, ECM protein.
+                by ligand and by ECM protein.
               </p>
               <img
                 className={styles['img-bordered']}
