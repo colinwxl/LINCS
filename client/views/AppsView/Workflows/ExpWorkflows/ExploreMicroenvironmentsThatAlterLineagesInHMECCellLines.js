@@ -10,7 +10,7 @@ import mepLineageMarker from '../images/meplincs-hmec240l-analysis_lineage_marke
 export default class Workflow extends Component {
 
   static subTitle =
-  'Explore microenvironments that alter the lineages in human mammary epithelial cells (HMEC) cell lines';
+  'Explore microenvironments that alter the lineages in human mammary epithelial cells (HMEC) cell lines'; // eslint-disable-line
   static path = 'explore-microenvironments-that-alter-lineages-in-hmec-cell-lines';
 
   render() {
