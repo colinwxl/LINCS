@@ -21,14 +21,15 @@ export class Webinars extends Component {
     const { webinars } = this.props;
     const upcomingWebinars = [];
     const pastWebinars = [];
+    const yesterday = new Date();
+    yesterday.setDate(yesterday.getDate() - 1);
     webinars.forEach((webinar) => {
       const web = extend(true, {}, webinar);
-      const now = new Date();
       if (web.date) {
         // Ensure web.date is a date object so that it can be compared to Date.now() to check
         // if in past or future
         web.date = new Date(web.date);
-        if (web.date < now) {
+        if (web.date < yesterday) {
           pastWebinars.push(web);
         } else {
           upcomingWebinars.unshift(web);
