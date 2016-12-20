@@ -242,17 +242,16 @@ export class HomeView extends Component {
                         <div className={styles.group}>
                           <p className={`clearfix ${styles.left}`}>
                             <strong>
-                              Integration of Phosphorylation Knowledge Networks with LINCS
-                              Omics Data for Cancer Drug Analysis
+                              Identifying New Antiepileptic Drugs Through Genomics-Based
+                              Drug Repurposing
                             </strong>
                             <br />
-                            (Karen Ross PhD & Cathy Wu PhD,
-                            University of Delaware,&nbsp;
+                            (Nasir Mirza PhD, University of Liverpool,&nbsp;
                             <a href="http://lincs-dcic.org/#/external-dsrp#nav" target="_blank">
                               DCIC eDSR
                             </a>)
                             <br />
-                            <strong>November 8, 2016 at 3:00 PM ET</strong>.
+                            <strong>February 8, 2017 at 3:00 PM ET</strong>.
                           </p>
                           <Link to="/community/webinars">Details</Link>
                         </div>
@@ -261,40 +260,6 @@ export class HomeView extends Component {
 
                     {/* Announcement 2
                       * ================================================================ */}
-                    <div className="col-xs-12 col-md-3">
-                      <div className={styles.card}>
-                        <h5>LINCS Webinar</h5>
-                        <div className={styles.group}>
-                          <p className={`clearfix ${styles.left}`}>
-                            <strong>Docker Pipelines for RNASeq Alignment and Analyses</strong>
-                            &nbsp;
-                            (Ling-Hong Hung PhD, University of Washington,&nbsp;
-                            <a href="http://lincs-dcic.org/#/external-dsrp#nav" target="_blank">
-                              DCIC eDSR
-                            </a>)
-                            <br />
-                            <strong>November 22, 2016 at 3:00 PM ET</strong>.
-                          </p>
-                          <Link to="/community/webinars">Details</Link>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="col-xs-12 col-md-3">
-                      <div className={styles.card}>
-                        <h5>LINCS Webinar</h5>
-                        <div className={styles.group}>
-                          <p className={`clearfix ${styles.left}`}>
-                            <strong>Dynamic Logic-Based Models Integrating Cardiac Signaling
-                            Networks and Cellular Phenotypes</strong> (Jeff Saucerman PhD,
-                            University of Virginia, <a href="http://lincs-dcic.org/#/external-dsrp#nav" target="_blank">
-                            DCIC eDSR</a>)
-                            <br />
-                            <strong>December 6, 2016 at 3:00 PM ET</strong>.
-                          </p>
-                          <Link to="/community/webinars">Details</Link>
-                        </div>
-                      </div>
-                    </div>
                     <div className="col-xs-12 col-md-3">
                       <div className={styles.card}>
                         <h5>LINCS Webinar</h5>
@@ -319,6 +284,40 @@ export class HomeView extends Component {
                           >
                             Details
                           </a>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="col-xs-12 col-md-3">
+                      <div className={styles.card}>
+                        <h5>LINCS Webinar</h5>
+                        <div className={styles.group}>
+                          <p className={`clearfix ${styles.left}`}>
+                            <strong>Dynamic Logic-Based Models Integrating Cardiac Signaling
+                            Networks and Cellular Phenotypes</strong> (Jeff Saucerman PhD,
+                            University of Virginia, <a href="http://lincs-dcic.org/#/external-dsrp#nav" target="_blank">
+                            DCIC eDSR</a>)
+                            <br />
+                            <strong>December 6, 2016 at 3:00 PM ET</strong>.
+                          </p>
+                          <Link to="/community/webinars">Details</Link>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="col-xs-12 col-md-3">
+                      <div className={styles.card}>
+                        <h5>LINCS Webinar</h5>
+                        <div className={styles.group}>
+                          <p className={`clearfix ${styles.left}`}>
+                            <strong>Docker Pipelines for RNASeq Alignment and Analyses</strong>
+                            &nbsp;
+                            (Ling-Hong Hung PhD, University of Washington,&nbsp;
+                            <a href="http://lincs-dcic.org/#/external-dsrp#nav" target="_blank">
+                              DCIC eDSR
+                            </a>)
+                            <br />
+                            <strong>November 22, 2016 at 3:00 PM ET</strong>.
+                          </p>
+                          <Link to="/community/webinars">Details</Link>
                         </div>
                       </div>
                     </div>
