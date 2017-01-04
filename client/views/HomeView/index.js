@@ -251,7 +251,7 @@ export class HomeView extends Component {
                               DCIC eDSR
                             </a>)
                             <br />
-                            <strong>February 8, 2017 at 3:00 PM ET</strong>.
+                            <strong>February 28, 2017 at 3:00 PM ET</strong>.
                           </p>
                           <Link to="/community/webinars">Details</Link>
                         </div>
@@ -266,8 +266,14 @@ export class HomeView extends Component {
                         <div className={styles.group}>
                           <p className={`clearfix ${styles.left}`}>
                             <strong>
-                              Cell Line Ontology-based Standardization, Integration
-                              and Analysis of LINCS Cell Lines
+                              <a
+                                style={{ textDecoration: 'none' }}
+                                href="https://www.youtube.com/watch?v=mKQNUyHDeG8&t=18s&index=1&list=PL0Bwuj8819U-G9Ob0jIGHp5AtwpCghLV5"
+                                target="_blank"
+                              >
+                                Cell Line Ontology-based Standardization, Integration
+                                and Analysis of LINCS Cell Lines
+                              </a>
                             </strong>
                             <br />
                             (Yongqun "Oliver" He DVM, PhD, University of Michigan Medical School,
@@ -292,8 +298,17 @@ export class HomeView extends Component {
                         <h5>LINCS Webinar</h5>
                         <div className={styles.group}>
                           <p className={`clearfix ${styles.left}`}>
-                            <strong>Dynamic Logic-Based Models Integrating Cardiac Signaling
-                            Networks and Cellular Phenotypes</strong> (Jeff Saucerman PhD,
+                            <strong>
+                              <a
+                                style={{ textDecoration: 'none' }}
+                                href="https://www.youtube.com/watch?v=IpIM8hqU_1M"
+                                target="_blank"
+                              >
+                                Dynamic Logic-Based Models Integrating Cardiac Signaling
+                                Networks and Cellular Phenotypes
+                              </a>
+                            </strong>
+                            &nbsp;(Jeff Saucerman PhD,
                             University of Virginia, <a href="http://lincs-dcic.org/#/external-dsrp#nav" target="_blank">
                             DCIC eDSR</a>)
                             <br />
@@ -308,7 +323,15 @@ export class HomeView extends Component {
                         <h5>LINCS Webinar</h5>
                         <div className={styles.group}>
                           <p className={`clearfix ${styles.left}`}>
-                            <strong>Docker Pipelines for RNASeq Alignment and Analyses</strong>
+                            <strong>
+                              <a
+                                style={{ textDecoration: 'none' }}
+                                href="https://www.youtube.com/watch?list=PL0Bwuj8819U-G9Ob0jIGHp5AtwpCghLV5&v=QBKCocvAba0"
+                                target="_blank"
+                              >
+                                Docker Pipelines for RNASeq Alignment and Analyses
+                              </a>
+                            </strong>
                             &nbsp;
                             (Ling-Hong Hung PhD, University of Washington,&nbsp;
                             <a href="http://lincs-dcic.org/#/external-dsrp#nav" target="_blank">
