@@ -238,22 +238,22 @@ export class HomeView extends Component {
                       * ================================================================ */}
                     <div className="col-xs-12 col-md-3">
                       <div className={styles.card}>
-                        <h5>LINCS Webinar</h5>
+                        <h5>Course</h5>
                         <div className={styles.group}>
                           <p className={`clearfix ${styles.left}`}>
                             <strong>
-                              Identifying New Antiepileptic Drugs Through Genomics-Based
-                              Drug Repurposing
+                              <a href="http://www.coursera.org/learn/bd2k-lincs" target="_blank">
+                                Big Data Science with the BD2K-LINCS Data
+                                Coordination and Integration Center
+                              </a>
                             </strong>
                             <br />
-                            (Nasir Mirza PhD, University of Liverpool,&nbsp;
-                            <a href="http://lincs-dcic.org/#/external-dsrp#nav" target="_blank">
-                              DCIC eDSR
-                            </a>)
                             <br />
-                            <strong>February 28, 2017 at 3:00 PM ET</strong>.
+                            <strong>January 23, 2017</strong>
                           </p>
-                          <Link to="/community/webinars">Details</Link>
+                          <a href="http://www.coursera.org/learn/bd2k-lincs" target="_blank">
+                            Details
+                          </a>
                         </div>
                       </div>
                     </div>
@@ -261,6 +261,27 @@ export class HomeView extends Component {
                     {/* Announcement 2
                       * ================================================================ */}
                     <div className="col-xs-12 col-md-3">
+                      <div className={styles.card}>
+                        <h5>Course</h5>
+                        <div className={styles.group}>
+                          <p className={`clearfix ${styles.left}`}>
+                            <strong>
+                              <a href="http://www.coursera.org/learn/bd2k-lincs" target="_blank">
+                                Big Data Science with the BD2K-LINCS Data
+                                Coordination and Integration Center
+                              </a>
+                            </strong>
+                            <br />
+                            <br />
+                            <strong>February 20, 2017</strong>
+                          </p>
+                          <a href="http://www.coursera.org/learn/bd2k-lincs" target="_blank">
+                            Details
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                    {/* <div className="col-xs-12 col-md-3">
                       <div className={styles.card}>
                         <h5>LINCS Webinar</h5>
                         <div className={styles.group}>
@@ -292,53 +313,47 @@ export class HomeView extends Component {
                           </a>
                         </div>
                       </div>
-                    </div>
+                    </div>*/}
+
+                    {/* Announcement 3
+                      * ================================================================ */}
                     <div className="col-xs-12 col-md-3">
                       <div className={styles.card}>
                         <h5>LINCS Webinar</h5>
                         <div className={styles.group}>
                           <p className={`clearfix ${styles.left}`}>
                             <strong>
-                              <a
-                                style={{ textDecoration: 'none' }}
-                                href="https://www.youtube.com/watch?v=IpIM8hqU_1M"
-                                target="_blank"
-                              >
-                                Dynamic Logic-Based Models Integrating Cardiac Signaling
-                                Networks and Cellular Phenotypes
-                              </a>
+                              Identifying New Antiepileptic Drugs Through Genomics-Based
+                              Drug Repurposing
                             </strong>
-                            &nbsp;(Jeff Saucerman PhD,
-                            University of Virginia, <a href="http://lincs-dcic.org/#/external-dsrp#nav" target="_blank">
-                            DCIC eDSR</a>)
                             <br />
-                            <strong>December 6, 2016 at 3:00 PM ET</strong>.
+                            (Nasir Mirza PhD, University of Liverpool,&nbsp;
+                            <a href="http://lincs-dcic.org/#/external-dsrp#nav" target="_blank">
+                              DCIC eDSR
+                            </a>)
+                            <br />
+                            <strong>February 28, 2017 at 3:00 PM ET</strong>.
                           </p>
                           <Link to="/community/webinars">Details</Link>
                         </div>
                       </div>
                     </div>
+
+                    {/* Announcement 4
+                      * ================================================================ */}
                     <div className="col-xs-12 col-md-3">
                       <div className={styles.card}>
                         <h5>LINCS Webinar</h5>
                         <div className={styles.group}>
                           <p className={`clearfix ${styles.left}`}>
                             <strong>
-                              <a
-                                style={{ textDecoration: 'none' }}
-                                href="https://www.youtube.com/watch?list=PL0Bwuj8819U-G9Ob0jIGHp5AtwpCghLV5&v=QBKCocvAba0"
-                                target="_blank"
-                              >
-                                Docker Pipelines for RNASeq Alignment and Analyses
-                              </a>
+                              Combining Forward and Reverse Engineering to
+                              Understand Complex Fractional Killing
                             </strong>
-                            &nbsp;
-                            (Ling-Hong Hung PhD, University of Washington,&nbsp;
-                            <a href="http://lincs-dcic.org/#/external-dsrp#nav" target="_blank">
-                              DCIC eDSR
-                            </a>)
                             <br />
-                            <strong>November 22, 2016 at 3:00 PM ET</strong>.
+                            (Tongli Zhang PhD, University of Cincinnati)
+                            <br />
+                            <strong>April 25, 2017 at 3:00 PM ET</strong>.
                           </p>
                           <Link to="/community/webinars">Details</Link>
                         </div>
