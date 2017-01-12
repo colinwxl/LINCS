@@ -1,6 +1,14 @@
 // scss-lint:disable ColorVariable
 @import 'variables';
 
+iframe {
+  display: block;
+  height: 372px;
+  margin: auto;
+  margin-bottom: 2rem;
+  width: 660px;
+}
+
 .wrapper {
   margin-bottom: 1rem;
 
