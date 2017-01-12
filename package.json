@@ -1,6 +1,6 @@
 {
   "name": "lincs",
-  "version": "8.3.0",
+  "version": "8.3.1",
   "description": "A home for the LINCS project.",
   "main": "client/main.js",
   "engines": {
