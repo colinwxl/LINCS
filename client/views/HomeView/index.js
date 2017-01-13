@@ -247,7 +247,7 @@ export class HomeView extends Component {
                                 Coordination and Integration Center
                               </a>
                             </strong>
-                            <br />
+                            <p>MOOC on Coursera</p>
                             <br />
                             <strong>January 23, 2017</strong>
                           </p>
@@ -268,7 +268,7 @@ export class HomeView extends Component {
                                 Coordination and Integration Center
                               </a>
                             </strong>
-                            <br />
+                            <p>MOOC on Coursera</p>
                             <br />
                             <strong>February 20, 2017</strong>
                           </p>
@@ -321,10 +321,7 @@ export class HomeView extends Component {
                               Drug Repurposing
                             </strong>
                             <br />
-                            (Nasir Mirza PhD, University of Liverpool,&nbsp;
-                            <a href="http://lincs-dcic.org/#/external-dsrp#nav" target="_blank">
-                              DCIC eDSR
-                            </a>)
+                            (Nasir Mirza PhD, University of Liverpool)
                             <br />
                             <strong>February 28, 2017 at 3:00 PM ET</strong>.
                           </p>
