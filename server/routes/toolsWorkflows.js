@@ -4,6 +4,7 @@ import nodemailer from 'nodemailer';
 import { Tools } from '../models/Tool';
 import { Workflow } from '../models/Workflow';
 import _debug from 'debug';
+import EMAIL_STR from '../serverConf';
 const debug = _debug('app:server:routes:health');
 
 const router = new Router({
@@ -103,10 +104,10 @@ router.post('/workflows/add', async (ctx) => {
   try {
     const wf = await Workflow.forge(workflow).save().then(wfModel => wfModel.toJSON());
     const transporter = nodemailer
-      .createTransport('smtps://maayanlabapps%40gmail.com:systemsbiology@smtp.gmail.com');
+      .createTransport(EMAIL_STR);
     const mailOptions = {
       from: 'LINCS@amp.pharm.mssm.edu',
-      to: 'sherry.jenkins@mssm.edu',
+      to: 'sherry.jenkins@mssm.edu, edward.he@mssm.edu',
       subject: 'A new workflow has been submitted',
       text: 'Hello,\n\n' +
         'This is a notification from http://amp.pharm.mssm.edu/LINCS that a ' +
