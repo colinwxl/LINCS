@@ -74,20 +74,33 @@ export default class Workflow extends Component {
                 alt="MEP-LINCS Cell line Analysis"
               />
               <p>
-                <a
-                  href="https://youtu.be/2a94fNZOQSE?list=PLsKybLoA2aOCIEgtMtba2Wjl9s1xqQEyj"
-                  target="_blank"
-                >
-                  Here
-                </a>, you will find a short playlist of videos describing the proliferation
-                signal and how to mine it for interesting MEPs. An
-                experiment overview can be found below.
+                Below, you will find a short playlist of videos describing the proliferation
+                signal and how to mine it for interesting MEPs.
               </p>
+
+              MEP LINCS Experiment Overview
               <iframe
                 src="https://www.youtube.com/embed/2a94fNZOQSE"
                 frameBorder="0"
                 allowFullScreen
               />
+              <br />
+
+              Proliferation Signal
+              <iframe
+                src="https://www.youtube.com/embed/_X_on7GSyhQ"
+                frameBorder="0"
+                allowFullScreen
+              />
+              <br />
+
+              MCF10A Proliferation Dashboard
+              <iframe
+                src="https://www.youtube.com/embed/wU27cRpKPIs"
+                frameBorder="0"
+                allowFullScreen
+              />
+              <br />
             </div>
           </div>
         </div>
