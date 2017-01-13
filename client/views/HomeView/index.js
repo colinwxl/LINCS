@@ -251,9 +251,6 @@ export class HomeView extends Component {
                             <br />
                             <strong>January 23, 2017</strong>
                           </p>
-                          <a href="http://www.coursera.org/learn/bd2k-lincs" target="_blank">
-                            Details
-                          </a>
                         </div>
                       </div>
                     </div>
@@ -275,9 +272,6 @@ export class HomeView extends Component {
                             <br />
                             <strong>February 20, 2017</strong>
                           </p>
-                          <a href="http://www.coursera.org/learn/bd2k-lincs" target="_blank">
-                            Details
-                          </a>
                         </div>
                       </div>
                     </div>
