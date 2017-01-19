@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import { loadTools } from 'actions/toolsWorkflows';
 import ToolsModule from './ToolsModule';
 import TutorialsModule from './TutorialsModule';
+import CannedAnalysisModule from './CannedAnalysisModule';
 import styles from '../AppsView.scss';
 
 const mapStateToProps = (state) => ({
@@ -15,7 +16,7 @@ export class AppsContainerModule extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      marketTutSelection: 'market',
+      marketAnalTutSelection: 'market',
     };
   }
 
@@ -23,14 +24,16 @@ export class AppsContainerModule extends Component {
     this.props.loadTools();
   }
 
-  handleMarketClicked = () => { this.setState({ marketTutSelection: 'market' }); }
-  handleTutClicked = () => { this.setState({ marketTutSelection: 'tut' }); }
+  handleMarketClicked = () => { this.setState({ marketAnalTutSelection: 'market' }); }
+  handleTutClicked = () => { this.setState({ marketAnalTutSelection: 'tut' }); }
+  handleAnalClicked = () => { this.setState({ marketAnalTutSelection: 'anal' }); }
 
   render() {
     const { tools, initialCenter } = this.props;
-    const { marketTutSelection } = this.state;
-    const isMarket = marketTutSelection === 'market';
-    const isTut = marketTutSelection === 'tut';
+    const { marketAnalTutSelection } = this.state;
+    const isMarket = marketAnalTutSelection === 'market';
+    const isTut = marketAnalTutSelection === 'tut';
+    const isAnal = marketAnalTutSelection === 'anal';
     const toolsWithTuts = tools
                             .filter(tool => tool.tutorialUrl)
                             .sort((t1, t2) => {
@@ -43,6 +46,18 @@ export class AppsContainerModule extends Component {
                               }
                               return 0;
                             });
+    let module;
+
+    if (isMarket) {
+      module = (<ToolsModule initialCenter={initialCenter} tools={tools} key="market" />);
+    } else if (isTut) {
+      module = (<TutorialsModule tools={toolsWithTuts} key="tut" />);
+    } else if (isAnal) {
+      // Change this module next
+      module = (<CannedAnalysisModule />);
+    } else {
+      module = (<ToolsModule initialCenter={initialCenter} tools={tools} key="market" />);
+    }
 
     return (
       <div>
@@ -72,6 +87,18 @@ export class AppsContainerModule extends Component {
             />
           Video Tutorials
           </label>
+
+          <label
+            onClick={this.handleAnalClicked}
+            className={`btn ${styles['category-check']} ${isAnal ? styles.active : ''}`}
+          >
+            <input
+              type="radio"
+              name="compBio"
+              defaultChecked={isAnal}
+            />
+          Canned Analysis
+          </label>
         </div>
 
         <div className={styles.workflow}>
@@ -80,11 +107,7 @@ export class AppsContainerModule extends Component {
             transitionEnterTimeout={750}
             transitionLeave={false}
           >
-            {
-              isMarket ?
-                <ToolsModule initialCenter={initialCenter} tools={tools} key="market" /> :
-                <TutorialsModule tools={toolsWithTuts} key="tut" />
-            }
+            {module}
           </ReactCSSTransitionGroup>
         </div>
       </div>
