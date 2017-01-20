@@ -24,7 +24,7 @@ export default function Story20161207() {
       <p>
         Jones et al (2016) in Nature Chemical Biology describes a new drug
         profiling study of relevance to rheumatoid arthritis.&nbsp;
-        <a href="http://lincs.hms.harvard.edu/jones-natchembiol-2016/" target="_blank">
+        <a href="http://lincs.hms.harvard.edu/jones-natchembiol-2017/" target="_blank">
           Explore
         </a>&nbsp;the publication as well as the associated datasets available in the
         HMS LINCS Database (
