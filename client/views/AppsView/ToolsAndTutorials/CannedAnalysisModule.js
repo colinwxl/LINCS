@@ -20,10 +20,9 @@ const toolNameLogoMap = {
   'RTK Profile Browser': 'http://lincsproject.org/LINCS/files/tools_logos/scatterplot_widget.jpg',
 };
 
-const format = (cell, row) => {
+const formatToolBox = (cell, row) => {
   const toolName = row.tool_name;
   const toolLogo = toolNameLogoMap[toolName];
-  // const datasetUrl = row.dataset_url;
   const cannedAnalysisUrl = row.canned_analysis_url;
 
   return (
@@ -66,13 +65,11 @@ export default function CannedAnalysisModule() {
           dataAlign="center"
           width="120"
           dataSort
-          dataFormat={format}
+          dataFormat={formatToolBox}
         >
           Tool
         </TableHeaderColumn>
-        <TableHeaderColumn
-          dataField="canned_analysis_description"
-        >
+        <TableHeaderColumn dataField="canned_analysis_description" >
           Canned Analysis Description
         </TableHeaderColumn>
       </BootstrapTable>
