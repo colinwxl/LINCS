@@ -77,8 +77,8 @@ export default class Workflow extends Component {
                 for the release desired. You can download all data, or filter for specific
                 files based on annotations. For example, the following Python code will
                 download all Level 4 data from the 09-Mar-2016 release, using the&nbsp;
-                <a href="https://www.synapse.org/#!Synapse:syn5715419/tables/query/eyJsaW1pdCI6MjUsICJzcWwiOiJTRUxFQ1QgKiBGUk9NIHN5bjU3MTU0MTkgV0hFUkUgTGV2ZWw9NCIsICJpc0NvbnNpc3RlbnQiOnRydWUsICJvZmZzZXQiOjB9" target="_blank">
-                  file manifest table (syn5691738)
+                <a href="https://www.synapse.org/#!Synapse:syn5724840/tables/query/eyJsaW1pdCI6MjUsICJzcWwiOiJTRUxFQ1QgKiBGUk9NIHN5bjU3MjQ4NDAgd2hlcmUgTGV2ZWw9NCIsICJpc0NvbnNpc3RlbnQiOnRydWUsICJvZmZzZXQiOjB9" target="_blank">
+                  file manifest table (syn5724840)
                 </a>:
                 <br />
                 <br />
