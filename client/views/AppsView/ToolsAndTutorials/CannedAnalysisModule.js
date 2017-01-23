@@ -68,10 +68,6 @@ export default function CannedAnalysisModule() {
           Dataset Accession
         </TableHeaderColumn>
 
-        <TableHeaderColumn dataField="dataset_accession" >
-          Canned Analysis
-        </TableHeaderColumn>
-
         <TableHeaderColumn
           dataField="tool_name"
           dataAlign="center"
