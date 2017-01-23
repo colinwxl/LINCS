@@ -97,7 +97,7 @@ export class AppsContainerModule extends Component {
               name="compBio"
               defaultChecked={isAnal}
             />
-          Canned Analysis
+          Canned Analyses
           </label>
         </div>
 
