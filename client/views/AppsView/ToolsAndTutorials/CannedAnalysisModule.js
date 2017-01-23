@@ -39,6 +39,12 @@ const formatToolBox = (cell, row) => {
   );
 };
 
+const formatAccession = (cell, row) => (
+  <a href={row.dataset_url} target="_blank">
+    {row.dataset_accession}
+  </a>
+);
+
 export default function CannedAnalysisModule() {
   if (analyses && analyses.length > 0) {
     return (
@@ -57,9 +63,15 @@ export default function CannedAnalysisModule() {
           dataAlign="center"
           isKey
           dataSort
+          dataFormat={formatAccession}
         >
           Dataset Accession
         </TableHeaderColumn>
+
+        <TableHeaderColumn dataField="dataset_accession" >
+          Canned Analysis
+        </TableHeaderColumn>
+
         <TableHeaderColumn
           dataField="tool_name"
           dataAlign="center"
