@@ -1,0 +1,163 @@
+[
+ {
+   "dataset_accession": "LDS-1106",
+   "dataset_url": "http://lincsportal.ccs.miami.edu/datasets/#/view/LDS-1106",
+   "tool_name": "Drug-Pathway Browser",
+   "canned_analysis_url": "http://lincs.hms.harvard.edu/explore/pathway/",
+   "canned_analysis_description": "Interactive network map of key signal transduction pathways, including the majority of kinases which can be selectively targeted with small molecules, as well as information on the relevant inhibitors in the HMS LINCS library."
+ },
+ {
+   "dataset_accession": "LDS-1106",
+   "dataset_url": "http://lincsportal.ccs.miami.edu/datasets/#/view/LDS-1106",
+   "tool_name": "Drug Response Browser",
+   "canned_analysis_url": "http://lincs.hms.harvard.edu/explore/10.1038-nchembio.1337/fallahi-sichani-2013/",
+   "canned_analysis_description": "Visualisation for LDS-1106 (HMS 20120) data. "
+ },
+ {
+   "dataset_accession": "LDS-1196",
+   "dataset_url": "http://lincsportal.ccs.miami.edu/datasets/#/view/LDS-1196",
+   "tool_name": "iLINCS",
+   "canned_analysis_url": "http://www.ilincs.org/GenomicsPortals/DatasetLandingPage.do?data_set=LDG-1193",
+   "canned_analysis_description": "Interactive visualization of mass spectrometry-based proteomics assay data to detect 90 phosphopeptide probes in 141 samples from 3 cell lines across ~45 perturbations.  LINCS PCCSE - P100 validation set."
+ },
+ {
+   "dataset_accession": "LDS-1356",
+   "dataset_url": "http://lincsportal.ccs.miami.edu/datasets/#/view/LDS-1356",
+   "tool_name": "iLINCS",
+   "canned_analysis_url": "http://www.ilincs.org/GenomicsPortals/DatasetLandingPage.do?data_set=LDG-1232",
+   "canned_analysis_description": "Interactive visualization of RNA-seq data from 35 human brain cell type samples, profiled to develop a network of cell signatures relevant to Amyotrophic Lateral Sclerosis (ALS) and Spinal Muscular Atrophy (SMA).  NeuroLINCS - RNA-seq gene expression (August 2015)."
+ },
+ {
+   "dataset_accession": "LDS-1237",
+   "dataset_url": "http://lincsportal.ccs.miami.edu/datasets/#/view/LDS-1237",
+   "tool_name": "iLINCS",
+   "canned_analysis_url": "http://www.ilincs.org/GenomicsPortals/DatasetLandingPage.do?data_set=LDG-1231",
+   "canned_analysis_description": "Interactive visualization of RNA-seq data from 183 samples of human cell lines, profiled to develop cellular signatures for drug-induced toxicity caused by FDA approved drugs and toxicity mitigation by coadministration of other drugs.  DToxS - RNA-seq gene expression (May 2015)."
+ },
+ {
+   "dataset_accession": "LDG-1285",
+   "dataset_url": "http://lincsportal.ccs.miami.edu/datasets/#/view/LDG-1285",
+   "tool_name": "iLINCS",
+   "canned_analysis_url": "http://www.ilincs.org/GenomicsPortals/DatasetLandingPage.do?data_set=LDG-1228",
+   "canned_analysis_description": "Interactive visualization of mass spectrometry-based proteomics assay data to detect 96 phosphopeptide probes in 465 samples of 5 cell lines perturbed by 32 epigenetic compounds.  LINCS PCCSE - P100 data - epigenetic compounds."
+ },
+ {
+   "dataset_accession": "LDS-1239",
+   "dataset_url": "http://lincsportal.ccs.miami.edu/datasets/#/view/LDS-1239",
+   "tool_name": "iLINCS",
+   "canned_analysis_url": "http://www.ilincs.org/GenomicsPortals/DatasetLandingPage.do?data_set=LDG-1233",
+   "canned_analysis_description": "Interactive visualization of RNA-seq data from 378 samples of human cell lines, profiled to develop cellular signatures for drug-induced toxicity caused by FDA approved drugs and toxicity mitigation by coadministration of other drugs.  DToxS - RNA-seq gene expression (August 2015)."
+ },
+ {
+   "dataset_accession": "LDG-1285",
+   "dataset_url": "http://lincsportal.ccs.miami.edu/datasets/#/view/LDG-1285",
+   "tool_name": "iLINCS",
+   "canned_analysis_url": "http://www.ilincs.org/GenomicsPortals/DatasetLandingPage.do?data_set=LDG-1255",
+   "canned_analysis_description": "Interactive visualization of mass spectrometry-based proteomics assay data to detect 94 phosphopeptide probes in 373 samples of 2 cell lines perturbed by 32 kinase inhibitors.  LINCS PCCSE - kinase inhibitors."
+ },
+ {
+   "dataset_accession": "LDG-1284",
+   "dataset_url": "http://lincsportal.ccs.miami.edu/datasets/#/view/LDG-1284",
+   "tool_name": "iLINCS",
+   "canned_analysis_url": "http://www.ilincs.org/GenomicsPortals/DatasetLandingPage.do?data_set=LDG-1256",
+   "canned_analysis_description": "Interactive visualization of mass spectrometry-based proteomics assay data to detect 53 histone proteins in 287 samples of 3 cell lines perturbed by 32 kinase inhibitors.  LINCS PCCSE - GCP data - kinase inhibitors."
+ },
+ {
+   "dataset_accession": "LDS-1356",
+   "dataset_url": "http://lincsportal.ccs.miami.edu/datasets/#/view/LDS-1356",
+   "tool_name": "GEN3VA",
+   "canned_analysis_url": "http://amp.pharm.mssm.edu/gen3va/report/approved/NeuroLINCS_ALS",
+   "canned_analysis_description": "GEN3VA report aggregating 5 signatures relevant to Amyotrophic Lateral Sclerosis (ALS) from the NeuroLINCS dataset."
+ },
+ {
+   "dataset_accession": "LDS-1356",
+   "dataset_url": "http://lincsportal.ccs.miami.edu/datasets/#/view/LDS-1356",
+   "tool_name": "GEN3VA",
+   "canned_analysis_url": "http://amp.pharm.mssm.edu/gen3va/report/approved/NeuroLINCS_SMA",
+   "canned_analysis_description": "GEN3VA report aggregating 5 signatures relevant to Spinal Muscular Atrophy (SMA) from the NeuroLINCS dataset."
+ },
+ {
+   "dataset_accession": "LDS-1239",
+   "dataset_url": "http://lincsportal.ccs.miami.edu/datasets/#/view/LDS-1239",
+   "tool_name": "GEN3VA",
+   "canned_analysis_url": "http://amp.pharm.mssm.edu/gen3va/tag/dtoxs",
+   "canned_analysis_description": "Interactive tool to generate custom GEN3VA reports using signatures of cardiomyocytes treated with known toxic compounds and in combination with mitigating compounds.  Cardiomyocytes, DToxS report."
+ },
+ {
+   "dataset_accession": "LDS-1240",
+   "dataset_url": "http://lincsportal.ccs.miami.edu/datasets/#/view/LDS-1240",
+   "tool_name": "LINCS Data Explorer",
+   "canned_analysis_url": "https://www.synapse.org/#!Synapse:syn5706745",
+   "canned_analysis_description": "Analysis of cell cycle and nuclear state imaging data from PC3 (prostate cancer) cell lines treated with ligands and ECM proteins (Staining Set 2), profiled to explore the role of microenvironment in cancer growth."
+ },
+ {
+   "dataset_accession": "LDS-1299",
+   "dataset_url": "http://lincsportal.ccs.miami.edu/datasets/#/view/LDS-1299",
+   "tool_name": "LINCS Data Explorer",
+   "canned_analysis_url": "https://www.synapse.org/#!Synapse:syn5706725",
+   "canned_analysis_description": "Analysis of cell cycle and nuclear state imaging data from MCF7 (breast cancer) cell lines treated with ligands and ECM proteins (Staining Set 1), profiled to explore the role of microenvironment in cancer growth."
+ },
+ {
+   "dataset_accession": "LDS-1303",
+   "dataset_url": "http://lincsportal.ccs.miami.edu/datasets/#/view/LDS-1303",
+   "tool_name": "LINCS Data Explorer",
+   "canned_analysis_url": "https://www.synapse.org/#!Synapse:syn5706727",
+   "canned_analysis_description": "Analysis of cell cycle and nuclear state imaging data from MCF7 (breast cancer) cell lines treated with ligands and ECM proteins (Staining Set 2), profiled to explore the role of microenvironment in cancer growth."
+ },
+ {
+   "dataset_accession": "LDS-1307",
+   "dataset_url": "http://lincsportal.ccs.miami.edu/datasets/#/view/LDS-1307",
+   "tool_name": "LINCS Data Explorer",
+   "canned_analysis_url": "https://www.synapse.org/#!Synapse:syn5706729",
+   "canned_analysis_description": "Analysis of cell cycle and nuclear state imaging data from MCF7 (breast cancer) cell lines treated with ligands and ECM proteins (Staining Set 3), profiled to explore the role of microenvironment in cancer growth."
+ },
+ {
+   "dataset_accession": "LDS-1311",
+   "dataset_url": "http://lincsportal.ccs.miami.edu/datasets/#/view/LDS-1311",
+   "tool_name": "LINCS Data Explorer",
+   "canned_analysis_url": "https://www.synapse.org/#!Synapse:syn5706712",
+   "canned_analysis_description": "Analysis of cell cycle and nuclear state imaging data from PC3 (prostate cancer) cell lines treated with ligands and ECM proteins (Staining Set 1), profiled to explore the role of microenvironment in cancer growth."
+ },
+ {
+   "dataset_accession": "LDS-1319",
+   "dataset_url": "http://lincsportal.ccs.miami.edu/datasets/#/view/LDS-1319",
+   "tool_name": "LINCS Data Explorer",
+   "canned_analysis_url": "https://www.synapse.org/#!Synapse:syn5706747",
+   "canned_analysis_description": "Analysis of cell cycle and nuclear state imaging data from PC3 (prostate cancer) cell lines treated with ligands and ECM proteins (Staining Set 2, no H3), profiled to explore the role of microenvironment in cancer growth."
+ },
+ {
+   "dataset_accession": "LDS-1323",
+   "dataset_url": "http://lincsportal.ccs.miami.edu/datasets/#/view/LDS-1323",
+   "tool_name": "LINCS Data Explorer",
+   "canned_analysis_url": "https://www.synapse.org/#!Synapse:syn5706749",
+   "canned_analysis_description": "Analysis of cell cycle and nuclear state imaging data from PC3 (prostate cancer) cell lines treated with ligands and ECM proteins (Staining Set 3), profiled to explore the role of microenvironment in cancer growth."
+ },
+ {
+   "dataset_accession": "LDS-1327",
+   "dataset_url": "http://lincsportal.ccs.miami.edu/datasets/#/view/LDS-1327",
+   "tool_name": "LINCS Data Explorer",
+   "canned_analysis_url": "https://www.synapse.org/#!Synapse:syn5706751",
+   "canned_analysis_description": "Analysis of cell cycle and nuclear state imaging data from YAPC (pancreas carcinoma) cell lines treated with ligands and ECM proteins (Staining Set 1), profiled to explore the role of microenvironment in cancer growth."
+ },
+ {
+   "dataset_accession": "LDS-1331",
+   "dataset_url": "http://lincsportal.ccs.miami.edu/datasets/#/view/LDS-1331",
+   "tool_name": "LINCS Data Explorer",
+   "canned_analysis_url": "https://www.synapse.org/#!Synapse:syn5711121",
+   "canned_analysis_description": "Analysis of cell cycle and nuclear state imaging data from YAPC (pancreas carcinoma) cell lines treated with ligands and ECM proteins (Staining Set 2), profiled to explore the role of microenvironment in cancer growth."
+ },
+ {
+   "dataset_accession": "LDS-1335",
+   "dataset_url": "http://lincsportal.ccs.miami.edu/datasets/#/view/LDS-1335",
+   "tool_name": "LINCS Data Explorer",
+   "canned_analysis_url": "https://www.synapse.org/#!Synapse:syn5706755",
+   "canned_analysis_description": "Analysis of cell cycle and nuclear state imaging data from YAPC (pancreas carcinoma) cell lines treated with ligands and ECM proteins (Staining Set 3), profiled to explore the role of microenvironment in cancer growth."
+ },
+ {
+   "dataset_accession": "LDS-1123",
+   "dataset_url": "http://lincsportal.ccs.miami.edu/datasets/#/view/LDS-1123",
+   "tool_name": "RTK Profile Browser",
+   "canned_analysis_url": "http://lincs.hms.harvard.edu/explore/responses/",
+   "canned_analysis_description": "Interactive visualization of basal levels and activity of key receptor tyrosine kinases (RTKs) across the panel of 39 breast cancer cell lines studied in Niepe et al., 2013."
+ }
+]
