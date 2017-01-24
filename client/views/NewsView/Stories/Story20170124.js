@@ -23,25 +23,32 @@ export default function Story20170124() {
         </strong>
       </p>
       <p>
-        {/*
-          <p>
-            Jones et al (2016) in Nature Chemical Biology describes a new drug
-            profiling study of relevance to rheumatoid arthritis.&nbsp;
-            <a href="http://lincs.hms.harvard.edu/jones-natchembiol-2017/" target="_blank">
-              Explore
-            </a>&nbsp;the publication as well as the associated datasets available in the
-            HMS LINCS Database (
-            <a href="https://lincs.hms.harvard.edu/db/datasets/20233/" target="_blank">
-              #20233
-            </a>,&nbsp;
-            <a href="https://lincs.hms.harvard.edu/db/datasets/20234/" target="_blank">
-              #20234
-            </a>,&nbsp;
-            <a href="https://lincs.hms.harvard.edu/db/datasets/20235/" target="_blank">
-              #20235
-            </a>).
-          </p>
-          */}
+        Fallahi-Sichani et al (2017) in Molecular Systems Biology uncovers a slowly
+        dividing, de-differentiated subpopulation of Vemurafenib-treated BRAF(V600E)
+        melanoma cells that is associated with drug resistance but inhibitable by
+        novel drug combinations.&nbsp;
+        <a href="https://lincs.hms.harvard.edu/fallahi-sichani-molsystbiol-2017/" target="_blank">
+          Explore
+        </a>&nbsp;the publication as well as the associated datasets available in the
+        HMS LINCS Database (
+        <a href="https://lincs.hms.harvard.edu/db/datasets/20272/" target="_blank">
+          #20272
+        </a>,&nbsp;
+        <a href="https://lincs.hms.harvard.edu/db/datasets/20273/" target="_blank">
+          #20273
+        </a>,&nbsp;
+        <a href="https://lincs.hms.harvard.edu/db/datasets/20274/" target="_blank">
+          #20274
+        </a>,&nbsp;
+        <a href="https://lincs.hms.harvard.edu/db/datasets/20275/" target="_blank">
+          #20275
+        </a>,&nbsp;
+        <a href="https://lincs.hms.harvard.edu/db/datasets/20276/" target="_blank">
+          #20276
+        </a>,&nbsp;
+        <a href="https://lincs.hms.harvard.edu/db/datasets/20277/" target="_blank">
+          #20277
+        </a>).
       </p>
 
       <p>
