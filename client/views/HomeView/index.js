@@ -57,7 +57,8 @@ export class HomeView extends Component {
         const result = a.showAtHomeOrder > b.showAtHomeOrder;
         return result ? 1 : -1;
       });
-    const tools = this.shuffleTools(this.props.tools).slice(0, 6);
+    const tools = this.shuffleTools(this.props.tools).slice(0, 5);
+    const lpmobile = this.props.tools.filter((tool) => tool.name === 'LINCS Project Mobile')[0];
     const carouselImgs = [2037, 2038, 2044, 2045, 2067, 2078, 2086, 2098].map((imgId) =>
     (
       <div key={imgId}>
@@ -208,6 +209,13 @@ export class HomeView extends Component {
                   </div>
                   <div className={`col-xs-12 col-md-5 ${styles.tools}`}>
                     <h3 className={styles.title}>Featured LINCS Tools</h3>
+                    {
+                      lpmobile &&
+                        <Tool
+                          homeview
+                          tool={lpmobile}
+                        />
+                    }
                     {
                       tools && tools.map((tool, idx) =>
                         <Tool

@@ -95,10 +95,12 @@ class WorkflowInputForm extends Component {
       {
         link: `${awRoute}/${ExploreMicroenvironmentsThatAlterLineagesInHMECCellLines.path}`,
         text: ExploreMicroenvironmentsThatAlterLineagesInHMECCellLines.subTitle,
+        new: true,
       },
       {
         link: `${awRoute}/${IdentifyMicroenvironmentsThatPromoteProliferation.path}`,
         text: IdentifyMicroenvironmentsThatPromoteProliferation.subTitle,
+        new: true,
       },
     ];
   }
@@ -144,6 +146,7 @@ class WorkflowInputForm extends Component {
       {
         link: `${awRoute}/${DownloadDataFromMEPLINCS.path}`,
         text: DownloadDataFromMEPLINCS.subTitle,
+        new: true,
       },
     ];
   }
@@ -171,6 +174,11 @@ class WorkflowInputForm extends Component {
                           wfObj.disabled
                           ? <span>{wfObj.text}</span>
                           : <Link to={wfObj.link}>{wfObj.text}</Link>
+                        }
+                        {
+                          wfObj.new
+                          ? <sup className={styles.new}>NEW</sup>
+                          : <span></span>
                         }
                       </li>
                     )
