@@ -28,7 +28,7 @@ const formatToolBox = (cell, row) => {
 
   return (
     <div className={styles['tool-box']}>
-      <a href={toolUrl} target="_blank">
+      <a href={toolUrl} target="_blank" className={styles.link}>
         <div className={styles['tool-img-wrap']}>
           <div className={styles['tool-img-inner']}>
             <img src={toolLogo} alt={toolName} />
@@ -41,7 +41,7 @@ const formatToolBox = (cell, row) => {
 };
 
 const formatAccession = (cell, row) => (
-  <a href={row.dataset_url} target="_blank">
+  <a href={row.dataset_url} target="_blank" className={styles.link}>
     {row.dataset_accession}
   </a>
 );
@@ -50,14 +50,16 @@ const formatScreen = (cell, row) => {
   const toolName = row.tool_name;
   const screenPath = row.screen_path;
   const cannedAnalysisUrl = row.canned_analysis_url;
+  const lcaAccession = row.lca_accession;
   return (
     <div className={styles['ca-box']}>
-      <a href={cannedAnalysisUrl} target="_blank">
+      <a href={cannedAnalysisUrl} target="_blank" className={styles.link}>
         <div className={styles['ca-img-wrap']}>
           <div className={styles['ca-img-inner']}>
             <img src={require(screenPath)} alt={toolName} />
           </div>
         </div>
+        <span className={styles.toolTitle}>{lcaAccession}</span>
         <span className={styles.overlay} />
       </a>
     </div>

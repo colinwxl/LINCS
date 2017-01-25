@@ -1,6 +1,7 @@
 [
  {
    "dataset_accession": "LDS-1106",
+   "lca_accession": "LCA-1106A",
    "dataset_url": "http://lincsportal.ccs.miami.edu/datasets/#/view/LDS-1106",
    "tool_name": "Drug-Pathway Browser",
    "tool_url": "http://lincs.hms.harvard.edu/explore/pathway/",
@@ -10,6 +11,7 @@
  },
  {
    "dataset_accession": "LDS-1106",
+   "lca_accession": "LCA-1106B",
    "dataset_url": "http://lincsportal.ccs.miami.edu/datasets/#/view/LDS-1106",
    "tool_name": "Drug Response Browser",
    "tool_url": "http://lincs.hms.harvard.edu/explore/10.1038-nchembio.1337/fallahi-sichani-2013/",
@@ -19,6 +21,7 @@
  },
  {
    "dataset_accession": "LDS-1356",
+   "lca_accession": "LCA-1356A",
    "dataset_url": "http://lincsportal.ccs.miami.edu/datasets/#/view/LDS-1356",
    "tool_name": "GEN3VA",
    "tool_url": "http://amp.pharm.mssm.edu/gen3va",
@@ -28,6 +31,7 @@
  },
  {
    "dataset_accession": "LDS-1356",
+   "lca_accession": "LCA-1356B",
    "dataset_url": "http://lincsportal.ccs.miami.edu/datasets/#/view/LDS-1356",
    "tool_name": "GEN3VA",
    "tool_url": "http://amp.pharm.mssm.edu/gen3va",
@@ -37,6 +41,7 @@
  },
  {
    "dataset_accession": "LDS-1239",
+   "lca_accession": "LCA-1239A",
    "dataset_url": "http://lincsportal.ccs.miami.edu/datasets/#/view/LDS-1239",
    "tool_name": "GEN3VA",
    "tool_url": "http://amp.pharm.mssm.edu/gen3va",
@@ -46,6 +51,7 @@
  },
  {
    "dataset_accession": "LDS-1196",
+   "lca_accession": "LCA-1196A",
    "dataset_url": "http://lincsportal.ccs.miami.edu/datasets/#/view/LDS-1196",
    "tool_name": "iLINCS",
    "tool_url": "http://eh3.uc.edu/GenomicsPortals/Lincs.jsp",
@@ -55,6 +61,7 @@
  },
  {
    "dataset_accession": "LDS-1356",
+   "lca_accession": "LCA-1356C",
    "dataset_url": "http://lincsportal.ccs.miami.edu/datasets/#/view/LDS-1356",
    "tool_name": "iLINCS",
    "tool_url": "http://eh3.uc.edu/GenomicsPortals/Lincs.jsp",
@@ -64,6 +71,7 @@
  },
  {
    "dataset_accession": "LDS-1237",
+   "lca_accession": "LCA-1237A",
    "dataset_url": "http://lincsportal.ccs.miami.edu/datasets/#/view/LDS-1237",
    "tool_name": "iLINCS",
    "tool_url": "http://eh3.uc.edu/GenomicsPortals/Lincs.jsp",
@@ -73,6 +81,7 @@
  },
  {
    "dataset_accession": "LDG-1285",
+   "lca_accession": "LCA-1285A",
    "dataset_url": "http://lincsportal.ccs.miami.edu/datasets/#/view/LDG-1285",
    "tool_name": "iLINCS",
    "tool_url": "http://eh3.uc.edu/GenomicsPortals/Lincs.jsp",
@@ -82,6 +91,7 @@
  },
  {
    "dataset_accession": "LDS-1239",
+   "lca_accession": "LCA-1239B",
    "dataset_url": "http://lincsportal.ccs.miami.edu/datasets/#/view/LDS-1239",
    "tool_name": "iLINCS",
    "tool_url": "http://eh3.uc.edu/GenomicsPortals/Lincs.jsp",
@@ -91,6 +101,7 @@
  },
  {
    "dataset_accession": "LDG-1285",
+   "lca_accession": "LCA-1285B",
    "dataset_url": "http://lincsportal.ccs.miami.edu/datasets/#/view/LDG-1285",
    "tool_name": "iLINCS",
    "tool_url": "http://eh3.uc.edu/GenomicsPortals/Lincs.jsp",
@@ -100,6 +111,7 @@
  },
  {
    "dataset_accession": "LDG-1284",
+   "lca_accession": "LCA-1284A",
    "dataset_url": "http://lincsportal.ccs.miami.edu/datasets/#/view/LDG-1284",
    "tool_name": "iLINCS",
    "tool_url": "http://eh3.uc.edu/GenomicsPortals/Lincs.jsp",
@@ -109,6 +121,7 @@
  },
  {
    "dataset_accession": "LDS-1240",
+   "lca_accession": "LCA-1240A",
    "dataset_url": "http://lincsportal.ccs.miami.edu/datasets/#/view/LDS-1240",
    "tool_name": "LINCS Data Explorer",
    "tool_url": "https://www.synapse.org/#!Synapse:syn2862345/wiki/231720",
@@ -118,6 +131,7 @@
  },
  {
    "dataset_accession": "LDS-1299",
+   "lca_accession": "LCA-1299A",
    "dataset_url": "http://lincsportal.ccs.miami.edu/datasets/#/view/LDS-1299",
    "tool_name": "LINCS Data Explorer",
    "tool_url": "https://www.synapse.org/#!Synapse:syn2862345/wiki/231720",
@@ -127,6 +141,7 @@
  },
  {
    "dataset_accession": "LDS-1303",
+   "lca_accession": "LCA-1303A",
    "dataset_url": "http://lincsportal.ccs.miami.edu/datasets/#/view/LDS-1303",
    "tool_name": "LINCS Data Explorer",
    "tool_url": "https://www.synapse.org/#!Synapse:syn2862345/wiki/231720",
@@ -136,6 +151,7 @@
  },
  {
    "dataset_accession": "LDS-1307",
+   "lca_accession": "LCA-1307A",
    "dataset_url": "http://lincsportal.ccs.miami.edu/datasets/#/view/LDS-1307",
    "tool_name": "LINCS Data Explorer",
    "tool_url": "https://www.synapse.org/#!Synapse:syn2862345/wiki/231720",
@@ -145,6 +161,7 @@
  },
  {
    "dataset_accession": "LDS-1311",
+   "lca_accession": "LCA-1311A",
    "dataset_url": "http://lincsportal.ccs.miami.edu/datasets/#/view/LDS-1311",
    "tool_name": "LINCS Data Explorer",
    "tool_url": "https://www.synapse.org/#!Synapse:syn2862345/wiki/231720",
@@ -154,6 +171,7 @@
  },
  {
    "dataset_accession": "LDS-1319",
+   "lca_accession": "LCA-1319A",
    "dataset_url": "http://lincsportal.ccs.miami.edu/datasets/#/view/LDS-1319",
    "tool_name": "LINCS Data Explorer",
    "tool_url": "https://www.synapse.org/#!Synapse:syn2862345/wiki/231720",
@@ -163,6 +181,7 @@
  },
  {
    "dataset_accession": "LDS-1323",
+   "lca_accession": "LCA-1323A",
    "dataset_url": "http://lincsportal.ccs.miami.edu/datasets/#/view/LDS-1323",
    "tool_name": "LINCS Data Explorer",
    "tool_url": "https://www.synapse.org/#!Synapse:syn2862345/wiki/231720",
@@ -172,6 +191,7 @@
  },
  {
    "dataset_accession": "LDS-1327",
+   "lca_accession": "LCA-1327A",
    "dataset_url": "http://lincsportal.ccs.miami.edu/datasets/#/view/LDS-1327",
    "tool_name": "LINCS Data Explorer",
    "tool_url": "https://www.synapse.org/#!Synapse:syn2862345/wiki/231720",
@@ -181,6 +201,7 @@
  },
  {
    "dataset_accession": "LDS-1331",
+   "lca_accession": "LCA-1331A",
    "dataset_url": "http://lincsportal.ccs.miami.edu/datasets/#/view/LDS-1331",
    "tool_name": "LINCS Data Explorer",
    "tool_url": "https://www.synapse.org/#!Synapse:syn2862345/wiki/231720",
@@ -190,6 +211,7 @@
  },
  {
    "dataset_accession": "LDS-1335",
+   "lca_accession": "LCA-1335A",
    "dataset_url": "http://lincsportal.ccs.miami.edu/datasets/#/view/LDS-1335",
    "tool_name": "LINCS Data Explorer",
    "tool_url": "https://www.synapse.org/#!Synapse:syn2862345/wiki/231720",
@@ -199,6 +221,7 @@
  },
  {
    "dataset_accession": "LDS-1123",
+   "lca_accession": "LCA-1123A",
    "dataset_url": "http://lincsportal.ccs.miami.edu/datasets/#/view/LDS-1123",
    "tool_name": "RTK Profile Browser",
    "tool_url": "http://lincs.hms.harvard.edu/explore/responses/",
