@@ -257,7 +257,7 @@ export class HomeView extends Component {
                                 Coordination and Integration Center
                               </a>
                             </strong>
-                            <p>MOOC on Coursera</p>
+                            <span>MOOC on Coursera</span>
                             <br />
                             <strong>January 23, 2017</strong>
                           </p>
@@ -278,7 +278,7 @@ export class HomeView extends Component {
                                 Coordination and Integration Center
                               </a>
                             </strong>
-                            <p>MOOC on Coursera</p>
+                            <span>MOOC on Coursera</span>
                             <br />
                             <strong>February 20, 2017</strong>
                           </p>

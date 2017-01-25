@@ -308,8 +308,8 @@ $apple-blue: #1390ff;
 
 .tool-img-wrap {
   display: table;
-  height: 5rem;
-  width: 6rem;
+  max-height: 5rem;
+  max-width: 6rem;
 }
 
 .tool-img-inner {
@@ -334,7 +334,7 @@ $apple-blue: #1390ff;
 
 .ca-img-wrap {
   display: table;
-  height: 8rem;
+  // max-height: 3rem;
   width: 9rem;
 }
 
