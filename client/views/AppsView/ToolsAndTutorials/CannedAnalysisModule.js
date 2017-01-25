@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React from 'react';
 import { BootstrapTable, TableHeaderColumn } from 'react-bootstrap-table';
 import styles from '../AppsView.scss';
@@ -7,7 +8,7 @@ const analyses = cannedAnalysisSeed;
 
 const options = {
   hideSizePerPage: true,
-  sizePerPage: 5,
+  // sizePerPage: 5,
   searchDelayTime: 250,
 };
 
@@ -45,6 +46,24 @@ const formatAccession = (cell, row) => (
   </a>
 );
 
+const formatScreen = (cell, row) => {
+  const toolName = row.tool_name;
+  const screenPath = row.screen_path;
+  const cannedAnalysisUrl = row.canned_analysis_url;
+  return (
+    <div className={styles['ca-box']}>
+      <a href={cannedAnalysisUrl} target="_blank">
+        <div className={styles['ca-img-wrap']}>
+          <div className={styles['ca-img-inner']}>
+            <img src={require(screenPath)} alt={toolName} />
+          </div>
+        </div>
+        <span className={styles.overlay} />
+      </a>
+    </div>
+  );
+};
+
 export default function CannedAnalysisModule() {
   if (analyses && analyses.length > 0) {
     return (
@@ -54,31 +73,36 @@ export default function CannedAnalysisModule() {
         striped
         hover
         condensed
-        pagination
         search
       >
+        <TableHeaderColumn
+          dataField="screen_path"
+          dataAlign="center"
+          dataFormat={formatScreen}
+        >
+          Canned Analysis
+        </TableHeaderColumn>
+        <TableHeaderColumn
+          dataField="canned_analysis_description"
+        >
+          Canned Analysis Description
+        </TableHeaderColumn>
         <TableHeaderColumn
           dataField="dataset_accession"
           width="110"
           dataAlign="center"
           isKey
-          dataSort
           dataFormat={formatAccession}
         >
           Dataset Accession
         </TableHeaderColumn>
-
         <TableHeaderColumn
           dataField="tool_name"
           dataAlign="center"
           width="120"
-          dataSort
           dataFormat={formatToolBox}
         >
           Tool
-        </TableHeaderColumn>
-        <TableHeaderColumn dataField="canned_analysis_description" >
-          Canned Analysis Description
         </TableHeaderColumn>
       </BootstrapTable>
     );

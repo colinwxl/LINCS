@@ -324,6 +324,50 @@ $apple-blue: #1390ff;
   }
 }
 
+.ca-box {
+  text-align: center;
+  font-size: 0.8rem;
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.ca-img-wrap {
+  display: table;
+  height: 5rem;
+  width: 6rem;
+}
+
+.ca-img-inner {
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle;
+  img {
+    display: inline-block;
+    max-height: 100%;
+    width: 80%;
+  }
+}
+
 .new {
   color: #ef6666;
+}
+
+.overlay {
+  background: $overlay-black;
+  border-radius: .2rem;
+  cursor: pointer;
+  filter: alpha(opacity = 0);
+  height: 100%;
+  left: 0;
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  transition: all .25s ease;
+  width: 100%;
+
+  &:hover {
+    filter: alpha(opacity = 1);
+    opacity: 1;
+  }
 }
