@@ -1,5 +1,6 @@
 /* eslint-disable */
 import React from 'react';
+import { Link } from 'react-router';
 import { BootstrapTable, TableHeaderColumn } from 'react-bootstrap-table';
 import styles from '../AppsView.scss';
 import cannedAnalysisSeed from './canned_analysis_seed.json';
@@ -46,6 +47,26 @@ const formatAccession = (cell, row) => (
   </a>
 );
 
+
+const formatCenter = (cell, row) => {
+  const centerName = row.analysis_center;
+  const centerLogo = row.analysis_center_logo;
+  const centerUrl = row.analysis_center_url;
+
+  return (
+    <div className={styles['center-box']}>
+      <Link to={centerUrl} className={styles.link}>
+        <div className={styles['center-img-wrap']}>
+          <div className={styles['center-img-inner']}>
+            <img src={centerLogo} alt={centerName} />
+          </div>
+        </div>
+        <span className={styles.toolTitle}>{centerName}</span>
+      </Link>
+    </div>
+  );
+};
+
 const formatScreen = (cell, row) => {
   const toolName = row.tool_name;
   const screenPath = row.screen_path;
@@ -88,6 +109,13 @@ export default function CannedAnalysisModule() {
           dataField="canned_analysis_description"
         >
           Canned Analysis Description
+        </TableHeaderColumn>
+        <TableHeaderColumn
+          dataField="analysis_center"
+          dataAlign="center"
+          dataFormat={formatCenter}
+        >
+          Center
         </TableHeaderColumn>
         <TableHeaderColumn
           dataField="dataset_accession"

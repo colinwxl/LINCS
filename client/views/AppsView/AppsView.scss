@@ -349,6 +349,39 @@ $apple-blue: #1390ff;
   }
 }
 
+
+.center-box {
+  text-align: center;
+  font-size: 0.8rem;
+}
+
+.center-img-wrap {
+  display: table;
+  height: 5rem;
+  width: 6rem;
+}
+
+.center-img-inner {
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle;
+
+  img {
+    display: inline-block;
+    max-height: 100%;
+    width: 80%;
+  }
+}
+
+.center-img-wrap, .ca-img-wrap, .tool-img-wrap {
+  @media (max-width: 767px) {
+    height: auto;
+    width: auto;
+    display: none;
+  }
+}
+
+
 .new {
   color: #ef6666;
 }
