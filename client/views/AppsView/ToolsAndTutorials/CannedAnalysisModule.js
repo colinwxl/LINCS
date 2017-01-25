@@ -24,11 +24,11 @@ const toolNameLogoMap = {
 const formatToolBox = (cell, row) => {
   const toolName = row.tool_name;
   const toolLogo = toolNameLogoMap[toolName];
-  const cannedAnalysisUrl = row.canned_analysis_url;
+  const toolUrl = row.tool_url;
 
   return (
     <div className={styles['tool-box']}>
-      <a href={cannedAnalysisUrl} target="_blank">
+      <a href={toolUrl} target="_blank">
         <div className={styles['tool-img-wrap']}>
           <div className={styles['tool-img-inner']}>
             <img src={toolLogo} alt={toolName} />
