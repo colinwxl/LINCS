@@ -1,6 +1,8 @@
 import React from 'react';
 import styles from './MobileDownloadView.scss';
 import screenshot from './screenshot.png';
+import appStore from './appstore.png';
+import playStore from './playStore.png';
 
 export default function MobileDownloadView() {
   return (
@@ -22,21 +24,17 @@ export default function MobileDownloadView() {
                 With the LINCS Project Mobile App, you can explore LINCS centers,
                 resources, publications, and tools.
               </p>
-              <ul className={`list-unstyled ${styles['app-store-links']}`}>
-                <li>
-                  <i className="fa fa-apple fa-2x"></i>
-                  <a href="https://itunes.apple.com/us/app/lincs-project-mobile-app/id1193096130?mt=8" target="_blank">Free for
-                    iPhone
-                  </a>
-                </li>
-                <li>
-                  <i className="fa fa-android fa-2x"></i>
-                  <a href="https://play.google.com/store/apps/details?id=com.lincsprojectmobile&hl=en" target="_blank">Free for Android</a>
-                </li>
-              </ul>
+              <div className={styles['store-list']}>
+                <a href="https://itunes.apple.com/us/app/lincs-project-mobile-app/id1193096130?mt=8" target="_blank">
+                  <img src={appStore} className={styles.store} alt="App Store" />
+                </a>
+                <a href="https://play.google.com/store/apps/details?id=com.lincsprojectmobile&hl=en" target="_blank">
+                  <img src={playStore} className={styles.store} alt="Play Store" />
+                </a>
+              </div>
             </div>
             <div className="col-md-6">
-              <img src={screenshot} alt="Screenshot" />
+              <img src={screenshot} className={styles.screenshot} alt="Screenshot" />
             </div>
           </div>
         </div>

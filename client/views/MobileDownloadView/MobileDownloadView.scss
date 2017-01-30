@@ -9,6 +9,16 @@
   border-bottom: 1px solid #aaa;
 }
 
+.store-list {
+  width: 100%;
+}
+
+.store {
+  width: 10rem;
+  margin: auto;
+
+}
+
 .mobile-page {
   border-bottom: 1px solid #eeeeee;
   margin: 1rem;
@@ -24,7 +34,7 @@
 .mobile-page i {
   color: #555c6f;
 }
-.mobile-page img {
+.screenshot {
   height: 600px;
 }
 .mobile-page h5 {
@@ -34,25 +44,9 @@
   font-size: 24px;
   font-weight: 300;
 }
-.mobile-page .app-store-links i {
-  position: relative;
-  top: -2px;
-}
 .mobile-page .app-store-links a {
   font-family: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-size: 30px;
   font-weight: 300;
   padding-left: 10px;
-}
-.mobile-page .app-store-links a:hover,
-.mobile-page .app-store-links a:active,
-.mobile-page .app-store-links a:focus {
-  text-decoration: none;
-  opacity: .7;
-}
-.mobile-page .app-store-links li.last {
-  margin-top: 20px;
-}
-.mobile-page .app-store-links li.last a {
-  color: #ec1e8e;
 }
