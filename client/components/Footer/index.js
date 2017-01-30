@@ -9,6 +9,7 @@ const toolsRoute = `${base}/tools`;
 const commRoute = `${base}/community`;
 const centersRoute = `${base}/centers`;
 const dsgcRoute = `${centersRoute}/data-and-signature-generating-centers`;
+const mobileRoute = `${base}/mobile`;
 
 const sherry = 'sherry.jenkins@mssm.edu';
 const subject = 'Questions/Comments regarding lincsproject.org';
@@ -90,7 +91,6 @@ export default class Footer extends Component {
                 <li><a href={`${base}/publications`}>Publications</a></li>
                 <li><a href={`${toolsRoute}`}>Workflows</a></li>
                 <li><a href={`${toolsRoute}`}>Tools</a></li>
-                <li><a href="http://onelink.to/pttfy8" target="_blank">LINCS Mobile App</a></li>
               </ul>
             </FooterDropDown>
             <FooterDropDown
@@ -106,7 +106,7 @@ export default class Footer extends Component {
               </ul>
             </FooterDropDown>
             <div className={`col-xs-12 col-md-2 ${styles.mobileAndContact}`}>
-              <a href="http://onelink.to/pttfy8">
+              <a href={`${mobileRoute}`}>
                 <h5>LINCS Mobile App</h5>
               </a>
               <hr />
