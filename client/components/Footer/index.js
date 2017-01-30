@@ -106,7 +106,7 @@ export default class Footer extends Component {
               </ul>
             </FooterDropDown>
             <div className={`col-xs-12 col-md-2 ${styles.mobileAndContact}`}>
-              <a href="">
+              <a href="http://onelink.to/pttfy8">
                 <h5>LINCS Mobile App</h5>
               </a>
               <hr />
