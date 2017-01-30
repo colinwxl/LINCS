@@ -12,6 +12,7 @@ import { Route, IndexRoute, Redirect } from 'react-router';
 import CoreLayout from 'layouts/CoreLayout';
 import HomeView from 'views/HomeView';
 import AboutView from 'views/AboutView';
+import MobileDownloadView from 'views/MobileDownloadView';
 
 // Centers
 import CentersOverview from 'views/CentersView/Overview';
@@ -122,6 +123,7 @@ export default (/* store */) => (
     <IndexRoute component={HomeView} />
 
     <Route path="about" component={AboutView} />
+    <Route path="mobile" component={MobileDownloadView} />
 
     {/* Centers Routes */}
     <Redirect from={centersBase} to={`${centersBase}/overview`} />
