@@ -88,7 +88,7 @@ export class AppsContainerModule extends Component {
           Video Tutorials
           </label>
 
-          <label
+          {/* <label
             onClick={this.handleAnalClicked}
             className={`btn ${styles['category-check']} ${isAnal ? styles.active : ''}`}
           >
@@ -98,7 +98,7 @@ export class AppsContainerModule extends Component {
               defaultChecked={isAnal}
             />
           Canned Analyses
-          </label>
+          </label>*/}
         </div>
 
         <div className={styles.workflow}>
