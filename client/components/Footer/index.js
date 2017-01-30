@@ -90,6 +90,7 @@ export default class Footer extends Component {
                 <li><a href={`${base}/publications`}>Publications</a></li>
                 <li><a href={`${toolsRoute}`}>Workflows</a></li>
                 <li><a href={`${toolsRoute}`}>Tools</a></li>
+                <li><a href="http://onelink.to/pttfy8" target="_blank">LINCS Mobile App</a></li>
               </ul>
             </FooterDropDown>
             <FooterDropDown
