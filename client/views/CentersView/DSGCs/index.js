@@ -61,7 +61,7 @@ export default function DSGCs() {
                     <a href="http://lincs.hms.harvard.edu">Visit Center website</a>
                   </div>
                   <p>
-                    The HMS LINCS Center studies how normal and diseased human cellslo
+                    The HMS LINCS Center studies how normal and diseased human cells
                     respond at the molecular level to perturbation by drugs, mutations,
                     and the local environment as a means to develop improved predictive
                     models of drug toxicity and response.&nbsp;
