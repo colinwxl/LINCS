@@ -61,10 +61,11 @@ export default function DSGCs() {
                     <a href="http://lincs.hms.harvard.edu">Visit Center website</a>
                   </div>
                   <p>
-                    The HMS LINCS Center develops new measurement methods and computer
-                    algorithms to detect and analyze perturbations induced by therapeutic drugs
-                    in healthy and diseased human
-                    cells. <Link title="HMS LINCS Center" to={`${dsgcRoute}/hms-lincs`}>
+                    The HMS LINCS Center studies how normal and diseased human cellslo
+                    respond at the molecular level to perturbation by drugs, mutations,
+                    and the local environment as a means to develop improved predictive
+                    models of drug toxicity and response.&nbsp;
+                    <Link title="HMS LINCS Center" to={`${dsgcRoute}/hms-lincs`}>
                     Learn More</Link>
                   </p>
                 </div>
