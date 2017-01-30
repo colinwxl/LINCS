@@ -25,7 +25,7 @@ export default function HMSLINCS() {
             <ul>
               <li>
                 Project Title: <a href="http://projectreporter.nih.gov/project_description.cfm?projectnumber=1U54HL127365-01" target="_blank">
-                Pharmaco-Response Signatures and Disease Mechanisms (1U54HL127365)</a>
+                Pharmaco-Response Signatures and Disease Mechanisms (U54HL127365)</a>
               </li>
               <li>
                 Principal Investigator: <a href="http://sorger.med.harvard.edu/people/peter-sorger-phd/" target="_blank">
