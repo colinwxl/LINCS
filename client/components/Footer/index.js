@@ -105,24 +105,30 @@ export default class Footer extends Component {
                 <li><a href={`${commRoute}/symposia`}>Symposia</a></li>
               </ul>
             </FooterDropDown>
-            <div className={`col-xs-12 col-md-3 ${styles.contact}`}>
-              <h5>Contact</h5>
-              <ul className={styles.icons}>
-                <li>
-                  <a href="https://twitter.com/LINCSProgram" target="_blank">
-                    <i className="fa fa-twitter" />
-                  </a>
-                  <a
-                    href="https://www.youtube.com/channel/UCNcDd4x8PsUZpt4U2Xa8sfg"
-                    target="_blank"
-                  >
-                    <i className="fa fa-youtube-square" />
-                  </a>
-                  <a href={mailLink}>
-                    <i className="fa fa-envelope-o" />
-                  </a>
-                </li>
-              </ul>
+            <div className={`col-xs-12 col-md-2 ${styles.mobileAndContact}`}>
+              <a href="">
+                <h5>LINCS Mobile App</h5>
+              </a>
+              <hr />
+              <div className={styles.contact}>
+                <h5>Contact</h5>
+                <ul className={styles.icons}>
+                  <li>
+                    <a href="https://twitter.com/LINCSProgram" target="_blank">
+                      <i className="fa fa-twitter" />
+                    </a>
+                    <a
+                      href="https://www.youtube.com/channel/UCNcDd4x8PsUZpt4U2Xa8sfg"
+                      target="_blank"
+                    >
+                      <i className="fa fa-youtube-square" />
+                    </a>
+                    <a href={mailLink}>
+                      <i className="fa fa-envelope-o" />
+                    </a>
+                  </li>
+                </ul>
+              </div>
             </div>
           </div>
           <hr />
