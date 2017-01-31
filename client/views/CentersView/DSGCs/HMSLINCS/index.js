@@ -29,7 +29,7 @@ export default function HMSLINCS() {
               </li>
               <li>
                 Principal Investigator: <a href="http://sorger.med.harvard.edu/people/peter-sorger-phd/" target="_blank">
-                Peter Sorger PhD</a>
+                Peter Sorger, PhD</a>
               </li>
               <li>
                 Awardee Institution: <a title="Harvard Medical School" href="http://hms.harvard.edu/" target="_blank">
@@ -74,8 +74,8 @@ export default function HMSLINCS() {
               website</a>. In addition, customized query, browse, and
               explore tools grounded in established ontologies and standards developed
               in collaboration with the <Link to="/LINCS/centers/dcic">
-              BD2K-LINCS Data Coordination and Integration</Link> Center
-              make it possible to access and interrogate HMS LINCS data
+              BD2K-LINCS Data Coordination and Integration Center</Link> make
+              it possible to access and interrogate HMS LINCS data
               programmatically through the&nbsp;
               <a href="http://lincs.hms.harvard.edu/db" target="_blank">HMS LINCS Database
               </a> and the&nbsp;
