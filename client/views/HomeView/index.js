@@ -252,36 +252,17 @@ export class HomeView extends Component {
                         <div className={styles.group}>
                           <p className={`clearfix ${styles.left}`}>
                             <strong>
-                              <a href="http://www.coursera.org/learn/bd2k-lincs" target="_blank">
-                                Big Data Science with the BD2K-LINCS Data
-                                Coordination and Integration Center
-                              </a>
+                              Big Data Science with the BD2K-LINCS Data
+                              Coordination and Integration Center
                             </strong>
-                            <span>MOOC on Coursera</span>
                             <br />
-                            <strong>January 23, 2017</strong>
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-
-                    {/* Announcement 2
-                      * ================================================================ */}
-                    <div className="col-xs-12 col-md-3">
-                      <div className={styles.card}>
-                        <h5>Course</h5>
-                        <div className={styles.group}>
-                          <p className={`clearfix ${styles.left}`}>
-                            <strong>
-                              <a href="http://www.coursera.org/learn/bd2k-lincs" target="_blank">
-                                Big Data Science with the BD2K-LINCS Data
-                                Coordination and Integration Center
-                              </a>
-                            </strong>
                             <span>MOOC on Coursera</span>
                             <br />
                             <strong>February 20, 2017</strong>
                           </p>
+                          <a href="http://www.coursera.org/learn/bd2k-lincs" target="_blank">
+                            Enroll Now
+                          </a>
                         </div>
                       </div>
                     </div>
@@ -318,9 +299,8 @@ export class HomeView extends Component {
                         </div>
                       </div>
                     </div>*/}
-
-                    {/* Announcement 3
-                      * ================================================================ */}
+                  {/* Announcement 2
+                    * ================================================================ */}
                     <div className="col-xs-12 col-md-3">
                       <div className={styles.card}>
                         <h5>LINCS Webinar</h5>
@@ -336,6 +316,27 @@ export class HomeView extends Component {
                             <strong>February 28, 2017 at 3:00 PM ET</strong>.
                           </p>
                           <Link to="/community/webinars">Details</Link>
+                        </div>
+                      </div>
+                    </div>
+                    {/* Announcement 3
+                      * ================================================================ */}
+                    <div className="col-xs-12 col-md-3">
+                      <div className={styles.card}>
+                        <h5>Training</h5>
+                        <div className={styles.group}>
+                          <p className={`clearfix ${styles.left}`}>
+                            <strong>
+                              <a href="http://www.lincsproject.org/LINCS/community/overview" target="_blank">
+                                BD2K-LINCS DCIC Summer Research Training Program
+                                in Biomedical Big Data Science
+                              </a>
+                            </strong>
+                            <br />
+                            <span>Application deadline:</span>
+                            <br />
+                            <strong>March 1, 2017 at 12 Midnight ET</strong>
+                          </p>
                         </div>
                       </div>
                     </div>
