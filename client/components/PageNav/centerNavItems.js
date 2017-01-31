@@ -18,7 +18,7 @@ export default [
     children: [
       { title: 'Introduction', route: dsgcRoute },
       { title: 'Drug Toxicity Signature Generation Center', route: `${dsgcRoute}/dtoxs` },
-      { title: 'HMS LINCS', route: `${dsgcRoute}/hms-lincs` },
+      { title: 'HMS LINCS Center', route: `${dsgcRoute}/hms-lincs` },
       {
         title: 'LINCS Center for Transcriptomics',
         route: `${dsgcRoute}/lincs-transcriptomics`,
