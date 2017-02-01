@@ -303,7 +303,7 @@ export class HomeView extends Component {
                     * ================================================================ */}
                     <div className="col-xs-12 col-md-3">
                       <div className={styles.card}>
-                        <h5>LINCS Webinar</h5>
+                        <h5>Webinar</h5>
                         <div className={styles.group}>
                           <p className={`clearfix ${styles.left}`}>
                             <strong>
@@ -313,7 +313,7 @@ export class HomeView extends Component {
                             <br />
                             (Nasir Mirza PhD, University of Liverpool)
                             <br />
-                            <strong>February 28, 2017 at 3:00 PM ET</strong>.
+                            <strong>February 28, 2017 at 3:00 PM ET</strong>
                           </p>
                           <Link to="/community/webinars">Details</Link>
                         </div>
@@ -323,19 +323,21 @@ export class HomeView extends Component {
                       * ================================================================ */}
                     <div className="col-xs-12 col-md-3">
                       <div className={styles.card}>
-                        <h5>Training</h5>
+                        <h5>Training Program</h5>
                         <div className={styles.group}>
                           <p className={`clearfix ${styles.left}`}>
                             <strong>
-                              <a href="http://www.lincsproject.org/LINCS/community/overview" target="_blank">
-                                BD2K-LINCS DCIC Summer Research Training Program
-                                in Biomedical Big Data Science
-                              </a>
+                              BD2K-LINCS DCIC Summer Research Training Program
+                              in Biomedical Big Data Science
                             </strong>
                             <br />
                             <span>Application deadline:</span>
                             <br />
                             <strong>March 1, 2017 at 12 Midnight ET</strong>
+                            <br />
+                            <a href="http://www.lincsproject.org/LINCS/community/overview" target="_blank">
+                              Details
+                            </a>
                           </p>
                         </div>
                       </div>
@@ -345,7 +347,7 @@ export class HomeView extends Component {
                       * ================================================================ */}
                     <div className="col-xs-12 col-md-3">
                       <div className={styles.card}>
-                        <h5>LINCS Webinar</h5>
+                        <h5>Webinar</h5>
                         <div className={styles.group}>
                           <p className={`clearfix ${styles.left}`}>
                             <strong>
@@ -355,7 +357,7 @@ export class HomeView extends Component {
                             <br />
                             (Tongli Zhang PhD, University of Cincinnati)
                             <br />
-                            <strong>April 25, 2017 at 3:00 PM ET</strong>.
+                            <strong>April 25, 2017 at 3:00 PM ET</strong>
                           </p>
                           <Link to="/community/webinars">Details</Link>
                         </div>
