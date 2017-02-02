@@ -63,6 +63,11 @@ export class Webinars extends Component {
               : <p></p>
           }
           {
+            web.abstract && web.abstract.length
+            ? <p><strong>Abstract</strong>: {web.abstract}</p>
+            : <p>{}</p>
+          }
+          {
             hasVideo
               ? <p><a href={web.url}>Watch webinar on YouTube</a></p>
               : <p></p>

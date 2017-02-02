@@ -127,6 +127,7 @@ export default {
   webinars: {
     id: { type: 'increments', nullable: false, primary: true },
     title: { type: 'string', maxlength: 255, nullable: false },
+    abstract: { type: 'text', nullable: true },
     presenter_name: { type: 'string', maxlength: 255, nullable: true },
     presenter_affiliation: { type: 'text', maxlength: 65535, nullable: true },
     presenter_url: { type: 'string', maxlength: 255, nullable: true },
