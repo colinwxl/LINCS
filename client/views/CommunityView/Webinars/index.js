@@ -1,6 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import extend from 'extend';
+import Collapsible from 'react-collapsible';
 
 import { fetchWebinars } from 'actions/community';
 import formatDate from 'utils/formatDate';
@@ -64,7 +65,8 @@ export class Webinars extends Component {
           }
           {
             web.abstract && web.abstract.length
-            ? <p><strong>Abstract</strong>: {web.abstract}</p>
+            ? <Collapsible trigger="▸ Abstract" triggerWhenOpen="▾ Abstract">
+              <p>{web.abstract}</p></Collapsible>
             : <p>{}</p>
           }
           {
