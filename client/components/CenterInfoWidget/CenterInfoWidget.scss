@@ -58,13 +58,13 @@ $shadow: rgba(0, 0, 0, .1);
   .thumbnail {
     align-self: center;
     margin: auto !important;
-    max-height: $widget-height / 3 - 1rem;
+    max-height: $widget-height / 3 - 2rem;
   }
 }
 
 .widget-details {
-  flex: 2;
-  max-height: 9rem;
+  flex: 3;
+  max-height: 9.5rem;
   overflow: hidden;
 }
 
@@ -75,7 +75,7 @@ $shadow: rgba(0, 0, 0, .1);
   display: inline-block;
   line-height: normal;
   font-weight: 600;
-  margin-top: 0.6rem;
+  margin-top: 0.3rem;
   max-height: 2rem;
   position: relative;
   text-decoration: none !important;

@@ -13,16 +13,6 @@ export default [
     grantsLink: 'http://projectreporter.nih.gov/project_description.cfm?projectnumber=1U54HL127624-01',
   },
   {
-    name: 'BroadT LINCS',
-    internalLink: `${dsgcBaseUrl}/lincs-transcriptomics`,
-    url: 'https://clue.io/',
-    iconUrl: 'http://lincsproject.org/LINCS/files/centers_logos/CMap.svg',
-    description: 'The LINCS Center for Transcriptomics utilizes the L1000 technology to profile the response of human cells to thousands of perturbations',
-    awardeeInstitution: 'Broad Institute',
-    status: 'Data and Signature Generation Center',
-    grantsLink: 'http://projectreporter.nih.gov/project_description.cfm?projectnumber=1U54HL127366-01',
-  },
-  {
     name: 'DToxS',
     internalLink: `${dsgcBaseUrl}/dtoxs`,
     url: 'https://martip03.u.hpc.mssm.edu/index.php',
@@ -37,13 +27,13 @@ export default [
     internalLink: `${dsgcBaseUrl}/hms-lincs`,
     url: 'http://lincs.hms.harvard.edu/',
     iconUrl: 'http://lincsproject.org/LINCS/files/centers_logos/hms-lincs.png',
-    description: 'The HMS LINCS Center collects and disseminates data and tools needed to understand how human cells respond to perturbations',
+    description: 'The HMS LINCS Center studies how normal and diseased human cells respond at the molecular level to perturbation by drugs, mutations, and the local environment as a means to develop improved predictive models of drug toxicity and response',
     awardeeInstitution: 'Harvard Medical School',
     status: 'Data and Signature Generation Center',
     grantsLink: 'http://projectreporter.nih.gov/project_description.cfm?projectnumber=1U54HL127365-01',
   },
   {
-    name: 'LINCS PCCSE',
+    name: 'LINCS Proteomics',
     internalLink: `${dsgcBaseUrl}/lincs-pccse`,
     url: 'https://panoramaweb.org/labkey/project/LINCS/begin.view',
     iconUrl: 'http://lincsproject.org/LINCS/files/centers_logos/lincs-pccse.png',
@@ -51,6 +41,16 @@ export default [
     awardeeInstitution: 'Broad Institute',
     status: 'Data and Signature Generation Center',
     grantsLink: 'http://projectreporter.nih.gov/project_description.cfm?projectnumber=1U54HG008097-01',
+  },
+  {
+    name: 'LINCS Transcriptomics',
+    internalLink: `${dsgcBaseUrl}/lincs-transcriptomics`,
+    url: 'https://clue.io/',
+    iconUrl: 'http://lincsproject.org/LINCS/files/centers_logos/CMap.svg',
+    description: 'The LINCS Center for Transcriptomics utilizes the L1000 technology to profile the response of human cells to thousands of perturbations',
+    awardeeInstitution: 'Broad Institute',
+    status: 'Data and Signature Generation Center',
+    grantsLink: 'http://projectreporter.nih.gov/project_description.cfm?projectnumber=1U54HL127366-01',
   },
   {
     name: 'MEP LINCS',
@@ -72,6 +72,7 @@ export default [
     status: 'Data and Signature Generation Center',
     grantsLink: 'http://projectreporter.nih.gov/project_description.cfm?projectnumber=1U54NS091046-01',
   },
+
   {
     newsTitle: 'NIH Awards Aim to Improve Understanding of Cell Pathways, Development of New Therapies',
     url: 'https://www.nih.gov/news-events/news-releases/nih-awards-aim-improve-understanding-cell-pathways-development-new-therapies',
