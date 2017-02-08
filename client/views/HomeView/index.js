@@ -348,7 +348,8 @@ export class HomeView extends Component {
                           </span>
                           <p className={`clearfix ${styles.left}`}>
                             <strong>
-                              BD2K-LINCS DCIC Summer Research Training Program
+                              Applications due for BD2K-LINCS DCIC
+                              Summer Research Training Program
                               in Biomedical Big Data Science
                             </strong>
                             <br />
