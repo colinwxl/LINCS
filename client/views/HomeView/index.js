@@ -317,7 +317,7 @@ export class HomeView extends Component {
                         </h5>
                         <div className={styles.group}>
                           <span className={styles.date}>
-                            February 28, 2017 at 3:00 PM ET
+                            February 28, 2017
                           </span>
                           <p className={`clearfix ${styles.left}`}>
                             <strong>
@@ -344,7 +344,7 @@ export class HomeView extends Component {
                         </h5>
                         <div className={styles.group}>
                           <span className={styles.date}>
-                            March 1, 2017 at 12 Midnight ET
+                            March 1, 2017
                           </span>
                           <p className={`clearfix ${styles.left}`}>
                             <strong>
@@ -372,7 +372,7 @@ export class HomeView extends Component {
                         </h5>
                         <div className={styles.group}>
                           <span className={styles.date}>
-                            April 25, 2017 at 3:00 PM ET
+                            April 25, 2017
                           </span>
                           <p className={`clearfix ${styles.left}`}>
                             <strong>
