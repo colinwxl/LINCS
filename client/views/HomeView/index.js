@@ -248,8 +248,16 @@ export class HomeView extends Component {
                       * ================================================================ */}
                     <div className="col-xs-12 col-md-3">
                       <div className={styles.card}>
-                        <h5>Course</h5>
+                        <h5
+                          className={styles['card-title']}
+                          style={{ backgroundColor: '#283f62' }}
+                        >
+                          COURSE
+                        </h5>
                         <div className={styles.group}>
+                          <span className={styles.date}>
+                            February 20, 2017
+                          </span>
                           <p className={`clearfix ${styles.left}`}>
                             <strong>
                               Big Data Science with the BD2K-LINCS Data
@@ -257,8 +265,6 @@ export class HomeView extends Component {
                             </strong>
                             <br />
                             <span>MOOC on Coursera</span>
-                            <br />
-                            <strong>February 20, 2017</strong>
                           </p>
                           <a href="http://www.coursera.org/learn/bd2k-lincs" target="_blank">
                             Enroll Now
@@ -268,7 +274,7 @@ export class HomeView extends Component {
                     </div>
                     {/* <div className="col-xs-12 col-md-3">
                       <div className={styles.card}>
-                        <h5>LINCS Webinar</h5>
+                        <h5 className={styles['card-title']}>LINCS Webinar</h5>
                         <div className={styles.group}>
                           <p className={`clearfix ${styles.left}`}>
                             <strong>
@@ -303,8 +309,16 @@ export class HomeView extends Component {
                     * ================================================================ */}
                     <div className="col-xs-12 col-md-3">
                       <div className={styles.card}>
-                        <h5>Webinar</h5>
+                        <h5
+                          className={styles['card-title']}
+                          style={{ backgroundColor: '#007CBE' }}
+                        >
+                          WEBINAR
+                        </h5>
                         <div className={styles.group}>
+                          <span className={styles.date}>
+                            February 28, 2017 at 3:00 PM ET
+                          </span>
                           <p className={`clearfix ${styles.left}`}>
                             <strong>
                               Identifying New Antiepileptic Drugs Through Genomics-Based
@@ -313,7 +327,6 @@ export class HomeView extends Component {
                             <br />
                             (Nasir Mirza PhD, University of Liverpool)
                             <br />
-                            <strong>February 28, 2017 at 3:00 PM ET</strong>
                           </p>
                           <Link to="/community/webinars">Details</Link>
                         </div>
@@ -323,17 +336,21 @@ export class HomeView extends Component {
                       * ================================================================ */}
                     <div className="col-xs-12 col-md-3">
                       <div className={styles.card}>
-                        <h5>Training Program</h5>
+                        <h5
+                          className={styles['card-title']}
+                          style={{ backgroundColor: '#058488' }}
+                        >
+                          TRAINING PROGRAM
+                        </h5>
                         <div className={styles.group}>
+                          <span className={styles.date}>
+                            March 1, 2017 at 12 Midnight ET
+                          </span>
                           <p className={`clearfix ${styles.left}`}>
                             <strong>
                               BD2K-LINCS DCIC Summer Research Training Program
                               in Biomedical Big Data Science
                             </strong>
-                            <br />
-                            <span>Application deadline:</span>
-                            <br />
-                            <strong>March 1, 2017 at 12 Midnight ET</strong>
                             <br />
                             <a href="http://www.lincsproject.org/LINCS/community/overview" target="_blank">
                               Details
@@ -347,8 +364,16 @@ export class HomeView extends Component {
                       * ================================================================ */}
                     <div className="col-xs-12 col-md-3">
                       <div className={styles.card}>
-                        <h5>Webinar</h5>
+                        <h5
+                          className={styles['card-title']}
+                          style={{ backgroundColor: '#007CBE' }}
+                        >
+                          WEBINAR
+                        </h5>
                         <div className={styles.group}>
+                          <span className={styles.date}>
+                            April 25, 2017 at 3:00 PM ET
+                          </span>
                           <p className={`clearfix ${styles.left}`}>
                             <strong>
                               Combining Forward and Reverse Engineering to
@@ -357,7 +382,6 @@ export class HomeView extends Component {
                             <br />
                             (Tongli Zhang PhD, University of Cincinnati)
                             <br />
-                            <strong>April 25, 2017 at 3:00 PM ET</strong>
                           </p>
                           <Link to="/community/webinars">Details</Link>
                         </div>

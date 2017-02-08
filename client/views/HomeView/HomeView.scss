@@ -309,6 +309,7 @@ $about-background: $purple;
 
 .group {
   margin-bottom: 1rem;
+  padding: 0.5rem 1rem;
 
   h6,
   h5,
@@ -418,16 +419,31 @@ $twitter-blue: #eceeef;
 
 .card {
   background-color: $white;
-  border: 1px solid;
-  border-color: $gray-border-top $gray-border-side $gray-border-bottom;
+  // border: 1px solid;
+  // border-color: $gray-border-top $gray-border-side $gray-border-bottom;
   border-radius: .25rem;
-  min-height: 15rem; //usually 18rem
-  padding: 1rem;
+  min-height: 14rem; //usually 18rem
 
   p,
   a {
     font-size: .9rem;
   }
+}
+
+.card-title {
+  padding: 0.5rem;
+  // background-color: #283f62;
+  color: $white;
+  display: inline-block;
+  font-family: "Narrow", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+  font-size: 0.8rem;
+  letter-spacing: 0.1rem;
+}
+
+.date {
+  font-size: 0.8rem;
+  font-weight: 900;
+  color: #989898;
 }
 
 .pubs-wrap {
