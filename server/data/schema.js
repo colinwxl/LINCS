@@ -250,5 +250,22 @@ export default {
     id: { type: 'increments', nullable: false, primary: true },
     center_id: { type: 'integer', nullable: false, unsigned: true, references: 'centers.id' },
     tool_id: { type: 'integer', nullable: false, unsigned: true, references: 'tools.id' },
-  }
+  },
+  announcements: {
+    id: { type: 'increments', nullable: false, primary: true },
+    title: { type: 'string', maxlength: 255, nullable: false },
+    description: { type: 'text', maxlength: 16777215, fieldtype: 'medium', nullable: true },
+    presenter: { type: 'string', maxlength: 255, nullable: true },
+    eDSR: { type: 'integer', nullable: true },
+    webinar: { type: 'integer', nullable: true },
+    course: { type: 'integer', nullable: true },
+    training_program: { type: 'integer', nullable: true },
+    new_update: { type: 'integer', nullable: true },
+    custom: { type: 'string', maxlength: 255, nullable: true },
+    event_date: { type: 'dateTime', nullable: false },
+    link: { type: 'string', maxlength: 255, nullable: true },
+    link_text: { type: 'string', maxlength: 255, nullable: true },
+    created_at: { type: 'dateTime', nullable: false },
+    updated_at: { type: 'dateTime', nullable: true },
+  },
 };
