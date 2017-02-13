@@ -8,6 +8,7 @@ import Carousel from './Carousel';
 import Twitter from 'containers/Twitter';
 import Publication from 'containers/Publication';
 import { loadPublications } from 'actions/pubsNews';
+import { loadAnnouncements } from 'actions/announcements';
 import { loadTools } from 'actions/toolsWorkflows';
 import { initialCategories as categories } from '../PublicationsView';
 import styles from './HomeView.scss';
@@ -15,6 +16,7 @@ import styles from './HomeView.scss';
 const mapStateToProps = (state) => ({
   publications: state.pubsNews.publications,
   tools: state.toolsWorkflows.tools,
+  announcements: state.announcements.announcements,
 });
 
 export class HomeView extends Component {
@@ -28,6 +30,7 @@ export class HomeView extends Component {
   componentWillMount = () => {
     this.props.loadPublications();
     this.props.loadTools();
+    this.props.loadAnnouncements();
   }
 
   componentDidMount() {
@@ -452,9 +455,12 @@ HomeView.propTypes = {
   publications: PropTypes.array,
   loadTools: PropTypes.func,
   tools: PropTypes.array,
+  loadAnnouncements: PropTypes.func,
+  announcements: PropTypes.array,
 };
 
 export default connect(mapStateToProps, {
   loadPublications,
   loadTools,
+  loadAnnouncements,
 })(HomeView);
