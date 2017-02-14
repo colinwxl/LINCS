@@ -62,7 +62,7 @@ export default [
   {
     name: 'ConnectivityMap',
     coords: '1233,235,1417,349',
-    center: 'BroadT LINCS',
+    center: 'LINCS Transcriptomics',
   },
   {
     name: 'Broad Institute',

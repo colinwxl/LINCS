@@ -14,7 +14,7 @@ const sortOptions = [
 
 const multiSelectCenters = [
   { value: 'BD2K-LINCS DCIC', label: 'BD2K-LINCS DCIC' },
-  { value: 'BroadT LINCS', label: 'BroadT LINCS' },
+  { value: 'LINCS Transcriptomics', label: 'LINCS Transcriptomics' },
   { value: 'DToxS', label: 'DToxS' },
   { value: 'HMS LINCS', label: 'HMS LINCS' },
   { value: 'LINCS PCCSE', label: 'LINCS PCCSE' },
@@ -73,8 +73,8 @@ export default class ToolsModule extends Component {
     return (centerFilters === '') ||
     (centerFilters.indexOf('BD2K-LINCS DCIC') !== -1
       && tool.centers.some(center => center.name === 'BD2K-LINCS DCIC')) ||
-    (centerFilters.indexOf('BroadT LINCS') !== -1
-      && tool.centers.some(center => center.name === 'BroadT LINCS')) ||
+    (centerFilters.indexOf('LINCS Transcriptomics') !== -1
+      && tool.centers.some(center => center.name === 'LINCS Transcriptomics')) ||
     (centerFilters.indexOf('DToxS') !== -1
       && tool.centers.some(center => center.name === 'DToxS')) ||
     (centerFilters.indexOf('HMS LINCS') !== -1
