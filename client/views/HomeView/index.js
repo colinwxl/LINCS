@@ -7,6 +7,7 @@ import Tool from 'components/Tool';
 import Carousel from './Carousel';
 import Twitter from 'containers/Twitter';
 import Publication from 'containers/Publication';
+import Announcement from 'components/Announcement';
 import { loadPublications } from 'actions/pubsNews';
 import { loadAnnouncements } from 'actions/announcements';
 import { loadTools } from 'actions/toolsWorkflows';
@@ -54,6 +55,7 @@ export class HomeView extends Component {
   }
 
   render() {
+    const anns = this.props.announcements.slice(0, 4).reverse();
     const pubs = this.props.publications
       .filter(pub => !!pub.showAtHomeOrder)
       .sort((a, b) => {
@@ -247,154 +249,11 @@ export class HomeView extends Component {
                 <div className="row">
                   {/* <Carousel> */}
                   <div>
-                    {/* Announcement 1
-                      * ================================================================ */}
-                    <div className="col-xs-12 col-md-3">
-                      <div className={styles.card}>
-                        <h5
-                          className={styles['card-title']}
-                          style={{ backgroundColor: '#283f62' }}
-                        >
-                          COURSE
-                        </h5>
-                        <div className={styles.group}>
-                          <span className={styles.date}>
-                            February 20, 2017
-                          </span>
-                          <p className={`clearfix ${styles.left}`}>
-                            <strong>
-                              Big Data Science with the BD2K-LINCS Data
-                              Coordination and Integration Center
-                            </strong>
-                            <br />
-                            <span>MOOC on Coursera</span>
-                          </p>
-                          <a href="http://www.coursera.org/learn/bd2k-lincs" target="_blank">
-                            Enroll Now
-                          </a>
-                        </div>
-                      </div>
-                    </div>
-                    {/* <div className="col-xs-12 col-md-3">
-                      <div className={styles.card}>
-                        <h5 className={styles['card-title']}>LINCS Webinar</h5>
-                        <div className={styles.group}>
-                          <p className={`clearfix ${styles.left}`}>
-                            <strong>
-                              <a
-                                style={{ textDecoration: 'none' }}
-                                href="https://www.youtube.com/watch?v=mKQNUyHDeG8&t=18s&index=1&list=PL0Bwuj8819U-G9Ob0jIGHp5AtwpCghLV5"
-                                target="_blank"
-                              >
-                                Cell Line Ontology-based Standardization, Integration
-                                and Analysis of LINCS Cell Lines
-                              </a>
-                            </strong>
-                            <br />
-                            (Yongqun "Oliver" He DVM, PhD, University of Michigan Medical School,
-                            &nbsp;
-                            <a href="http://lincs-dcic.org/#/external-dsrp#nav" target="_blank">
-                              DCIC eDSR
-                            </a>)
-                            <br />
-                            <strong>December 20, 2016 at 3:00 PM ET</strong>.
-                          </p>
-                          <a
-                            href="http://www.lincsproject.org/LINCS/community/webinars"
-                            target="_blank"
-                          >
-                            Details
-                          </a>
-                        </div>
-                      </div>
-                    </div>*/}
-                  {/* Announcement 2
-                    * ================================================================ */}
-                    <div className="col-xs-12 col-md-3">
-                      <div className={styles.card}>
-                        <h5
-                          className={styles['card-title']}
-                          style={{ backgroundColor: '#007CBE' }}
-                        >
-                          WEBINAR
-                        </h5>
-                        <div className={styles.group}>
-                          <span className={styles.date}>
-                            February 28, 2017
-                          </span>
-                          <p className={`clearfix ${styles.left}`}>
-                            <strong>
-                              Identifying New Antiepileptic Drugs Through Genomics-Based
-                              Drug Repurposing
-                            </strong>
-                            <br />
-                            (Nasir Mirza PhD, University of Liverpool)
-                            <br />
-                          </p>
-                          <Link to="/community/webinars">Details</Link>
-                        </div>
-                      </div>
-                    </div>
-                    {/* Announcement 3
-                      * ================================================================ */}
-                    <div className="col-xs-12 col-md-3">
-                      <div className={styles.card}>
-                        <h5
-                          className={styles['card-title']}
-                          style={{ backgroundColor: '#058488' }}
-                        >
-                          TRAINING PROGRAM
-                        </h5>
-                        <div className={styles.group}>
-                          <span className={styles.date}>
-                            March 1, 2017
-                          </span>
-                          <p className={`clearfix ${styles.left}`}>
-                            <strong>
-                              Applications due for BD2K-LINCS DCIC
-                              Summer Research Training Program
-                              in Biomedical Big Data Science
-                            </strong>
-                            <br />
-                            <a href="http://www.lincsproject.org/LINCS/community/overview" target="_blank">
-                              Details
-                            </a>
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-
-                    {/* Announcement 4
-                      * ================================================================ */}
-                    <div className="col-xs-12 col-md-3">
-                      <div className={styles.card}>
-                        <h5
-                          className={styles['card-title']}
-                          style={{ backgroundColor: '#007CBE' }}
-                        >
-                          WEBINAR
-                        </h5>
-                        <div className={styles.group}>
-                          <span className={styles.date}>
-                            April 25, 2017
-                          </span>
-                          <p className={`clearfix ${styles.left}`}>
-                            <strong>
-                              Combining Forward and Reverse Engineering to
-                              Understand Complex Fractional Killing
-                            </strong>
-                            <br />
-                            (Tongli Zhang PhD, University of Cincinnati)
-                            <br />
-                          </p>
-                          <Link to="/community/webinars">Details</Link>
-                        </div>
-                      </div>
-                    </div>
+                    {
+                      anns.map((ann, idx) => <Announcement key={idx} announcement={ann} />)
+                    }
                   </div>
-                    {/* <div>
-                    </div>
-                  </Carousel> */}
+                    {/* </Carousel> */}
                 </div>
               </div>
             </div>
