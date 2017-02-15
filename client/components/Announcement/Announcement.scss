@@ -3,14 +3,21 @@
 .card {
   background-color: $white;
   border-radius: .25rem;
-  height: 15rem; //usually 18rem
+  height: 16.5rem; //usually 18rem
   min-width: 10rem; //usually 18rem
   margin-bottom: 1rem;
   overflow: hidden;
+  text-overflow: ellipsis;
 
   p,
   a {
     font-size: .9rem;
+  }
+  @media (max-width: 1200px) {
+    height: 17.5rem; //usually 18rem
+  }
+  @media (max-width: 991px) {
+    height: 21.5rem; //usually 18rem
   }
 }
 

@@ -25,30 +25,32 @@ export class Announcements extends Component {
     this.setState({ annOp });
   }
 
+  latestSort(anns) {
+    let latestAnnsIdx = anns.length;
+    const today = new Date();
+    for (let i = 0; i < anns.length; i++) {
+      const annDate = new Date(anns[i].eventDate);
+      if (annDate < today) {
+        latestAnnsIdx = i;
+        break;
+      }
+    }
+    const latestAnns = anns.slice(0, latestAnnsIdx).reverse();
+    const remainingAnns = anns.slice(latestAnnsIdx).reverse();
+    return latestAnns.concat(remainingAnns);
+  }
+
   render() {
-    let anns = this.props.announcements;
+    let anns = this.latestSort(this.props.announcements);
     const { annOp } = this.state;
     if (annOp === 'Recent') {
-      anns = anns.slice(0, 4).reverse();
+      anns = anns.slice(0, 4);
     } else if (annOp === 'Webinar') {
       anns = anns.filter(ann => ann.webinar);
     } else if (annOp === 'Course') {
       anns = anns.filter(ann => ann.course);
     } else if (annOp === 'Other') {
       anns = anns.filter(ann => !ann.course && !ann.webinar);
-    } else if (annOp === 'All') {
-      let latestAnnsIdx = anns.length;
-      const today = new Date();
-      for (let i = 0; i < anns.length; i++) {
-        const annDate = new Date(anns[i].eventDate);
-        if (annDate < today) {
-          latestAnnsIdx = i;
-          break;
-        }
-      }
-      const latestAnns = anns.slice(0, latestAnnsIdx).reverse();
-      const remainingAnns = anns.slice(latestAnnsIdx).reverse();
-      anns = latestAnns.concat(remainingAnns);
     }
 
     return (
