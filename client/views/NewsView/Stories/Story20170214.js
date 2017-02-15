@@ -3,7 +3,7 @@ import { Link } from 'react-router';
 
 import Story from './Story';
 import styles from '../NewsView.scss';
-import aacrLogo from './images/aacr_logo.png';
+import aacrLogo from 'static/files/aacr_logo.png';
 import dcicLogo from 'static/files/centers_logos/DCIC.svg';
 import broadLogo from 'static/files/centers_logos/CMap.svg';
 import hmsLogo from 'static/files/centers_logos/hms-lincs.png';
@@ -128,6 +128,7 @@ export default function Story20170214() {
           }
         </tbody>
       </table>
+      <hr />
       <br />
       <span className={styles['twitter-label']}>
         <a
