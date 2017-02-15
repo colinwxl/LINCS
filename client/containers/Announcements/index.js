@@ -1,5 +1,4 @@
 import React, { Component, PropTypes } from 'react';
-import { Link } from 'react-router';
 import { connect } from 'react-redux';
 
 import Announcement from 'components/Announcement';
@@ -36,9 +35,17 @@ export class Announcements extends Component {
 
   render() {
     let anns = this.props.announcements;
-    if (this.state.annOp === 'recent') {
+    const { annOp } = this.state;
+    if (annOp === 'Recent') {
       anns = anns.slice(0, 4).reverse();
+    } else if (annOp === 'Webinar') {
+      anns = anns.filter(ann => ann.webinar)
+    } else if (annOp === 'Course') {
+      anns = anns.filter(ann => ann.course)
+    } else if (annOp === 'Other') {
+      anns = anns.filter(ann => !ann.course && !ann.webinar)
     }
+
     return (
       <div className={styles.ann}>
         <div className="container">
@@ -46,14 +53,39 @@ export class Announcements extends Component {
             <div className={`col-xs-12 ${styles.section} ${styles['ann-section']}`}>
               <h3 className={styles.title} style={{ display: 'inline-block' }}>Announcements</h3>
               <div className={styles.announcementOptions}>
-                {}
+                <span
+                  className={styles.announcementOption}
+                  onClick={() => this.setAnnOp('Recent')}
+                >
+                  Recent
+                </span>
+                <span
+                  className={styles.announcementOption}
+                  onClick={() => this.setAnnOp('All')}
+                >
+                  All
+                </span>
+                <span
+                  className={styles.announcementOption}
+                  onClick={() => this.setAnnOp('Webinar')}
+                >
+                  Webinar
+                </span>
+                <span
+                  className={styles.announcementOption}
+                  onClick={() => this.setAnnOp('Course')}
+                >
+                  Course
+                </span>
+                <span
+                  className={styles.announcementOption}
+                  onClick={() => this.setAnnOp('Other')}
+                >
+                  Other
+                </span>
               </div>
               <div className="row">
-                {/* <Carousel> */}
-                {
-                  anns.map((ann, idx) => <Announcement key={idx} announcement={ann} />)
-                }
-                {/* </Carousel> */}
+                {anns.map((ann, idx) => <Announcement key={idx} announcement={ann} />)}
               </div>
             </div>
           </div>
