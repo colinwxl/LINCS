@@ -1,6 +1,5 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
-
 import Announcement from 'components/Announcement';
 import { loadAnnouncements } from 'actions/announcements';
 
@@ -9,13 +8,6 @@ import styles from './Announcements.scss';
 const mapStateToProps = (state) => ({
   announcements: state.announcements.announcements,
 });
-
-// const ANN_OPTIONS = {
-//   'Recent': 4,
-//   'Webinar': ,
-//   'Course': ,
-//   'Update': ,
-// }
 
 export class Announcements extends Component {
   constructor(props) {
@@ -39,11 +31,24 @@ export class Announcements extends Component {
     if (annOp === 'Recent') {
       anns = anns.slice(0, 4).reverse();
     } else if (annOp === 'Webinar') {
-      anns = anns.filter(ann => ann.webinar)
+      anns = anns.filter(ann => ann.webinar);
     } else if (annOp === 'Course') {
-      anns = anns.filter(ann => ann.course)
+      anns = anns.filter(ann => ann.course);
     } else if (annOp === 'Other') {
-      anns = anns.filter(ann => !ann.course && !ann.webinar)
+      anns = anns.filter(ann => !ann.course && !ann.webinar);
+    } else if (annOp === 'All') {
+      let latestAnnsIdx = anns.length;
+      const today = new Date();
+      for (let i = 0; i < anns.length; i++) {
+        const annDate = new Date(anns[i].eventDate);
+        if (annDate < today) {
+          latestAnnsIdx = i;
+          break;
+        }
+      }
+      const latestAnns = anns.slice(0, latestAnnsIdx).reverse();
+      const remainingAnns = anns.slice(latestAnnsIdx).reverse();
+      anns = latestAnns.concat(remainingAnns);
     }
 
     return (
