@@ -7,9 +7,8 @@ import Tool from 'components/Tool';
 import Carousel from './Carousel';
 import Twitter from 'containers/Twitter';
 import Publication from 'containers/Publication';
-import Announcement from 'components/Announcement';
+import Announcements from 'containers/Announcements';
 import { loadPublications } from 'actions/pubsNews';
-import { loadAnnouncements } from 'actions/announcements';
 import { loadTools } from 'actions/toolsWorkflows';
 import { initialCategories as categories } from '../PublicationsView';
 import styles from './HomeView.scss';
@@ -31,7 +30,6 @@ export class HomeView extends Component {
   componentWillMount = () => {
     this.props.loadPublications();
     this.props.loadTools();
-    this.props.loadAnnouncements();
   }
 
   componentDidMount() {
@@ -55,7 +53,6 @@ export class HomeView extends Component {
   }
 
   render() {
-    const anns = this.props.announcements.slice(0, 4).reverse();
     const pubs = this.props.publications
       .filter(pub => !!pub.showAtHomeOrder)
       .sort((a, b) => {
@@ -238,27 +235,7 @@ export class HomeView extends Component {
             </div>
           </div>
         </div>
-
-        {/* Announcements
-          * ================================================================ */}
-        <div className={styles.ann}>
-          <div className="container">
-            <div className="row">
-              <div className={`col-xs-12 ${styles.section} ${styles['ann-section']}`}>
-                <h3 className={styles.title}>Announcements</h3>
-                <div className="row">
-                  {/* <Carousel> */}
-                  <div>
-                    {
-                      anns.map((ann, idx) => <Announcement key={idx} announcement={ann} />)
-                    }
-                  </div>
-                    {/* </Carousel> */}
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        <Announcements />
         {/* Twitter
           *================================================================= */}
         <div className={styles.tw}>
@@ -314,12 +291,9 @@ HomeView.propTypes = {
   publications: PropTypes.array,
   loadTools: PropTypes.func,
   tools: PropTypes.array,
-  loadAnnouncements: PropTypes.func,
-  announcements: PropTypes.array,
 };
 
 export default connect(mapStateToProps, {
   loadPublications,
   loadTools,
-  loadAnnouncements,
 })(HomeView);

@@ -401,50 +401,13 @@ $mid-gray: #eee;
   display: block;
 }
 
-.ann {
-  background-color: $light-gray;
-  border-bottom: 1px solid $gray;
-}
-
-.ann-section {
-  padding-bottom: 30px;
-  padding-top: 30px;
-}
-
 $twitter-blue: #eceeef;
 .tw {
+  padding-top: 30px;
   background-color: $twitter-blue;
   border-bottom: 1px solid $gray;
 }
 
-.card {
-  background-color: $white;
-  // border: 1px solid;
-  // border-color: $gray-border-top $gray-border-side $gray-border-bottom;
-  border-radius: .25rem;
-  min-height: 14rem; //usually 18rem
-
-  p,
-  a {
-    font-size: .9rem;
-  }
-}
-
-.card-title {
-  padding: 0.5rem;
-  // background-color: #283f62;
-  color: $white;
-  display: inline-block;
-  font-family: "Narrow", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
-  font-size: 0.8rem;
-  letter-spacing: 0.1rem;
-}
-
-.date {
-  font-size: 0.8rem;
-  font-weight: 900;
-  color: #989898;
-}
 
 .pubs-wrap {
   padding-bottom: 20px;
@@ -521,11 +484,6 @@ $twitter-blue: #eceeef;
   float: right;
   height: 150px;
   margin-left: 1rem;
-  max-width: 100%;
-  width: auto;
-}
-
-.logo {
   max-width: 100%;
   width: auto;
 }

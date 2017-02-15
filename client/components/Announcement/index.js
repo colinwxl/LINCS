@@ -45,10 +45,10 @@ export default function Announcement(props) {
           {headerText && headerText.toUpperCase()}
         </h5>
         <br />
+        <span className={styles.date}>
+          {eventDate && formatDate(eventDate)}
+        </span>
         <div className={styles.group}>
-          <span className={styles.date}>
-            {eventDate && formatDate(eventDate)}
-          </span>
           <p className={`clearfix ${styles.left}`}>
             <span className={styles.title}><strong>{title}</strong></span>
             <span className={styles.description}>
