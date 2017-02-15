@@ -5,11 +5,11 @@ import PageBanner from 'components/PageBanner';
 import PageNav from 'components/PageNav';
 import styles from './Overview.scss';
 // Images
-import neuroOutreachImg from './neuro_outreach.jpg';
-import sbdssImg from './SBDSS.jpg';
+// import neuroOutreachImg from './neuro_outreach.jpg';
+// import sbdssImg from './SBDSS.jpg';
 import dcicImg from './dcic.png';
 import summerInterns2016Img from 'static/files/summer_interns/dcic_ismms_summer-1.jpg';
-import youtubeImg from './youtube.png';
+// import youtubeImg from './youtube.png';
 import cmapImg from './cmap.png';
 
 import aacrLogo from 'static/files/aacr_logo.png';
@@ -476,7 +476,7 @@ export default class Overview extends Component {
 //           data-screen-name="BD2KLINCSDCIC"
 //         />
 //         {
-//           /* eslint-disable */
+          /* eslint-disable */
 //           // <![CDATA[
 //           !function (d, s, id) {
 //             var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https';
