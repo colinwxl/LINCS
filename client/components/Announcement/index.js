@@ -22,6 +22,7 @@ export default function Announcement(props) {
   let headerBack = '#e1447e';
   if (custom && custom.length > 0) {
     headerText = custom;
+    headerBack = '#38adc0';
   } else if (webinar) {
     headerText = 'Webinar';
     headerBack = '#007CBE';
