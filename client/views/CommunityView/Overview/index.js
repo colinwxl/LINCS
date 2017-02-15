@@ -50,6 +50,9 @@ export default class Overview extends Component {
               <h5>
                 Big Data Science with the BD2K-LINCS Data Coordination and Integration Center
               </h5>
+              <h5>
+                <strong>Next session of this course begins on Coursera February 20, 2017!</strong>
+              </h5>
               <div>
                 <a href="http://lincs-dcic.org/#/summer-research-app#nav">
                   <img
@@ -68,6 +71,31 @@ export default class Overview extends Component {
                   basic data processing and data normalization methods to
                   clean and harmonize LINCS data and other relevant data.&nbsp;
                   <a href="https://www.coursera.org/course/bd2klincs">Enroll Now</a>
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div className="row">
+            <div className="col-md-9">
+              <h2>Crowdsourcing Challenges</h2>
+              <h5>Connectivity Map Challenge</h5>
+              <div className="clearfix">
+                <p>
+                  <img
+                    className={styles['inline-img-left']}
+                    src={cmapImg}
+                    alt="cmap"
+                  />
+                  The <strong>LINCS Center for Transcriptomics</strong>, in partnership with the
+                  Crowd Innovation Lab at Harvard Business School, launched their first
+                  challenge, “Infer the Transcriptome”. Contestants were provided with a
+                  large dataset of ~100,000 gene expression profiles on which to train an
+                  inference model. Models were scored based on their accuracy in predicting
+                  gene expression values for non-landmark genes in a separate test dataset.
+                  The contest format was a 2-week marathon featuring a continuously updated
+                  leaderboard. To determine winners, each contestant’s best model was scored
+                  on its performance on a holdout dataset. <a href="https://community.topcoder.com/longcontest/stats/?module=ViewOverview&rd=16753" target="_blank">Leaderboard</a>
                 </p>
               </div>
             </div>
@@ -129,7 +157,8 @@ export default class Overview extends Component {
             </div>
           </div>
 
-          <div className="row">
+          {/*
+            <div className="row">
             <div className="col-md-9">
               <h2>Crowdsourcing Challenges</h2>
               <h5>Connectivity Map Challenge</h5>
@@ -164,7 +193,6 @@ export default class Overview extends Component {
               </div>
             </div>
           </div>
-
           <div className="row">
             <div className="col-md-9">
               <h2>LINCS Outreach Meeting 2016</h2>
@@ -198,7 +226,6 @@ export default class Overview extends Component {
               </div>
             </div>
           </div>
-
           <div className="row">
             <div className="col-md-9">
               <h2>Systems Biology Data Science Symposium 2016</h2>
@@ -228,7 +255,7 @@ export default class Overview extends Component {
               </div>
             </div>
           </div>
-
+          */}
           <div className="row">
             <div className="col-md-9">
               <h2>LINCS Data Science Research Webinars</h2>
@@ -263,80 +290,80 @@ export default class Overview extends Component {
               </p>
             </div>
           </div>
-
-          <div className="row">
-            <div className="col-md-9">
-              <h2>Social Media</h2>
-
-              <div className={styles.social}>
-                <a href="https://www.youtube.com/channel/UC88h_MIO1LP7Jv52VQ4qKkg">
-                  <img
-                    src={youtubeImg}
-                    alt="YouTube"
-                    title="BD2K-LINCS DCIC Youtube Channel"
-                    height="60"
-                  />
-                </a>
-
-                <div
-                  className="g-follow"
-                  data-annotation="bubble"
-                  data-height="20"
-                  data-href="https://plus.google.com/114413939991307460842"
-                  data-rel="author"
-                />
-                <div className={styles.twitter}>
-                  <iframe
-                    id="twitter-widget-0"
-                    scrolling="no"
-                    frameBorder="0"
-                    allowTransparency="true"
-                    className="twitter-follow-button twitter-follow-button-rendered"
-                    title="Twitter Follow Button"
-                    src="http://platform.twitter.com/widgets/follow_button.b9740740e0bcf9b0657c5b11bd4388da.en.html#dnt=false&amp;id=twitter-widget-0&amp;lang=en&amp;screen_name=BD2KLINCSDCIC&amp;show_count=false&amp;show_screen_name=true&amp;size=m&amp;time=1458571889834"
-                    data-screen-name="BD2KLINCSDCIC"
-                  />
-                  {
-                    /* eslint-disable */
-                    // <![CDATA[
-                    !function (d, s, id) {
-                      var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https';
-                      if (!d.getElementById(id)) {
-                        js = d.createElement(s);
-                        js.id = id;
-                        js.src = p + '://platform.twitter.com/widgets.js';
-                        fjs.parentNode.insertBefore(js, fjs);
-                      }
-                    }(document, 'script', 'twitter-wjs')
-                    // ]]&gt;
-                    /* eslint-enable */
-                  }
-                  <iframe
-                    id="twitter-widget-1"
-                    scrolling="no"
-                    frameBorder="0"
-                    allowTransparency="true"
-                    className="twitter-follow-button twitter-follow-button-rendered"
-                    title="Twitter Follow Button"
-                    src="http://platform.twitter.com/widgets/follow_button.b9740740e0bcf9b0657c5b11bd4388da.en.html#dnt=false&amp;id=twitter-widget-1&amp;lang=en&amp;screen_name=CMap_Broad&amp;show_count=false&amp;show_screen_name=true&amp;size=m&amp;time=1458571889836"
-                    data-screen-name="CMap_Broad"
-                  />
-                  <iframe
-                    id="twitter-widget-2"
-                    scrolling="no"
-                    frameBorder="0"
-                    allowTransparency="true"
-                    className="twitter-follow-button twitter-follow-button-rendered"
-                    title="Twitter Follow Button"
-                    src="http://platform.twitter.com/widgets/follow_button.b9740740e0bcf9b0657c5b11bd4388da.en.html#dnt=false&amp;id=twitter-widget-2&amp;lang=en&amp;screen_name=NeuroLINCS&amp;show_count=false&amp;show_screen_name=true&amp;size=m&amp;time=145857188987"
-                    data-screen-name="NeuroLINCS"
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     );
   }
 }
+
+// <div className="row">
+//   <div className="col-md-9">
+//     <h2>Social Media</h2>
+//
+//     <div className={styles.social}>
+//       <a href="https://www.youtube.com/channel/UC88h_MIO1LP7Jv52VQ4qKkg">
+//         <img
+//           src={youtubeImg}
+//           alt="YouTube"
+//           title="BD2K-LINCS DCIC Youtube Channel"
+//           height="60"
+//         />
+//       </a>
+//
+//       <div
+//         className="g-follow"
+//         data-annotation="bubble"
+//         data-height="20"
+//         data-href="https://plus.google.com/114413939991307460842"
+//         data-rel="author"
+//       />
+//       <div className={styles.twitter}>
+//         <iframe
+//           id="twitter-widget-0"
+//           scrolling="no"
+//           frameBorder="0"
+//           allowTransparency="true"
+//           className="twitter-follow-button twitter-follow-button-rendered"
+//           title="Twitter Follow Button"
+//           src="http://platform.twitter.com/widgets/follow_button.b9740740e0bcf9b0657c5b11bd4388da.en.html#dnt=false&amp;id=twitter-widget-0&amp;lang=en&amp;screen_name=BD2KLINCSDCIC&amp;show_count=false&amp;show_screen_name=true&amp;size=m&amp;time=1458571889834"
+//           data-screen-name="BD2KLINCSDCIC"
+//         />
+//         {
+//           /* eslint-disable */
+//           // <![CDATA[
+//           !function (d, s, id) {
+//             var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https';
+//             if (!d.getElementById(id)) {
+//               js = d.createElement(s);
+//               js.id = id;
+//               js.src = p + '://platform.twitter.com/widgets.js';
+//               fjs.parentNode.insertBefore(js, fjs);
+//             }
+//           }(document, 'script', 'twitter-wjs')
+//           // ]]&gt;
+//           /* eslint-enable */
+//         }
+//         <iframe
+//           id="twitter-widget-1"
+//           scrolling="no"
+//           frameBorder="0"
+//           allowTransparency="true"
+//           className="twitter-follow-button twitter-follow-button-rendered"
+//           title="Twitter Follow Button"
+//           src="http://platform.twitter.com/widgets/follow_button.b9740740e0bcf9b0657c5b11bd4388da.en.html#dnt=false&amp;id=twitter-widget-1&amp;lang=en&amp;screen_name=CMap_Broad&amp;show_count=false&amp;show_screen_name=true&amp;size=m&amp;time=1458571889836"
+//           data-screen-name="CMap_Broad"
+//         />
+//         <iframe
+//           id="twitter-widget-2"
+//           scrolling="no"
+//           frameBorder="0"
+//           allowTransparency="true"
+//           className="twitter-follow-button twitter-follow-button-rendered"
+//           title="Twitter Follow Button"
+//           src="http://platform.twitter.com/widgets/follow_button.b9740740e0bcf9b0657c5b11bd4388da.en.html#dnt=false&amp;id=twitter-widget-2&amp;lang=en&amp;screen_name=NeuroLINCS&amp;show_count=false&amp;show_screen_name=true&amp;size=m&amp;time=145857188987"
+//           data-screen-name="NeuroLINCS"
+//         />
+//       </div>
+//     </div>
+//   </div>
+// </div>
