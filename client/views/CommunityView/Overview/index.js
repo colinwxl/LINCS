@@ -18,11 +18,19 @@ import broadLogo from 'static/files/centers_logos/CMap.svg';
 import hmsLogo from 'static/files/centers_logos/hms-lincs.png';
 import mepLogo from 'static/files/centers_logos/mep-lincs-logo.png';
 
+import sorger from './presenter_images/sorger.png';
+import mills from './presenter_images/mills.png';
+import maayan from './presenter_images/maayan.png';
+import heiser from './presenter_images/heiser.png';
+import jaffe from './presenter_images/jaffe.png';
+import golub from './presenter_images/golub.png';
+
 const AACR = [
   {
     time: '5:00 - 5:15 PM',
     talkTitle: 'Introduction to the NIH LINCS Program',
     speaker: 'Peter K. Sorger',
+    speakerImg: sorger,
     centerLogo: hmsLogo,
     centerName: 'HMS LINCS',
     centerPath: 'LINCS/centers/data-and-signature-generating-centers/hms-lincs',
@@ -31,6 +39,7 @@ const AACR = [
     time: '5:15 - 5:30 PM',
     talkTitle: 'Navigating the global landscape of cellular fate with LINCS data',
     speaker: "Avi Ma'ayan",
+    speakerImg: maayan,
     centerLogo: dcicLogo,
     centerName: 'BD2K-LINCS DCIC',
     centerPath: 'LINCS/centers/dcic',
@@ -40,6 +49,7 @@ const AACR = [
     talkTitle: 'Mining LINCS drug-response databases to identify novel activities'
     + ' of investigational breast cancer therapeutics',
     speaker: 'Caitlin Mills',
+    speakerImg: mills,
     centerLogo: hmsLogo,
     centerName: 'HMS LINCS',
     centerPath: 'LINCS/centers/data-and-signature-generating-centers/hms-lincs',
@@ -48,6 +58,7 @@ const AACR = [
     time: '5:45 - 6:00 PM',
     talkTitle: 'The L1000 Platform and Next Generation Connectivity Map',
     speaker: 'Todd R. Golub',
+    speakerImg: golub,
     centerLogo: broadLogo,
     centerName: 'LINCS Transcriptomics',
     centerPath: 'LINCS/centers/data-and-signature-generating-centers/lincs-transcriptomics',
@@ -57,6 +68,7 @@ const AACR = [
     talkTitle: 'Systematic study of the influence of the microenvironment'
     + 'on cancer cell phenotypes: An overview of the MEP-LINCS center',
     speaker: 'Laura M. Heiser',
+    speakerImg: heiser,
     centerLogo: mepLogo,
     centerName: 'MEP-LINCS',
     centerPath: 'LINCS/centers/data-and-signature-generating-centers/mep-lincs',
@@ -66,6 +78,7 @@ const AACR = [
     talkTitle: 'Proteomic connectivity maps of chromatin and'
     + 'signaling for functional drug discovery',
     speaker: 'Jake Jaffe',
+    speakerImg: jaffe,
     centerLogo: broadLogo,
     centerName: 'LINCS Transcriptomics',
     centerPath: 'LINCS/centers/data-and-signature-generating-centers/lincs-transcriptomics',
@@ -183,9 +196,9 @@ export default class Overview extends Component {
                         <td>
                           <div className={styles['center-box']}>
                             <img
-                              src={pres.centerLogo}
-                              alt={pres.centerLogo}
-                              className={styles.centerLogo}
+                              src={pres.speakerImg}
+                              alt={pres.speakerImg}
+                              className={styles.presenterImage}
                             />
                             <i>{pres.speaker}</i>
                           </div>
@@ -196,7 +209,7 @@ export default class Overview extends Component {
                               <img
                                 src={pres.centerLogo}
                                 alt={pres.centerLogo}
-                                className={styles.presenterImage}
+                                className={styles.centerLogo}
                               />
                               <span className={styles.centerTitle}>{pres.centerName}</span>
                             </Link>
