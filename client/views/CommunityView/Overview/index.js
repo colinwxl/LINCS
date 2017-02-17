@@ -154,7 +154,7 @@ export class Overview extends Component {
               <div className={styles['ann-card']}>
                 <h6 className={styles['ann-group']}>CONFERENCE</h6>
                 <div className={styles['ann-content']}>
-                  <h2>AACR Annual Meeting 2017</h2>
+                  <h3>AACR Annual Meeting 2017</h3>
                   <h5>
                     <a
                       href="http://www.abstractsonline.com/pp8/#!/4292/session/901"
@@ -238,10 +238,9 @@ export class Overview extends Component {
               <div className={styles['ann-card']}>
                 <h6 className={styles['ann-group']}>MOOC ON COURSERA</h6>
                 <div className={styles['ann-content']}>
-                  <h2>Training in Big Data Science</h2>
-                  <h5>
+                  <h3>
                     Big Data Science with the BD2K-LINCS Data Coordination and Integration Center
-                  </h5>
+                  </h3>
                   <div>
                     <a href="http://lincs-dcic.org/#/summer-research-app#nav">
                       <img
@@ -298,57 +297,61 @@ export class Overview extends Component {
           */}
           <div className="row">
             <div className="col-md-9">
-              <br />
-              <h5>
-                BD2K-LINCS DCIC Summer Research Training Program in Biomedical Big Data Science
-              </h5>
-              <div className="clearfix">
-                <p>
-                  <img
-                    className={styles['inline-img-right']}
-                    src={summerInterns2016Img}
-                    alt="summer-interns"
-                    width="331"
-                    height="173"
-                  />
-                  We are currently accepting applications for the&nbsp;
-                  <a href="http://lincs-dcic.org/#/summer-research-app#nav" target="_blank">
-                    BD2K-LINCS DCIC Summer Research Training
-                    Program in Biomedical Big Data Science
-                  </a>
-                  ,  a research intensive ten-week training program for undergraduate and
-                  graduate students. The DCIC supports data science research focused on
-                  developing methods that would further extract knowledge from LINCS data
-                  by integrating LINCS data with other relevant resources. Summer fellows
-                  conduct faculty-mentored independent research projects
-                  within laboratories affiliated with the Center in the following areas: data
-                  integration, dynamic data visualization, machine learning, data harmonization,
-                  computational drug discovery, metadata and APIs, knowledge modeling, Bayesian
-                  networks and statistical mining.&nbsp;
-                  <a href="http://lincs-dcic.org/#/summer-research-app" target="_blank">
-                    How to Apply
-                  </a>
-                  <br />
-                </p>
-              </div>
-              <div className={styles['info-block']}>
-                <strong>
-                  Application Deadline: March 1, 2017 at 12 Midnight Eastern Time
-                </strong>
-                <br />
-                Program Dates: June 5, 2017 - August 11, 2017
-                <ul>
-                  <li>
-                    <a href="http://lincs-dcic.org/#/summer-fellows-2016" target="_blank">
-                      2016 BD2K-LINCS DCIC Summer Fellows and Research Projects
-                    </a>
-                  </li>
-                  <li>
-                    <a href="http://lincs-dcic.org/#/summer-fellows-2015#nav">
-                      2015 BD2K-LINCS DCIC Summer Fellows and Research Projects
-                    </a>
-                  </li>
-                </ul>
+              <div className={styles['ann-card']}>
+                <h6 className={styles['ann-group']}>TRAINING PROGRAM</h6>
+                <div className={styles['ann-content']}>
+                  <h3>
+                    BD2K-LINCS DCIC Summer Research Training Program in Biomedical Big Data Science
+                  </h3>
+                  <div className="clearfix">
+                    <p>
+                      <img
+                        className={styles['inline-img-left']}
+                        src={summerInterns2016Img}
+                        alt="summer-interns"
+                        width="331"
+                        height="173"
+                      />
+                      We are currently accepting applications for the&nbsp;
+                      <a href="http://lincs-dcic.org/#/summer-research-app#nav" target="_blank">
+                        BD2K-LINCS DCIC Summer Research Training
+                        Program in Biomedical Big Data Science
+                      </a>
+                      ,  a research intensive ten-week training program for undergraduate and
+                      graduate students. The DCIC supports data science research focused on
+                      developing methods that would further extract knowledge from LINCS data
+                      by integrating LINCS data with other relevant resources. Summer fellows
+                      conduct faculty-mentored independent research projects
+                      within laboratories affiliated with the Center in the following areas: data
+                      integration, dynamic data visualization, machine learning, data harmonization,
+                      computational drug discovery, metadata and APIs, knowledge modeling, Bayesian
+                      networks and statistical mining.&nbsp;
+                      <a href="http://lincs-dcic.org/#/summer-research-app" target="_blank">
+                        How to Apply
+                      </a>
+                      <br />
+                    </p>
+                  </div>
+                  <div className={styles['info-block']}>
+                    <strong>
+                      Application Deadline: March 1, 2017 at 12 Midnight Eastern Time
+                    </strong>
+                    <br />
+                    Program Dates: June 5, 2017 - August 11, 2017
+                    <ul>
+                      <li>
+                        <a href="http://lincs-dcic.org/#/summer-fellows-2016" target="_blank">
+                          2016 BD2K-LINCS DCIC Summer Fellows and Research Projects
+                        </a>
+                      </li>
+                      <li>
+                        <a href="http://lincs-dcic.org/#/summer-fellows-2015#nav">
+                          2015 BD2K-LINCS DCIC Summer Fellows and Research Projects
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -358,7 +361,7 @@ export class Overview extends Component {
               <div className={styles['ann-card']}>
                 <h6 className={styles['ann-group']}>LINCS Data Science Webinars</h6>
                 <div className={styles['ann-content']}>
-                  <h2>LINCS Data Science Research Webinars</h2>
+                  <h3>LINCS Data Science Research Webinars</h3>
                   <iframe
                     src="https://www.youtube.com/embed/videoseries?list=PL0Bwuj8819U-G9Ob0jIGHp5AtwpCghLV5"
                     frameBorder="0"
@@ -409,7 +412,10 @@ export class Overview extends Component {
                         <ul>
                             {latestWebinars.map((web, idx) => (
                               <li key={idx}>
-                                {formatDate(web.eventDate)}: {web.title}
+                                {formatDate(web.eventDate)}:&nbsp;
+                                <Link to="/community/webinars">
+                                  {web.title}
+                                </Link>
                                 {web.presenter ? ` (Speaker: ${web.presenter})` : null}
                               </li>
                             ))}
@@ -425,16 +431,46 @@ export class Overview extends Component {
           <div className="row">
             <div className="col-md-9">
               <div className={styles['ann-card']}>
-                <h6 className={styles['ann-group']}>CONFERENCE</h6>
+                <h6 className={styles['ann-group']}>BD2K-LINCS Data Science Symposium 2017</h6>
                 <div className={styles['ann-content']}>
-                  <h2>LINCS Data Science Research Webinars</h2>
-
+                  <h3>Systems Biology of Cellular Perturbations</h3>
+                  <p>
+                    The <a href="http://www.lincs-dcic.org" target="_blank">
+                    BD2K-LINCS Data Coordination and Integration Center
+                    (DCIC)</a> and the University of Cincinnati Medical Center
+                     will host the second annual&nbsp;
+                    <a href="https://sites.google.com/view/sbdss2017" target="_blank">
+                      BD2K-LINCS Data Science
+                    </a> Symposium (DSS 2017) on May 16-18, 2017.
+                  </p>
+                  <p>
+                    The symposium will bring together data scientists
+                    and translational scientists from academia, industry
+                    and government to discuss uses of big data in biomedicine.
+                    The general theme of the symposium is the systems biology
+                    of perturbation signatures and applications in drug
+                    development, translational biomedicine and environmental
+                    health. Talks will address a range of issues related to
+                    leveraging Big Data in translational research including
+                    FAIR data principles and the emerging NIH Big Data ecosystem.
+                    The program will also provide a survey of data science
+                    research pertaining to BD2K (Big Data to Knowledge) and
+                    LINCS (Library of Network-Based Cellular Signatures)
+                    consortia.
+                  </p>
+                  <p>
+                    The symposium will feature invited talks, poster session,
+                    and selected poster presentation sessions. Special session
+                    on Big Data in Environmental Health will be held in the
+                    afternoon of May 16. For the list of invited speakers please
+                    refer to the agenda. To participate, please register free
+                    of charge.
+                  </p>
 
                 </div>
               </div>
             </div>
           </div>
-
           {/*
             <div className="row">
             <div className="col-md-9">
