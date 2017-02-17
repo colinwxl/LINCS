@@ -11,10 +11,6 @@ const mapStateToProps = (state) => ({
 });
 
 export class Announcements extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   componentWillMount = () => {
     this.props.loadAnnouncements();
   }

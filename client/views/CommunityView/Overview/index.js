@@ -1,17 +1,19 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
+import { connect } from 'react-redux';
 import { Link } from 'react-router';
 import Collapsible from 'react-collapsible';
 
 import PageBanner from 'components/PageBanner';
 import PageNav from 'components/PageNav';
+import { loadAnnouncements } from 'actions/announcements';
 import styles from './Overview.scss';
 // Images
 // import neuroOutreachImg from './neuro_outreach.jpg';
 // import sbdssImg from './SBDSS.jpg';
 import dcicImg from './dcic.png';
 import summerInterns2016Img from 'static/files/summer_interns/dcic_ismms_summer-1.jpg';
-// import youtubeImg from './youtube.png';
 import aacrLogo from 'static/files/aacr_logo.png';
+// import youtubeImg from './youtube.png';
 // import cmapImg from './cmap.png';
 // import dcicLogo from 'static/files/centers_logos/DCIC.svg';
 // import broadLogo from 'static/files/centers_logos/CMap.svg';
@@ -85,13 +87,18 @@ const AACR = [
   },
 ];
 
-export default class Overview extends Component {
+const mapStateToProps = (state) => ({
+  announcements: state.announcements.announcements,
+});
+
+export class Overview extends Component {
   componentDidMount() {
     // Render the Google+ Follow Button
     // https://developers.google.com/+/web/follow/#javascript_api
     if (window && window.gapi) {
       window.gapi.follow.go(styles.wrapper);
     }
+    this.props.loadAnnouncements();
   }
 
   render() {
@@ -165,7 +172,7 @@ export default class Overview extends Component {
                   <Collapsible
                     trigger="Session Schedule ▸"
                     triggerWhenOpen="Session Schedule ▾"
-                    transitionTime="300"
+                    transitionTime={300}
                   >
                     <table className="table table-striped">
                       <thead>
@@ -324,6 +331,77 @@ export default class Overview extends Component {
             </div>
           </div>
 
+          <div className="row">
+            <div className="col-md-9">
+              <div className={styles['ann-card']}>
+                <h6 className={styles['ann-group']}>LINCS Data Science Webinars</h6>
+                <div className={styles['ann-content']}>
+                  <h2>LINCS Data Science Research Webinars</h2>
+                  <iframe
+                    src="https://www.youtube.com/embed/videoseries?list=PL0Bwuj8819U-G9Ob0jIGHp5AtwpCghLV5"
+                    frameBorder="0"
+                    allowFullScreen=""
+                    style={{ width: '16rem', height: '12rem' }}
+                    className={styles['inline-img-left']}
+                  />
+                  <div className={styles['info-block']}>
+                    <p>
+                      The LINCS Data Science Research Webinars serve as a general
+                      forum to engage data scientists within and outside of the
+                      LINCS project to work on problems related to
+                      LINCS data analysis and integration.&nbsp;
+                      <Link to="/community/webinars">Learn More</Link>
+                    </p>
+                    <br />
+                    <div>
+                      <h6>
+                        <strong>
+                          Webinars are held on select Tuesdays at 3:00 PM Eastern Time
+                        </strong>
+                      </h6>
+                      <div>
+                        How to Connect with GoToMeeting
+                        <ol className={styles.ol}>
+                          <li>
+                            Join from your computer, tablet, or smartphone by
+                            visiting&nbsp;
+                            <a href="https://global.gotomeeting.com/join/168894253" target="_blank">
+                              https://global.gotomeeting.com/join/168894253
+                            </a>
+                          </li>
+                          <li>
+                            Use your microphone and speakers (VOIP) for audio.
+                            You’ll sound best with a headset. You can also call
+                            in using your telephone: United States (Long distance)
+                            : +1 (312) 757-3121
+                          </li>
+                          <li>When prompted, enter access code 168-894-253</li>
+                          <li>
+                            You may need an audio PIN. If so,
+                            this will be shown after joining the session
+                          </li>
+                        </ol>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="row">
+            <div className="col-md-9">
+              <div className={styles['ann-card']}>
+                <h6 className={styles['ann-group']}>CONFERENCE</h6>
+                <div className={styles['ann-content']}>
+                  <h2>LINCS Data Science Research Webinars</h2>
+
+
+                </div>
+              </div>
+            </div>
+          </div>
+
           {/*
             <div className="row">
             <div className="col-md-9">
@@ -422,23 +500,6 @@ export default class Overview extends Component {
               </div>
             </div>
           </div>
-          */}
-          <div className="row">
-            <div className="col-md-9">
-              <h2>LINCS Data Science Research Webinars</h2>
-
-              <div className={styles['info-block']}>
-                <p>
-                  The LINCS Data Science Research Webinars serve as a general forum to engage data
-                  scientists within and outside of the LINCS project to work on problems related to
-                  LINCS data analysis and integration. <Link to="/community/webinars">Learn
-                  More</Link>
-                </p>
-              </div>
-            </div>
-          </div>
-
-          {/*
           <div className="row">
             <div className="col-md-9">
               <h2>LINCS Tutorials and Training Resources</h2>
@@ -463,6 +524,15 @@ export default class Overview extends Component {
     );
   }
 }
+
+Overview.propTypes = {
+  loadAnnouncements: PropTypes.func,
+  announcements: PropTypes.array,
+};
+
+export default connect(mapStateToProps, {
+  loadAnnouncements,
+})(Overview);
 
 // <div className="row">
 //   <div className="col-md-9">
