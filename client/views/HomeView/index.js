@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 
 import handleResponse from 'utils/handleResponse';
 import Tool from 'components/Tool';
-import Carousel from './Carousel';
+import Carousel from 'components/Carousel';
 import Twitter from 'containers/Twitter';
 import Publication from 'containers/Publication';
 import Announcements from 'containers/Announcements';
@@ -163,7 +163,7 @@ export class HomeView extends Component {
                   <div className={`col-xs-12 col-md-6 ${styles.am}`}>
                     <h3 className={styles.title}>2016 LINCS Consortium Meeting</h3>
                     <div className={styles.carousel}>
-                      <Carousel autoplay aps={5000}>
+                      <Carousel autoplay infinite aps={5000}>
                         {carouselImgs}
                       </Carousel>
                     </div>
