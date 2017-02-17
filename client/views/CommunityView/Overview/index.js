@@ -148,312 +148,313 @@ export class Overview extends Component {
                 courses, training seminars, challenges, workshops and symposia to foster
                 an active LINCS community.
               </p>
+              <br />
               <h5>Listed below are upcoming LINCS outreach activities</h5>
             </div>
+          </div>
 
-            <div className="row">
-              <div className="col-md-9 col-md-pull-3">
-                <div className={styles['ann-card']}>
-                  <h6 className={styles['ann-group']}>CONFERENCE</h6>
-                  <div className={styles['ann-content']}>
-                    <h3>AACR Annual Meeting 2017</h3>
-                    <h5>
-                      <a
-                        href="http://www.abstractsonline.com/pp8/#!/4292/session/901"
-                        target="_blank"
-                        style={{ textDecoration: 'none' }}
-                      >
-                        Special Session 17:
-                        Advancing Cancer Therapy Using Data from the NIH LINCS Program
-                      </a>
-                    </h5>
-                    <div>
-                      <img
-                        src={aacrLogo}
-                        alt="AACR Logo"
-                        style={{ width: '20rem' }}
-                        className={styles['inline-img-left']}
-                      />
-                      <h6><strong>Date:</strong> April 4, 2017, 5:00 - 6:30 PM</h6>
-                      <h6><strong>Location:</strong>
-                        &nbsp;Room 147, Level 1, Washington Convention Center, Washington, DC
-                      </h6>
-                    </div>
-                    <p>
-                      Cancer cells respond to small molecule drugs and components of
-                      the microenvironment in a complex, time-dependent manner that
-                      varies from one cell type to the next and, within a genetically
-                      homogenous population, from one cell to the next. This session
-                      highlights recent results from the NIH-funded Library of Network-Based
-                      Cellular Signatures (LINCS) program, which is assembling
-                      libraries of perturbagen-response signatures using high-throughput
-                      transcript and proteomic profiling, live and fixed-cell imaging and
-                      phenotypic assays. Ways of accessing and analyzing LINCS data,
-                      software and experimental protocols will be presented along with
-                      recent insights into oncogenic mechanisms and responses to therapeutic
-                      drugs derived from large-scale profiling studies.
-                    </p>
-                    <Collapsible
-                      trigger="Session Schedule ▸"
-                      triggerWhenOpen="Session Schedule ▾"
-                      transitionTime={300}
+          <div className="row">
+            <div className="col-md-9">
+              <div className={styles['ann-card']}>
+                <h6 className={styles['ann-group']}>CONFERENCE</h6>
+                <div className={styles['ann-content']}>
+                  <h3>AACR Annual Meeting 2017</h3>
+                  <h5>
+                    <a
+                      href="http://www.abstractsonline.com/pp8/#!/4292/session/901"
+                      target="_blank"
+                      style={{ textDecoration: 'none' }}
                     >
-                      <table className="table table-striped">
-                        <thead>
-                          <tr>
-                            <th style={{ width: '140px' }}>Time</th>
-                            <th>Title</th>
-                            <th style={{ textAlign: 'center' }}>Presenter</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          {
-                            AACR.map((pres, idx) => (
-                              <tr key={idx}>
-                                <td>{pres.time}</td>
-                                <td><strong>{pres.talkTitle}</strong></td>
-                                <td>
-                                  <div className={styles['center-box']}>
-                                    <img
-                                      src={pres.speakerImg}
-                                      alt={pres.speakerImg}
-                                      className={styles.presenterImage}
-                                    />
-                                    <i>{pres.speaker}</i>
-                                    <br />
-                                    <Link to={pres.centerPath} className={styles.link}>
-                                      {pres.centerName}
-                                    </Link>
-                                  </div>
-                                </td>
-                              </tr>
-                            ))
-                          }
-                        </tbody>
-                      </table>
-                    </Collapsible>
+                      Special Session 17:
+                      Advancing Cancer Therapy Using Data from the NIH LINCS Program
+                    </a>
+                  </h5>
+                  <div>
+                    <img
+                      src={aacrLogo}
+                      alt="AACR Logo"
+                      style={{ width: '20rem' }}
+                      className={styles['inline-img-left']}
+                    />
+                    <h6><strong>Date:</strong> April 4, 2017, 5:00 - 6:30 PM</h6>
+                    <h6><strong>Location:</strong>
+                      &nbsp;Room 147, Level 1, Washington Convention Center, Washington, DC
+                    </h6>
                   </div>
+                  <p>
+                    Cancer cells respond to small molecule drugs and components of
+                    the microenvironment in a complex, time-dependent manner that
+                    varies from one cell type to the next and, within a genetically
+                    homogenous population, from one cell to the next. This session
+                    highlights recent results from the NIH-funded Library of Network-Based
+                    Cellular Signatures (LINCS) program, which is assembling
+                    libraries of perturbagen-response signatures using high-throughput
+                    transcript and proteomic profiling, live and fixed-cell imaging and
+                    phenotypic assays. Ways of accessing and analyzing LINCS data,
+                    software and experimental protocols will be presented along with
+                    recent insights into oncogenic mechanisms and responses to therapeutic
+                    drugs derived from large-scale profiling studies.
+                  </p>
+                  <Collapsible
+                    trigger="Session Schedule ▸"
+                    triggerWhenOpen="Session Schedule ▾"
+                    transitionTime={300}
+                  >
+                    <table className="table table-striped">
+                      <thead>
+                        <tr>
+                          <th style={{ width: '140px' }}>Time</th>
+                          <th>Title</th>
+                          <th style={{ textAlign: 'center' }}>Presenter</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {
+                          AACR.map((pres, idx) => (
+                            <tr key={idx}>
+                              <td>{pres.time}</td>
+                              <td><strong>{pres.talkTitle}</strong></td>
+                              <td>
+                                <div className={styles['center-box']}>
+                                  <img
+                                    src={pres.speakerImg}
+                                    alt={pres.speakerImg}
+                                    className={styles.presenterImage}
+                                  />
+                                  <i>{pres.speaker}</i>
+                                  <br />
+                                  <Link to={pres.centerPath} className={styles.link}>
+                                    {pres.centerName}
+                                  </Link>
+                                </div>
+                              </td>
+                            </tr>
+                          ))
+                        }
+                      </tbody>
+                    </table>
+                  </Collapsible>
                 </div>
               </div>
             </div>
+          </div>
 
-            <div className="row">
-              <div className="col-md-9">
-                <div className={styles['ann-card']}>
-                  <h6 className={styles['ann-group']}>LINCS DATA SCIENCE WEBINAR</h6>
-                  <div className={styles['ann-content']}>
-                    <h3>LINCS Data Science Research Webinars</h3>
-                    <iframe
-                      src="https://www.youtube.com/embed/videoseries?list=PL0Bwuj8819U-G9Ob0jIGHp5AtwpCghLV5"
-                      frameBorder="0"
-                      allowFullScreen=""
-                      style={{ width: '16rem', height: '12rem' }}
-                      className={styles['inline-img-left']}
-                    />
-                    <div className={styles['info-block']}>
-                      <p>
-                        The LINCS Data Science Research Webinars serve as a general
-                        forum to engage data scientists within and outside of the
-                        LINCS project to work on problems related to
-                        LINCS data analysis and integration.&nbsp;
-                        <Link to="/community/webinars">Learn More</Link>
-                      </p>
-                      <br />
+          <div className="row">
+            <div className="col-md-9">
+              <div className={styles['ann-card']}>
+                <h6 className={styles['ann-group']}>LINCS DATA SCIENCE WEBINAR</h6>
+                <div className={styles['ann-content']}>
+                  <h3>LINCS Data Science Research Webinars</h3>
+                  <iframe
+                    src="https://www.youtube.com/embed/videoseries?list=PL0Bwuj8819U-G9Ob0jIGHp5AtwpCghLV5"
+                    frameBorder="0"
+                    allowFullScreen=""
+                    style={{ width: '16rem', height: '12rem' }}
+                    className={styles['inline-img-left']}
+                  />
+                  <div className={styles['info-block']}>
+                    <p>
+                      The LINCS Data Science Research Webinars serve as a general
+                      forum to engage data scientists within and outside of the
+                      LINCS project to work on problems related to
+                      LINCS data analysis and integration.&nbsp;
+                      <Link to="/community/webinars">Learn More</Link>
+                    </p>
+                    <br />
+                    <div>
+                      <h6>
+                        <strong>
+                          Webinars are held on select Tuesdays at 3:00 PM Eastern Time
+                        </strong>
+                      </h6>
                       <div>
-                        <h6>
-                          <strong>
-                            Webinars are held on select Tuesdays at 3:00 PM Eastern Time
-                          </strong>
-                        </h6>
-                        <div>
-                          How to Connect with GoToMeeting
-                          <ul className={styles.ol}>
-                            <li>
-                              <b>1.</b> Join from your computer, tablet, or smartphone by
-                              visiting&nbsp;
-                              <a href="https://global.gotomeeting.com/join/168894253" target="_blank">
-                                https://global.gotomeeting.com/join/168894253
-                              </a>
-                            </li>
-                            <li>
-                              <b>2.</b>Use your microphone and speakers (VOIP) for audio.
-                              You’ll sound best with a headset. You can also call
-                              in using your telephone: United States (Long distance)
-                              : +1 (312) 757-3121
-                            </li>
-                            <li><b>3.</b>When prompted, enter access code 168-894-253</li>
-                            <li>
-                              <b>4.</b>You may need an audio PIN. If so,
-                              this will be shown after joining the session
-                            </li>
-                          </ul>
-                        </div>
-                        <div>
-                          <strong>Upcoming Webinars</strong>
-                          <ul>
-                              {latestWebinars.map((web, idx) => (
-                                <li key={idx}>
-                                  {formatDate(web.eventDate)}:&nbsp;
-                                  <Link to="/community/webinars">
-                                    {web.title}
-                                  </Link>
-                                  {web.presenter ? ` (Speaker: ${web.presenter})` : null}
-                                </li>
-                              ))}
-                          </ul>
-                        </div>
+                        How to Connect with GoToMeeting
+                        <ul className={styles.ol}>
+                          <li>
+                            <b>1.</b> Join from your computer, tablet, or smartphone by
+                            visiting&nbsp;
+                            <a href="https://global.gotomeeting.com/join/168894253" target="_blank">
+                              https://global.gotomeeting.com/join/168894253
+                            </a>
+                          </li>
+                          <li>
+                            <b>2.</b>Use your microphone and speakers (VOIP) for audio.
+                            You’ll sound best with a headset. You can also call
+                            in using your telephone: United States (Long distance)
+                            : +1 (312) 757-3121
+                          </li>
+                          <li><b>3.</b>When prompted, enter access code 168-894-253</li>
+                          <li>
+                            <b>4.</b>You may need an audio PIN. If so,
+                            this will be shown after joining the session
+                          </li>
+                        </ul>
+                      </div>
+                      <div>
+                        <strong>Upcoming Webinars</strong>
+                        <ul>
+                            {latestWebinars.map((web, idx) => (
+                              <li key={idx}>
+                                {formatDate(web.eventDate)}:&nbsp;
+                                <Link to="/community/webinars">
+                                  {web.title}
+                                </Link>
+                                {web.presenter ? ` (Speaker: ${web.presenter})` : null}
+                              </li>
+                            ))}
+                        </ul>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
+          </div>
 
-            <div className="row">
-              <div className="col-md-9">
-                <div className={styles['ann-card']}>
-                  <h6 className={styles['ann-group']}>SYMPOSIA</h6>
-                  <div className={styles['ann-content']}>
-                    <h3>BD2K-LINCS Data Science Symposium 2017</h3>
-                    <h4>Systems Biology of Cellular Perturbations</h4>
+          <div className="row">
+            <div className="col-md-9">
+              <div className={styles['ann-card']}>
+                <h6 className={styles['ann-group']}>SYMPOSIA</h6>
+                <div className={styles['ann-content']}>
+                  <h3>BD2K-LINCS Data Science Symposium 2017</h3>
+                  <h4>Systems Biology of Cellular Perturbations</h4>
+                  <p>
+                    <img
+                      className={styles['inline-img-left']}
+                      src={sbdssImg}
+                      alt="SBDSS"
+                      width="350"
+                    />
+                    The <a href="http://www.lincs-dcic.org" target="_blank">
+                    BD2K-LINCS Data Coordination and Integration Center
+                    (DCIC)</a> and the University of Cincinnati Medical Center
+                     will host the second annual&nbsp;
+                    <a href="https://sites.google.com/view/sbdss2017" target="_blank">
+                      BD2K-LINCS Data Science
+                    </a> Symposium (DSS 2017) on May 16-18, 2017.
+                  </p>
+                  <p>
+                    The symposium will bring together data scientists
+                    and translational scientists from academia, industry
+                    and government to discuss uses of big data in biomedicine.
+                    The general theme of the symposium is the systems biology
+                    of perturbation signatures and applications in drug
+                    development, translational biomedicine and environmental
+                    health. Talks will address a range of issues related to
+                    leveraging Big Data in translational research including
+                    FAIR data principles and the emerging NIH Big Data ecosystem.
+                    The program will also provide a survey of data science
+                    research pertaining to BD2K (Big Data to Knowledge) and
+                    LINCS (Library of Network-Based Cellular Signatures)
+                    consortia.
+                  </p>
+                  <p>
+                    The symposium will feature invited talks, poster session,
+                    and selected poster presentation sessions. Special session
+                    on Big Data in Environmental Health will be held in the
+                    afternoon of May 16. For the list of invited speakers please
+                    refer to the agenda. To participate, please register free
+                    of charge.
+                  </p>
+
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="row">
+            <div className="col-md-9">
+              <div className={styles['ann-card']}>
+                <h6 className={styles['ann-group']}>TRAINING PROGRAM</h6>
+                <div className={styles['ann-content']}>
+                  <h3>
+                    BD2K-LINCS DCIC Summer Research Training Program
+                    in Biomedical Big Data Science
+                  </h3>
+                  <div className="clearfix">
                     <p>
                       <img
                         className={styles['inline-img-left']}
-                        src={sbdssImg}
-                        alt="SBDSS"
-                        width="350"
+                        src={summerInterns2016Img}
+                        alt="summer-interns"
+                        width="331"
+                        height="173"
                       />
-                      The <a href="http://www.lincs-dcic.org" target="_blank">
-                      BD2K-LINCS Data Coordination and Integration Center
-                      (DCIC)</a> and the University of Cincinnati Medical Center
-                       will host the second annual&nbsp;
-                      <a href="https://sites.google.com/view/sbdss2017" target="_blank">
-                        BD2K-LINCS Data Science
-                      </a> Symposium (DSS 2017) on May 16-18, 2017.
-                    </p>
-                    <p>
-                      The symposium will bring together data scientists
-                      and translational scientists from academia, industry
-                      and government to discuss uses of big data in biomedicine.
-                      The general theme of the symposium is the systems biology
-                      of perturbation signatures and applications in drug
-                      development, translational biomedicine and environmental
-                      health. Talks will address a range of issues related to
-                      leveraging Big Data in translational research including
-                      FAIR data principles and the emerging NIH Big Data ecosystem.
-                      The program will also provide a survey of data science
-                      research pertaining to BD2K (Big Data to Knowledge) and
-                      LINCS (Library of Network-Based Cellular Signatures)
-                      consortia.
-                    </p>
-                    <p>
-                      The symposium will feature invited talks, poster session,
-                      and selected poster presentation sessions. Special session
-                      on Big Data in Environmental Health will be held in the
-                      afternoon of May 16. For the list of invited speakers please
-                      refer to the agenda. To participate, please register free
-                      of charge.
-                    </p>
-
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div className="row">
-              <div className="col-md-9">
-                <div className={styles['ann-card']}>
-                  <h6 className={styles['ann-group']}>TRAINING PROGRAM</h6>
-                  <div className={styles['ann-content']}>
-                    <h3>
-                      BD2K-LINCS DCIC Summer Research Training Program
-                      in Biomedical Big Data Science
-                    </h3>
-                    <div className="clearfix">
-                      <p>
-                        <img
-                          className={styles['inline-img-left']}
-                          src={summerInterns2016Img}
-                          alt="summer-interns"
-                          width="331"
-                          height="173"
-                        />
-                        We are currently accepting applications for the&nbsp;
-                        <a href="http://lincs-dcic.org/#/summer-research-app#nav" target="_blank">
-                          BD2K-LINCS DCIC Summer Research Training
-                          Program in Biomedical Big Data Science
-                        </a>
-                        ,  a research intensive ten-week training program for undergraduate and
-                        graduate students. The DCIC supports data science research focused on
-                        developing methods that would further extract knowledge from LINCS data
-                        by integrating LINCS data with other relevant resources. Summer fellows
-                        conduct faculty-mentored independent research projects
-                        within laboratories affiliated with the Center in the following areas:
-                        data integration, dynamic data visualization, machine learning, data
-                        harmonization, computational drug discovery, metadata and APIs,
-                        knowledge modeling, Bayesian networks and statistical mining.&nbsp;
-                        <a href="http://lincs-dcic.org/#/summer-research-app" target="_blank">
-                          How to Apply
-                        </a>
-                        <br />
-                      </p>
-                    </div>
-                    <div className={styles['info-block']}>
-                      <strong>
-                        Application Deadline: March 1, 2017 at 12 Midnight Eastern Time
-                      </strong>
-                      <br />
-                      Program Dates: June 5, 2017 - August 11, 2017
-                      <ul>
-                        <li>
-                          <a href="http://lincs-dcic.org/#/summer-fellows-2016" target="_blank">
-                            2016 BD2K-LINCS DCIC Summer Fellows and Research Projects
-                          </a>
-                        </li>
-                        <li>
-                          <a href="http://lincs-dcic.org/#/summer-fellows-2015#nav">
-                            2015 BD2K-LINCS DCIC Summer Fellows and Research Projects
-                          </a>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div className="row">
-              <div className="col-md-9">
-                <div className={styles['ann-card']}>
-                  <h6 className={styles['ann-group']}>MOOC ON COURSERA</h6>
-                  <div className={styles['ann-content']}>
-                    <h3>
-                      Big Data Science with the BD2K-LINCS Data Coordination and Integration Center
-                    </h3>
-                    <div>
-                      <a href="http://lincs-dcic.org/#/summer-research-app#nav">
-                        <img
-                          className={styles['inline-img-left']}
-                          src={dcicImg}
-                          alt="dcic"
-                          width="231"
-                          height="173"
-                        />
+                      We are currently accepting applications for the&nbsp;
+                      <a href="http://lincs-dcic.org/#/summer-research-app#nav" target="_blank">
+                        BD2K-LINCS DCIC Summer Research Training
+                        Program in Biomedical Big Data Science
                       </a>
-                      <h6><strong>
-                        Next session of this course begins on Coursera February 20, 2017!
-                      </strong></h6>
-                    </div>
-                    <p>
-                      This course covers various methods of analysis including:
-                      unsupervised clustering, gene-set enrichment analyses,
-                      data visualization, and supervised machine learning
-                      applications to LINCS data. This course also covers
-                      basic data processing and data normalization methods to
-                      clean and harmonize LINCS data and other relevant data.&nbsp;
-                      <a href="https://www.coursera.org/course/bd2klincs">Enroll Now</a>
+                      ,  a research intensive ten-week training program for undergraduate and
+                      graduate students. The DCIC supports data science research focused on
+                      developing methods that would further extract knowledge from LINCS data
+                      by integrating LINCS data with other relevant resources. Summer fellows
+                      conduct faculty-mentored independent research projects
+                      within laboratories affiliated with the Center in the following areas:
+                      data integration, dynamic data visualization, machine learning, data
+                      harmonization, computational drug discovery, metadata and APIs,
+                      knowledge modeling, Bayesian networks and statistical mining.&nbsp;
+                      <a href="http://lincs-dcic.org/#/summer-research-app" target="_blank">
+                        How to Apply
+                      </a>
+                      <br />
                     </p>
                   </div>
+                  <div className={styles['info-block']}>
+                    <strong>
+                      Application Deadline: March 1, 2017 at 12 Midnight Eastern Time
+                    </strong>
+                    <br />
+                    Program Dates: June 5, 2017 - August 11, 2017
+                    <ul>
+                      <li>
+                        <a href="http://lincs-dcic.org/#/summer-fellows-2016" target="_blank">
+                          2016 BD2K-LINCS DCIC Summer Fellows and Research Projects
+                        </a>
+                      </li>
+                      <li>
+                        <a href="http://lincs-dcic.org/#/summer-fellows-2015#nav">
+                          2015 BD2K-LINCS DCIC Summer Fellows and Research Projects
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="row">
+            <div className="col-md-9">
+              <div className={styles['ann-card']}>
+                <h6 className={styles['ann-group']}>MOOC ON COURSERA</h6>
+                <div className={styles['ann-content']}>
+                  <h3>
+                    Big Data Science with the BD2K-LINCS Data Coordination and Integration Center
+                  </h3>
+                  <div>
+                    <a href="http://lincs-dcic.org/#/summer-research-app#nav">
+                      <img
+                        className={styles['inline-img-left']}
+                        src={dcicImg}
+                        alt="dcic"
+                        width="231"
+                        height="173"
+                      />
+                    </a>
+                    <h6><strong>
+                      Next session of this course begins on Coursera February 20, 2017!
+                    </strong></h6>
+                  </div>
+                  <p>
+                    This course covers various methods of analysis including:
+                    unsupervised clustering, gene-set enrichment analyses,
+                    data visualization, and supervised machine learning
+                    applications to LINCS data. This course also covers
+                    basic data processing and data normalization methods to
+                    clean and harmonize LINCS data and other relevant data.&nbsp;
+                    <a href="https://www.coursera.org/course/bd2klincs">Enroll Now</a>
+                  </p>
                 </div>
               </div>
             </div>
