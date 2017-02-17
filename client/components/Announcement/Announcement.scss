@@ -3,7 +3,7 @@
 .card {
   background-color: $white;
   border-radius: .25rem;
-  height: 16.5rem; //usually 18rem
+  height: 14.5rem; //usually 18rem
   min-width: 10rem; //usually 18rem
   margin-bottom: 1rem;
   overflow: hidden;
@@ -13,11 +13,11 @@
   a {
     font-size: .9rem;
   }
-  @media (max-width: 1200px) {
-    height: 17.5rem; //usually 18rem
-  }
-  @media (max-width: 991px) {
-    height: 21.5rem; //usually 18rem
+  // @media (max-width: 1200px) {
+  //   height: 13.5rem; //usually 18rem
+  // }
+  @media (min-width: 991px) {
+    height: 12.5rem; //usually 18rem
   }
 }
 
