@@ -18,19 +18,19 @@ export default class Announcement extends Component {
     } = ann;
 
     let headerText;
-    let headerBack = '#e1447e';
+    let headerBack = '#0a817f';
     if (custom && custom.length > 0) {
       headerText = custom;
-      headerBack = '#38adc0';
+      headerBack = '#2b3d62';
     } else if (webinar) {
       headerText = 'LINCS Data Science Webinar';
-      headerBack = '#007CBE';
+      headerBack = '#f49e4c';
     } else if (course) {
       headerText = 'MOOC on Coursera';
-      headerBack = '#283f62';
+      headerBack = '#942e02';
     } else if (trainingProgram) {
       headerText = 'Training Program';
-      headerBack = '#058488';
+      headerBack = '#6a9ccd';
     } else {
       headerText = 'Update';
     }
