@@ -1,76 +1,91 @@
-import React, { PropTypes } from 'react';
+import React, { Component, PropTypes } from 'react';
 import styles from './Announcement.scss';
 import formatDate from 'utils/formatDate';
 
-export default function Announcement(props) {
-  const ann = props.announcement;
-  const {
-    title,
-    description,
-    presenter,
-    eDsr,
-    webinar,
-    course,
-    trainingProgram,
-    custom,
-    eventDate,
-    link,
-    linkText,
-  } = ann;
+export default class Announcement extends Component {
+  renderCard = () => {
+    const ann = this.props.announcement;
+    const {
+      title,
+      description,
+      // presenter,
+      eDsr,
+      webinar,
+      course,
+      trainingProgram,
+      custom,
+      eventDate,
+    } = ann;
 
-  let headerText;
-  let headerBack = '#e1447e';
-  if (custom && custom.length > 0) {
-    headerText = custom;
-    headerBack = '#38adc0';
-  } else if (webinar) {
-    headerText = 'Webinar';
-    headerBack = '#007CBE';
-  } else if (course) {
-    headerText = 'Course';
-    headerBack = '#283f62';
-  } else if (trainingProgram) {
-    headerText = 'Training Program';
-    headerBack = '#058488';
-  } else {
-    headerText = 'Update';
-  }
+    let headerText;
+    let headerBack = '#e1447e';
+    if (custom && custom.length > 0) {
+      headerText = custom;
+      headerBack = '#38adc0';
+    } else if (webinar) {
+      headerText = 'LINCS Data Science Webinar';
+      headerBack = '#007CBE';
+    } else if (course) {
+      headerText = 'MOOC on Coursera';
+      headerBack = '#283f62';
+    } else if (trainingProgram) {
+      headerText = 'Training Program';
+      headerBack = '#058488';
+    } else {
+      headerText = 'Update';
+    }
 
-  return (
-    <div className="col-xs-12 col-md-3">
+    return (
       <div className={styles.card}>
-        <h5
-          className={styles['card-title']}
-          style={{ backgroundColor: headerBack }}
-        >
-          {headerText && headerText.toUpperCase()}
-        </h5>
-        <br />
-        <span className={styles.date}>
-          {eventDate && formatDate(eventDate)}
+        <span className={styles.headerWrapper} style={{ backgroundColor: headerBack }}>
+          <h5
+            className={styles['card-title']}
+          >
+            {headerText && headerText.toUpperCase()}
+          </h5>
         </span>
-        <div className={styles.group}>
-          <p className={`clearfix ${styles.left}`}>
-            <span className={styles.title}><strong>{title}</strong></span>
-            <span className={styles.description}>
-              {description}
-            </span>
-            <span>
-              {presenter}
-              {
-                (eDsr)
-                  ? <span>&nbsp;<a href="http://lincs-dcic.org/#/external-dsrp#nav" target="_blank">DCIC eDSR</a></span>
-                  : null
-              }
-            </span>
-          </p>
-          <a href={link} target="_blank">
-            {linkText}
-          </a>
+        <div className={styles['inner-wrap']}>
+          <span className={styles.date}>
+            {eventDate && formatDate(eventDate)}
+          </span>
+          <div className={styles.group}>
+            <p className={`clearfix ${styles.left}`}>
+              <span className={styles.title}><strong>{title}</strong></span>
+              <span className={styles.description}>
+                {description}
+              </span>
+              <span>
+                {/* presenter */}
+                {
+                  (eDsr)
+                    ? <span>&nbsp;<a href="http://lincs-dcic.org/#/external-dsrp#nav" target="_blank">DCIC eDSR</a></span>
+                    : null
+                }
+              </span>
+            </p>
+          </div>
         </div>
       </div>
-    </div>
-  );
+    );
+  }
+
+  render() {
+    const link = this.props.announcement.link;
+    if (link) {
+      return (
+        <div className="col-xs-12 col-md-3">
+          <a href={link} style={{ textDecoration: 'none' }}>
+            {this.renderCard()}
+          </a>
+        </div>
+      );
+    }
+    return (
+      <div className="col-xs-12 col-md-3">
+        {this.renderCard()}
+      </div>
+    );
+  }
 }
 
 Announcement.propTypes = {

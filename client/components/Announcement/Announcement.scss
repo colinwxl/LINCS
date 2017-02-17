@@ -21,13 +21,22 @@
   }
 }
 
+.headerWrapper {
+  display: block;
+}
+
 .card-title {
   padding: 0.5rem;
+  padding-bottom: 0;
   color: $white;
   display: inline-block;
   font-family: "Narrow", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
   font-size: 0.8rem;
   letter-spacing: 0.1rem;
+}
+
+.inner-wrap {
+  margin-top: 1rem;
 }
 
 .date {
