@@ -5,6 +5,7 @@ import Collapsible from 'react-collapsible';
 
 import PageBanner from 'components/PageBanner';
 import PageNav from 'components/PageNav';
+import formatDate from 'utils/formatDate';
 import { loadAnnouncements } from 'actions/announcements';
 import styles from './Overview.scss';
 // Images
@@ -101,7 +102,28 @@ export class Overview extends Component {
     this.props.loadAnnouncements();
   }
 
+  latestSort(anns) {
+    let latestAnnsIdx = anns.length;
+    const today = new Date();
+    for (let i = 0; i < anns.length; i++) {
+      const annDate = new Date(anns[i].eventDate);
+      if (annDate < today) {
+        latestAnnsIdx = i;
+        break;
+      }
+    }
+    const latestAnns = anns.slice(0, latestAnnsIdx).reverse();
+    const remainingAnns = anns.slice(latestAnnsIdx).reverse();
+    return latestAnns.concat(remainingAnns);
+  }
+
+  findWebinars(anns) {
+    return anns.filter(ann => ann.webinar);
+  }
+
   render() {
+    const webinars = this.findWebinars(this.props.announcements);
+    const latestWebinars = this.latestSort(webinars).slice(0, 2);
     return (
       <div className={styles.wrapper}>
         <PageBanner
@@ -177,7 +199,7 @@ export class Overview extends Component {
                     <table className="table table-striped">
                       <thead>
                         <tr>
-                          <th style={{ width: '140' }}>Time</th>
+                          <th style={{ width: '140px' }}>Time</th>
                           <th>Title</th>
                           <th style={{ textAlign: 'center' }}>Presenter</th>
                         </tr>
@@ -361,26 +383,37 @@ export class Overview extends Component {
                       </h6>
                       <div>
                         How to Connect with GoToMeeting
-                        <ol className={styles.ol}>
+                        <ul className={styles.ol}>
                           <li>
-                            Join from your computer, tablet, or smartphone by
+                            <b>1.</b> Join from your computer, tablet, or smartphone by
                             visiting&nbsp;
                             <a href="https://global.gotomeeting.com/join/168894253" target="_blank">
                               https://global.gotomeeting.com/join/168894253
                             </a>
                           </li>
                           <li>
-                            Use your microphone and speakers (VOIP) for audio.
+                            <b>2.</b>Use your microphone and speakers (VOIP) for audio.
                             You’ll sound best with a headset. You can also call
                             in using your telephone: United States (Long distance)
                             : +1 (312) 757-3121
                           </li>
-                          <li>When prompted, enter access code 168-894-253</li>
+                          <li><b>3.</b>When prompted, enter access code 168-894-253</li>
                           <li>
-                            You may need an audio PIN. If so,
+                            <b>4.</b>You may need an audio PIN. If so,
                             this will be shown after joining the session
                           </li>
-                        </ol>
+                        </ul>
+                      </div>
+                      <div>
+                        <strong>Upcoming Webinars</strong>
+                        <ul>
+                            {latestWebinars.map((web, idx) => (
+                              <li key={idx}>
+                                {formatDate(web.eventDate)}: {web.title}
+                                {web.presenter ? ` (Speaker: ${web.presenter})` : null}
+                              </li>
+                            ))}
+                        </ul>
                       </div>
                     </div>
                   </div>
