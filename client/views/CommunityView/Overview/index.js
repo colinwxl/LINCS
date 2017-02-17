@@ -122,123 +122,121 @@ export default class Overview extends Component {
               <h5>Listed below are upcoming LINCS outreach activities</h5>
             </div>
             <div className="col-md-9 col-md-pull-3">
-              <h2>AACR Annual Meeting 2017</h2>
-              <h5>
-                <a
-                  href="http://www.abstractsonline.com/pp8/#!/4292/session/901"
-                  target="_blank"
-                  style={{ textDecoration: 'none' }}
-                >
-                  Special Session 17: Advancing Cancer Therapy Using Data from the NIH LINCS Program
-                </a>
-              </h5>
-              <h6><strong>Date:</strong> April 4, 2017, 5:00 - 6:30 PM</h6>
-              <h6><strong>Location:</strong>
-                &nbsp;Room 147, Level 1, Washington Convention Center, Washington, DC
-              </h6>
-              <br />
-              <img
-                src={aacrLogo}
-                alt="AACR Logo"
-                style={{ width: '20rem' }}
-                className={styles['inline-img-right']}
-              />
-              <p>
-                Cancer cells respond to small molecule drugs and components of
-                the microenvironment in a complex, time-dependent manner that
-                varies from one cell type to the next and, within a genetically
-                homogenous population, from one cell to the next. This session
-                highlights recent results from the NIH-funded Library of Network-Based
-                Cellular Signatures (LINCS) program, which is assembling
-                libraries of perturbagen-response signatures using high-throughput
-                transcript and proteomic profiling, live and fixed-cell imaging and
-                phenotypic assays. Ways of accessing and analyzing LINCS data,
-                software and experimental protocols will be presented along with
-                recent insights into oncogenic mechanisms and responses to therapeutic
-                drugs derived from large-scale profiling studies.
-              </p>
-              <Collapsible
-                trigger="Schedule ▸"
-                triggerWhenOpen="Schedule ▾"
-                transitionTime="300"
-              >
-                <table className="table table-striped">
-                  <thead>
-                    <tr>
-                      <th style={{ width: '140' }}>Time</th>
-                      <th>Title</th>
-                      <th style={{ textAlign: 'center' }}>Presenter</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {
-                      AACR.map((pres, idx) => (
-                        <tr key={idx}>
-                          <td>{pres.time}</td>
-                          <td><strong>{pres.talkTitle}</strong></td>
-                          <td>
-                            <div className={styles['center-box']}>
-                              <img
-                                src={pres.speakerImg}
-                                alt={pres.speakerImg}
-                                className={styles.presenterImage}
-                              />
-                              <i>{pres.speaker}</i>
-                              <br />
-                              <Link to={pres.centerPath} className={styles.link}>
-                                {pres.centerName}
-                              </Link>
-                            </div>
-                          </td>
-                          {/*
-                            <td>
-                            <div className={styles['center-box']}>
-                              <Link to={pres.centerPath} className={styles.link}>
-                                <img
-                                  src={pres.centerLogo}
-                                  alt={pres.centerLogo}
-                                  className={styles.centerLogo}
-                                />
-                                <span className={styles.centerTitle}>{pres.centerName}</span>
-                              </Link>
-                            </div>
-                          </td>
-                          */}
+              <div className={styles['ann-card']}>
+                <h6 className={styles['ann-group']}>CONFERENCE</h6>
+                <div className={styles['ann-content']}>
+                  <h2>AACR Annual Meeting 2017</h2>
+                  <h5>
+                    <a
+                      href="http://www.abstractsonline.com/pp8/#!/4292/session/901"
+                      target="_blank"
+                      style={{ textDecoration: 'none' }}
+                    >
+                      Special Session 17:
+                      Advancing Cancer Therapy Using Data from the NIH LINCS Program
+                    </a>
+                  </h5>
+                  <div>
+                    <img
+                      src={aacrLogo}
+                      alt="AACR Logo"
+                      style={{ width: '20rem' }}
+                      className={styles['inline-img-left']}
+                    />
+                    <h6><strong>Date:</strong> April 4, 2017, 5:00 - 6:30 PM</h6>
+                    <h6><strong>Location:</strong>
+                      &nbsp;Room 147, Level 1, Washington Convention Center, Washington, DC
+                    </h6>
+                  </div>
+                  <p>
+                    Cancer cells respond to small molecule drugs and components of
+                    the microenvironment in a complex, time-dependent manner that
+                    varies from one cell type to the next and, within a genetically
+                    homogenous population, from one cell to the next. This session
+                    highlights recent results from the NIH-funded Library of Network-Based
+                    Cellular Signatures (LINCS) program, which is assembling
+                    libraries of perturbagen-response signatures using high-throughput
+                    transcript and proteomic profiling, live and fixed-cell imaging and
+                    phenotypic assays. Ways of accessing and analyzing LINCS data,
+                    software and experimental protocols will be presented along with
+                    recent insights into oncogenic mechanisms and responses to therapeutic
+                    drugs derived from large-scale profiling studies.
+                  </p>
+                  <Collapsible
+                    trigger="Session Schedule ▸"
+                    triggerWhenOpen="Session Schedule ▾"
+                    transitionTime="300"
+                  >
+                    <table className="table table-striped">
+                      <thead>
+                        <tr>
+                          <th style={{ width: '140' }}>Time</th>
+                          <th>Title</th>
+                          <th style={{ textAlign: 'center' }}>Presenter</th>
                         </tr>
-                      ))
-                    }
-                  </tbody>
-                </table>
-              </Collapsible>
+                      </thead>
+                      <tbody>
+                        {
+                          AACR.map((pres, idx) => (
+                            <tr key={idx}>
+                              <td>{pres.time}</td>
+                              <td><strong>{pres.talkTitle}</strong></td>
+                              <td>
+                                <div className={styles['center-box']}>
+                                  <img
+                                    src={pres.speakerImg}
+                                    alt={pres.speakerImg}
+                                    className={styles.presenterImage}
+                                  />
+                                  <i>{pres.speaker}</i>
+                                  <br />
+                                  <Link to={pres.centerPath} className={styles.link}>
+                                    {pres.centerName}
+                                  </Link>
+                                </div>
+                              </td>
+                            </tr>
+                          ))
+                        }
+                      </tbody>
+                    </table>
+                  </Collapsible>
+                </div>
+              </div>
             </div>
 
             <div className="col-md-9">
-              <h2>Training in Big Data Science</h2>
-              <h5>
-                Big Data Science with the BD2K-LINCS Data Coordination and Integration Center
-              </h5>
-              <h6>
-                <strong>Next session of this course begins on Coursera February 20, 2017!</strong>
-              </h6>
-              <div>
-                <a href="http://lincs-dcic.org/#/summer-research-app#nav">
-                  <img
-                    className={styles['inline-img-left']}
-                    src={dcicImg}
-                    alt="dcic"
-                    width="231"
-                    height="173"
-                  />
-                </a>
-                <p>
-                  This course covers various methods of analysis including:
-                  unsupervised clustering, gene-set enrichment analyses,
-                  data visualization, and supervised machine learning
-                  applications to LINCS data. This course also covers
-                  basic data processing and data normalization methods to
-                  clean and harmonize LINCS data and other relevant data.&nbsp;
-                  <a href="https://www.coursera.org/course/bd2klincs">Enroll Now</a>
-                </p>
+              <div className={styles['ann-card']}>
+                <h6 className={styles['ann-group']}>MOOC ON COURSERA</h6>
+                <div className={styles['ann-content']}>
+                  <h2>Training in Big Data Science</h2>
+                  <h5>
+                    Big Data Science with the BD2K-LINCS Data Coordination and Integration Center
+                  </h5>
+                  <div>
+                    <a href="http://lincs-dcic.org/#/summer-research-app#nav">
+                      <img
+                        className={styles['inline-img-left']}
+                        src={dcicImg}
+                        alt="dcic"
+                        width="231"
+                        height="173"
+                      />
+                    </a>
+                    <h6><strong>
+                      Next session of this course begins on Coursera February 20, 2017!
+                    </strong></h6>
+                  </div>
+                  <p>
+                    This course covers various methods of analysis including:
+                    unsupervised clustering, gene-set enrichment analyses,
+                    data visualization, and supervised machine learning
+                    applications to LINCS data. This course also covers
+                    basic data processing and data normalization methods to
+                    clean and harmonize LINCS data and other relevant data.&nbsp;
+                    <a href="https://www.coursera.org/course/bd2klincs">Enroll Now</a>
+                  </p>
+                </div>
               </div>
             </div>
           </div>
