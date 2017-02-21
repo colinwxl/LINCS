@@ -14,13 +14,7 @@ import sbdssImg from './SBDSS.jpg';
 import dcicImg from './dcic.png';
 import summerInterns2016Img from 'static/files/summer_interns/dcic_ismms_summer-1.jpg';
 import aacrLogo from 'static/files/aacr_logo.png';
-// import youtubeImg from './youtube.png';
 import cmapImg from './cmap.png';
-// import dcicLogo from 'static/files/centers_logos/DCIC.svg';
-// import broadLogo from 'static/files/centers_logos/CMap.svg';
-// import hmsLogo from 'static/files/centers_logos/hms-lincs.png';
-// import mepLogo from 'static/files/centers_logos/mep-lincs-logo.png';
-
 import sorger from './presenter_images/sorger.png';
 import mills from './presenter_images/mills.png';
 import maayan from './presenter_images/maayan.png';
@@ -34,7 +28,6 @@ const AACR = [
     talkTitle: 'Introduction to the NIH LINCS Program',
     speaker: 'Peter K. Sorger PhD',
     speakerImg: sorger,
-    // centerLogo: hmsLogo,
     centerName: 'HMS LINCS',
     centerPath: 'LINCS/centers/data-and-signature-generating-centers/hms-lincs',
     abstractLink: 'http://www.abstractsonline.com/pp8/#!/4292/presentation/11723',
@@ -44,7 +37,6 @@ const AACR = [
     talkTitle: 'Navigating the global landscape of cellular fate with LINCS data',
     speaker: "Avi Ma'ayan PhD",
     speakerImg: maayan,
-    // centerLogo: dcicLogo,
     centerName: 'BD2K-LINCS DCIC',
     centerPath: 'LINCS/centers/dcic',
     abstractLink: 'http://www.abstractsonline.com/pp8/#!/4292/presentation/11710',
@@ -55,7 +47,6 @@ const AACR = [
     + ' of investigational breast cancer therapeutics',
     speaker: 'Caitlin Mills PhD',
     speakerImg: mills,
-    // centerLogo: hmsLogo,
     centerName: 'HMS LINCS',
     centerPath: 'LINCS/centers/data-and-signature-generating-centers/hms-lincs',
     abstractLink: 'http://www.abstractsonline.com/pp8/#!/4292/presentation/11711',
@@ -65,7 +56,6 @@ const AACR = [
     talkTitle: 'The L1000 Platform and Next Generation Connectivity Map',
     speaker: 'Todd R. Golub MD',
     speakerImg: golub,
-    // centerLogo: broadLogo,
     centerName: 'LINCS Transcriptomics',
     centerPath: 'LINCS/centers/data-and-signature-generating-centers/lincs-transcriptomics',
     abstractLink: 'http://www.abstractsonline.com/pp8/#!/4292/presentation/11713',
@@ -76,7 +66,6 @@ const AACR = [
     + 'on cancer cell phenotypes: An overview of the MEP-LINCS center',
     speaker: 'Laura M. Heiser PhD',
     speakerImg: heiser,
-    // centerLogo: mepLogo,
     centerName: 'MEP-LINCS',
     centerPath: 'LINCS/centers/data-and-signature-generating-centers/mep-lincs',
     abstractLink: 'http://www.abstractsonline.com/pp8/#!/4292/presentation/11714',
@@ -87,7 +76,6 @@ const AACR = [
     + 'signaling for functional drug discovery',
     speaker: 'Jake Jaffe PhD',
     speakerImg: jaffe,
-    // centerLogo: broadLogo,
     centerName: 'LINCS PCCSE',
     centerPath: 'LINCS/centers/data-and-signature-generating-centers/lincs-transcriptomics',
     abstractLink: 'http://www.abstractsonline.com/pp8/#!/4292/presentation/11716',
@@ -614,27 +602,6 @@ export class Overview extends Component {
               </div>
             </div>
           </div>
-          {/*
-          <div className="row">
-            <div className="col-md-9">
-              <h2>LINCS Tutorials and Training Resources</h2>
-
-              <p>
-                <a href="https://www.youtube.com/playlist?list=PL0Bwuj8819U8817LbRWK0VdoKcVEMYb8Z">BD2K-LINCS
-                DCIC Tutorials</a>: The BD2K-LINCS DCIC YouTube channel includes a series of demo
-                and tutorial videos on data analysis and visualization with the <a href="http://bd2k-lincs.org/#/resources">BD2K-LINCS
-                DCIC tools</a>.
-              </p>
-
-              <p>
-                <a href="http://lincs.hms.harvard.edu/resources/tutorials-presentations/">HMS
-                LINCS Center Tutorials and Presentations</a>: Instructional tutorials on topics
-                such as how to use and access certain kinds of HMS LINCS data, and HMS
-                LINCS-related talks and presentations.
-              </p>
-            </div>
-          </div>
-          */}
         </div>
       </div>
     );
@@ -649,87 +616,3 @@ Overview.propTypes = {
 export default connect(mapStateToProps, {
   loadAnnouncements,
 })(Overview);
-
-
-// <div className="row">
-//   <div className="col-md-9">
-//     <div className={styles['ann-card']}>
-//       <h6 className={styles['ann-group']}>CONFERENCE</h6>
-//       <div className={styles['ann-content']}>
-//         <h3>BD2K-LINCS Data Science Symposium 2017</h3>
-//       </div>
-//     </div>
-//   </div>
-// </div>
-
-// <div className="row">
-//   <div className="col-md-9">
-//     <h2>Social Media</h2>
-//
-//     <div className={styles.social}>
-//       <a href="https://www.youtube.com/channel/UC88h_MIO1LP7Jv52VQ4qKkg">
-//         <img
-//           src={youtubeImg}
-//           alt="YouTube"
-//           title="BD2K-LINCS DCIC Youtube Channel"
-//           height="60"
-//         />
-//       </a>
-//
-//       <div
-//         className="g-follow"
-//         data-annotation="bubble"
-//         data-height="20"
-//         data-href="https://plus.google.com/114413939991307460842"
-//         data-rel="author"
-//       />
-//       <div className={styles.twitter}>
-//         <iframe
-//           id="twitter-widget-0"
-//           scrolling="no"
-//           frameBorder="0"
-//           allowTransparency="true"
-//           className="twitter-follow-button twitter-follow-button-rendered"
-//           title="Twitter Follow Button"
-//           src="http://platform.twitter.com/widgets/follow_button.b9740740e0bcf9b0657c5b11bd4388da.en.html#dnt=false&amp;id=twitter-widget-0&amp;lang=en&amp;screen_name=BD2KLINCSDCIC&amp;show_count=false&amp;show_screen_name=true&amp;size=m&amp;time=1458571889834"
-//           data-screen-name="BD2KLINCSDCIC"
-//         />
-//         {
-          /* eslint-disable */
-//           // <![CDATA[
-//           !function (d, s, id) {
-//             var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https';
-//             if (!d.getElementById(id)) {
-//               js = d.createElement(s);
-//               js.id = id;
-//               js.src = p + '://platform.twitter.com/widgets.js';
-//               fjs.parentNode.insertBefore(js, fjs);
-//             }
-//           }(document, 'script', 'twitter-wjs')
-//           // ]]&gt;
-//           /* eslint-enable */
-//         }
-//         <iframe
-//           id="twitter-widget-1"
-//           scrolling="no"
-//           frameBorder="0"
-//           allowTransparency="true"
-//           className="twitter-follow-button twitter-follow-button-rendered"
-//           title="Twitter Follow Button"
-//           src="http://platform.twitter.com/widgets/follow_button.b9740740e0bcf9b0657c5b11bd4388da.en.html#dnt=false&amp;id=twitter-widget-1&amp;lang=en&amp;screen_name=CMap_Broad&amp;show_count=false&amp;show_screen_name=true&amp;size=m&amp;time=1458571889836"
-//           data-screen-name="CMap_Broad"
-//         />
-//         <iframe
-//           id="twitter-widget-2"
-//           scrolling="no"
-//           frameBorder="0"
-//           allowTransparency="true"
-//           className="twitter-follow-button twitter-follow-button-rendered"
-//           title="Twitter Follow Button"
-//           src="http://platform.twitter.com/widgets/follow_button.b9740740e0bcf9b0657c5b11bd4388da.en.html#dnt=false&amp;id=twitter-widget-2&amp;lang=en&amp;screen_name=NeuroLINCS&amp;show_count=false&amp;show_screen_name=true&amp;size=m&amp;time=145857188987"
-//           data-screen-name="NeuroLINCS"
-//         />
-//       </div>
-//     </div>
-//   </div>
-// </div>
