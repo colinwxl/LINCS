@@ -154,13 +154,9 @@ export class Overview extends Component {
                 courses, training seminars, challenges, workshops and symposia to foster
                 an active LINCS community.
               </p>
-              <br />
-              <h5>Listed below are upcoming LINCS outreach activities</h5>
             </div>
-          </div>
 
-          <div className="row">
-            <div className="col-md-9">
+            <div className="col-md-9 col-md-pull-3">
               <div className={styles['ann-card']}>
                 <h6 className={styles['ann-group']}>CONFERENCE</h6>
                 <div className={styles['ann-content']}>
@@ -618,7 +614,7 @@ export class Overview extends Component {
               </div>
             </div>
           </div>
-
+          {/*
           <div className="row">
             <div className="col-md-9">
               <h2>LINCS Tutorials and Training Resources</h2>
@@ -638,6 +634,7 @@ export class Overview extends Component {
               </p>
             </div>
           </div>
+          */}
         </div>
       </div>
     );
