@@ -339,8 +339,25 @@ $mid-gray: #eee;
   }
 }
 
-.carousel, .carousel-img {
+.carousel-pad {
+  padding: 0 1.5rem;
+}
+
+.carousel-item-wrap {
+
+}
+
+.carousel-item-head {
+  // margin: auto;
+}
+
+.carousel-item-title {
+  text-align: center;
+}
+
+.carousel-item-inner, .carousel-img {
   margin: auto;
+  margin-bottom: 1rem;
   width: 22rem;
   @media (max-width: 992px) {
     width: 18rem;

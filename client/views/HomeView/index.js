@@ -13,6 +13,8 @@ import { loadTools } from 'actions/toolsWorkflows';
 import { initialCategories as categories } from '../PublicationsView';
 import styles from './HomeView.scss';
 
+import DSSCincinatti2017 from 'static/files/dsscincinatti2017.jpg';
+
 const mapStateToProps = (state) => ({
   publications: state.pubsNews.publications,
   tools: state.toolsWorkflows.tools,
@@ -63,17 +65,6 @@ export class HomeView extends Component {
     .filter((tool => tool.name !== 'LINCS Project Mobile'))
     .slice(0, 5);
     const lpmobile = this.props.tools.filter((tool) => tool.name === 'LINCS Project Mobile')[0];
-    const carouselImgs = [2037, 2038, 2044, 2045, 2067, 2078, 2086, 2098].map((imgId) =>
-    (
-      <div key={imgId}>
-        <img
-          src={`/LINCS/files/f2f_2016/${imgId}.jpg`}
-          className={`${styles['carousel-img']}`}
-          alt="presentation"
-        />
-      </div>
-      )
-    );
     return (
       <div className={styles.wrapper}>
       {/* Banner
@@ -158,8 +149,62 @@ export class HomeView extends Component {
                         </a>
                       </div>
                     </div>
-
                   </div>
+                  <div className={`col-xs-12 col-md-6 ${styles.am}`}>
+                    <h3 className={styles.title}>Featured Updates</h3>
+                    <div className={styles['carousel-pad']}>
+                      <Carousel autoplay infinite aps={5000}>
+                        <div className={styles['carousel-item-wrap']}>
+                          <a
+                            href="https://sites.google.com/view/sbdss2017"
+                            className={styles['carousel-item-head']}
+                            target="_blank"
+                          >
+                            <h4 className={styles['carousel-item-title']}>
+                              <strong>
+                                BD2K-LINCS Data Science Symposium
+                              </strong>
+                            </h4>
+                            <h5 className={styles['carousel-item-title']}>
+                              Systems biology of cellular perturbations
+                            </h5>
+                            <img
+                              src={DSSCincinatti2017}
+                              className={`${styles['carousel-img']}`}
+                              alt="presentation"
+                            />
+                          </a>
+                          <p className={styles.meeting}>
+                            The&nbsp;
+                            <a
+                              href="http://www.lincs-dcic.org"
+                              target="_blank"
+                            >
+                              BD2K-LINCS Data Coordination and Integration Center (DCIC)
+                            </a> and the&nbsp;
+                            <a
+                              href="http://www.uc.edu/"
+                              target="_blank"
+                            >
+                              University of Cincinnati Medical Center
+                            </a> present the second annual BD2K-LINCS Data Science
+                            Symposium (DSS 2017) on <strong>May 16-18, 2017</strong> in
+                            Cincinnati, OH.&nbsp;
+                            <a
+                              href="https://sites.google.com/view/sbdss2017"
+                              target="_blank"
+                            >Learn More</a>
+                          </p>
+                        </div>
+                        <div className={styles['carousel-item']}>
+                          <div className={styles['carousel-item-inner']}>
+
+                          </div>
+                        </div>
+                      </Carousel>
+                    </div>
+                  </div>
+                  {/*
                   <div className={`col-xs-12 col-md-6 ${styles.am}`}>
                     <h3 className={styles.title}>2016 LINCS Consortium Meeting</h3>
                     <div className={styles.carousel}>
@@ -184,6 +229,7 @@ export class HomeView extends Component {
                       </Link>
                     </p>
                   </div>
+                  */}
                 </div>
               </div>
             </div>
