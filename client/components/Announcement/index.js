@@ -1,4 +1,5 @@
 import React, { Component, PropTypes } from 'react';
+import { Link } from 'react-router';
 import styles from './Announcement.scss';
 import formatDate from 'utils/formatDate';
 
@@ -24,16 +25,18 @@ export default class Announcement extends Component {
       headerBack = '#2b3d62';
     } else if (webinar) {
       headerText = 'LINCS Data Science Webinar';
-      headerBack = '#f49e4c';
+      headerBack = '#f39134';
     } else if (course) {
       headerText = 'MOOC on Coursera';
-      headerBack = '#942e02';
+      headerBack = '#f16b6c';
     } else if (trainingProgram) {
       headerText = 'Training Program';
       headerBack = '#6a9ccd';
     } else {
       headerText = 'Update';
     }
+
+    // #942e02
 
     return (
       <div className={styles.card}>
@@ -70,11 +73,30 @@ export default class Announcement extends Component {
   }
 
   render() {
+    // This is logic handling whether to use react-router's
+    // Link or to use an anchor tag for external link.
     const link = this.props.announcement.link;
     if (link) {
+      if (link.indexOf('lincsproject.org/') !== -1) {
+        const linkTo = link.split('lincsproject.org/')[1];
+        return (
+          <div className="col-xs-12 col-md-3">
+            <Link
+              to={linkTo}
+              style={{ textDecoration: 'none', color: '#757575' }}
+            >
+              {this.renderCard()}
+            </Link>
+          </div>
+        );
+      }
       return (
         <div className="col-xs-12 col-md-3">
-          <a href={link} style={{ textDecoration: 'none' }}>
+          <a
+            href={link}
+            target="_blank"
+            style={{ textDecoration: 'none', color: '#757575' }}
+          >
             {this.renderCard()}
           </a>
         </div>
