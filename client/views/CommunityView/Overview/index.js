@@ -37,6 +37,7 @@ const AACR = [
     // centerLogo: hmsLogo,
     centerName: 'HMS LINCS',
     centerPath: 'LINCS/centers/data-and-signature-generating-centers/hms-lincs',
+    abstractLink: 'http://www.abstractsonline.com/pp8/#!/4292/presentation/11723',
   },
   {
     time: '5:15 - 5:30 PM',
@@ -46,6 +47,7 @@ const AACR = [
     // centerLogo: dcicLogo,
     centerName: 'BD2K-LINCS DCIC',
     centerPath: 'LINCS/centers/dcic',
+    abstractLink: 'http://www.abstractsonline.com/pp8/#!/4292/presentation/11710',
   },
   {
     time: '5:30 - 5:45 PM',
@@ -56,6 +58,7 @@ const AACR = [
     // centerLogo: hmsLogo,
     centerName: 'HMS LINCS',
     centerPath: 'LINCS/centers/data-and-signature-generating-centers/hms-lincs',
+    abstractLink: 'http://www.abstractsonline.com/pp8/#!/4292/presentation/11711',
   },
   {
     time: '5:45 - 6:00 PM',
@@ -65,6 +68,7 @@ const AACR = [
     // centerLogo: broadLogo,
     centerName: 'LINCS Transcriptomics',
     centerPath: 'LINCS/centers/data-and-signature-generating-centers/lincs-transcriptomics',
+    abstractLink: 'http://www.abstractsonline.com/pp8/#!/4292/presentation/11713',
   },
   {
     time: '6:00 - 6:15 PM',
@@ -75,6 +79,7 @@ const AACR = [
     // centerLogo: mepLogo,
     centerName: 'MEP-LINCS',
     centerPath: 'LINCS/centers/data-and-signature-generating-centers/mep-lincs',
+    abstractLink: 'http://www.abstractsonline.com/pp8/#!/4292/presentation/11714',
   },
   {
     time: '6:15 - 6:30 PM',
@@ -85,6 +90,7 @@ const AACR = [
     // centerLogo: broadLogo,
     centerName: 'LINCS PCCSE',
     centerPath: 'LINCS/centers/data-and-signature-generating-centers/lincs-transcriptomics',
+    abstractLink: 'http://www.abstractsonline.com/pp8/#!/4292/presentation/11716',
   },
 ];
 
@@ -213,7 +219,11 @@ export class Overview extends Component {
                           AACR.map((pres, idx) => (
                             <tr key={idx}>
                               <td>{pres.time}</td>
-                              <td><strong>{pres.talkTitle}</strong></td>
+                              <td>
+                                <a href={pres.abstractLink} target="_blank">
+                                  <strong>{pres.talkTitle}</strong>
+                                </a>
+                              </td>
                               <td>
                                 <div className={styles['center-box']}>
                                   <img
