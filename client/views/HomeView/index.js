@@ -152,7 +152,7 @@ export class HomeView extends Component {
                     </div>
                   </div>
                   <div className={`col-xs-12 col-md-6 ${styles.am}`}>
-                    <h3 className={styles.title}>Featured Updates</h3>
+                    <h3 className={styles.title}>Featured Events</h3>
                     <div className={styles['carousel-pad']}>
                       <Carousel autoplay infinite aps={8000}>
                         <div className={styles['carousel-item-wrap']}>
