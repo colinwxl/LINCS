@@ -347,21 +347,26 @@ $mid-gray: #eee;
 
 }
 
-.carousel-item-head {
-  // margin: auto;
-}
-
 .carousel-item-title {
   text-align: center;
 }
 
-.carousel-item-inner, .carousel-img {
+.carousel-item-inner, .carousel-img-wrap {
   margin: auto;
-  margin-bottom: 1rem;
-  width: 22rem;
+  // width: 22rem;
   @media (max-width: 992px) {
-    width: 18rem;
+    // width: 18rem;
   }
+}
+
+.carousel-img {
+  margin: 1rem auto;
+  max-width: 80%;
+  max-height: 15rem;
+}
+
+.aacr {
+  margin: 2rem auto;
 }
 
 .datatype-links-container {
