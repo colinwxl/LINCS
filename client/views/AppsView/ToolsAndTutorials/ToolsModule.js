@@ -14,10 +14,10 @@ const sortOptions = [
 
 const multiSelectCenters = [
   { value: 'BD2K-LINCS DCIC', label: 'BD2K-LINCS DCIC' },
-  { value: 'LINCS Transcriptomics', label: 'LINCS Transcriptomics' },
   { value: 'DToxS', label: 'DToxS' },
   { value: 'HMS LINCS', label: 'HMS LINCS' },
   { value: 'LINCS PCCSE', label: 'LINCS PCCSE' },
+  { value: 'LINCS Transcriptomics', label: 'LINCS Transcriptomics' },
   { value: 'MEP LINCS', label: 'MEP LINCS' },
   { value: 'NeuroLINCS', label: 'NeuroLINCS' },
 ];
