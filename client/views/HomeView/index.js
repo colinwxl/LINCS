@@ -13,7 +13,7 @@ import { loadTools } from 'actions/toolsWorkflows';
 import { initialCategories as categories } from '../PublicationsView';
 import styles from './HomeView.scss';
 
-import swgImg from 'static/files/software-group.png';
+import swgImg from 'static/files/swg-img.png';
 import AACRLogo from 'static/files/aacr_logo.png';
 
 const mapStateToProps = (state) => ({
@@ -174,7 +174,7 @@ export class HomeView extends Component {
                             <div className={styles['carousel-img-wrap']}>
                               <img
                                 src={swgImg}
-                                className={`${styles['carousel-img']}`}
+                                className={`${styles['carousel-img']} ${styles.swg}`}
                                 alt="presentation"
                               />
                             </div>
