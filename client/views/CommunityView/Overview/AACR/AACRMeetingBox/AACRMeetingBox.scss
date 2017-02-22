@@ -1,7 +1,7 @@
 @import 'variables';
 
 $widget-height: 15rem;
-$widget-width: 15rem;
+$widget-width: 15.75rem;
 $shadow: rgba(0, 0, 0, .1);
 
 .widget {
@@ -11,7 +11,7 @@ $shadow: rgba(0, 0, 0, .1);
   display: inline-block;
   overflow: hidden;
   // @media (min-width: 992px) {
-  max-width: $widget-width;
+  width: $widget-width;
   // }
 }
 
@@ -41,10 +41,8 @@ $desc-line-height: 1.125rem; // 18px
 
 .widget-description {
   font-size: 0.75rem;
-  // color: $off-black;
-  // display: inline-block;
-  // max-height: $desc-line-height * 3;
-  // min-height: 1.25rem;
-  // position: relative;
-  // word-wrap: break-word;
+}
+
+.no-style-link {
+  text-decoration: none !important;
 }

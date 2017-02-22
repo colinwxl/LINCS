@@ -18,18 +18,25 @@ export default function AACRMeetingBox(props) {
   return (
     <div className={styles.widget}>
       <div className={`${styles['widget-inner']}`}>
-        <div>
+        <p className={styles['widget-description']}>
           <img
             src={scheduleItem.speakerImg}
             className={`${styles.thumbnail} ${styles['inline-img-left']}`}
             alt={scheduleItem.speaker}
           />
-          <div className={styles['widget-description']}>
-            <strong>Presentation:</strong> {scheduleItem.talkTitle}
-          </div>
-        </div>
-
-
+          <strong>Presenter:</strong> <br />{scheduleItem.speaker} <br />
+          <i><Link to={scheduleItem.centerPath}>{scheduleItem.centerName}</Link></i> <br />
+          <strong>Time:</strong> <br />{scheduleItem.time} <br />
+          <strong>Presentation:</strong> <br />
+          <a
+            href={scheduleItem.abstractLink}
+            target="_blank"
+            className={styles['no-style-link']}
+          >
+            {scheduleItem.talkTitle}
+          </a>
+          <br />
+        </p>
 
       </div>
     </div>
