@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router';
 import Collapsible from 'react-collapsible';
 
+import AACRMeetingBox from './AACR/AACRMeetingBox';
 import PageBanner from 'components/PageBanner';
 import PageNav from 'components/PageNav';
 import formatDate from 'utils/formatDate';
@@ -15,72 +16,8 @@ import dcicImg from './dcic.png';
 import summerInterns2016Img from 'static/files/summer_interns/dcic_ismms_summer-1.jpg';
 import aacrLogo from 'static/files/aacr_logo.png';
 import cmapImg from './cmap.png';
-import sorger from './presenter_images/sorger.png';
-import mills from './presenter_images/mills.png';
-import maayan from './presenter_images/maayan.png';
-import heiser from './presenter_images/heiser.png';
-import jaffe from './presenter_images/jaffe.png';
-import golub from './presenter_images/golub.png';
 
-const AACR = [
-  {
-    time: '5:00 - 5:15 PM',
-    talkTitle: 'Introduction to the NIH LINCS Program',
-    speaker: 'Peter K. Sorger PhD',
-    speakerImg: sorger,
-    centerName: 'HMS LINCS',
-    centerPath: 'LINCS/centers/data-and-signature-generating-centers/hms-lincs',
-    abstractLink: 'http://www.abstractsonline.com/pp8/#!/4292/presentation/11723',
-  },
-  {
-    time: '5:15 - 5:30 PM',
-    talkTitle: 'Navigating the global landscape of cellular fate with LINCS data',
-    speaker: "Avi Ma'ayan PhD",
-    speakerImg: maayan,
-    centerName: 'BD2K-LINCS DCIC',
-    centerPath: 'LINCS/centers/dcic',
-    abstractLink: 'http://www.abstractsonline.com/pp8/#!/4292/presentation/11710',
-  },
-  {
-    time: '5:30 - 5:45 PM',
-    talkTitle: 'Mining LINCS drug-response databases to identify novel activities'
-    + ' of investigational breast cancer therapeutics',
-    speaker: 'Caitlin Mills PhD',
-    speakerImg: mills,
-    centerName: 'HMS LINCS',
-    centerPath: 'LINCS/centers/data-and-signature-generating-centers/hms-lincs',
-    abstractLink: 'http://www.abstractsonline.com/pp8/#!/4292/presentation/11711',
-  },
-  {
-    time: '5:45 - 6:00 PM',
-    talkTitle: 'The L1000 Platform and Next Generation Connectivity Map',
-    speaker: 'Todd R. Golub MD',
-    speakerImg: golub,
-    centerName: 'LINCS Transcriptomics',
-    centerPath: 'LINCS/centers/data-and-signature-generating-centers/lincs-transcriptomics',
-    abstractLink: 'http://www.abstractsonline.com/pp8/#!/4292/presentation/11713',
-  },
-  {
-    time: '6:00 - 6:15 PM',
-    talkTitle: 'Systematic study of the influence of the microenvironment'
-    + 'on cancer cell phenotypes: An overview of the MEP-LINCS center',
-    speaker: 'Laura M. Heiser PhD',
-    speakerImg: heiser,
-    centerName: 'MEP-LINCS',
-    centerPath: 'LINCS/centers/data-and-signature-generating-centers/mep-lincs',
-    abstractLink: 'http://www.abstractsonline.com/pp8/#!/4292/presentation/11714',
-  },
-  {
-    time: '6:15 - 6:30 PM',
-    talkTitle: 'Proteomic connectivity maps of chromatin and'
-    + 'signaling for functional drug discovery',
-    speaker: 'Jake Jaffe PhD',
-    speakerImg: jaffe,
-    centerName: 'LINCS PCCSE',
-    centerPath: 'LINCS/centers/data-and-signature-generating-centers/lincs-transcriptomics',
-    abstractLink: 'http://www.abstractsonline.com/pp8/#!/4292/presentation/11716',
-  },
-];
+import AACR from './AACR/AACRList';
 
 const mapStateToProps = (state) => ({
   announcements: state.announcements.announcements,
@@ -190,43 +127,11 @@ export class Overview extends Component {
                     triggerWhenOpen="Session Schedule ▾"
                     transitionTime={300}
                   >
-                    <table className="table table-striped">
-                      <thead>
-                        <tr>
-                          <th style={{ width: '140px' }}>Time</th>
-                          <th>Title</th>
-                          <th style={{ textAlign: 'center' }}>Presenter</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        {
-                          AACR.map((pres, idx) => (
-                            <tr key={idx}>
-                              <td>{pres.time}</td>
-                              <td>
-                                <a href={pres.abstractLink} target="_blank">
-                                  <strong>{pres.talkTitle}</strong>
-                                </a>
-                              </td>
-                              <td>
-                                <div className={styles['center-box']}>
-                                  <img
-                                    src={pres.speakerImg}
-                                    alt={pres.speakerImg}
-                                    className={styles.presenterImage}
-                                  />
-                                  <i>{pres.speaker}</i>
-                                  <br />
-                                  <Link to={pres.centerPath} className={styles.link}>
-                                    {pres.centerName}
-                                  </Link>
-                                </div>
-                              </td>
-                            </tr>
-                          ))
-                        }
-                      </tbody>
-                    </table>
+                    {
+                      AACR.map((si, idx) => (
+                        <AACRMeetingBox key={idx} scheduleItem={si} />
+                      ))
+                    }
                   </Collapsible>
                 </div>
               </div>
