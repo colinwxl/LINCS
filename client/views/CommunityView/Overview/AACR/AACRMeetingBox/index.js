@@ -1,4 +1,5 @@
 import React, { PropTypes } from 'react';
+import ReactTooltip from 'react-tooltip';
 import { Link } from 'react-router';
 
 import styles from './AACRMeetingBox.scss';
@@ -19,29 +20,58 @@ export default function AACRMeetingBox(props) {
     <div className={styles.widget}>
       <div className={`${styles['widget-inner']}`}>
         <p className={styles['widget-description']}>
-          <img
-            src={scheduleItem.speakerImg}
-            className={`${styles.thumbnail} ${styles['inline-img-left']}`}
-            alt={scheduleItem.speaker}
-          />
-          <strong>Presenter:</strong> <br />{scheduleItem.speaker} <br />
-          <i><Link to={scheduleItem.centerPath}>{scheduleItem.centerName}</Link></i> <br />
-          <strong>Time:</strong> <br />{scheduleItem.time} <br />
-          <strong>Presentation:</strong> <br />
-          <a
-            href={scheduleItem.abstractLink}
-            target="_blank"
-            className={styles['no-style-link']}
-          >
-            {scheduleItem.talkTitle}
-          </a>
+          <div className={`${styles.presenter} ${styles['inline-img-left']}`}>
+            <img
+              src={scheduleItem.speakerImg}
+              className={`${styles.thumbnail}`}
+              alt={scheduleItem.speaker}
+            />
+          </div>
+          <i>{scheduleItem.speaker}</i><br />
+          <strong>Time:</strong> <i>{scheduleItem.time}</i>
+          <br />
+          <div className={styles['desc-limit']}>
+            <a
+              href={scheduleItem.abstractLink}
+              target="_blank"
+              className={`${styles['no-style-link']}`}
+            >
+              {
+                scheduleItem.talkTitle.length > 65 ?
+                  <span
+                    data-tip="Information is not available at this time."
+                    data-for={scheduleItem.time}
+                  >
+                    {scheduleItem.talkTitle.slice(0, 62)}...
+                  </span>
+                  : <span>{scheduleItem.talkTitle}</span>
+              }
+            </a>
+            <ReactTooltip
+              id={scheduleItem.time}
+              place="right"
+              type="dark"
+              effect="float"
+            >
+              <div style={{ maxWidth: '10rem' }}>
+                {scheduleItem.talkTitle}
+              </div>
+            </ReactTooltip>
+          </div>
           <br />
         </p>
-
       </div>
     </div>
   );
 }
+
+// <i
+//   className={`fa fa-info-circle ${styles['info-icon']}`}
+//   aria-hidden="true"
+//   data-tip="Information is not available at this time."
+//   data-for={center.name}
+// />
+
 
 AACRMeetingBox.propTypes = {
   scheduleItem: PropTypes.object,

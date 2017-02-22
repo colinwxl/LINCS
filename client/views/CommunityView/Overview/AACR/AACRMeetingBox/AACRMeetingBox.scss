@@ -1,15 +1,17 @@
 @import 'variables';
 
-$widget-height: 15rem;
+$widget-height: 8rem;
 $widget-width: 15.75rem;
 $shadow: rgba(0, 0, 0, .1);
 
 .widget {
+  position: relative;
   border: 1px solid;
   border-color: $gray-border-top $gray-border-side $gray-border-bottom;
   border-radius: .2rem;
   display: inline-block;
   overflow: hidden;
+  margin: auto;
   // @media (min-width: 992px) {
   width: $widget-width;
   // }
@@ -28,8 +30,22 @@ $shadow: rgba(0, 0, 0, .1);
   flex-direction: column;
 }
 
+.desc-limit {
+  max-height: 3.5rem;
+  max-width: 9rem;
+  overflow: hidden;
+  // text-overflow: ellipsis;
+  // white-space: nowrap;
+}
+
 .thumbnail {
-  width: 5rem;
+  display: block;
+  margin-top: 0.25rem;
+  width: 100%;
+}
+
+.presenter {
+  width: 4.5rem;
 }
 
 .inline-img-left {
@@ -45,4 +61,33 @@ $desc-line-height: 1.125rem; // 18px
 
 .no-style-link {
   text-decoration: none !important;
+}
+
+.header-tab {
+  padding: 0.5rem 1.25rem 0.5rem 0.75rem;
+  display: inline-block;
+  color: white;
+  background-color: $brand-primary;
+  -webkit-clip-path: polygon(0 0, 100% 0, 94% 100%, 0 100%);
+  clip-path: polygon(0 0, 100% 0, 94% 100%, 0 100%);
+  &:hover {
+    color: white;
+    text-decoration: none;
+  }
+}
+
+.footer-tab {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  padding: 0.25rem 0.75rem;
+  display: inline-block;
+  color: white;
+  background-color: #00a3e4;
+  -webkit-clip-path: polygon(6% 0, 100% 0, 100% 100%, 0 100%);
+  clip-path: polygon(6% 0, 100% 0, 100% 100%, 0 100%);
+  &:hover {
+    color: white;
+    text-decoration: none;
+  }
 }

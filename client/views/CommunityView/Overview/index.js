@@ -123,6 +123,7 @@ export class Overview extends Component {
                     drugs derived from large-scale profiling studies.
                   </p>
                   <Collapsible
+                    open
                     trigger="Session Schedule ▸"
                     triggerWhenOpen="Session Schedule ▾"
                     transitionTime={300}

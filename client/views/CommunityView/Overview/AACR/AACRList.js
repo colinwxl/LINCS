@@ -46,7 +46,7 @@ export default [
   {
     time: '6:00 - 6:15 PM',
     talkTitle: 'Systematic study of the influence of the microenvironment'
-    + 'on cancer cell phenotypes: An overview of the MEP-LINCS center',
+    + ' on cancer cell phenotypes: An overview of the MEP-LINCS center',
     speaker: 'Laura M. Heiser PhD',
     speakerImg: heiser,
     centerName: 'MEP-LINCS',
@@ -56,7 +56,7 @@ export default [
   {
     time: '6:15 - 6:30 PM',
     talkTitle: 'Proteomic connectivity maps of chromatin and'
-    + 'signaling for functional drug discovery',
+    + ' signaling for functional drug discovery',
     speaker: 'Jake Jaffe PhD',
     speakerImg: jaffe,
     centerName: 'LINCS PCCSE',
