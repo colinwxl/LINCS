@@ -166,25 +166,26 @@ export default class Overview extends Component {
             </div>
             <div className="col-md-9 col-md-pull-3">
               <h4>Filter Community Events</h4>
-              {
-                // this is buggy when resizing. need to make this responsive
-                cats.map((cat, idx) => (
-                  <span
-                    key={idx}
-                    className={styles.cat}
-                    onClick={() => this.setCat(cat)}
-                  >
-                    {cat}
-                  </span>
+              <div className={styles['cat-container']}>
+                {
+                  cats.map((cat, idx) => (
+                    <span
+                      key={idx}
+                      className={styles.cat}
+                      onClick={() => this.setCat(cat)}
+                    >
+                      {cat}
+                    </span>
+                    )
                   )
-                )
-              }
+                }
+              </div>
             </div>
           </div>
           {
             upcoming && upcoming.length > 0 ?
             (<div>
-              <h5>Upcoming Events</h5>
+              <h5>Upcoming events</h5>
               {upcoming.map((ev, idx) => (<ev.eventItem key={idx} />))}
             </div>) :
             (<div>
@@ -194,7 +195,7 @@ export default class Overview extends Component {
           {
             past && past.length > 0 ?
             (<div>
-              <h5>Past Events</h5>
+              <h5>Past events</h5>
               {past.map((ev, idx) => (<ev.eventItem key={idx} />))}
             </div>) :
             null

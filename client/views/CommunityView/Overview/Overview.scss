@@ -107,8 +107,13 @@
   list-style-type: none;
 }
 
+.cat-container {
+
+}
+
 .cat {
-  margin-right: 2rem;
+  display: inline-block;
+  margin: 0.5rem 1.5rem 0.5rem 0;
   cursor: pointer;
   &:hover {
     color: $brand-primary;
