@@ -16,12 +16,15 @@ import Event20170126 from './Events/Event20170126';
 import EventBD2KCrowdSourcing from './Events/EventBD2KCrowdSourcing';
 import Event2017Webinar from './Events/Event2017Webinar';
 
-const events = [
+const featuredEvents = [
   {
     eventItem: Event20170404,
     category: 'Conference',
     date: '2017-04-04',
   },
+]
+
+const events = [
   {
     eventItem: Event2017Webinar,
     category: 'Webinar',
@@ -34,7 +37,7 @@ const events = [
   },
   {
     eventItem: Event20170301,
-    category: 'Training',
+    category: 'Training Program',
     date: '2017-03-01',
   },
   {
@@ -44,17 +47,17 @@ const events = [
   },
   {
     eventItem: Event20170126,
-    category: 'Challenge',
+    category: 'Crowdsourcing Challenge',
     date: '2017-07-26',
   },
   {
     eventItem: Event20160726,
-    category: 'Challenge',
+    category: 'Crowdsourcing Challenge',
     date: '2016-07-26',
   },
   {
     eventItem: EventBD2KCrowdSourcing,
-    category: 'Challenge',
+    category: 'Crowdsourcing Challenge',
     date: '2016-03-11',
   },
   {
@@ -72,11 +75,11 @@ const events = [
 // Categories are used for the filtering events
 const cats = [
   'All',
-  'Challenge',
+  'Crowdsourcing Challenge',
   'Conference',
   'Course',
   'Symposia',
-  'Training',
+  'Training Program',
   'Webinar',
 ];
 
@@ -140,6 +143,10 @@ export default class Overview extends Component {
     const sortedEvents = this.sortEvents(filteredEvents);
     // Discriminate between upcoming events and past events
     const { upcoming, past } = this.filterDate(sortedEvents);
+
+    const featured = featuredEvents.filter(ev => {
+      return this.state.cat === 'All' || this.state.cat === ev.category
+    });
     return (
       <div className={styles.wrapper}>
         <PageBanner
@@ -183,19 +190,31 @@ export default class Overview extends Component {
             </div>
           </div>
           {
+            featured && featured.length > 0 ?
+            (<div>
+              <h3>Featured events</h3>
+              {
+                featured.map((ev, idx) => {
+                  if (this.state.cat === 'All' || this.state.cat === ev.category) {
+                    return <ev.eventItem key={idx} />;
+                  }
+                })
+              }
+            </div>) :
+            null
+          }
+          {
             upcoming && upcoming.length > 0 ?
             (<div>
-              <h5>Upcoming events</h5>
+              <h3>Upcoming events</h3>
               {upcoming.map((ev, idx) => (<ev.eventItem key={idx} />))}
             </div>) :
-            (<div>
-              <h5>There are no upcoming events.</h5>
-            </div>)
+            null
           }
           {
             past && past.length > 0 ?
             (<div>
-              <h5>Past events</h5>
+              <h3>Past events</h3>
               {past.map((ev, idx) => (<ev.eventItem key={idx} />))}
             </div>) :
             null
