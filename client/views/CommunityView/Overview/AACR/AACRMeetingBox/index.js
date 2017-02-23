@@ -24,11 +24,8 @@ export default class AACRMeetingBox extends Component {
 
   updateDimensions = () => {
     const w = window;
-    const d = document;
-    const documentElement = d.documentElement;
-    const body = d.getElementsByTagName('body')[0];
-    const width = w.innerWidth || documentElement.clientWidth || body.clientWidth;
-    const height = w.innerHeight || documentElement.clientHeight || body.clientHeight;
+    const width = w.innerWidth;
+    const height = w.innerHeight;
     this.setState({ width, height });
   }
 
@@ -55,18 +52,22 @@ export default class AACRMeetingBox extends Component {
                 className={`${styles['no-style-link']}`}
               >
                 {
-                  scheduleItem.talkTitle.length > 65 && this.state.width >= 1200 ?
+                  scheduleItem.talkTitle.length > 65 && this.state.width >= 990 ?
                     <span
                       data-tip="Information is not available at this time."
                       data-for={scheduleItem.time}
                     >
-                      {scheduleItem.talkTitle.slice(0, 62)}...
+                      {
+                        this.state.width >= 1200 ?
+                        scheduleItem.talkTitle.slice(0, 63)
+                        : scheduleItem.talkTitle.slice(0, 82)
+                      }...
                     </span>
                     : <span>{scheduleItem.talkTitle}</span>
                 }
               </a>
               {
-                this.state.width >= 1200 ?
+                this.state.width >= 990 ?
                   <ReactTooltip
                     id={scheduleItem.time}
                     place="right"

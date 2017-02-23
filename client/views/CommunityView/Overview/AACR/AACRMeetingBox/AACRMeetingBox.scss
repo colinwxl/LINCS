@@ -13,9 +13,15 @@ $shadow: rgba(0, 0, 0, .1);
   overflow: hidden;
   min-width: $widget-width;
   width: auto;
+  @media (min-width: 992px) {
+    display: inline-block;
+    width: $widget-width + 2.5rem;
+    margin: 0.25rem 0.7rem;
+  }
   @media (min-width: 1200px) {
     display: inline-block;
     width: $widget-width;
+    margin: 0.25rem 0.175rem;
   }
 }
 
@@ -27,17 +33,17 @@ $shadow: rgba(0, 0, 0, .1);
   position: relative;
   text-decoration: none;
   vertical-align: top;
-  padding: 1rem;
+  padding: 0.8rem;
   display: flex;
   flex-direction: column;
 }
 
 .desc-limit {
   max-height: 3.5rem;
-  max-width: 9rem;
-  overflow: hidden;
-  @media (max-width: 1200px) {
-    max-width: 100%;
+  max-width: 100%;
+  @media (min-width: 1200px) {
+    overflow: hidden;
+    max-width: 9rem;
   }
 }
 
