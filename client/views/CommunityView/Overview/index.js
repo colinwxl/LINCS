@@ -3,9 +3,7 @@ import { Link } from 'react-router';
 
 import PageBanner from 'components/PageBanner';
 import PageNav from 'components/PageNav';
-
 import styles from './Overview.scss';
-// Images
 
 import Event20170404 from './Events/Event20170404';
 import Event20170516 from './Events/Event20170516';
@@ -18,7 +16,75 @@ import Event20170126 from './Events/Event20170126';
 import EventBD2KCrowdSourcing from './Events/EventBD2KCrowdSourcing';
 import Event2017Webinar from './Events/Event2017Webinar';
 
+const events = [
+  {
+    eventItem: Event20170404,
+    category: 'Conference',
+    date: '',
+  },
+  {
+    eventItem: Event2017Webinar,
+    category: 'Webinar',
+    date: '',
+  },
+  {
+    eventItem: Event20170516,
+    category: 'Symposia',
+    date: '',
+  },
+  {
+    eventItem: Event20170301,
+    category: 'Training',
+    date: '',
+  },
+  {
+    eventItem: Event20170220,
+    category: 'Course',
+    date: '',
+  },
+  {
+    eventItem: Event20170126,
+    category: 'Challenge',
+    date: '',
+  },
+  {
+    eventItem: Event20160726,
+    category: 'Challenge',
+    date: '',
+  },
+  {
+    eventItem: EventBD2KCrowdSourcing,
+    category: 'Challenge',
+    date: '',
+  },
+  {
+    eventItem: Event20160310,
+    category: 'Symposia',
+    date: '',
+  },
+  {
+    eventItem: Event20160119,
+    category: 'Symposia',
+    date: '',
+  },
+];
+
+const cats = [
+  'All',
+  'Conference',
+  'Webinar',
+  'Training',
+  'Course',
+  'Challenge',
+  'Symposia'
+];
+
 export default class Overview extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { cat: 'All' };
+  }
+
   componentDidMount() {
     // Render the Google+ Follow Button
     // https://developers.google.com/+/web/follow/#javascript_api
@@ -27,7 +93,18 @@ export default class Overview extends Component {
     }
   }
 
+  filterEvents(eventsArr, state) {
+    if (state === 'All') return eventsArr;
+    return eventsArr.filter(ev => (state === ev.category));
+  }
+
+  setCat(cat) {
+    this.setState({cat});
+  }
+
   render() {
+    const currCat = this.state.cat;
+    const filteredEvents = this.filterEvents(events, currCat);
     return (
       <div className={styles.wrapper}>
         <PageBanner
@@ -37,7 +114,6 @@ export default class Overview extends Component {
             'communities through various outreach activities'
           }
         />
-
         <div className="container">
           <div className="row">
             <PageNav isCommunityPage mainPage="Overview" />
@@ -53,17 +129,23 @@ export default class Overview extends Component {
                 an active LINCS community.
               </p>
             </div>
-            <Event20170404 />
+            <div className="col-md-9 col-md-pull-3">
+              {
+                cats.map((cat,idx) => {
+                  return (
+                    <span
+                      key={idx}
+                      className={styles.cat}
+                      onClick={() => this.setCat(cat)}
+                    >
+                      {cat}
+                    </span>
+                  );
+                })
+              }
+            </div>
           </div>
-          <Event2017Webinar />
-          <Event20170516 />
-          <Event20170301 />
-          <Event20170220 />
-          <Event20170126 />
-          <Event20160726 />
-          <EventBD2KCrowdSourcing />
-          <Event20160310 />
-          <Event20160119 />
+          {filteredEvents.map((ev, idx) => (<ev.eventItem key={idx} />))}
         </div>
       </div>
     );
