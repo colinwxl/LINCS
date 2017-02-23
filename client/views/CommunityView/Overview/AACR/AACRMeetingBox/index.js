@@ -34,7 +34,7 @@ export default class AACRMeetingBox extends Component {
     return (
       <div className={styles.widget}>
         <div className={`${styles['widget-inner']}`}>
-          <p className={styles['widget-description']}>
+          <div className={styles['widget-description']}>
             <div className={`${styles.presenter} ${styles['inline-img-left']}`}>
               <img
                 src={scheduleItem.speakerImg}
@@ -82,7 +82,7 @@ export default class AACRMeetingBox extends Component {
               }
             </div>
             <br />
-          </p>
+          </div>
         </div>
       </div>
     );
