@@ -71,12 +71,12 @@ const events = [
 
 const cats = [
   'All',
-  'Conference',
-  'Webinar',
-  'Training',
-  'Course',
   'Challenge',
-  'Symposia'
+  'Conference',
+  'Course',
+  'Symposia',
+  'Training',
+  'Webinar',
 ];
 
 export default class Overview extends Component {
@@ -130,6 +130,7 @@ export default class Overview extends Component {
               </p>
             </div>
             <div className="col-md-9 col-md-pull-3">
+              <h4>Filter Community Events</h4>
               {
                 cats.map((cat,idx) => {
                   return (
