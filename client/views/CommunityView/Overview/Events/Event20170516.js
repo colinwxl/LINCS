@@ -14,7 +14,7 @@ export default function Event20170516() {
               <a
                 href="https://sites.google.com/view/sbdss2017"
                 target="_blank"
-                style={{textDecoration: 'none'}}
+                style={{ textDecoration: 'none' }}
               >
                 Systems Biology of Cellular Perturbations
               </a>

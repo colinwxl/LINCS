@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router';
 
 import Story from './Story';
 import styles from '../NewsView.scss';
