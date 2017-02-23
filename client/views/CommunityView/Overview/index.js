@@ -45,7 +45,7 @@ const events = [
   {
     eventItem: Event20170126,
     category: 'Challenge',
-    date: '2017-01-26',
+    date: '2017-07-26',
   },
   {
     eventItem: Event20160726,
@@ -69,6 +69,7 @@ const events = [
   },
 ];
 
+// Categories are used for the filtering events
 const cats = [
   'All',
   'Challenge',
@@ -99,8 +100,8 @@ export default class Overview extends Component {
 
   sortEvents(eventsArr) {
     return eventsArr.sort((ev1, ev2) => {
-      const ev1Date = new Date(ev1);
-      const ev2Date = new Date(ev2);
+      const ev1Date = new Date(ev1.date);
+      const ev2Date = new Date(ev2.date);
       if (ev1Date < ev2Date) {
         return 1;
       } else if (ev1Date > ev2Date) {
@@ -111,8 +112,6 @@ export default class Overview extends Component {
   }
 
   filterDate(eventsArr) {
-    // Implement this next to separate upcoming from past
-
     // upcoming is ordered soonest to latest
     const upcoming = [];
     // past is ordered most recent to oldest
@@ -121,7 +120,7 @@ export default class Overview extends Component {
     eventsArr.forEach(ev => {
       const evDate = new Date(ev.date);
       if (today <= evDate) {
-        upcoming.push(ev);
+        upcoming.unshift(ev);
       } else {
         past.push(ev);
       }
@@ -135,9 +134,11 @@ export default class Overview extends Component {
   }
 
   render() {
-    const currCat = this.state.cat;
-    const filteredEvents = this.filterEvents(events, currCat);
+    // Filter for relevant events first
+    const filteredEvents = this.filterEvents(events, this.state.cat);
+    // Preprocess the events by sorting by date
     const sortedEvents = this.sortEvents(filteredEvents);
+    // Discriminate between upcoming events and past events
     const { upcoming, past } = this.filterDate(sortedEvents);
     return (
       <div className={styles.wrapper}>
