@@ -22,7 +22,7 @@ const featuredEvents = [
     category: 'Conference',
     date: '2017-04-04',
   },
-]
+];
 
 const events = [
   {
@@ -144,9 +144,9 @@ export default class Overview extends Component {
     // Discriminate between upcoming events and past events
     const { upcoming, past } = this.filterDate(sortedEvents);
 
-    const featured = featuredEvents.filter(ev => {
-      return this.state.cat === 'All' || this.state.cat === ev.category
-    });
+    const featured = featuredEvents.filter(ev => (
+      this.state.cat === 'All' || this.state.cat === ev.category
+    ));
     return (
       <div className={styles.wrapper}>
         <PageBanner
@@ -198,6 +198,7 @@ export default class Overview extends Component {
                   if (this.state.cat === 'All' || this.state.cat === ev.category) {
                     return <ev.eventItem key={idx} />;
                   }
+                  return null;
                 })
               }
             </div>) :

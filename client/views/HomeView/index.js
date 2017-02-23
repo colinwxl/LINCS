@@ -192,7 +192,6 @@ export class HomeView extends Component {
                             >Learn More</a>
                           </p>
                         </div>
-                        
                         <div className={styles['carousel-item-wrap']}>
                           <a
                             href="https://sites.google.com/view/sbdss2017"
