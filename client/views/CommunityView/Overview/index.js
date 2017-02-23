@@ -20,52 +20,52 @@ const events = [
   {
     eventItem: Event20170404,
     category: 'Conference',
-    date: '',
+    date: '2017-04-04',
   },
   {
     eventItem: Event2017Webinar,
     category: 'Webinar',
-    date: '',
+    date: '2017-02-28',
   },
   {
     eventItem: Event20170516,
     category: 'Symposia',
-    date: '',
+    date: '2017-05-16',
   },
   {
     eventItem: Event20170301,
     category: 'Training',
-    date: '',
+    date: '2017-03-01',
   },
   {
     eventItem: Event20170220,
     category: 'Course',
-    date: '',
+    date: '2017-02-20',
   },
   {
     eventItem: Event20170126,
     category: 'Challenge',
-    date: '',
+    date: '2017-01-26',
   },
   {
     eventItem: Event20160726,
     category: 'Challenge',
-    date: '',
+    date: '2016-07-26',
   },
   {
     eventItem: EventBD2KCrowdSourcing,
     category: 'Challenge',
-    date: '',
+    date: '2016-03-11',
   },
   {
     eventItem: Event20160310,
     category: 'Symposia',
-    date: '',
+    date: '2016-03-10',
   },
   {
     eventItem: Event20160119,
     category: 'Symposia',
-    date: '',
+    date: '2016-01-19',
   },
 ];
 
@@ -93,18 +93,52 @@ export default class Overview extends Component {
     }
   }
 
+  setCat(cat) {
+    this.setState({ cat });
+  }
+
+  sortEvents(eventsArr) {
+    return eventsArr.sort((ev1, ev2) => {
+      const ev1Date = new Date(ev1);
+      const ev2Date = new Date(ev2);
+      if (ev1Date < ev2Date) {
+        return 1;
+      } else if (ev1Date > ev2Date) {
+        return -1;
+      }
+      return 0;
+    });
+  }
+
+  filterDate(eventsArr) {
+    // Implement this next to separate upcoming from past
+
+    // upcoming is ordered soonest to latest
+    const upcoming = [];
+    // past is ordered most recent to oldest
+    const past = [];
+    const today = new Date();
+    eventsArr.forEach(ev => {
+      const evDate = new Date(ev.date);
+      if (today <= evDate) {
+        upcoming.push(ev);
+      } else {
+        past.push(ev);
+      }
+    });
+    return { past, upcoming };
+  }
+
   filterEvents(eventsArr, state) {
     if (state === 'All') return eventsArr;
     return eventsArr.filter(ev => (state === ev.category));
   }
 
-  setCat(cat) {
-    this.setState({cat});
-  }
-
   render() {
     const currCat = this.state.cat;
     const filteredEvents = this.filterEvents(events, currCat);
+    const sortedEvents = this.sortEvents(filteredEvents);
+    const { upcoming, past } = this.filterDate(sortedEvents);
     return (
       <div className={styles.wrapper}>
         <PageBanner
@@ -132,21 +166,38 @@ export default class Overview extends Component {
             <div className="col-md-9 col-md-pull-3">
               <h4>Filter Community Events</h4>
               {
-                cats.map((cat,idx) => {
-                  return (
-                    <span
-                      key={idx}
-                      className={styles.cat}
-                      onClick={() => this.setCat(cat)}
-                    >
-                      {cat}
-                    </span>
-                  );
-                })
+                // this is buggy when resizing. need to make this responsive
+                cats.map((cat, idx) => (
+                  <span
+                    key={idx}
+                    className={styles.cat}
+                    onClick={() => this.setCat(cat)}
+                  >
+                    {cat}
+                  </span>
+                  )
+                )
               }
             </div>
           </div>
-          {filteredEvents.map((ev, idx) => (<ev.eventItem key={idx} />))}
+          {
+            upcoming && upcoming.length > 0 ?
+            (<div>
+              <h5>Upcoming Events</h5>
+              {upcoming.map((ev, idx) => (<ev.eventItem key={idx} />))}
+            </div>) :
+            (<div>
+              <h5>There are no upcoming events.</h5>
+            </div>)
+          }
+          {
+            past && past.length > 0 ?
+            (<div>
+              <h5>Past Events</h5>
+              {past.map((ev, idx) => (<ev.eventItem key={idx} />))}
+            </div>) :
+            null
+          }
         </div>
       </div>
     );
