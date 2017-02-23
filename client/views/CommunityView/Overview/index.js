@@ -48,7 +48,7 @@ const events = [
   {
     eventItem: Event20170126,
     category: 'Crowdsourcing Challenge',
-    date: '2017-07-26',
+    date: '2017-07-31',
   },
   {
     eventItem: Event20160726,
@@ -58,7 +58,7 @@ const events = [
   {
     eventItem: EventBD2KCrowdSourcing,
     category: 'Crowdsourcing Challenge',
-    date: '2016-03-11',
+    date: '2017-12-01',
   },
   {
     eventItem: Event20160310,
