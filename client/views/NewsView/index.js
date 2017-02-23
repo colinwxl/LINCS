@@ -47,6 +47,7 @@ import Story20150220 from './Stories/Story20150220.js';
 import Story20150208 from './Stories/Story20150208.js';
 import Story20170124 from './Stories/Story20170124.js';
 import Story20170214 from './Stories/Story20170214.js';
+import Story20170404 from './Stories/Story20170404.js';
 
 export default function NewsView() {
   return (
@@ -58,6 +59,7 @@ export default function NewsView() {
       <div className="container">
         <div className="row">
           <div className={`col-xs-12 col-xl-9 ${styles.news}`}>
+            <Story20170404 />
             <Story20170214 />
             <Story20170124 />
             <Story20161209 />

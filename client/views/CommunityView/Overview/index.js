@@ -22,6 +22,11 @@ const featuredEvents = [
     category: 'Conference',
     date: '2017-04-04',
   },
+  {
+    eventItem: Event20170516,
+    category: 'Symposia',
+    date: '2017-05-16',
+  },
 ];
 
 const events = [
@@ -31,11 +36,6 @@ const events = [
     date: '2017-02-28',
   },
   {
-    eventItem: Event20170516,
-    category: 'Symposia',
-    date: '2017-05-16',
-  },
-  {
     eventItem: Event20170301,
     category: 'Training Program',
     date: '2017-03-01',
@@ -43,7 +43,7 @@ const events = [
   {
     eventItem: Event20170220,
     category: 'Course',
-    date: '2017-02-20',
+    date: '2017-12-31',
   },
   {
     eventItem: Event20170126,

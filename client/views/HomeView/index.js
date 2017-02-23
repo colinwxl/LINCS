@@ -63,9 +63,7 @@ export class HomeView extends Component {
         return result ? 1 : -1;
       });
     const tools = this.shuffleTools(this.props.tools)
-    .filter((tool => tool.name !== 'LINCS Project Mobile'))
-    .slice(0, 5);
-    const lpmobile = this.props.tools.filter((tool) => tool.name === 'LINCS Project Mobile')[0];
+    .slice(0, 6);
     return (
       <div className={styles.wrapper}>
       {/* Banner
@@ -156,10 +154,9 @@ export class HomeView extends Component {
                     <div className={styles['carousel-pad']}>
                       <Carousel autoplay infinite aps={8000}>
                         <div className={styles['carousel-item-wrap']}>
-                          <a
-                            href="http://www.abstractsonline.com/pp8/#!/4292/session/901"
+                          <Link
+                            to="/LINCS/Community/Overview"
                             className={styles['carousel-item-head']}
-                            target="_blank"
                           >
                             <h4 className={styles['carousel-item-title']}>
                               <strong>
@@ -179,7 +176,7 @@ export class HomeView extends Component {
                                 alt="presentation"
                               />
                             </div>
-                          </a>
+                          </Link>
                           <p className={styles.meeting}>
                             This session at the AACR Annual Meeting 2017 will highlight
                             recent results from the LINCS program, focusing on ways of
@@ -291,13 +288,6 @@ export class HomeView extends Component {
                   </div>
                   <div className={`col-xs-12 col-md-5 ${styles.tools}`}>
                     <h3 className={styles.title}>Featured LINCS Tools</h3>
-                    {
-                      lpmobile &&
-                        <Tool
-                          homeview
-                          tool={lpmobile}
-                        />
-                    }
                     {
                       tools && tools.map((tool, idx) =>
                         <Tool

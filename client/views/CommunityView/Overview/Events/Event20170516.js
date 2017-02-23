@@ -10,7 +10,15 @@ export default function Event20170516() {
           <h6 className={styles['ann-group']}>SYMPOSIA</h6>
           <div className={styles['ann-content']}>
             <h3>BD2K-LINCS Data Science Symposium 2017</h3>
-            <h4>Systems Biology of Cellular Perturbations</h4>
+            <h4>
+              <a
+                href="https://sites.google.com/view/sbdss2017"
+                target="_blank"
+                style={{textDecoration: 'none'}}
+              >
+                Systems Biology of Cellular Perturbations
+              </a>
+            </h4>
             <p>
               <img
                 className={styles['inline-img-left']}

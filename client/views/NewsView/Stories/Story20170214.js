@@ -4,76 +4,12 @@ import { Link } from 'react-router';
 import Story from './Story';
 import styles from '../NewsView.scss';
 import aacrLogo from 'static/files/aacr_logo.png';
-import dcicLogo from 'static/files/centers_logos/DCIC.svg';
-import broadLogo from 'static/files/centers_logos/CMap.svg';
-import hmsLogo from 'static/files/centers_logos/hms-lincs.png';
-import mepLogo from 'static/files/centers_logos/mep-lincs-logo.png';
-
-const AACR = [
-  {
-    time: '5:00 - 5:15 PM',
-    talkTitle: 'Introduction to the NIH LINCS Program',
-    speaker: 'Peter K. Sorger',
-    centerLogo: hmsLogo,
-    centerName: 'HMS LINCS',
-    centerPath: 'LINCS/centers/data-and-signature-generating-centers/hms-lincs',
-    abstractLink: 'http://www.abstractsonline.com/pp8/#!/4292/presentation/11723',
-  },
-  {
-    time: '5:15 - 5:30 PM',
-    talkTitle: 'Navigating the global landscape of cellular fate with LINCS data',
-    speaker: "Avi Ma'ayan",
-    centerLogo: dcicLogo,
-    centerName: 'BD2K-LINCS DCIC',
-    centerPath: 'LINCS/centers/dcic',
-    abstractLink: 'http://www.abstractsonline.com/pp8/#!/4292/presentation/11710',
-  },
-  {
-    time: '5:30 - 5:45 PM',
-    talkTitle: 'Mining LINCS drug-response databases to identify novel activities'
-    + ' of investigational breast cancer therapeutics',
-    speaker: 'Caitlin Mills',
-    centerLogo: hmsLogo,
-    centerName: 'HMS LINCS',
-    centerPath: 'LINCS/centers/data-and-signature-generating-centers/hms-lincs',
-    abstractLink: 'http://www.abstractsonline.com/pp8/#!/4292/presentation/11711',
-  },
-  {
-    time: '5:45 - 6:00 PM',
-    talkTitle: 'The L1000 Platform and Next Generation Connectivity Map',
-    speaker: 'Todd R. Golub',
-    centerLogo: broadLogo,
-    centerName: 'LINCS Transcriptomics',
-    centerPath: 'LINCS/centers/data-and-signature-generating-centers/lincs-transcriptomics',
-    abstractLink: 'http://www.abstractsonline.com/pp8/#!/4292/presentation/11713',
-  },
-  {
-    time: '6:00 - 6:15 PM',
-    talkTitle: 'Systematic study of the influence of the microenvironment'
-    + 'on cancer cell phenotypes: An overview of the MEP-LINCS center',
-    speaker: 'Laura M. Heiser',
-    centerLogo: mepLogo,
-    centerName: 'MEP-LINCS',
-    centerPath: 'LINCS/centers/data-and-signature-generating-centers/mep-lincs',
-    abstractLink: 'http://www.abstractsonline.com/pp8/#!/4292/presentation/11714',
-  },
-  {
-    time: '6:15 - 6:30 PM',
-    talkTitle: 'Proteomic connectivity maps of chromatin and'
-    + 'signaling for functional drug discovery',
-    speaker: 'Jake Jaffe',
-    centerLogo: broadLogo,
-    centerName: 'LINCS Transcriptomics',
-    centerPath: 'LINCS/centers/data-and-signature-generating-centers/lincs-transcriptomics',
-    abstractLink: 'http://www.abstractsonline.com/pp8/#!/4292/presentation/11716',
-  },
-];
 
 export default function Story20170214() {
   return (
     <Story
-      title="AACR Annual Meeting 2017 Special Session -
-      Advancing Cancer Therapy Using Data from the NIH LINCS Program"
+      title="AACR Annual Meeting 2017 Special Session"
+      subtitle="Advancing Cancer Therapy Using Data from the NIH LINCS Program"
       date="February 14th, 2017"
     >
       <p>
@@ -101,49 +37,9 @@ export default function Story20170214() {
         phenotypic assays. Ways of accessing and analyzing LINCS data,
         software and experimental protocols will be presented along with
         recent insights into oncogenic mechanisms and responses to therapeutic
-        drugs derived from large-scale profiling studies.
+        drugs derived from large-scale profiling studies.&nbsp;
+        <Link to="/community/overview">Details</Link>
       </p>
-      <table className="table table-striped">
-        <thead>
-          <tr>
-            <th>Time</th>
-            <th>Presentation</th>
-            <th style={{ textAlign: 'center' }}>Center</th>
-          </tr>
-        </thead>
-        <tbody>
-          {
-            AACR.map((pres, idx) => (
-              <tr key={idx}>
-                <td>{pres.time}</td>
-                <td>
-                  <strong>
-                    <a href={pres.abstractLink} target="_blank">
-                      {pres.talkTitle}
-                    </a>
-                  </strong>
-                  <br />
-                  <i>{pres.speaker}</i>
-                </td>
-                <td>
-                  <div className={styles['center-box']}>
-                    <Link to={pres.centerPath} className={styles.link}>
-                      <img
-                        src={pres.centerLogo}
-                        alt={pres.centerLogo}
-                        className={styles.centerLogo}
-                      />
-                      <span className={styles.centerTitle}>{pres.centerName}</span>
-                    </Link>
-                  </div>
-                </td>
-              </tr>
-            ))
-          }
-        </tbody>
-      </table>
-      <hr />
-      <br />
       <span className={styles['twitter-label']}>
         <a
           title="Follow @LINCSProgram on Twitter"
