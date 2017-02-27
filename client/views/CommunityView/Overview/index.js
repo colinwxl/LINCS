@@ -170,6 +170,8 @@ export default class Overview extends Component {
                 courses, training seminars, challenges, workshops and symposia to foster
                 an active LINCS community.
               </p>
+              <br />
+              <h1 className={styles.title}>LINCS Community Events</h1>
             </div>
           </div>
           <div className="row">
@@ -194,7 +196,7 @@ export default class Overview extends Component {
               {
                 featured && featured.length > 0 ?
                 (<div>
-                  <h3>Featured events</h3>
+                  <h3>Featured</h3>
                   {
                     featured.map((ev, idx) => {
                       if (this.state.cat === 'All' || this.state.cat === ev.category) {
@@ -209,7 +211,7 @@ export default class Overview extends Component {
               {
                 upcoming && upcoming.length > 0 ?
                 (<div>
-                  <h3>Upcoming events</h3>
+                  <h3>Upcoming</h3>
                   {upcoming.map((ev, idx) => (<ev.eventItem key={idx} />))}
                 </div>) :
                 null
@@ -217,7 +219,7 @@ export default class Overview extends Component {
               {
                 past && past.length > 0 ?
                 (<div>
-                  <h3>Past events</h3>
+                  <h3>Past</h3>
                   {past.map((ev, idx) => (<ev.eventItem key={idx} />))}
                 </div>) :
                 null
