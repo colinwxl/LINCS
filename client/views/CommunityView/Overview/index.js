@@ -171,9 +171,11 @@ export default class Overview extends Component {
                 an active LINCS community.
               </p>
             </div>
-            <div className="col-md-9 col-md-pull-3">
-              <h4>Filter Community Events</h4>
-              <div className={styles['cat-container']}>
+          </div>
+          <div className="row">
+            <div className="col-md-3 col-md-push-9">
+              <div className={styles.wrapper}>
+              <h7 className={styles['filter-title']}>Filter Events</h7>
                 {
                   cats.map((cat, idx) => (
                     <span
@@ -188,38 +190,40 @@ export default class Overview extends Component {
                 }
               </div>
             </div>
-          </div>
-          {
-            featured && featured.length > 0 ?
-            (<div>
-              <h3>Featured events</h3>
+            <div className="col-md-9 col-md-pull-3">
               {
-                featured.map((ev, idx) => {
-                  if (this.state.cat === 'All' || this.state.cat === ev.category) {
-                    return <ev.eventItem key={idx} />;
+                featured && featured.length > 0 ?
+                (<div>
+                  <h3>Featured events</h3>
+                  {
+                    featured.map((ev, idx) => {
+                      if (this.state.cat === 'All' || this.state.cat === ev.category) {
+                        return (<ev.eventItem key={idx} />);
+                      }
+                      return null;
+                    })
                   }
-                  return null;
-                })
+                </div>) :
+                null
               }
-            </div>) :
-            null
-          }
-          {
-            upcoming && upcoming.length > 0 ?
-            (<div>
-              <h3>Upcoming events</h3>
-              {upcoming.map((ev, idx) => (<ev.eventItem key={idx} />))}
-            </div>) :
-            null
-          }
-          {
-            past && past.length > 0 ?
-            (<div>
-              <h3>Past events</h3>
-              {past.map((ev, idx) => (<ev.eventItem key={idx} />))}
-            </div>) :
-            null
-          }
+              {
+                upcoming && upcoming.length > 0 ?
+                (<div>
+                  <h3>Upcoming events</h3>
+                  {upcoming.map((ev, idx) => (<ev.eventItem key={idx} />))}
+                </div>) :
+                null
+              }
+              {
+                past && past.length > 0 ?
+                (<div>
+                  <h3>Past events</h3>
+                  {past.map((ev, idx) => (<ev.eventItem key={idx} />))}
+                </div>) :
+                null
+              }
+            </div>
+          </div>
         </div>
       </div>
     );

@@ -38,72 +38,68 @@ export class Event2017Webinar extends Component {
     const webinars = this.findWebinars(this.props.announcements);
     const latestWebinars = this.latestSort(webinars).slice(0, 2);
     return (
-      <div className="row">
-        <div className="col-md-9">
-          <div className={styles['ann-card']}>
-            <h6 className={styles['ann-group']}>LINCS DATA SCIENCE WEBINAR</h6>
-            <div className={styles['ann-content']}>
-              <h3>LINCS Data Science Research Webinars</h3>
-              <iframe
-                src="https://www.youtube.com/embed/videoseries?list=PL0Bwuj8819U-G9Ob0jIGHp5AtwpCghLV5"
-                frameBorder="0"
-                allowFullScreen=""
-                style={{ width: '16rem', height: '12rem' }}
-                className={styles['inline-img-left']}
-              />
-              <div className={styles['info-block']}>
-                <p>
-                  The LINCS Data Science Research Webinars serve as a general
-                  forum to engage data scientists within and outside of the
-                  LINCS project to work on problems related to
-                  LINCS data analysis and integration.&nbsp;
-                  <Link to="/community/webinars">Learn More</Link>
-                </p>
-                <br />
-                <div>
-                  <h6>
-                    <strong>
-                      Webinars are held on select Tuesdays at 3:00 PM Eastern Time
-                    </strong>
-                  </h6>
-                  <div>
-                    How to Connect with GoToMeeting
-                    <ul className={styles.ol}>
-                      <li>
-                        <b>1.</b> Join from your computer, tablet, or smartphone by
-                        visiting&nbsp;
-                        <a href="https://global.gotomeeting.com/join/168894253" target="_blank">
-                          https://global.gotomeeting.com/join/168894253
-                        </a>
+      <div className={styles['ann-card']}>
+        <h6 className={styles['ann-group']}>LINCS DATA SCIENCE WEBINAR</h6>
+        <div className={styles['ann-content']}>
+          <h3>LINCS Data Science Research Webinars</h3>
+          <iframe
+            src="https://www.youtube.com/embed/videoseries?list=PL0Bwuj8819U-G9Ob0jIGHp5AtwpCghLV5"
+            frameBorder="0"
+            allowFullScreen=""
+            style={{ width: '16rem', height: '12rem' }}
+            className={styles['inline-img-left']}
+          />
+          <div className={styles['info-block']}>
+            <p>
+              The LINCS Data Science Research Webinars serve as a general
+              forum to engage data scientists within and outside of the
+              LINCS project to work on problems related to
+              LINCS data analysis and integration.&nbsp;
+              <Link to="/community/webinars">Learn More</Link>
+            </p>
+            <br />
+            <div>
+              <h6>
+                <strong>
+                  Webinars are held on select Tuesdays at 3:00 PM Eastern Time
+                </strong>
+              </h6>
+              <div>
+                How to Connect with GoToMeeting
+                <ul className={styles.ol}>
+                  <li>
+                    <b>1.</b> Join from your computer, tablet, or smartphone by
+                    visiting&nbsp;
+                    <a href="https://global.gotomeeting.com/join/168894253" target="_blank">
+                      https://global.gotomeeting.com/join/168894253
+                    </a>
+                  </li>
+                  <li>
+                    <b>2.</b>Use your microphone and speakers (VOIP) for audio.
+                    You’ll sound best with a headset. You can also call
+                    in using your telephone: United States (Long distance)
+                    : +1 (312) 757-3121
+                  </li>
+                  <li><b>3.</b>When prompted, enter access code 168-894-253</li>
+                  <li>
+                    <b>4.</b>You may need an audio PIN. If so,
+                    this will be shown after joining the session
+                  </li>
+                </ul>
+              </div>
+              <div>
+                <strong>Upcoming Webinars</strong>
+                <ul>
+                    {latestWebinars.map((web, idx) => (
+                      <li key={idx}>
+                        {formatDate(web.eventDate)}:&nbsp;
+                        <Link to="/community/webinars">
+                          {web.title}
+                        </Link>
+                        {web.presenter ? ` (Speaker: ${web.presenter})` : null}
                       </li>
-                      <li>
-                        <b>2.</b>Use your microphone and speakers (VOIP) for audio.
-                        You’ll sound best with a headset. You can also call
-                        in using your telephone: United States (Long distance)
-                        : +1 (312) 757-3121
-                      </li>
-                      <li><b>3.</b>When prompted, enter access code 168-894-253</li>
-                      <li>
-                        <b>4.</b>You may need an audio PIN. If so,
-                        this will be shown after joining the session
-                      </li>
-                    </ul>
-                  </div>
-                  <div>
-                    <strong>Upcoming Webinars</strong>
-                    <ul>
-                        {latestWebinars.map((web, idx) => (
-                          <li key={idx}>
-                            {formatDate(web.eventDate)}:&nbsp;
-                            <Link to="/community/webinars">
-                              {web.title}
-                            </Link>
-                            {web.presenter ? ` (Speaker: ${web.presenter})` : null}
-                          </li>
-                        ))}
-                    </ul>
-                  </div>
-                </div>
+                    ))}
+                </ul>
               </div>
             </div>
           </div>
