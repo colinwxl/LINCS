@@ -196,7 +196,7 @@ export default class Overview extends Component {
               {
                 featured && featured.length > 0 ?
                 (<div>
-                  <h3>Featured</h3>
+                  <h3>Featured Upcoming</h3>
                   {
                     featured.map((ev, idx) => {
                       if (this.state.cat === 'All' || this.state.cat === ev.category) {

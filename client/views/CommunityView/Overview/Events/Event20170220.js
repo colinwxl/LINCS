@@ -5,7 +5,7 @@ import dcicImg from '../dcic.png';
 export default function Event20170220() {
   return (
     <div className={styles['ann-card']}>
-      <h6 className={styles['ann-group']}>MOOC ON COURSERA</h6>
+      <h6 className={`${styles['ann-group']} ${styles.course}`}>MOOC ON COURSERA</h6>
       <div className={styles['ann-content']}>
         <h3>
           Big Data Science with the BD2K-LINCS Data Coordination and Integration Center

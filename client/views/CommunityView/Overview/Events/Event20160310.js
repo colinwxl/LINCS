@@ -5,7 +5,7 @@ import neuroOutreachImg from '../neuro_outreach.jpg';
 export default function Event20160310() {
   return (
     <div className={styles['ann-card']}>
-      <h6 className={styles['ann-group']}>SYMPOSIA</h6>
+      <h6 className={`${styles['ann-group']} ${styles.symposia}`}>SYMPOSIA</h6>
       <div className={styles['ann-content']}>
         <h3>LINCS Outreach Meeting 2016</h3>
         <div className="clearfix">

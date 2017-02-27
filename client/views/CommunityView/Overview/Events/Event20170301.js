@@ -5,7 +5,7 @@ import summerInterns2016Img from 'static/files/summer_interns/dcic_ismms_summer-
 export default function Event20170301() {
   return (
     <div className={styles['ann-card']}>
-      <h6 className={styles['ann-group']}>TRAINING PROGRAM</h6>
+      <h6 className={`${styles['ann-group']} ${styles.training}`}>TRAINING PROGRAM</h6>
       <div className={styles['ann-content']}>
         <h3>
           BD2K-LINCS DCIC Summer Research Training Program
