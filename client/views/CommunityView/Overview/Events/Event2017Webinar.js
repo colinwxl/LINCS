@@ -30,13 +30,13 @@ export class Event2017Webinar extends Component {
     return latestAnns.concat(remainingAnns);
   }
 
-  findWebinars(anns) {
-    return anns.filter(ann => ann.webinar);
+  findUpcomingWebinars(anns) {
+    return anns.filter(ann => ann.webinar && (new Date(ann.eventDate) >= new Date()));
   }
 
   render() {
-    const webinars = this.findWebinars(this.props.announcements);
-    const latestWebinars = this.latestSort(webinars).slice(0, 2);
+    const webinars = this.findUpcomingWebinars(this.props.announcements);
+    const latestWebinars = this.latestSort(webinars);
     return (
       <div className={styles['ann-card']}>
         <h6 className={`${styles['ann-group']} ${styles.webinar}`}>LINCS DATA SCIENCE WEBINAR</h6>

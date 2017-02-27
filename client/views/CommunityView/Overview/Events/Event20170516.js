@@ -5,7 +5,7 @@ import sbdssImg from '../SBDSS.jpg';
 export default function Event20170516() {
   return (
     <div className={styles['ann-card']}>
-      <h6 className={`${styles['ann-group']} ${styles.symposia}`}>SYMPOSIA</h6>
+      <h6 className={`${styles['ann-group']} ${styles.symposia}`}>SYMPOSIUM</h6>
       <div className={styles['ann-content']}>
         <h3>BD2K-LINCS Data Science Symposium 2017</h3>
         <h4>

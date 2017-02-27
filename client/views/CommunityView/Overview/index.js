@@ -24,7 +24,7 @@ const featuredEvents = [
   },
   {
     eventItem: Event20170516,
-    category: 'Symposia',
+    category: 'Symposium',
     date: '2017-05-16',
   },
 ];
@@ -36,14 +36,14 @@ const events = [
     date: '2017-02-28',
   },
   {
+    eventItem: Event20170220,
+    category: 'Course',
+    date: '2099-12-31',
+  },
+  {
     eventItem: Event20170301,
     category: 'Training Program',
     date: '2017-03-01',
-  },
-  {
-    eventItem: Event20170220,
-    category: 'Course',
-    date: '2017-12-31',
   },
   {
     eventItem: Event20170126,
@@ -62,12 +62,12 @@ const events = [
   },
   {
     eventItem: Event20160310,
-    category: 'Symposia',
+    category: 'Symposium',
     date: '2016-03-10',
   },
   {
     eventItem: Event20160119,
-    category: 'Symposia',
+    category: 'Symposium',
     date: '2016-01-19',
   },
 ];
@@ -78,7 +78,7 @@ const cats = [
   'Crowdsourcing Challenge',
   'Conference',
   'Course',
-  'Symposia',
+  'Symposium',
   'Training Program',
   'Webinar',
 ];
@@ -170,14 +170,12 @@ export default class Overview extends Component {
                 courses, training seminars, challenges, workshops and symposia to foster
                 an active LINCS community.
               </p>
-              <br />
-              <h1 className={styles.title}>LINCS Community Events</h1>
             </div>
           </div>
           <div className="row">
             <div className="col-md-3 col-md-push-9">
               <div className={styles.wrapper}>
-              <h7 className={styles['filter-title']}>Filter Events</h7>
+                <h7 className={styles['filter-title']}>Filter Events</h7>
                 {
                   cats.map((cat, idx) => (
                     <span
