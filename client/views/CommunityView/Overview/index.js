@@ -24,7 +24,7 @@ const featuredEvents = [
   },
   {
     eventItem: Event20170516,
-    category: 'Symposium',
+    category: 'Symposia',
     date: '2017-05-16',
   },
 ];
@@ -38,7 +38,7 @@ const events = [
   {
     eventItem: Event20170220,
     category: 'Course',
-    date: '2099-12-31',
+    date: '2040-12-31',
   },
   {
     eventItem: Event20170301,
@@ -48,7 +48,7 @@ const events = [
   {
     eventItem: Event20170126,
     category: 'Crowdsourcing Challenge',
-    date: '2017-07-31',
+    date: '2075-07-31',
   },
   {
     eventItem: Event20160726,
@@ -58,16 +58,16 @@ const events = [
   {
     eventItem: EventBD2KCrowdSourcing,
     category: 'Crowdsourcing Challenge',
-    date: '2017-12-01',
+    date: '2050-12-01',
   },
   {
     eventItem: Event20160310,
-    category: 'Symposium',
+    category: 'Symposia',
     date: '2016-03-10',
   },
   {
     eventItem: Event20160119,
-    category: 'Symposium',
+    category: 'Symposia',
     date: '2016-01-19',
   },
 ];
@@ -78,7 +78,7 @@ const cats = [
   'Crowdsourcing Challenge',
   'Conference',
   'Course',
-  'Symposium',
+  'Symposia',
   'Training Program',
   'Webinar',
 ];
@@ -175,18 +175,18 @@ export default class Overview extends Component {
           <div className="row">
             <div className="col-md-3 col-md-push-9">
               <div className={styles.wrapper}>
-                <h7 className={styles['filter-title']}>Filter Events</h7>
+                {/*<h7 className={styles['filter-title']}>Filter Events</h7>*/}
                 {
-                  cats.map((cat, idx) => (
-                    <span
-                      key={idx}
-                      className={styles.cat}
-                      onClick={() => this.setCat(cat)}
-                    >
-                      {cat}
-                    </span>
-                    )
-                  )
+                  // cats.map((cat, idx) => (
+                  //   <span
+                  //     key={idx}
+                  //     className={styles.cat}
+                  //     onClick={() => this.setCat(cat)}
+                  //   >
+                  //     {cat}
+                  //   </span>
+                  //   )
+                  // )
                 }
               </div>
             </div>
@@ -194,7 +194,7 @@ export default class Overview extends Component {
               {
                 featured && featured.length > 0 ?
                 (<div>
-                  <h3>Featured Upcoming</h3>
+                  <h3>Featured Upcoming Events</h3>
                   {
                     featured.map((ev, idx) => {
                       if (this.state.cat === 'All' || this.state.cat === ev.category) {
@@ -206,21 +206,14 @@ export default class Overview extends Component {
                 </div>) :
                 null
               }
+              {upcoming && upcoming.map((ev, idx) => (<ev.eventItem key={idx} />))}
               {
-                upcoming && upcoming.length > 0 ?
-                (<div>
-                  <h3>Upcoming</h3>
-                  {upcoming.map((ev, idx) => (<ev.eventItem key={idx} />))}
-                </div>) :
-                null
-              }
-              {
-                past && past.length > 0 ?
-                (<div>
-                  <h3>Past</h3>
-                  {past.map((ev, idx) => (<ev.eventItem key={idx} />))}
-                </div>) :
-                null
+                // past && past.length > 0 ?
+                // (<div>
+                //   <h3>Past</h3>
+                //   {past.map((ev, idx) => (<ev.eventItem key={idx} />))}
+                // </div>) :
+                // null
               }
             </div>
           </div>
