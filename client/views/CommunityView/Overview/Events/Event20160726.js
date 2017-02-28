@@ -5,7 +5,9 @@ import cmapImg from '../cmap.png';
 export default function Event20160726() {
   return (
     <div className={styles['ann-card']}>
-      <h6 className={`${styles['ann-group']} ${styles.challenge}`}>CROWDSOURCING CHALLENGE</h6>
+      {/*
+        <h6 className={`${styles['ann-group']} ${styles.challenge}`}>CROWDSOURCING CHALLENGE</h6>
+       */}
       <div className={styles['ann-content']}>
         <h3>Connectivity Map Challenge: Infer the Transcriptome</h3>
         <div className="clearfix">

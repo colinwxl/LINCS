@@ -42,7 +42,9 @@ export class Event2017Webinar extends Component {
     const latestWebinars = this.latestSort(webinars);
     return (
       <div className={styles['ann-card']}>
-        <h6 className={`${styles['ann-group']} ${styles.webinar}`}>LINCS DATA SCIENCE WEBINAR</h6>
+        {/*
+          <h6 className={`${styles['ann-group']} ${styles.webinar}`}>LINCS DATA SCIENCE WEBINAR</h6>
+        */}
         <div className={styles['ann-content']}>
           <h3>LINCS Data Science Research Webinars</h3>
           <iframe

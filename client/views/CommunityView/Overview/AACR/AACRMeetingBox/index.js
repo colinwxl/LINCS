@@ -59,8 +59,8 @@ export default class AACRMeetingBox extends Component {
                     >
                       {
                         this.state.width >= 1200 ?
-                        scheduleItem.talkTitle.slice(0, 63)
-                        : scheduleItem.talkTitle.slice(0, 82)
+                        scheduleItem.talkTitle.split(' ').slice(0, 8).join(' ')
+                        : scheduleItem.talkTitle.split(' ').slice(0, 10).join(' ')
                       }...
                     </span>
                     : <span>{scheduleItem.talkTitle}</span>

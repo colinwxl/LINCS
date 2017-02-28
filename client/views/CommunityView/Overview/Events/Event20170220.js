@@ -43,7 +43,9 @@ export class Event20170220 extends Component {
     const latestMooc = upcomingMoocs.shift();
     return (
       <div className={styles['ann-card']}>
-        <h6 className={`${styles['ann-group']} ${styles.course}`}>MOOC ON COURSERA</h6>
+        {/*
+          <h6 className={`${styles['ann-group']} ${styles.course}`}>MOOC ON COURSERA</h6>
+        */}
         <div className={styles['ann-content']}>
           <h3>
             Big Data Science with the BD2K-LINCS Data Coordination and Integration Center
