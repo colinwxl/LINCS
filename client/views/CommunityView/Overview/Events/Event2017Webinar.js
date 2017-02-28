@@ -17,10 +17,11 @@ export class Event2017Webinar extends Component {
 
   latestSort(anns) {
     let latestAnnsIdx = anns.length;
-    const today = new Date();
+    const yesterday = new Date();
+    yesterday.setDate(yesterday.getDate() - 1);
     for (let i = 0; i < anns.length; i++) {
       const annDate = new Date(anns[i].eventDate);
-      if (annDate < today) {
+      if (annDate < yesterday) {
         latestAnnsIdx = i;
         break;
       }
@@ -31,7 +32,9 @@ export class Event2017Webinar extends Component {
   }
 
   findUpcomingWebinars(anns) {
-    return anns.filter(ann => ann.webinar && (new Date(ann.eventDate) >= new Date()));
+    const yesterday = new Date();
+    yesterday.setDate(yesterday.getDate() - 1);
+    return anns.filter(ann => ann.webinar && (new Date(ann.eventDate) >= yesterday));
   }
 
   render() {
