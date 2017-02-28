@@ -12,6 +12,12 @@ const mapStateToProps = (state) => ({
 });
 
 export class Event20170220 extends Component {
+  componentDidMount() {
+    if (!this.props.announcements.length) {
+      this.props.loadAnnouncements();
+    }
+  }
+
   latestSort(anns) {
     let latestAnnsIdx = anns.length;
     const today = new Date();
@@ -35,6 +41,7 @@ export class Event20170220 extends Component {
     const moocs = this.findUpcomingMoocs(this.props.announcements);
     const upcomingMoocs = this.latestSort(moocs);
     const latestMooc = upcomingMoocs.shift();
+    debugger;
     return (
       <div className={styles['ann-card']}>
         <h6 className={`${styles['ann-group']} ${styles.course}`}>MOOC ON COURSERA</h6>
@@ -52,10 +59,15 @@ export class Event20170220 extends Component {
                 height="173"
               />
             </a>
-            <h6><strong>
-              Next session of this course begins on Coursera&nbsp;
-              {latestMooc && formatDate(latestMooc.eventDate)}!
-            </strong></h6>
+            {
+              upcomingMoocs && upcomingMoocs.length > 0 ?
+              (<h6><strong>
+                Next session of this course begins on Coursera&nbsp;
+                {latestMooc && formatDate(latestMooc.eventDate)}!
+              </strong></h6>) :
+              null
+            }
+
           </div>
           <p>
             This course covers various methods of analysis including:
@@ -67,8 +79,15 @@ export class Event20170220 extends Component {
             <a href="https://www.coursera.org/course/bd2klincs">Enroll Now</a>
           </p>
           <br />
-          <strong>Future session start dates:&nbsp;</strong>
-          {upcomingMoocs && upcomingMoocs.map(uc => (formatDate(uc.eventDate))).join(', ')}
+          {
+            upcomingMoocs && upcomingMoocs.length > 0 ?
+            (<div>
+              <strong>Future session start dates:&nbsp;</strong>
+              {upcomingMoocs.map(uc => (formatDate(uc.eventDate))).join(', ')}
+            </div>) :
+            null
+          }
+
         </div>
       </div>
     );
