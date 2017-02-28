@@ -2,21 +2,21 @@ import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 
 import formatDate from 'utils/formatDate';
-import { fetchSymposia } from 'actions/community';
+import { fetchChallenges } from 'actions/community';
 import PageBanner from 'components/PageBanner';
 import PageNav from 'components/PageNav';
 import styles from './CrowdsourcingChallenges.scss';
 
 const mapStateToProps = (state) => ({
-  symposia: state.community.symposia,
+  challenges: state.community.challenges,
 });
 export class CrowdsourcingChallenges extends Component {
   componentWillMount() {
-    this.props.fetchSymposia();
+    this.props.fetchChallenges();
   }
 
   render() {
-    const { symposia } = this.props;
+    const { challenges } = this.props;
     return (
       <div className={styles.wrapper}>
         <PageBanner
@@ -27,10 +27,10 @@ export class CrowdsourcingChallenges extends Component {
           <div className="row">
             <PageNav isCommunityPage mainPage="Crowdsourcing Challenges" />
             <div className="col-md-9 col-md-pull-3">
-              <div className={styles.symposia}>
-                {symposia.length === 0 && <p>No symposia available</p>}
+              <div className={styles.challenges}>
+                {challenges.length === 0 && <p>No challenges available</p>}
                 {
-                  symposia.map((sym, index) => {
+                  challenges.map((sym, index) => {
                     const links = sym.keyLinks;
                     const startDate = formatDate(new Date(sym.startDate));
                     let endDate;
@@ -38,7 +38,7 @@ export class CrowdsourcingChallenges extends Component {
                       endDate = formatDate(new Date(sym.endDate));
                     }
                     return (
-                      <div key={`symposium ${index}`} className={styles.symposium}>
+                      <div key={`symposium ${index}`} className={styles.challenge}>
                         <div className={styles.header}>
                           <h5>{sym.title}</h5>
                           {
@@ -74,10 +74,10 @@ export class CrowdsourcingChallenges extends Component {
 }
 
 CrowdsourcingChallenges.propTypes = {
-  symposia: PropTypes.array.isRequired,
-  fetchSymposia: PropTypes.func.isRequired,
+  challenges: PropTypes.array.isRequired,
+  fetchChallenges: PropTypes.func.isRequired,
 };
 
 export default connect(mapStateToProps, {
-  fetchSymposia,
+  fetchChallenges,
 })(CrowdsourcingChallenges);

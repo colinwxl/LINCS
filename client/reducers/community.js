@@ -8,6 +8,7 @@ const initialState = {
   webinars: [],
   workshops: [],
   symposia: [],
+  challenges: [],
   isFetching: false,
   error: null,
 };
@@ -85,6 +86,25 @@ export default (state = initialState, action) => {
         error: null,
       };
     case CommunityActionTypes.SYMPOSIA_FAILURE:
+      return {
+        ...state,
+        isFetching: false,
+        error: action.error,
+      };
+    case CommunityActionTypes.CHALLENGES_REQUEST:
+      return {
+        ...state,
+        isFetching: true,
+        error: null,
+      };
+    case CommunityActionTypes.CHALLENGES_SUCCESS:
+      return {
+        ...state,
+        isFetching: false,
+        challenges: action.payload,
+        error: null,
+      };
+    case CommunityActionTypes.CHALLENGES_FAILURE:
       return {
         ...state,
         isFetching: false,
