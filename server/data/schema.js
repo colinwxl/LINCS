@@ -112,7 +112,6 @@ export default {
     title: { type: 'string', maxlength: 255, nullable: false },
     sub_title: { type: 'string', maxlength: 255, nullable: true },
     description: { type: 'text', maxlength: 16777215, fieldtype: 'medium', nullable: true },
-    location: { type: 'text', maxlength: 65535, nullable: true },
     start_date: { type: 'dateTime', nullable: false },
     end_date: { type: 'dateTime', nullable: true },
     key_links: { type: 'text', maxlength: 65535, nullable: true, isJson: true },

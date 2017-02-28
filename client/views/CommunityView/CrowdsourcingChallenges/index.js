@@ -30,25 +30,24 @@ export class CrowdsourcingChallenges extends Component {
               <div className={styles.challenges}>
                 {challenges.length === 0 && <p>No challenges available</p>}
                 {
-                  challenges.map((sym, index) => {
-                    const links = sym.keyLinks;
-                    const startDate = formatDate(new Date(sym.startDate));
+                  challenges.map((chal, index) => {
+                    const links = chal.keyLinks;
+                    const startDate = formatDate(new Date(chal.startDate));
                     let endDate;
-                    if (sym.endDate) {
-                      endDate = formatDate(new Date(sym.endDate));
+                    if (chal.endDate) {
+                      endDate = formatDate(new Date(chal.endDate));
                     }
                     return (
-                      <div key={`symposium ${index}`} className={styles.challenge}>
+                      <div key={`challenge ${index}`} className={styles.challenge}>
                         <div className={styles.header}>
-                          <h5>{sym.title}</h5>
+                          <h5>{chal.title}</h5>
                           {
                             !!endDate
                               ? <p><em>{startDate} to {endDate}</em></p>
                                 : <p><em>{startDate}</em></p>
                           }
-                          <p><em>{sym.location}</em></p>
                         </div>
-                        <p>{sym.description}</p>
+                        <p>{chal.description}</p>
                         {
                           !!links && !!Object.keys(links).length &&
                             <p><strong>Links</strong></p>
