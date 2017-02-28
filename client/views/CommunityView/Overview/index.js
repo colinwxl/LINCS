@@ -48,7 +48,7 @@ const events = [
   {
     eventItem: Event20170126,
     category: 'Crowdsourcing Challenge',
-    date: '2075-07-31',
+    date: '2017-01-26',
   },
   {
     eventItem: Event20160726,

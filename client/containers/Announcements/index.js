@@ -17,10 +17,11 @@ export class Announcements extends Component {
 
   latestSort(anns) {
     let latestAnnsIdx = anns.length;
-    const today = new Date();
+    const pastDate = new Date();
+    pastDate.setDate(pastDate.getDate() - 30);
     for (let i = 0; i < anns.length; i++) {
       const annDate = new Date(anns[i].eventDate);
-      if (annDate < today) {
+      if (annDate < pastDate) {
         latestAnnsIdx = i;
         break;
       }
@@ -32,10 +33,11 @@ export class Announcements extends Component {
 
   latestAnns(anns) {
     let latestAnnsIdx = anns.length;
-    const today = new Date();
+    const pastDate = new Date();
+    pastDate.setDate(pastDate.getDate() - 30);
     for (let i = 0; i < anns.length; i++) {
       const annDate = new Date(anns[i].eventDate);
-      if (annDate < today) {
+      if (annDate < pastDate) {
         latestAnnsIdx = i;
         break;
       }
