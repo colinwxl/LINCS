@@ -31,6 +31,7 @@ import PhaseOne from 'views/CentersView/PhaseOne';
 
 // Community
 import CommunityOverview from 'views/CommunityView/Overview';
+import CrowdsourcingChallenges from 'views/CommunityView/CrowdsourcingChallenges';
 import FundingOpportunities from 'views/CommunityView/FundingOpportunities';
 import ConsortiumMeetings from 'views/CommunityView/ConsortiumMeetings';
 import Webinars from 'views/CommunityView/Webinars';
@@ -141,6 +142,7 @@ export default (/* store */) => (
     {/* Community Routes */}
     <Redirect from={communityBase} to={`${communityBase}/overview`} />
     <Route path={`${communityBase}/overview`} component={CommunityOverview} />
+    <Route path={`${communityBase}/crowdsourcing-challenges`} component={CrowdsourcingChallenges} />
     <Route path={`${communityBase}/funding-opportunities`} component={FundingOpportunities} />
     <Route path={`${communityBase}/consortium-meetings`} component={ConsortiumMeetings} />
     <Route path={`${communityBase}/webinars`} component={Webinars} />

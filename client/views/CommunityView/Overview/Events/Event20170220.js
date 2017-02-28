@@ -41,7 +41,6 @@ export class Event20170220 extends Component {
     const moocs = this.findUpcomingMoocs(this.props.announcements);
     const upcomingMoocs = this.latestSort(moocs);
     const latestMooc = upcomingMoocs.shift();
-    debugger;
     return (
       <div className={styles['ann-card']}>
         <h6 className={`${styles['ann-group']} ${styles.course}`}>MOOC ON COURSERA</h6>

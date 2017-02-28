@@ -7,6 +7,11 @@ export default [
     children: [],
   },
   {
+    title: 'Crowdsourcing Challenges',
+    route: `${communityRoute}/crowdsourcing-challenges`,
+    children: [],
+  },
+  {
     title: 'Funding Opportunities',
     route: `${communityRoute}/funding-opportunities`,
     children: [],
