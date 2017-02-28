@@ -5,6 +5,7 @@ import { FundingOpportunity } from '../models/FundingOpportunity';
 import { Webinar } from '../models/Webinar';
 import { Workshop } from '../models/Workshop';
 import { Symposium } from '../models/Symposium';
+import { Challenge } from '../models/CrowdsourcingChallenge';
 import _debug from 'debug';
 const debug = _debug('app:server:routes:community');
 
@@ -63,6 +64,19 @@ router.get('/symposia', async (ctx) => {
   } catch (e) {
     debug(e);
     ctx.throw(500, 'An error occurred obtaining symposia.');
+  }
+});
+
+/**
+ * Get all challenges.
+ */
+router.get('/challenges', async (ctx) => {
+  try {
+    const challenges = await Challenge.forge().fetchAll();
+    ctx.body = challenges.toJSON();
+  } catch (e) {
+    debug(e);
+    ctx.throw(500, 'An error occurred obtaining challenges.');
   }
 });
 

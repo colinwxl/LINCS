@@ -332,7 +332,7 @@ export function fetchChallenges() {
       return null;
     }
     dispatch(challengesRequest());
-    return fetch('/LINCS/api/v1/community/symposia')
+    return fetch('/LINCS/api/v1/community/challenges')
     .then(response => handleResponse(response))
     .then(response => response.json())
     .then(response => dispatch(challengesSuccess(response)))
