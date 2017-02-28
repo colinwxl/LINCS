@@ -73,15 +73,15 @@ const events = [
 ];
 
 // Categories are used for the filtering events
-const cats = [
-  'All',
-  'Crowdsourcing Challenge',
-  'Conference',
-  'Course',
-  'Symposia',
-  'Training Program',
-  'Webinar',
-];
+// const cats = [
+//   'All',
+//   'Crowdsourcing Challenge',
+//   'Conference',
+//   'Course',
+//   'Symposia',
+//   'Training Program',
+//   'Webinar',
+// ];
 
 export default class Overview extends Component {
   constructor(props) {
@@ -142,7 +142,8 @@ export default class Overview extends Component {
     // Preprocess the events by sorting by date
     const sortedEvents = this.sortEvents(filteredEvents);
     // Discriminate between upcoming events and past events
-    const { upcoming, past } = this.filterDate(sortedEvents);
+    const { upcoming } = this.filterDate(sortedEvents);
+    // const { upcoming, past } = this.filterDate(sortedEvents);
 
     const featured = featuredEvents.filter(ev => (
       this.state.cat === 'All' || this.state.cat === ev.category
@@ -175,7 +176,9 @@ export default class Overview extends Component {
           <div className="row">
             <div className="col-md-3 col-md-push-9">
               <div className={styles.wrapper}>
-                {/*<h7 className={styles['filter-title']}>Filter Events</h7>*/}
+                {/*
+                  <h7 className={styles['filter-title']}>Filter Events</h7>
+                */}
                 {
                   // cats.map((cat, idx) => (
                   //   <span

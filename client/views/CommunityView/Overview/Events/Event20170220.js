@@ -1,5 +1,4 @@
 import React, { Component, PropTypes } from 'react';
-import { Link } from 'react-router';
 import { connect } from 'react-redux';
 import { loadAnnouncements } from 'actions/announcements';
 
@@ -54,7 +53,8 @@ export class Event20170220 extends Component {
               />
             </a>
             <h6><strong>
-              Next session of this course begins on Coursera {latestMooc && formatDate(latestMooc.eventDate)}!
+              Next session of this course begins on Coursera&nbsp;
+              {latestMooc && formatDate(latestMooc.eventDate)}!
             </strong></h6>
           </div>
           <p>
@@ -68,7 +68,7 @@ export class Event20170220 extends Component {
           </p>
           <br />
           <strong>Future session start dates:&nbsp;</strong>
-          {upcomingMoocs && upcomingMoocs.map((uc) => (formatDate(uc.eventDate))).join(", ")}
+          {upcomingMoocs && upcomingMoocs.map(uc => (formatDate(uc.eventDate))).join(', ')}
         </div>
       </div>
     );
