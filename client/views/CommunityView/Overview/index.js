@@ -15,7 +15,7 @@ import Event20170516 from './Events/Event20170516';
 import Event20160119 from './Events/Event20160119';
 import Event20170301 from './Events/Event20170301';
 import Event20160310 from './Events/Event20160310';
-import Event20170220 from './Events/Event20170220';
+import event20170220 from './Events/Event20170220';
 import Event20160726 from './Events/Event20160726';
 import Event20170126 from './Events/Event20170126';
 import Event20170302 from './Events/Event20170302';
@@ -245,7 +245,7 @@ class Overview extends Component {
     const latestCourse = this.latestSort(this.props.announcements)[0];
     if (latestCourse) {
       course = {
-        eventItem: () => Event20170220({announcements: this.props.announcements}),
+        eventItem: () => event20170220({ announcements: this.props.announcements }),
         category: 'Course',
         date: latestCourse.eventDate,
       };

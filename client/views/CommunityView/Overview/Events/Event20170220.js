@@ -1,15 +1,9 @@
-import React, { Component, PropTypes } from 'react';
-// import { connect } from 'react-redux';
-// import { loadAnnouncements } from 'actions/announcements';
+import React, { PropTypes } from 'react';
 
 import styles from '../Overview.scss';
 import dcicImg from '../dcic.png';
 
 import formatDate from 'utils/formatDate';
-
-// const mapStateToProps = (state) => ({
-//   announcements: state.announcements.announcements,
-// });
 
 const latestSort = (anns) => {
   let latestAnnsIdx = anns.length;
@@ -24,74 +18,69 @@ const latestSort = (anns) => {
   const latestAnns = anns.slice(0, latestAnnsIdx).reverse();
   const remainingAnns = anns.slice(latestAnnsIdx).reverse();
   return latestAnns.concat(remainingAnns);
-}
+};
 
-const findUpcomingMoocs = (anns) => {
-  return anns.filter(ann => ann.course && (new Date(ann.eventDate) >= new Date()));
-}
+const findUpcomingMoocs = (anns) => (anns.filter(
+  ann => ann.course && (new Date(ann.eventDate) >= new Date())
+));
 
 export default function Event20170220(props) {
-  // componentDidMount() {
-  //   if (!this.props.announcements.length) {
-  //     this.props.loadAnnouncements();
-  //   }
-  // }
-    const moocs = findUpcomingMoocs(props.announcements);
-    const upcomingMoocs = latestSort(moocs);
-    const latestMooc = upcomingMoocs.shift();
-    return (
-      <div className={styles['ann-card']}>
-        {/*
-          <h6 className={`${styles['ann-group']} ${styles.course}`}>MOOC ON COURSERA</h6>
-        */}
-        <h6 className={`${styles['ann-group']} ${styles.course}`}>
-          {latestMooc && formatDate(latestMooc.eventDate)}
-        </h6>
-        <div className={styles['ann-content']}>
-          <h3>
-            Big Data Science with the BD2K-LINCS Data Coordination and Integration Center
-          </h3>
-          <div>
-            <a href="http://lincs-dcic.org/#/summer-research-app#nav">
-              <img
-                className={styles['inline-img-left']}
-                src={dcicImg}
-                alt="dcic"
-                width="231"
-                height="173"
-              />
-            </a>
-            {
-              upcomingMoocs && upcomingMoocs.length > 0 ?
-              (<h6><strong>
-                Next session of this course begins on Coursera&nbsp;
-                {latestMooc && formatDate(latestMooc.eventDate)}!
-              </strong></h6>) :
-              null
-            }
-
-          </div>
-          <p>
-            This course covers various methods of analysis including:
-            unsupervised clustering, gene-set enrichment analyses,
-            data visualization, and supervised machine learning
-            applications to LINCS data. This course also covers
-            basic data processing and data normalization methods to
-            clean and harmonize LINCS data and other relevant data.&nbsp;
-            <a href="https://www.coursera.org/course/bd2klincs">Enroll Now</a>
-          </p>
-          <br />
+  const moocs = findUpcomingMoocs(props.announcements);
+  const upcomingMoocs = latestSort(moocs);
+  const latestMooc = upcomingMoocs.shift();
+  return (
+    <div className={styles['ann-card']}>
+      {/*
+        <h6 className={`${styles['ann-group']} ${styles.course}`}>MOOC ON COURSERA</h6>
+      */}
+      <h6 className={`${styles['ann-group']} ${styles.course}`}>
+        {latestMooc && formatDate(latestMooc.eventDate)}
+      </h6>
+      <div className={styles['ann-content']}>
+        <h3>
+          Big Data Science with the BD2K-LINCS Data Coordination and Integration Center
+        </h3>
+        <div>
+          <a href="http://lincs-dcic.org/#/summer-research-app#nav">
+            <img
+              className={styles['inline-img-left']}
+              src={dcicImg}
+              alt="dcic"
+              width="231"
+              height="173"
+            />
+          </a>
           {
-            upcomingMoocs &&
-            !!upcomingMoocs.length &&
-            (<div>
-              <strong>Future session start dates:&nbsp;</strong>
-              {upcomingMoocs.map(uc => (formatDate(uc.eventDate))).join(', ')}
-            </div>)
+            upcomingMoocs && upcomingMoocs.length > 0 ?
+            (<h6><strong>
+              Next session of this course begins on Coursera&nbsp;
+              {latestMooc && formatDate(latestMooc.eventDate)}!
+            </strong></h6>) :
+            null
           }
+
         </div>
+        <p>
+          This course covers various methods of analysis including:
+          unsupervised clustering, gene-set enrichment analyses,
+          data visualization, and supervised machine learning
+          applications to LINCS data. This course also covers
+          basic data processing and data normalization methods to
+          clean and harmonize LINCS data and other relevant data.&nbsp;
+          <a href="https://www.coursera.org/course/bd2klincs">Enroll Now</a>
+        </p>
+        <br />
+        {
+          upcomingMoocs &&
+          !!upcomingMoocs.length &&
+          (<div>
+            <strong>Future session start dates:&nbsp;</strong>
+            {upcomingMoocs.map(uc => (formatDate(uc.eventDate))).join(', ')}
+          </div>)
+        }
       </div>
-    );
+    </div>
+  );
 }
 
 
