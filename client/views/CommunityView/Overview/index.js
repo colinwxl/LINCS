@@ -18,6 +18,7 @@ import Event20160310 from './Events/Event20160310';
 import Event20170220 from './Events/Event20170220';
 import Event20160726 from './Events/Event20160726';
 import Event20170126 from './Events/Event20170126';
+import Event20170302 from './Events/Event20170302';
 import EventBD2KCrowdSourcing from './Events/EventBD2KCrowdSourcing';
 
 const featuredEvents = [
@@ -29,6 +30,11 @@ const featuredEvents = [
 ];
 
 const events = [
+  {
+    eventItem: Event20170302,
+    category: 'Seminar',
+    date: '2017-03-02',
+  },
   {
     eventItem: Event20170404,
     category: 'Conference',
