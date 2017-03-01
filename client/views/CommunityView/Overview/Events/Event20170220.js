@@ -1,51 +1,52 @@
 import React, { Component, PropTypes } from 'react';
-import { connect } from 'react-redux';
-import { loadAnnouncements } from 'actions/announcements';
+// import { connect } from 'react-redux';
+// import { loadAnnouncements } from 'actions/announcements';
 
 import styles from '../Overview.scss';
 import dcicImg from '../dcic.png';
 
 import formatDate from 'utils/formatDate';
 
-const mapStateToProps = (state) => ({
-  announcements: state.announcements.announcements,
-});
+// const mapStateToProps = (state) => ({
+//   announcements: state.announcements.announcements,
+// });
 
-export class Event20170220 extends Component {
-  componentDidMount() {
-    if (!this.props.announcements.length) {
-      this.props.loadAnnouncements();
+const latestSort = (anns) => {
+  let latestAnnsIdx = anns.length;
+  const today = new Date();
+  for (let i = 0; i < anns.length; i++) {
+    const annDate = new Date(anns[i].eventDate);
+    if (annDate < today) {
+      latestAnnsIdx = i;
+      break;
     }
   }
+  const latestAnns = anns.slice(0, latestAnnsIdx).reverse();
+  const remainingAnns = anns.slice(latestAnnsIdx).reverse();
+  return latestAnns.concat(remainingAnns);
+}
 
-  latestSort(anns) {
-    let latestAnnsIdx = anns.length;
-    const today = new Date();
-    for (let i = 0; i < anns.length; i++) {
-      const annDate = new Date(anns[i].eventDate);
-      if (annDate < today) {
-        latestAnnsIdx = i;
-        break;
-      }
-    }
-    const latestAnns = anns.slice(0, latestAnnsIdx).reverse();
-    const remainingAnns = anns.slice(latestAnnsIdx).reverse();
-    return latestAnns.concat(remainingAnns);
-  }
+const findUpcomingMoocs = (anns) => {
+  return anns.filter(ann => ann.course && (new Date(ann.eventDate) >= new Date()));
+}
 
-  findUpcomingMoocs(anns) {
-    return anns.filter(ann => ann.course && (new Date(ann.eventDate) >= new Date()));
-  }
-
-  render() {
-    const moocs = this.findUpcomingMoocs(this.props.announcements);
-    const upcomingMoocs = this.latestSort(moocs);
+export default function Event20170220(props) {
+  // componentDidMount() {
+  //   if (!this.props.announcements.length) {
+  //     this.props.loadAnnouncements();
+  //   }
+  // }
+    const moocs = findUpcomingMoocs(props.announcements);
+    const upcomingMoocs = latestSort(moocs);
     const latestMooc = upcomingMoocs.shift();
     return (
       <div className={styles['ann-card']}>
         {/*
           <h6 className={`${styles['ann-group']} ${styles.course}`}>MOOC ON COURSERA</h6>
         */}
+        <h6 className={`${styles['ann-group']} ${styles.course}`}>
+          {latestMooc && formatDate(latestMooc.eventDate)}
+        </h6>
         <div className={styles['ann-content']}>
           <h3>
             Big Data Science with the BD2K-LINCS Data Coordination and Integration Center
@@ -81,26 +82,24 @@ export class Event20170220 extends Component {
           </p>
           <br />
           {
-            upcomingMoocs && upcomingMoocs.length > 0 ?
+            upcomingMoocs &&
+            !!upcomingMoocs.length &&
             (<div>
               <strong>Future session start dates:&nbsp;</strong>
               {upcomingMoocs.map(uc => (formatDate(uc.eventDate))).join(', ')}
-            </div>) :
-            null
+            </div>)
           }
-
         </div>
       </div>
     );
-  }
 }
 
 
 Event20170220.propTypes = {
-  loadAnnouncements: PropTypes.func,
+  // loadAnnouncements: PropTypes.func,
   announcements: PropTypes.array,
 };
 
-export default connect(mapStateToProps, {
-  loadAnnouncements,
-})(Event20170220);
+// export default connect(mapStateToProps, {
+//   loadAnnouncements,
+// })(Event20170220);

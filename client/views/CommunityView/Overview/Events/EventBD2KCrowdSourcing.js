@@ -8,6 +8,7 @@ export default function EventBD2KCrowdSourcing() {
       {/*
         <h6 className={`${styles['ann-group']} ${styles.challenge}`}>CROWDSOURCING CHALLENGE</h6>
       */}
+      <h6 className={`${styles['ann-group']} ${styles.challenge}`}>Completes December 31, 2017</h6>
       <div className={styles['ann-content']}>
         <h3>BD2K-LINCS DCIC Crowdsourcing Portal</h3>
         <img

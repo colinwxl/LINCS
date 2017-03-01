@@ -8,6 +8,7 @@ export default function Event20160310() {
       {/*
         <h6 className={`${styles['ann-group']} ${styles.symposia}`}>SYMPOSIUM</h6>
       */}
+      <h6 className={`${styles['ann-group']} ${styles.symposia}`}>March 10, 2016</h6>
       <div className={styles['ann-content']}>
         <h3>LINCS Outreach Meeting 2016</h3>
         <div className="clearfix">

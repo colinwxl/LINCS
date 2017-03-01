@@ -1,8 +1,11 @@
 import React, { Component, PropTypes } from 'react';
 import { Link } from 'react-router';
 import { connect } from 'react-redux';
+import { fetchWebinars } from 'actions/community';
 import { loadAnnouncements } from 'actions/announcements';
+import Collapsible from 'react-collapsible';
 
+import formatDate from 'utils/formatDate';
 import PageBanner from 'components/PageBanner';
 import PageNav from 'components/PageNav';
 import styles from './Overview.scss';
@@ -17,18 +20,13 @@ import Event20160726 from './Events/Event20160726';
 import Event20170126 from './Events/Event20170126';
 import EventBD2KCrowdSourcing from './Events/EventBD2KCrowdSourcing';
 
-// const featuredEvents = [
-//   {
-//     eventItem: Event20170404,
-//     category: 'Conference',
-//     date: '2017-04-04',
-//   },
-//   {
-//     eventItem: Event20170516,
-//     category: 'Symposia',
-//     date: '2017-05-16',
-//   },
-// ];
+const featuredEvents = [
+  {
+    eventItem: EventBD2KCrowdSourcing,
+    category: 'Crowdsourcing Challenge',
+    date: '2022-12-01 00:00:00',
+  }
+];
 
 const events = [
   {
@@ -40,11 +38,6 @@ const events = [
     eventItem: Event20170516,
     category: 'Symposia',
     date: '2017-05-16',
-  },
-  {
-    eventItem: Event20170220,
-    category: 'Course',
-    date: '2022-12-30 00:00:00',
   },
   {
     eventItem: Event20170301,
@@ -60,11 +53,6 @@ const events = [
     eventItem: Event20160726,
     category: 'Crowdsourcing Challenge',
     date: '2016-07-26 00:00:00',
-  },
-  {
-    eventItem: EventBD2KCrowdSourcing,
-    category: 'Crowdsourcing Challenge',
-    date: '2022-12-01 00:00:00',
   },
   {
     eventItem: Event20160310,
@@ -90,6 +78,7 @@ const events = [
 // ];
 
 const mapStateToProps = (state) => ({
+  webinars: state.community.webinars,
   announcements: state.announcements.announcements,
 });
 
@@ -102,6 +91,7 @@ class Overview extends Component {
 
   componentWillMount() {
     this.props.loadAnnouncements();
+    this.props.fetchWebinars();
   }
 
   componentDidMount() {
@@ -152,39 +142,56 @@ class Overview extends Component {
   }
 
   createWebinarCard(web) {
+    const hasVideo = web.url && !!web.url.length;
     return (
       <div className={styles['ann-card']}>
+        <h6 className={`${styles['ann-group']} ${styles.webinar}`}>{formatDate(web.date)}</h6>
         <div className={styles['ann-content']}>
           <h3>
-            <a
-              href="http://crowdsourcing.topcoder.com/cmap2"
-              target="_blank"
-              style={{ textDecoration: 'none' }}
-            >
-              WEBINARRRRRZ
-            </a>
+            Webinar: <Link to="/community/webinars" style={{ textDecoration: 'none' }}>
+              {web.title}
+            </Link>
           </h3>
-          <p>
-            The LINCS Center for Transcriptomics at the Broad
-            Institute launched a second data science challenge
-            through the Topcoder crowd-sourcing platform.
-            The challenge is currently underway!
-          </p>
+          {
+            web.presenterUrl && !!web.presenterUrl.length
+              ? <span><a href={web.presenterUrl}>{web.presenterName}</a></span>
+            : <span>{web.presenterName}</span>
+          }
+          ,&nbsp;
+          {
+            web.presenterAffiliation &&
+            !!web.presenterAffiliation.length &&
+              web.presenterAffiliation
+          }
+          {
+            web.abstract &&
+            web.abstract.length &&
+            <Collapsible trigger="▸ Abstract" triggerWhenOpen="▾ Abstract">
+              <span>{web.abstract}</span>
+            </Collapsible>
+          }
+          {
+            hasVideo
+              ? <span><a href={web.url}>Watch webinar on YouTube</a></span>
+            : <span></span>
+          }
+          <br />
+          <Link to="/community/webinars/">Learn More</Link>
         </div>
       </div>
     );
   }
 
-  findUpcomingWebinarsAndGenerateCard(anns) {
+  findUpcomingWebinarsAndGenerateCard(webinars) {
     const yesterday = new Date();
     yesterday.setDate(yesterday.getDate() - 1);
-    const webs = anns.filter(ann => ann.webinar && (new Date(ann.eventDate) >= yesterday));
+    const webs = webinars.filter(web => new Date(web.date) >= yesterday);
     return webs.map(web => {
       const webComp = this.createWebinarCard(web);
       return {
         eventItem: () => (webComp),
         category: 'Webinar',
-        date: web.eventDate,
+        date: web.date,
       };
     });
   }
@@ -212,15 +219,44 @@ class Overview extends Component {
     return eventsMonthMapping;
   }
 
+  latestSort(anns) {
+    let latestAnnsIdx = anns.length;
+    const today = new Date();
+    for (let i = 0; i < anns.length; i++) {
+      const annDate = new Date(anns[i].eventDate);
+      if (annDate < today) {
+        latestAnnsIdx = i;
+        break;
+      }
+    }
+    const latestAnns = anns.slice(0, latestAnnsIdx).reverse();
+    const remainingAnns = anns.slice(latestAnnsIdx).reverse();
+    return latestAnns.concat(remainingAnns);
+  }
+
   render() {
-    const webinars = this.findUpcomingWebinarsAndGenerateCard(this.props.announcements);
-    const filteredEvents = this.filterEvents(events.concat(webinars), this.state.cat);
+    let course = {};
+    const latestCourse = this.latestSort(this.props.announcements)[0];
+    if (latestCourse) {
+      course = {
+        eventItem: () => Event20170220({announcements: this.props.announcements}),
+        category: 'Course',
+        date: latestCourse.eventDate,
+      };
+    }
+    const webinars = this.findUpcomingWebinarsAndGenerateCard(this.props.webinars);
+    const allEvents = events.concat(webinars);
+    if (course.eventItem) {
+      allEvents.push(course);
+    }
+    const filteredEvents = this.filterEvents(allEvents, this.state.cat);
     const sortedEvents = this.sortEvents(filteredEvents);
     const { upcoming } = this.filterDate(sortedEvents);
 
-    // const featured = featuredEvents.filter(ev => (
-    //   this.state.cat === 'All' || this.state.cat === ev.category
-    // ));
+
+    const featured = featuredEvents.filter(ev => (
+      this.state.cat === 'All' || this.state.cat === ev.category
+    ));
 
     const mappedEventsToMonth = this.mapEventsToMonth(upcoming);
     return (
@@ -246,8 +282,6 @@ class Overview extends Component {
                 courses, training seminars, challenges, workshops and symposia to foster
                 an active LINCS community.
               </p>
-              <br />
-              <h2>Upcoming events</h2>
             </div>
           </div>
           <div className="row">
@@ -270,21 +304,6 @@ class Overview extends Component {
             </div>
             <div className="col-md-9 col-md-pull-3">
               {
-                // featured && !!featured.length && (
-                //   <div>
-                //     <h3>Featured Upcoming Events</h3>
-                //     {
-                //       featured.map((ev, idx) => {
-                //         if (this.state.cat === 'All' || this.state.cat === ev.category) {
-                //           return (<ev.eventItem key={idx} />);
-                //         }
-                //         return null;
-                //       })
-                //     }
-                //   </div>
-                // )
-              }
-              {
                 Object.keys(mappedEventsToMonth).map((monthName, idx) => (
                   !!mappedEventsToMonth[monthName].length && (
                     <div key={idx}>
@@ -298,6 +317,21 @@ class Overview extends Component {
                   )
                 ))
               }
+              {
+                featured && !!featured.length && (
+                  <div>
+                    <h3>ONGOING EVENTS</h3>
+                    {
+                      featured.map((ev, idx) => {
+                        if (this.state.cat === 'All' || this.state.cat === ev.category) {
+                          return (<ev.eventItem key={idx} />);
+                        }
+                        return null;
+                      })
+                    }
+                  </div>
+                )
+              }
             </div>
           </div>
         </div>
@@ -307,10 +341,13 @@ class Overview extends Component {
 }
 
 Overview.propTypes = {
+  fetchWebinars: PropTypes.func,
+  webinars: PropTypes.array,
   loadAnnouncements: PropTypes.func,
   announcements: PropTypes.array,
 };
 
 export default connect(mapStateToProps, {
+  fetchWebinars,
   loadAnnouncements,
 })(Overview);
