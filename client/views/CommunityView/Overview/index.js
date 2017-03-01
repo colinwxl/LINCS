@@ -16,7 +16,20 @@ import Event20170126 from './Events/Event20170126';
 import EventBD2KCrowdSourcing from './Events/EventBD2KCrowdSourcing';
 import Event2017Webinar from './Events/Event2017Webinar';
 
-const featuredEvents = [
+// const featuredEvents = [
+//   {
+//     eventItem: Event20170404,
+//     category: 'Conference',
+//     date: '2017-04-04',
+//   },
+//   {
+//     eventItem: Event20170516,
+//     category: 'Symposia',
+//     date: '2017-05-16',
+//   },
+// ];
+
+const events = [
   {
     eventItem: Event20170404,
     category: 'Conference',
@@ -27,48 +40,45 @@ const featuredEvents = [
     category: 'Symposia',
     date: '2017-05-16',
   },
-];
-
-const events = [
   {
     eventItem: Event2017Webinar,
     category: 'Webinar',
-    date: '2030-02-28',
+    date: '2022-03-21 00:00:00',
   },
   {
     eventItem: Event20170220,
     category: 'Course',
-    date: '2040-12-31',
+    date: '2022-12-30 00:00:00',
   },
   {
     eventItem: Event20170301,
     category: 'Training Program',
-    date: '2017-03-01',
+    date: '2017-03-01 00:00:00',
   },
   {
     eventItem: Event20170126,
     category: 'Crowdsourcing Challenge',
-    date: '2017-01-26',
+    date: '2017-01-26 00:00:00',
   },
   {
     eventItem: Event20160726,
     category: 'Crowdsourcing Challenge',
-    date: '2016-07-26',
+    date: '2016-07-26 00:00:00',
   },
   {
     eventItem: EventBD2KCrowdSourcing,
     category: 'Crowdsourcing Challenge',
-    date: '2050-12-01',
+    date: '2022-12-01 00:00:00',
   },
   {
     eventItem: Event20160310,
     category: 'Symposia',
-    date: '2016-03-10',
+    date: '2016-03-10 00:00:00',
   },
   {
     eventItem: Event20160119,
     category: 'Symposia',
-    date: '2016-01-19',
+    date: '2016-01-19 00:00:00',
   },
 ];
 
@@ -136,18 +146,39 @@ export default class Overview extends Component {
     return eventsArr.filter(ev => (state === ev.category));
   }
 
-  render() {
-    // Filter for relevant events first
-    const filteredEvents = this.filterEvents(events, this.state.cat);
-    // Preprocess the events by sorting by date
-    const sortedEvents = this.sortEvents(filteredEvents);
-    // Discriminate between upcoming events and past events
-    const { upcoming } = this.filterDate(sortedEvents);
-    // const { upcoming, past } = this.filterDate(sortedEvents);
+  mapEventsToMonth(eventsList) {
+    const eventsMonthMapping = {
+      January: [],
+      February: [],
+      March: [],
+      April: [],
+      May: [],
+      June: [],
+      July: [],
+      August: [],
+      September: [],
+      October: [],
+      November: [],
+      December: [],
+    };
+    eventsList.forEach(ev => {
+      const date = new Date(ev.date);
+      const month = date.toLocaleString('en-us', { month: 'long' });
+      eventsMonthMapping[month].push(ev);
+    });
+    return eventsMonthMapping;
+  }
 
-    const featured = featuredEvents.filter(ev => (
-      this.state.cat === 'All' || this.state.cat === ev.category
-    ));
+  render() {
+    const filteredEvents = this.filterEvents(events, this.state.cat);
+    const sortedEvents = this.sortEvents(filteredEvents);
+    const { upcoming } = this.filterDate(sortedEvents);
+
+    // const featured = featuredEvents.filter(ev => (
+    //   this.state.cat === 'All' || this.state.cat === ev.category
+    // ));
+
+    const mappedEventsToMonth = this.mapEventsToMonth(upcoming);
     return (
       <div className={styles.wrapper}>
         <PageBanner
@@ -171,15 +202,15 @@ export default class Overview extends Component {
                 courses, training seminars, challenges, workshops and symposia to foster
                 an active LINCS community.
               </p>
+              <br />
+              <h2>Upcoming events</h2>
             </div>
           </div>
           <div className="row">
             <div className="col-md-3 col-md-push-9">
               <div className={styles.wrapper}>
-                {/*
-                  <h7 className={styles['filter-title']}>Filter Events</h7>
-                */}
                 {
+                  // <h7 className={styles['filter-title']}>Filter Events</h7>
                   // cats.map((cat, idx) => (
                   //   <span
                   //     key={idx}
@@ -195,28 +226,33 @@ export default class Overview extends Component {
             </div>
             <div className="col-md-9 col-md-pull-3">
               {
-                featured && featured.length > 0 ?
-                (<div>
-                  <h3>Featured Upcoming Events</h3>
-                  {
-                    featured.map((ev, idx) => {
-                      if (this.state.cat === 'All' || this.state.cat === ev.category) {
-                        return (<ev.eventItem key={idx} />);
-                      }
-                      return null;
-                    })
-                  }
-                </div>) :
-                null
+                // featured && !!featured.length && (
+                //   <div>
+                //     <h3>Featured Upcoming Events</h3>
+                //     {
+                //       featured.map((ev, idx) => {
+                //         if (this.state.cat === 'All' || this.state.cat === ev.category) {
+                //           return (<ev.eventItem key={idx} />);
+                //         }
+                //         return null;
+                //       })
+                //     }
+                //   </div>
+                // )
               }
-              {upcoming && upcoming.map((ev, idx) => (<ev.eventItem key={idx} />))}
               {
-                // past && past.length > 0 ?
-                // (<div>
-                //   <h3>Past</h3>
-                //   {past.map((ev, idx) => (<ev.eventItem key={idx} />))}
-                // </div>) :
-                // null
+                Object.keys(mappedEventsToMonth).map((monthName, idx) => (
+                  !!mappedEventsToMonth[monthName].length && (
+                    <div key={idx}>
+                      <h3>{monthName}</h3>
+                      {
+                        mappedEventsToMonth[monthName].map((monthEv, idx2) => (
+                          <monthEv.eventItem key={idx2} />
+                        ))
+                      }
+                    </div>
+                  )
+                ))
               }
             </div>
           </div>
