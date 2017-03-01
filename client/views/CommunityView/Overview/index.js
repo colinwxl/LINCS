@@ -1,5 +1,7 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import { Link } from 'react-router';
+import { connect } from 'react-redux';
+import { loadAnnouncements } from 'actions/announcements';
 
 import PageBanner from 'components/PageBanner';
 import PageNav from 'components/PageNav';
@@ -14,7 +16,6 @@ import Event20170220 from './Events/Event20170220';
 import Event20160726 from './Events/Event20160726';
 import Event20170126 from './Events/Event20170126';
 import EventBD2KCrowdSourcing from './Events/EventBD2KCrowdSourcing';
-import Event2017Webinar from './Events/Event2017Webinar';
 
 // const featuredEvents = [
 //   {
@@ -39,11 +40,6 @@ const events = [
     eventItem: Event20170516,
     category: 'Symposia',
     date: '2017-05-16',
-  },
-  {
-    eventItem: Event2017Webinar,
-    category: 'Webinar',
-    date: '2022-03-21 00:00:00',
   },
   {
     eventItem: Event20170220,
@@ -93,10 +89,19 @@ const events = [
 //   'Webinar',
 // ];
 
-export default class Overview extends Component {
+const mapStateToProps = (state) => ({
+  announcements: state.announcements.announcements,
+});
+
+
+class Overview extends Component {
   constructor(props) {
     super(props);
     this.state = { cat: 'All' };
+  }
+
+  componentWillMount() {
+    this.props.loadAnnouncements();
   }
 
   componentDidMount() {
@@ -146,6 +151,44 @@ export default class Overview extends Component {
     return eventsArr.filter(ev => (state === ev.category));
   }
 
+  createWebinarCard(web) {
+    return (
+      <div className={styles['ann-card']}>
+        <div className={styles['ann-content']}>
+          <h3>
+            <a
+              href="http://crowdsourcing.topcoder.com/cmap2"
+              target="_blank"
+              style={{ textDecoration: 'none' }}
+            >
+              WEBINARRRRRZ
+            </a>
+          </h3>
+          <p>
+            The LINCS Center for Transcriptomics at the Broad
+            Institute launched a second data science challenge
+            through the Topcoder crowd-sourcing platform.
+            The challenge is currently underway!
+          </p>
+        </div>
+      </div>
+    );
+  }
+
+  findUpcomingWebinarsAndGenerateCard(anns) {
+    const yesterday = new Date();
+    yesterday.setDate(yesterday.getDate() - 1);
+    const webs = anns.filter(ann => ann.webinar && (new Date(ann.eventDate) >= yesterday));
+    return webs.map(web => {
+      const webComp = this.createWebinarCard(web);
+      return {
+        eventItem: () => (webComp),
+        category: 'Webinar',
+        date: web.eventDate,
+      };
+    });
+  }
+
   mapEventsToMonth(eventsList) {
     const eventsMonthMapping = {
       January: [],
@@ -170,7 +213,8 @@ export default class Overview extends Component {
   }
 
   render() {
-    const filteredEvents = this.filterEvents(events, this.state.cat);
+    const webinars = this.findUpcomingWebinarsAndGenerateCard(this.props.announcements);
+    const filteredEvents = this.filterEvents(events.concat(webinars), this.state.cat);
     const sortedEvents = this.sortEvents(filteredEvents);
     const { upcoming } = this.filterDate(sortedEvents);
 
@@ -261,3 +305,12 @@ export default class Overview extends Component {
     );
   }
 }
+
+Overview.propTypes = {
+  loadAnnouncements: PropTypes.func,
+  announcements: PropTypes.array,
+};
+
+export default connect(mapStateToProps, {
+  loadAnnouncements,
+})(Overview);
