@@ -8,7 +8,7 @@ export default function Event20170301() {
       {/*
         <h6 className={`${styles['ann-group']} ${styles.training}`}>TRAINING PROGRAM</h6>
       */}
-      <h6 className={`${styles['ann-group']} ${styles.training}`}>March 1, 2017</h6>
+      <h6 className={`${styles['ann-group']} ${styles.training}`}>June 5, 2017</h6>
       <div className={styles['ann-content']}>
         <h3>
           BD2K-LINCS DCIC Summer Research Training Program

@@ -11,19 +11,19 @@ export default function Event20170302() {
         <h3>BME LINCS Special Seminar</h3>
         <h4>Insights To Treatment Resistant Prostate Cancer</h4>
         <p>
-          You can learn more about this event by clicking <a
-            href={`https://www.ohsu.edu/xd/education/schools/school-of-medicine/` +
-              `departments/basic-science-departments/biomedical-engineering/news-` +
-              `and-events/events-calendar.cfm?trumbaEmbed=eventid%3D120190928%26view` +
-              `%3Devent%26-childview%3D`}
+          You can learn more about the event details <a
+            href={'https://www.ohsu.edu/xd/education/schools/school-of-medicine/' +
+              'departments/basic-science-departments/biomedical-engineering/news-' +
+              'and-events/events-calendar.cfm?trumbaEmbed=eventid%3D120190928%26view' +
+              '%3Devent%26-childview%3D'}
             target="_blank"
-          >event details</a>.
+          >here</a>.
         </p>
         <p>
           Also available by live streaming and recorded for later viewing&nbsp;
           <a
-            href={`https://echo360ess.ohsu.edu:8443/ess/portal/` +
-              `section/4a507bbf-b35a-45cd-92ee-2a5cfefadd6a`
+            href={'https://echo360ess.ohsu.edu:8443/ess/portal/' +
+              'section/4a507bbf-b35a-45cd-92ee-2a5cfefadd6a'
             }
             target="_blank"
           >here</a>.

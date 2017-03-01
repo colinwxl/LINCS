@@ -26,7 +26,7 @@ const featuredEvents = [
     eventItem: EventBD2KCrowdSourcing,
     category: 'Crowdsourcing Challenge',
     date: '2022-12-01 00:00:00',
-  }
+  },
 ];
 
 const events = [
@@ -48,7 +48,7 @@ const events = [
   {
     eventItem: Event20170301,
     category: 'Training Program',
-    date: '2017-03-01 00:00:00',
+    date: '2017-06-05 00:00:00',
   },
   {
     eventItem: Event20170126,
@@ -172,9 +172,9 @@ class Overview extends Component {
           {
             web.abstract &&
             web.abstract.length &&
-            <Collapsible trigger="▸ Abstract" triggerWhenOpen="▾ Abstract">
-              <span>{web.abstract}</span>
-            </Collapsible>
+              <Collapsible trigger="▸ Abstract" triggerWhenOpen="▾ Abstract">
+                <span>{web.abstract}</span>
+              </Collapsible>
           }
           {
             hasVideo
