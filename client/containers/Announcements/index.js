@@ -15,26 +15,26 @@ export class Announcements extends Component {
     this.props.loadAnnouncements();
   }
 
-  latestSort(anns) {
-    let latestAnnsIdx = anns.length;
-    const pastDate = new Date();
-    pastDate.setDate(pastDate.getDate() - 30);
-    for (let i = 0; i < anns.length; i++) {
-      const annDate = new Date(anns[i].eventDate);
-      if (annDate < pastDate) {
-        latestAnnsIdx = i;
-        break;
-      }
-    }
-    const latestAnns = anns.slice(0, latestAnnsIdx).reverse();
-    const remainingAnns = anns.slice(latestAnnsIdx).reverse();
-    return latestAnns.concat(remainingAnns);
-  }
+  // latestSort(anns) {
+  //   let latestAnnsIdx = anns.length;
+  //   const pastDate = new Date();
+  //   pastDate.setDate(pastDate.getDate() - 30);
+  //   for (let i = 0; i < anns.length; i++) {
+  //     const annDate = new Date(anns[i].eventDate);
+  //     if (annDate < pastDate) {
+  //       latestAnnsIdx = i;
+  //       break;
+  //     }
+  //   }
+  //   const latestAnns = anns.slice(0, latestAnnsIdx).reverse();
+  //   const remainingAnns = anns.slice(latestAnnsIdx).reverse();
+  //   return latestAnns.concat(remainingAnns);
+  // }
 
   latestAnns(anns) {
     let latestAnnsIdx = anns.length;
     const pastDate = new Date();
-    pastDate.setDate(pastDate.getDate() - 30);
+    pastDate.setDate(pastDate.getDate() - 1);
     for (let i = 0; i < anns.length; i++) {
       const annDate = new Date(anns[i].eventDate);
       if (annDate < pastDate) {
@@ -45,9 +45,24 @@ export class Announcements extends Component {
     return anns.slice(0, latestAnnsIdx).reverse();
   }
 
+  sortAnns(anns) {
+    return anns.sort((ann1, ann2) => {
+      const ann1Date = new Date(ann1.eventDate);
+      const ann2Date = new Date(ann2.eventDate);
+      if (ann1Date > ann2Date) {
+        return 1;
+      } else if (ann1Date < ann2Date) {
+        return -1;
+      }
+      return 0;
+    }).reverse();
+  }
+
   latestInQuartets(anns) {
     const latestAnns = this.latestAnns(anns);
-    if (latestAnns.length <= 4) return [latestAnns];
+    if (latestAnns.length <= 4) {
+      return [this.sortAnns(anns).slice(0, 4)];
+    }
     const quartets = [];
     for (let i = 0; i < latestAnns.length; i += 4) {
       quartets.push(latestAnns.slice(i, i + 4));
