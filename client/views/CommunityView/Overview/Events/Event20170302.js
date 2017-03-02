@@ -10,7 +10,8 @@ export default function Event20170302() {
       <div className={styles['ann-content']}>
         <h3>BME LINCS Special Seminar</h3>
         <h4>Insights To Treatment Resistant Prostate Cancer</h4>
-        <p>
+        <p>The event is held on&nbsp;
+          <strong>Thursday, 3/2/2017 from 2:30 – 3:30pm Pacific Time</strong>.
           You can learn more about the event details <a
             href={'https://www.ohsu.edu/xd/education/schools/school-of-medicine/' +
               'departments/basic-science-departments/biomedical-engineering/news-' +
