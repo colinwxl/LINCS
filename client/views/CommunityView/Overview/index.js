@@ -130,7 +130,7 @@ class Overview extends Component {
     const upcoming = [];
     // past is ordered most recent to oldest
     const past = [];
-    let today = new Date();
+    const today = new Date();
     today.setDate(today.getDate() - 1);
     eventsArr.forEach(ev => {
       const evDate = new Date(ev.date);
