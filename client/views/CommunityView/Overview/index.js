@@ -299,7 +299,7 @@ class Overview extends Component {
               <p>
                 The 2016 LINCS Consortium Meeting was held September 19-20,
                 at the NIH campus in Bethesda, MD. This two-day meeting
-                brought together the six
+                brought together the six&nbsp;
                 <Link to="/centers/data-and-signature-generating-centers">
                   LINCS Data and Signature Generation Centers
                 </Link>, the <Link to="/centers/dcic">
