@@ -288,6 +288,17 @@ class Overview extends Component {
                 courses, training seminars, challenges, workshops and symposia to foster
                 an active LINCS community.
               </p>
+              <h3>Highlight</h3>
+              <p>
+                The 2016 LINCS Consortium Meeting was held September 19-20,
+                at the NIH campus in Bethesda, MD. This two-day meeting
+                brought together the six <Link to={"/centers/data-and-signature" +
+                "-generating-centers"}>LINCS Data and Signature Generation
+                Centers</Link>, the <Link to="/centers/dcic">
+                BD2K-LINCS Data Coordination and Integration Center</Link> NIH
+                extramural staff, and external LINCS collaborators.&nbsp;
+                <Link to="/community/consortium-meetings">Learn More</Link>
+              </p>
             </div>
           </div>
           <div className="row">
