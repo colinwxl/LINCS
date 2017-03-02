@@ -15,7 +15,7 @@ import Event20170516 from './Events/Event20170516';
 import Event20160119 from './Events/Event20160119';
 import Event20170301 from './Events/Event20170301';
 import Event20160310 from './Events/Event20160310';
-import event20170220 from './Events/Event20170220';
+import eventCourseraMOOC from './Events/EventCourseraMOOC';
 import Event20160726 from './Events/Event20160726';
 import Event20170126 from './Events/Event20170126';
 import Event20170302 from './Events/Event20170302';
@@ -112,6 +112,42 @@ class Overview extends Component {
     this.setState({ cat });
   }
 
+// Functions for organizing MOOCS
+/* eslint-disable */
+  filterForUpcomingMoocs(anns) {
+    return anns.filter(
+      ann => ann.course && (new Date(ann.eventDate) >= new Date())
+    );
+  }
+/* eslint-enable */
+
+  latestSort(anns) {
+    let latestAnnsIdx = anns.length;
+    const today = new Date();
+    for (let i = 0; i < anns.length; i++) {
+      const annDate = new Date(anns[i].eventDate);
+      if (annDate < today) {
+        latestAnnsIdx = i;
+        break;
+      }
+    }
+    const latestAnns = anns.slice(0, latestAnnsIdx).reverse();
+    const remainingAnns = anns.slice(latestAnnsIdx).reverse();
+    return latestAnns.concat(remainingAnns);
+  }
+
+  getLatestMOOCS(anns) {
+    const moocs = this.filterForUpcomingMoocs(anns);
+    const latest = this.latestSort(moocs);
+    return latest.map(mooc => ({
+      eventItem: () => eventCourseraMOOC({ mooc }),
+      category: 'Course',
+      date: mooc.eventDate,
+    }));
+  }
+
+// General events functions
+
   sortEvents(eventsArr) {
     return eventsArr.sort((ev1, ev2) => {
       const ev1Date = new Date(ev1.date);
@@ -123,6 +159,11 @@ class Overview extends Component {
       }
       return 0;
     });
+  }
+
+  filterEvents(eventsArr, state) {
+    if (state === 'All') return eventsArr;
+    return eventsArr.filter(ev => (state === ev.category));
   }
 
   filterDate(eventsArr) {
@@ -143,22 +184,14 @@ class Overview extends Component {
     return { past, upcoming };
   }
 
-  filterEvents(eventsArr, state) {
-    if (state === 'All') return eventsArr;
-    return eventsArr.filter(ev => (state === ev.category));
-  }
-
   createWebinarCard(web) {
     const hasVideo = web.url && !!web.url.length;
     return (
       <div className={styles['ann-card']}>
         <h6 className={`${styles['ann-group']} ${styles.webinar}`}>{formatDate(web.date)}</h6>
         <div className={styles['ann-content']}>
-          <h3>
-            Webinar: <Link to="/community/webinars" style={{ textDecoration: 'none' }}>
-              {web.title}
-            </Link>
-          </h3>
+          <h3>LINCS Data Science Research Webinar</h3>
+          <h4>{web.title}</h4>
           {
             web.presenterUrl && !!web.presenterUrl.length
               ? <span><a href={web.presenterUrl}>{web.presenterName}</a></span>
@@ -183,7 +216,7 @@ class Overview extends Component {
             : <span></span>
           }
           <br />
-          <Link to="/community/webinars/">Learn More</Link>
+          <Link to="/community/webinars/">How to Connect</Link>
         </div>
       </div>
     );
@@ -226,36 +259,10 @@ class Overview extends Component {
     return eventsMonthMapping;
   }
 
-  latestSort(anns) {
-    let latestAnnsIdx = anns.length;
-    const today = new Date();
-    for (let i = 0; i < anns.length; i++) {
-      const annDate = new Date(anns[i].eventDate);
-      if (annDate < today) {
-        latestAnnsIdx = i;
-        break;
-      }
-    }
-    const latestAnns = anns.slice(0, latestAnnsIdx).reverse();
-    const remainingAnns = anns.slice(latestAnnsIdx).reverse();
-    return latestAnns.concat(remainingAnns);
-  }
-
   render() {
-    let course = {};
-    const latestCourse = this.latestSort(this.props.announcements)[0];
-    if (latestCourse) {
-      course = {
-        eventItem: () => event20170220({ announcements: this.props.announcements }),
-        category: 'Course',
-        date: latestCourse.eventDate,
-      };
-    }
-    const webinars = this.findUpcomingWebinarsAndGenerateCard(this.props.webinars);
-    const allEvents = events.concat(webinars);
-    if (course.eventItem) {
-      allEvents.push(course);
-    }
+    const moocs = this.getLatestMOOCS(this.props.announcements) || [];
+    const webinars = this.findUpcomingWebinarsAndGenerateCard(this.props.webinars) || [];
+    const allEvents = events.concat(webinars).concat(moocs);
     const filteredEvents = this.filterEvents(allEvents, this.state.cat);
     const sortedEvents = this.sortEvents(filteredEvents);
     const { upcoming } = this.filterDate(sortedEvents);
@@ -292,9 +299,10 @@ class Overview extends Component {
               <p>
                 The 2016 LINCS Consortium Meeting was held September 19-20,
                 at the NIH campus in Bethesda, MD. This two-day meeting
-                brought together the six <Link to={"/centers/data-and-signature" +
-                "-generating-centers"}>LINCS Data and Signature Generation
-                Centers</Link>, the <Link to="/centers/dcic">
+                brought together the six
+                <Link to="/centers/data-and-signature-generating-centers">
+                  LINCS Data and Signature Generation Centers
+                </Link>, the <Link to="/centers/dcic">
                 BD2K-LINCS Data Coordination and Integration Center</Link> NIH
                 extramural staff, and external LINCS collaborators.&nbsp;
                 <Link to="/community/consortium-meetings">Learn More</Link>
