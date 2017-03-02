@@ -33,12 +33,12 @@ const events = [
   {
     eventItem: Event20170302,
     category: 'Seminar',
-    date: '2017-03-02',
+    date: '2017-03-02 00:00:00',
   },
   {
     eventItem: Event20170404,
     category: 'Conference',
-    date: '2017-04-04',
+    date: '2017-04-04 00:00:00',
   },
   {
     eventItem: Event20170516,
@@ -130,7 +130,8 @@ class Overview extends Component {
     const upcoming = [];
     // past is ordered most recent to oldest
     const past = [];
-    const today = new Date();
+    let today = new Date();
+    today.setDate(today.getDate() - 1);
     eventsArr.forEach(ev => {
       const evDate = new Date(ev.date);
       if (today <= evDate) {
@@ -258,7 +259,6 @@ class Overview extends Component {
     const filteredEvents = this.filterEvents(allEvents, this.state.cat);
     const sortedEvents = this.sortEvents(filteredEvents);
     const { upcoming } = this.filterDate(sortedEvents);
-
 
     const featured = featuredEvents.filter(ev => (
       this.state.cat === 'All' || this.state.cat === ev.category
