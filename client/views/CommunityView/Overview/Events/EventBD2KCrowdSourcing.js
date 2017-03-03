@@ -18,10 +18,22 @@ export default function EventBD2KCrowdSourcing() {
           width="231"
           height="173"
         />
-        <p> As part of our educational efforts to enhance awareness of LINCS data and
+        <p>
+          As part of our educational efforts to enhance awareness of LINCS data and
           explain the efforts of LINCS to the general public, the DCIC developed
           a crowdsourcing portal that engages the research community in various
-          micro- and megatasks. <a href="http://www.maayanlab.net/crowdsourcing/">Learn More</a>
+          micro- and megatasks.&nbsp;
+          <a href="http://www.maayanlab.net/crowdsourcing/">Learn More</a>
+        </p>
+        <p>
+          Users can submit contributions to the microtasks and megatasks
+          assignments listed on this site. These projects are part of the
+          Coursera courses&nbsp;
+          <a href="https://www.coursera.org/learn/bd2k-lincs" target="_blank">
+          Big Data Science with the BD2K-LINCS Data Coordination and Integration
+          Center</a> and&nbsp;
+          <a href="https://www.coursera.org/learn/network-biology" target="_blank">
+          Network Analysis in Systems Biology</a>.&nbsp;
         </p>
       </div>
     </div>
