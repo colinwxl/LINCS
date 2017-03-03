@@ -41,12 +41,12 @@ export default function Event20170301() {
         </div>
         <div className="clearfix">
           <p>
-            The BD2K-LINCS DCIC Summer Research Program in Biomedical Big Data Science
-            is a research intensive ten-week training program for undergraduate and
-            graduate students. The DCIC supports data science research focused on
-            developing methods that would further extract knowledge from LINCS data
-            by integrating LINCS data with other relevant resources. Summer fellows
-            conduct faculty-mentored independent research projects
+            The BD2K-LINCS DCIC Summer Research Training Program in Biomedical Big
+            Data Science is a research intensive ten-week training program for
+            undergraduate and graduate students. The DCIC supports data science
+            research focused on developing methods that would further extract knowledge
+            from LINCS data by integrating LINCS data with other relevant resources.
+            Summer fellows conduct faculty-mentored independent research projects
             within laboratories affiliated with the Center in the following areas:
             data integration, dynamic data visualization, machine learning, data
             harmonization, computational drug discovery, metadata and APIs,
