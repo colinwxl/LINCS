@@ -23,8 +23,6 @@ export default function Event20170301() {
             width="331"
             height="173"
           />
-          Application Deadline: March 1, 2017 at 12 Midnight Eastern Time
-          <br />
           <strong>Program Dates: June 5, 2017 - August 11, 2017</strong>
           <ul style={{ listStyle: 'none' }}>
             <li>&#8226;&nbsp;
@@ -55,6 +53,8 @@ export default function Event20170301() {
               How to Apply
             </a>
             <br />
+            <br />
+            Application Deadline: March 1, 2017 at 12 Midnight Eastern Time
           </p>
         </div>
       </div>
