@@ -16,22 +16,22 @@ export default function Event20170404() {
       <div className={styles['ann-content']}>
         <h3>AACR Annual Meeting 2017</h3>
         <h5>
+            Special Session 17:
+            Advancing Cancer Therapy Using Data from the NIH LINCS Program
+        </h5>
+        <div>
           <a
             href="http://www.abstractsonline.com/pp8/#!/4292/session/901"
             target="_blank"
             style={{ textDecoration: 'none' }}
           >
-            Special Session 17:
-            Advancing Cancer Therapy Using Data from the NIH LINCS Program
+            <img
+              src={aacrLogo}
+              alt="AACR Logo"
+              style={{ width: '20rem' }}
+              className={styles['inline-img-left']}
+            />
           </a>
-        </h5>
-        <div>
-          <img
-            src={aacrLogo}
-            alt="AACR Logo"
-            style={{ width: '20rem' }}
-            className={styles['inline-img-left']}
-          />
           <h6><strong>Date:</strong> April 4, 2017, 5:00 - 6:30 PM</h6>
           <h6><strong>Location:</strong>
             &nbsp;Room 147, Level 1, Washington Convention Center, Washington, DC
@@ -41,9 +41,13 @@ export default function Event20170404() {
           Cancer cells respond to small molecule drugs and components of
           the microenvironment in a complex, time-dependent manner that
           varies from one cell type to the next and, within a genetically
-          homogenous population, from one cell to the next. This session
-          highlights recent results from the NIH-funded Library of Network-Based
-          Cellular Signatures (LINCS) program, which is assembling
+          homogenous population, from one cell to the next. This&nbsp;
+          <a
+            href="http://www.abstractsonline.com/pp8/#!/4292/session/901"
+            target="_blank"
+            style={{ textDecoration: 'none' }}
+          >session</a> highlights recent results from the NIH-funded Library of
+          Network-Based Cellular Signatures (LINCS) program, which is assembling
           libraries of perturbagen-response signatures using high-throughput
           transcript and proteomic profiling, live and fixed-cell imaging and
           phenotypic assays. Ways of accessing and analyzing LINCS data,
