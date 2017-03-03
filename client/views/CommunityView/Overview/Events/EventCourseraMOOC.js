@@ -16,9 +16,10 @@ export default function EventCourseraMOOC(props) {
         {mooc && formatDate(mooc.eventDate)}
       </h6>
       <div className={styles['ann-content']}>
-        <h3>
+        <h3>MOOC on Coursera</h3>
+        <h4>
           Big Data Science with the BD2K-LINCS Data Coordination and Integration Center
-        </h3>
+        </h4>
         <div>
           <a href="http://lincs-dcic.org/#/summer-research-app#nav">
             <img
