@@ -203,6 +203,8 @@ class Overview extends Component {
             !!web.presenterAffiliation.length &&
               web.presenterAffiliation
           }
+
+          <p>This event starts at 3:00 PM ET on {formatDate(web.date)}.</p>
           {
             web.abstract &&
             web.abstract.length &&
@@ -211,12 +213,14 @@ class Overview extends Component {
               </Collapsible>
           }
           {
-            hasVideo
-              ? <span><a href={web.url}>Watch webinar on YouTube</a></span>
-            : <span></span>
+            hasVideo && <span><a href={web.url}>Watch webinar on YouTube</a></span>
           }
-          <br />
           <Link to="/community/webinars/">How to Connect</Link>
+          &nbsp;|&nbsp;
+          <a
+            href="https://www.youtube.com/playlist?list=PL0Bwuj8819U-G9Ob0jIGHp5AtwpCghLV5"
+            target="_blank"
+          >Archived Webinars</a>
         </div>
       </div>
     );
@@ -303,7 +307,7 @@ class Overview extends Component {
                 <Link to="/centers/data-and-signature-generating-centers">
                   LINCS Data and Signature Generation Centers
                 </Link>, the <Link to="/centers/dcic">
-                BD2K-LINCS Data Coordination and Integration Center</Link> NIH
+                BD2K-LINCS Data Coordination and Integration Center</Link>, NIH
                 extramural staff, and external LINCS collaborators.&nbsp;
                 <Link to="/community/consortium-meetings">Learn More</Link>
               </p>
