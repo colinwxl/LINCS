@@ -43,18 +43,15 @@ export default function EventSummerProgram2017() {
             <br />
             <br />
             Application Deadline: March 1, 2017 at 12 Midnight Eastern Time
-            <ul style={{ listStyle: 'none' }}>
-              <li>&#8226;&nbsp;
-                <a href="http://lincs-dcic.org/#/summer-fellows-2016" target="_blank">
-                  2016 BD2K-LINCS DCIC Summer Fellows and Research Projects
-                </a>
-              </li>
-              <li>&#8226;&nbsp;
-                <a href="http://lincs-dcic.org/#/summer-fellows-2015#nav">
-                  2015 BD2K-LINCS DCIC Summer Fellows and Research Projects
-                </a>
-              </li>
-            </ul>
+            <br />
+            <br />
+            <a href="http://lincs-dcic.org/#/summer-fellows-2016" target="_blank">
+              2016 BD2K-LINCS DCIC Summer Fellows and Research Projects
+            </a>
+            <br />
+            <a href="http://lincs-dcic.org/#/summer-fellows-2015#nav">
+              2015 BD2K-LINCS DCIC Summer Fellows and Research Projects
+            </a>
           </p>
         </div>
       </div>
