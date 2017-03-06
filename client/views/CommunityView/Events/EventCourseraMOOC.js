@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react';
 
-import styles from '../Overview.scss';
-import dcicImg from '../dcic.png';
+import styles from './Events.scss';
+import dcicImg from '../Overview/dcic.png';
 
 import formatDate from 'utils/formatDate';
 

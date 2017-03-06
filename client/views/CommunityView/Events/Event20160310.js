@@ -1,6 +1,6 @@
 import React from 'react';
-import styles from '../Overview.scss';
-import neuroOutreachImg from '../neuro_outreach.jpg';
+import styles from './Events.scss';
+import neuroOutreachImg from '../Overview/neuro_outreach.jpg';
 
 export default function Event20160310() {
   return (

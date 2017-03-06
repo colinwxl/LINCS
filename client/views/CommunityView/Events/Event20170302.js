@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from '../Overview.scss';
+import styles from './Events.scss';
 import poster from 'static/files/BME_LINCS_Seminar.png';
 import Collapsible from 'react-collapsible';
 

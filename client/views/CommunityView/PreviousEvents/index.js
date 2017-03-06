@@ -1,22 +1,19 @@
 import React, { Component, PropTypes } from 'react';
-import { connect } from 'react-redux';
+import Select from 'react-select-plus';
+import { DateRange } from 'react-date-range';
 
-import formatDate from 'utils/formatDate';
-import { fetchChallenges } from 'actions/community';
 import PageBanner from 'components/PageBanner';
 import PageNav from 'components/PageNav';
 import styles from './PreviousEvents.scss';
 
-const mapStateToProps = (state) => ({
-  challenges: state.community.challenges,
-});
-export class PreviousEvents extends Component {
-  componentWillMount() {
-    this.props.fetchChallenges();
+
+export default class PreviousEvents extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {};
   }
 
   render() {
-    const { challenges } = this.props;
     return (
       <div className={styles.wrapper}>
         <PageBanner
@@ -25,44 +22,32 @@ export class PreviousEvents extends Component {
         />
         <div className="container">
           <div className="row">
-            <PageNav isCommunityPage mainPage="Crowdsourcing Challenges" />
+            <PageNav mainPage="Previous Events" />
             <div className="col-md-9 col-md-pull-3">
-              <div className={styles.challenges}>
-                {challenges.length === 0 && <p>No challenges available</p>}
-                {
-                  challenges.map((chal, index) => {
-                    const links = chal.keyLinks;
-                    const startDate = formatDate(new Date(chal.startDate));
-                    let endDate;
-                    if (chal.endDate) {
-                      endDate = formatDate(new Date(chal.endDate));
-                    }
-                    return (
-                      <div key={`challenge ${index}`} className={styles.challenge}>
-                        <div className={styles.header}>
-                          <h5>{chal.title}</h5>
-                          {
-                            !!endDate
-                              ? <p><em>{startDate} to {endDate}</em></p>
-                                : <p><em>{startDate}</em></p>
-                          }
-                        </div>
-                        <p>{chal.description}</p>
-                        {
-                          !!links && !!Object.keys(links).length &&
-                            <p><strong>Links</strong></p>
-                        }
-                        <ul>
-                          {
-                            !!links && Object.keys(links).map((linkTitle, i) =>
-                              <li key={i}><a href={links[linkTitle]}>{linkTitle}</a></li>
-                            )
-                          }
-                        </ul>
-                      </div>
-                    );
-                  })
-                }
+              <div className={`row ${styles['filter-and-calendar']}`}>
+                <div className="col-md-3">
+                  <label className={styles['label-title']}>Sort by</label>
+                  <Select
+                    className={styles.uniSelectSort}
+                    name="form-field-name"
+                    placeholder="Popularity"
+                    simpleValue
+                  />
+                  <br />
+                  <label className={styles['label-title']}>Sort by date</label>
+                  <Select
+                    className={styles.uniSelectSort}
+                    name="form-field-name"
+                    placeholder="Ascending"
+                    simpleValue
+                  />
+                </div>
+                <div className="col-md-9">
+                  <DateRange />
+                </div>
+              </div>
+              <div className={`row ${styles['filter-and-calendar']} ${styles['previous-events']}`}>
+                
               </div>
             </div>
           </div>
@@ -73,10 +58,5 @@ export class PreviousEvents extends Component {
 }
 
 PreviousEvents.propTypes = {
-  challenges: PropTypes.array.isRequired,
-  fetchChallenges: PropTypes.func.isRequired,
-};
 
-export default connect(mapStateToProps, {
-  fetchChallenges,
-})(PreviousEvents);
+};

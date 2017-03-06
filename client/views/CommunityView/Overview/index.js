@@ -10,67 +10,7 @@ import PageBanner from 'components/PageBanner';
 import PageNav from 'components/PageNav';
 import styles from './Overview.scss';
 
-import EventAACR from './Events/EventAACR';
-import EventDSS2017 from './Events/EventDSS2017';
-import Event20160119 from './Events/Event20160119';
-import EventSummerProgram2017 from './Events/EventSummerProgram2017';
-import Event20160310 from './Events/Event20160310';
-import eventCourseraMOOC from './Events/EventCourseraMOOC';
-import Event20160726 from './Events/Event20160726';
-import Event20170126 from './Events/Event20170126';
-import Event20170302 from './Events/Event20170302';
-import EventBD2KCrowdSourcing from './Events/EventBD2KCrowdSourcing';
-
-const featuredEvents = [
-  {
-    eventItem: EventBD2KCrowdSourcing,
-    category: 'Crowdsourcing Challenge',
-    date: '2022-12-01 00:00:00',
-  },
-];
-
-const events = [
-  {
-    eventItem: Event20170302,
-    category: 'Seminar',
-    date: '2017-03-02 00:00:00',
-  },
-  {
-    eventItem: EventAACR,
-    category: 'Conference',
-    date: '2017-04-04 00:00:00',
-  },
-  {
-    eventItem: EventDSS2017,
-    category: 'Symposia',
-    date: '2017-05-16',
-  },
-  {
-    eventItem: EventSummerProgram2017,
-    category: 'Training Program',
-    date: '2017-06-05 00:00:00',
-  },
-  {
-    eventItem: Event20170126,
-    category: 'Crowdsourcing Challenge',
-    date: '2017-01-26 00:00:00',
-  },
-  {
-    eventItem: Event20160726,
-    category: 'Crowdsourcing Challenge',
-    date: '2016-07-26 00:00:00',
-  },
-  {
-    eventItem: Event20160310,
-    category: 'Symposia',
-    date: '2016-03-10 00:00:00',
-  },
-  {
-    eventItem: Event20160119,
-    category: 'Symposia',
-    date: '2016-01-19 00:00:00',
-  },
-];
+import { featuredEvents, events } from '../Events';
 
 // Categories are used for the filtering events
 // const cats = [
@@ -361,6 +301,14 @@ class Overview extends Component {
                   </div>
                 )
               }
+            </div>
+            <div className={`col-md-9 ${styles['last-col']}`}>
+              <Link
+                to="/community/previous-events"
+                className={`btn btn-lg btn-primary ${styles['previous-events']}`}
+              >
+                Previous Events
+              </Link>
             </div>
           </div>
         </div>

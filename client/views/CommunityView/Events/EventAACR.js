@@ -1,10 +1,10 @@
 import React from 'react';
 import Collapsible from 'react-collapsible';
-import styles from '../Overview.scss';
+import styles from './Events.scss';
 
-import AACRMeetingBox from '../AACR/AACRMeetingBox';
+import AACRMeetingBox from '../Overview/AACR/AACRMeetingBox';
 import aacrLogo from 'static/files/aacr_logo.png';
-import AACR from '../AACR/AACRList';
+import AACR from '../Overview/AACR/AACRList';
 
 export default function EventAACR() {
   return (

@@ -1,6 +1,6 @@
 import React from 'react';
-import styles from '../Overview.scss';
-import sbdssImg from '../SBDSS.jpg';
+import styles from './Events.scss';
+import sbdssImg from '../Overview/SBDSS.jpg';
 
 export default function Event20160119() {
   return (

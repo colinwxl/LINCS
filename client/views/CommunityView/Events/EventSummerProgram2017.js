@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from '../Overview.scss';
+import styles from './Events.scss';
 import summerInterns2016Img from 'static/files/summer_interns/dcic_ismms_summer-1.jpg';
 
 export default function EventSummerProgram2017() {

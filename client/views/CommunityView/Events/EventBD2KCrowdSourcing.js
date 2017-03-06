@@ -1,6 +1,6 @@
 import React from 'react';
-import styles from '../Overview.scss';
-import dcicImg from '../dcic.png';
+import styles from './Events.scss';
+import dcicImg from '../Overview/dcic.png';
 
 export default function EventBD2KCrowdSourcing() {
   return (

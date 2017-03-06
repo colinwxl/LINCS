@@ -1,6 +1,6 @@
 import React from 'react';
-import styles from '../Overview.scss';
-import cmapImg from '../cmap.png';
+import styles from './Events.scss';
+import cmapImg from '../Overview/cmap.png';
 
 export default function Event20170126() {
   return (
