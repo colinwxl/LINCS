@@ -6,7 +6,7 @@ import AACRMeetingBox from '../AACR/AACRMeetingBox';
 import aacrLogo from 'static/files/aacr_logo.png';
 import AACR from '../AACR/AACRList';
 
-export default function Event20170404() {
+export default function EventAACR() {
   return (
     <div className={styles['ann-card']}>
       {/*

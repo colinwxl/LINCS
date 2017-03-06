@@ -10,10 +10,10 @@ import PageBanner from 'components/PageBanner';
 import PageNav from 'components/PageNav';
 import styles from './Overview.scss';
 
-import Event20170404 from './Events/Event20170404';
-import Event20170516 from './Events/Event20170516';
+import EventAACR from './Events/EventAACR';
+import EventDSS2017 from './Events/EventDSS2017';
 import Event20160119 from './Events/Event20160119';
-import Event20170301 from './Events/Event20170301';
+import EventSummerProgram2017 from './Events/EventSummerProgram2017';
 import Event20160310 from './Events/Event20160310';
 import eventCourseraMOOC from './Events/EventCourseraMOOC';
 import Event20160726 from './Events/Event20160726';
@@ -36,17 +36,17 @@ const events = [
     date: '2017-03-02 00:00:00',
   },
   {
-    eventItem: Event20170404,
+    eventItem: EventAACR,
     category: 'Conference',
     date: '2017-04-04 00:00:00',
   },
   {
-    eventItem: Event20170516,
+    eventItem: EventDSS2017,
     category: 'Symposia',
     date: '2017-05-16',
   },
   {
-    eventItem: Event20170301,
+    eventItem: EventSummerProgram2017,
     category: 'Training Program',
     date: '2017-06-05 00:00:00',
   },

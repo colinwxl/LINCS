@@ -2,7 +2,7 @@ import React from 'react';
 import styles from '../Overview.scss';
 import summerInterns2016Img from 'static/files/summer_interns/dcic_ismms_summer-1.jpg';
 
-export default function Event20170301() {
+export default function EventSummerProgram2017() {
   return (
     <div className={styles['ann-card']}>
       {/*
@@ -24,18 +24,6 @@ export default function Event20170301() {
             height="173"
           />
           <strong>Program Dates: June 5, 2017 - August 11, 2017</strong>
-          <ul style={{ listStyle: 'none' }}>
-            <li>&#8226;&nbsp;
-              <a href="http://lincs-dcic.org/#/summer-fellows-2016" target="_blank">
-                2016 BD2K-LINCS DCIC Summer Fellows and Research Projects
-              </a>
-            </li>
-            <li>&#8226;&nbsp;
-              <a href="http://lincs-dcic.org/#/summer-fellows-2015#nav">
-                2015 BD2K-LINCS DCIC Summer Fellows and Research Projects
-              </a>
-            </li>
-          </ul>
         </div>
         <div className="clearfix">
           <p>
@@ -55,6 +43,18 @@ export default function Event20170301() {
             <br />
             <br />
             Application Deadline: March 1, 2017 at 12 Midnight Eastern Time
+            <ul style={{ listStyle: 'none' }}>
+              <li>&#8226;&nbsp;
+                <a href="http://lincs-dcic.org/#/summer-fellows-2016" target="_blank">
+                  2016 BD2K-LINCS DCIC Summer Fellows and Research Projects
+                </a>
+              </li>
+              <li>&#8226;&nbsp;
+                <a href="http://lincs-dcic.org/#/summer-fellows-2015#nav">
+                  2015 BD2K-LINCS DCIC Summer Fellows and Research Projects
+                </a>
+              </li>
+            </ul>
           </p>
         </div>
       </div>
