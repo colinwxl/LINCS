@@ -37,7 +37,7 @@ import ConsortiumMeetings from 'views/CommunityView/ConsortiumMeetings';
 import Webinars from 'views/CommunityView/Webinars';
 import Workshops from 'views/CommunityView/Workshops';
 import Symposia from 'views/CommunityView/Symposia';
-import Archived from 'views/CommunityView/Archived';
+import PreviousEvents from 'views/CommunityView/PreviousEvents';
 
 // Data
 import DataOverview from 'views/DataView/Overview';
@@ -149,7 +149,7 @@ export default (/* store */) => (
     <Route path={`${communityBase}/webinars`} component={Webinars} />
     <Route path={`${communityBase}/workshops`} component={Workshops} />
     <Route path={`${communityBase}/symposia`} component={Symposia} />
-    <Route path={`${communityBase}/archived-events`} component={Archived} />
+    <Route path={`${communityBase}/previous-events`} component={PreviousEvents} />
 
     {/* Data Routes */}
     <Redirect from={dataBase} to={`${dataBase}/overview`} />

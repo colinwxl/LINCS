@@ -5,12 +5,12 @@ import formatDate from 'utils/formatDate';
 import { fetchChallenges } from 'actions/community';
 import PageBanner from 'components/PageBanner';
 import PageNav from 'components/PageNav';
-import styles from './Archived.scss';
+import styles from './PreviousEvents.scss';
 
 const mapStateToProps = (state) => ({
   challenges: state.community.challenges,
 });
-export class Archived extends Component {
+export class PreviousEvents extends Component {
   componentWillMount() {
     this.props.fetchChallenges();
   }
@@ -20,7 +20,7 @@ export class Archived extends Component {
     return (
       <div className={styles.wrapper}>
         <PageBanner
-          title="Crowdsourcing Challenges"
+          title="Previous Events"
           subTitle=""
         />
         <div className="container">
@@ -72,11 +72,11 @@ export class Archived extends Component {
   }
 }
 
-Archived.propTypes = {
+PreviousEvents.propTypes = {
   challenges: PropTypes.array.isRequired,
   fetchChallenges: PropTypes.func.isRequired,
 };
 
 export default connect(mapStateToProps, {
   fetchChallenges,
-})(Archived);
+})(PreviousEvents);

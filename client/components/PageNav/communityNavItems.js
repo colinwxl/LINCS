@@ -36,9 +36,4 @@ export default [
     route: `${communityRoute}/symposia`,
     children: [],
   },
-  {
-    title: 'Archived',
-    route: `${communityRoute}/archived-events`,
-    children: [],
-  },
 ];
