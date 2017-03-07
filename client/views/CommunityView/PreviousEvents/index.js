@@ -1,4 +1,4 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
 import Select from 'react-select-plus';
 import { DateRange } from 'react-date-range';
 
@@ -47,7 +47,7 @@ export default class PreviousEvents extends Component {
                 </div>
               </div>
               <div className={`row ${styles['filter-and-calendar']} ${styles['previous-events']}`}>
-                
+
               </div>
             </div>
           </div>

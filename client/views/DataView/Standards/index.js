@@ -3,6 +3,7 @@ import { Link } from 'react-router';
 import PageBanner from 'components/PageBanner';
 import PageNav from 'components/PageNav';
 import styles from './Standards.scss';
+import bioSharing from './biosharing_icon.png';
 
 export default function Standards(/* props */) {
   const d = '/LINCS/files/';
@@ -26,6 +27,12 @@ export default function Standards(/* props */) {
               This will facilitate development of data analysis, formatting, and visualization
               strategies by LINCS investigators, and also the development of databases and data
               repositories in which to store and share LINCS data.
+            </p>
+            <p>
+              All the LINCS standards are curated into
+              <a href="https://biosharing.org/collection/LINCS" target="_blank">
+                <img src={bioSharing} className={styles.biosharing} role="presentation" />
+              </a>.
             </p>
 
             <p><strong>Current Versions of Standards Released: 5-13-2016</strong></p>
