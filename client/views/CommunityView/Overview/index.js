@@ -5,6 +5,7 @@ import { fetchWebinars } from 'actions/community';
 import { loadAnnouncements } from 'actions/announcements';
 import Collapsible from 'react-collapsible';
 
+import eventCourseraMOOC from '../Events/EventCourseraMOOC';
 import formatDate from 'utils/formatDate';
 import PageBanner from 'components/PageBanner';
 import PageNav from 'components/PageNav';
@@ -302,14 +303,16 @@ class Overview extends Component {
                 )
               }
             </div>
-            <div className={`col-md-9 ${styles['last-col']}`}>
-              <Link
-                to="/community/previous-events"
-                className={`btn btn-lg btn-primary ${styles['previous-events']}`}
-              >
-                Previous Events
-              </Link>
-            </div>
+            {
+              // <div className={`col-md-9 ${styles['last-col']}`}>
+              //   <Link
+              //     to="/community/previous-events"
+              //     className={`btn btn-lg btn-primary ${styles['previous-events']}`}
+              //   >
+              //     Previous Events
+              //   </Link>
+              // </div>
+            }
           </div>
         </div>
       </div>

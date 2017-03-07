@@ -3,7 +3,6 @@ import EventDSS2017 from './EventDSS2017';
 import Event20160119 from './Event20160119';
 import EventSummerProgram2017 from './EventSummerProgram2017';
 import Event20160310 from './Event20160310';
-import eventCourseraMOOC from './EventCourseraMOOC';
 import Event20160726 from './Event20160726';
 import Event20170126 from './Event20170126';
 import Event20170302 from './Event20170302';
