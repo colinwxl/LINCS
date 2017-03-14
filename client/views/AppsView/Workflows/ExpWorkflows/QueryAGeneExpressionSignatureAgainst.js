@@ -60,12 +60,16 @@ export default class Workflow extends Component {
                 such as a z-score or a p-value for each gene, and alternative unordered
                 sets of up- and down-regulated genes. In both cases, the L1000 library of
                 signatures can in principle be queried. There are 2 web-based tools enabling
-                such queries, namely the L1000CDS<sup>2</sup> and the lincscloud CLUE query tool.
+                such queries, namely the&nbsp;
+                <a href="http://amp.pharm.mssm.edu/L1000CDS2/#/index" target="_blank">
+                  L1000CDS<sup>2</sup>
+                </a> and the clue.io&nbsp;
+                <a href="https://clue.io/query" target="_blank">Query</a> tool.
               </p>
               <h4>Querying signatures with L1000CDS<sup>2</sup></h4>
               <p>
-                The L1000CDS<sup>2</sup> (<a href="http://amp.pharm.mssm.edu/L1000CDS2" target="_blank">
-                http://amp.pharm.mssm.edu/L1000CDS2</a>) tool developed by the BD2K-LINCS DCIC
+                The <a href="http://amp.pharm.mssm.edu/L1000CDS2" target="_blank">
+                  L1000CDS<sup>2</sup></a> tool developed by the BD2K-LINCS DCIC
                 can be used to search a subset of the L1000 data consisting of 20,000
                 small-molecule perturbations across cell lines MCF7, VCAP, PC3, HA1E,
                 A375, and A549. After you have determined the input up- and down-regulated

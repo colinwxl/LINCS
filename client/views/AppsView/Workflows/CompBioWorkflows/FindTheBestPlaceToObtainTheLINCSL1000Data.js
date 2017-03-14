@@ -5,10 +5,10 @@ import PageNav from 'components/PageNav';
 import PageBanner from 'components/PageBanner';
 import lcScreenshotOne from '../images/lc-screenshot-1.png';
 import lcScreenshotTwo from '../images/lc-screenshot-2.png';
-import l1000PipelineImg from '../images/l1000-pipeline.png';
-import l1000ResultImg from '../images/l1000-result.png';
+import l1000PipelineImg from '../images/l1000-pipeline-new.png';
+import l1000ResultImg from '../images/l1000-result-new.png';
 import geoScreenshot from '../images/geo-screenshot.png';
-import lincscloudApiImg from '../images/lincscloud-api-ex.png';
+import lincscloudApiImg from '../images/lincscloud-api-ex-2.png';
 import slicrLogo from '../images/slicr-logo.png';
 import slicrScreenshot from '../images/slicr-screenshot.png';
 
@@ -54,8 +54,8 @@ export default class Workflow extends Component {
                 The LINCS L1000 project has collected gene expression profiles for
                 thousands of perturbagens at a variety of time points, doses, and cell
                 lines. A full list of the chemical and genetic perturbations used can be
-                found on the <a href="http://www.lincscloud.org/perturbagens/" target="_blank">
-                LINCS cloud web site</a> along with their descriptions. A quick summary
+                found on the <a href="https://clue.io/" target="_blank">
+                clue website</a> along with their descriptions. A quick summary
                 screenshot is shown below:
               </p>
               <div className="row">
@@ -101,18 +101,18 @@ export default class Workflow extends Component {
               </ul>
               <p>
                 You can obtain the L1000 directly from the LINCS Transcriptomics Center by signing
-                up for an account at <a href="http://apps.lincscloud.org/register" target="_blank">
-                http://apps.lincscloud.org/register</a>.
+                up for an account at <a href="https://clue.io" target="_blank">
+                https://clue.io</a>.
               </p>
-              <h5>Downloading annotated level 4 data packages from the BD2K-LINCS DCIC</h5>
+              <h5>Downloading annotated data packages from the LDP</h5>
               <p>
-                You can search for L1000 data packages on the
-                LINCS <a
+                You can search for L1000 data packages on the&nbsp;
+                <a
                   href="http://lincsportal.ccs.miami.edu/dcic-portal/"
                   target="_blank"
                 >
-                  Data Releases
-                </a> page.
+                  LINCS Data Portal
+                </a>.
               </p>
               <div className="row">
                 <div className="col-xs-10 col-xs-offset-1">
@@ -120,12 +120,10 @@ export default class Workflow extends Component {
                 </div>
               </div>
               <p>
-                Each result provides a link to the BD2K-LINCS DCIC annotated level 4 data
-                package. In addition, each data package includes cell line and small molecule
-                metadata, descriptions of the assay, the data generation center, and the raw data.
-                The data is also available
-                in <a href="http://support.lincscloud.org/hc/en-us/articles/202105453-GCT-Gene-Cluster-Text-Format-" target="_blank">
-                GCT format</a>.
+                Each result provides a link to the annotated data package. In
+                addition, each data package includes cell line and small
+                molecule metadata, descriptions of the assay and the data
+                generation center.
               </p>
               <h5>Downloading lower-level LINCS L1000 data from GEO</h5>
               <p>
@@ -144,7 +142,7 @@ export default class Workflow extends Component {
               </div>
               <p>
                 The Level 2-4 is collected into a data series that can be found on the GEO
-                accession pages. You can begin exploring the data in the super series web-page at:
+                accession pages. You can begin exploring the data in the super series web-page at:&nbsp;
                 <a href="http://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE70138" target="_blank">
                 http://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE70138</a>. This page contains
                 links to twelve subseries that also have the raw, unprocessed Level 1 data.
@@ -154,13 +152,13 @@ export default class Workflow extends Component {
                 and other L1000 assay information
               </h5>
               <p>
-                The LINCS L1000 data is stored on Amazon S3. You can request access to the
-                lincscloud.org API <a href="https://docs.google.com/a/wesleyan.edu/forms/d/1j6Vb_s4FrDodxoS3IDZsHWoVNrOnKNQbqwbwcW2a208/viewform" target="_blank">
+                The LINCS L1000 data is stored on Amazon S3. You can access the
+                clue.io API usage guidelines and demos&nbsp;
+                <a href="https://clue.io/api" target="_blank">
                 here</a>. The API provides programmatic access to annotations and
                 perturbational signatures in the L1000 data via the HTTP-based RESTful web
                 services. Once you receive access, you can query the database through the
-                command line or the web browser. The API usage guidelines and demos can be
-                found <a href="http://api.lincscloud.org/a2/usage" target="_blank">here</a>.
+                command line or the web browser.
               </p>
               <img
                 src={lincscloudApiImg}

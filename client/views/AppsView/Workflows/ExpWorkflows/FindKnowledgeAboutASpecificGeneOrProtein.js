@@ -148,49 +148,17 @@ export default class Workflow extends Component {
               <p>
                 LINCS also contains data about the changes in mRNA expression after
                 knocking down or over-expressing individual genes. To find information
-                about these experiments type your gene of interest below:
+                about these experiments, please register for an account at&nbsp;
+                <a href="http://clue.io" target="_blank">
+                  clue.io
+                </a> and use the search engine on the homepage for any gene or
+                compound of interest.
               </p>
               <div className={styles.lincscloud}>
                 <img
-                  src="/LINCS/files/tools_logos/lincscloud-logo.png"
+                  src="/LINCS/files/tools_logos/cmap.png"
                   alt="Lincscloud Logo"
                 />
-                <form
-                  acceptCharset="utf-8"
-                  className="form-horizontal"
-                  onSubmit={this.handleLQSubmit}
-                >
-                  <select
-                    id="engine"
-                    className="form-control"
-                    style={{ backgroundImage: `url(${arrowDownImg})` }}
-                    onChange={this.handleEngineChanged}
-                    value={this.state.lincsCloudQ.engine}
-                  >
-                    <option value="geneinfo">Genes</option>
-                    <option value="pertinfo">Perturbations</option>
-                  </select>
-                  <div className={`${styles.submit} input-group-btn`}>
-                    <button type="submit" className="btn btn-default">
-                      <span className="fa fa-search" />
-                    </button>
-                  </div>
-                  <div className={styles.input}>
-                    <label htmlFor="lq" className="sr-only">Search</label>
-                    <span className={styles['input-wrap']}>
-                      <input
-                        id="lq"
-                        type="text"
-                        className="form-control"
-                        autoComplete="off"
-                        spellCheck="false"
-                        dir="auto"
-                        value={this.state.lincsCloudQ.term}
-                        onChange={this.handleTermChanged}
-                      />
-                    </span>
-                  </div>
-                </form>
               </div>
               <div className={styles.creeds}>
                 <p>
@@ -231,6 +199,50 @@ export default class Workflow extends Component {
                   </div>
                 </form>
               </div>
+              {
+                // <div className={styles.lincscloud}>
+                //   <img
+                //     src="/LINCS/files/tools_logos/lincscloud-logo.png"
+                //     alt="Lincscloud Logo"
+                //   />
+                //   <form
+                //     acceptCharset="utf-8"
+                //     className="form-horizontal"
+                //     onSubmit={this.handleLQSubmit}
+                //   >
+                //     <select
+                //       id="engine"
+                //       className="form-control"
+                //       style={{ backgroundImage: `url(${arrowDownImg})` }}
+                //       onChange={this.handleEngineChanged}
+                //       value={this.state.lincsCloudQ.engine}
+                //     >
+                //       <option value="geneinfo">Genes</option>
+                //       <option value="pertinfo">Perturbations</option>
+                //     </select>
+                //     <div className={`${styles.submit} input-group-btn`}>
+                //       <button type="submit" className="btn btn-default">
+                //         <span className="fa fa-search" />
+                //       </button>
+                //     </div>
+                //     <div className={styles.input}>
+                //       <label htmlFor="lq" className="sr-only">Search</label>
+                //       <span className={styles['input-wrap']}>
+                //         <input
+                //           id="lq"
+                //           type="text"
+                //           className="form-control"
+                //           autoComplete="off"
+                //           spellCheck="false"
+                //           dir="auto"
+                //           value={this.state.lincsCloudQ.term}
+                //           onChange={this.handleTermChanged}
+                //         />
+                //       </span>
+                //     </div>
+                //   </form>
+                // </div>
+              }
             </div>
           </div>
         </div>

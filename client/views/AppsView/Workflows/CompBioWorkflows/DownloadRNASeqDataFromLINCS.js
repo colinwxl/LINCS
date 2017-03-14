@@ -43,10 +43,9 @@ export default class Workflow extends Component {
             >
               <p>
                 Within the LINCS Consortium there are two centers that collect RNA-Seq data.
-                These are <a href="http://www.neurolincs.org" target="_blank">NeuroLINCS</a>
-                and <a href="https://martip03.u.hpc.mssm.edu/index.php" target="_blank">DToxS</a>.
-                The raw fastq files for this data are available on these two centers’ respective
-                web portals. In addition, processed data, scripts, pipelines and downstream
+                These are <a href="http://www.neurolincs.org" target="_blank">NeuroLINCS</a> and&nbsp;
+                <a href="https://martip03.u.hpc.mssm.edu/index.php" target="_blank">DToxS</a>.
+                In addition, processed data, scripts, pipelines and downstream
                 analyses are also available for these datasets.
               </p>
               <h4>Obtaining RNA-Seq datasets from the LINCS Data Portal</h4>
@@ -104,38 +103,6 @@ export default class Workflow extends Component {
               <ol start="4">
                 <li>Click on the "Request Data" button and write an email to request the data</li>
               </ol>
-              <h4>Obtaining RNA-Seq datasets from NeuroLINCS</h4>
-              <ol>
-                <li>
-                  Open the "Downloads" tab on
-                  the <a href="http://www.neurolincs.org/data" target="_blank">
-                  NeuroLINCS data website</a>
-                </li>
-                <li>
-                  To open the dataset page, select a date and click on the “Click here”
-                  button in the “Transcriptomic - RNA-Seq” column
-                </li>
-              </ol>
-              <div className="row">
-                <div className="col-xs-10 col-xs-offset-1">
-                  <img
-                    src={neurolincsDsPageImg}
-                    alt="NeuroLINCS Dataset Page"
-                    className={styles['img-bordered']}
-                  />
-                </div>
-              </div>
-              <ol start="3">
-                <li>
-                  To download the raw data (RNA-seq data as raw read counts) click on
-                  the “Download File” button for Level 2 data
-                </li>
-              </ol>
-              <div className="row">
-                <div className="col-xs-10 col-xs-offset-1">
-                  <img src={neurolincsDsDownloadImg} alt="NeuroLINCS Download" />
-                </div>
-              </div>
               <h4>Obtaining RNA-Seq datasets from iLINCS</h4>
               <ol>
                 <li>
@@ -181,26 +148,6 @@ export default class Workflow extends Component {
                   />
                 </div>
               </div>
-              <h4>Obtaining RNA-Seq data from lincsproject.org</h4>
-              <ol>
-                <li>
-                  On the home page click “Discover LINCS Data” or click the "Data"
-                  option in the menu at the top of the screen
-                </li>
-                <li>From the tree view, select "By Assay" –> "Transcriptomics" –> "RNA-Seq"</li>
-              </ol>
-              <div className="row">
-                <div className="col-xs-10 col-xs-offset-1 text-xs-center">
-                  <img src={lincsTreeViewImg} alt="LINCS Tree View" />
-                </div>
-              </div>
-              <ol start="3">
-                <li>
-                  Click the “Download data package” option to download the metadata and
-                  the processed data, or click “Download GCT file” option to download the
-                  actual data matrix
-                </li>
-              </ol>
             </div>
           </div>
         </div>

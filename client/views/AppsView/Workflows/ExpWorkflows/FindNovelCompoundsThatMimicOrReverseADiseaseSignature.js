@@ -4,7 +4,7 @@ import styles from '../Workflow.scss';
 import PageNav from 'components/PageNav';
 import PageBanner from 'components/PageBanner';
 // Images
-import lcQueryToolImg from '../images/lc-query-tool.png';
+import clueQueryToolImg from '../images/clue-query-tool.png';
 import lcResultsScreenshot from '../images/lc-results-screenshot.png';
 import l1000cds2QueryImg from '../images/l1000cds2-query.png';
 import l1000cds2ResultsImg from '../images/l1000cds2-results.png';
@@ -51,29 +51,31 @@ export default class Workflow extends Component {
                 may have therapeutic potential. There are currently two web-apps that can be
                 used to perform this type of query.
               </p>
-              <h4>The lincscloud Query Tool</h4>
+              <h4>The CMap Query Tool</h4>
               <p>
-                The lincscloud web-site at <a href="http://apps.lincscloud.org/" target="_blank">
-                http://apps.lincscloud.org/</a> has a query tool that enables users to find
-                perturbagens (e.g. compounds or RNAi knockouts) that mimic or reverse their
-                input signature. The query tool can be accessed after logging in
-                at <a href="http://apps.lincscloud.org/query" target="_blank">
-                http://apps.lincscloud.org/query</a>
+                The <a href="https://clue.io/" target="_blank">clue.io website</a> has
+                a query tool that enables users to find perturbagens
+                (e.g. compounds or RNAi knockouts) that mimic or reverse their
+                input signature. The query tool can be accessed&nbsp;
+                <a href="https://clue.io/query" target="_blank">
+                  here
+                </a> after logging in.
+
               </p>
               <div className="row">
                 <div className="col-xs-12 col-md-10 col-md-offset-1">
-                  <img src={lcQueryToolImg} alt="lincscloud Query Tool" />
+                  <img src={clueQueryToolImg} alt="clue.io Query Tool" />
                 </div>
               </div>
               <p>
-                The query page takes as input lists of up- and down-regulated genes. After
-                submitting your gene signature to the query tool you will be given a link to
+                The Query tool takes lists of up- and down-regulated genes as input. After
+                submitting your gene signature to the Query tool you will be given a link to
                 your results page. The results page shows the top compounds, knockdowns, and
                 overexpression perturbations that match your signature input.
               </p>
               <div className="row">
                 <div className="col-xs-12 col-md-10 col-md-offset-1">
-                  <img src={lcResultsScreenshot} alt="lincscloud Results Page" />
+                  <img src={lcResultsScreenshot} alt="clue.io Results Page" />
                 </div>
               </div>
               <h4>L1000 Characteristic Direction Signature Search Engine (L1000CDS<sup>2</sup>)</h4>
@@ -147,8 +149,8 @@ export default class Workflow extends Component {
                 http://amp.pharm.mssm.edu/g2e</a>) and GEO (Gene Expression
                 Omnibus <a href="http://www.ncbi.nlm.nih.gov/geo" target="_blank">
                 http://www.ncbi.nlm.nih.gov/geo</a>), a user can find gene expression data from a
-                disease of interest, compute a signature and then submit it to the lincscloud
-                query tool or to L1000CDS<sup>2</sup> for drugs/small-molecules.
+                disease of interest, compute a signature and then submit it to the clue.io
+                Query tool or to L1000CDS<sup>2</sup> for drugs/small-molecules.
               </p>
               <p>
                 Start by following the installation instructions of GEO2Enrichr and install
@@ -190,7 +192,7 @@ export default class Workflow extends Component {
                 </div>
               </div>
               <p>
-                You can now download the up and down genes and submit them to the lincscloud
+                You can now download the up and down genes and submit them to the clue.io
                 Query Tool or simply click on the L1000CDS<sup>2</sup> icon to open the results
                 from the L1000CDS<sup>2</sup> analysis.
               </p>
