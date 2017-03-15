@@ -8,12 +8,9 @@ import ldpPanelImg from '../images/ldp-panel.png';
 import ldpDataBrowserImg from '../images/ldp-data-browser.png';
 import dtoxsDataIcon from '../images/dtoxs-data-icon.png';
 import dtoxsRequestDataImg from '../images/dtoxs-request-data.png';
-import neurolincsDsPageImg from '../images/neurolincs-ds-page.png';
-import neurolincsDsDownloadImg from '../images/neurolincs-ds-download.png';
 import iLincsDropdownImg from '../images/ilincs-dropdown.png';
 import iLincsAnalysisImg from '../images/ilincs-analysis.png';
 import iLincsFilterImg from '../images/ilincs-filter.png';
-import lincsTreeViewImg from '../images/lincs-tree-view.png';
 
 export default class Workflow extends Component {
 

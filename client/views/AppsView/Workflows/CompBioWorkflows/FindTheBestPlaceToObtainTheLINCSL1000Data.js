@@ -142,7 +142,8 @@ export default class Workflow extends Component {
               </div>
               <p>
                 The Level 2-4 is collected into a data series that can be found on the GEO
-                accession pages. You can begin exploring the data in the super series web-page at:&nbsp;
+                accession pages. You can begin exploring the
+                data in the super series web-page at:&nbsp;
                 <a href="http://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE70138" target="_blank">
                 http://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE70138</a>. This page contains
                 links to twelve subseries that also have the raw, unprocessed Level 1 data.
