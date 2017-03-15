@@ -22,7 +22,7 @@ export default function AboutView() {
               observable composite of which is known as the cellular phenotype. Observing
               how and when a cell’s phenotype is altered by specific stressors can provide
               clues about the underlying mechanisms involved in perturbation and, ultimately,
-              disease.
+              diseases.
             </p>
             <p>
               LINCS data are being made openly available as a community resource through a
