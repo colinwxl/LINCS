@@ -238,7 +238,7 @@ class Overview extends Component {
                 together with the <Link to="/centers/data-and-signature-generating-centers/">
                 data and signature generation centers</Link>, use approaches like webinars,
                 courses, training seminars, challenges, workshops and symposia to foster
-                an active LINCS community.
+                an active LINCS communities.
               </p>
               <h3>Highlight</h3>
               <p>
