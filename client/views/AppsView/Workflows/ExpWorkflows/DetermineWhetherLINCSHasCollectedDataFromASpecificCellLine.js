@@ -8,7 +8,6 @@ import lincsDataPortalScreenshot from '../images/cell-lines.png';
 
 
 export default class Workflow extends Component {
-
   static subTitle = 'Determine whether LINCS has collected data from a specific cell line'
   static path = 'determine-whether-lincs-has-collected-data-from-a-specific-cell-line'
 
@@ -34,7 +33,7 @@ export default class Workflow extends Component {
                 understand their mechanisms of action. The first step to determine whether a cell
                 line of your interest was profiled by one of the LINCS centers is to query the
                 LINCS Data Portal cells interface by typing the cell line name in the search
-                bar available from <a href="http://dev3.ccs.miami.edu:8080/cells/" target="_blank">here</a>.
+                bar available from <a href="http://lincsportal.ccs.miami.edu/cells/" target="_blank">here</a>.
                 If you found a match, you can explore the data generated
                 by each of the DSGCs.
                 <img src={lincsDataPortalScreenshot} alt="LINCS Data Portal screenshot" />
