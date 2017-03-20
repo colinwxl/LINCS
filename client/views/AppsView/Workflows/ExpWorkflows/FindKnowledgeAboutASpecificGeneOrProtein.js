@@ -98,7 +98,13 @@ export default class Workflow extends Component {
                 GTEx</a>, <a href="http://cancergenome.nih.gov/" target="_blank">
                 TCGA</a>, <Link to="/">LINCS</Link> and many more. This accumulating
                 knowledge is served on a web portal called
-                the <a href="" target="_blank">Harmonizome</a>. You can find novel and
+                the&nbsp;
+                <a
+                  href="http://amp.pharm.mssm.edu/Harmonizome/"
+                  target="_blank"
+                >
+                  Harmonizome
+                </a>. You can find novel and
                 known information about a gene or a protein by typing the name in the
                 Harmonizome search bar available below:
               </p>
