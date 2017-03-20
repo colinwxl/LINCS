@@ -188,13 +188,7 @@ export default function AboutView() {
                   <li>
                     The <Link to={`${dsgcRoute}/lincs-transcriptomics`}>
                     LINCS Center for Transcriptomics</Link> uses
-                    the&nbsp;
-                    <a
-                      href="http://support.lincscloud.org/hc/en-us/articles/203133687-Protocol-Overview-L1000-"
-                      target="_blank"
-                    >
-                      L1000 assay
-                    </a> which is a gene-expression profiling assay based on the
+                    the L1000 assay which is a gene-expression profiling assay based on the
                     direct measurement of a reduced representation of the transcriptome and
                     computational inference of the portion of the transcriptome not explicitly
                     measured. Measurements are (a) of endogenous mRNA (i.e. not reporter-based
