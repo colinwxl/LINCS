@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router';
 
 import Story from './Story';
 import styles from '../NewsView.scss';
@@ -41,7 +40,7 @@ export default function Story20170214() {
         <a
           href="http://www.abstractsonline.com/pp8/#!/4292/session/901"
           target="_blank"
-          >
+        >
           Details
         </a>
       </p>
