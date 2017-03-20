@@ -53,7 +53,7 @@ export default class Workflow extends Component {
                   LINCS Data Portal website</a>.
                 </li>
                 <li>
-                  Select “RNA-Seq” in a left panel under “Methods”
+                  Select “RNA-Seq” in a left panel under “Method”
                 </li>
               </ol>
               <div className="row">
@@ -65,7 +65,7 @@ export default class Workflow extends Component {
                 <li>Select the RNA-Seq datasets in the data browser</li>
               </ol>
               <div className="row">
-                <div className="col-xs-10 col-xs-offset-1">
+                <div className="col-xs-12">
                   <img src={ldpDataBrowserImg} alt="LINCS Data Portal Browser" />
                 </div>
               </div>
@@ -82,7 +82,9 @@ export default class Workflow extends Component {
               </ol>
               <div className="row">
                 <div className="col-xs-4 col-xs-offset-4 col-md-2 col-md-offset-5 text-xs-center">
-                  <img src={dtoxsDataIcon} alt="DToxS Data Icon" />
+                  <a href="https://martip03.u.hpc.mssm.edu/data.php" target="_blank">
+                    <img src={dtoxsDataIcon} alt="DToxS Data Icon" />
+                  </a>
                 </div>
               </div>
               <ol start="3">

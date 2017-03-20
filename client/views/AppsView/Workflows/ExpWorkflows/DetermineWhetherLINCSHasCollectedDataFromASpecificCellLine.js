@@ -34,7 +34,7 @@ export default class Workflow extends Component {
                 line of your interest was profiled by one of the LINCS centers is to query the
                 LINCS Data Portal cells interface by typing the cell line name in the search
                 bar available from <a href="http://lincsportal.ccs.miami.edu/cells/" target="_blank">here</a>.
-                If you found a match, you can explore the data generated
+                If you find a match, you can explore the data generated
                 by each of the DSGCs.
                 <img src={lincsDataPortalScreenshot} alt="LINCS Data Portal screenshot" />
               </p>

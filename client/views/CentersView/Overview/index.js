@@ -145,7 +145,7 @@ export default class Overview extends Component {
                 other factors. The center supports data science research focusing on interpreting
                 and integrating LINCS-generated data from different data types and databases in the
                 LINCS-funded projects. This center is co-funded
-                by <a title="Big Data to Knowledge" href="http://bd2k.nih.gov/#sthash.UHtPu2rQ.dpbs" target="_blank">
+                by <a title="Big Data to Knowledge" href="https://datascience.nih.gov/bd2k" target="_blank">
                 BD2K</a> and the <a title="NIH Common Fund" href="https://commonfund.nih.gov/" target="_blank">
                 NIH Common Fund</a>.
               </p>

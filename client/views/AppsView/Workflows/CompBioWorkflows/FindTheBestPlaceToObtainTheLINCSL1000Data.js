@@ -115,7 +115,7 @@ export default class Workflow extends Component {
                 </a>.
               </p>
               <div className="row">
-                <div className="col-xs-10 col-xs-offset-1">
+                <div className="col-xs-12">
                   <img src={l1000ResultImg} alt="L1000 Search Result" />
                 </div>
               </div>
@@ -168,29 +168,40 @@ export default class Workflow extends Component {
               />
               <h5>Downloading precomputed gene expression signatures for a particular condition</h5>
               <p>
-                You can also access gene expression signatures using a tools developed by the
+                You can also access gene expression signatures using a tool developed by the
                 BD2K-LINCS DCIC called <a href="http://amp.pharm.mssm.edu/Slicr" target="_blank">
                 Slicr</a>. Slicr allows users to query the LINCS L1000 corpus that is available
                 on GEO for their perturbation of interest at the desired cell lines, doses,
                 and time points by submitting requests to the search bar below:
               </p>
               <div className={styles.slicr}>
-                <div className={styles['s-header']}>
-                  <img src={slicrLogo} alt="Slicr Logo" />
-                  <span>
-                    <span className={styles['s-title']}>Slicr</span>
-                    <span className={styles['s-subtitle']}>
-                      LINCS L1000 Slicr &nbsp;[ <a target="_blank" href="http://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE70138">GSE70138</a> data only ]
-                    </span>
-                  </span>
-                  <a
-                    className={styles['s-question']}
-                    href="http://amp.pharm.mssm.edu/Slicr/help.html"
-                  >
-                    <i className="fa fa-question-circle" />
-                  </a>
-                </div>
                 <form onSubmit={this.handleSlicrSubmit}>
+                  <div className={styles['s-header']}>
+                    <img
+                      style={{ cursor: 'pointer' }}
+                      src={slicrLogo}
+                      alt="Slicr Logo"
+                      onClick={this.handleSlicrSubmit}
+                    />
+                    <span>
+                      <span
+                        style={{ cursor: 'pointer' }}
+                        className={styles['s-title']}
+                        onClick={this.handleSlicrSubmit}
+                      >
+                        Slicr
+                      </span>
+                      <span className={styles['s-subtitle']}>
+                        LINCS L1000 Slicr &nbsp;[ <a target="_blank" href="http://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE70138">GSE70138</a> data only ]
+                      </span>
+                    </span>
+                    <a
+                      className={styles['s-question']}
+                      href="http://amp.pharm.mssm.edu/Slicr/help.html"
+                    >
+                      <i className="fa fa-question-circle" />
+                    </a>
+                  </div>
                   <input
                     className="form-control"
                     placeholder={

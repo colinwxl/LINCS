@@ -93,7 +93,7 @@ export default function DCIC() {
               The organizational structure of the Center includes a strong CCA that supports and
               manages the Center’s goals and deliverables, and coordinates activities across
               the <a title="LINCS" href="https://commonfund.nih.gov/LINCS/index" target="_blank">
-              LINCS</a> and <a title="BD2K" href="http://bd2k.nih.gov/#sthash.KvwCAGCP.dpbs" target="_blank">
+              LINCS</a> and <a title="BD2K" href="https://datascience.nih.gov/bd2k" target="_blank">
               BD2K</a> programs.
             </p>
             <p>

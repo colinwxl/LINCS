@@ -74,10 +74,11 @@ export default class Workflow extends Component {
                 overexpression perturbations that match your signature input.
               </p>
               <div className="row">
-                <div className="col-xs-12 col-md-10 col-md-offset-1">
+                <div className="col-xs-12 col-md-12">
                   <img src={lcResultsScreenshot} alt="clue.io Results Page" />
                 </div>
               </div>
+              <br />
               <h4>L1000 Characteristic Direction Signature Search Engine (L1000CDS<sup>2</sup>)</h4>
               <p>
                 The <a href="http://lincs-dcic.org" target="_blank">BD2K-LINCS DCIC</a> has

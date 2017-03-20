@@ -44,8 +44,13 @@ export default function Overview(/* props */) {
               LINCS DSGCs and will be posted here soon.
             </p>
             <p>
-              The TCGA data-level definitions can be found
-              <a href="https://tcga-data.nci.nih.gov/tcga/tcgaDataType.jsp"> here</a>.
+              The TCGA data-level definitions can be found&nbsp;
+              <a
+                target="_blank"
+                href="https://tcga-data.nci.nih.gov/docs/publications/tcga/?"
+              >
+                here
+              </a>.
             </p>
           </div>
         </div>
