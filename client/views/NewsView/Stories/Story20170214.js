@@ -38,7 +38,12 @@ export default function Story20170214() {
         software and experimental protocols will be presented along with
         recent insights into oncogenic mechanisms and responses to therapeutic
         drugs derived from large-scale profiling studies.&nbsp;
-        <Link to="/community/overview">Details</Link>
+        <a
+          href="http://www.abstractsonline.com/pp8/#!/4292/session/901"
+          target="_blank"
+          >
+          Details
+        </a>
       </p>
       <span className={styles['twitter-label']}>
         <a

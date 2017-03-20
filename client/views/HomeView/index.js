@@ -154,8 +154,9 @@ export class HomeView extends Component {
                     <div className={styles['carousel-pad']}>
                       <Carousel autoplay infinite aps={8000}>
                         <div className={styles['carousel-item-wrap']}>
-                          <Link
-                            to="/LINCS/Community/Overview"
+                          <a
+                            href="http://www.abstractsonline.com/pp8/#!/4292/session/901"
+                            target="_blank"
                             className={styles['carousel-item-head']}
                           >
                             <h4 className={styles['carousel-item-title']}>
@@ -176,7 +177,7 @@ export class HomeView extends Component {
                                 alt="presentation"
                               />
                             </div>
-                          </Link>
+                          </a>
                           <p className={styles.meeting}>
                             This session at the AACR Annual Meeting 2017 will highlight
                             recent results from the LINCS program, focusing on ways of
@@ -184,7 +185,7 @@ export class HomeView extends Component {
                             protocols. The session will be held on&nbsp;
                             <strong>April 4, 2017</strong> in Washington, D.C.&nbsp;
                             <a
-                              href="https://sites.google.com/view/sbdss2017"
+                              href="http://www.abstractsonline.com/pp8/#!/4292/session/901"
                               target="_blank"
                             >Learn More</a>
                           </p>
