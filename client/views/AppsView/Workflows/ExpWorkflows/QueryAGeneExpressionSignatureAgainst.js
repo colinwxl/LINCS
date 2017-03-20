@@ -78,7 +78,13 @@ export default class Workflow extends Component {
               </p>
               <div className="row">
                 <div className="col-xs-8 col-xs-offset-2 text-xs-center">
-                  <img src={l1000cds2InputImg} alt="L1000CDS2 Input" />
+                  <a
+                    href="http://amp.pharm.mssm.edu/L1000CDS2"
+                    target="_blank"
+                    style={{ textDecoration: 'none' }}
+                  >
+                    <img src={l1000cds2InputImg} alt="L1000CDS2 Input" />
+                  </a>
                 </div>
               </div>
               <p>
