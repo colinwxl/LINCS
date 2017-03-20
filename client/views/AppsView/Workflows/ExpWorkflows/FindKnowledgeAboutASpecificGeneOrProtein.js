@@ -103,11 +103,17 @@ export default class Workflow extends Component {
                 Harmonizome search bar available below:
               </p>
               <div className={styles.harmonizome}>
-                <img
-                  src="/LINCS/files/tools_logos/harmonizome-logo-lg.png"
-                  alt="Harmonizome Logo"
-                />
-                <h1>Harmonizome</h1>
+                <a
+                  href="http://amp.pharm.mssm.edu/Harmonizome/"
+                  style={{ textDecoration: 'none' }}
+                  target="_blank"
+                >
+                  <img
+                    src="/LINCS/files/tools_logos/harmonizome-logo-lg.png"
+                    alt="Harmonizome Logo"
+                  />
+                  <h1>Harmonizome</h1>
+                </a>
                 <form
                   acceptCharset="utf-8"
                   className="form-horizontal"
@@ -155,10 +161,16 @@ export default class Workflow extends Component {
                 compound of interest.
               </p>
               <div className={styles.lincscloud}>
-                <img
-                  src="/LINCS/files/tools_logos/cmap.png"
-                  alt="Lincscloud Logo"
-                />
+                <a
+                  href="https://clue.io"
+                  style={{ textDecoration: 'none' }}
+                  target="_blank"
+                >
+                  <img
+                    src="/LINCS/files/tools_logos/cmap.png"
+                    alt="Lincscloud Logo"
+                  />
+                </a>
               </div>
               <div className={styles.creeds}>
                 <p>
@@ -167,7 +179,13 @@ export default class Workflow extends Component {
                   signatures from this data. You can check if your gene of interest was
                   processed by this effort by typing it here:
                 </p>
-                <img src={creedsLogoImg} alt="CREEDS Logo" />
+                <a
+                  href="http://amp.pharm.mssm.edu/creeds/"
+                  style={{ textDecoration: 'none' }}
+                  target="_blank"
+                >
+                  <img src={creedsLogoImg} alt="CREEDS Logo" />
+                </a>
                 <h4>Search signatures by term</h4>
                 <p>
                   Examples: <a href="http://amp.pharm.mssm.edu/CREEDS/#similarity/TP53" target="_blank">
