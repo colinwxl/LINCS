@@ -223,6 +223,7 @@ class Overview extends Component {
     const moocs = this.getLatestMOOCS(this.props.announcements) || [];
     const webinars = this.findUpcomingWebinarsAndGenerateCard(this.props.webinars) || [];
     const allEvents = events.concat(webinars).concat(moocs);
+    console.log(allEvents);
     const filteredEvents = this.filterEvents(allEvents, this.state.cat);
     const sortedEvents = this.sortEvents(filteredEvents);
     const { upcoming } = this.filterDate(sortedEvents);
