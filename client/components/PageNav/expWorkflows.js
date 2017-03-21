@@ -20,7 +20,7 @@ const awRoute = '/tools/workflows';
 
 export default [
   {
-    title: 'Experimentalist Workflow',
+    title: 'Experimentalist Workflows',
     route: `${awRoute}/${FindKnowledgeAboutASpecificGeneOrProtein.path}`,
     children: [
       {

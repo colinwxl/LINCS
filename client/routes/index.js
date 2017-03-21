@@ -168,7 +168,7 @@ export default (/* store */) => (
     {/* Apps & Workflows Route */}
     <Route path="tools" component={AppsView} />
 
-    {/* Experimentalist Workflow Routes */}
+    {/* Experimentalist Workflows Routes */}
     <Route
       path={`${wf}/${DownloadDataFromMEPLINCS.path}`}
       component={DownloadDataFromMEPLINCS}

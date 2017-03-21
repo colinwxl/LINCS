@@ -23,7 +23,7 @@ const awRoute = '/tools/workflows';
 
 export default [
   {
-    title: 'Computational Biologist Workflow',
+    title: 'Computational Biologist Workflows',
     route: `${awRoute}/${FindTheBestPlaceToObtainTheLINCSL1000Data.path}`,
     children: [
       {

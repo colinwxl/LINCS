@@ -7,7 +7,6 @@ import omeroScreenshot from '../images/omero-screenshot.png';
 import mepLincsScreenshot from '../images/mep-lincs-screenshot.png';
 import neuroLINCSScreenshot from '../images/neurolincs-screenshot.png';
 
-
 export default class Workflow extends Component {
 
   static subTitle = 'Explore microscopy imaging data collected across the LINCS centers'
@@ -23,7 +22,7 @@ export default class Workflow extends Component {
         <div className="container">
           <div className="row">
             <PageNav
-              mainPage="Experimentalist Workflow"
+              mainPage="Experimentalist Workflows"
               subPage={this.constructor.subTitle}
               isWorkflowPage
             />
@@ -85,9 +84,6 @@ export default class Workflow extends Component {
                   utilizing robotics to collect microscopy images from neurons and iPSCs
                   created from ALS and SMA patients and heathy controls. The images are collected
                   in temporal fashion while measuring multiple parameters at once from each cell.
-                  Some of these microscopy image data are made available for download at various
-                  levels of abstraction with their associated metadata at: <a href="http://www.neurolincs.org/data" target="_blank">
-                  http://www.neurolincs.org/data</a>
                 </p>
                 <div>
                   <img src={neuroLINCSScreenshot} alt="NeuroLINCS screenshot" />
