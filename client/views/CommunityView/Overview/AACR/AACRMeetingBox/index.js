@@ -1,6 +1,5 @@
 import React, { Component, PropTypes } from 'react';
 import ReactTooltip from 'react-tooltip';
-// import { Link } from 'react-router';
 
 import styles from './AACRMeetingBox.scss';
 

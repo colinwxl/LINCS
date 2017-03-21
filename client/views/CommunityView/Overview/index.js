@@ -24,6 +24,21 @@ import { featuredEvents, events } from '../Events';
 //   'Webinar',
 // ];
 
+const months = [
+  'January',
+  'February',
+  'March',
+  'April',
+  'May',
+  'June',
+  'July',
+  'August',
+  'September',
+  'October',
+  'November',
+  'December',
+];
+
 const mapStateToProps = (state) => ({
   webinars: state.community.webinars,
   announcements: state.announcements.announcements,
@@ -198,7 +213,7 @@ class Overview extends Component {
     };
     eventsList.forEach(ev => {
       const date = new Date(ev.date);
-      const month = date.toLocaleString('en-us', { month: 'long' });
+      const month = months[date.getMonth()];
       eventsMonthMapping[month].push(ev);
     });
     return eventsMonthMapping;
