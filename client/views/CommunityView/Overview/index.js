@@ -270,24 +270,7 @@ class Overview extends Component {
             </div>
           </div>
           <div className="row">
-            <div className="col-md-3 col-md-push-9">
-              <div className={styles.wrapper}>
-                {
-                  // <h7 className={styles['filter-title']}>Filter Events</h7>
-                  // cats.map((cat, idx) => (
-                  //   <span
-                  //     key={idx}
-                  //     className={styles.cat}
-                  //     onClick={() => this.setCat(cat)}
-                  //   >
-                  //     {cat}
-                  //   </span>
-                  //   )
-                  // )
-                }
-              </div>
-            </div>
-            <div className="col-md-9 col-md-pull-3">
+            <div className="col-md-9">
               {
                 Object.keys(mappedEventsToMonth).map((monthName, idx) => (
                   !!mappedEventsToMonth[monthName].length && (
