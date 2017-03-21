@@ -20,12 +20,12 @@ export const events = [
   {
     eventItem: Event20170302,
     category: 'Seminar',
-    date: '2017-03-02 00:00:00',
+    date: '2017-03-02',
   },
   {
     eventItem: EventAACR,
     category: 'Conference',
-    date: '2017-04-04 00:00:00',
+    date: '2017-04-04',
   },
   {
     eventItem: EventDSS2017,
@@ -35,26 +35,26 @@ export const events = [
   {
     eventItem: EventSummerProgram2017,
     category: 'Training Program',
-    date: '2017-06-05 00:00:00',
+    date: '2017-06-05',
   },
   {
     eventItem: Event20170126,
     category: 'Crowdsourcing Challenge',
-    date: '2017-01-26 00:00:00',
+    date: '2017-01-26',
   },
   {
     eventItem: Event20160726,
     category: 'Crowdsourcing Challenge',
-    date: '2016-07-26 00:00:00',
+    date: '2016-07-26',
   },
   {
     eventItem: Event20160310,
     category: 'Symposia',
-    date: '2016-03-10 00:00:00',
+    date: '2016-03-10',
   },
   {
     eventItem: Event20160119,
     category: 'Symposia',
-    date: '2016-01-19 00:00:00',
+    date: '2016-01-19',
   },
 ];
