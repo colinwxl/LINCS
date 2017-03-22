@@ -4,7 +4,6 @@ import styles from '../Workflow.scss';
 import PageNav from 'components/PageNav';
 import PageBanner from 'components/PageBanner';
 import lcScreenshotOne from '../images/lc-screenshot-1.png';
-import lcScreenshotTwo from '../images/lc-screenshot-2.png';
 import l1000PipelineImg from '../images/l1000-pipeline-new.png';
 import l1000ResultImg from '../images/l1000-result-new.png';
 import geoScreenshot from '../images/geo-screenshot.png';
@@ -59,13 +58,10 @@ export default class Workflow extends Component {
                 screenshot is shown below:
               </p>
               <div className="row">
-                <div className="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2">
+                <div className="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-4">
                   <div className="row">
                     <div className="col-xs-12 col-sm-6">
                       <img src={lcScreenshotOne} alt="lincscloud Screenshot" />
-                    </div>
-                    <div className="col-xs-12 col-sm-6">
-                      <img src={lcScreenshotTwo} alt="lincscloud Screenshot" />
                     </div>
                   </div>
                 </div>
@@ -158,8 +154,7 @@ export default class Workflow extends Component {
                 <a href="https://clue.io/api" target="_blank">
                 here</a>. The API provides programmatic access to annotations and
                 perturbational signatures in the L1000 data via the HTTP-based RESTful web
-                services. Once you receive access, you can query the database through the
-                command line or the web browser.
+                services.
               </p>
               <img
                 src={lincscloudApiImg}

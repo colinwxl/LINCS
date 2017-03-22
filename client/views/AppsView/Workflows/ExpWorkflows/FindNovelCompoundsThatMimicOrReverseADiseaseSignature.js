@@ -64,17 +64,19 @@ export default class Workflow extends Component {
               </p>
               <div className="row">
                 <div className="col-xs-12 col-md-10 col-md-offset-1">
-                  <img src={clueQueryToolImg} alt="clue.io Query Tool" />
+                  <br />
+                  <img src={clueQueryToolImg} alt="CMap Query Tool" />
                 </div>
               </div>
               <p>
-                The Query tool takes lists of up- and down-regulated genes as input. After
+                The CMap Query tool takes lists of up- and down-regulated genes as input. After
                 submitting your gene signature to the Query tool you will be given a link to
                 your results page. The results page shows the top compounds, knockdowns, and
                 overexpression perturbations that match your signature input.
               </p>
               <div className="row">
                 <div className="col-xs-12 col-md-12">
+                  <br />
                   <img src={lcResultsScreenshot} alt="clue.io Results Page" />
                 </div>
               </div>
@@ -107,6 +109,7 @@ export default class Workflow extends Component {
               </p>
               <div className="row">
                 <div className="col-xs-12 col-md-10 col-md-offset-1">
+                  <br />
                   <img src={l1000cds2QueryImg} alt="L1000CDS2 Query Page" />
                 </div>
               </div>
@@ -116,6 +119,7 @@ export default class Workflow extends Component {
               </p>
               <div className="row">
                 <div className="col-xs-12 col-md-10 col-md-offset-1">
+                  <br />
                   <img src={l1000cds2ResultsImg} alt="L1000CDS2 Results Page" />
                 </div>
               </div>
@@ -127,6 +131,7 @@ export default class Workflow extends Component {
               </p>
               <div className="row">
                 <div className="col-xs-12 col-md-10 col-md-offset-1">
+                  <br />
                   <img src={l1000cds2ClustImg} alt="L1000CDS2 Clustergram" />
                 </div>
               </div>
@@ -150,7 +155,7 @@ export default class Workflow extends Component {
                 http://amp.pharm.mssm.edu/g2e</a>) and GEO (Gene Expression
                 Omnibus <a href="http://www.ncbi.nlm.nih.gov/geo" target="_blank">
                 http://www.ncbi.nlm.nih.gov/geo</a>), a user can find gene expression data from a
-                disease of interest, compute a signature and then submit it to the clue.io
+                disease of interest, compute a signature and then submit it to the CMap
                 Query tool or to L1000CDS<sup>2</sup> for drugs/small-molecules.
               </p>
               <p>
@@ -159,6 +164,7 @@ export default class Workflow extends Component {
               </p>
               <div className="row">
                 <div className="col-xs-12 col-md-10 col-md-offset-1">
+                  <br />
                   <img src={g2eMarketplaceImg} alt="G2E on the Google Play Store" />
                 </div>
               </div>
@@ -169,6 +175,7 @@ export default class Workflow extends Component {
               </p>
               <div className="row">
                 <div className="col-xs-12 col-md-10 col-md-offset-1">
+                  <br />
                   <img src={g2eSelectionImg} alt="Selecting Samples with G2E" />
                 </div>
               </div>
@@ -178,6 +185,7 @@ export default class Workflow extends Component {
               </p>
               <div className="row">
                 <div className="col-xs-12 col-md-10 col-md-offset-1">
+                  <br />
                   <img src={g2eFormImg} alt="G2E Submission Form" />
                 </div>
               </div>
@@ -189,11 +197,12 @@ export default class Workflow extends Component {
               </p>
               <div className="row">
                 <div className="col-xs-12 col-md-8 col-md-offset-2">
+                  <br />
                   <img src={g2eResultsImg} alt="G2E Results Page" />
                 </div>
               </div>
               <p>
-                You can now download the up and down genes and submit them to the clue.io
+                You can now download the up and down genes and submit them to the CMap
                 Query Tool or simply click on the L1000CDS<sup>2</sup> icon to open the results
                 from the L1000CDS<sup>2</sup> analysis.
               </p>
