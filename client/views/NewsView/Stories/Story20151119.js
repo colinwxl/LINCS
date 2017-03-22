@@ -30,7 +30,7 @@ export default function Story20151119() {
         Phenotypes (<a href="http://www.ncbi.nlm.nih.gov/gap" target="_blank">dbGaP</a>),
         as well as two new libraries with the up- and down-regulated genes from the L1000
         Connectivity Map chemical perturbation profiles from
-        the <a href="http://www.clue.io/lincs" target="_blank">
+        the <a href="https://clue.io/lincs" target="_blank">
         LINCS Center for Transcriptomics</a>. The previous version of the Connectivity
         Map Affymetrix data was renamed to Old CMAP.
       </p>

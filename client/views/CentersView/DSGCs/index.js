@@ -84,7 +84,7 @@ export default function DSGCs() {
                     gene-expression readouts. By the project’s end, the center expects to have
                     generated more than 1 million profiles of how genes are expressed in
                     different
-                    cells.
+                    cells.&nbsp;
                     <Link title="LINCS Transcriptomics" to={`${dsgcRoute}/lincs-transcriptomics`}>
                       Learn More
                     </Link>
