@@ -5,7 +5,6 @@ import PageNav from 'components/PageNav';
 import PageBanner from 'components/PageBanner';
 import omeroScreenshot from '../images/omero-screenshot.png';
 import mepLincsScreenshot from '../images/mep-lincs-screenshot.png';
-import neuroLINCSScreenshot from '../images/neurolincs-screenshot.png';
 
 export default class Workflow extends Component {
 
@@ -85,9 +84,6 @@ export default class Workflow extends Component {
                   created from ALS and SMA patients and heathy controls. The images are collected
                   in temporal fashion while measuring multiple parameters at once from each cell.
                 </p>
-                <div>
-                  <img src={neuroLINCSScreenshot} alt="NeuroLINCS screenshot" />
-                </div>
               </div>
             </div>
           </div>

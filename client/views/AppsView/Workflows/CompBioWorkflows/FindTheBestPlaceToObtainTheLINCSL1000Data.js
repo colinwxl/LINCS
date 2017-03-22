@@ -55,7 +55,7 @@ export default class Workflow extends Component {
                 thousands of perturbagens at a variety of time points, doses, and cell
                 lines. A full list of the chemical and genetic perturbations used can be
                 found on the <a href="https://clue.io/" target="_blank">
-                clue website</a> along with their descriptions. A quick summary
+                CLUE website</a> along with their descriptions. A quick summary
                 screenshot is shown below:
               </p>
               <div className="row">
@@ -100,8 +100,8 @@ export default class Workflow extends Component {
                 <li><strong>Level 5:</strong> Differential gene expression signatures</li>
               </ul>
               <p>
-                You can obtain the L1000 directly from the LINCS Transcriptomics Center by signing
-                up for an account at <a href="https://clue.io" target="_blank">
+                You can obtain the L1000 directly from the LINCS Center for Transcriptomics
+                by signing up for an account at <a href="https://clue.io" target="_blank">
                 https://clue.io</a>.
               </p>
               <h5>Downloading annotated data packages from the LDP</h5>
@@ -154,7 +154,7 @@ export default class Workflow extends Component {
               </h5>
               <p>
                 The LINCS L1000 data is stored on Amazon S3. You can access the
-                clue.io API usage guidelines and demos&nbsp;
+                CLUE website API usage guidelines and demos&nbsp;
                 <a href="https://clue.io/api" target="_blank">
                 here</a>. The API provides programmatic access to annotations and
                 perturbational signatures in the L1000 data via the HTTP-based RESTful web

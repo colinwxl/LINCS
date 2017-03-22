@@ -35,7 +35,7 @@ export default class Workflow extends Component {
             />
             <div className={`col-md-9 col-md-pull-3 ${styles.workflow} ${styles.mimic}`}>
               <p>
-                The Broad Transcriptomics Center within LINCS collected gene expression data
+                The LINCS Center for Transcriptomics collected gene expression data
                 from human cells treated with thousands of chemical and biological perturbagens
                 using the L1000 technology. This large dataset was processed into signatures:
                 lists of up and down genes, or vectors of differentially expressed genes. This
@@ -53,7 +53,7 @@ export default class Workflow extends Component {
               </p>
               <h4>The CMap Query Tool</h4>
               <p>
-                The <a href="https://clue.io/" target="_blank">clue.io website</a> has
+                The <a href="https://clue.io/" target="_blank">CLUE website</a> has
                 a query tool that enables users to find perturbagens
                 (e.g. compounds or RNAi knockouts) that mimic or reverse their
                 input signature. The query tool can be accessed&nbsp;
