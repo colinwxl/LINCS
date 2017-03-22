@@ -104,10 +104,10 @@ export default class Workflow extends Component {
                       </td>
                     </tr>
                     <tr>
-                      <td>lincscloud</td>
+                      <td>CLUE Platform</td>
                       <td>Annotations and perturbational signatures</td>
                       <td>
-                        <a href="http://api.lincscloud.org/" target="_blank">
+                        <a href="https://clue.io/api" target="_blank">
                           Documentation
                         </a>
                       </td>
@@ -161,10 +161,6 @@ export default class Workflow extends Component {
                     From HMS LINCS: <a href="http://lincs.hms.harvard.edu/db/api/v1/cell/50015/?format=json" target="_blank">
                     http://.../api/v1/cell/50015/?format=json</a>
                   </li>
-                  <li>
-                    From lincscloud: <a href="http://api.lincscloud.org/a2/cellinfo?q={%22lincs_status%22:%22core_cline%22}&user_key=lincsdemo" target="_blank">
-                    {'http://.../a2/cellinfo?q={%22lincs_status%22:%22core_cline%22}'}</a>
-                  </li>
                 </ul>
                 <p>To obtain a list of perturbations applied by the P100 assay:</p>
                 <ul>
@@ -174,12 +170,12 @@ export default class Workflow extends Component {
                   </li>
                 </ul>
                 <p>
-                  Additionally, the CLUE API Explorer/API playground provides users
-                  with a sandbox to visualize and interact with the&nbsp;
-                  <a href="https://clue.io/api" target="_blank">CLUE API</a>'s resources/services.
-                  This can be accessed through the&nbsp;
-                  <a href="https://clue.io/api" target="_blank">CLUE API</a>.
+                  Additionally the CLUE API playground can be accessed through the&nbsp;
+                  <a href="https://clue.io/api" target="_blank">CLUE API</a>&nbsp;
+                  allows end consumers to visualize and interact with the
+                  API’s resources/services.
                 </p>
+                <br />
                 <img src={clueAPIPlayground} alt="CLUE API Playground" />
               </div>
             </div>

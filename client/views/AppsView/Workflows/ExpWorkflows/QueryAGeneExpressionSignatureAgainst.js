@@ -63,7 +63,7 @@ export default class Workflow extends Component {
                 such queries, namely the&nbsp;
                 <a href="http://amp.pharm.mssm.edu/L1000CDS2/#/index" target="_blank">
                   L1000CDS<sup>2</sup>
-              </a> and the CLUE website&nbsp;
+                </a> and the CLUE website&nbsp;
                 <a href="https://clue.io/query" target="_blank">Query</a> tool.
               </p>
               <h4>Querying signatures with L1000CDS<sup>2</sup></h4>
