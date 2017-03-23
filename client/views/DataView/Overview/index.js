@@ -47,7 +47,7 @@ export default function Overview(/* props */) {
               The TCGA data-level definitions can be found&nbsp;
               <a
                 target="_blank"
-                href="https://tcga-data.nci.nih.gov/docs/publications/tcga/?"
+                href="https://gdc.cancer.gov/"
               >
                 here
               </a>.
