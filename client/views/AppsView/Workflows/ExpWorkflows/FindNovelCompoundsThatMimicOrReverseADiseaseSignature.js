@@ -51,7 +51,7 @@ export default class Workflow extends Component {
                 may have therapeutic potential. There are currently two web-apps that can be
                 used to perform this type of query.
               </p>
-              <h4>The CMap Query Tool</h4>
+              <h4>The Query App</h4>
               <p>
                 The <a href="https://clue.io/" target="_blank">CLUE website</a> has
                 a query tool that enables users to find perturbagens
@@ -65,11 +65,11 @@ export default class Workflow extends Component {
               <div className="row">
                 <div className="col-xs-12 col-md-10 col-md-offset-1">
                   <br />
-                  <img src={clueQueryToolImg} alt="CMap Query Tool" />
+                  <img src={clueQueryToolImg} alt="Query App" />
                 </div>
               </div>
               <p>
-                The CMap Query tool takes lists of up- and down-regulated genes as input. After
+                The Query App takes lists of up- and down-regulated genes as input. After
                 submitting your gene signature to the Query tool you will be given a link to
                 your results page. The results page shows the top compounds, knockdowns, and
                 overexpression perturbations that match your signature input.
