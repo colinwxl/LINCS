@@ -32,15 +32,9 @@ export default class Workflow extends Component {
                 ${styles['sm-mechanism-workflow']}`
               }
             >
-              <p>
-                <strong>
-                  Three LINCS data generation centers: HMS LINCS, MEP LINCS, and NeuroLINCS
-                  collect microscopy imaging data:
-                </strong>
-              </p>
               <div className={styles.section}>
                 <p>
-                  The <strong><a href="http://lincs.hms.harvard.edu" target="_blank">HMS LINCS Center</a></strong> collects
+                  The <a href="http://lincs.hms.harvard.edu" target="_blank">HMS LINCS Center</a> collects
                   various types of fixed- and live-cell fluorescence imaging data to assess cell
                   viability, cell proliferation, and the abundance and activity of key proteins.
                   These imaging datasets, including raw and processed image data as well as
@@ -63,8 +57,10 @@ export default class Workflow extends Component {
               </div>
               <div className={styles.section}>
                 <p>
-                  <strong>The <a href="https://www.synapse.org/#!Synapse:syn2862345/wiki/72486" target="_blank">MEP LINCS</a> center, and in particular the <a href="http://www.ohsu.edu/xd/education/schools/school-of-medicine/departments/basic-science-departments/biomedical-engineering/bme-labs/gray-lab/" target="_blank">Gray Lab</a>
-                  </strong>, collects images of cancer cell lines growing in different
+                  The&nbsp;
+                  <a href="https://www.synapse.org/#!Synapse:syn2862345/wiki/72486" target="_blank">
+                    MEP LINCS Center
+                  </a> collects images of cancer cell lines growing in different
                   micro-environments and treated with different endogenous extracellular ligands.
                   The cells are visualized with advanced microscopy that provides layered
                   visualization of several parameters. The processed imaging data (features) are
@@ -76,14 +72,6 @@ export default class Workflow extends Component {
                 <div>
                   <img src={mepLincsScreenshot} alt="MEP-LINCS screenshot" />
                 </div>
-              </div>
-              <div>
-                <p>
-                  <strong>The <a href="https://labs.gladstone.org/finkbeiner/" target="_blank">Finkbeiner Lab</a> from the <a href="http://www.neurolincs.org/" target="_blank">NeuroLINCS</a> center</strong> is
-                  utilizing robotics to collect microscopy images from neurons and iPSCs
-                  created from ALS and SMA patients and heathy controls. The images are collected
-                  in temporal fashion while measuring multiple parameters at once from each cell.
-                </p>
               </div>
             </div>
           </div>
