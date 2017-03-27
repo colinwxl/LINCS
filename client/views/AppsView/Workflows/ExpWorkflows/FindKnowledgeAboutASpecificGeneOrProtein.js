@@ -162,11 +162,11 @@ export default class Workflow extends Component {
               <p>
                 LINCS also contains data about the changes in mRNA expression after
                 knocking down or over-expressing individual genes. To find information
-                about these experiments, please register for an account at the&nbsp;
+                about these experiments, please create an account on the&nbsp;
                 <a href="https://clue.io" target="_blank">
                   CLUE website
-                </a> and use the search engine on the homepage for any gene or
-                compound of interest.
+                </a> and use the search bar on the homepage to find information on any
+                gene or compound of interest.
               </p>
               <div className={styles.lincscloud}>
                 <a
