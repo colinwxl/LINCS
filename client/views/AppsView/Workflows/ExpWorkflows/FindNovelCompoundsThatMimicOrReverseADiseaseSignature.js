@@ -51,7 +51,7 @@ export default class Workflow extends Component {
                 may have therapeutic potential. There are currently two web-apps that can be
                 used to perform this type of query.
               </p>
-              <h4>The Query App</h4>
+              <h4>The CLUE Query App</h4>
               <p>
                 The <a href="https://clue.io/" target="_blank">CLUE website</a> has
                 a query tool that enables users to find perturbagens
@@ -69,9 +69,8 @@ export default class Workflow extends Component {
                 </div>
               </div>
               <p>
-                The Query App takes lists of up- and down-regulated genes as input. After
-                submitting your gene signature to the Query tool you will be given a link to
-                your results page. The results page shows the top compounds, knockdowns, and
+                The CLUE Query App takes lists of up- and down-regulated genes as input.
+                The results page shows the top compounds, knockdowns, and
                 overexpression perturbations that match your signature input.
               </p>
               <div className="row">
@@ -85,7 +84,7 @@ export default class Workflow extends Component {
               <p>
                 The <a href="http://lincs-dcic.org" target="_blank">BD2K-LINCS DCIC</a> has
                 developed an alternative L1000 query tool. This tool enables users to search
-                only a subset of the L1000 small molecules data. The tool underlying database
+                only a subset of the L1000 small molecules data. The tool's underlying database
                 computes signatures differently. It uses
                 the <a href="http://maayanlab.net/CD" target="_blank">
                 Characteristic Direction (CD)</a> method to select significant perturbations
@@ -155,8 +154,8 @@ export default class Workflow extends Component {
                 http://amp.pharm.mssm.edu/g2e</a>) and GEO (Gene Expression
                 Omnibus <a href="http://www.ncbi.nlm.nih.gov/geo" target="_blank">
                 http://www.ncbi.nlm.nih.gov/geo</a>), a user can find gene expression data from a
-                disease of interest, compute a signature and then submit it to the CMap
-                Query tool or to L1000CDS<sup>2</sup> for drugs/small-molecules.
+                disease of interest, compute a signature and then submit it to the CLUE
+                Query app or to L1000CDS<sup>2</sup> for drugs/small-molecules.
               </p>
               <p>
                 Start by following the installation instructions of GEO2Enrichr and install
@@ -202,8 +201,8 @@ export default class Workflow extends Component {
                 </div>
               </div>
               <p>
-                You can now download the up and down genes and submit them to the CMap
-                Query Tool or simply click on the L1000CDS<sup>2</sup> icon to open the results
+                You can now download the up and down genes and submit them to the CLUE
+                Query app or simply click on the L1000CDS<sup>2</sup> icon to open the results
                 from the L1000CDS<sup>2</sup> analysis.
               </p>
             </div>
