@@ -8,7 +8,9 @@ import PageBanner from 'components/PageBanner';
 
 // Images
 import arrowDownImg from '../images/arrow-down.png';
-import creedsLogoImg from '../images/creeds-logo.png';
+import creedsLogoImg from '../images/creeds_logo_main.png';
+import creedsLogoImgDesc from '../images/creeds-logo.png';
+import cmapLogoImg from '../images/cmap-logo.svg';
 
 const lcEngineFieldMap = {
   geneinfo: 'pr_gene_symbol',
@@ -172,25 +174,23 @@ export default class Workflow extends Component {
                   style={{ textDecoration: 'none' }}
                   target="_blank"
                 >
-                  <img
-                    src="/LINCS/files/tools_logos/cmap.png"
-                    alt="Lincscloud Logo"
-                  />
+                  <img src={cmapLogoImg} className={styles.cmapLogo} alt="Lincscloud Logo" />
                 </a>
               </div>
+              <p>
+                The BD2K-LINCS DCIC, through a crowdsourcing effort, also collected data from
+                gene perturbation followed by expression from GEO, and generated expression
+                signatures from this data. You can check if your gene of interest was
+                processed by this effort by typing it here:
+              </p>
               <div className={styles.creeds}>
-                <p>
-                  The BD2K-LINCS DCIC, through a crowdsourcing effort, also collected data from
-                  gene perturbation followed by expression from GEO, and generated expression
-                  signatures from this data. You can check if your gene of interest was
-                  processed by this effort by typing it here:
-                </p>
                 <a
                   href="http://amp.pharm.mssm.edu/creeds/"
-                  style={{ textDecoration: 'none' }}
+                  className={styles['creeds-link']}
                   target="_blank"
                 >
-                  <img src={creedsLogoImg} alt="CREEDS Logo" />
+                  <img src={creedsLogoImg} className={styles.creedsLogo} alt="CREEDS Logo" />
+                  <img src={creedsLogoImgDesc} alt="CREEDS Logo Desc" />
                 </a>
                 <h4>Search signatures by term</h4>
                 <p>

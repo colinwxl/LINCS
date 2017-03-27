@@ -19,7 +19,8 @@ iframe {
 }
 
 .harmonizome,
-.lincscloud {
+.lincscloud,
+.creeds {
   margin: 2rem 0;
   text-align: center;
 
@@ -47,6 +48,10 @@ iframe {
     border: 1px solid #ccc;
     border-radius: 0;
     float: left;
+  }
+
+  .cmapLogo {
+    margin-bottom: 0;
   }
 
   .input {
@@ -103,6 +108,14 @@ iframe {
   img {
     margin-bottom: 1rem;
     width: 250px;
+  }
+}
+
+.creeds-link {
+  text-decoration: none;
+  .creedsLogo {
+    width: 6rem;
+    margin: 0;
   }
 }
 
