@@ -170,10 +170,8 @@ export default class Workflow extends Component {
                   </li>
                 </ul>
                 <p>
-                  Additionally the CLUE API playground can be accessed through the&nbsp;
-                  <a href="https://clue.io/api" target="_blank">CLUE API</a> and&nbsp;
-                  allows end consumers to visualize and interact with the
-                  API’s resources/services.
+                  The <a href="https://clue.io/api" target="_blank">CLUE API</a> playground
+                  allows end consumers to visualize and interact with the API’s resources/services.
                 </p>
                 <br />
                 <img src={clueAPIPlayground} alt="CLUE API Playground" />
