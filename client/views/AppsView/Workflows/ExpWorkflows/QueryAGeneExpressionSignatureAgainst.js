@@ -35,7 +35,7 @@ export default class Workflow extends Component {
                 changes in gene expression after:
               </p>
               <ul>
-                <li>Small-molecule exposure</li>
+                <li>Small molecule exposure</li>
                 <li>Gene knockdown by RNAi </li>
                 <li>Gene overexpression</li>
               </ul>
@@ -46,7 +46,7 @@ export default class Workflow extends Component {
                 experimental conditions which have the highest matching score. In this way,
                 the experimental conditions of the matches could inform about the nature of
                 your input signature, addressing questions such as: are there gene knockout
-                experiments that results in similar signatures? Are there small-molecule
+                experiments that results in similar signatures? Are there small molecule
                 compounds which causes similar signatures? And if so, in which cell lines
                 do these signatures occur?
               </p>
@@ -63,15 +63,15 @@ export default class Workflow extends Component {
                 such queries, namely the&nbsp;
                 <a href="http://amp.pharm.mssm.edu/L1000CDS2/#/index" target="_blank">
                   L1000CDS<sup>2</sup>
-                </a> and the CLUE website&nbsp;
-                <a href="https://clue.io/query" target="_blank">Query</a> tool.
+                </a> and the CLUE&nbsp;
+                <a href="https://clue.io/query" target="_blank">Query</a> app.
               </p>
               <h4>Querying signatures with L1000CDS<sup>2</sup></h4>
               <p>
                 The <a href="http://amp.pharm.mssm.edu/L1000CDS2" target="_blank">
                   L1000CDS<sup>2</sup></a> tool developed by the BD2K-LINCS DCIC
                 can be used to search a subset of the L1000 data consisting of 20,000
-                small-molecule perturbations across cell lines MCF7, VCAP, PC3, HA1E,
+                small molecule perturbations across cell lines MCF7, VCAP, PC3, HA1E,
                 A375, and A549. After you have determined the input up- and down-regulated
                 genes of your gene expression signature, copy-paste the gene symbols into
                 the L1000CDS<sup>2</sup> web-interface for analysis as shown below:
@@ -89,7 +89,7 @@ export default class Workflow extends Component {
               </div>
               <p>
                 In the results table shown below, each row represents an experimental
-                condition describing the matching cell line, small-molecule perturbation,
+                condition describing the matching cell line, small molecule perturbation,
                 dosage, and timing. The matched gene expression signatures can be downloaded
                 as a .json files for subsequent analysis, the overlapping up and down genes
                 with the signatures can be submitted for enrichment analysis
