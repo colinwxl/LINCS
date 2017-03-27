@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router';
 
 import styles from '../Workflow.scss';
 import PageNav from 'components/PageNav';
@@ -39,18 +40,21 @@ export default class Workflow extends Component {
               }
             >
               <p>
-                Within the LINCS Consortium there are two centers that collect RNA-Seq data.
-                These are <a href="http://www.neurolincs.org" target="_blank">NeuroLINCS</a> and&nbsp;
-                <a href="https://martip03.u.hpc.mssm.edu/index.php" target="_blank">DToxS</a>.
-                In addition, processed data, scripts, pipelines and downstream
-                analyses are also available for these datasets.
+                The&nbsp;
+                <Link to="/centers/data-and-signature-generating-centers/neurolincs">
+                  NeuroLINCS
+                </Link> and the&nbsp;
+                <Link to="/centers/data-and-signature-generating-centers/dtoxs">
+                  DToxS
+                </Link> centers collect RNA-Seq data. Processed data, scripts,
+                pipelines and downstream analyses are also available for these datasets.
               </p>
               <h4>Obtaining RNA-Seq datasets from the LINCS Data Portal</h4>
               <ol>
                 <li>
                   Open the "Datasets" section on
                   the <a href="http://lincsportal.ccs.miami.edu/dcic-portal/" target="_blank">
-                  LINCS Data Portal website</a>.
+                  LINCS Data Portal</a>.
                 </li>
                 <li>
                   Select “RNA-Seq” in a left panel under “Method”
@@ -134,12 +138,12 @@ export default class Workflow extends Component {
               </div>
               <ol start="4">
                 <li>
-                  Filter the data if necessary and click the “Download” button to
-                  download the filtered data
+                  Filter the data if necessary and click the “Download selected
+                  samples data” button to download the filtered data
                 </li>
               </ol>
               <div className="row">
-                <div className="col-xs-8 col-xs-offset-2">
+                <div className="col-xs-12">
                   <img
                     src={iLincsFilterImg}
                     alt="iLINCS Filters"

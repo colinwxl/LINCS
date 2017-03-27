@@ -54,8 +54,7 @@ export default class Workflow extends Component {
                 thousands of perturbagens at a variety of time points, doses, and cell
                 lines. A full list of the chemical and genetic perturbations used can be
                 found on the <a href="https://clue.io/" target="_blank">
-                CLUE website</a> along with their descriptions. A quick summary
-                screenshot is shown below:
+                CLUE website</a> along with their descriptions.
               </p>
               <div className="row">
                 <div className="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-4">
@@ -97,10 +96,10 @@ export default class Workflow extends Component {
               </ul>
               <p>
                 You can obtain the L1000 directly from the LINCS Center for Transcriptomics
-                by signing up for an account at <a href="https://clue.io" target="_blank">
-                https://clue.io</a>.
+                by signing up for an account <a href="https://clue.io" target="_blank">
+                here</a>.
               </p>
-              <h5>Downloading annotated data packages from the LDP</h5>
+              <h5>Downloading annotated data packages from the LINCS Data Portal</h5>
               <p>
                 You can search for L1000 data packages on the&nbsp;
                 <a
