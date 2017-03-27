@@ -45,12 +45,19 @@ export default class Workflow extends Component {
                 a number of different cell lines.
               </p>
               <p>
-                More information can be found at the
-                Center’s <a href="https://panoramaweb.org/labkey/wiki/LINCS/Overview Information/page.view?name=LINCS%20PCCSE%20Overview" target="_blank">
-                Panorama web portal</a>. PCCSE signature datasets can be searched, downloaded
-                and browsed with piLINCS. piLINCS can be used to interactively browse the
-                different profiles generated, filtered based on cell - perturbation - dose
-                tuples, merged across different profiles for the same tuples.
+                More information can be found at the&nbsp;
+                <a
+                  href="https://panoramaweb.org/labkey/wiki/LINCS/Overview%20Information/page.view?name=LINCS%20PCCSE%20Overview"
+                  target="_blank"
+                >
+                  LINCS PCCSE Panorama Repository
+                </a>. PCCSE signature datasets can be searched, downloaded and browsed
+                with&nbsp;
+                <a href="http://eh3.uc.edu/pilincs/#/" target="_blank">
+                  piLINCS
+                </a>. piLINCS can be used to interactively browse the different
+                profiles generated, filtered based on cell - perturbation - dose tuples,
+                merged across different profiles for the same tuples.
               </p>
               <div className="row">
                 <div className="col-xs-10 col-xs-offset-1 text-xs-center m-b-1">
@@ -62,9 +69,12 @@ export default class Workflow extends Component {
                 </div>
               </div>
               <p>
-                iLINCS provides <a href="http://www.eh3.uc.edu/GenomicsPortals/DatasetLandingPage.do?data_set=p100Foundation156x1267" target="_blank">
-                various</a> analysis for
-                the <a href="http://www.eh3.uc.edu/GenomicsPortals/datasets.jsp?center=&assay=P100" target="_blank">
+                <a href="http://eh3.uc.edu/GenomicsPortals/Lincs.jsp" target="_blank">
+                  iLINCS
+                </a> provides various&nbsp;
+                <a href="http://www.eh3.uc.edu/GenomicsPortals/DatasetLandingPage.do?data_set=p100Foundation156x1267" target="_blank">
+                  analysis
+                </a> for the <a href="http://www.eh3.uc.edu/GenomicsPortals/datasets.jsp?center=&assay=P100" target="_blank">
                 P100 datasets</a>, it is possible to generate two-group sample differential
                 expression signatures within a dataset, find differentially expressed proteins
                 between multiple groups of samples, perform multi-group analysis for a specific
