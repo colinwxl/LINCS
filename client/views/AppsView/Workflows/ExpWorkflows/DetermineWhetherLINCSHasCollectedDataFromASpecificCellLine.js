@@ -30,10 +30,11 @@ export default class Workflow extends Component {
                 The <Link to="/centers/data-and-signature-generating-centers">LINCS Data and
                 Signature Generation Centers (DSGCs)</Link> generate data concerning the response
                 of human cells to small molecule, genetic and drug perturbations to better
-                understand their mechanisms of action. The first step to determine whether a cell
-                line of your interest was profiled by one of the LINCS centers is to query the
-                LINCS Data Portal cells interface by typing the cell line name in the search
-                bar available from <a href="http://lincsportal.ccs.miami.edu/cells/" target="_blank">here</a>.
+                understand their mechanisms of action. The first step to determine whether your cell
+                line of interest was profiled by one of the LINCS centers is to query the&nbsp;
+                <a href="http://lincsportal.ccs.miami.edu/cells/" target="_blank">
+                  LINCS Data Portal 'Cells'
+                </a> browser by entering the cell line in the search bar as illustrated below.
                 If you find a match, you can explore the data generated
                 by each of the DSGCs.
                 <img src={lincsDataPortalScreenshot} alt="LINCS Data Portal screenshot" />
