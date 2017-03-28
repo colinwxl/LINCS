@@ -135,7 +135,7 @@ export default class Footer extends Component {
           <div className="row">
             <div className="col-xs-12">
               <div className={`col-xs-12 col-md-6 col-lg-5 ${styles.copy}`}>
-                <p>© 2016, LINCS Program. All rights reserved.</p>
+                <p>© 2017, LINCS Program. All rights reserved.</p>
               </div>
               <div className={`col-xs-12 col-md-6 col-lg-7 text-xl-right ${styles.credit}`}>
                 <p>

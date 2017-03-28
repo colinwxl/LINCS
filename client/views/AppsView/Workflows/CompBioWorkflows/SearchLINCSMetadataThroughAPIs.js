@@ -33,8 +33,11 @@ export default class Workflow extends Component {
                 is an API that uses the HTTP protocol.
               </p>
               <p>
-                For more information on APIs, please watch the BD2K-LINCS DCIC Coursera
-                videos on the subject:
+                For more information on APIs, please watch the following two videos
+                from the&nbsp;
+                <a href="https://www.coursera.org/learn/bd2k-lincs" target="_blank">
+                  BD2K-LINCS DCIC Coursera
+                </a> course:
               </p>
               <div className="row">
                 <div className="col-xs-12 col-md-6">
