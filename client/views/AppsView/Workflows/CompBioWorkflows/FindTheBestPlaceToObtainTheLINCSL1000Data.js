@@ -3,7 +3,6 @@ import React, { Component } from 'react';
 import styles from '../Workflow.scss';
 import PageNav from 'components/PageNav';
 import PageBanner from 'components/PageBanner';
-import lcScreenshotOne from '../images/lc-screenshot-1.png';
 import l1000PipelineImg from '../images/l1000-pipeline-new.png';
 import l1000ResultImg from '../images/l1000-result-new.png';
 import geoScreenshot from '../images/geo-screenshot.png';
@@ -56,15 +55,6 @@ export default class Workflow extends Component {
                 found on the <a href="https://clue.io/" target="_blank">
                 CLUE website</a> along with their descriptions.
               </p>
-              <div className="row">
-                <div className="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-4">
-                  <div className="row">
-                    <div className="col-xs-12 col-sm-6">
-                      <img src={lcScreenshotOne} alt="lincscloud Screenshot" />
-                    </div>
-                  </div>
-                </div>
-              </div>
               <p>
                 The LINCS L1000 data is separated into five data levels at different
                 points in the analysis pipeline.
