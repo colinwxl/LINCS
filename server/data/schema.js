@@ -146,6 +146,7 @@ export default {
     date: { type: 'dateTime', nullable: false },
     created_at: { type: 'dateTime', nullable: false },
     updated_at: { type: 'dateTime', nullable: true },
+    presenter_image_url: { type: 'string', maxlength: 255, nullable: true },
   },
   workshops: {
     id: { type: 'increments', nullable: false, primary: true },

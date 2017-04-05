@@ -142,41 +142,96 @@ class Overview extends Component {
 
   createWebinarCard(web) {
     const hasVideo = web.url && !!web.url.length;
+    const hasPresenterImg = web.presenterImageUrl && !!web.presenterImageUrl.length;
     return (
       <div className={styles['ann-card']}>
         <h6 className={`${styles['ann-group']} ${styles.webinar}`}>{formatDate(web.date)}</h6>
         <div className={styles['ann-content']}>
           <h3>LINCS Data Science Research Webinar</h3>
           <h4>{web.title}</h4>
-          {
-            web.presenterUrl && !!web.presenterUrl.length
-              ? <span><a href={web.presenterUrl}>{web.presenterName}</a></span>
-            : <span>{web.presenterName}</span>
-          }
-          ,&nbsp;
-          {
-            web.presenterAffiliation &&
-            !!web.presenterAffiliation.length &&
-              web.presenterAffiliation
-          }
+          {hasPresenterImg ?
+            (<div className="row">
+              <div className="col-xl-2">
+                <img
+                  src={web.presenterImageUrl}
+                  alt={web.presenterName}
+                  height="175"
+                  width="125"
+                />
+              </div>
+              <div className="col-xl-10">
+                <br />
+                <p>
+                  {
+                    web.presenterUrl && !!web.presenterUrl.length
+                      ? <span><a href={web.presenterUrl}>{web.presenterName}</a></span>
+                    : <span>{web.presenterName}</span>
+                  }
+                  ,&nbsp;
+                  {
+                    web.presenterAffiliation &&
+                    !!web.presenterAffiliation.length &&
+                      web.presenterAffiliation
+                  }
+                </p>
 
-          <p>This event starts at 3:00 PM ET on {formatDate(web.date)}.</p>
-          {
-            web.abstract &&
-            web.abstract.length &&
-              <Collapsible trigger="▸ Abstract" triggerWhenOpen="▾ Abstract">
-                <span>{web.abstract}</span>
-              </Collapsible>
+                <p>This event starts at 3:00 PM ET on {formatDate(web.date)}.</p>
+                {
+                  web.abstract &&
+                  web.abstract.length &&
+                    <Collapsible trigger="▸ Abstract" triggerWhenOpen="▾ Abstract">
+                      <span>{web.abstract}</span>
+                    </Collapsible>
+                }
+                {
+                  hasVideo && <span><a href={web.url}>Watch webinar on YouTube</a></span>
+                }
+                <Link to="/community/webinars/">How to Connect</Link>
+                &nbsp;|&nbsp;
+                <a
+                  href="https://www.youtube.com/playlist?list=PL0Bwuj8819U-G9Ob0jIGHp5AtwpCghLV5"
+                  target="_blank"
+                >Archived Webinars</a>
+              </div>
+            </div>) :
+            null
           }
-          {
-            hasVideo && <span><a href={web.url}>Watch webinar on YouTube</a></span>
+          {hasPresenterImg ?
+            null :
+            <div>
+              <p>
+                {
+                  web.presenterUrl && !!web.presenterUrl.length
+                    ? <span><a href={web.presenterUrl}>{web.presenterName}</a></span>
+                  : <span>{web.presenterName}</span>
+                }
+                ,&nbsp;
+                {
+                  web.presenterAffiliation &&
+                  !!web.presenterAffiliation.length &&
+                    web.presenterAffiliation
+                }
+              </p>
+
+              <p>This event starts at 3:00 PM ET on {formatDate(web.date)}.</p>
+              {
+                web.abstract &&
+                web.abstract.length &&
+                  <Collapsible trigger="▸ Abstract" triggerWhenOpen="▾ Abstract">
+                    <span>{web.abstract}</span>
+                  </Collapsible>
+              }
+              {
+                hasVideo && <span><a href={web.url}>Watch webinar on YouTube</a></span>
+              }
+              <Link to="/community/webinars/">How to Connect</Link>
+              &nbsp;|&nbsp;
+              <a
+                href="https://www.youtube.com/playlist?list=PL0Bwuj8819U-G9Ob0jIGHp5AtwpCghLV5"
+                target="_blank"
+              >Archived Webinars</a>
+            </div>
           }
-          <Link to="/community/webinars/">How to Connect</Link>
-          &nbsp;|&nbsp;
-          <a
-            href="https://www.youtube.com/playlist?list=PL0Bwuj8819U-G9Ob0jIGHp5AtwpCghLV5"
-            target="_blank"
-          >Archived Webinars</a>
         </div>
       </div>
     );
