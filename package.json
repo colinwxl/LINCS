@@ -1,6 +1,6 @@
 {
   "name": "lincs",
-  "version": "8.15.16",
+  "version": "8.15.17",
   "description": "A home for the LINCS project.",
   "main": "client/main.js",
   "engines": {
@@ -8,6 +8,7 @@
     "npm": "^3.0.0"
   },
   "scripts": {
+    "docker-clean": "docker images | grep 'weeks ago' | awk '{print $3}' | xargs docker rmi",
     "preversion": "docker-machine active",
     "version": "npm run deploy:docker && git add -A .",
     "postversion": "git push origin master && git push origin master --tags && npm run clean",
