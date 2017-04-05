@@ -150,46 +150,9 @@ export class HomeView extends Component {
                     </div>
                   </div>
                   <div className={`col-xs-12 col-md-6 ${styles.am}`}>
-                    <h3 className={styles.title}>Featured Upcoming Events</h3>
+                    <h3 className={styles.title}>Featured Events</h3>
                     <div className={styles['carousel-pad']}>
                       <Carousel autoplay infinite aps={8000}>
-                        <div className={styles['carousel-item-wrap']}>
-                          <a
-                            href="http://www.abstractsonline.com/pp8/#!/4292/session/901"
-                            target="_blank"
-                            className={styles['carousel-item-head']}
-                          >
-                            <h4 className={styles['carousel-item-title']}>
-                              <strong>
-                                AACR Annual Meeting 2017
-                              </strong>
-                            </h4>
-                            <h5 className={styles['carousel-item-title']}>
-                              <strong>
-                                Special Session 17: Advancing Cancer Therapy
-                                Using Data from the NIH LINCS Program
-                              </strong>
-                            </h5>
-                            <div className={styles['carousel-img-wrap']}>
-                              <img
-                                src={AACRLogo}
-                                className={`${styles['carousel-img']} ${styles.aacr}`}
-                                alt="presentation"
-                              />
-                            </div>
-                          </a>
-                          <p className={styles.meeting}>
-                            This session at the AACR Annual Meeting 2017 will highlight
-                            recent results from the LINCS program, focusing on ways of
-                            accessing and analyzing LINCS data, software and experimental
-                            protocols. The session will be held on&nbsp;
-                            <strong>April 4, 2017</strong> in Washington, D.C.&nbsp;
-                            <a
-                              href="http://www.abstractsonline.com/pp8/#!/4292/session/901"
-                              target="_blank"
-                            >Learn More</a>
-                          </p>
-                        </div>
                         <div className={styles['carousel-item-wrap']}>
                           <a
                             href="https://sites.google.com/view/sbdss2017"
@@ -227,6 +190,43 @@ export class HomeView extends Component {
                             on <strong>May 16-18, 2017</strong> in Cincinnati, OH.&nbsp;
                             <a
                               href="https://sites.google.com/view/sbdss2017"
+                              target="_blank"
+                            >Learn More</a>
+                          </p>
+                        </div>
+                        <div className={styles['carousel-item-wrap']}>
+                          <a
+                            href="http://www.abstractsonline.com/pp8/#!/4292/session/901"
+                            target="_blank"
+                            className={styles['carousel-item-head']}
+                          >
+                            <h4 className={styles['carousel-item-title']}>
+                              <strong>
+                                AACR Annual Meeting 2017
+                              </strong>
+                            </h4>
+                            <h5 className={styles['carousel-item-title']}>
+                              <strong>
+                                Special Session 17: Advancing Cancer Therapy
+                                Using Data from the NIH LINCS Program
+                              </strong>
+                            </h5>
+                            <div className={styles['carousel-img-wrap']}>
+                              <img
+                                src={AACRLogo}
+                                className={`${styles['carousel-img']} ${styles.aacr}`}
+                                alt="presentation"
+                              />
+                            </div>
+                          </a>
+                          <p className={styles.meeting}>
+                            This session at the AACR Annual Meeting 2017 highlighted
+                            recent results from the LINCS program, focusing on ways of
+                            accessing and analyzing LINCS data, software and experimental
+                            protocols. The session was held on&nbsp;
+                            <strong>April 4, 2017</strong> in Washington, D.C.&nbsp;
+                            <a
+                              href="http://www.abstractsonline.com/pp8/#!/4292/session/901"
                               target="_blank"
                             >Learn More</a>
                           </p>
