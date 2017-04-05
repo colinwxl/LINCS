@@ -38,6 +38,7 @@ import Webinars from 'views/CommunityView/Webinars';
 import Workshops from 'views/CommunityView/Workshops';
 import Symposia from 'views/CommunityView/Symposia';
 import PreviousEvents from 'views/CommunityView/PreviousEvents';
+import Aacr2017 from 'views/CommunityView/AACRPage2017';
 
 // Data
 import DataOverview from 'views/DataView/Overview';
@@ -150,6 +151,7 @@ export default (/* store */) => (
     <Route path={`${communityBase}/workshops`} component={Workshops} />
     <Route path={`${communityBase}/symposia`} component={Symposia} />
     <Route path={`${communityBase}/previous-events`} component={PreviousEvents} />
+    <Route path={`${communityBase}/aacr-2017`} component={Aacr2017} />
 
     {/* Data Routes */}
     <Redirect from={dataBase} to={`${dataBase}/overview`} />

@@ -225,10 +225,7 @@ export class HomeView extends Component {
                             accessing and analyzing LINCS data, software and experimental
                             protocols. The session was held on&nbsp;
                             <strong>April 4, 2017</strong> in Washington, D.C.&nbsp;
-                            <a
-                              href="http://www.abstractsonline.com/pp8/#!/4292/session/901"
-                              target="_blank"
-                            >Learn More</a>
+                            <Link to="community/aacr-2017">Learn More</Link>
                           </p>
                         </div>
                       </Carousel>
