@@ -72,5 +72,5 @@ export default function Event20170413() {
         </div>
       </div>
     </div>
-  )
+  );
 }
