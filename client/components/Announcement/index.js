@@ -15,14 +15,16 @@ export default class Announcement extends Component {
       course,
       trainingProgram,
       custom,
+      customColor,
       eventDate,
     } = ann;
 
     let headerText;
     let headerBack = '#0a817f';
     if (custom && custom.length > 0) {
+      const safeColor = (customColor && customColor[0] === '#') ? customColor : `#${customColor}`;
       headerText = custom;
-      headerBack = '#2b3d62';
+      headerBack = safeColor.length > 1 ? safeColor : '#2b3d62';
     } else if (webinar) {
       headerText = 'LINCS Data Science Webinar';
       headerBack = '#f39134';

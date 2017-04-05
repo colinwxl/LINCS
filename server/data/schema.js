@@ -278,5 +278,6 @@ export default {
     link_text: { type: 'string', maxlength: 255, nullable: true },
     created_at: { type: 'dateTime', nullable: false },
     updated_at: { type: 'dateTime', nullable: true },
+    custom_color: { type: 'string', maxlength: 7, nullable: true },
   },
 };
