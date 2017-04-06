@@ -13,15 +13,16 @@ export default function Event20170413() {
           with Chrome Extensions
         </h4>
         <div className="row">
-          <div className="col-xl-2">
-            <img
-              src="http://icahn.mssm.edu/files/fad_img_new/193/0000076810011253726801/0000072500001497168952.jpg"
-              alt="Avi Ma'ayan PhD"
-              width="125"
-            />
-          </div>
-          <div className="col-xl-10">
-            <br />
+          {
+            // <div className="col-xl-2">
+            //   <img
+            //     src="http://icahn.mssm.edu/files/fad_img_new/193/0000076810011253726801/0000072500001497168952.jpg"
+            //     alt="Avi Ma'ayan PhD"
+            //     width="125"
+            //   />
+            // </div>
+          }
+          <div className="col-xl-12">
             <p>
               Avi Ma’ayan PhD, Icahn School of Medicine at Mount Sinai, BD2K-LINCS DCIC
             </p>

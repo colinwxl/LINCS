@@ -1,5 +1,6 @@
 import React from 'react';
 import PageBanner from 'components/PageBanner';
+import PageNav from 'components/PageNav';
 
 import AACRMeetingBox from '../Overview/AACR/AACRMeetingBox';
 import aacrLogo from 'static/files/aacr_logo.png';
@@ -15,7 +16,11 @@ export default function AACRPage2017() {
       />
       <div className="container">
         <div className="row">
-          <div className="col-md-12">
+          <PageNav
+            mainPage="AACR Annual Meeting 2017"
+            isCommunityPage
+          />
+          <div className="col-md-9 col-md-pull-3">
             <h3>
               Special Session 17 - Advancing Cancer Therapy Using Data from the NIH LINCS Program
             </h3>
@@ -59,7 +64,7 @@ export default function AACRPage2017() {
           </div>
         </div>
         <div className="row">
-          <div className={`col-md-9 ${styles['col-centered']}`}>
+          <div className="col-md-9">
             {
               AACR.map((si, idx) => (
                 <AACRMeetingBox key={idx} scheduleItem={si} />

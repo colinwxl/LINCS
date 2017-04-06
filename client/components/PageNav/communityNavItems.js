@@ -7,6 +7,11 @@ export default [
     children: [],
   },
   {
+    title: 'AACR Annual Meeting 2017',
+    route: `${communityRoute}/aacr-2017`,
+    children: [],
+  },
+  {
     title: 'Crowdsourcing Challenges',
     route: `${communityRoute}/crowdsourcing-challenges`,
     children: [],
