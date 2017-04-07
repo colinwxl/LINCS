@@ -34,7 +34,7 @@ export default [
     centerPath: 'LINCS/centers/data-and-signature-generating-centers/hms-lincs',
     abstractLink: 'http://www.abstractsonline.com/pp8/#!/4292/presentation/11711',
     presentationResourceLink:
-    'https://amp.pharm.mssm.edu/LINCS/static/files/aacr-2017-presentations/MillsAACR2017.pdf',
+    'https://amp.pharm.mssm.edu/LINCS/files/aacr-2017-presentations/MillsAACR2017.pdf',
   },
   {
     time: '5:45 - 6:00 PM',
