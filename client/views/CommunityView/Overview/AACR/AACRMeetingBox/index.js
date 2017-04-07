@@ -86,6 +86,7 @@ export default class AACRMeetingBox extends Component {
               scheduleItem.presentationResourceLink.length > 0 ?
                 <a
                   href={scheduleItem.presentationResourceLink}
+                  target="_blank"
                   className={`${styles.resource} ${styles['no-style-link']}`}
                 >
                   View presentation
