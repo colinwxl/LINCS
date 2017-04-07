@@ -81,7 +81,18 @@ export default class AACRMeetingBox extends Component {
                 : null
               }
             </div>
-            <br />
+            {
+              scheduleItem.presentationResourceLink &&
+              scheduleItem.presentationResourceLink.length > 0 ?
+                <a
+                  href={scheduleItem.presentationResourceLink}
+                  className={`${styles.resource} ${styles['no-style-link']}`}
+                >
+                  View presentation
+                </a> :
+              null
+            }
+
           </div>
         </div>
       </div>

@@ -1,6 +1,6 @@
 @import 'variables';
 
-$widget-height: 8rem;
+$widget-height: 8.5rem;
 $widget-width: 15.75rem;
 $shadow: rgba(0, 0, 0, .1);
 
@@ -33,7 +33,7 @@ $shadow: rgba(0, 0, 0, .1);
   position: relative;
   text-decoration: none;
   vertical-align: top;
-  padding: 0.8rem;
+  padding: 0.7rem;
   display: flex;
   flex-direction: column;
 }
@@ -49,23 +49,29 @@ $shadow: rgba(0, 0, 0, .1);
 
 .thumbnail {
   display: block;
-  margin-top: 0.25rem;
+  margin-top: 0.3rem;
   width: 100%;
 }
 
 .presenter {
-  width: 4.5rem;
+  width: 5.25rem;
 }
 
 .inline-img-left {
   float: left;
-  margin-right: 1rem;
+  margin-right: 0.8rem;
 }
 
 $desc-line-height: 1.125rem;
 
 .widget-description {
   font-size: 0.75rem;
+}
+
+.resource {
+  position: absolute;
+  bottom: 0.825rem;
+  // color: #1f4a8d;
 }
 
 .no-style-link {
