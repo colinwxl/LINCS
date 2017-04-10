@@ -1,6 +1,8 @@
 /* eslint-disable */
 import React from 'react';
 import { Link } from 'react-router';
+import ReactTooltip from 'react-tooltip';
+import Collapsible from 'react-collapsible';
 import { BootstrapTable, TableHeaderColumn } from 'react-bootstrap-table';
 import styles from '../AppsView.scss';
 import cannedAnalysisSeed from './canned_analysis_seed.json';
@@ -12,6 +14,18 @@ const options = {
   // sizePerPage: 5,
   searchDelayTime: 250,
 };
+
+const generateUrlForDataset = (dataset) => {
+  const ldpBaseDatasetUrl = 'http://lincsportal.ccs.miami.edu/datasets/#/view/';
+  const hmsBaseDatasetUrl = 'http://lincs.hms.harvard.edu/db/datasets/';
+  let datasetUrl;
+  if (dataset.indexOf('HMS') === 0) {
+    datasetUrl = hmsBaseDatasetUrl + dataset.slice(4);
+  } else {
+    datasetUrl = ldpBaseDatasetUrl + dataset;
+  }
+  return datasetUrl;
+}
 
 const formatToolBox = (cell, row) => {
   const toolName = row.tool_name;
@@ -32,31 +46,42 @@ const formatToolBox = (cell, row) => {
   );
 };
 
-const formatAccession = (cell, row) => {
-  const accessions = row.dataset_accession;
-  const ldpBaseDatasetUrl = 'http://lincsportal.ccs.miami.edu/datasets/#/view/';
-  const hmsBaseDatasetUrl = 'http://lincs.hms.harvard.edu/db/datasets/';
-  const datasetAccessionsList = [];
-  for (let i = 0; i < accessions.length; i++) {
-    const currAccession = accessions[i];
-    let datasetUrl;
-    if (currAccession.indexOf('HMS') === 0) {
-      datasetUrl = hmsBaseDatasetUrl + currAccession.slice(4);
-    } else {
-      datasetUrl = ldpBaseDatasetUrl + currAccession;
-    }
+const formatMultiAccessions = (cell, row) => {
+  const datasetInfo = row.dataset_info;
 
-    datasetAccessionsList.push(
-      <a href={datasetUrl} key={i} target="_blank" style={{display: 'block'}} className={styles.link}>
-        {currAccession}
+  if (datasetInfo.datasets && datasetInfo.datasets.length > 0) {
+    const accessions = datasetInfo.datasets;
+    const datasetAccessionsList = [];
+    for (let i = 0; i < accessions.length; i++) {
+      const currAccession = accessions[i];
+      const datasetUrl = generateUrlForDataset(currAccession);
+
+      datasetAccessionsList.push(
+        <a href={datasetUrl} key={i} target="_blank" style={{display: 'block'}} className={styles.link}>
+          {currAccession}
+        </a>
+      );
+    }
+    // make item below into tooltip
+    return (
+      <div className={styles['accession-list']}>
+        <Collapsible
+          trigger={`▸ ${datasetInfo.dataset_accession}`}
+          triggerWhenOpen={`▾ ${datasetInfo.dataset_accession}`}
+        >
+          {datasetAccessionsList}
+        </Collapsible>
+      </div>
+    );
+  } else {
+    const datasetUrl = generateUrlForDataset(datasetInfo.dataset_accession);
+    return (
+      <a href={datasetUrl} target="_blank" style={{display: 'block'}} className={styles.link}>
+        {datasetInfo.dataset_accession}
       </a>
     );
   }
-  return (
-    <div className={styles['accession-list']}>{datasetAccessionsList}</div>
-  )
 };
-
 
 const formatCenter = (cell, row) => {
   const centerName = row.analysis_center;
@@ -132,7 +157,7 @@ export default function CannedAnalysisModule() {
           width="110"
           dataAlign="center"
           isKey
-          dataFormat={formatAccession}
+          dataFormat={formatMultiAccessions}
         >
           Dataset Accession(s)
         </TableHeaderColumn>

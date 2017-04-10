@@ -1,6 +1,9 @@
 [
   {
-    "dataset_accession": ["LDG-1241", "LDG-1242", "LDG-1243", "LDG-1244", "LDG-1245", "LDG-1246", "LDG-1247", "LDG-1248", "LDG-1252", "LDG-1253", "LDG-1254", "HMS-20268", "HMS-20269", "HMS-20278", "HMS-20279", "HMS-20280", "HMS-20281", "HMS-20282", "HMS-20283", "HMS-20284", "HMS-20285", "HMS-20286"],
+    "dataset_info": {
+      "dataset_accession": "MULTI-03",
+      "datasets": ["LDG-1241", "LDG-1242", "LDG-1243", "LDG-1244", "LDG-1245", "LDG-1246", "LDG-1247", "LDG-1248", "LDG-1252", "LDG-1253", "LDG-1254", "HMS-20268", "HMS-20269", "HMS-20278", "HMS-20279", "HMS-20280", "HMS-20281", "HMS-20282", "HMS-20283", "HMS-20284", "HMS-20285", "HMS-20286"]
+    },
     "lca_accession": "LCA-MULT03",
     "dataset_url": "",
     "tool_name": "GR Browser",
@@ -14,7 +17,9 @@
     "screen_path": "./ca_screenshot/multi_03_gr_browser.png"
   },
  {
-   "dataset_accession": ["LDS-1356"],
+   "dataset_info": {
+     "dataset_accession": "LDS-1356"
+   },
    "lca_accession": "LCA-1356A",
    "dataset_url": "http://lincsportal.ccs.miami.edu/datasets/#/view/LDS-1356",
    "tool_name": "GEN3VA",
@@ -28,7 +33,9 @@
    "screen_path": "./ca_screenshot/lds_1356_geneva.png"
  },
  {
-   "dataset_accession": ["LDS-1356"],
+   "dataset_info": {
+     "dataset_accession": "LDS-1356"
+   },
    "lca_accession": "LCA-1356B",
    "dataset_url": "http://lincsportal.ccs.miami.edu/datasets/#/view/LDS-1356",
    "tool_name": "GEN3VA",
@@ -42,7 +49,9 @@
    "screen_path": "./ca_screenshot/lds_1356_geneva.png"
  },
  {
-   "dataset_accession": ["LDS-1239"],
+   "dataset_info": {
+     "dataset_accession": "LDS-1239"
+   },
    "lca_accession": "LCA-1239A",
    "dataset_url": "http://lincsportal.ccs.miami.edu/datasets/#/view/LDS-1239",
    "tool_name": "GEN3VA",
@@ -56,7 +65,9 @@
    "screen_path": "./ca_screenshot/lds_1239_geneva.png"
  },
  {
-   "dataset_accession": ["LDS-1196"],
+   "dataset_info": {
+     "dataset_accession": "LDS-1196"
+   },
    "lca_accession": "LCA-1196A",
    "dataset_url": "http://lincsportal.ccs.miami.edu/datasets/#/view/LDS-1196",
    "tool_name": "iLINCS",
@@ -70,7 +81,9 @@
    "screen_path": "./ca_screenshot/lds_1196_ilincs.png"
  },
  {
-   "dataset_accession": ["LDS-1356"],
+   "dataset_info": {
+     "dataset_accession": "LDS-1356"
+   },
    "lca_accession": "LCA-1356C",
    "dataset_url": "http://lincsportal.ccs.miami.edu/datasets/#/view/LDS-1356",
    "tool_name": "iLINCS",
@@ -84,7 +97,9 @@
    "screen_path": "./ca_screenshot/lds_1356_ilincs.png"
  },
  {
-   "dataset_accession": ["LDS-1237"],
+   "dataset_info": {
+     "dataset_accession": "LDS-1237"
+   },
    "lca_accession": "LCA-1237A",
    "dataset_url": "http://lincsportal.ccs.miami.edu/datasets/#/view/LDS-1237",
    "tool_name": "iLINCS",
@@ -98,7 +113,9 @@
    "screen_path": "./ca_screenshot/lds_1237_ilincs.png"
  },
  {
-   "dataset_accession": ["LDG-1285"],
+   "dataset_info": {
+     "dataset_accession": "LDG-1285"
+   },
    "lca_accession": "LCA-1285A",
    "dataset_url": "http://lincsportal.ccs.miami.edu/datasets/#/view/LDG-1285",
    "tool_name": "iLINCS",
@@ -112,7 +129,9 @@
    "screen_path": "./ca_screenshot/ldg_1285_ilincs.png"
  },
  {
-   "dataset_accession": ["LDS-1239"],
+   "dataset_info": {
+     "dataset_accession": "LDS-1239"
+   },
    "lca_accession": "LCA-1239B",
    "dataset_url": "http://lincsportal.ccs.miami.edu/datasets/#/view/LDS-1239",
    "tool_name": "iLINCS",
@@ -126,7 +145,9 @@
    "screen_path": "./ca_screenshot/lds_1239_ilincs.png"
  },
  {
-   "dataset_accession": ["LDG-1285"],
+   "dataset_info": {
+     "dataset_accession": "LDG-1285"
+   },
    "lca_accession": "LCA-1285B",
    "dataset_url": "http://lincsportal.ccs.miami.edu/datasets/#/view/LDG-1285",
    "tool_name": "iLINCS",
@@ -140,7 +161,9 @@
    "screen_path": "./ca_screenshot/ldg_1285_ilincs.png"
  },
  {
-   "dataset_accession": ["LDG-1284"],
+   "dataset_info": {
+     "dataset_accession": "LDG-1284"
+   },
    "lca_accession": "LCA-1284A",
    "dataset_url": "http://lincsportal.ccs.miami.edu/datasets/#/view/LDG-1284",
    "tool_name": "iLINCS",
@@ -154,7 +177,9 @@
    "screen_path": "./ca_screenshot/ldg_1284_ilincs.png"
  },
  {
-   "dataset_accession": ["LDS-1240"],
+   "dataset_info": {
+     "dataset_accession": "LDS-1240"
+   },
    "lca_accession": "LCA-1240A",
    "dataset_url": "http://lincsportal.ccs.miami.edu/datasets/#/view/LDS-1240",
    "tool_name": "LINCS Data Explorer",
@@ -168,7 +193,9 @@
    "screen_path": "./ca_screenshot/lds_1240_lde.png"
  },
  {
-   "dataset_accession": ["LDS-1299"],
+   "dataset_info": {
+     "dataset_accession": "LDS-1299"
+   },
    "lca_accession": "LCA-1299A",
    "dataset_url": "http://lincsportal.ccs.miami.edu/datasets/#/view/LDS-1299",
    "tool_name": "LINCS Data Explorer",
@@ -182,7 +209,9 @@
    "screen_path": "./ca_screenshot/lds_1299_lde.png"
  },
  {
-   "dataset_accession": ["LDS-1303"],
+   "dataset_info": {
+     "dataset_accession": "LDS-1303"
+   },
    "lca_accession": "LCA-1303A",
    "dataset_url": "http://lincsportal.ccs.miami.edu/datasets/#/view/LDS-1303",
    "tool_name": "LINCS Data Explorer",
@@ -196,7 +225,9 @@
    "screen_path": "./ca_screenshot/lds_1303_lde.png"
  },
  {
-   "dataset_accession": ["LDS-1307"],
+   "dataset_info": {
+     "dataset_accession": "LDS-1307"
+   },
    "lca_accession": "LCA-1307A",
    "dataset_url": "http://lincsportal.ccs.miami.edu/datasets/#/view/LDS-1307",
    "tool_name": "LINCS Data Explorer",
@@ -210,7 +241,9 @@
    "screen_path": "./ca_screenshot/lds_1307_lde.png"
  },
  {
-   "dataset_accession": ["LDS-1311"],
+   "dataset_info": {
+     "dataset_accession": "LDS-1311"
+   },
    "lca_accession": "LCA-1311A",
    "dataset_url": "http://lincsportal.ccs.miami.edu/datasets/#/view/LDS-1311",
    "tool_name": "LINCS Data Explorer",
@@ -224,7 +257,9 @@
    "screen_path": "./ca_screenshot/lds_1311_lde.png"
  },
  {
-   "dataset_accession": ["LDS-1319"],
+   "dataset_info": {
+     "dataset_accession": "LDS-1319"
+   },
    "lca_accession": "LCA-1319A",
    "dataset_url": "http://lincsportal.ccs.miami.edu/datasets/#/view/LDS-1319",
    "tool_name": "LINCS Data Explorer",
@@ -238,7 +273,9 @@
    "screen_path": "./ca_screenshot/lds_1319_lde.png"
  },
  {
-   "dataset_accession": ["LDS-1323"],
+   "dataset_info": {
+     "dataset_accession": "LDS-1323"
+   },
    "lca_accession": "LCA-1323A",
    "dataset_url": "http://lincsportal.ccs.miami.edu/datasets/#/view/LDS-1323",
    "tool_name": "LINCS Data Explorer",
@@ -252,7 +289,9 @@
    "screen_path": "./ca_screenshot/lds_1323_lde.png"
  },
  {
-   "dataset_accession": ["LDS-1327"],
+   "dataset_info": {
+     "dataset_accession": "LDS-1327"
+   },
    "lca_accession": "LCA-1327A",
    "dataset_url": "http://lincsportal.ccs.miami.edu/datasets/#/view/LDS-1327",
    "tool_name": "LINCS Data Explorer",
@@ -266,7 +305,9 @@
    "screen_path": "./ca_screenshot/lds_1327_lde.png"
  },
  {
-   "dataset_accession": ["LDS-1331"],
+   "dataset_info": {
+     "dataset_accession": "LDS-1331"
+   },
    "lca_accession": "LCA-1331A",
    "dataset_url": "http://lincsportal.ccs.miami.edu/datasets/#/view/LDS-1331",
    "tool_name": "LINCS Data Explorer",
@@ -280,7 +321,9 @@
    "screen_path": "./ca_screenshot/lds_1331_lde.png"
  },
  {
-   "dataset_accession": ["LDS-1335"],
+   "dataset_info": {
+     "dataset_accession": "LDS-1335"
+   },
    "lca_accession": "LCA-1335A",
    "dataset_url": "http://lincsportal.ccs.miami.edu/datasets/#/view/LDS-1335",
    "tool_name": "LINCS Data Explorer",
