@@ -62,7 +62,6 @@ export class AppsContainerModule extends Component {
     return (
       <div>
         <h2 className={styles['wf-title']}>LINCS Tools</h2>
-
         <div className={`btn-group ${styles.categories}`} data-toggle="buttons">
           <label
             onClick={this.handleMarketClicked}
@@ -88,7 +87,7 @@ export class AppsContainerModule extends Component {
           Video Tutorials
           </label>
 
-          {/* <label
+          <label
             onClick={this.handleAnalClicked}
             className={`btn ${styles['category-check']} ${isAnal ? styles.active : ''}`}
           >
@@ -98,7 +97,7 @@ export class AppsContainerModule extends Component {
               defaultChecked={isAnal}
             />
           Canned Analyses
-          </label>*/}
+          </label>
         </div>
 
         <div className={styles.workflow}>

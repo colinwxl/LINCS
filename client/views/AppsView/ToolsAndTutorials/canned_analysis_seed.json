@@ -1,35 +1,24 @@
 [
+  {
+    "dataset_accession": ["LDG-1241", "LDG-1242", "LDG-1243", "LDG-1244", "LDG-1245", "LDG-1246", "LDG-1247", "LDG-1248", "LDG-1252", "LDG-1253", "LDG-1254", "HMS-20268", "HMS-20269", "HMS-20278", "HMS-20279", "HMS-20280", "HMS-20281", "HMS-20282", "HMS-20283", "HMS-20284", "HMS-20285", "HMS-20286"],
+    "lca_accession": "LCA-MULT03",
+    "dataset_url": "",
+    "tool_name": "GR Browser",
+    "tool_logo_url": "http://lincsproject.org/LINCS/files/tools_logos/GR_Calculator_logo.png",
+    "analysis_center": "HMS LINCS",
+    "analysis_center_logo": "http://lincsproject.org/LINCS/files/centers_logos/hms-lincs.png",
+    "analysis_center_url": "/LINCS/centers/data-and-signature-generating-centers/hms-lincs",
+    "tool_url": "http://www.grcalculator.org/grbrowser/",
+    "canned_analysis_url": "http://www.grcalculator.org/grbrowser/",
+    "canned_analysis_description": "An online tool for calculating dose-response metrics and browsing response data",
+    "screen_path": "./ca_screenshot/multi_03_gr_browser.png"
+  },
  {
-   "dataset_accession": "LDS-1106",
-   "lca_accession": "LCA-1106A",
-   "dataset_url": "http://lincsportal.ccs.miami.edu/datasets/#/view/LDS-1106",
-   "tool_name": "Drug-Pathway Browser",
-   "analysis_center": "HMS-LINCS",
-   "analysis_center_logo": "http://lincsproject.org/LINCS/files/centers_logos/hms-lincs.png",
-   "analysis_center_url": "/LINCS/centers/data-and-signature-generating-centers/hms-lincs",
-   "tool_url": "http://lincs.hms.harvard.edu/explore/pathway/",
-   "canned_analysis_url": "http://lincs.hms.harvard.edu/explore/pathway/",
-   "canned_analysis_description": "Interactive network map of key signal transduction pathways, including the majority of kinases which can be selectively targeted with small molecules, as well as information on the relevant inhibitors in the HMS LINCS library.",
-   "screen_path": "./ca_screenshot/lds_1106_dpb.png"
- },
- {
-   "dataset_accession": "LDS-1106",
-   "lca_accession": "LCA-1106B",
-   "dataset_url": "http://lincsportal.ccs.miami.edu/datasets/#/view/LDS-1106",
-   "tool_name": "Drug Response Browser",
-   "analysis_center": "HMS-LINCS",
-   "analysis_center_logo": "http://lincsproject.org/LINCS/files/centers_logos/hms-lincs.png",
-   "analysis_center_url": "/LINCS/centers/data-and-signature-generating-centers/hms-lincs",
-   "tool_url": "http://lincs.hms.harvard.edu/explore/10.1038-nchembio.1337/fallahi-sichani-2013/",
-   "canned_analysis_url": "http://lincs.hms.harvard.edu/explore/10.1038-nchembio.1337/fallahi-sichani-2013/",
-   "canned_analysis_description": "Visualisation for LDS-1106 (HMS 20120) data. ",
-   "screen_path": "./ca_screenshot/lds_1106_drb.png"
- },
- {
-   "dataset_accession": "LDS-1356",
+   "dataset_accession": ["LDS-1356"],
    "lca_accession": "LCA-1356A",
    "dataset_url": "http://lincsportal.ccs.miami.edu/datasets/#/view/LDS-1356",
    "tool_name": "GEN3VA",
+   "tool_logo_url": "http://lincsproject.org/LINCS/files/tools_logos/gen3va-logo.png",
    "analysis_center": "NeuroLINCS",
    "analysis_center_logo": "http://lincsproject.org/LINCS/files/centers_logos/NeuroLINCS.png",
    "analysis_center_url": "/LINCS/centers/data-and-signature-generating-centers/neurolincs",
@@ -39,10 +28,11 @@
    "screen_path": "./ca_screenshot/lds_1356_geneva.png"
  },
  {
-   "dataset_accession": "LDS-1356",
+   "dataset_accession": ["LDS-1356"],
    "lca_accession": "LCA-1356B",
    "dataset_url": "http://lincsportal.ccs.miami.edu/datasets/#/view/LDS-1356",
    "tool_name": "GEN3VA",
+   "tool_logo_url": "http://lincsproject.org/LINCS/files/tools_logos/gen3va-logo.png",
    "analysis_center": "NeuroLINCS",
    "analysis_center_logo": "http://lincsproject.org/LINCS/files/centers_logos/NeuroLINCS.png",
    "analysis_center_url": "/LINCS/centers/data-and-signature-generating-centers/neurolincs",
@@ -52,10 +42,11 @@
    "screen_path": "./ca_screenshot/lds_1356_geneva.png"
  },
  {
-   "dataset_accession": "LDS-1239",
+   "dataset_accession": ["LDS-1239"],
    "lca_accession": "LCA-1239A",
    "dataset_url": "http://lincsportal.ccs.miami.edu/datasets/#/view/LDS-1239",
    "tool_name": "GEN3VA",
+   "tool_logo_url": "http://lincsproject.org/LINCS/files/tools_logos/gen3va-logo.png",
    "analysis_center": "DToxS",
    "analysis_center_logo": "http://lincsproject.org/LINCS/files/centers_logos/DToxS.png",
    "analysis_center_url": "/LINCS/centers/data-and-signature-generating-centers/dtoxs",
@@ -65,10 +56,11 @@
    "screen_path": "./ca_screenshot/lds_1239_geneva.png"
  },
  {
-   "dataset_accession": "LDS-1196",
+   "dataset_accession": ["LDS-1196"],
    "lca_accession": "LCA-1196A",
    "dataset_url": "http://lincsportal.ccs.miami.edu/datasets/#/view/LDS-1196",
    "tool_name": "iLINCS",
+   "tool_logo_url": "http://lincsproject.org/LINCS/files/tools_logos/i-lincs.png",
    "analysis_center": "PCCSE",
    "analysis_center_logo": "http://lincsproject.org/LINCS/files/centers_logos/lincs-pccse.png",
    "analysis_center_url": "/LINCS/centers/data-and-signature-generating-centers/lincs-pccse",
@@ -78,10 +70,11 @@
    "screen_path": "./ca_screenshot/lds_1196_ilincs.png"
  },
  {
-   "dataset_accession": "LDS-1356",
+   "dataset_accession": ["LDS-1356"],
    "lca_accession": "LCA-1356C",
    "dataset_url": "http://lincsportal.ccs.miami.edu/datasets/#/view/LDS-1356",
    "tool_name": "iLINCS",
+   "tool_logo_url": "http://lincsproject.org/LINCS/files/tools_logos/i-lincs.png",
    "analysis_center": "NeuroLINCS",
    "analysis_center_logo": "http://lincsproject.org/LINCS/files/centers_logos/NeuroLINCS.png",
    "analysis_center_url": "/LINCS/centers/data-and-signature-generating-centers/neurolincs",
@@ -91,10 +84,11 @@
    "screen_path": "./ca_screenshot/lds_1356_ilincs.png"
  },
  {
-   "dataset_accession": "LDS-1237",
+   "dataset_accession": ["LDS-1237"],
    "lca_accession": "LCA-1237A",
    "dataset_url": "http://lincsportal.ccs.miami.edu/datasets/#/view/LDS-1237",
    "tool_name": "iLINCS",
+   "tool_logo_url": "http://lincsproject.org/LINCS/files/tools_logos/i-lincs.png",
    "analysis_center": "DToxS",
    "analysis_center_logo": "http://lincsproject.org/LINCS/files/centers_logos/DToxS.png",
    "analysis_center_url": "/LINCS/centers/data-and-signature-generating-centers/dtoxs",
@@ -104,10 +98,11 @@
    "screen_path": "./ca_screenshot/lds_1237_ilincs.png"
  },
  {
-   "dataset_accession": "LDG-1285",
+   "dataset_accession": ["LDG-1285"],
    "lca_accession": "LCA-1285A",
    "dataset_url": "http://lincsportal.ccs.miami.edu/datasets/#/view/LDG-1285",
    "tool_name": "iLINCS",
+   "tool_logo_url": "http://lincsproject.org/LINCS/files/tools_logos/i-lincs.png",
    "analysis_center": "PCCSE",
    "analysis_center_logo": "http://lincsproject.org/LINCS/files/centers_logos/lincs-pccse.png",
    "analysis_center_url": "/LINCS/centers/data-and-signature-generating-centers/lincs-pccse",
@@ -117,10 +112,11 @@
    "screen_path": "./ca_screenshot/ldg_1285_ilincs.png"
  },
  {
-   "dataset_accession": "LDS-1239",
+   "dataset_accession": ["LDS-1239"],
    "lca_accession": "LCA-1239B",
    "dataset_url": "http://lincsportal.ccs.miami.edu/datasets/#/view/LDS-1239",
    "tool_name": "iLINCS",
+   "tool_logo_url": "http://lincsproject.org/LINCS/files/tools_logos/i-lincs.png",
    "analysis_center": "DToxS",
    "analysis_center_logo": "http://lincsproject.org/LINCS/files/centers_logos/DToxS.png",
    "analysis_center_url": "/LINCS/centers/data-and-signature-generating-centers/dtoxs",
@@ -130,10 +126,11 @@
    "screen_path": "./ca_screenshot/lds_1239_ilincs.png"
  },
  {
-   "dataset_accession": "LDG-1285",
+   "dataset_accession": ["LDG-1285"],
    "lca_accession": "LCA-1285B",
    "dataset_url": "http://lincsportal.ccs.miami.edu/datasets/#/view/LDG-1285",
    "tool_name": "iLINCS",
+   "tool_logo_url": "http://lincsproject.org/LINCS/files/tools_logos/i-lincs.png",
    "analysis_center": "PCCSE",
    "analysis_center_logo": "http://lincsproject.org/LINCS/files/centers_logos/lincs-pccse.png",
    "analysis_center_url": "/LINCS/centers/data-and-signature-generating-centers/lincs-pccse",
@@ -143,10 +140,11 @@
    "screen_path": "./ca_screenshot/ldg_1285_ilincs.png"
  },
  {
-   "dataset_accession": "LDG-1284",
+   "dataset_accession": ["LDG-1284"],
    "lca_accession": "LCA-1284A",
    "dataset_url": "http://lincsportal.ccs.miami.edu/datasets/#/view/LDG-1284",
    "tool_name": "iLINCS",
+   "tool_logo_url": "http://lincsproject.org/LINCS/files/tools_logos/i-lincs.png",
    "analysis_center": "PCCSE",
    "analysis_center_logo": "http://lincsproject.org/LINCS/files/centers_logos/lincs-pccse.png",
    "analysis_center_url": "/LINCS/centers/data-and-signature-generating-centers/lincs-pccse",
@@ -156,10 +154,11 @@
    "screen_path": "./ca_screenshot/ldg_1284_ilincs.png"
  },
  {
-   "dataset_accession": "LDS-1240",
+   "dataset_accession": ["LDS-1240"],
    "lca_accession": "LCA-1240A",
    "dataset_url": "http://lincsportal.ccs.miami.edu/datasets/#/view/LDS-1240",
    "tool_name": "LINCS Data Explorer",
+   "tool_logo_url": "http://lincsproject.org/LINCS/files/tools_logos/mep-lincs-data-explorer.png",
    "analysis_center": "MEP-LINCS",
    "analysis_center_logo": "http://lincsproject.org/LINCS/files/centers_logos/mep-lincs-logo.png",
    "analysis_center_url": "/LINCS/centers/data-and-signature-generating-centers/mep-lincs",
@@ -169,10 +168,11 @@
    "screen_path": "./ca_screenshot/lds_1240_lde.png"
  },
  {
-   "dataset_accession": "LDS-1299",
+   "dataset_accession": ["LDS-1299"],
    "lca_accession": "LCA-1299A",
    "dataset_url": "http://lincsportal.ccs.miami.edu/datasets/#/view/LDS-1299",
    "tool_name": "LINCS Data Explorer",
+   "tool_logo_url": "http://lincsproject.org/LINCS/files/tools_logos/mep-lincs-data-explorer.png",
    "analysis_center": "MEP-LINCS",
    "analysis_center_logo": "http://lincsproject.org/LINCS/files/centers_logos/mep-lincs-logo.png",
    "analysis_center_url": "/LINCS/centers/data-and-signature-generating-centers/mep-lincs",
@@ -182,10 +182,11 @@
    "screen_path": "./ca_screenshot/lds_1299_lde.png"
  },
  {
-   "dataset_accession": "LDS-1303",
+   "dataset_accession": ["LDS-1303"],
    "lca_accession": "LCA-1303A",
    "dataset_url": "http://lincsportal.ccs.miami.edu/datasets/#/view/LDS-1303",
    "tool_name": "LINCS Data Explorer",
+   "tool_logo_url": "http://lincsproject.org/LINCS/files/tools_logos/mep-lincs-data-explorer.png",
    "analysis_center": "MEP-LINCS",
    "analysis_center_logo": "http://lincsproject.org/LINCS/files/centers_logos/mep-lincs-logo.png",
    "analysis_center_url": "/LINCS/centers/data-and-signature-generating-centers/mep-lincs",
@@ -195,10 +196,11 @@
    "screen_path": "./ca_screenshot/lds_1303_lde.png"
  },
  {
-   "dataset_accession": "LDS-1307",
+   "dataset_accession": ["LDS-1307"],
    "lca_accession": "LCA-1307A",
    "dataset_url": "http://lincsportal.ccs.miami.edu/datasets/#/view/LDS-1307",
    "tool_name": "LINCS Data Explorer",
+   "tool_logo_url": "http://lincsproject.org/LINCS/files/tools_logos/mep-lincs-data-explorer.png",
    "analysis_center": "MEP-LINCS",
    "analysis_center_logo": "http://lincsproject.org/LINCS/files/centers_logos/mep-lincs-logo.png",
    "analysis_center_url": "/LINCS/centers/data-and-signature-generating-centers/mep-lincs",
@@ -208,10 +210,11 @@
    "screen_path": "./ca_screenshot/lds_1307_lde.png"
  },
  {
-   "dataset_accession": "LDS-1311",
+   "dataset_accession": ["LDS-1311"],
    "lca_accession": "LCA-1311A",
    "dataset_url": "http://lincsportal.ccs.miami.edu/datasets/#/view/LDS-1311",
    "tool_name": "LINCS Data Explorer",
+   "tool_logo_url": "http://lincsproject.org/LINCS/files/tools_logos/mep-lincs-data-explorer.png",
    "analysis_center": "MEP-LINCS",
    "analysis_center_logo": "http://lincsproject.org/LINCS/files/centers_logos/mep-lincs-logo.png",
    "analysis_center_url": "/LINCS/centers/data-and-signature-generating-centers/mep-lincs",
@@ -221,10 +224,11 @@
    "screen_path": "./ca_screenshot/lds_1311_lde.png"
  },
  {
-   "dataset_accession": "LDS-1319",
+   "dataset_accession": ["LDS-1319"],
    "lca_accession": "LCA-1319A",
    "dataset_url": "http://lincsportal.ccs.miami.edu/datasets/#/view/LDS-1319",
    "tool_name": "LINCS Data Explorer",
+   "tool_logo_url": "http://lincsproject.org/LINCS/files/tools_logos/mep-lincs-data-explorer.png",
    "analysis_center": "MEP-LINCS",
    "analysis_center_logo": "http://lincsproject.org/LINCS/files/centers_logos/mep-lincs-logo.png",
    "analysis_center_url": "/LINCS/centers/data-and-signature-generating-centers/mep-lincs",
@@ -234,10 +238,11 @@
    "screen_path": "./ca_screenshot/lds_1319_lde.png"
  },
  {
-   "dataset_accession": "LDS-1323",
+   "dataset_accession": ["LDS-1323"],
    "lca_accession": "LCA-1323A",
    "dataset_url": "http://lincsportal.ccs.miami.edu/datasets/#/view/LDS-1323",
    "tool_name": "LINCS Data Explorer",
+   "tool_logo_url": "http://lincsproject.org/LINCS/files/tools_logos/mep-lincs-data-explorer.png",
    "analysis_center": "MEP-LINCS",
    "analysis_center_logo": "http://lincsproject.org/LINCS/files/centers_logos/mep-lincs-logo.png",
    "analysis_center_url": "/LINCS/centers/data-and-signature-generating-centers/mep-lincs",
@@ -247,10 +252,11 @@
    "screen_path": "./ca_screenshot/lds_1323_lde.png"
  },
  {
-   "dataset_accession": "LDS-1327",
+   "dataset_accession": ["LDS-1327"],
    "lca_accession": "LCA-1327A",
    "dataset_url": "http://lincsportal.ccs.miami.edu/datasets/#/view/LDS-1327",
    "tool_name": "LINCS Data Explorer",
+   "tool_logo_url": "http://lincsproject.org/LINCS/files/tools_logos/mep-lincs-data-explorer.png",
    "analysis_center": "MEP-LINCS",
    "analysis_center_logo": "http://lincsproject.org/LINCS/files/centers_logos/mep-lincs-logo.png",
    "analysis_center_url": "/LINCS/centers/data-and-signature-generating-centers/mep-lincs",
@@ -260,10 +266,11 @@
    "screen_path": "./ca_screenshot/lds_1327_lde.png"
  },
  {
-   "dataset_accession": "LDS-1331",
+   "dataset_accession": ["LDS-1331"],
    "lca_accession": "LCA-1331A",
    "dataset_url": "http://lincsportal.ccs.miami.edu/datasets/#/view/LDS-1331",
    "tool_name": "LINCS Data Explorer",
+   "tool_logo_url": "http://lincsproject.org/LINCS/files/tools_logos/mep-lincs-data-explorer.png",
    "analysis_center": "MEP-LINCS",
    "analysis_center_logo": "http://lincsproject.org/LINCS/files/centers_logos/mep-lincs-logo.png",
    "analysis_center_url": "/LINCS/centers/data-and-signature-generating-centers/mep-lincs",
@@ -273,10 +280,11 @@
    "screen_path": "./ca_screenshot/lds_1331_lde.png"
  },
  {
-   "dataset_accession": "LDS-1335",
+   "dataset_accession": ["LDS-1335"],
    "lca_accession": "LCA-1335A",
    "dataset_url": "http://lincsportal.ccs.miami.edu/datasets/#/view/LDS-1335",
    "tool_name": "LINCS Data Explorer",
+   "tool_logo_url": "http://lincsproject.org/LINCS/files/tools_logos/mep-lincs-data-explorer.png",
    "analysis_center": "MEP-LINCS",
    "analysis_center_logo": "http://lincsproject.org/LINCS/files/centers_logos/mep-lincs-logo.png",
    "analysis_center_url": "/LINCS/centers/data-and-signature-generating-centers/mep-lincs",
@@ -284,18 +292,5 @@
    "canned_analysis_url": "https://www.synapse.org/#!Synapse:syn5706755",
    "canned_analysis_description": "Analysis of cell cycle and nuclear state imaging data from YAPC (pancreas carcinoma) cell lines treated with ligands and ECM proteins (Staining Set 3), profiled to explore the role of microenvironment in cancer growth.",
    "screen_path": "./ca_screenshot/lds_1335_lde.png"
- },
- {
-   "dataset_accession": "LDS-1123",
-   "lca_accession": "LCA-1123A",
-   "dataset_url": "http://lincsportal.ccs.miami.edu/datasets/#/view/LDS-1123",
-   "tool_name": "RTK Profile Browser",
-   "analysis_center": "HMS-LINCS",
-   "analysis_center_logo": "http://lincsproject.org/LINCS/files/centers_logos/hms-lincs.png",
-   "analysis_center_url": "/LINCS/centers/data-and-signature-generating-centers/hms-lincs",
-   "tool_url": "http://lincs.hms.harvard.edu/explore/responses/",
-   "canned_analysis_url": "http://lincs.hms.harvard.edu/explore/responses/",
-   "canned_analysis_description": "Interactive visualization of basal levels and activity of key receptor tyrosine kinases (RTKs) across the panel of 39 breast cancer cell lines studied in Niepel et al., 2013.",
-   "screen_path": "./ca_screenshot/lds_1123_rpb.png"
  }
 ]

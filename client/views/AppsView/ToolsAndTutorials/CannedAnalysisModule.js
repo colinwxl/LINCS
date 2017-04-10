@@ -13,18 +13,9 @@ const options = {
   searchDelayTime: 250,
 };
 
-const toolNameLogoMap = {
-  'Drug-Pathway Browser': 'http://lincsproject.org/LINCS/files/tools_logos/explore2.jpg',
-  'Drug Response Browser': 'http://lincsproject.org/LINCS/files/tools_logos/explore4.jpg',
-  iLINCS: 'http://lincsproject.org/LINCS/files/tools_logos/i-lincs.png',
-  GEN3VA: 'http://lincsproject.org/LINCS/files/tools_logos/gen3va-logo.png',
-  'LINCS Data Explorer': 'http://lincsproject.org/LINCS/files/tools_logos/mep-lincs-data-explorer.png',
-  'RTK Profile Browser': 'http://lincsproject.org/LINCS/files/tools_logos/scatterplot_widget.jpg',
-};
-
 const formatToolBox = (cell, row) => {
   const toolName = row.tool_name;
-  const toolLogo = toolNameLogoMap[toolName];
+  const toolLogo = row.tool_logo_url;
   const toolUrl = row.tool_url;
 
   return (
@@ -41,11 +32,30 @@ const formatToolBox = (cell, row) => {
   );
 };
 
-const formatAccession = (cell, row) => (
-  <a href={row.dataset_url} target="_blank" className={styles.link}>
-    {row.dataset_accession}
-  </a>
-);
+const formatAccession = (cell, row) => {
+  const accessions = row.dataset_accession;
+  const ldpBaseDatasetUrl = 'http://lincsportal.ccs.miami.edu/datasets/#/view/';
+  const hmsBaseDatasetUrl = 'http://lincs.hms.harvard.edu/db/datasets/';
+  const datasetAccessionsList = [];
+  for (let i = 0; i < accessions.length; i++) {
+    const currAccession = accessions[i];
+    let datasetUrl;
+    if (currAccession.indexOf('HMS') === 0) {
+      datasetUrl = hmsBaseDatasetUrl + currAccession.slice(4);
+    } else {
+      datasetUrl = ldpBaseDatasetUrl + currAccession;
+    }
+
+    datasetAccessionsList.push(
+      <a href={datasetUrl} key={i} target="_blank" style={{display: 'block'}} className={styles.link}>
+        {currAccession}
+      </a>
+    );
+  }
+  return (
+    <div className={styles['accession-list']}>{datasetAccessionsList}</div>
+  )
+};
 
 
 const formatCenter = (cell, row) => {
@@ -124,7 +134,7 @@ export default function CannedAnalysisModule() {
           isKey
           dataFormat={formatAccession}
         >
-          Dataset Accession
+          Dataset Accession(s)
         </TableHeaderColumn>
         <TableHeaderColumn
           dataField="tool_name"
