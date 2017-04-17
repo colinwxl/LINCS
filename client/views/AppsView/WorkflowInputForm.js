@@ -243,9 +243,8 @@ class WorkflowInputForm extends Component {
 }
 
 WorkflowInputForm.propTypes = {
-  fields: PropTypes.object.isRequired,
+  fields: PropTypes.array.isRequired,
   handleSubmit: PropTypes.func.isRequired,
-  resetForm: PropTypes.func.isRequired,
   submitting: PropTypes.bool.isRequired,
   isCompBio: PropTypes.bool,
 };

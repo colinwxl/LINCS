@@ -36,9 +36,7 @@ const formatToolBox = (cell, row) => {
     <div className={styles['tool-box']}>
       <a href={toolUrl} target="_blank" className={styles.link}>
         <div className={styles['tool-img-wrap']}>
-          <div className={styles['tool-img-inner']}>
-            <img src={toolLogo} alt={toolName} />
-          </div>
+          <img src={toolLogo} alt={toolName} className={styles['tool-img']}/>
         </div>
         <span className={styles.toolTitle}>{toolName}</span>
       </a>
@@ -66,6 +64,7 @@ const formatMultiAccessions = (cell, row) => {
     return (
       <div className={styles['accession-list']}>
         <Collapsible
+          className={styles.collapsible}
           trigger={`▸ ${datasetInfo.dataset_accession}`}
           triggerWhenOpen={`▾ ${datasetInfo.dataset_accession}`}
         >
@@ -92,9 +91,7 @@ const formatCenter = (cell, row) => {
     <div className={styles['center-box']}>
       <Link to={centerUrl} className={styles.link}>
         <div className={styles['center-img-wrap']}>
-          <div className={styles['center-img-inner']}>
-            <img src={centerLogo} alt={centerName} />
-          </div>
+            <img src={centerLogo} alt={centerName} className={styles['center-img']}/>
         </div>
         <span className={styles.toolTitle}>{centerName}</span>
       </Link>
@@ -111,9 +108,7 @@ const formatScreen = (cell, row) => {
     <div className={styles['ca-box']}>
       <a href={cannedAnalysisUrl} target="_blank" className={styles.link}>
         <div className={styles['ca-img-wrap']}>
-          <div className={styles['ca-img-inner']}>
-            <img src={require(screenPath)} alt={toolName} />
-          </div>
+            <img src={require(screenPath)} className={styles['lca-img']} alt={toolName} />
         </div>
         <span className={styles.toolTitle}>{lcaAccession}</span>
         <span className={styles.overlay} />

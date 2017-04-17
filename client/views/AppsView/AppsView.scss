@@ -307,21 +307,16 @@ $apple-blue: #1390ff;
 }
 
 .tool-img-wrap {
-  display: table;
+  // display: table;
   max-height: 5rem;
   max-width: 6rem;
+  margin: auto;
 }
 
-.tool-img-inner {
-  display: table-cell;
-  text-align: center;
-  vertical-align: middle;
-
-  img {
-    display: inline-block;
-    max-height: 100%;
-    width: 80%;
-  }
+.tool-img {
+  display: inline-block;
+  max-height: 100%;
+  width: 80%;
 }
 
 .ca-box {
@@ -333,20 +328,14 @@ $apple-blue: #1390ff;
 }
 
 .ca-img-wrap {
-  display: table;
-  // max-height: 3rem;
-  width: 9rem;
+  margin: auto;
+  max-width: 7rem;
 }
 
-.ca-img-inner {
-  display: table-cell;
-  text-align: center;
-  vertical-align: middle;
-  img {
-    display: inline-block;
-    max-height: 100%;
-    width: 80%;
-  }
+.lca-img {
+  display: inline-block;
+  max-height: 100%;
+  width: 80%;
 }
 
 
@@ -356,21 +345,15 @@ $apple-blue: #1390ff;
 }
 
 .center-img-wrap {
-  display: table;
-  height: 5rem;
+  margin: auto;
   width: 6rem;
 }
 
-.center-img-inner {
-  display: table-cell;
-  text-align: center;
+.center-img {
+  display: inline-block;
+  max-height: 5rem;
   vertical-align: middle;
-
-  img {
-    display: inline-block;
-    max-height: 100%;
-    width: 80%;
-  }
+  width: 80%;
 }
 
 .center-img-wrap, .ca-img-wrap, .tool-img-wrap {
@@ -409,6 +392,14 @@ $apple-blue: #1390ff;
   text-decoration: none !important;
 }
 
+.collapsible {
+  color: #0275d8;
+  &:hover {
+    cursor: pointer;
+  }
+}
+
 .accession-list {
+  margin: auto;
   width: 5.75rem;
 }
