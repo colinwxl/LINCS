@@ -120,4 +120,10 @@
   .slick-next::before {
     color: $brand-primary;
   }
+
+  .react-bs-table table td,
+  .react-bs-table table th {
+    white-space: normal;
+    overflow-x: auto;
+  }
 }

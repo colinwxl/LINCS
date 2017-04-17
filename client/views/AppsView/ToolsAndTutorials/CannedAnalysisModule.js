@@ -27,19 +27,46 @@ const generateUrlForDataset = (dataset) => {
   return datasetUrl;
 }
 
-const formatToolBox = (cell, row) => {
+const formatAnalysis = (cell, row) => {
   const toolName = row.tool_name;
-  const toolLogo = row.tool_logo_url;
-  const toolUrl = row.tool_url;
+  const screenPath = row.screen_path;
+  const cannedAnalysisUrl = row.canned_analysis_url;
+  const lcaAccession = row.lca_accession;
+  return (
+    <div className={styles['ca-box']}>
+      <a href={cannedAnalysisUrl} target="_blank" className={styles.link}>
+        <div className={styles['ca-img-wrap']}>
+            <img src={require(screenPath)} className={styles['lca-img']} alt={toolName} />
+        </div>
+        <span className={styles.toolTitle}>{lcaAccession}</span>
+        <span className={styles.overlay} />
+      </a>
+    </div>
+  );
+};
+
+const formatDescription = (cell, row) => {
+  const centerDescription = row.canned_analysis_description;
+  return (
+    <p>
+      {centerDescription}
+    </p>
+  );
+}
+
+const formatCenter = (cell, row) => {
+  const centerName = row.analysis_center;
+  const centerLogo = row.analysis_center_logo;
+  const centerUrl = row.analysis_center_url;
 
   return (
-    <div className={styles['tool-box']}>
-      <a href={toolUrl} target="_blank" className={styles.link}>
-        <div className={styles['tool-img-wrap']}>
-          <img src={toolLogo} alt={toolName} className={styles['tool-img']}/>
+    <div className={styles['center-box']}>
+      <Link to={centerUrl} className={styles.link}>
+        <div className={styles['center-img-wrap']}>
+            <img src={centerLogo} alt={centerName} className={styles['center-img']}/>
         </div>
-        <span className={styles.toolTitle}>{toolName}</span>
-      </a>
+        <span className={styles.toolTitle}>{centerName}</span>
+      </Link>
     </div>
   );
 };
@@ -82,36 +109,18 @@ const formatMultiAccessions = (cell, row) => {
   }
 };
 
-const formatCenter = (cell, row) => {
-  const centerName = row.analysis_center;
-  const centerLogo = row.analysis_center_logo;
-  const centerUrl = row.analysis_center_url;
-
-  return (
-    <div className={styles['center-box']}>
-      <Link to={centerUrl} className={styles.link}>
-        <div className={styles['center-img-wrap']}>
-            <img src={centerLogo} alt={centerName} className={styles['center-img']}/>
-        </div>
-        <span className={styles.toolTitle}>{centerName}</span>
-      </Link>
-    </div>
-  );
-};
-
-const formatScreen = (cell, row) => {
+const formatToolBox = (cell, row) => {
   const toolName = row.tool_name;
-  const screenPath = row.screen_path;
-  const cannedAnalysisUrl = row.canned_analysis_url;
-  const lcaAccession = row.lca_accession;
+  const toolLogo = row.tool_logo_url;
+  const toolUrl = row.tool_url;
+
   return (
-    <div className={styles['ca-box']}>
-      <a href={cannedAnalysisUrl} target="_blank" className={styles.link}>
-        <div className={styles['ca-img-wrap']}>
-            <img src={require(screenPath)} className={styles['lca-img']} alt={toolName} />
+    <div className={styles['tool-box']}>
+      <a href={toolUrl} target="_blank" className={styles.link}>
+        <div className={styles['tool-img-wrap']}>
+          <img src={toolLogo} alt={toolName} className={styles['tool-img']}/>
         </div>
-        <span className={styles.toolTitle}>{lcaAccession}</span>
-        <span className={styles.overlay} />
+        <span className={styles.toolTitle}>{toolName}</span>
       </a>
     </div>
   );
@@ -133,14 +142,15 @@ export default function CannedAnalysisModule() {
             <TableHeaderColumn
               dataField="screen_path"
               dataAlign="center"
-              dataFormat={formatScreen}
+              dataFormat={formatAnalysis}
             >
               Canned Analysis
             </TableHeaderColumn>
             <TableHeaderColumn
               dataField="canned_analysis_description"
+              dataFormat={formatDescription}
             >
-              Canned Analysis Description
+              Analysis Description
             </TableHeaderColumn>
             <TableHeaderColumn
               dataField="analysis_center"
