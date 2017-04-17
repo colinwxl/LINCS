@@ -38,7 +38,7 @@ const formatAnalysis = (cell, row) => {
         <div className={styles['ca-img-wrap']}>
             <img src={require(screenPath)} className={styles['lca-img']} alt={toolName} />
         </div>
-        <span className={styles.toolTitle}>{lcaAccession}</span>
+        <span className={styles['analysis-title']}>{lcaAccession}</span>
         <span className={styles.overlay} />
       </a>
     </div>
@@ -65,7 +65,7 @@ const formatCenter = (cell, row) => {
         <div className={styles['center-img-wrap']}>
             <img src={centerLogo} alt={centerName} className={styles['center-img']}/>
         </div>
-        <span className={styles.toolTitle}>{centerName}</span>
+        <span className={styles['center-title']}>{centerName}</span>
       </Link>
     </div>
   );
@@ -82,7 +82,13 @@ const formatMultiAccessions = (cell, row) => {
       const datasetUrl = generateUrlForDataset(currAccession);
 
       datasetAccessionsList.push(
-        <a href={datasetUrl} key={i} target="_blank" style={{display: 'block'}} className={styles.link}>
+        <a
+          href={datasetUrl}
+          key={i}
+          target="_blank"
+          style={{display: 'block'}}
+          className={`${styles.link} ${styles.accession}`}
+        >
           {currAccession}
         </a>
       );
@@ -91,7 +97,7 @@ const formatMultiAccessions = (cell, row) => {
     return (
       <div className={styles['accession-list']}>
         <Collapsible
-          className={styles.collapsible}
+          className={`${styles.collapsible} ${styles.accession}`}
           trigger={`▸ ${datasetInfo.dataset_accession}`}
           triggerWhenOpen={`▾ ${datasetInfo.dataset_accession}`}
         >
@@ -102,7 +108,12 @@ const formatMultiAccessions = (cell, row) => {
   } else {
     const datasetUrl = generateUrlForDataset(datasetInfo.dataset_accession);
     return (
-      <a href={datasetUrl} target="_blank" style={{display: 'block'}} className={styles.link}>
+      <a
+        href={datasetUrl}
+        target="_blank"
+        style={{display: 'block'}}
+        className={`${styles.link} ${styles.accession}`}
+      >
         {datasetInfo.dataset_accession}
       </a>
     );
@@ -120,7 +131,7 @@ const formatToolBox = (cell, row) => {
         <div className={styles['tool-img-wrap']}>
           <img src={toolLogo} alt={toolName} className={styles['tool-img']}/>
         </div>
-        <span className={styles.toolTitle}>{toolName}</span>
+        <span className={styles['tool-title']}>{toolName}</span>
       </a>
     </div>
   );
@@ -140,6 +151,7 @@ export default function CannedAnalysisModule() {
             search
           >
             <TableHeaderColumn
+              className={styles['column-title']}
               dataField="screen_path"
               dataAlign="center"
               dataFormat={formatAnalysis}
@@ -148,12 +160,14 @@ export default function CannedAnalysisModule() {
               Canned Analysis
             </TableHeaderColumn>
             <TableHeaderColumn
+              className={styles['column-title']}
               dataField="canned_analysis_description"
               dataFormat={formatDescription}
             >
               Analysis Description
             </TableHeaderColumn>
             <TableHeaderColumn
+              className={styles['column-title']}
               dataField="analysis_center"
               dataAlign="center"
               dataFormat={formatCenter}
@@ -162,6 +176,7 @@ export default function CannedAnalysisModule() {
               Center
             </TableHeaderColumn>
             <TableHeaderColumn
+              className={styles['column-title']}
               dataField="dataset_accession"
               dataAlign="center"
               isKey
@@ -171,6 +186,7 @@ export default function CannedAnalysisModule() {
               Dataset Accession(s)
             </TableHeaderColumn>
             <TableHeaderColumn
+              className={styles['column-title']}
               dataField="tool_name"
               dataAlign="center"
               dataFormat={formatToolBox}

@@ -301,9 +301,30 @@ $apple-blue: #1390ff;
   }
 }
 
+.column-title {
+  font-size: 0.9rem;
+}
+
+.tool-title,
+.analysis-title,
+.center-title {
+  font-size: 0.8rem;
+}
+
+.accession {
+  font-size: 1rem;
+  @media(max-width: 767px) {
+    font-size: 0.8rem;
+  }
+}
+
+.accession-list {
+  margin: auto;
+  // width: 5.75rem;
+}
+
 .tool-box {
   text-align: center;
-  font-size: 0.8rem;
 }
 
 .tool-img-wrap {
@@ -341,12 +362,11 @@ $apple-blue: #1390ff;
 
 .center-box {
   text-align: center;
-  font-size: 0.8rem;
 }
 
 .center-img-wrap {
   margin: auto;
-  width: 6rem;
+  max-width: 7rem;
 }
 
 .center-img {
@@ -397,9 +417,4 @@ $apple-blue: #1390ff;
   &:hover {
     cursor: pointer;
   }
-}
-
-.accession-list {
-  margin: auto;
-  width: 5.75rem;
 }
