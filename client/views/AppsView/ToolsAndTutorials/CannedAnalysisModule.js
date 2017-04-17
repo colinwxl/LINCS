@@ -143,6 +143,7 @@ export default function CannedAnalysisModule() {
               dataField="screen_path"
               dataAlign="center"
               dataFormat={formatAnalysis}
+              width='15%'
             >
               Canned Analysis
             </TableHeaderColumn>
@@ -156,6 +157,7 @@ export default function CannedAnalysisModule() {
               dataField="analysis_center"
               dataAlign="center"
               dataFormat={formatCenter}
+              width='15%'
             >
               Center
             </TableHeaderColumn>
@@ -164,6 +166,7 @@ export default function CannedAnalysisModule() {
               dataAlign="center"
               isKey
               dataFormat={formatMultiAccessions}
+              width='20%'
             >
               Dataset Accession(s)
             </TableHeaderColumn>
@@ -171,6 +174,7 @@ export default function CannedAnalysisModule() {
               dataField="tool_name"
               dataAlign="center"
               dataFormat={formatToolBox}
+              width='15%'
             >
               Tool
             </TableHeaderColumn>
