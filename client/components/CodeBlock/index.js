@@ -1,4 +1,5 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 const hljs = window.hljs;
 
 export default class CodeBlock extends Component {

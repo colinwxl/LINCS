@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 
 import SearchBar from 'components/SearchBar';
 import styles from './PageBanner.scss';

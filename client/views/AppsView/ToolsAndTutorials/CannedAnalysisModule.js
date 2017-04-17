@@ -125,51 +125,53 @@ const formatScreen = (cell, row) => {
 export default function CannedAnalysisModule() {
   if (analyses && analyses.length > 0) {
     return (
-      <BootstrapTable
-        data={analyses}
-        options={options}
-        striped
-        hover
-        condensed
-        search
-      >
-        <TableHeaderColumn
-          dataField="screen_path"
-          dataAlign="center"
-          dataFormat={formatScreen}
-        >
-          Canned Analysis
-        </TableHeaderColumn>
-        <TableHeaderColumn
-          dataField="canned_analysis_description"
-        >
-          Canned Analysis Description
-        </TableHeaderColumn>
-        <TableHeaderColumn
-          dataField="analysis_center"
-          dataAlign="center"
-          dataFormat={formatCenter}
-        >
-          Center
-        </TableHeaderColumn>
-        <TableHeaderColumn
-          dataField="dataset_accession"
-          width="110"
-          dataAlign="center"
-          isKey
-          dataFormat={formatMultiAccessions}
-        >
-          Dataset Accession(s)
-        </TableHeaderColumn>
-        <TableHeaderColumn
-          dataField="tool_name"
-          dataAlign="center"
-          width="120"
-          dataFormat={formatToolBox}
-        >
-          Tool
-        </TableHeaderColumn>
-      </BootstrapTable>
+      <div className="row">
+        <div className="col-xl-12">
+          <BootstrapTable
+            data={analyses}
+            options={options}
+            striped
+            hover
+            condensed
+            search
+          >
+            <TableHeaderColumn
+              dataField="screen_path"
+              dataAlign="center"
+              dataFormat={formatScreen}
+            >
+              Canned Analysis
+            </TableHeaderColumn>
+            <TableHeaderColumn
+              dataField="canned_analysis_description"
+            >
+              Canned Analysis Description
+            </TableHeaderColumn>
+            <TableHeaderColumn
+              dataField="analysis_center"
+              dataAlign="center"
+              dataFormat={formatCenter}
+            >
+              Center
+            </TableHeaderColumn>
+            <TableHeaderColumn
+              dataField="dataset_accession"
+              dataAlign="center"
+              isKey
+              dataFormat={formatMultiAccessions}
+            >
+              Dataset Accession(s)
+            </TableHeaderColumn>
+            <TableHeaderColumn
+              dataField="tool_name"
+              dataAlign="center"
+              dataFormat={formatToolBox}
+            >
+              Tool
+            </TableHeaderColumn>
+          </BootstrapTable>
+        </div>
+      </div>
     );
   }
   return (
