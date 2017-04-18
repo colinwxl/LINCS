@@ -319,7 +319,8 @@ $apple-blue: #1390ff;
 }
 
 .accession-list {
-  // margin: auto;
+  text-align: center;
+  margin: auto;
   @media(max-width: 767px) {
     max-width: 5rem;
   }
@@ -328,6 +329,10 @@ $apple-blue: #1390ff;
 
 .collapsible-wrapper {
   max-width: 8rem;
+  font-size: 0.9rem;
+  @media(max-width: 767px) {
+    font-size: 0.8rem;
+  }
 }
 
 .tool-box {
@@ -372,7 +377,6 @@ $apple-blue: #1390ff;
 
 .center-img-wrap {
   margin: auto;
-  max-width: 7rem;
 }
 
 .center-img {
@@ -383,13 +387,16 @@ $apple-blue: #1390ff;
 }
 
 .center-img-wrap, .ca-img-wrap, .tool-img-wrap {
+  max-width: 7rem;
+  @media (min-width: 767px) {
+    max-width: 40rem;
+  }
   @media (max-width: 767px) {
     height: auto;
     width: auto;
-    display: none;
+    // display: none;
   }
 }
-
 
 .new {
   color: #ef6666;
@@ -449,5 +456,9 @@ $disappear-size: 767px;
 }
 
 .table-col-text {
+  text-align: center;
   font-size: 0.95rem;
+  @media(max-width: 767px) {
+    font-size: 0.8rem;
+  }
 }

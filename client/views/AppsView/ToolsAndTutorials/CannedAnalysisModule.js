@@ -112,7 +112,7 @@ const formatMultiAccessions = (cell, row) => {
       <div className={styles['accession-list']}>
         <div className={styles['collapsible-wrapper']}>
           <Collapsible
-            className={`${styles.collapsible} ${styles.accession}`}
+            className={styles.collapsible}
             trigger={`▸ ${datasetInfo.dataset_accession}`}
             triggerWhenOpen={`▾ ${datasetInfo.dataset_accession}`}
           >
@@ -124,14 +124,16 @@ const formatMultiAccessions = (cell, row) => {
   } else {
     const datasetUrl = generateUrlForDataset(datasetInfo.dataset_accession);
     return (
-      <a
-        href={datasetUrl}
-        target="_blank"
-        className={`${styles.link} ${styles.accession}`}
-        onClick={(e) => { window.open(datasetUrl, '_blank') }}
-      >
-        {datasetInfo.dataset_accession}
-      </a>
+      <div className={styles['accession-list']}>
+        <a
+          href={datasetUrl}
+          target="_blank"
+          className={`${styles.link} ${styles.accession}`}
+          onClick={(e) => { window.open(datasetUrl, '_blank') }}
+        >
+          {datasetInfo.dataset_accession}
+        </a>
+      </div>
     );
   }
 };
@@ -176,7 +178,7 @@ const generateTableRows = (list) => {
         <td>
           {formatCenter(null, row)}
         </td>
-        <td>
+        <td style={{ paddingLeft: '0.75', paddingRight: '0.75'}}>
           {formatMultiAccessions(null, row)}
         </td>
         <td>
