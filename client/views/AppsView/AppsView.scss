@@ -312,15 +312,22 @@ $apple-blue: #1390ff;
 }
 
 .accession {
-  font-size: 1rem;
+  font-size: 0.9rem;
   @media(max-width: 767px) {
     font-size: 0.8rem;
   }
 }
 
 .accession-list {
-  margin: auto;
-  // width: 5.75rem;
+  // margin: auto;
+  @media(max-width: 767px) {
+    max-width: 5rem;
+  }
+  max-width: 8rem;
+}
+
+.collapsible-wrapper {
+  max-width: 8rem;
 }
 
 .tool-box {
@@ -328,7 +335,6 @@ $apple-blue: #1390ff;
 }
 
 .tool-img-wrap {
-  // display: table;
   max-height: 5rem;
   max-width: 6rem;
   margin: auto;
@@ -417,4 +423,31 @@ $apple-blue: #1390ff;
   &:hover {
     cursor: pointer;
   }
+}
+
+$disappear-size: 767px;
+
+.disappear {
+  @media(max-width: $disappear-size) {
+    display: none;
+  }
+}
+
+.hidden-row {
+  padding: 0 !important;
+}
+
+.hidden-desc {
+  @media(min-width: $disappear-size) {
+    display: none;
+  }
+}
+
+.center-desc {
+  margin-top: 1rem;
+  padding: 1rem;
+}
+
+.table-col-text {
+  font-size: 0.95rem;
 }
