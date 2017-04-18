@@ -462,3 +462,9 @@ $disappear-size: 767px;
     font-size: 0.8rem;
   }
 }
+
+.table-row {
+  &:hover {
+    background-color: #f7f7f7;
+  }
+}

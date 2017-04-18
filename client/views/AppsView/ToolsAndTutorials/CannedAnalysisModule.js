@@ -1,7 +1,3 @@
-
-
-
-
 /* eslint-disable */
 import React from 'react';
 import { Link } from 'react-router';
@@ -168,6 +164,7 @@ const generateTableRows = (list) => {
         key={`${row.lca_accession}_row`}
         data-toggle="collapse"
         data-target={`#${row.lca_accession}_id`}
+        className={styles['table-row']}
       >
         <td>
           {formatAnalysis(null, row)}
