@@ -178,7 +178,7 @@ const generateTableRows = (list) => {
         <td>
           {formatCenter(null, row)}
         </td>
-        <td style={{ paddingLeft: '0.75', paddingRight: '0.75'}}>
+        <td style={{ paddingLeft: 0.75, paddingRight: 0.75}}>
           {formatMultiAccessions(null, row)}
         </td>
         <td>
