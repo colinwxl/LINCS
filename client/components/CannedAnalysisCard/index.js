@@ -51,7 +51,6 @@ export default class CannedAnalysisCard extends Component {
     const { ca } = this.props;
     return (
       <div className={styles.ca}>
-
         <div className={styles['ca-inner']}>
           <a href={ca.canned_analysis_url} className={styles['ca-link']} target="_blank">
             <img src={require(ca.screen_path)} className={styles.thumbnail} alt={ca.lca_accession} />
@@ -59,26 +58,23 @@ export default class CannedAnalysisCard extends Component {
 
           <div className={styles['ca-details']}>
             <a href={ca.canned_analysis_url} className={styles['ca-link']} target="_blank">
-              <label className={styles['ca-title']}>{ca.lca_accession}</label>
+              <label className={styles['ca-title']}>
+                {ca.title}
+              </label>
             </a>
 
-            <Link
-              to={`LINCS/centers/data-and-signature-generating-centers/${ca.analysis_center.toLowerCase()}`}
-              className={styles['ca-link']}
-            >
-              <span className={styles['ca-center']}>{ca.analysis_center}</span>
-            </Link>
+            <span className={styles['ca-center']}>{ca.subtitle}</span>
 
             <div className={styles['ca-description']}>
               {
                 ca.canned_analysis_description.length > 185 && this.state.width >= 1200 ?
                   <span
                     data-tip="Information is not available at this time."
-                    data-for={ca.lca_accession}
+                    data-for={ca.dataset_info.datasets.join("_")}
                   >
                     {
                       this.state.width >= 1200 ?
-                      ca.canned_analysis_description.split(' ').slice(0, 17).join(' ')
+                      ca.canned_analysis_description.split(' ').slice(0, 15).join(' ')
                       : ca.canned_analysis_description.split(' ').slice(0, 35).join(' ')
                     }...
                   </span>
@@ -88,7 +84,7 @@ export default class CannedAnalysisCard extends Component {
               {
                 this.state.width >= 1200 ?
                   <ReactTooltip
-                    id={ca.lca_accession}
+                    id={ca.dataset_info.datasets.join("_")}
                     place="right"
                     type="dark"
                     effect="float"
@@ -105,6 +101,30 @@ export default class CannedAnalysisCard extends Component {
                 {ca.tool_name}
               </a>
             </span>
+            <i
+              className={`fa fa-info-circle ${styles.tooltip}`}
+              aria-hidden="true"
+              data-tip="Information is not available at this time."
+              data-for={`${ca.dataset_info.datasets.join("_")}_ds`}
+            />
+            <ReactTooltip
+              id={`${ca.dataset_info.datasets.join("_")}_ds`}
+              className={styles['tooltip-stay']}
+              delayHide={500}
+              effect='solid'
+              place="right"
+              type="dark"
+              effect="float"
+            >
+              <span className={`${styles.ds} ${styles['ds-title']}`}>Dataset(s)</span>
+              {
+                ca.dataset_info.datasets.map(ds => {
+                  return (
+                    <span key={ds} className={styles.ds}>{ds}</span>
+                  );
+                })
+              }
+            </ReactTooltip>
           </div>
         </div>
       </div>
