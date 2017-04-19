@@ -8,7 +8,7 @@
     "dataset_url": "",
     "tool_name": "GR Browser",
     "tool_logo_url": "http://lincsproject.org/LINCS/files/tools_logos/GR_Calculator_logo.png",
-    "analysis_center": "HMS LINCS",
+    "analysis_center": "HMS-LINCS",
     "analysis_center_logo": "http://lincsproject.org/LINCS/files/centers_logos/hms-lincs.png",
     "analysis_center_url": "/LINCS/centers/data-and-signature-generating-centers/hms-lincs",
     "tool_url": "http://www.grcalculator.org/grbrowser/",
