@@ -71,7 +71,7 @@ export default class CannedAnalysisCard extends Component {
 
             <div className={styles['ca-description']}>
               {
-                ca.canned_analysis_description.length > 185 && this.state.width >= 990 ?
+                ca.canned_analysis_description.length > 185 && this.state.width >= 1200 ?
                   <span
                     data-tip="Information is not available at this time."
                     data-for={ca.lca_accession}
@@ -79,13 +79,14 @@ export default class CannedAnalysisCard extends Component {
                     {
                       this.state.width >= 1200 ?
                       ca.canned_analysis_description.split(' ').slice(0, 17).join(' ')
-                      : ca.canned_analysis_description.split(' ').slice(0, 10).join(' ')
+                      : ca.canned_analysis_description.split(' ').slice(0, 35).join(' ')
                     }...
                   </span>
                   : <span>{ca.canned_analysis_description}</span>
               }
+
               {
-                this.state.width >= 990 ?
+                this.state.width >= 1200 ?
                   <ReactTooltip
                     id={ca.lca_accession}
                     place="right"

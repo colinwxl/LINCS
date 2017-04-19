@@ -13,7 +13,7 @@
     "analysis_center_url": "/LINCS/centers/data-and-signature-generating-centers/hms-lincs",
     "tool_url": "http://www.grcalculator.org/grbrowser/",
     "canned_analysis_url": "http://www.grcalculator.org/grbrowser/",
-    "canned_analysis_description": "An online tool for calculating dose-response metrics and browsing response data",
+    "canned_analysis_description": "An online tool for calculating dose-response metrics and browsing response data.",
     "screen_path": "./ca_screenshot/multi_03_gr_browser.png"
   },
  {

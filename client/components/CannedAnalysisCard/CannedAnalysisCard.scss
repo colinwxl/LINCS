@@ -1,6 +1,6 @@
 @import 'variables';
 
-$ca-height: 15rem;
+$ca-height: 15.5rem;
 $ca-width: 10rem;
 $shadow: rgba(0, 0, 0, .1);
 
@@ -16,11 +16,20 @@ $shadow: rgba(0, 0, 0, .1);
   background: $white;
   border-radius: .2rem;
   box-shadow: 0 2px 4px $shadow;
-  height: $ca-height;
   position: relative;
   text-decoration: none;
   vertical-align: top;
   padding: 1rem;
+  padding-bottom: 2rem;
+  @media (max-width: 1200px) {
+    height: 18rem;
+  }
+  @media (min-width: 1200px) {
+    height: 15.5rem;
+  }
+  @media (max-width: 767px) {
+    height: auto;
+  }
 }
 
 .ca-link {
@@ -34,12 +43,12 @@ $shadow: rgba(0, 0, 0, .1);
 .thumbnail {
   display: block;
   margin: auto;
-  max-height: $ca-height / 2 - 1.5rem;
   max-width: 80%;
+  max-height: $ca-height / 2 - 1.5rem;
 }
 
 .ca-details {
-  height: 50%;
+  height: auto;
   overflow: hidden;
 }
 
@@ -59,6 +68,7 @@ $title-line-height: 1.5rem;
 
 .ca-center {
   margin: 0.25rem;
+  margin-left: 0.5rem;
   font-size: 0.85rem;
 }
 
@@ -76,7 +86,7 @@ $title-line-height: 1.5rem;
 
 .ca-tool-name {
   position: absolute;
-  bottom: 0.75rem;
+  bottom: 0.6rem;
   left: 1rem;
   font-size: 0.80rem;
   color: $off-black;
