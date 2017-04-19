@@ -29,6 +29,18 @@ export default class CannedAnalysisCard extends Component {
     this.setState({ width, height });
   }
 
+  _generateUrlForDataset(dataset) {
+    const ldpBaseDatasetUrl = 'http://lincsportal.ccs.miami.edu/datasets/#/view/';
+    const hmsBaseDatasetUrl = 'http://lincs.hms.harvard.edu/db/datasets/';
+    let datasetUrl;
+    if (dataset.indexOf('HMS') === 0) {
+      datasetUrl = hmsBaseDatasetUrl + dataset.slice(4);
+    } else {
+      datasetUrl = ldpBaseDatasetUrl + dataset;
+    }
+    return datasetUrl;
+  };
+
   render() {
     const { ca } = this.props;
     return (
@@ -102,10 +114,17 @@ export default class CannedAnalysisCard extends Component {
               type="dark"
               effect="float"
             >
-              <span className={`${styles.ds} ${styles['ds-title']}`}>Dataset(s)</span>
+              <span className={styles['ds-title']}>Dataset(s)</span>
               {
                 ca.dataset_info.datasets.map(ds => (
-                  <span key={ds} className={styles.ds}>{ds}</span>
+                  <a
+                    href={this._generateUrlForDataset(ds)}
+                    target="_blank"
+                    key={ds}
+                    className={styles.ds}
+                  >
+                    {ds}
+                  </a>
                 ))
               }
             </ReactTooltip>

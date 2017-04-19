@@ -138,10 +138,15 @@ $desc-line-height: 0.5rem; // 18px
 .ds-title {
   font-size: 1rem;
   font-weight: 500;
+  display: block;
 }
 
 .ds {
   display: block;
+  color: $white;
+  &:hover {
+    color: $gray;
+  }
 }
 
 .tooltip-stay {
