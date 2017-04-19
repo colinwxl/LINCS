@@ -1,19 +1,9 @@
 /* eslint-disable */
 import React from 'react';
 import { Link } from 'react-router';
-import ReactTooltip from 'react-tooltip';
 import Collapsible from 'react-collapsible';
-import { BootstrapTable, TableHeaderColumn } from 'react-bootstrap-table';
 import styles from '../AppsView.scss';
 import cannedAnalysisSeed from './canned_analysis_seed.json';
-
-const analyses = cannedAnalysisSeed;
-
-const options = {
-  hideSizePerPage: true,
-  // sizePerPage: 5,
-  searchDelayTime: 250,
-};
 
 const generateUrlForDataset = (dataset) => {
   const ldpBaseDatasetUrl = 'http://lincsportal.ccs.miami.edu/datasets/#/view/';
@@ -25,7 +15,7 @@ const generateUrlForDataset = (dataset) => {
     datasetUrl = ldpBaseDatasetUrl + dataset;
   }
   return datasetUrl;
-}
+};
 
 const formatAnalysis = (cell, row) => {
   const toolName = row.tool_name;
@@ -38,10 +28,10 @@ const formatAnalysis = (cell, row) => {
         href={cannedAnalysisUrl}
         target="_blank"
         className={styles.link}
-        onClick={(e) => { window.open(cannedAnalysisUrl, '_blank') }}
+        onClick={() => { window.open(cannedAnalysisUrl, '_blank'); }}
       >
         <div className={styles['ca-img-wrap']}>
-            <img src={require(screenPath)} className={styles['lca-img']} alt={toolName} />
+          <img src={require(screenPath)} className={styles['lca-img']} alt={toolName} />
         </div>
         <span className={styles['analysis-title']}>{lcaAccession}</span>
         <span className={styles.overlay} />
@@ -57,7 +47,7 @@ const formatDescription = (cell, row) => {
       {centerDescription}
     </p>
   );
-}
+};
 
 const formatCenter = (cell, row) => {
   const centerName = row.analysis_center;
@@ -69,10 +59,10 @@ const formatCenter = (cell, row) => {
       <Link
         to={centerUrl}
         className={styles.link}
-        onClick={(e) => { window.location = centerUrl }}
+        onClick={() => { window.location = centerUrl; }}
       >
         <div className={styles['center-img-wrap']}>
-            <img src={centerLogo} alt={centerName} className={styles['center-img']}/>
+          <img src={centerLogo} alt={centerName} className={styles['center-img']} />
         </div>
         <span className={styles['center-title']}>{centerName}</span>
       </Link>
@@ -95,9 +85,9 @@ const formatMultiAccessions = (cell, row) => {
           href={datasetUrl}
           key={i}
           target="_blank"
-          style={{display: 'block'}}
+          style={{ display: 'block' }}
           className={`${styles.link} ${styles.accession}`}
-          onClick={(e) => { window.open(datasetUrl, '_blank') }}
+          onClick={() => { window.open(datasetUrl, '_blank'); }}
         >
           {currAccession}
         </a>
@@ -117,21 +107,20 @@ const formatMultiAccessions = (cell, row) => {
         </div>
       </div>
     );
-  } else {
-    const datasetUrl = generateUrlForDataset(datasetInfo.dataset_accession);
-    return (
-      <div className={styles['accession-list']}>
-        <a
-          href={datasetUrl}
-          target="_blank"
-          className={`${styles.link} ${styles.accession}`}
-          onClick={(e) => { window.open(datasetUrl, '_blank') }}
-        >
-          {datasetInfo.dataset_accession}
-        </a>
-      </div>
-    );
   }
+  const datasetUrl = generateUrlForDataset(datasetInfo.dataset_accession);
+  return (
+    <div className={styles['accession-list']}>
+      <a
+        href={datasetUrl}
+        target="_blank"
+        className={`${styles.link} ${styles.accession}`}
+        onClick={() => { window.open(datasetUrl, '_blank'); }}
+      >
+        {datasetInfo.dataset_accession}
+      </a>
+    </div>
+  );
 };
 
 const formatToolBox = (cell, row) => {
@@ -145,10 +134,10 @@ const formatToolBox = (cell, row) => {
         href={toolUrl}
         target="_blank"
         className={styles.link}
-        onClick={(e) => { window.open(toolUrl, '_blank') }}
+        onClick={() => { window.open(toolUrl, '_blank'); }}
       >
         <div className={styles['tool-img-wrap']}>
-          <img src={toolLogo} alt={toolName} className={styles['tool-img']}/>
+          <img src={toolLogo} alt={toolName} className={styles['tool-img']} />
         </div>
         <span className={styles['tool-title']}>{toolName}</span>
       </a>
@@ -157,7 +146,7 @@ const formatToolBox = (cell, row) => {
 };
 
 const generateTableRows = (list) => {
-  var res = [];
+  const res = [];
   list.forEach(row => {
     res.push(
       <tr
@@ -166,21 +155,13 @@ const generateTableRows = (list) => {
         data-target={`#${row.lca_accession}_id`}
         className={styles['table-row']}
       >
-        <td>
-          {formatAnalysis(null, row)}
-        </td>
-        <td className={styles.disappear}>
-          {formatDescription(null, row)}
-        </td>
-        <td>
-          {formatCenter(null, row)}
-        </td>
-        <td style={{ paddingLeft: 0.75, paddingRight: 0.75}}>
+        <td>{formatAnalysis(null, row)}</td>
+        <td className={styles.disappear}>{formatDescription(null, row)}</td>
+        <td>{formatCenter(null, row)}</td>
+        <td style={{ paddingLeft: 0.75, paddingRight: 0.75 }}>
           {formatMultiAccessions(null, row)}
         </td>
-        <td>
-          {formatToolBox(null, row)}
-        </td>
+        <td>{formatToolBox(null, row)}</td>
       </tr>
     );
     res.push(
@@ -194,18 +175,20 @@ const generateTableRows = (list) => {
     );
   });
   return res;
-}
+};
 
 export default function CannedAnalysisModule() {
-  if (analyses && analyses.length > 0) {
+  if (cannedAnalysisSeed && cannedAnalysisSeed.length > 0) {
     return (
       <div className="row">
         <div className="col-xl-12">
-          <table className="table table-condensed" style={{borderCollapse : 'collapse'}}>
+          <table className="table table-condensed" style={{ borderCollapse: 'collapse' }}>
             <thead>
               <tr>
                 <th className={styles['table-col-text']}>Canned Analysis</th>
-                <th className={`${styles['table-col-text']} ${styles.disappear}`}>Analysis Description</th>
+                <th className={`${styles['table-col-text']} ${styles.disappear}`}>
+                  Analysis Description
+                </th>
                 <th className={styles['table-col-text']}>Center</th>
                 <th className={styles['table-col-text']}>Dataset Accession(s)</th>
                 <th className={styles['table-col-text']}>Tool</th>
@@ -214,62 +197,7 @@ export default function CannedAnalysisModule() {
             <tbody>
               {generateTableRows(cannedAnalysisSeed)}
             </tbody>
-        </table>
-        {
-          // <BootstrapTable
-          //   data={analyses}
-          //   options={options}
-          //   striped
-          //   hover
-          //   condensed
-          //   search
-          // >
-          //   <TableHeaderColumn
-          //     className={styles['column-title']}
-          //     dataField="screen_path"
-          //     dataAlign="center"
-          //     dataFormat={formatAnalysis}
-          //     width='15%'
-          //   >
-          //     Canned Analysis
-          //   </TableHeaderColumn>
-          //   <TableHeaderColumn
-          //     className={styles['column-title']}
-          //     dataField="canned_analysis_description"
-          //     dataFormat={formatDescription}
-          //   >
-          //     Analysis Description
-          //   </TableHeaderColumn>
-          //   <TableHeaderColumn
-          //     className={styles['column-title']}
-          //     dataField="analysis_center"
-          //     dataAlign="center"
-          //     dataFormat={formatCenter}
-          //     width='15%'
-          //   >
-          //     Center
-          //   </TableHeaderColumn>
-          //   <TableHeaderColumn
-          //     className={styles['column-title']}
-          //     dataField="dataset_accession"
-          //     dataAlign="center"
-          //     isKey
-          //     dataFormat={formatMultiAccessions}
-          //     width='20%'
-          //   >
-          //     Dataset Accession(s)
-          //   </TableHeaderColumn>
-          //   <TableHeaderColumn
-          //     className={styles['column-title']}
-          //     dataField="tool_name"
-          //     dataAlign="center"
-          //     dataFormat={formatToolBox}
-          //     width='15%'
-          //   >
-          //     Tool
-          //   </TableHeaderColumn>
-          // </BootstrapTable>
-        }
+          </table>
         </div>
       </div>
     );
