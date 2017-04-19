@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import ReactTooltip from 'react-tooltip';
@@ -39,7 +40,7 @@ export default class CannedAnalysisCard extends Component {
       datasetUrl = ldpBaseDatasetUrl + dataset;
     }
     return datasetUrl;
-  };
+  }
 
   render() {
     const { ca } = this.props;
