@@ -60,21 +60,24 @@ export default class CannedAnalysisCard extends Component {
               <label className={styles['ca-title']}>
                 {ca.title}
               </label>
-              <span className={styles['ca-center']}>{ca.subtitle}</span>
+              <span
+                data-tip="Information is not available at this time."
+                data-for={ca.canned_analysis_description}
+              >
+                <span className={styles['ca-center']}>{ca.subtitle}</span>
+              </span>
             </a>
 
             <div className={styles['ca-description']}>
               {
                 ca.canned_analysis_description.length > 185 && this.state.width >= 1200 ?
                   <span
-                    data-tip="Information is not available at this time."
-                    data-for={ca.canned_analysis_description}
                   >
                     {
                       this.state.width >= 1200 ?
-                      ca.canned_analysis_description.split(' ').slice(0, 15).join(' ')
+                      null
                       : ca.canned_analysis_description.split(' ').slice(0, 35).join(' ')
-                    }...
+                    }
                   </span>
                   : <span>{ca.canned_analysis_description}</span>
               }
