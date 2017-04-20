@@ -37,7 +37,8 @@ export default class CannedAnalysisModule extends Component {
       const descMatch = analysis.canned_analysis_description.toLowerCase().indexOf(query);
       const titMatch = analysis.title.toLowerCase().indexOf(query);
       const subtMatch = analysis.subtitle.toLowerCase().indexOf(query);
-      return descMatch !== -1 || titMatch !== -1 || subtMatch !== -1
+      const toolMatch = analysis.tool_name.toLowerCase().indexOf(query)
+      return descMatch !== -1 || titMatch !== -1 || subtMatch !== -1 || toolMatch !== -1;
     })
   }
 
@@ -65,10 +66,11 @@ export default class CannedAnalysisModule extends Component {
 
           <div className="col-xs-12 col-md-12 col-xl-12">
             <input
+              className={`form-control ${styles['search-bar']}`}
               onChange={this._updateSearchQuery}
               value={this.state.value}
               style={{ display: 'block' }}
-              placeholder="hello"
+              placeholder="Search"
             />
           </div>
 
