@@ -5,6 +5,7 @@ import Collapsible from 'react-collapsible';
 import CannedAnalysisCard from 'components/CannedAnalysisCard';
 import styles from '../AppsView.scss';
 import cannedAnalysisSeed from './canned_analysis_seed.json';
+import cannedAnalysisImage from '../../../static/files/canned_analysis.png';
 
 const generateUrlForDataset = (dataset) => {
   const ldpBaseDatasetUrl = 'http://lincsportal.ccs.miami.edu/datasets/#/view/';
@@ -50,9 +51,16 @@ export default class CannedAnalysisModule extends Component {
           <div className="col-xs-12 col-md-12 col-xl-12">
             <h3 className={styles['section-title']}>Canned Analyses</h3>
             <p>
-              A <em>Canned Analysis</em> is a pre-run analysis of a specific dataset
-              by a specific computational tool. It is represented by ...
+              A <em>Canned Analysis</em> is a pre-run analysis of a biomedical dataset
+              by a computational tool.
+
+              It is defined by 3 key elements: 1) Dataset accession(s),
+              2) Name of computational tool, and 3) a link to a webpage which
+              contains the results of the analysis browseable by users. This
+              is visualized by the figure below.
             </p>
+
+            <img className={styles['ca-image']} src={cannedAnalysisImage} />
 
             <p>
               For each canned analysis below, you can learn more about the specific
