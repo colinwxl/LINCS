@@ -68,7 +68,7 @@ export default class CannedAnalysisCard extends Component {
                 ca.canned_analysis_description.length > 185 && this.state.width >= 1200 ?
                   <span
                     data-tip="Information is not available at this time."
-                    data-for={ca.dataset_info.datasets.join('_')}
+                    data-for={ca.canned_analysis_description}
                   >
                     {
                       this.state.width >= 1200 ?
@@ -82,7 +82,7 @@ export default class CannedAnalysisCard extends Component {
               {
                 this.state.width >= 1200 ?
                   <ReactTooltip
-                    id={ca.dataset_info.datasets.join('_')}
+                    id={ca.canned_analysis_description}
                     place="right"
                     type="dark"
                     effect="float"

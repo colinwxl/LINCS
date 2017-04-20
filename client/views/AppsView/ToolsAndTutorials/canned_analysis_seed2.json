@@ -1,73 +1,10 @@
 [
   {
-    "dataset_info": {
-      "dataset_accession": "MULTI-03",
-      "datasets": ["LDG-1241", "LDG-1242", "LDG-1243", "LDG-1244", "LDG-1245", "LDG-1246", "LDG-1247", "LDG-1248", "LDG-1252", "LDG-1253", "LDG-1254", "HMS-20268", "HMS-20269", "HMS-20278", "HMS-20279", "HMS-20280", "HMS-20281", "HMS-20282", "HMS-20283", "HMS-20284", "HMS-20285", "HMS-20286"]
-    },
-    "lca_accession": "LCA-MULT03",
-    "dataset_url": "",
-    "tool_name": "GR Browser",
-    "tool_logo_url": "http://lincsproject.org/LINCS/files/tools_logos/GR_Calculator_logo.png",
-    "analysis_center": "HMS-LINCS",
-    "analysis_center_logo": "http://lincsproject.org/LINCS/files/centers_logos/hms-lincs.png",
-    "analysis_center_url": "/LINCS/centers/data-and-signature-generating-centers/hms-lincs",
-    "tool_url": "http://www.grcalculator.org/grbrowser/",
-    "canned_analysis_url": "http://www.grcalculator.org/grbrowser/",
-    "canned_analysis_description": "An online tool for calculating dose-response metrics and browsing response data.",
-    "screen_path": "./ca_screenshot/multi_03_gr_browser.png"
-  },
- {
    "dataset_info": {
-     "dataset_accession": "LDS-1356"
+     "datasets": ["LDS-1196"]
    },
-   "lca_accession": "LCA-1356A",
-   "dataset_url": "http://lincsportal.ccs.miami.edu/datasets/#/view/LDS-1356",
-   "tool_name": "GEN3VA",
-   "tool_logo_url": "http://lincsproject.org/LINCS/files/tools_logos/gen3va-logo.png",
-   "analysis_center": "Neuro\u200bLINCS",
-   "analysis_center_logo": "http://lincsproject.org/LINCS/files/centers_logos/NeuroLINCS.png",
-   "analysis_center_url": "/LINCS/centers/data-and-signature-generating-centers/neurolincs",
-   "tool_url": "http://amp.pharm.mssm.edu/gen3va",
-   "canned_analysis_url": "http://amp.pharm.mssm.edu/gen3va/report/approved/NeuroLINCS_ALS",
-   "canned_analysis_description": "GEN3VA report aggregating 5 signatures relevant to Amyotrophic Lateral Sclerosis (ALS) from the NeuroLINCS dataset.",
-   "screen_path": "./ca_screenshot/lds_1356_geneva.png"
- },
- {
-   "dataset_info": {
-     "dataset_accession": "LDS-1356"
-   },
-   "lca_accession": "LCA-1356B",
-   "dataset_url": "http://lincsportal.ccs.miami.edu/datasets/#/view/LDS-1356",
-   "tool_name": "GEN3VA",
-   "tool_logo_url": "http://lincsproject.org/LINCS/files/tools_logos/gen3va-logo.png",
-   "analysis_center": "Neuro\u200bLINCS",
-   "analysis_center_logo": "http://lincsproject.org/LINCS/files/centers_logos/NeuroLINCS.png",
-   "analysis_center_url": "/LINCS/centers/data-and-signature-generating-centers/neurolincs",
-   "tool_url": "http://amp.pharm.mssm.edu/gen3va",
-   "canned_analysis_url": "http://amp.pharm.mssm.edu/gen3va/report/approved/NeuroLINCS_SMA",
-   "canned_analysis_description": "GEN3VA report aggregating 5 signatures relevant to Spinal Muscular Atrophy (SMA) from the NeuroLINCS dataset.",
-   "screen_path": "./ca_screenshot/lds_1356_geneva.png"
- },
- {
-   "dataset_info": {
-     "dataset_accession": "LDS-1239"
-   },
-   "lca_accession": "LCA-1239A",
-   "dataset_url": "http://lincsportal.ccs.miami.edu/datasets/#/view/LDS-1239",
-   "tool_name": "GEN3VA",
-   "tool_logo_url": "http://lincsproject.org/LINCS/files/tools_logos/gen3va-logo.png",
-   "analysis_center": "DToxS",
-   "analysis_center_logo": "http://lincsproject.org/LINCS/files/centers_logos/DToxS.png",
-   "analysis_center_url": "/LINCS/centers/data-and-signature-generating-centers/dtoxs",
-   "tool_url": "http://amp.pharm.mssm.edu/gen3va",
-   "canned_analysis_url": "http://amp.pharm.mssm.edu/gen3va/tag/dtoxs",
-   "canned_analysis_description": "Interactive tool to generate custom GEN3VA reports using signatures of cardiomyocytes treated with known toxic compounds and in combination with mitigating compounds.  Cardiomyocytes, DToxS report.",
-   "screen_path": "./ca_screenshot/lds_1239_geneva.png"
- },
- {
-   "dataset_info": {
-     "dataset_accession": "LDS-1196"
-   },
+   "title": "P100 Proteomics Analysis",
+   "subtitle": "Interactive visualization of P100 proteomics data from 3 cell lines treated with 45 perturbations",
    "lca_accession": "LCA-1196A",
    "dataset_url": "http://lincsportal.ccs.miami.edu/datasets/#/view/LDS-1196",
    "tool_name": "iLINCS",
@@ -82,8 +19,10 @@
  },
  {
    "dataset_info": {
-     "dataset_accession": "LDS-1356"
+     "datasets": ["LDS-1356"]
    },
+   "title": "Analysis of RNA-seq from SMA and ALS iPSCs",
+   "subtitle": "Interactive visualization of RNA-seq data collected from iPSCs created from control, SMA, and ALS patients",
    "lca_accession": "LCA-1356C",
    "dataset_url": "http://lincsportal.ccs.miami.edu/datasets/#/view/LDS-1356",
    "tool_name": "iLINCS",
@@ -98,8 +37,10 @@
  },
  {
    "dataset_info": {
-     "dataset_accession": "LDS-1237"
+     "datasets": ["LDS-1237"]
    },
+   "title": "Analysis of RNA-seq cardiomyocytes treated with drugs",
+   "subtitle": "Analysis of 183 RNA-seq samples from cardiomyocytes treated with drugs",
    "lca_accession": "LCA-1237A",
    "dataset_url": "http://lincsportal.ccs.miami.edu/datasets/#/view/LDS-1237",
    "tool_name": "iLINCS",
@@ -114,8 +55,10 @@
  },
  {
    "dataset_info": {
-     "dataset_accession": "LDG-1285"
+     "datasets": ["LDG-1285"]
    },
+   "title": "P100 Proteomics Analysis",
+   "subtitle": "Interactive visualization of P100 proteomics data from 5 cell lines treated with 32 epigenetic perturbagens",
    "lca_accession": "LCA-1285A",
    "dataset_url": "http://lincsportal.ccs.miami.edu/datasets/#/view/LDG-1285",
    "tool_name": "iLINCS",
@@ -130,8 +73,10 @@
  },
  {
    "dataset_info": {
-     "dataset_accession": "LDS-1239"
+     "datasets": ["LDS-1239"]
    },
+   "title": "Analysis of RNA-seq cardiomyocytes treated with drugs",
+   "subtitle": "Analysis of 378 RNA-seq cardiomyocytes treated with drugs",
    "lca_accession": "LCA-1239B",
    "dataset_url": "http://lincsportal.ccs.miami.edu/datasets/#/view/LDS-1239",
    "tool_name": "iLINCS",
@@ -146,8 +91,10 @@
  },
  {
    "dataset_info": {
-     "dataset_accession": "LDG-1285"
+     "datasets": ["LDG-1285"]
    },
+   "title": "P100 Proteomics Analysis",
+   "subtitle": "Interactive visualization of P100 proteomics data from 2 cell lines treated with 32 kinase inhibitors",
    "lca_accession": "LCA-1285B",
    "dataset_url": "http://lincsportal.ccs.miami.edu/datasets/#/view/LDG-1285",
    "tool_name": "iLINCS",
@@ -162,8 +109,10 @@
  },
  {
    "dataset_info": {
-     "dataset_accession": "LDG-1284"
+     "datasets": ["LDG-1284"]
    },
+   "title": "GCP Proteomics Analysis",
+   "subtitle": "Interactive visualization of GCP proteomics data from 3 cell lines treated with 32 kinase inhibitors",
    "lca_accession": "LCA-1284A",
    "dataset_url": "http://lincsportal.ccs.miami.edu/datasets/#/view/LDG-1284",
    "tool_name": "iLINCS",
@@ -178,8 +127,10 @@
  },
  {
    "dataset_info": {
-     "dataset_accession": "LDS-1240"
+     "datasets": ["LDS-1240"]
    },
+   "title": "SS2 Analysis of PC3 Cells with MEMA",
+   "subtitle": "Analysis of cell cycle and nuclear state imaging data from PC3 cells treated with ligands and ECM proteins (Staining Set 2)",
    "lca_accession": "LCA-1240A",
    "dataset_url": "http://lincsportal.ccs.miami.edu/datasets/#/view/LDS-1240",
    "tool_name": "LINCS Data Explorer",
@@ -194,8 +145,10 @@
  },
  {
    "dataset_info": {
-     "dataset_accession": "LDS-1299"
+     "datasets": ["LDS-1299"]
    },
+   "title": "SS1 Analysis of MCF7 Cells with MEMA",
+   "subtitle": "Analysis of cell cycle and nuclear state imaging data from MCF7 cells treated with ligands and ECM proteins (Staining Set 1)",
    "lca_accession": "LCA-1299A",
    "dataset_url": "http://lincsportal.ccs.miami.edu/datasets/#/view/LDS-1299",
    "tool_name": "LINCS Data Explorer",
@@ -210,8 +163,10 @@
  },
  {
    "dataset_info": {
-     "dataset_accession": "LDS-1303"
+     "datasets": ["LDS-1303"]
    },
+   "title": "SS2 Analysis of MCF7 Cells with MEMA",
+   "subtitle": "Analysis of cell cycle and nuclear state imaging data from MCF7 cells treated with ligands and ECM proteins (Staining Set 2).",
    "lca_accession": "LCA-1303A",
    "dataset_url": "http://lincsportal.ccs.miami.edu/datasets/#/view/LDS-1303",
    "tool_name": "LINCS Data Explorer",
@@ -226,8 +181,10 @@
  },
  {
    "dataset_info": {
-     "dataset_accession": "LDS-1307"
+     "datasets": ["LDS-1307"]
    },
+   "title": "SS3 Analysis of MCF7 Cells with MEMA",
+   "subtitle": "Analysis of cell cycle and nuclear state imaging data from MCF7 cells treated with ligands and ECM proteins (Staining Set 3)",
    "lca_accession": "LCA-1307A",
    "dataset_url": "http://lincsportal.ccs.miami.edu/datasets/#/view/LDS-1307",
    "tool_name": "LINCS Data Explorer",
@@ -242,8 +199,10 @@
  },
  {
    "dataset_info": {
-     "dataset_accession": "LDS-1311"
+     "datasets": ["LDS-1311"]
    },
+   "title": "SS1 Analysis of PC3 Cells with MEMA",
+   "subtitle": "Analysis of cell cycle and nuclear state imaging data from PC3 cells treated with ligands and ECM proteins (Staining Set 1)",
    "lca_accession": "LCA-1311A",
    "dataset_url": "http://lincsportal.ccs.miami.edu/datasets/#/view/LDS-1311",
    "tool_name": "LINCS Data Explorer",
@@ -258,8 +217,10 @@
  },
  {
    "dataset_info": {
-     "dataset_accession": "LDS-1319"
+     "datasets": ["LDS-1319"]
    },
+   "title": "SS2 Analysis of PC3 Cells with MEMA",
+   "subtitle": "Analysis of cell cycle and nuclear state imaging data from PC3 cells treated with ligands and ECM proteins (Staining Set 2)",
    "lca_accession": "LCA-1319A",
    "dataset_url": "http://lincsportal.ccs.miami.edu/datasets/#/view/LDS-1319",
    "tool_name": "LINCS Data Explorer",
@@ -274,8 +235,10 @@
  },
  {
    "dataset_info": {
-     "dataset_accession": "LDS-1323"
+     "datasets": ["LDS-1323"]
    },
+   "title": "SS3 Analysis of PC3 Cells with MEMA",
+   "subtitle": "Analysis of cell cycle and nuclear state imaging data from PC3 cells treated with ligands and ECM proteins (Staining Set 3)",
    "lca_accession": "LCA-1323A",
    "dataset_url": "http://lincsportal.ccs.miami.edu/datasets/#/view/LDS-1323",
    "tool_name": "LINCS Data Explorer",
@@ -290,8 +253,10 @@
  },
  {
    "dataset_info": {
-     "dataset_accession": "LDS-1327"
+     "datasets": ["LDS-1327"]
    },
+   "title": "SS1 Analysis of YAPC Cells with MEMA",
+   "subtitle": "Analysis of cell cycle and nuclear state imaging data from YAPC cells treated with ligands and ECM proteins (Staining Set 1)",
    "lca_accession": "LCA-1327A",
    "dataset_url": "http://lincsportal.ccs.miami.edu/datasets/#/view/LDS-1327",
    "tool_name": "LINCS Data Explorer",
@@ -306,8 +271,10 @@
  },
  {
    "dataset_info": {
-     "dataset_accession": "LDS-1331"
+     "datasets": ["LDS-1331"]
    },
+   "title": "SS2 Analysis of YAPC Cells with MEMA",
+   "subtitle": "Analysis of cell cycle and nuclear state imaging data from YAPC cells treated with ligands and ECM proteins (Staining Set 2)",
    "lca_accession": "LCA-1331A",
    "dataset_url": "http://lincsportal.ccs.miami.edu/datasets/#/view/LDS-1331",
    "tool_name": "LINCS Data Explorer",
@@ -322,8 +289,10 @@
  },
  {
    "dataset_info": {
-     "dataset_accession": "LDS-1335"
+     "datasets": ["LDS-1335"]
    },
+   "title": "SS3 Analysis of YAPC Cells with MEMA",
+   "subtitle": "Analysis of cell cycle and nuclear state imaging data from YAPC cells treated with ligands and ECM proteins (Staining Set 3)",
    "lca_accession": "LCA-1335A",
    "dataset_url": "http://lincsportal.ccs.miami.edu/datasets/#/view/LDS-1335",
    "tool_name": "LINCS Data Explorer",

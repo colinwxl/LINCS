@@ -26,7 +26,7 @@ export default function CannedAnalysisModule() {
           {
             cannedAnalysisSeed.map((ca, idx) => {
               return (
-                <div key={idx} className="col-xs-12 col-md-6 col-xl-3">
+                <div key={idx} className="col-xs-12 col-md-6 col-xl-4">
                   <CannedAnalysisCard ca={ca} />
                 </div>
               );
