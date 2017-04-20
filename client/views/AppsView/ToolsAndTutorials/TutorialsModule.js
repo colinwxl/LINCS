@@ -16,7 +16,12 @@ export default class TutorialsModule extends Component {
 
     return (
       <div className="row">
-        <h3 className={styles['section-title']}>Video Tutorials</h3>
+        <h3
+          style={{ paddingLeft: '0.9375rem' }}
+          className={styles['section-title']}
+        >
+          Video Tutorials
+        </h3>
         {
           tools.map(tool =>
             <div key={tool.id} className="col-xs-12 col-md-6 col-xl-3">
