@@ -60,9 +60,8 @@ export default class CannedAnalysisCard extends Component {
               <label className={styles['ca-title']}>
                 {ca.title}
               </label>
+              <span className={styles['ca-center']}>{ca.subtitle}</span>
             </a>
-
-            <span className={styles['ca-center']}>{ca.subtitle}</span>
 
             <div className={styles['ca-description']}>
               {
