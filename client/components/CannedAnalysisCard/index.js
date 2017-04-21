@@ -90,7 +90,7 @@ export default class CannedAnalysisCard extends Component {
                     type="dark"
                     effect="float"
                   >
-                    <div style={{ maxWidth: '10rem' }}>
+                    <div style={{ maxWidth: '30rem' }}>
                       {ca.canned_analysis_description}
                     </div>
                   </ReactTooltip>
@@ -111,9 +111,9 @@ export default class CannedAnalysisCard extends Component {
             <ReactTooltip
               id={`${ca.datasets.join('_')}_ds`}
               className={styles['tooltip-stay']}
-              delayHide={500}
+              delayHide={1000}
               effect="solid"
-              place="right"
+              place="bottom"
               type="dark"
               effect="float"
             >

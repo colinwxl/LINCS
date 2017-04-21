@@ -28,6 +28,25 @@ export default class CannedAnalysisModule extends Component {
     }
   }
 
+  componentWillMount() {
+    this.updateDimensions();
+  }
+
+  componentDidMount() {
+    window.addEventListener('resize', this.updateDimensions);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.updateDimensions);
+  }
+
+  updateDimensions = () => {
+    const w = window;
+    const width = w.innerWidth;
+    const height = w.innerHeight;
+    this.setState({ width, height });
+  }
+
   _updateSearchQuery = (event) => {
     this.setState({searchQuery: event.target.value.toLowerCase()});
   }
@@ -71,85 +90,89 @@ export default class CannedAnalysisModule extends Component {
     const analyses = this._filterCannedAnalyses(cannedAnalysisSeed);
     const groupedAnalyses = this._groupAnalyses(analyses);
     const groupKeys = Object.keys(groupedAnalyses);
+    const numInCarousel = this.state.width >= 1200 ? 3 : 2;
 
     return (
       <div className="row">
         <div className="col-xs-12 col-md-12 col-xl-12">
           <div className="row">
             <div className="col-xs-12 col-md-12 col-xl-12">
-              <h3 className={styles['section-title']}>Canned Analyses</h3>
-              <div className="row">
-                <div className="col-xs-12 col-md-6 col-xl-8">
-                  <br />
-                  <p>
-                    A <em>Canned Analysis</em> is a pre-run analysis of a biomedical dataset
-                    by a computational tool.
+              <div className="col-xs-12 col-md-12 col-xl-12">
+                <h3 className={styles['section-title']}>Canned Analyses</h3>
+                <div className="row">
+                  <div className="col-xs-12 col-md-6 col-xl-8">
+                    <br />
+                    <p>
+                      A <em>Canned Analysis</em> is a pre-run analysis of a biomedical dataset
+                      by a computational tool.
 
-                    It is defined by 3 key elements: 1) Dataset accession(s),
-                    2) Name of computational tool, and 3) a link to a webpage which
-                    contains the results of the analysis browseable by users. This
-                    is visualized by the adjacent figure.
-                  </p>
+                      It is defined by 3 key elements: 1) Dataset accession(s),
+                      2) Name of computational tool, and 3) a link to a webpage which
+                      contains the results of the analysis browseable by users. This
+                      is visualized by the adjacent figure.
+                    </p>
+                  </div>
+                  <div className="col-xs-12 col-md-6 col-xl-4">
+                    <img className={styles['ca-image']} src={cannedAnalysisImage} />
+                  </div>
                 </div>
-                <div className="col-xs-12 col-md-6 col-xl-4">
-                  <img className={styles['ca-image']} src={cannedAnalysisImage} />
-                </div>
+                <br />
+                <p>
+                  For each canned analysis below, you can learn more about the specific
+                  analysis by hovering over their respective subtitles for a full description.
+
+                  You can additionally hover over the informational icon on the top right corner
+                  and click on a dataset of interest for more information on the dataset being
+                  analyzed.
+                </p>
               </div>
-              <br />
-              <p>
-                For each canned analysis below, you can learn more about the specific
-                analysis by hovering over their respective subtitles for a full description.
-
-                You can additionally hover over the informational icon on the top right corner
-                and click on a dataset of interest for more information on the dataset being
-                analyzed.
-              </p>
             </div>
           </div>
 
           <div className="row">
             <div className="col-xs-12 col-md-12 col-xl-12">
-              <input
-                className={`form-control ${styles['search-bar']}`}
-                onChange={this._updateSearchQuery}
-                value={this.state.value}
-                style={{ display: 'block' }}
-                placeholder="Search"
-              />
+              <div className="col-xs-12 col-md-12 col-xl-12">
+                <input
+                  className={`form-control ${styles['search-bar']}`}
+                  onChange={this._updateSearchQuery}
+                  value={this.state.value}
+                  style={{ display: 'block' }}
+                  placeholder="Search"
+                />
+              </div>
               {
                 groupKeys && groupKeys.map((group, idx) => {
-                  const grouping = this.carouselChildInGroups(groupedAnalyses[group], 3);
+                  const grouping = this.carouselChildInGroups(groupedAnalyses[group], numInCarousel);
                   return (
                     <div key={idx} className="row">
                       <div className="col-xs-12 col-md-12 col-xl-12">
-                        <h5>{group}</h5>
-                      </div>
-                      <div className="row">
                         <div className="col-xs-12 col-md-12 col-xl-12">
-                          <Carousel infinite={false}>
-                            {
-                              grouping && grouping.map((carouselChildArr, idx2) => (
-                                <div key={idx2}>
-                                  {
-                                    carouselChildArr.length && carouselChildArr.map((ca, idx3) => (
-                                      <div key={idx3} className="col-xs-12 col-md-6 col-xl-4">
-                                        <CannedAnalysisCard ca={ca} />
-                                      </div>
-                                    ))
-                                  }
-                                </div>
-                              ))
-                            }
-                          </Carousel>
+                          <h5>{group}</h5>
                         </div>
                       </div>
+                      <div className="col-xs-12 col-md-12 col-xl-12">
+                        <Carousel infinite={false}>
+                          {
+                            grouping && grouping.map((carouselChildArr, idx2) => (
+                              <div key={idx2}>
+                                {
+                                  carouselChildArr.length && carouselChildArr.map((ca, idx3) => (
+                                    <div key={idx3} className="col-xs-12 col-md-6 col-xl-4">
+                                      <CannedAnalysisCard ca={ca} />
+                                    </div>
+                                  ))
+                                }
+                              </div>
+                            ))
+                          }
+                        </Carousel>
+                      </div>
+
                       <br />
                     </div>
                   );
                 })
               }
-
-
             </div>
           </div>
         </div>

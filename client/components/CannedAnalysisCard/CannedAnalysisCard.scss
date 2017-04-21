@@ -45,7 +45,7 @@ $shadow: rgba(0, 0, 0, .1);
 .thumbnail {
   display: block;
   margin: auto;
-  max-width: 80%;
+  // max-width: 80%;
   max-height: $ca-height / 2 - 1.5rem;
 }
 
@@ -126,9 +126,9 @@ $desc-line-height: 0.5rem; // 18px
 
 .tooltip {
   position: absolute;
-  top: 0.5rem;
-  right: 0.5rem;
-  height: 1rem;
+  top: 1rem;
+  right: 0.8rem;
+  height: 0.8rem;
   width: 1rem;
   &:hover {
     opacity: 0.9;
