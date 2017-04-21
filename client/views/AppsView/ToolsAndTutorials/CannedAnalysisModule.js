@@ -43,8 +43,23 @@ export default class CannedAnalysisModule extends Component {
     })
   }
 
+  _groupAnalyses = (analyses) => {
+    const grouping = {};
+    analyses.forEach(an => {
+      if (!grouping[an.grouping]) {
+        grouping[an.grouping] = [an];
+      } else {
+        grouping[an.grouping].push(an);
+      }
+    });
+    return grouping;
+  }
+
   render() {
     const analyses = this._filterCannedAnalyses(cannedAnalysisSeed);
+    const groupedAnalyses = this._groupAnalyses(analyses);
+    const groupKeys = Object.keys(groupedAnalyses);
+
     return (
       <div className="row">
         <div className="col-xl-12">
@@ -87,22 +102,45 @@ export default class CannedAnalysisModule extends Component {
               placeholder="Search"
             />
           </div>
-
           {
-            analyses && analyses.length > 0 ?
-            analyses.map((ca, idx) => {
+            groupKeys && groupKeys.map((group, idx) => {
+              const grouping = groupedAnalyses[group];
               return (
-                <div key={idx} className="col-xs-12 col-md-6 col-xl-4">
-                  <CannedAnalysisCard ca={ca} />
+                <div key={idx} className="row">
+                  <br />
+                  <div className="col-xs-12 col-md-12 col-xl-12">
+                    <h5>{group}</h5>
+                  </div>
+                  {
+                    grouping && grouping.map((ca, idx2) => {
+                      return (
+                        <div key={idx2} className="col-xs-12 col-md-6 col-xl-4">
+                          <CannedAnalysisCard ca={ca} />
+                        </div>
+                      );
+                    })
+                  }
+                  <br />
                 </div>
               );
-            }) :
-            <h5 className="m-t-3 text-xs-center">
-              No analysis found. Please try again later.
-            </h5>
+            })
           }
         </div>
       </div>
     );
   }
 }
+
+// {
+//   analyses && analyses.length > 0 ?
+//   analyses.map((ca, idx) => {
+//     return (
+//       <div key={idx} className="col-xs-12 col-md-6 col-xl-4">
+//         <CannedAnalysisCard ca={ca} />
+//       </div>
+//     );
+//   }) :
+//   <h5 className="m-t-3 text-xs-center">
+//     No analysis found. Please try again later.
+//   </h5>
+// }
