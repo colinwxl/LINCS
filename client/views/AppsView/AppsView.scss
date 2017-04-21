@@ -475,7 +475,9 @@ $disappear-size: 767px;
 }
 
 .ca-image {
-  display: block;
-  margin: 1rem auto;
-  max-width: 18rem;
+  @media (max-width: 767px) {
+    display: block;
+    margin: 1rem auto;
+  }
+  max-width: 17rem;
 }

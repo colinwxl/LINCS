@@ -50,18 +50,24 @@ export default class CannedAnalysisModule extends Component {
         <div className="col-xl-12">
           <div className="col-xs-12 col-md-12 col-xl-12">
             <h3 className={styles['section-title']}>Canned Analyses</h3>
-            <p>
-              A <em>Canned Analysis</em> is a pre-run analysis of a biomedical dataset
-              by a computational tool.
+            <div className="row">
+              <div className="col-xs-12 col-md-6 col-xl-8">
+                <br />
+                <p>
+                  A <em>Canned Analysis</em> is a pre-run analysis of a biomedical dataset
+                  by a computational tool.
 
-              It is defined by 3 key elements: 1) Dataset accession(s),
-              2) Name of computational tool, and 3) a link to a webpage which
-              contains the results of the analysis browseable by users. This
-              is visualized by the figure below.
-            </p>
-
-            <img className={styles['ca-image']} src={cannedAnalysisImage} />
-
+                  It is defined by 3 key elements: 1) Dataset accession(s),
+                  2) Name of computational tool, and 3) a link to a webpage which
+                  contains the results of the analysis browseable by users. This
+                  is visualized by the adjacent figure.
+                </p>
+              </div>
+              <div className="col-xs-12 col-md-6 col-xl-4">
+                <img className={styles['ca-image']} src={cannedAnalysisImage} />
+              </div>
+            </div>
+            <br />
             <p>
               For each canned analysis below, you can learn more about the specific
               analysis by hovering over their respective subtitles for a full description.
