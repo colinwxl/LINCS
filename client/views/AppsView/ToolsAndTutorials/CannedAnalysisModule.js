@@ -141,37 +141,46 @@ export default class CannedAnalysisModule extends Component {
                 />
               </div>
               {
-                groupKeys && groupKeys.map((group, idx) => {
-                  const grouping = this.carouselChildInGroups(groupedAnalyses[group], numInCarousel);
-                  return (
-                    <div key={idx} className="row">
-                      <div className="col-xs-12 col-md-12 col-xl-12">
-                        <div className="col-xs-12 col-md-12 col-xl-12">
-                          <h5>{group}</h5>
-                        </div>
-                      </div>
-                      <div className="col-xs-12 col-md-12 col-xl-12">
-                        <Carousel infinite={false}>
-                          {
-                            grouping && grouping.map((carouselChildArr, idx2) => (
-                              <div key={idx2}>
+                groupKeys.length ? (
+                  <div>
+                    {
+                      groupKeys.map((group, idx) => {
+                        const grouping = this.carouselChildInGroups(groupedAnalyses[group], numInCarousel);
+                        return (
+                          <div key={idx} className="row">
+                            <div className="col-xs-12 col-md-12 col-xl-12">
+                              <div className="col-xs-12 col-md-12 col-xl-12">
+                                <h5>{group}</h5>
+                              </div>
+                            </div>
+                            <div className="col-xs-12 col-md-12 col-xl-12">
+                              <Carousel infinite={false}>
                                 {
-                                  carouselChildArr.length && carouselChildArr.map((ca, idx3) => (
-                                    <div key={idx3} className="col-xs-12 col-md-6 col-xl-4">
-                                      <CannedAnalysisCard ca={ca} />
+                                  grouping && grouping.map((carouselChildArr, idx2) => (
+                                    <div key={idx2}>
+                                      {
+                                        carouselChildArr.length && carouselChildArr.map((ca, idx3) => (
+                                          <div key={idx3} className="col-xs-12 col-md-6 col-xl-4">
+                                            <CannedAnalysisCard ca={ca} />
+                                          </div>
+                                        ))
+                                      }
                                     </div>
                                   ))
                                 }
-                              </div>
-                            ))
-                          }
-                        </Carousel>
-                      </div>
-
-                      <br />
-                    </div>
-                  );
-                })
+                              </Carousel>
+                            </div>
+                            <br />
+                          </div>
+                        );
+                      })
+                    }
+                  </div>
+                ) : (
+                  <div className="col-xs-12 col-md-12 col-xl-12">
+                    No analysis found.
+                  </div>
+                )
               }
             </div>
           </div>
@@ -180,50 +189,3 @@ export default class CannedAnalysisModule extends Component {
     );
   }
 }
-
-// {
-//   analyses && analyses.length > 0 ?
-//   analyses.map((ca, idx) => {
-//     return (
-//       <div key={idx} className="col-xs-12 col-md-6 col-xl-4">
-//         <CannedAnalysisCard ca={ca} />
-//       </div>
-//     );
-//   }) :
-//   <h5 className="m-t-3 text-xs-center">
-//     No analysis found. Please try again later.
-//   </h5>
-// }
-
-
-// {
-//   groupKeys && groupKeys.map((group, idx) => {
-//     const grouping = this.carouselChildInGroups(groupedAnalyses[group], 3);
-//     return (
-//       <div key={idx} className="row">
-//         <br />
-//         <div className="col-xs-12 col-md-12 col-xl-12">
-//           <h5>{group}</h5>
-//         </div>
-//         <div className="row">
-//           <Carousel infinite={false}>
-//             {
-//               grouping && grouping.map((carouselChildArr, idx2) => (
-//                 <div>
-//                   {
-//                     carouselChildArr.length && carouselChildArr.map((ca, idx3) => (
-//                       <div key={idx3} className="col-xs-12 col-md-6 col-xl-4">
-//                         <CannedAnalysisCard ca={ca} />
-//                       </div>
-//                     ))
-//                   }
-//                 </div>
-//               ))
-//             }
-//           </Carousel>
-//         </div>
-//         <br />
-//       </div>
-//     );
-//   })
-// }
