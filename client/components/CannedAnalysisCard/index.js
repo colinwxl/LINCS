@@ -117,7 +117,9 @@ export default class CannedAnalysisCard extends Component {
               type="dark"
               effect="float"
             >
-              <span className={styles['ds-title']}>Dataset(s)</span>
+              <span className={styles['ds-title']}>
+                {ca.datasets.length > 1 ? "Datasets" : "Dataset" }
+              </span>
               {
                 ca.datasets.map(ds => (
                   <a
