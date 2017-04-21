@@ -3,9 +3,10 @@ import React, { Component } from 'react';
 import { Link } from 'react-router';
 import Collapsible from 'react-collapsible';
 import CannedAnalysisCard from 'components/CannedAnalysisCard';
+import Carousel from 'components/carousel';
 import styles from '../AppsView.scss';
 import cannedAnalysisSeed from './canned_analysis_seed.json';
-import cannedAnalysisImage from '../../../static/files/canned_analysis.png';
+import cannedAnalysisImage from 'static/files/canned_analysis.png';
 
 const generateUrlForDataset = (dataset) => {
   const ldpBaseDatasetUrl = 'http://lincsportal.ccs.miami.edu/datasets/#/view/';
@@ -55,6 +56,17 @@ export default class CannedAnalysisModule extends Component {
     return grouping;
   }
 
+  carouselChildInGroups(caList, childPerGroup) {
+    if (caList.length <= childPerGroup) {
+      return [caList];
+    }
+    const group = [];
+    for (let i = 0; i < caList.length; i += childPerGroup) {
+      group.push(caList.slice(i, i + childPerGroup));
+    }
+    return group;
+  }
+
   render() {
     const analyses = this._filterCannedAnalyses(cannedAnalysisSeed);
     const groupedAnalyses = this._groupAnalyses(analyses);
@@ -62,69 +74,84 @@ export default class CannedAnalysisModule extends Component {
 
     return (
       <div className="row">
-        <div className="col-xl-12">
-          <div className="col-xs-12 col-md-12 col-xl-12">
-            <h3 className={styles['section-title']}>Canned Analyses</h3>
-            <div className="row">
-              <div className="col-xs-12 col-md-6 col-xl-8">
-                <br />
-                <p>
-                  A <em>Canned Analysis</em> is a pre-run analysis of a biomedical dataset
-                  by a computational tool.
-
-                  It is defined by 3 key elements: 1) Dataset accession(s),
-                  2) Name of computational tool, and 3) a link to a webpage which
-                  contains the results of the analysis browseable by users. This
-                  is visualized by the adjacent figure.
-                </p>
-              </div>
-              <div className="col-xs-12 col-md-6 col-xl-4">
-                <img className={styles['ca-image']} src={cannedAnalysisImage} />
-              </div>
-            </div>
-            <br />
-            <p>
-              For each canned analysis below, you can learn more about the specific
-              analysis by hovering over their respective subtitles for a full description.
-
-              You can additionally hover over the informational icon on the top right corner
-              and click on a dataset of interest for more information on the dataset being
-              analyzed.
-            </p>
-          </div>
-
-          <div className="col-xs-12 col-md-12 col-xl-12">
-            <input
-              className={`form-control ${styles['search-bar']}`}
-              onChange={this._updateSearchQuery}
-              value={this.state.value}
-              style={{ display: 'block' }}
-              placeholder="Search"
-            />
-          </div>
-          {
-            groupKeys && groupKeys.map((group, idx) => {
-              const grouping = groupedAnalyses[group];
-              return (
-                <div key={idx} className="row">
+        <div className="col-xs-12 col-md-12 col-xl-12">
+          <div className="row">
+            <div className="col-xs-12 col-md-12 col-xl-12">
+              <h3 className={styles['section-title']}>Canned Analyses</h3>
+              <div className="row">
+                <div className="col-xs-12 col-md-6 col-xl-8">
                   <br />
-                  <div className="col-xs-12 col-md-12 col-xl-12">
-                    <h5>{group}</h5>
-                  </div>
-                  {
-                    grouping && grouping.map((ca, idx2) => {
-                      return (
-                        <div key={idx2} className="col-xs-12 col-md-6 col-xl-4">
-                          <CannedAnalysisCard ca={ca} />
-                        </div>
-                      );
-                    })
-                  }
-                  <br />
+                  <p>
+                    A <em>Canned Analysis</em> is a pre-run analysis of a biomedical dataset
+                    by a computational tool.
+
+                    It is defined by 3 key elements: 1) Dataset accession(s),
+                    2) Name of computational tool, and 3) a link to a webpage which
+                    contains the results of the analysis browseable by users. This
+                    is visualized by the adjacent figure.
+                  </p>
                 </div>
-              );
-            })
-          }
+                <div className="col-xs-12 col-md-6 col-xl-4">
+                  <img className={styles['ca-image']} src={cannedAnalysisImage} />
+                </div>
+              </div>
+              <br />
+              <p>
+                For each canned analysis below, you can learn more about the specific
+                analysis by hovering over their respective subtitles for a full description.
+
+                You can additionally hover over the informational icon on the top right corner
+                and click on a dataset of interest for more information on the dataset being
+                analyzed.
+              </p>
+            </div>
+          </div>
+
+          <div className="row">
+            <div className="col-xs-12 col-md-12 col-xl-12">
+              <input
+                className={`form-control ${styles['search-bar']}`}
+                onChange={this._updateSearchQuery}
+                value={this.state.value}
+                style={{ display: 'block' }}
+                placeholder="Search"
+              />
+              {
+                groupKeys && groupKeys.map((group, idx) => {
+                  const grouping = this.carouselChildInGroups(groupedAnalyses[group], 3);
+                  return (
+                    <div key={idx} className="row">
+                      <div className="col-xs-12 col-md-12 col-xl-12">
+                        <h5>{group}</h5>
+                      </div>
+                      <div className="row">
+                        <div className="col-xs-12 col-md-12 col-xl-12">
+                          <Carousel infinite={false}>
+                            {
+                              grouping && grouping.map((carouselChildArr, idx2) => (
+                                <div key={idx2}>
+                                  {
+                                    carouselChildArr.length && carouselChildArr.map((ca, idx3) => (
+                                      <div key={idx3} className="col-xs-12 col-md-6 col-xl-4">
+                                        <CannedAnalysisCard ca={ca} />
+                                      </div>
+                                    ))
+                                  }
+                                </div>
+                              ))
+                            }
+                          </Carousel>
+                        </div>
+                      </div>
+                      <br />
+                    </div>
+                  );
+                })
+              }
+
+
+            </div>
+          </div>
         </div>
       </div>
     );
@@ -143,4 +170,37 @@ export default class CannedAnalysisModule extends Component {
 //   <h5 className="m-t-3 text-xs-center">
 //     No analysis found. Please try again later.
 //   </h5>
+// }
+
+
+// {
+//   groupKeys && groupKeys.map((group, idx) => {
+//     const grouping = this.carouselChildInGroups(groupedAnalyses[group], 3);
+//     return (
+//       <div key={idx} className="row">
+//         <br />
+//         <div className="col-xs-12 col-md-12 col-xl-12">
+//           <h5>{group}</h5>
+//         </div>
+//         <div className="row">
+//           <Carousel infinite={false}>
+//             {
+//               grouping && grouping.map((carouselChildArr, idx2) => (
+//                 <div>
+//                   {
+//                     carouselChildArr.length && carouselChildArr.map((ca, idx3) => (
+//                       <div key={idx3} className="col-xs-12 col-md-6 col-xl-4">
+//                         <CannedAnalysisCard ca={ca} />
+//                       </div>
+//                     ))
+//                   }
+//                 </div>
+//               ))
+//             }
+//           </Carousel>
+//         </div>
+//         <br />
+//       </div>
+//     );
+//   })
 // }
