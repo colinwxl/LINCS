@@ -106,10 +106,10 @@ export default class CannedAnalysisCard extends Component {
               className={`fa fa-info-circle ${styles.tooltip}`}
               aria-hidden="true"
               data-tip="Information is not available at this time."
-              data-for={`${ca.dataset_info.datasets.join('_')}_ds`}
+              data-for={`${ca.datasets.join('_')}_ds`}
             />
             <ReactTooltip
-              id={`${ca.dataset_info.datasets.join('_')}_ds`}
+              id={`${ca.datasets.join('_')}_ds`}
               className={styles['tooltip-stay']}
               delayHide={500}
               effect="solid"
@@ -119,7 +119,7 @@ export default class CannedAnalysisCard extends Component {
             >
               <span className={styles['ds-title']}>Dataset(s)</span>
               {
-                ca.dataset_info.datasets.map(ds => (
+                ca.datasets.map(ds => (
                   <a
                     href={this._generateUrlForDataset(ds)}
                     target="_blank"
