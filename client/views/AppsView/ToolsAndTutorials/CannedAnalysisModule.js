@@ -59,8 +59,14 @@ export default class CannedAnalysisModule extends Component {
       const titMatch = analysis.title.toLowerCase().indexOf(query);
       const subtMatch = analysis.subtitle.toLowerCase().indexOf(query);
       const toolMatch = analysis.tool_name.toLowerCase().indexOf(query)
-      return descMatch !== -1 || titMatch !== -1 || subtMatch !== -1 || toolMatch !== -1;
-    })
+      const searchTermMatch = analysis.search_terms.join(", ").toLowerCase().indexOf(query)
+
+      return descMatch !== -1 ||
+             titMatch !== -1 ||
+             subtMatch !== -1 ||
+             toolMatch !== -1 ||
+             searchTermMatch !== -1;
+    });
   }
 
   _groupAnalyses = (analyses) => {
