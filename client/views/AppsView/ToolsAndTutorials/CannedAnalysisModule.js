@@ -140,6 +140,9 @@ export default class CannedAnalysisModule extends Component {
                   placeholder="Search"
                 />
               </div>
+              <div className="col-xs-12 col-md-12 col-xl-12">
+                <h5><strong>Imaging Analysis</strong></h5>
+              </div>
               {
                 groupKeys.length ? (
                   <div>
@@ -150,7 +153,12 @@ export default class CannedAnalysisModule extends Component {
                           <div key={idx} className="row">
                             <div className="col-xs-12 col-md-12 col-xl-12">
                               <div className="col-xs-12 col-md-12 col-xl-12">
-                                <h5>{group}</h5>
+                                {
+                                  group === 'Dose-Response Cell Proliferation Analysis' ||
+                                  group === 'MEMA Analysis' ?
+                                  <h6><i>{group}</i></h6> :
+                                  <h5><strong>{group}</strong></h5>
+                                }
                               </div>
                             </div>
                             <div className="col-xs-12 col-md-12 col-xl-12">
