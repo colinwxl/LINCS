@@ -209,7 +209,7 @@
    "tool_name": "iLINCS",
    "tool_logo_url": "http://lincsproject.org/LINCS/files/tools_logos/i-lincs.png",
    "tool_url": "http://eh3.uc.edu/GenomicsPortals/Lincs.jsp",
-   "canned_analysis_url": "http://www.ilincs.org/GenomicsPortals/DatasetLandingPage.do?data_set=LDG-1193",
+   "canned_analysis_url": "http://www.ilincs.org/ilincs/dataset/LDG-1193",
    "canned_analysis_description": "Interactive visualization of mass spectrometry-based proteomics assay data to detect 90 phosphopeptide probes in 141 samples from 3 cell lines across ~45 perturbations.  LINCS PCCSE - P100 validation set.",
    "screen_path": "./ca_screenshot/lds_1196_ilincs.png"
  },
@@ -224,7 +224,7 @@
    "tool_name": "iLINCS",
    "tool_logo_url": "http://lincsproject.org/LINCS/files/tools_logos/i-lincs.png",
    "tool_url": "http://eh3.uc.edu/GenomicsPortals/Lincs.jsp",
-   "canned_analysis_url": "http://www.ilincs.org/GenomicsPortals/DatasetLandingPage.do?data_set=LDG-1232",
+   "canned_analysis_url": "http://www.ilincs.org/ilincs/dataset/LDG-1232",
    "canned_analysis_description": "Interactive visualization of RNA-seq data from 35 human brain cell type samples, profiled to develop a network of cell signatures relevant to Amyotrophic Lateral Sclerosis (ALS) and Spinal Muscular Atrophy (SMA).  NeuroLINCS - RNA-seq gene expression (August 2015).",
    "screen_path": "./ca_screenshot/lds_1356_ilincs.png"
  },
@@ -239,7 +239,7 @@
    "tool_name": "iLINCS",
    "tool_logo_url": "http://lincsproject.org/LINCS/files/tools_logos/i-lincs.png",
    "tool_url": "http://eh3.uc.edu/GenomicsPortals/Lincs.jsp",
-   "canned_analysis_url": "http://www.ilincs.org/GenomicsPortals/DatasetLandingPage.do?data_set=LDG-1231",
+   "canned_analysis_url": "http://www.ilincs.org/ilincs/dataset/LDG-1231",
    "canned_analysis_description": "Interactive visualization of RNA-seq data from 183 samples of human cell lines, profiled to develop cellular signatures for drug-induced toxicity caused by FDA approved drugs and toxicity mitigation by coadministration of other drugs.  DToxS - RNA-seq gene expression (May 2015).",
    "screen_path": "./ca_screenshot/lds_1237_ilincs.png"
  },
@@ -254,7 +254,7 @@
    "tool_name": "iLINCS",
    "tool_logo_url": "http://lincsproject.org/LINCS/files/tools_logos/i-lincs.png",
    "tool_url": "http://eh3.uc.edu/GenomicsPortals/Lincs.jsp",
-   "canned_analysis_url": "http://www.ilincs.org/GenomicsPortals/DatasetLandingPage.do?data_set=LDG-1228",
+   "canned_analysis_url": "http://www.ilincs.org/ilincs/dataset/LDG-1228",
    "canned_analysis_description": "Interactive visualization of mass spectrometry-based proteomics assay data to detect 96 phosphopeptide probes in 465 samples of 5 cell lines perturbed by 32 epigenetic compounds.  LINCS PCCSE - P100 data - epigenetic compounds.",
    "screen_path": "./ca_screenshot/ldg_1285_ilincs.png"
  },
@@ -269,7 +269,7 @@
    "tool_name": "iLINCS",
    "tool_logo_url": "http://lincsproject.org/LINCS/files/tools_logos/i-lincs.png",
    "tool_url": "http://eh3.uc.edu/GenomicsPortals/Lincs.jsp",
-   "canned_analysis_url": "http://www.ilincs.org/GenomicsPortals/DatasetLandingPage.do?data_set=LDG-1233",
+   "canned_analysis_url": "http://www.ilincs.org/ilincs/dataset/LDG-1233",
    "canned_analysis_description": "Interactive visualization of RNA-seq data from 378 samples of human cell lines, profiled to develop cellular signatures for drug-induced toxicity caused by FDA approved drugs and toxicity mitigation by coadministration of other drugs.  DToxS - RNA-seq gene expression (August 2015).",
    "screen_path": "./ca_screenshot/lds_1239_ilincs.png"
  },
@@ -284,7 +284,7 @@
    "tool_name": "iLINCS",
    "tool_logo_url": "http://lincsproject.org/LINCS/files/tools_logos/i-lincs.png",
    "tool_url": "http://eh3.uc.edu/GenomicsPortals/Lincs.jsp",
-   "canned_analysis_url": "http://www.ilincs.org/GenomicsPortals/DatasetLandingPage.do?data_set=LDG-1255",
+   "canned_analysis_url": "http://www.ilincs.org/ilincs/dataset/LDG-1255",
    "canned_analysis_description": "Interactive visualization of mass spectrometry-based proteomics assay data to detect 94 phosphopeptide probes in 373 samples of 2 cell lines perturbed by 32 kinase inhibitors.  LINCS PCCSE - kinase inhibitors.",
    "screen_path": "./ca_screenshot/ldg_1285_ilincs.png"
  },
@@ -299,7 +299,7 @@
    "tool_name": "iLINCS",
    "tool_logo_url": "http://lincsproject.org/LINCS/files/tools_logos/i-lincs.png",
    "tool_url": "http://eh3.uc.edu/GenomicsPortals/Lincs.jsp",
-   "canned_analysis_url": "http://www.ilincs.org/GenomicsPortals/DatasetLandingPage.do?data_set=LDG-1256",
+   "canned_analysis_url": "http://www.ilincs.org/ilincs/dataset/LDG-1256",
    "canned_analysis_description": "Interactive visualization of mass spectrometry-based proteomics assay data to detect 53 histone proteins in 287 samples of 3 cell lines perturbed by 32 kinase inhibitors.  LINCS PCCSE - GCP data - kinase inhibitors.",
    "screen_path": "./ca_screenshot/ldg_1284_ilincs.png"
  }
