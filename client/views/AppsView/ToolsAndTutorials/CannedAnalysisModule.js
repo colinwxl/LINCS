@@ -52,20 +52,20 @@ export default class CannedAnalysisModule extends Component {
   }
 
   _filterCannedAnalyses = (analyses) => {
-    const query = this.state.searchQuery;
-    if (query.length === 0) return analyses;
+    const queries = this.state.searchQuery.split(" ");
+    if (queries.length === 0) return analyses;
     return analyses.filter((analysis) => {
-      const descMatch = analysis.canned_analysis_description.toLowerCase().indexOf(query);
-      const titMatch = analysis.title.toLowerCase().indexOf(query);
-      const subtMatch = analysis.subtitle.toLowerCase().indexOf(query);
-      const toolMatch = analysis.tool_name.toLowerCase().indexOf(query)
-      const searchTermMatch = analysis.search_terms.join(", ").toLowerCase().indexOf(query)
+      let giantSearchString = (analysis.canned_analysis_description +
+      analysis.title +
+      analysis.subtitle +
+      analysis.tool_name +
+      analysis.search_terms)
+      .replace(/([\s\-.*+?^=!:${}()|\[\]\/\\])/g, "")
+      .toLowerCase();
 
-      return descMatch !== -1 ||
-             titMatch !== -1 ||
-             subtMatch !== -1 ||
-             toolMatch !== -1 ||
-             searchTermMatch !== -1;
+      return queries.every(element => {
+        return giantSearchString.indexOf(element) !== -1;
+      })
     });
   }
 
