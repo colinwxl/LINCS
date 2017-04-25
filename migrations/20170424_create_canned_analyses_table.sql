@@ -11,8 +11,8 @@ CREATE TABLE `canned_analyses` (
   `canned_analysis_url` varchar(255) NOT NULL,
   `canned_analysis_description` text NOT NULL,
   `metadata` varchar(255) DEFAULT NULL,
-  `count_click` int(10) DEFAULT 0,
+  `clicks` int(10) DEFAULT NULL,
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-)
+) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8;
