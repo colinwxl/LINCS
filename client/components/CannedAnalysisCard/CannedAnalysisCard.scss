@@ -20,7 +20,7 @@ $shadow: rgba(0, 0, 0, .1);
   text-decoration: none;
   vertical-align: top;
   padding: 1rem;
-  padding-bottom: 2rem;
+  padding-bottom: 3rem;
   height: auto;
   @media (min-width: 767px) {
     // height: auto;
@@ -30,7 +30,8 @@ $shadow: rgba(0, 0, 0, .1);
     height: 25rem;
   }
   @media (min-width: 1200px) {
-    height: 16rem;
+
+    height: 17rem;
   }
 }
 
@@ -54,7 +55,7 @@ $shadow: rgba(0, 0, 0, .1);
   overflow: hidden;
 }
 
-$title-line-height: 1.5rem;
+$title-line-height: 1.2rem;
 
 .ca-title {
   font-size: 1rem;
@@ -63,6 +64,7 @@ $title-line-height: 1.5rem;
   font-weight: 600;
   margin-top: 0.6rem;
   max-height: 2rem;
+  line-height: $title-line-height;
   position: relative;
   text-decoration: none !important;
   cursor: pointer;
@@ -73,6 +75,7 @@ $title-line-height: 1.5rem;
   &:hover {
     color: #2874b7;
   }
+  margin-top: 0.25rem;
   display: block;
   font-size: 0.75rem;
 }
@@ -90,6 +93,14 @@ $title-line-height: 1.5rem;
 }
 
 .ca-tool-name {
+  position: absolute;
+  bottom: 1.75rem;
+  left: 1rem;
+  font-size: 0.80rem;
+  color: $off-black;
+}
+
+.ca-clicks-date {
   position: absolute;
   bottom: 0.6rem;
   left: 1rem;

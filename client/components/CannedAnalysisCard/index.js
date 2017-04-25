@@ -103,6 +103,9 @@ export default class CannedAnalysisCard extends Component {
                 {ca.toolName}
               </a>
             </span>
+            <span className={styles['ca-clicks-date']}>
+              {ca.countClick} visits
+            </span>
             <i
               className={`fa fa-info-circle ${styles.tooltip}`}
               aria-hidden="true"
