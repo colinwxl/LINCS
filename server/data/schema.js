@@ -4,6 +4,23 @@
 
 /* eslint max-len:0 */
 export default {
+  canned_analyses: {
+    id: { type: 'increments', nullable: false, primary: true },
+    title: { type: 'string', maxlength: 255, nullable: false },
+    subtitle: { type: 'string', maxlength: 255, nullable: false },
+    grouping: { type: 'string', maxlength: 255, nullable: false },
+    subgrouping: { type: 'string', maxlength: 255, nullable: true },
+    dataset_accessions_list: { type: 'text', maxlength: 16777215, fieldtype: 'medium', nullable: false },
+    ca_image_url: { type: 'string', maxlength: 2000, nullable: false },
+    tool_name: { type: 'string', maxlength: 255, nullable: false },
+    tool_url: { type: 'string', maxlength: 255, nullable: false },
+    canned_analysis_url: { type: 'string', maxlength: 2000, nullable: false },
+    canned_analysis_description: { type: 'text', maxlength: 16777215, fieldtype: 'medium', nullable: true },
+    metadata: { type: 'text', maxlength: 2000, fieldtype: 'medium', nullable: true },
+    count_click: { type: 'integer', nullable: false, defaultTo: false },
+    created_at: { type: 'dateTime', nullable: false },
+    updated_at: { type: 'dateTime', nullable: true }
+  },
   centers: {
     id: { type: 'increments', nullable: false, primary: true },
     name: { type: 'string', maxlength: 255, nullable: false, unique: true },

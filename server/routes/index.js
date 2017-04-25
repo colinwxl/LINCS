@@ -1,6 +1,7 @@
 import Boom from 'boom';
 
 import announcements from './announcements';
+import cannedanalyses from './cannedanalyses';
 import centers from './centers';
 import ds from './datasets';
 import comm from './community';
@@ -13,7 +14,7 @@ import tw from './toolsWorkflows';
  * This function is called from main.js to bootstrap the API.
  */
 export default (app) => {
-  [announcements, centers, ds, comm, pn, health, twitter, tw].forEach(router => {
+  [announcements, cannedanalyses, centers, ds, comm, pn, health, twitter, tw].forEach(router => {
     /* eslint new-cap:0 */
     app
     .use(router.routes())
