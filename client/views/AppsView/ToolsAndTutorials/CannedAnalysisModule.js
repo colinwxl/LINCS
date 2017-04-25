@@ -1,26 +1,21 @@
 /* eslint-disable */
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router';
+import { connect } from 'react-redux';
 import Collapsible from 'react-collapsible';
+
+import { loadCannedAnalyses } from 'actions/cannedAnalyses';
 import CannedAnalysisCard from 'components/CannedAnalysisCard';
 import Carousel from 'components/carousel';
 import styles from '../AppsView.scss';
-import cannedAnalysisSeed from './canned_analysis_seed.json';
 import cannedAnalysisImage from 'static/files/canned_analysis.png';
 
-const generateUrlForDataset = (dataset) => {
-  const ldpBaseDatasetUrl = 'http://lincsportal.ccs.miami.edu/datasets/#/view/';
-  const hmsBaseDatasetUrl = 'http://lincs.hms.harvard.edu/db/datasets/';
-  let datasetUrl;
-  if (dataset.indexOf('HMS') === 0) {
-    datasetUrl = hmsBaseDatasetUrl + dataset.slice(4);
-  } else {
-    datasetUrl = ldpBaseDatasetUrl + dataset;
-  }
-  return datasetUrl;
-};
+const mapStateToProps = (state) => ({
+  analyses: state.cannedAnalyses.analyses,
+});
 
-export default class CannedAnalysisModule extends Component {
+class CannedAnalysisModule extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -30,6 +25,7 @@ export default class CannedAnalysisModule extends Component {
 
   componentWillMount() {
     this.updateDimensions();
+    this.props.loadCannedAnalyses();
   }
 
   componentDidMount() {
@@ -52,8 +48,10 @@ export default class CannedAnalysisModule extends Component {
   }
 
   _filterCannedAnalyses = (analyses) => {
+    if (analyses.length === 0) return [];
     const queries = this.state.searchQuery.split(" ");
     if (queries.length === 0) return analyses;
+
     return analyses.filter((analysis) => {
       let giantSearchString = (analysis.canned_analysis_description +
       analysis.title +
@@ -93,8 +91,9 @@ export default class CannedAnalysisModule extends Component {
   }
 
   render() {
-    const analyses = this._filterCannedAnalyses(cannedAnalysisSeed);
-    const groupedAnalyses = this._groupAnalyses(analyses);
+    const analyses = typeof this.props.analyses === 'undefined' ? [] : this.props.analyses;
+    const filtedAnalyses = this._filterCannedAnalyses(analyses);
+    const groupedAnalyses = this._groupAnalyses(filtedAnalyses);
     const groupKeys = Object.keys(groupedAnalyses);
     const numInCarousel = this.state.width >= 1200 ? 3 : 2;
 
@@ -146,11 +145,8 @@ export default class CannedAnalysisModule extends Component {
                   placeholder="Search"
                 />
               </div>
-              <div className="col-xs-12 col-md-12 col-xl-12">
-                <h5><strong>Imaging Analysis</strong></h5>
-              </div>
               {
-                groupKeys.length ? (
+                groupKeys && groupKeys.length ? (
                   <div>
                     {
                       groupKeys.map((group, idx) => {
@@ -173,7 +169,7 @@ export default class CannedAnalysisModule extends Component {
                                   grouping && grouping.map((carouselChildArr, idx2) => (
                                     <div key={idx2}>
                                       {
-                                        carouselChildArr.length && carouselChildArr.map((ca, idx3) => (
+                                        carouselChildArr && carouselChildArr.length && carouselChildArr.map((ca, idx3) => (
                                           <div key={idx3} className="col-xs-12 col-md-6 col-xl-4">
                                             <CannedAnalysisCard ca={ca} />
                                           </div>
@@ -203,3 +199,10 @@ export default class CannedAnalysisModule extends Component {
     );
   }
 }
+
+CannedAnalysisModule.propTypes = {
+  loadCannedAnalyses: PropTypes.func,
+  analyses: PropTypes.array,
+};
+
+export default connect(mapStateToProps, { loadCannedAnalyses })(CannedAnalysisModule);

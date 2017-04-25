@@ -21,7 +21,7 @@ export class AppsContainerModule extends Component {
     };
   }
 
-  componentDidMount() {
+  componentWillMount() {
     this.props.loadTools();
   }
 

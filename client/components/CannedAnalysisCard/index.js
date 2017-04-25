@@ -34,7 +34,7 @@ export default class CannedAnalysisCard extends Component {
     const ldpBaseDatasetUrl = 'http://lincsportal.ccs.miami.edu/datasets/#/view/';
     const hmsBaseDatasetUrl = 'http://lincs.hms.harvard.edu/db/datasets/';
     let datasetUrl;
-    if (dataset.indexOf('HMS') === 0) {
+    if (dataset.indexOf('HMS') !== -1) {
       datasetUrl = hmsBaseDatasetUrl + dataset.slice(4);
     } else {
       datasetUrl = ldpBaseDatasetUrl + dataset;
@@ -44,25 +44,26 @@ export default class CannedAnalysisCard extends Component {
 
   render() {
     const { ca } = this.props;
+    const datasets = ca.datasetAccessionsList.split(", ");
     return (
       <div className={styles.ca}>
         <div className={styles['ca-inner']}>
-          <a href={ca.canned_analysis_url} className={styles['ca-link']} target="_blank">
+          <a href={ca.cannedAnalysisUrl} className={styles['ca-link']} target="_blank">
             <img
-              src={ca.screen_path}
+              src={ca.caImageUrl}
               className={styles.thumbnail}
-              alt={ca.lca_accession}
+              alt={ca.title}
             />
           </a>
 
           <div className={styles['ca-details']}>
-            <a href={ca.canned_analysis_url} className={styles['ca-link']} target="_blank">
+            <a href={ca.cannedAnalysisUrl} className={styles['ca-link']} target="_blank">
               <label className={styles['ca-title']}>
                 {ca.title}
               </label>
               <span
                 data-tip="Information is not available at this time."
-                data-for={ca.canned_analysis_description}
+                data-for={ca.cannedAnalysisDescription}
               >
                 <span className={styles['ca-center']}>{ca.subtitle}</span>
               </span>
@@ -70,46 +71,46 @@ export default class CannedAnalysisCard extends Component {
 
             <div className={styles['ca-description']}>
               {
-                ca.canned_analysis_description.length > 185 && this.state.width >= 1200 ?
+                ca.cannedAnalysisDescription.length > 185 && this.state.width >= 1200 ?
                   <span
                   >
                     {
                       this.state.width >= 1200 ?
                       null
-                      : ca.canned_analysis_description.split(' ').slice(0, 35).join(' ')
+                      : ca.cannedAnalysisDescription.split(' ').slice(0, 35).join(' ')
                     }
                   </span>
-                  : <span>{ca.canned_analysis_description}</span>
+                  : <span>{ca.cannedAnalysisDescription}</span>
               }
 
               {
                 this.state.width >= 1200 ?
                   <ReactTooltip
-                    id={ca.canned_analysis_description}
+                    id={ca.cannedAnalysisDescription}
                     place="right"
                     type="dark"
                     effect="float"
                   >
                     <div style={{ maxWidth: '30rem' }}>
-                      {ca.canned_analysis_description}
+                      {ca.cannedAnalysisDescription}
                     </div>
                   </ReactTooltip>
                 : null
               }
             </div>
             <span className={styles['ca-tool-name']}>Analyzed with&nbsp;
-              <a href={ca.tool_url} className={styles['ca-link']} target="_blank">
-                {ca.tool_name}
+              <a href={ca.toolUrl} className={styles['ca-link']} target="_blank">
+                {ca.toolName}
               </a>
             </span>
             <i
               className={`fa fa-info-circle ${styles.tooltip}`}
               aria-hidden="true"
               data-tip="Information is not available at this time."
-              data-for={`${ca.datasets.join('_')}_ds`}
+              data-for={`${datasets.join('_')}_ds`}
             />
             <ReactTooltip
-              id={`${ca.datasets.join('_')}_ds`}
+              id={`${datasets.join('_')}_ds`}
               className={styles['tooltip-stay']}
               delayHide={1000}
               effect="solid"
@@ -118,10 +119,10 @@ export default class CannedAnalysisCard extends Component {
               effect="float"
             >
               <span className={styles['ds-title']}>
-                {ca.datasets.length > 1 ? "Datasets" : "Dataset" }
+                {datasets.length > 1 ? "Datasets" : "Dataset" }
               </span>
               {
-                ca.datasets.map(ds => (
+                datasets.map(ds => (
                   <a
                     href={this._generateUrlForDataset(ds)}
                     target="_blank"
