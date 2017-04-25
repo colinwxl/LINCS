@@ -78,22 +78,20 @@ class CannedAnalysisModule extends Component {
     return grouping;
   }
 
-  carouselChildInGroups(caList, childPerGroup) {
-    if (caList.length <= childPerGroup) {
-      return [caList];
-    }
-    const group = [];
-    for (let i = 0; i < caList.length; i += childPerGroup) {
-      group.push(caList.slice(i, i + childPerGroup));
-    }
-    return group;
-  }
-
   render() {
     const analyses = typeof this.props.analyses === 'undefined' ? [] : this.props.analyses;
     const filteredAnalyses = this._filterCannedAnalyses(analyses);
     const groupedAnalyses = this._groupAnalyses(filteredAnalyses);
     const groupKeys = Object.keys(groupedAnalyses);
+    let slideNum;
+
+    if (this.state.width >= 1200) {
+      slideNum = 3;
+    } else if (this.state.width >= 767) {
+      slideNum = 2;
+    } else {
+      slideNum = 1;
+    }
 
     return (
       <div className="row">
@@ -161,7 +159,7 @@ class CannedAnalysisModule extends Component {
                               </div>
                             </div>
                             <div className="col-xs-12 col-md-12 col-xl-12">
-                              <Carousel slidesToShow={3} slidesToScroll={3} infinite={false}>
+                              <Carousel slidesToShow={slideNum} slidesToScroll={slideNum} infinite={false}>
                                 {
                                   groupedAnalyses[group] && groupedAnalyses[group].map((ca, idx3) => (
                                     <div key={idx3} className="col-xs-12 col-md-6 col-xl-4">
