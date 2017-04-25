@@ -51,13 +51,12 @@ class CannedAnalysisModule extends Component {
     if (analyses.length === 0) return [];
     const queries = this.state.searchQuery.split(" ");
     if (queries.length === 0) return analyses;
-
     return analyses.filter((analysis) => {
-      let giantSearchString = (analysis.canned_analysis_description +
+      let giantSearchString = (analysis.cannedAnalysisDescription +
       analysis.title +
       analysis.subtitle +
-      analysis.tool_name +
-      analysis.search_terms)
+      analysis.toolName +
+      analysis.metadata)
       .replace(/([\s\-.*+?^=!:${}()|\[\]\/\\])/g, "")
       .toLowerCase();
 
