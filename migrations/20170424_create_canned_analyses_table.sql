@@ -5,6 +5,7 @@ CREATE TABLE `canned_analyses` (
   `grouping` varchar(255) NOT NULL,
   `subgrouping` varchar(255) DEFAULT NULL,
   `dataset_accessions_list` varchar(255) NOT NULL,
+  `ca_image_url` varchar(255) DEFAULT NULL,
   `tool_name` varchar(255) NOT NULL,
   `tool_url` int(10) DEFAULT NULL,
   `canned_analysis_url` varchar(255) NOT NULL,
