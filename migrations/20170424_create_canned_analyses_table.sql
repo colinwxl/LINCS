@@ -5,10 +5,13 @@ CREATE TABLE `canned_analyses` (
   `grouping` varchar(255) NOT NULL,
   `subgrouping` varchar(255) DEFAULT NULL,
   `dataset_accessions_list` varchar(255) NOT NULL,
-  `tool_name` int(10) NOT NULL,
-  `tool_url` int(10) NOT NULL,
+  `tool_name` varchar(255) NOT NULL,
+  `tool_url` int(10) DEFAULT NULL,
   `canned_analysis_url` varchar(255) NOT NULL,
-  `canned_analysis_description` varchar(255) NOT NULL,
+  `canned_analysis_description` text NOT NULL,
   `metadata` varchar(255) DEFAULT NULL,
+  `count_click` int(10) DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
 )
