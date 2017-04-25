@@ -49,7 +49,7 @@ export default class CannedAnalysisCard extends Component {
         <div className={styles['ca-inner']}>
           <a href={ca.canned_analysis_url} className={styles['ca-link']} target="_blank">
             <img
-              src={require(ca.screen_path)}
+              src={ca.screen_path}
               className={styles.thumbnail}
               alt={ca.lca_accession}
             />

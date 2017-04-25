@@ -9,7 +9,7 @@
     "tool_url": "http://www.grcalculator.org/grbrowser/",
     "canned_analysis_url": "http://www.grcalculator.org/grbrowser/?dataset=Broad-HMS_LINCS_Joint_Project",
     "canned_analysis_description": "The dose-dependent sensitivities of 6 nonmalignant breast and breast cancer cell lines were assayed by the HMS LINCS Center by measuring cell counts 72 hours after treatment with each of 107 small molecule perturbagens across a 6-point dose range.",
-    "screen_path": "./ca_screenshot/Broad-HMS_LINCS_Joint_Project.png"
+    "screen_path": "https://amp.pharm.mssm.edu/LINCS/files/ca_screenshot/Broad-HMS_LINCS_Joint_Project.png"
   },
   {
     "datasets": ["HMS-20278", "HMS-20279", "HMS-20280", "HMS-20281", "HMS-20282", "HMS-20283", "HMS-20284", "HMS-20285", "HMS-20286"],
@@ -21,7 +21,7 @@
     "tool_url": "http://www.grcalculator.org/grbrowser/",
     "canned_analysis_url": "http://www.grcalculator.org/grbrowser/?dataset=LINCS_MCF_10A_Common_Project",
     "canned_analysis_description": "The dose-dependent sensitivities of three independent batches and one derivative of the nonmalignant breast cell line MCF 10A were assayed independently by five of the LINCS DSGCs by measuring cell counts using imaging or by estimating cell proliferation using the CellTiter-Glo® assay 72 hours after treatment with each of 8 small molecule perturbagens across a 9-point dose range.",
-    "screen_path": "./ca_screenshot/LINCS_MCF_10A_Common_Project.png"
+    "screen_path": "https://amp.pharm.mssm.edu/LINCS/files/ca_screenshot/LINCS_MCF_10A_Common_Project.png"
   },
   {
     "datasets": ["LDG-1252" ,"LDG-1253" ,"LDG-1254"],
@@ -33,7 +33,7 @@
     "tool_url": "http://www.grcalculator.org/grbrowser/",
     "canned_analysis_url": "http://www.grcalculator.org/grbrowser/?dataset=HMS_LINCS_Seeding_Density_Project",
     "canned_analysis_description": "The density- and context-dependent sensitivities of 6 breast cancer cell lines plated at 6 different cell densities were assayed by the HMS LINCS Center by measuring cell counts using imaging 72 hours after treatment with each of 12 small molecule inhibitors across a 9-point dose range.",
-    "screen_path": "./ca_screenshot/HMS_LINCS_Seeding_Density_Project.png"
+    "screen_path": "https://amp.pharm.mssm.edu/LINCS/files/ca_screenshot/HMS_LINCS_Seeding_Density_Project.png"
   },
   {
     "datasets": ["HMS-20268", "HMS-20269", "HMS-20270", "HMS-20271"],
@@ -46,7 +46,7 @@
     "tool_url": "http://www.grcalculator.org/grbrowser/",
     "canned_analysis_url": "http://www.grcalculator.org/grbrowser/?dataset=MEP-HMS_LINCS_Joint_Project",
     "canned_analysis_description": "The dose-dependent sensitivities of 73 nonmalignant breast and breast cancer cell lines were assayed by the MEP LINCS Center by estimating proliferation using the CellTiter-Glo® assay 72 hours after treatment with each of 139 small molecule and antibody perturbagens across a 9-point dose range. Analysis of a subset of these data using traditional growth inhibition metrics (GI50) was previously described in Heiser et al. (2012) (PMID: 22003129) and Daemen et al. (2013) (PMID: 24176112). Here, the complete dataset was reanalyzed by the HMS LINCS Center using GR metrics to account for differences in growth rates across the cell lines and treatment conditions.",
-    "screen_path": "./ca_screenshot/MEP-HMS_LINCS_Joint_Project.png"
+    "screen_path": "https://amp.pharm.mssm.edu/LINCS/files/ca_screenshot/MEP-HMS_LINCS_Joint_Project.png"
   },
   {
     "datasets": ["LDS-1240"],
@@ -61,7 +61,7 @@
     "tool_url": "https://www.synapse.org/#!Synapse:syn2862345/wiki/231720",
     "canned_analysis_url": "https://www.synapse.org/#!Synapse:syn5706745",
     "canned_analysis_description": "Analysis of cell cycle and nuclear state imaging data from PC3 (prostate cancer) cell lines treated with ligands and ECM proteins (Staining Set 2), profiled to explore the role of microenvironment in cancer growth.",
-    "screen_path": "./ca_screenshot/lds_1240_lde.png"
+    "screen_path": "https://amp.pharm.mssm.edu/LINCS/files/ca_screenshot/lds_1240_lde.png"
   },
   {
     "datasets": ["LDS-1299"],
@@ -76,7 +76,7 @@
     "tool_url": "https://www.synapse.org/#!Synapse:syn2862345/wiki/231720",
     "canned_analysis_url": "https://www.synapse.org/#!Synapse:syn5706725",
     "canned_analysis_description": "Analysis of cell cycle and nuclear state imaging data from MCF7 (breast cancer) cell lines treated with ligands and ECM proteins (Staining Set 1), profiled to explore the role of microenvironment in cancer growth.",
-    "screen_path": "./ca_screenshot/lds_1299_lde.png"
+    "screen_path": "https://amp.pharm.mssm.edu/LINCS/files/ca_screenshot/lds_1299_lde.png"
   },
   {
     "datasets": ["LDS-1303"],
@@ -91,7 +91,7 @@
     "tool_url": "https://www.synapse.org/#!Synapse:syn2862345/wiki/231720",
     "canned_analysis_url": "https://www.synapse.org/#!Synapse:syn5706727",
     "canned_analysis_description": "Analysis of cell cycle and nuclear state imaging data from MCF7 (breast cancer) cell lines treated with ligands and ECM proteins (Staining Set 2), profiled to explore the role of microenvironment in cancer growth.",
-    "screen_path": "./ca_screenshot/lds_1303_lde.png"
+    "screen_path": "https://amp.pharm.mssm.edu/LINCS/files/ca_screenshot/lds_1303_lde.png"
   },
   {
     "datasets": ["LDS-1307"],
@@ -106,7 +106,7 @@
     "tool_url": "https://www.synapse.org/#!Synapse:syn2862345/wiki/231720",
     "canned_analysis_url": "https://www.synapse.org/#!Synapse:syn5706729",
     "canned_analysis_description": "Analysis of cell cycle and nuclear state imaging data from MCF7 (breast cancer) cell lines treated with ligands and ECM proteins (Staining Set 3), profiled to explore the role of microenvironment in cancer growth.",
-    "screen_path": "./ca_screenshot/lds_1307_lde.png"
+    "screen_path": "https://amp.pharm.mssm.edu/LINCS/files/ca_screenshot/lds_1307_lde.png"
   },
   {
     "datasets": ["LDS-1311"],
@@ -121,7 +121,7 @@
     "tool_url": "https://www.synapse.org/#!Synapse:syn2862345/wiki/231720",
     "canned_analysis_url": "https://www.synapse.org/#!Synapse:syn5706712",
     "canned_analysis_description": "Analysis of cell cycle and nuclear state imaging data from PC3 (prostate cancer) cell lines treated with ligands and ECM proteins (Staining Set 1), profiled to explore the role of microenvironment in cancer growth.",
-    "screen_path": "./ca_screenshot/lds_1311_lde.png"
+    "screen_path": "https://amp.pharm.mssm.edu/LINCS/files/ca_screenshot/lds_1311_lde.png"
   },
   {
     "datasets": ["LDS-1319"],
@@ -136,7 +136,7 @@
     "tool_url": "https://www.synapse.org/#!Synapse:syn2862345/wiki/231720",
     "canned_analysis_url": "https://www.synapse.org/#!Synapse:syn5706747",
     "canned_analysis_description": "Analysis of cell cycle and nuclear state imaging data from PC3 (prostate cancer) cell lines treated with ligands and ECM proteins (Staining Set 2, no H3), profiled to explore the role of microenvironment in cancer growth.",
-    "screen_path": "./ca_screenshot/lds_1319_lde.png"
+    "screen_path": "https://amp.pharm.mssm.edu/LINCS/files/ca_screenshot/lds_1319_lde.png"
   },
   {
     "datasets": ["LDS-1323"],
@@ -151,7 +151,7 @@
     "tool_url": "https://www.synapse.org/#!Synapse:syn2862345/wiki/231720",
     "canned_analysis_url": "https://www.synapse.org/#!Synapse:syn5706749",
     "canned_analysis_description": "Analysis of cell cycle and nuclear state imaging data from PC3 (prostate cancer) cell lines treated with ligands and ECM proteins (Staining Set 3), profiled to explore the role of microenvironment in cancer growth.",
-    "screen_path": "./ca_screenshot/lds_1323_lde.png"
+    "screen_path": "https://amp.pharm.mssm.edu/LINCS/files/ca_screenshot/lds_1323_lde.png"
   },
   {
     "datasets": ["LDS-1327"],
@@ -166,7 +166,7 @@
     "tool_url": "https://www.synapse.org/#!Synapse:syn2862345/wiki/231720",
     "canned_analysis_url": "https://www.synapse.org/#!Synapse:syn5706751",
     "canned_analysis_description": "Analysis of cell cycle and nuclear state imaging data from YAPC (pancreas carcinoma) cell lines treated with ligands and ECM proteins (Staining Set 1), profiled to explore the role of microenvironment in cancer growth.",
-    "screen_path": "./ca_screenshot/lds_1327_lde.png"
+    "screen_path": "https://amp.pharm.mssm.edu/LINCS/files/ca_screenshot/lds_1327_lde.png"
   },
   {
     "datasets": ["LDS-1331"],
@@ -181,7 +181,7 @@
     "tool_url": "https://www.synapse.org/#!Synapse:syn2862345/wiki/231720",
     "canned_analysis_url": "https://www.synapse.org/#!Synapse:syn5711121",
     "canned_analysis_description": "Analysis of cell cycle and nuclear state imaging data from YAPC (pancreas carcinoma) cell lines treated with ligands and ECM proteins (Staining Set 2), profiled to explore the role of microenvironment in cancer growth.",
-    "screen_path": "./ca_screenshot/lds_1331_lde.png"
+    "screen_path": "https://amp.pharm.mssm.edu/LINCS/files/ca_screenshot/lds_1331_lde.png"
   },
   {
     "datasets": ["LDS-1335"],
@@ -196,7 +196,7 @@
     "tool_url": "https://www.synapse.org/#!Synapse:syn2862345/wiki/231720",
     "canned_analysis_url": "https://www.synapse.org/#!Synapse:syn5706755",
     "canned_analysis_description": "Analysis of cell cycle and nuclear state imaging data from YAPC (pancreas carcinoma) cell lines treated with ligands and ECM proteins (Staining Set 3), profiled to explore the role of microenvironment in cancer growth.",
-    "screen_path": "./ca_screenshot/lds_1335_lde.png"
+    "screen_path": "https://amp.pharm.mssm.edu/LINCS/files/ca_screenshot/lds_1335_lde.png"
   },
   {
    "datasets": ["LDS-1196"],
@@ -211,7 +211,7 @@
    "tool_url": "http://eh3.uc.edu/GenomicsPortals/Lincs.jsp",
    "canned_analysis_url": "http://www.ilincs.org/ilincs/dataset/LDG-1193",
    "canned_analysis_description": "Interactive visualization of mass spectrometry-based proteomics assay data to detect 90 phosphopeptide probes in 141 samples from 3 cell lines across ~45 perturbations.  LINCS PCCSE - P100 validation set.",
-   "screen_path": "./ca_screenshot/lds_1196_ilincs.png"
+   "screen_path": "https://amp.pharm.mssm.edu/LINCS/files/ca_screenshot/lds_1196_ilincs.png"
  },
  {
    "datasets": ["LDS-1356"],
@@ -226,7 +226,7 @@
    "tool_url": "http://eh3.uc.edu/GenomicsPortals/Lincs.jsp",
    "canned_analysis_url": "http://www.ilincs.org/ilincs/dataset/LDG-1232",
    "canned_analysis_description": "Interactive visualization of RNA-seq data from 35 human brain cell type samples, profiled to develop a network of cell signatures relevant to Amyotrophic Lateral Sclerosis (ALS) and Spinal Muscular Atrophy (SMA).  NeuroLINCS - RNA-seq gene expression (August 2015).",
-   "screen_path": "./ca_screenshot/lds_1356_ilincs.png"
+   "screen_path": "https://amp.pharm.mssm.edu/LINCS/files/ca_screenshot/lds_1356_ilincs.png"
  },
  {
    "datasets": ["LDS-1237"],
@@ -241,7 +241,7 @@
    "tool_url": "http://eh3.uc.edu/GenomicsPortals/Lincs.jsp",
    "canned_analysis_url": "http://www.ilincs.org/ilincs/dataset/LDG-1231",
    "canned_analysis_description": "Interactive visualization of RNA-seq data from 183 samples of human cell lines, profiled to develop cellular signatures for drug-induced toxicity caused by FDA approved drugs and toxicity mitigation by coadministration of other drugs.  DToxS - RNA-seq gene expression (May 2015).",
-   "screen_path": "./ca_screenshot/lds_1237_ilincs.png"
+   "screen_path": "https://amp.pharm.mssm.edu/LINCS/files/ca_screenshot/lds_1237_ilincs.png"
  },
  {
    "datasets": ["LDG-1285"],
@@ -256,7 +256,7 @@
    "tool_url": "http://eh3.uc.edu/GenomicsPortals/Lincs.jsp",
    "canned_analysis_url": "http://www.ilincs.org/ilincs/dataset/LDG-1228",
    "canned_analysis_description": "Interactive visualization of mass spectrometry-based proteomics assay data to detect 96 phosphopeptide probes in 465 samples of 5 cell lines perturbed by 32 epigenetic compounds.  LINCS PCCSE - P100 data - epigenetic compounds.",
-   "screen_path": "./ca_screenshot/ldg_1285_ilincs.png"
+   "screen_path": "https://amp.pharm.mssm.edu/LINCS/files/ca_screenshot/ldg_1285_ilincs.png"
  },
  {
    "datasets": ["LDS-1239"],
@@ -271,7 +271,7 @@
    "tool_url": "http://eh3.uc.edu/GenomicsPortals/Lincs.jsp",
    "canned_analysis_url": "http://www.ilincs.org/ilincs/dataset/LDG-1233",
    "canned_analysis_description": "Interactive visualization of RNA-seq data from 378 samples of human cell lines, profiled to develop cellular signatures for drug-induced toxicity caused by FDA approved drugs and toxicity mitigation by coadministration of other drugs.  DToxS - RNA-seq gene expression (August 2015).",
-   "screen_path": "./ca_screenshot/lds_1239_ilincs.png"
+   "screen_path": "https://amp.pharm.mssm.edu/LINCS/files/ca_screenshot/lds_1239_ilincs.png"
  },
  {
    "datasets": ["LDG-1285"],
@@ -286,7 +286,7 @@
    "tool_url": "http://eh3.uc.edu/GenomicsPortals/Lincs.jsp",
    "canned_analysis_url": "http://www.ilincs.org/ilincs/dataset/LDG-1255",
    "canned_analysis_description": "Interactive visualization of mass spectrometry-based proteomics assay data to detect 94 phosphopeptide probes in 373 samples of 2 cell lines perturbed by 32 kinase inhibitors.  LINCS PCCSE - kinase inhibitors.",
-   "screen_path": "./ca_screenshot/ldg_1285_ilincs.png"
+   "screen_path": "https://amp.pharm.mssm.edu/LINCS/files/ca_screenshot/ldg_1285_ilincs.png"
  },
  {
    "datasets": ["LDG-1284"],
@@ -301,6 +301,6 @@
    "tool_url": "http://eh3.uc.edu/GenomicsPortals/Lincs.jsp",
    "canned_analysis_url": "http://www.ilincs.org/ilincs/dataset/LDG-1256",
    "canned_analysis_description": "Interactive visualization of mass spectrometry-based proteomics assay data to detect 53 histone proteins in 287 samples of 3 cell lines perturbed by 32 kinase inhibitors.  LINCS PCCSE - GCP data - kinase inhibitors.",
-   "screen_path": "./ca_screenshot/ldg_1284_ilincs.png"
+   "screen_path": "https://amp.pharm.mssm.edu/LINCS/files/ca_screenshot/ldg_1284_ilincs.png"
  }
 ]
