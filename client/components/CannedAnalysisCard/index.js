@@ -119,7 +119,7 @@ export default class CannedAnalysisCard extends Component {
               </a>
             </span>
             <span className={styles['ca-clicks-date']}>
-              {ca.clicks} {ca.clicks === 1 ? "visit" : "visits"} &#8226; Created on {formatDate(ca.createdAt)}
+              {ca.clicks} {ca.clicks === 1 ? "visit" : "visits"} &#8226; Posted on {formatDate(ca.createdAt)}
 
             </span>
             <i
