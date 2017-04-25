@@ -2,6 +2,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import ReactTooltip from 'react-tooltip';
+import formatDate from 'utils/formatDate';
 
 import styles from './CannedAnalysisCard.scss';
 
@@ -118,7 +119,8 @@ export default class CannedAnalysisCard extends Component {
               </a>
             </span>
             <span className={styles['ca-clicks-date']}>
-              {ca.clicks} {ca.clicks === 1 ? "visit" : "visits"}
+              {ca.clicks} {ca.clicks === 1 ? "visit" : "visits"} &#8226; Created on {formatDate(ca.createdAt)}
+
             </span>
             <i
               className={`fa fa-info-circle ${styles.tooltip}`}
