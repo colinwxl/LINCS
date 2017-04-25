@@ -4,6 +4,47 @@ import handleResponse from 'utils/handleResponse';
 export const CANNED_ANALYSES_REQUEST = 'CANNED_ANALYSES_REQUEST';
 export const CANNED_ANALYSES_SUCCESS = 'CANNED_ANALYSES_SUCCESS';
 export const CANNED_ANALYSES_FAILURE = 'CANNED_ANALYSES_FAILURE';
+export const CANNED_ANALYSIS_CLICK_INCREMENT_REQUEST = 'CANNED_ANALYSIS_CLICK_INCREMENT_REQUEST';
+export const CANNED_ANALYSIS_CLICK_INCREMENT_SUCCESS = 'CANNED_ANALYSIS_CLICK_INCREMENT_SUCCESS';
+export const CANNED_ANALYSIS_CLICK_INCREMENT_FAILURE = 'CANNED_ANALYSIS_CLICK_INCREMENT_FAILURE';
+
+export function cannedAnalysisIncrementClickRequest() {
+  return { type: CANNED_ANALYSIS_CLICK_INCREMENT_REQUEST };
+}
+
+export function cannedAnalysisIncrementClickSuccess(payload) {
+  return { type: CANNED_ANALYSIS_CLICK_INCREMENT_SUCCESS, payload };
+}
+
+export function cannedAnalysisIncrementClickFailure(payload) {
+  return { type: CANNED_ANALYSIS_CLICK_INCREMENT_FAILURE, payload };
+}
+
+export function cannedAnalysisIncrementClick(cannedAnalysesIds = []) {
+  return (dispatch) => {
+    if (!cannedAnalysesIds.length) {
+      //  || process.env.NODE_ENV !== 'production'
+      return null;
+    }
+
+    dispatch(cannedAnalysisIncrementClickRequest());
+    return fetch('/LINCS/api/v1/cannedanalyses/clicks/increment', {
+      method: 'POST',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ cannedAnalysesIds }),
+    })
+      .then(response => handleResponse(response))
+      .then(response => response.json())
+      // Tool's click was incremented successfully, dispatch a success action.
+      .then(payload => dispatch(cannedAnalysisIncrementClickSuccess(payload)))
+      // Tool's click was not incremented successfully, dispatch a failure action.
+      .catch(error => dispatch(cannedAnalysisIncrementClickFailure(error)));
+  };
+}
+
 
 /**
  * This redux action creator that is sent out by loadCannedAnalyses() once a request
@@ -62,7 +103,7 @@ export function loadCannedAnalyses() {
       return null;
     }
 
-    // Dispatch a redux action to let the app know that we are requesting tools.
+    // Dispatch a redux action to let the app know that we are requesting cannedAnalysiss.
     dispatch(cannedAnalysesRequest());
     return fetch('/LINCS/api/v1/cannedanalyses')
       .then(response => handleResponse(response))

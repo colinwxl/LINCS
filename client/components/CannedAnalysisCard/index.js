@@ -42,13 +42,22 @@ export default class CannedAnalysisCard extends Component {
     return datasetUrl;
   }
 
+  _incrementClick = (id) => {
+    this.props.incrementClick([id]);
+  }
+
   render() {
     const { ca } = this.props;
     const datasets = ca.datasetAccessionsList.split(", ");
     return (
       <div className={styles.ca}>
         <div className={styles['ca-inner']}>
-          <a href={ca.cannedAnalysisUrl} className={styles['ca-link']} target="_blank">
+          <a
+            href={ca.cannedAnalysisUrl}
+            onClick={() => this._incrementClick(ca.id)}
+            className={styles['ca-link']}
+            target="_blank"
+          >
             <img
               src={ca.caImageUrl}
               className={styles.thumbnail}
@@ -57,7 +66,12 @@ export default class CannedAnalysisCard extends Component {
           </a>
 
           <div className={styles['ca-details']}>
-            <a href={ca.cannedAnalysisUrl} className={styles['ca-link']} target="_blank">
+            <a
+              href={ca.cannedAnalysisUrl}
+              onClick={() => this._incrementClick(ca.id)}
+              className={styles['ca-link']}
+              target="_blank"
+            >
               <label className={styles['ca-title']}>
                 {ca.title}
               </label>
@@ -104,7 +118,7 @@ export default class CannedAnalysisCard extends Component {
               </a>
             </span>
             <span className={styles['ca-clicks-date']}>
-              {ca.countClick} visits
+              {ca.clicks} {ca.clicks === 1 ? "visit" : "visits"}
             </span>
             <i
               className={`fa fa-info-circle ${styles.tooltip}`}
@@ -144,7 +158,7 @@ export default class CannedAnalysisCard extends Component {
   }
 }
 
-
 CannedAnalysisCard.propTypes = {
+  incrementClick: PropTypes.func,
   ca: PropTypes.object,
 };

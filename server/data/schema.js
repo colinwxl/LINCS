@@ -17,7 +17,7 @@ export default {
     canned_analysis_url: { type: 'string', maxlength: 2000, nullable: false },
     canned_analysis_description: { type: 'text', maxlength: 16777215, fieldtype: 'medium', nullable: true },
     metadata: { type: 'text', maxlength: 2000, fieldtype: 'medium', nullable: true },
-    count_click: { type: 'integer', nullable: false, defaultTo: false },
+    clicks: { type: 'integer', nullable: false, defaultTo: 0 },
     created_at: { type: 'dateTime', nullable: false },
     updated_at: { type: 'dateTime', nullable: true }
   },

@@ -5,7 +5,7 @@ import { Link } from 'react-router';
 import { connect } from 'react-redux';
 import Collapsible from 'react-collapsible';
 
-import { loadCannedAnalyses } from 'actions/cannedAnalyses';
+import { loadCannedAnalyses, cannedAnalysisIncrementClick } from 'actions/cannedAnalyses';
 import CannedAnalysisCard from 'components/CannedAnalysisCard';
 import Carousel from 'components/carousel';
 import styles from '../AppsView.scss';
@@ -170,7 +170,10 @@ class CannedAnalysisModule extends Component {
                                       {
                                         carouselChildArr && carouselChildArr.length && carouselChildArr.map((ca, idx3) => (
                                           <div key={idx3} className="col-xs-12 col-md-6 col-xl-4">
-                                            <CannedAnalysisCard ca={ca} />
+                                            <CannedAnalysisCard
+                                              incrementClick={this.props.cannedAnalysisIncrementClick}
+                                              ca={ca}
+                                            />
                                           </div>
                                         ))
                                       }
@@ -200,8 +203,13 @@ class CannedAnalysisModule extends Component {
 }
 
 CannedAnalysisModule.propTypes = {
+  cannedAnalysisIncrementClick: PropTypes.func,
   loadCannedAnalyses: PropTypes.func,
   analyses: PropTypes.array,
 };
 
-export default connect(mapStateToProps, { loadCannedAnalyses })(CannedAnalysisModule);
+export default connect(mapStateToProps,
+  {
+    loadCannedAnalyses,
+    cannedAnalysisIncrementClick
+  })(CannedAnalysisModule);
