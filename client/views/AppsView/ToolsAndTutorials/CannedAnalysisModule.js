@@ -91,10 +91,9 @@ class CannedAnalysisModule extends Component {
 
   render() {
     const analyses = typeof this.props.analyses === 'undefined' ? [] : this.props.analyses;
-    const filtedAnalyses = this._filterCannedAnalyses(analyses);
-    const groupedAnalyses = this._groupAnalyses(filtedAnalyses);
+    const filteredAnalyses = this._filterCannedAnalyses(analyses);
+    const groupedAnalyses = this._groupAnalyses(filteredAnalyses);
     const groupKeys = Object.keys(groupedAnalyses);
-    const numInCarousel = this.state.width >= 1200 ? 3 : 2;
 
     return (
       <div className="row">
@@ -149,7 +148,6 @@ class CannedAnalysisModule extends Component {
                   <div>
                     {
                       groupKeys.map((group, idx) => {
-                        const grouping = this.carouselChildInGroups(groupedAnalyses[group], numInCarousel);
                         return (
                           <div key={idx} className="row">
                             <div className="col-xs-12 col-md-12 col-xl-12">
@@ -163,20 +161,14 @@ class CannedAnalysisModule extends Component {
                               </div>
                             </div>
                             <div className="col-xs-12 col-md-12 col-xl-12">
-                              <Carousel infinite={false}>
+                              <Carousel slidesToShow={3} slidesToScroll={3} infinite={false}>
                                 {
-                                  grouping && grouping.map((carouselChildArr, idx2) => (
-                                    <div key={idx2}>
-                                      {
-                                        carouselChildArr && carouselChildArr.length && carouselChildArr.map((ca, idx3) => (
-                                          <div key={idx3} className="col-xs-12 col-md-6 col-xl-4">
-                                            <CannedAnalysisCard
-                                              incrementClick={this.props.cannedAnalysisIncrementClick}
-                                              ca={ca}
-                                            />
-                                          </div>
-                                        ))
-                                      }
+                                  groupedAnalyses[group] && groupedAnalyses[group].map((ca, idx3) => (
+                                    <div key={idx3} className="col-xs-12 col-md-6 col-xl-4">
+                                      <CannedAnalysisCard
+                                        incrementClick={this.props.cannedAnalysisIncrementClick}
+                                        ca={ca}
+                                      />
                                     </div>
                                   ))
                                 }
