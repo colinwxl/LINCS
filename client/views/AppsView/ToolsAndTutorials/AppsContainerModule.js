@@ -17,7 +17,7 @@ export class AppsContainerModule extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      marketAnalTutSelection: 'market',
+      marketAnalTutSelection: this.props.initialTab || 'market',
     };
   }
 
@@ -119,6 +119,7 @@ AppsContainerModule.propTypes = {
   loadTools: PropTypes.func,
   tools: PropTypes.array,
   initialCenter: PropTypes.string,
+  initialTab: PropTypes.string,
 };
 
 export default connect(mapStateToProps, { loadTools })(AppsContainerModule);

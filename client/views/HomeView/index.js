@@ -118,35 +118,47 @@ export class HomeView extends Component {
                     </p>
 
                     <div className={`${styles['datatype-links-container']}`}>
-                      <div className={`${styles['datatype-link']}`}>
-                        <a href="http://lincsportal.ccs.miami.edu/dcic-portal/" target="_blank">
-                          <img
-                            src="/LINCS/files/datatype_logos/dataset-logo.png"
-                            className={`${styles['datatype-logo']}`}
-                            alt="presentation"
-                          />
-                          <h5 className={`${styles['datatype-title']}`}>Datasets</h5>
-                        </a>
-                      </div>
-                      <div className={`${styles['datatype-link']}`}>
-                        <a href="http://lincsportal.ccs.miami.edu/SmallMolecules/" target="_blank">
-                          <img
-                            src="/LINCS/files/datatype_logos/small-molecule-logo.png"
-                            className={`${styles['datatype-logo']}`}
-                            alt="presentation"
-                          />
-                          <h5 className={`${styles['datatype-title']}`}>Small Molecules</h5>
-                        </a>
-                      </div>
-                      <div className={`${styles['datatype-link']}`}>
-                        <a href="http://lincsportal.ccs.miami.edu/cells/" target="_blank">
-                          <img
-                            src="/LINCS/files/datatype_logos/cellline-logo.png"
-                            className={`${styles['datatype-logo']}`}
-                            alt="presentation"
-                          />
-                          <h5 className={`${styles['datatype-title']}`}>Cells</h5>
-                        </a>
+                      <div className="row">
+                        <div className={`col-xs-3 col-sm-3 col-md-3 ${styles['datatype-link']}`}>
+                          <a href="http://lincsportal.ccs.miami.edu/dcic-portal/" target="_blank">
+                            <img
+                              src="/LINCS/files/datatype_logos/dataset-logo.png"
+                              className={`${styles['datatype-logo']}`}
+                              alt="presentation"
+                            />
+                            <h5 className={`${styles['datatype-title']}`}>Datasets</h5>
+                          </a>
+                        </div>
+                        <div className={`col-xs-3 col-sm-3 col-md-3 ${styles['datatype-link']}`}>
+                          <a href="http://lincsportal.ccs.miami.edu/SmallMolecules/" target="_blank">
+                            <img
+                              src="/LINCS/files/datatype_logos/small-molecule-logo.png"
+                              className={`${styles['datatype-logo']}`}
+                              alt="presentation"
+                            />
+                            <h5 className={`${styles['datatype-title']}`}>Small Molecules</h5>
+                          </a>
+                        </div>
+                        <div className={`col-xs-3 col-sm-3 col-md-3 ${styles['datatype-link']}`}>
+                          <a href="http://lincsportal.ccs.miami.edu/cells/" target="_blank">
+                            <img
+                              src="/LINCS/files/datatype_logos/cellline-logo.png"
+                              className={`${styles['datatype-logo']}`}
+                              alt="presentation"
+                            />
+                            <h5 className={`${styles['datatype-title']}`}>Cells</h5>
+                          </a>
+                        </div>
+                        <div className={`col-xs-3 col-sm-3 col-md-3 ${styles['datatype-link']}`}>
+                          <Link to={{ pathname: "/tools", query: { initialTab: 'anal' } }}>
+                            <img
+                              src="/LINCS/files/datatype_logos/canned-analyses-logo.png"
+                              className={`${styles['datatype-logo']}`}
+                              alt="presentation"
+                            />
+                            <h5 className={`${styles['datatype-title']}`}>Canned Analyses</h5>
+                          </Link>
+                        </div>
                       </div>
                     </div>
                   </div>

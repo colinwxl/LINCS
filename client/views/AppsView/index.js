@@ -16,7 +16,10 @@ export default function AppsView(props) {
         <div className="row">
           <div className="col-xs-12">
             <WorkflowsModule />
-            <AppsContainerModule initialCenter={props.location.state} />
+            <AppsContainerModule
+              initialTab={props.location.query.initialTab}
+              initialCenter={props.location.state}
+            />
           </div>
         </div>
       </div>
