@@ -150,7 +150,7 @@ export class HomeView extends Component {
                           </a>
                         </div>
                         <div className={`col-xs-3 col-sm-3 col-md-3 ${styles['datatype-link']}`}>
-                          <Link to={{ pathname: "/tools", query: { initialTab: 'anal' } }}>
+                          <Link to={{ pathname: '/tools', query: { initialTab: 'anal' } }}>
                             <img
                               src="/LINCS/files/datatype_logos/canned-analyses-logo.png"
                               className={`${styles['datatype-logo']}`}
