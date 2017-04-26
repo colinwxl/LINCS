@@ -49,7 +49,9 @@ class CannedAnalysisModule extends Component {
 
   _filterCannedAnalyses = (analyses) => {
     if (analyses.length === 0) return [];
-    const queries = this.state.searchQuery.split(" ");
+    const queries = this.state.searchQuery
+      .replace(/([\s\-.*+?^=!:${}()|\[\]\/\\])/g, " ")
+      .split(" ");
     if (queries.length === 0) return analyses;
     return analyses.filter((analysis) => {
       let giantSearchString = (analysis.cannedAnalysisDescription +
