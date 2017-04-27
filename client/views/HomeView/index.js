@@ -156,12 +156,16 @@ export class HomeView extends Component {
                     </div>
                   </div>
                   <div className={`col-xs-12 col-md-6 ${styles.am}`}>
-                    <h3 className={styles.title}>Featured LINCS Canned Analysis</h3>
-                    <div>
-                      {
-                        !this.props.isFetching && <HomeCACard ca={randCA} />
-                      }
-                    </div>
+                    {
+                      !this.props.isFetching && (
+                        <div>
+                          <h3 className={styles.title}>Featured LINCS Canned Analysis</h3>
+                          <h5 className={styles['ca-grouping']}>{randCA.grouping}</h5>
+                          <HomeCACard ca={randCA} />
+                        </div>
+                      )
+                    }
+
                     {/* <h3 className={styles.title}>Featured Events</h3>
                     <div className={styles['carousel-pad']}>
                       <Carousel autoplay infinite aps={8000}>
