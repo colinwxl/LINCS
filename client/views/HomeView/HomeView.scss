@@ -249,7 +249,7 @@ $about-background: $purple;
 }
 
 .title {
-  margin-bottom: 1.5rem;
+  // margin-bottom: 1.5rem;
   font-weight: 400;
   text-align: center;
 
@@ -509,4 +509,8 @@ $twitter-blue: #eceeef;
   margin-left: 1rem;
   max-width: 100%;
   width: auto;
+}
+
+.ca-grouping {
+  text-align: center;
 }

@@ -50,6 +50,7 @@ export class HomeView extends Component {
 
   render() {
     const ca = this.props.ca || [];
+    const randCA = ca[Math.floor(Math.random() * ca.length)];
     const pubs = this.props.publications
       .filter(pub => !!pub.showAtHomeOrder)
       .sort((a, b) => {
@@ -57,7 +58,6 @@ export class HomeView extends Component {
         return result ? 1 : -1;
       });
     const tools = this.shuffleList(this.props.tools).slice(0, 6);
-    const randCA = ca[Math.floor(Math.random() * ca.length)];
     return (
       <div className={styles.wrapper}>
       {/* Banner
@@ -156,12 +156,16 @@ export class HomeView extends Component {
                     </div>
                   </div>
                   <div className={`col-xs-12 col-md-6 ${styles.am}`}>
-                    <h3 className={styles.title}>Featured Canned Analysis</h3>
-                    <div>
+
                       {
-                        !this.props.isFetching && <HomeCACard ca={randCA} />
+                        !this.props.isFetching && (
+                          <div>
+                            <h3 className={styles.title}>Featured Canned Analysis</h3>
+                            <h5 className={styles['ca-grouping']}>{randCA.grouping}</h5>
+                            <HomeCACard ca={randCA} />
+                          </div>
+                        )
                       }
-                    </div>
                     {/* <h3 className={styles.title}>Featured Events</h3>
                     <div className={styles['carousel-pad']}>
                       <Carousel autoplay infinite aps={8000}>
