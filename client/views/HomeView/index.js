@@ -3,28 +3,28 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router';
 import { connect } from 'react-redux';
 
-// import handleResponse from 'utils/handleResponse';
+import handleResponse from 'utils/handleResponse';
 import Tool from 'components/Tool';
-// import Carousel from 'components/Carousel';
+import Carousel from 'components/Carousel';
 import Twitter from 'containers/Twitter';
 import Publication from 'containers/Publication';
 import Announcements from 'containers/Announcements';
 import HomeCACard from './HomeCACard';
 import { loadPublications } from 'actions/pubsNews';
 import { loadTools } from 'actions/toolsWorkflows';
-import { loadCannedAnalyses } from 'actions/cannedAnalyses';
+// import { loadCannedAnalyses } from 'actions/cannedAnalyses';
 import { initialCategories as categories } from '../PublicationsView';
 import styles from './HomeView.scss';
 
-// import swgImg from 'static/files/swg-img.png';
-// import AACRLogo from 'static/files/aacr_logo.png';
+import swgImg from 'static/files/swg-img.png';
+import AACRLogo from 'static/files/aacr_logo.png';
 
 const mapStateToProps = (state) => ({
-  isFetching: state.cannedAnalyses.isFetching ||
-  state.pubsNews.isFetching ||
-  state.toolsWorkflows.isFetching ||
-  state.announcements.isFetching,
-  ca: state.cannedAnalyses.analyses,
+  // isFetching: state.cannedAnalyses.isFetching ||
+  // state.pubsNews.isFetching ||
+  // state.toolsWorkflows.isFetching ||
+  // state.announcements.isFetching,
+  // ca: state.cannedAnalyses.analyses,
   publications: state.pubsNews.publications,
   tools: state.toolsWorkflows.tools,
   announcements: state.announcements.announcements,
@@ -33,7 +33,7 @@ const mapStateToProps = (state) => ({
 export class HomeView extends Component {
   componentWillMount = () => {
     this.props.loadPublications();
-    this.props.loadCannedAnalyses();
+    // this.props.loadCannedAnalyses();
     this.props.loadTools();
   }
 
@@ -49,8 +49,8 @@ export class HomeView extends Component {
   }
 
   render() {
-    const ca = this.props.ca || [];
-    const randCA = ca[Math.floor(Math.random() * ca.length)];
+    // const ca = this.props.ca || [];
+    // const randCA = ca[Math.floor(Math.random() * ca.length)];
     const pubs = this.props.publications
       .filter(pub => !!pub.showAtHomeOrder)
       .sort((a, b) => {
@@ -143,7 +143,7 @@ export class HomeView extends Component {
                           </a>
                         </div>
                         <div className={`col-xs-3 col-sm-3 col-md-3 ${styles['datatype-link']}`}>
-                          <Link to={{ pathname: '/tools', query: { initialTab: 'anal' } }}>
+                          <Link to={{ pathname: '/tools', query: { initialTab: 'ca' } }}>
                             <img
                               src="/LINCS/files/datatype_logos/canned-analyses-logo.png"
                               className={`${styles['datatype-logo']}`}
@@ -157,18 +157,18 @@ export class HomeView extends Component {
                   </div>
                   <div className={`col-xs-12 col-md-6 ${styles.am}`}>
                     {
-                      !this.props.isFetching && (
-                        <div>
-                          <h3 className={styles.title}>Featured LINCS Canned Analysis</h3>
-                          <h5 className={styles['ca-grouping']}>
-                            {ca.length && randCA.grouping}
-                          </h5>
-                          <HomeCACard ca={randCA} />
-                        </div>
-                      )
+                      // !this.props.isFetching && (
+                      //   <div>
+                      //     <h3 className={styles.title}>Featured LINCS Canned Analysis</h3>
+                      //     <h5 className={styles['ca-grouping']}>
+                      //       {ca.length && randCA.grouping}
+                      //     </h5>
+                      //     <HomeCACard ca={randCA} />
+                      //   </div>
+                      // )
                     }
 
-                    {/* <h3 className={styles.title}>Featured Events</h3>
+                    <h3 className={styles.title}>Featured Events</h3>
                     <div className={styles['carousel-pad']}>
                       <Carousel autoplay infinite aps={8000}>
                         <div className={styles['carousel-item-wrap']}>
@@ -247,7 +247,7 @@ export class HomeView extends Component {
                           </p>
                         </div>
                       </Carousel>
-                    </div>*/}
+                    </div>
                   </div>
                   {/*
                   <div className={`col-xs-12 col-md-6 ${styles.am}`}>
@@ -376,12 +376,12 @@ HomeView.propTypes = {
   publications: PropTypes.array,
   loadTools: PropTypes.func,
   tools: PropTypes.array,
-  loadCannedAnalyses: PropTypes.func,
-  ca: PropTypes.array,
+  // loadCannedAnalyses: PropTypes.func,
+  // ca: PropTypes.array,
 };
 
 export default connect(mapStateToProps, {
   loadPublications,
   loadTools,
-  loadCannedAnalyses,
+  // loadCannedAnalyses,
 })(HomeView);

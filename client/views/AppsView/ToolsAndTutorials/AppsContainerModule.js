@@ -25,16 +25,23 @@ export class AppsContainerModule extends Component {
     this.props.loadTools();
   }
 
+  scrollToCA() {
+    setTimeout(() => { window.scrollTo(0, 800) }, 50);
+  }
+
   handleMarketClicked = () => { this.setState({ marketAnalTutSelection: 'market' }); }
   handleTutClicked = () => { this.setState({ marketAnalTutSelection: 'tut' }); }
-  handleAnalClicked = () => { this.setState({ marketAnalTutSelection: 'anal' }); }
+  handleAnalClicked = () => { this.setState({ marketAnalTutSelection: 'ca' }); }
 
   render() {
+    if (this.props.initialTab === 'ca') {
+      this.scrollToCA();
+    }
     const { tools, initialCenter } = this.props;
     const { marketAnalTutSelection } = this.state;
     const isMarket = marketAnalTutSelection === 'market';
     const isTut = marketAnalTutSelection === 'tut';
-    const isAnal = marketAnalTutSelection === 'anal';
+    const isAnal = marketAnalTutSelection === 'ca';
     const toolsWithTuts = tools
                             .filter(tool => tool.tutorialUrl)
                             .sort((t1, t2) => {

@@ -62,9 +62,9 @@ const awRoute = '/tools/workflows';
 
 class WorkflowInputForm extends Component {
   componentDidMount() {
-    if (this.refs.question) {
-      this.refs.question.focus();
-    }
+    // if (this.refs.question) {
+    //   this.refs.question.focus();
+    // }
   }
 
   get expWorkflows() {
