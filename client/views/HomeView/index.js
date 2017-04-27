@@ -49,7 +49,6 @@ export class HomeView extends Component {
   }
 
   render() {
-    if (this.props.isFetching) return null;
     const ca = this.props.ca || [];
     const pubs = this.props.publications
       .filter(pub => !!pub.showAtHomeOrder)
@@ -159,7 +158,9 @@ export class HomeView extends Component {
                   <div className={`col-xs-12 col-md-6 ${styles.am}`}>
                     <h3 className={styles.title}>Featured Canned Analysis</h3>
                     <div>
-                      <HomeCACard ca={randCA} />
+                      {
+                        !this.props.isFetching && <HomeCACard ca={randCA} />
+                      }
                     </div>
                     {/* <h3 className={styles.title}>Featured Events</h3>
                     <div className={styles['carousel-pad']}>
