@@ -87,20 +87,6 @@ export default class HomeCACard extends Component {
 
               <div className={styles['ca-description']}>
                 <span>{ca.cannedAnalysisDescription}</span>
-                {
-                  this.state.width >= 1200 ?
-                    <ReactTooltip
-                      id={ca.cannedAnalysisDescription}
-                      place="right"
-                      type="dark"
-                      effect="float"
-                    >
-                      <div style={{ maxWidth: '30rem' }}>
-                        {ca.cannedAnalysisDescription}
-                      </div>
-                    </ReactTooltip>
-                  : null
-                }
               </div>
               <span className={styles['ca-tool-name']}>Analyzed with&nbsp;
                 <a href={ca.toolUrl} className={styles['ca-link']} target="_blank">
