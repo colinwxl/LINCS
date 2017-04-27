@@ -3,50 +3,42 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router';
 import { connect } from 'react-redux';
 
-import handleResponse from 'utils/handleResponse';
+// import handleResponse from 'utils/handleResponse';
 import Tool from 'components/Tool';
-import Carousel from 'components/Carousel';
+// import Carousel from 'components/Carousel';
 import Twitter from 'containers/Twitter';
 import Publication from 'containers/Publication';
 import Announcements from 'containers/Announcements';
+import CannedAnalysisCard from 'components/CannedAnalysisCard';
 import { loadPublications } from 'actions/pubsNews';
 import { loadTools } from 'actions/toolsWorkflows';
+import { loadCannedAnalyses } from 'actions/cannedAnalyses';
 import { initialCategories as categories } from '../PublicationsView';
 import styles from './HomeView.scss';
 
-import swgImg from 'static/files/swg-img.png';
-import AACRLogo from 'static/files/aacr_logo.png';
+// import swgImg from 'static/files/swg-img.png';
+// import AACRLogo from 'static/files/aacr_logo.png';
 
 const mapStateToProps = (state) => ({
+  isFetching: state.cannedAnalyses.isFetching ||
+  state.pubsNews.isFetching ||
+  state.toolsWorkflows.isFetching ||
+  state.announcements.isFetching,
+  ca: state.cannedAnalyses.analyses,
   publications: state.pubsNews.publications,
   tools: state.toolsWorkflows.tools,
   announcements: state.announcements.announcements,
 });
 
 export class HomeView extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      recentDatasets: [],
-    };
-  }
-
   componentWillMount = () => {
     this.props.loadPublications();
+    this.props.loadCannedAnalyses();
     this.props.loadTools();
   }
 
-  componentDidMount() {
-    fetch('/LINCS/api/v1/datasets/recent')
-      .then(handleResponse)
-      .then(response => response.json())
-      .then(recentDatasets => {
-        this.setState({ recentDatasets });
-      });
-  }
-
-  shuffleTools = (tools) => {
-    const result = tools.slice(0);
+  shuffleList = (list) => {
+    const result = list.slice(0);
     for (let i = result.length - 1; i > 0; i--) {
       const randPos = Math.floor(Math.random() * (i + 1));
       const temp = result[i];
@@ -57,14 +49,16 @@ export class HomeView extends Component {
   }
 
   render() {
+    if (this.props.isFetching) return null;
+    const ca = this.props.ca || [];
     const pubs = this.props.publications
       .filter(pub => !!pub.showAtHomeOrder)
       .sort((a, b) => {
         const result = a.showAtHomeOrder > b.showAtHomeOrder;
         return result ? 1 : -1;
       });
-    const tools = this.shuffleTools(this.props.tools)
-    .slice(0, 6);
+    const tools = this.shuffleList(this.props.tools).slice(0, 6);
+    const randCA = ca[Math.floor(Math.random() * ca.length)];
     return (
       <div className={styles.wrapper}>
       {/* Banner
@@ -163,7 +157,11 @@ export class HomeView extends Component {
                     </div>
                   </div>
                   <div className={`col-xs-12 col-md-6 ${styles.am}`}>
-                    <h3 className={styles.title}>Featured Events</h3>
+                    <h3 className={styles.title}>Featured Canned Analysis</h3>
+                    <div>
+                      <CannedAnalysisCard ca={randCA} />
+                    </div>
+                    {/* <h3 className={styles.title}>Featured Events</h3>
                     <div className={styles['carousel-pad']}>
                       <Carousel autoplay infinite aps={8000}>
                         <div className={styles['carousel-item-wrap']}>
@@ -242,7 +240,7 @@ export class HomeView extends Component {
                           </p>
                         </div>
                       </Carousel>
-                    </div>
+                    </div>*/}
                   </div>
                   {/*
                   <div className={`col-xs-12 col-md-6 ${styles.am}`}>
@@ -370,9 +368,12 @@ HomeView.propTypes = {
   publications: PropTypes.array,
   loadTools: PropTypes.func,
   tools: PropTypes.array,
+  loadCannedAnalyses: PropTypes.func,
+  ca: PropTypes.array,
 };
 
 export default connect(mapStateToProps, {
   loadPublications,
   loadTools,
+  loadCannedAnalyses,
 })(HomeView);
