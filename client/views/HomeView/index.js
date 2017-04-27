@@ -50,6 +50,7 @@ export class HomeView extends Component {
 
   render() {
     const ca = this.props.ca || [];
+    const randCA = ca[Math.floor(Math.random() * ca.length)];
     const pubs = this.props.publications
       .filter(pub => !!pub.showAtHomeOrder)
       .sort((a, b) => {
@@ -57,7 +58,6 @@ export class HomeView extends Component {
         return result ? 1 : -1;
       });
     const tools = this.shuffleList(this.props.tools).slice(0, 6);
-    const randCA = ca[Math.floor(Math.random() * ca.length)];
     return (
       <div className={styles.wrapper}>
       {/* Banner
@@ -160,7 +160,6 @@ export class HomeView extends Component {
                       !this.props.isFetching && (
                         <div>
                           <h3 className={styles.title}>Featured LINCS Canned Analysis</h3>
-                          <h5 className={styles['ca-grouping']}>{randCA.grouping}</h5>
                           <HomeCACard ca={randCA} />
                         </div>
                       )
