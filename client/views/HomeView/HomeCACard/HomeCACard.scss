@@ -1,0 +1,170 @@
+@import 'variables';
+
+$ca-height: 15.5rem;
+$ca-width: 10rem;
+$shadow: rgba(0, 0, 0, .1);
+
+.ca {
+  border: 1px solid;
+  border-color: $gray-border-top $gray-border-side $gray-border-bottom;
+  border-radius: .2rem;
+  margin: 0 auto 1rem;
+  min-width: $ca-width;
+}
+
+.ca-inner {
+  background: $white;
+  border-radius: .2rem;
+  box-shadow: 0 2px 4px $shadow;
+  position: relative;
+  text-decoration: none;
+  vertical-align: top;
+  padding: 1rem;
+  padding-bottom: 3rem;
+  height: auto;
+  // @media (min-width: 767px) {
+  //   // height: auto;
+  //   height: 31rem;
+  // }
+  // @media (min-width: 992px) {
+  //   height: 26rem;
+  // }
+  // @media (min-width: 1200px) {
+  //
+  //   height: 17rem;
+  // }
+}
+
+.ca-link {
+  text-decoration: none !important;
+  color: $brand-primary;
+  &:hover {
+    color: #2874b7;
+  }
+}
+
+.thumbnail {
+  display: block;
+  margin: auto;
+  // max-width: 80%;
+  max-height: $ca-height / 2 - 1.5rem;
+}
+
+.ca-details {
+  height: auto;
+  overflow: hidden;
+}
+
+$title-line-height: 1.2rem;
+
+.ca-title {
+  font-size: 1rem;
+  margin-bottom: 0;
+  display: inline-block;
+  font-weight: 600;
+  margin-top: 0.6rem;
+  max-height: 2rem;
+  line-height: $title-line-height;
+  position: relative;
+  text-decoration: none !important;
+  cursor: pointer;
+}
+
+.ca-center {
+  color: $brand-primary;
+  &:hover {
+    color: #2874b7;
+  }
+  margin-top: 0.25rem;
+  display: block;
+  font-size: 0.75rem;
+}
+
+.ca-creator {
+  font-size: 0.8rem;
+  font-weight: 400;
+  margin: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  text-decoration: none !important;
+  width: 10rem;
+  padding: 0;
+  list-style-type: none;
+}
+
+.ca-tool-name {
+  position: absolute;
+  bottom: 1.75rem;
+  left: 1rem;
+  font-size: 0.80rem;
+  color: $off-black;
+}
+
+.ca-clicks-date {
+  position: absolute;
+  bottom: 0.6rem;
+  left: 1rem;
+  font-size: 0.80rem;
+  color: $off-black;
+}
+
+$desc-line-height: 0.5rem; // 18px
+
+.ca-description {
+  font-size: 0.75rem;
+  margin: 0.5rem auto;
+  color: $off-black;
+  display: inline-block;
+  // max-height: $desc-line-height * 3;
+  line-height: 1rem;
+  min-height: 1.25rem;
+  position: relative;
+  word-wrap: break-word;
+}
+
+.ca-multi-center {
+  line-height: 1.1rem !important;
+}
+
+.ca-ranking {
+  background: $white;
+  border-radius: 2px;
+  bottom: 0;
+  display: block;
+  padding: 0 .75rem;
+  position: absolute;
+  width: 100%;
+}
+
+.tooltip {
+  position: absolute;
+  top: 1rem;
+  right: 0.8rem;
+  height: 0.8rem;
+  width: 1rem;
+  &:hover {
+    opacity: 0.9;
+  }
+}
+
+.ds-title {
+  font-size: 1rem;
+  font-weight: 500;
+  display: block;
+}
+
+.ds {
+  display: block;
+  color: $white;
+  &:hover {
+    color: $gray;
+  }
+}
+
+.tooltip-stay {
+  pointer-events: auto !important;
+  &:hover {
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+}

@@ -9,7 +9,7 @@ import Tool from 'components/Tool';
 import Twitter from 'containers/Twitter';
 import Publication from 'containers/Publication';
 import Announcements from 'containers/Announcements';
-import CannedAnalysisCard from 'components/CannedAnalysisCard';
+import HomeCACard from './HomeCACard';
 import { loadPublications } from 'actions/pubsNews';
 import { loadTools } from 'actions/toolsWorkflows';
 import { loadCannedAnalyses } from 'actions/cannedAnalyses';
@@ -159,7 +159,7 @@ export class HomeView extends Component {
                   <div className={`col-xs-12 col-md-6 ${styles.am}`}>
                     <h3 className={styles.title}>Featured Canned Analysis</h3>
                     <div>
-                      <CannedAnalysisCard ca={randCA} />
+                      <HomeCACard ca={randCA} />
                     </div>
                     {/* <h3 className={styles.title}>Featured Events</h3>
                     <div className={styles['carousel-pad']}>
@@ -364,6 +364,7 @@ export class HomeView extends Component {
 }
 
 HomeView.propTypes = {
+  isFetching: PropTypes.bool,
   loadPublications: PropTypes.func,
   publications: PropTypes.array,
   loadTools: PropTypes.func,
