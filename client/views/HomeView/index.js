@@ -3,13 +3,13 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router';
 import { connect } from 'react-redux';
 
-import handleResponse from 'utils/handleResponse';
+// import handleResponse from 'utils/handleResponse';
 import Tool from 'components/Tool';
 import Carousel from 'components/Carousel';
 import Twitter from 'containers/Twitter';
 import Publication from 'containers/Publication';
 import Announcements from 'containers/Announcements';
-import HomeCACard from './HomeCACard';
+// import HomeCACard from './HomeCACard';
 import { loadPublications } from 'actions/pubsNews';
 import { loadTools } from 'actions/toolsWorkflows';
 // import { loadCannedAnalyses } from 'actions/cannedAnalyses';

@@ -26,7 +26,7 @@ export class AppsContainerModule extends Component {
   }
 
   scrollToCA() {
-    setTimeout(() => { window.scrollTo(0, 800) }, 50);
+    setTimeout(() => { window.scrollTo(0, 800); }, 50);
   }
 
   handleMarketClicked = () => { this.setState({ marketAnalTutSelection: 'market' }); }
