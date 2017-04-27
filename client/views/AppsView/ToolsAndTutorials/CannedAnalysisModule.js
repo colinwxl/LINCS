@@ -70,7 +70,17 @@ class CannedAnalysisModule extends Component {
 
   _groupAnalyses = (analyses) => {
     const grouping = {};
-    analyses.forEach(an => {
+    const sorted = analyses.sort((an1, an2) => {
+      const an1DSList = an1.datasetAccessionsList.replace(/ /g, "").split(",");
+      const an2DSList = an2.datasetAccessionsList.replace(/ /g, "").split(",");
+      const an1LastDataset = an1DSList[an1DSList.length - 1];
+      const an2LastDataset = an2DSList[an2DSList.length - 1];
+
+      if (an1LastDataset < an2LastDataset) return 1;
+    	if (an1LastDataset > an2LastDataset) return -1;
+    	if (an1LastDataset === an2LastDataset) return 0;
+    })
+    sorted.forEach(an => {
       if (!grouping[an.grouping]) {
         grouping[an.grouping] = [an];
       } else {
@@ -80,11 +90,16 @@ class CannedAnalysisModule extends Component {
     return grouping;
   }
 
+
   render() {
     const analyses = typeof this.props.analyses === 'undefined' ? [] : this.props.analyses;
     const filteredAnalyses = this._filterCannedAnalyses(analyses);
     const groupedAnalyses = this._groupAnalyses(filteredAnalyses);
-    const groupKeys = Object.keys(groupedAnalyses);
+    const groupKeys = Object.keys(groupedAnalyses).sort((k1, k2) => {
+      if (k1 > k2) return 1;
+    	if (k1 < k2) return -1;
+    	return 0;
+    });
     let slideNum;
 
     if (this.state.width >= 1200) {
