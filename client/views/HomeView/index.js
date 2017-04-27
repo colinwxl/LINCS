@@ -156,7 +156,7 @@ export class HomeView extends Component {
                     </div>
                   </div>
                   <div className={`col-xs-12 col-md-6 ${styles.am}`}>
-                    <h3 className={styles.title}>Featured Canned Analysis</h3>
+                    <h3 className={styles.title}>Featured LINCS Canned Analysis</h3>
                     <div>
                       {
                         !this.props.isFetching && <HomeCACard ca={randCA} />
