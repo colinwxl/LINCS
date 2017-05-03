@@ -94,18 +94,19 @@ export class AppsContainerModule extends Component {
             />
           Video Tutorials
           </label>
-
-          <label
-            onClick={this.handleAnalClicked}
-            className={`btn ${styles['category-check']} ${isAnal ? styles.active : ''}`}
-          >
-            <input
-              type="radio"
-              name="compBio"
-              defaultChecked={isAnal}
-            />
-          Canned Analyses
-          </label>
+          {
+          // <label
+          //   onClick={this.handleAnalClicked}
+          //   className={`btn ${styles['category-check']} ${isAnal ? styles.active : ''}`}
+          // >
+          //   <input
+          //     type="radio"
+          //     name="compBio"
+          //     defaultChecked={isAnal}
+          //   />
+          // Canned Analyses
+          // </label>
+          }
         </div>
 
         <div className={styles.workflow}>
