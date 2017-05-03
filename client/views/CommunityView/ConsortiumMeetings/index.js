@@ -36,6 +36,15 @@ export default function ConsortiumMeetings() {
               continue to develop a successful LINCS program.
             </p>
 
+            {/* 2017 meeting
+             * ------------------------------------------------------------------------------- */}
+
+            <h2>2017 Consortium Meeting</h2>
+            <em>October 23-24</em>
+            <p>
+              Details will be posted soon!
+            </p>
+
             {/* 2016 meeting
              * ------------------------------------------------------------------------------- */}
 
