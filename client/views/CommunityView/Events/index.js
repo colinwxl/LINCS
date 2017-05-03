@@ -7,6 +7,7 @@ import Event20160726 from './Event20160726';
 import Event20170126 from './Event20170126';
 import Event20170302 from './Event20170302';
 import Event20170413 from './Event20170413';
+import Event20171023 from './Event20171023';
 import EventBD2KCrowdSourcing from './EventBD2KCrowdSourcing';
 
 export const featuredEvents = [
@@ -18,6 +19,11 @@ export const featuredEvents = [
 ];
 
 export const events = [
+  {
+    eventItem: Event20171023,
+    category: 'Symposia',
+    date: '2017-10-23',
+  },
   {
     eventItem: Event20170413,
     category: 'Webinar',
