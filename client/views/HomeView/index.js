@@ -5,7 +5,6 @@ import { connect } from 'react-redux';
 
 // import handleResponse from 'utils/handleResponse';
 import Tool from 'components/Tool';
-import Carousel from 'components/Carousel';
 import Twitter from 'containers/Twitter';
 import Publication from 'containers/Publication';
 import Announcements from 'containers/Announcements';
@@ -17,7 +16,6 @@ import { initialCategories as categories } from '../PublicationsView';
 import styles from './HomeView.scss';
 
 import sbdss from 'static/files/SBDSS.jpg';
-import AACRLogo from 'static/files/aacr_logo.png';
 
 const mapStateToProps = (state) => ({
   // isFetching: state.cannedAnalyses.isFetching ||

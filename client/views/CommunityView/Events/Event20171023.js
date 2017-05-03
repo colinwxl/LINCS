@@ -1,6 +1,5 @@
 import React from 'react';
 import styles from './Events.scss';
-import dcicImg from '../Overview/dcic.png';
 
 export default function Event20171023() {
   return (
