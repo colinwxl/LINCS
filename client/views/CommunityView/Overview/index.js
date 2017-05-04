@@ -321,9 +321,6 @@ class Overview extends Component {
                 , the&nbsp;
                 <Link to="LINCS/centers/dcic">
                   BD2K-LINCS Data Coordination and Integration Center
-                </Link>,&nbsp;
-                <Link to="LINCS/centers/dcic">
-                  BD2K-LINCS Data Coordination and Integration Center
                 </Link>, NIH extramural staff, and external LINCS collaborators.
               </p>
             </div>
