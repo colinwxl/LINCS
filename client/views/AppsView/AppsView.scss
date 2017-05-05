@@ -42,6 +42,7 @@ $background-color: $light-gray;
 $apple-blue: #1390ff;
 
 .category-check {
+  font-size: 1.2rem;
   background-color: $background-color;
   color: lighten($base-font-color, 15);
   margin: 0;

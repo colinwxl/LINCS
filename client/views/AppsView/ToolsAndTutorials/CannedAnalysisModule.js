@@ -125,8 +125,8 @@ class CannedAnalysisModule extends Component {
                       by a computational tool.
 
                       It is defined by 3 key elements: 1) Dataset accession(s),
-                      2) Name of computational tool, and 3) a link to a webpage which
-                      contains the results of the analysis browseable by users. This
+                      2) Name of computational tool, and 3) A link to a webpage that
+                      contains the results of the analysis browsable by users. This
                       is visualized by the adjacent figure.
                     </p>
                   </div>
@@ -137,7 +137,7 @@ class CannedAnalysisModule extends Component {
                 <br />
                 <p>
                   For each canned analysis below, you can learn more about the specific
-                  analysis by hovering over their respective subtitles for a full description.
+                  analysis by hovering over its respective subtitle for a full description.
 
                   You can additionally hover over the informational icon on the top right corner
                   and click on a dataset of interest for more information on the dataset being

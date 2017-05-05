@@ -92,7 +92,7 @@ export class AppsContainerModule extends Component {
               name="compBio"
               defaultChecked={isTut}
             />
-          Video Tutorials
+            Video Tutorials
           </label>
 
           <label
@@ -104,7 +104,7 @@ export class AppsContainerModule extends Component {
               name="compBio"
               defaultChecked={isAnal}
             />
-          Canned Analyses
+            Canned Analyses
           </label>
 
         </div>
