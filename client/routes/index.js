@@ -13,6 +13,7 @@ import CoreLayout from 'layouts/CoreLayout';
 import HomeView from 'views/HomeView';
 import AboutView from 'views/AboutView';
 import MobileDownloadView from 'views/MobileDownloadView';
+import DMOA from 'views/DMOA';
 
 // Centers
 import CentersOverview from 'views/CentersView/Overview';
@@ -127,6 +128,7 @@ export default (/* store */) => (
 
     <Route path="about" component={AboutView} />
     <Route path="mobile" component={MobileDownloadView} />
+    <Route path="dmoa" component={DMOA} />
 
     {/* Centers Routes */}
     <Redirect from={centersBase} to={`${centersBase}/overview`} />

@@ -15,7 +15,7 @@ import { loadTools } from 'actions/toolsWorkflows';
 import { initialCategories as categories } from '../PublicationsView';
 import styles from './HomeView.scss';
 
-import sbdss from 'static/files/SBDSS.jpg';
+import dmoa from 'static/files/dmoa-firework.png';
 
 const mapStateToProps = (state) => ({
   // isFetching: state.cannedAnalyses.isFetching ||
@@ -169,44 +169,31 @@ export class HomeView extends Component {
                     <h3 className={styles.title}>Featured Event</h3>
                     <div className={styles['carousel-pad']}>
                       <div className={styles['carousel-item-wrap']}>
-                        <a
-                          href="https://sites.google.com/view/sbdss2017"
+                        <Link
+                          to="/dmoa"
                           className={styles['carousel-item-head']}
-                          target="_blank"
                         >
-                          <h4 className={styles['carousel-item-title']}>
-                            <strong>
-                              BD2K-LINCS Data Science Symposium 2017
-                            </strong>
-                          </h4>
                           <h5 className={styles['carousel-item-title']}>
                             <strong>
-                              Systems Biology of Cellular Perturbations
+                              LINCS-DMOA: Aggregated Analysis and Large-Scale
+                              Visualization of Drug-Induced L1000 Transcriptomic Signatures
                             </strong>
                           </h5>
                           <div className={styles['carousel-img-wrap']}>
                             <img
-                              src={sbdss}
+                              src={dmoa}
                               className={`${styles['carousel-img']} ${styles.swg}`}
                               alt="presentation"
                             />
                           </div>
-                        </a>
+                        </Link>
                         <p className={styles.meeting}>
-                          The&nbsp;
-                          <a
-                            href="http://www.lincs-dcic.org"
-                            target="_blank"
-                          >
-                            BD2K-LINCS Data Coordination and Integration Center (DCIC)
-                          </a> and the University of Cincinnati Medical Center
-                          will host the second annual BD2K-LINCS Data Science
-                          Symposium: Systems Biology of Cellular Perturbations
-                          on <strong>May 16-18, 2017</strong> in Cincinnati, OH.&nbsp;
-                          <a
-                            href="https://sites.google.com/view/sbdss2017"
-                            target="_blank"
-                          >Learn More</a>
+                          LINCS-DMOA is a web application for Drug Mechanism of Action exploration.
+                          It provides individual landing page reports, covering 5,314 small
+                          molecules and 89,419 signatures. Additionally, it includes an
+                          interactive signature similarity network visualization of 17,000
+                          individual signatures to cluster drugs by their MoAs. You can
+                          learn more <Link to="dmoa">here</Link>.
                         </p>
                       </div>
                     </div>
