@@ -166,7 +166,7 @@ export class HomeView extends Component {
                       // )
                     }
 
-                    <h3 className={styles.title}>Featured Event</h3>
+                    <h3 className={styles.title}>Featured Data Visualization</h3>
                     <div className={styles['carousel-pad']}>
                       <div className={styles['carousel-item-wrap']}>
                         <Link
@@ -175,8 +175,8 @@ export class HomeView extends Component {
                         >
                           <h5 className={styles['carousel-item-title']}>
                             <strong>
-                              LINCS-DMOA: Aggregated Analysis and Large-Scale
-                              Visualization of Drug-Induced L1000 Transcriptomic Signatures
+                              Global Visualization of Drug-Induced
+                              L1000 Transcriptomic Signatures
                             </strong>
                           </h5>
                           <div className={styles['carousel-img-wrap']}>
@@ -188,12 +188,33 @@ export class HomeView extends Component {
                           </div>
                         </Link>
                         <p className={styles.meeting}>
-                          LINCS-DMOA is a web application for Drug Mechanism of Action exploration.
-                          It provides individual landing page reports, covering 5,314 small
-                          molecules and 89,419 signatures. Additionally, it includes an
-                          interactive signature similarity network visualization of 17,000
-                          individual signatures to cluster drugs by their MoAs. You can
-                          learn more <Link to="dmoa">here</Link>.
+                          This is an interactive visualization
+                          of 17,041 L1000 drug-induced gene expression signatures,
+                          collected from 63 cell lines treated with 3,713
+                          drugs/compounds. This data is available on the
+                          Gene-Expression Omnibus (GEO) accession number&nbsp;
+                          <a
+                            href="https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE92742"
+                            target="_blank"
+                          >GSE92742</a>
+
+
+                        , as well as on the&nbsp;
+                          <a href="http://lincsportal.ccs.miami.edu/dcic-portal/" target="_blank">
+                            LINCS Data Portal
+                          </a> (LDP). The&nbsp;
+                          <Link
+                            to="centers/data-and-signature-generating-centers/lincs-transcriptomics"
+                          >
+                            Broad Center for Transcriptomics
+                          </Link> recently published a paper describing the L1000
+                          data collected for phase I (
+                          <a href="http://biorxiv.org/content/early/2017/05/10/136168" target="_blank">
+                            bioRxiv
+                          </a>).
+
+                          More interactive visualizations can be found at&nbsp;
+                          <a href="https://clue.io" target="_blank">clue.io</a>.
                         </p>
                       </div>
                     </div>
