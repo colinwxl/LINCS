@@ -167,9 +167,9 @@ export class HomeView extends Component {
                       // )
                     }
 
-                    <h3 className={styles.title}>Featured Data Visualization</h3>
+                    <h3 className={styles.title}>Featured Interactive Data Visualization</h3>
                     <div className={styles['carousel-pad']}>
-                      <Carousel autoplay infinite aps={8000}>
+                      <Carousel dots={false} autoplay infinite aps={8000}>
                         <div className={styles['carousel-item-wrap']}>
                           <Link
                             to="/dmoa"
@@ -190,33 +190,37 @@ export class HomeView extends Component {
                             </div>
                           </Link>
                           <p className={styles.meeting}>
-                            This is an interactive visualization
-                            of 17,041 L1000 drug-induced gene expression signatures,
-                            collected from 63 cell lines treated with 3,713
-                            drugs/compounds. This data is available on the
-                            Gene-Expression Omnibus (GEO) accession number&nbsp;
+                            Interactive visualization of 17,041 L1000 drug-induced
+                            gene expression signatures, collected from 63 cell
+                            lines treated with 3,713 drugs/compounds. The&nbsp;
+                            <Link
+                              to={'centers/data-and-signature-generating'
+                                + '-centers/lincs-transcriptomics'}
+                            >
+                              Broad Center for Transcriptomics
+                            </Link> recently published a paper describing the collection
+                            of the L1000 data used to create this plot (
+                            <a href="http://biorxiv.org/content/early/2017/05/10/136168" target="_blank">
+                              bioRxiv
+                            </a>). The data used to create the visualization is available
+                            at the Gene-Expression Omnibus (GEO) accession number&nbsp;
                             <a
                               href="https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE92742"
                               target="_blank"
                             >GSE92742</a>
-
-
-                          , as well as on the&nbsp;
+                            , as well as on the&nbsp;
                             <a href="http://lincsportal.ccs.miami.edu/dcic-portal/" target="_blank">
                               LINCS Data Portal
-                            </a> (LDP). The&nbsp;
-                            <Link
-                              to="centers/data-and-signature-generating-centers/lincs-transcriptomics"
+                            </a> (LDP).
+                            More interactive visualizations of L1000 can be found at&nbsp;
+                            <a href="https://clue.io" target="_blank">clue.io</a>,&nbsp;
+                            <a
+                              href="http://amp.pharm.mssm.edu/L1000CDS2/#/index"
+                              target="_blank"
                             >
-                              Broad Center for Transcriptomics
-                            </Link> recently published a paper describing the L1000
-                            data collected for phase I (
-                            <a href="http://biorxiv.org/content/early/2017/05/10/136168" target="_blank">
-                              bioRxiv
-                            </a>).
-
-                            More interactive visualizations can be found at&nbsp;
-                            <a href="https://clue.io" target="_blank">clue.io</a>.
+                              L1000CDS<sup>2</sup>
+                            </a>, and&nbsp;
+                            <a href="http://www.ilincs.org/ilincs/" target="_blank">iLINCS</a>.
                           </p>
                         </div>
                       </Carousel>
@@ -226,7 +230,7 @@ export class HomeView extends Component {
                   <div className={`col-xs-12 col-md-6 ${styles.am}`}>
                     <h3 className={styles.title}>2016 LINCS Consortium Meeting</h3>
                     <div className={styles.carousel}>
-                      <Carousel autoplay infinite aps={5000}>
+                      <Carousel dots={false} autoplay infinite aps={5000}>
                         {carouselImgs}
                       </Carousel>
                     </div>

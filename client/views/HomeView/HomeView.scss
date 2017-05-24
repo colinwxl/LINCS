@@ -333,7 +333,6 @@ $mid-gray: #eee;
     text-decoration: none !important;
   }
   @media (min-width: 768px) {
-    border-right: 1px solid $gray;
     padding-bottom: 1rem;
     border-bottom: 0;
   }
@@ -381,7 +380,7 @@ $mid-gray: #eee;
   max-height: 7rem;
   max-width: 30rem;
   margin: auto;
-  margin-top: 3rem;
+  margin-top: 3.5rem;
   @media (max-width: 768px) {
     max-width: 23rem;
   }
@@ -419,6 +418,7 @@ $mid-gray: #eee;
     text-decoration: none !important;
   }
   @media (min-width: 768px) {
+    border-left: 1px solid $gray;
     padding-top: 0;
   }
 }
