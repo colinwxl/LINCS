@@ -33,7 +33,6 @@ export default () => (
               target="_blank"
             >GSE92742</a>
 
-
           , as well as on the&nbsp;
             <a href="http://lincsportal.ccs.miami.edu/dcic-portal/" target="_blank">
               LINCS Data Portal
