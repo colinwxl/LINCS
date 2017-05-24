@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 
 // import handleResponse from 'utils/handleResponse';
 import Tool from 'components/Tool';
+import Carousel from 'components/Carousel';
 import Twitter from 'containers/Twitter';
 import Publication from 'containers/Publication';
 import Announcements from 'containers/Announcements';
@@ -168,55 +169,57 @@ export class HomeView extends Component {
 
                     <h3 className={styles.title}>Featured Data Visualization</h3>
                     <div className={styles['carousel-pad']}>
-                      <div className={styles['carousel-item-wrap']}>
-                        <Link
-                          to="/dmoa"
-                          className={styles['carousel-item-head']}
-                        >
-                          <h5 className={styles['carousel-item-title']}>
-                            <strong>
-                              Global Visualization of Drug-Induced
-                              L1000 Transcriptomic Signatures
-                            </strong>
-                          </h5>
-                          <div className={styles['carousel-img-wrap']}>
-                            <img
-                              src={dmoa}
-                              className={`${styles['carousel-img']} ${styles.swg}`}
-                              alt="presentation"
-                            />
-                          </div>
-                        </Link>
-                        <p className={styles.meeting}>
-                          This is an interactive visualization
-                          of 17,041 L1000 drug-induced gene expression signatures,
-                          collected from 63 cell lines treated with 3,713
-                          drugs/compounds. This data is available on the
-                          Gene-Expression Omnibus (GEO) accession number&nbsp;
-                          <a
-                            href="https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE92742"
-                            target="_blank"
-                          >GSE92742</a>
-
-
-                        , as well as on the&nbsp;
-                          <a href="http://lincsportal.ccs.miami.edu/dcic-portal/" target="_blank">
-                            LINCS Data Portal
-                          </a> (LDP). The&nbsp;
+                      <Carousel autoplay infinite aps={8000}>
+                        <div className={styles['carousel-item-wrap']}>
                           <Link
-                            to="centers/data-and-signature-generating-centers/lincs-transcriptomics"
+                            to="/dmoa"
+                            className={styles['carousel-item-head']}
                           >
-                            Broad Center for Transcriptomics
-                          </Link> recently published a paper describing the L1000
-                          data collected for phase I (
-                          <a href="http://biorxiv.org/content/early/2017/05/10/136168" target="_blank">
-                            bioRxiv
-                          </a>).
+                            <h5 className={styles['carousel-item-title']}>
+                              <strong>
+                                Global Visualization of Drug-Induced
+                                L1000 Transcriptomic Signatures
+                              </strong>
+                            </h5>
+                            <div className={styles['carousel-img-wrap']}>
+                              <img
+                                src={dmoa}
+                                className={`${styles['carousel-img']} ${styles.swg}`}
+                                alt="presentation"
+                              />
+                            </div>
+                          </Link>
+                          <p className={styles.meeting}>
+                            This is an interactive visualization
+                            of 17,041 L1000 drug-induced gene expression signatures,
+                            collected from 63 cell lines treated with 3,713
+                            drugs/compounds. This data is available on the
+                            Gene-Expression Omnibus (GEO) accession number&nbsp;
+                            <a
+                              href="https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE92742"
+                              target="_blank"
+                            >GSE92742</a>
 
-                          More interactive visualizations can be found at&nbsp;
-                          <a href="https://clue.io" target="_blank">clue.io</a>.
-                        </p>
-                      </div>
+
+                          , as well as on the&nbsp;
+                            <a href="http://lincsportal.ccs.miami.edu/dcic-portal/" target="_blank">
+                              LINCS Data Portal
+                            </a> (LDP). The&nbsp;
+                            <Link
+                              to="centers/data-and-signature-generating-centers/lincs-transcriptomics"
+                            >
+                              Broad Center for Transcriptomics
+                            </Link> recently published a paper describing the L1000
+                            data collected for phase I (
+                            <a href="http://biorxiv.org/content/early/2017/05/10/136168" target="_blank">
+                              bioRxiv
+                            </a>).
+
+                            More interactive visualizations can be found at&nbsp;
+                            <a href="https://clue.io" target="_blank">clue.io</a>.
+                          </p>
+                        </div>
+                      </Carousel>
                     </div>
                   </div>
                   {/*

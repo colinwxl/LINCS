@@ -3,11 +3,11 @@ import PropTypes from 'prop-types';
 import Slider from 'react-slick';
 
 export default function Carousel(props) {
-  const { slidesToShow, slidesToScroll, autoplay, aps, infinite } = props;
+  const { slidesToShow, slidesToScroll, autoplay, aps, infinite, dots } = props;
   const settings = {
     autoplay: autoplay || false,
     autoplaySpeed: aps,
-    dots: true,
+    dots: dots || false,
     infinite: infinite || false,
     pauseOnHover: true,
     speed: 1000,
@@ -26,6 +26,7 @@ Carousel.propTypes = {
   slidesToScroll: PropTypes.number,
   autoplay: PropTypes.bool,
   infinite: PropTypes.bool,
+  dots: PropTypes.bool,
   aps: PropTypes.number,
   children: PropTypes.node,
 };

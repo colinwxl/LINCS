@@ -80,7 +80,7 @@ export class Announcements extends Component {
             <div className={`col-xs-12 ${styles.section} ${styles['ann-section']}`}>
               <h3 className={styles.title} style={{ display: 'inline-block' }}>Announcements</h3>
               <div className="row">
-                <Carousel infinite={false}>
+                <Carousel dots infinite={false}>
                   {
                     anns.map((quar, idx) =>
                     (<div key={idx}>

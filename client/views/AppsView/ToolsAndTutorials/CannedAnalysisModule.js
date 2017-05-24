@@ -176,7 +176,7 @@ class CannedAnalysisModule extends Component {
                               </div>
                             </div>
                             <div className="col-xs-12 col-md-12 col-xl-12">
-                              <Carousel slidesToShow={slideNum} slidesToScroll={slideNum} infinite={false}>
+                              <Carousel dots slidesToShow={slideNum} slidesToScroll={slideNum} infinite={false}>
                                 {
                                   groupedAnalyses[group] && groupedAnalyses[group].map((ca, idx3) => (
                                     <div key={idx3} className="col-xs-12 col-md-6 col-xl-4">
