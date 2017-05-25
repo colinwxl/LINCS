@@ -220,7 +220,9 @@ export class HomeView extends Component {
                           >
                             L1000CDS<sup>2</sup>
                           </a>, and&nbsp;
-                          <a href="http://www.ilincs.org/ilincs/" target="_blank">iLINCS</a>.
+                          <a href="http://www.ilincs.org/ilincs/signaturesL1000/LDG-1188" target="_blank">
+                            iLINCS
+                          </a>.
                         </p>
                       </div>
                       {/* </Carousel> */}

@@ -53,7 +53,9 @@ export default () => (
               >
                 L1000CDS<sup>2</sup>
               </a>, and&nbsp;
-              <a href="http://www.ilincs.org/ilincs/" target="_blank">iLINCS</a>.
+              <a href="http://www.ilincs.org/ilincs/signaturesL1000/LDG-1188" target="_blank">
+                iLINCS
+              </a>.
             </p>
             <h4>Instructions:</h4>
             <p>
@@ -81,8 +83,8 @@ export default () => (
               signatures for the drug fall on the map.
             </p>
 
-            <p>
-              This is an interactive visualization was implemented by
+            <p className={styles.credits}>
+              This interactive visualization was implemented by
               the BD2K-LINCS DCIC (Dr. Zichen Wang, Dr. Avi Ma’ayan,
               and Edward He, Ma’ayan Lab, Icahn School of Medicine
               at Mount Sinai).
