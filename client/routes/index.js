@@ -14,6 +14,7 @@ import HomeView from 'views/HomeView';
 import AboutView from 'views/AboutView';
 import MobileDownloadView from 'views/MobileDownloadView';
 import DMOA from 'views/DMOA';
+import MEMA from 'views/MEMA';
 
 // Centers
 import CentersOverview from 'views/CentersView/Overview';
@@ -129,6 +130,7 @@ export default (/* store */) => (
     <Route path="about" component={AboutView} />
     <Route path="mobile" component={MobileDownloadView} />
     <Route path="dmoa" component={DMOA} />
+    <Route path="mema" component={MEMA} />
 
     {/* Centers Routes */}
     <Redirect from={centersBase} to={`${centersBase}/overview`} />

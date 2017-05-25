@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 
 // import handleResponse from 'utils/handleResponse';
 import Tool from 'components/Tool';
-// import Carousel from 'components/Carousel';
+import Carousel from 'components/Carousel';
 import Twitter from 'containers/Twitter';
 import Publication from 'containers/Publication';
 import Announcements from 'containers/Announcements';
@@ -169,63 +169,86 @@ export class HomeView extends Component {
 
                     <h3 className={styles.title}>Featured Interactive Data Visualization</h3>
                     <div className={styles['carousel-pad']}>
-                      {/* <Carousel dots={false} autoplay infinite aps={8000}> */}
-                      <div className={styles['carousel-item-wrap']}>
-                        <Link
-                          to="/dmoa"
-                          className={styles['carousel-item-head']}
-                        >
-                          <h5 className={styles['carousel-item-title']}>
-                            <strong>
-                              Global Visualization of Drug-Induced
-                              L1000 Transcriptomic Signatures
-                            </strong>
-                          </h5>
-                          <div className={styles['carousel-img-wrap']}>
-                            <img
-                              src={dmoa}
-                              className={`${styles['carousel-img']} ${styles.swg}`}
-                              alt="presentation"
-                            />
-                          </div>
-                        </Link>
-                        <p className={styles.meeting}>
-                          Interactive visualization of 17,041 L1000 drug-induced
-                          gene expression signatures, collected from 63 cell
-                          lines treated with 3,713 drugs/compounds. The&nbsp;
+                      <Carousel dots={false} autoplay infinite aps={8000}>
+                        <div className={styles['carousel-item-wrap']}>
                           <Link
-                            to={'centers/data-and-signature-generating'
-                              + '-centers/lincs-transcriptomics'}
+                            to="/dmoa"
+                            className={styles['carousel-item-head']}
                           >
-                            Broad Center for Transcriptomics
-                          </Link> recently published a paper describing the collection
-                          of the L1000 data used to create this plot (
-                          <a href="http://biorxiv.org/content/early/2017/05/10/136168" target="_blank">
-                            bioRxiv
-                          </a>). The data used to create the visualization is available
-                          at the Gene-Expression Omnibus (GEO) accession number&nbsp;
-                          <a
-                            href="https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE92742"
-                            target="_blank"
-                          >GSE92742</a>
-                          , as well as on the&nbsp;
-                          <a href="http://lincsportal.ccs.miami.edu/dcic-portal/" target="_blank">
-                            LINCS Data Portal
-                          </a> (LDP).
-                          More interactive visualizations of L1000 can be found at&nbsp;
-                          <a href="https://clue.io" target="_blank">clue.io</a>,&nbsp;
-                          <a
-                            href="http://amp.pharm.mssm.edu/L1000CDS2/#/index"
-                            target="_blank"
+                            <h5 className={styles['carousel-item-title']}>
+                              <strong>
+                                Global Visualization of Drug-Induced
+                                L1000 Transcriptomic Signatures
+                              </strong>
+                            </h5>
+                            <div className={styles['carousel-img-wrap']}>
+                              <img
+                                src={dmoa}
+                                className={`${styles['carousel-img']} ${styles.swg}`}
+                                alt="presentation"
+                              />
+                            </div>
+                          </Link>
+                          <p className={styles.meeting}>
+                            Interactive visualization of 17,041 L1000 drug-induced
+                            gene expression signatures, collected from 63 cell
+                            lines treated with 3,713 drugs/compounds. The&nbsp;
+                            <Link
+                              to={'centers/data-and-signature-generating'
+                                + '-centers/lincs-transcriptomics'}
+                            >
+                              Broad Center for Transcriptomics
+                            </Link> recently published a paper describing the collection
+                            of the L1000 data used to create this plot (
+                            <a href="http://biorxiv.org/content/early/2017/05/10/136168" target="_blank">
+                              bioRxiv
+                            </a>). The data used to create the visualization is available
+                            at the Gene-Expression Omnibus (GEO) accession number&nbsp;
+                            <a
+                              href="https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE92742"
+                              target="_blank"
+                            >GSE92742</a>
+                            , as well as on the&nbsp;
+                            <a href="http://lincsportal.ccs.miami.edu/dcic-portal/" target="_blank">
+                              LINCS Data Portal
+                            </a> (LDP).
+                            More interactive visualizations of L1000 can be found at&nbsp;
+                            <a href="https://clue.io" target="_blank">clue.io</a>,&nbsp;
+                            <a
+                              href="http://amp.pharm.mssm.edu/L1000CDS2/#/index"
+                              target="_blank"
+                            >
+                              L1000CDS<sup>2</sup>
+                            </a>, and&nbsp;
+                            <a href="http://www.ilincs.org/ilincs/signaturesL1000/LDG-1188" target="_blank">
+                              iLINCS
+                            </a>.
+                          </p>
+                        </div>
+
+                        <div className={styles['carousel-item-wrap']}>
+                          <Link
+                            to="/mema"
+                            className={styles['carousel-item-head']}
                           >
-                            L1000CDS<sup>2</sup>
-                          </a>, and&nbsp;
-                          <a href="http://www.ilincs.org/ilincs/signaturesL1000/LDG-1188" target="_blank">
-                            iLINCS
-                          </a>.
-                        </p>
-                      </div>
-                      {/* </Carousel> */}
+                            <h5 className={styles['carousel-item-title']}>
+                              <strong>
+                                MEMA
+                              </strong>
+                            </h5>
+                            <div className={styles['carousel-img-wrap']}>
+                              <img
+                                src={dmoa}
+                                className={`${styles['carousel-img']} ${styles.swg}`}
+                                alt="presentation"
+                              />
+                            </div>
+                          </Link>
+                          <p className={styles.meeting}>
+                            MEMA
+                          </p>
+                        </div>
+                      </Carousel>
                     </div>
                   </div>
                   {/*

@@ -13,6 +13,7 @@ export default () => (
       <div className="row">
         <div className="col-xs-12">
           <iframe
+            scrolling='no'
             frameBorder="0"
             style={{
               width: '100%',
