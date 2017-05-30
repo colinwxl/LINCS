@@ -4,21 +4,72 @@
 }
 
 .viz-description {
-  margin-bottom: 2rem;
+  // margin-bottom: 2rem;
 }
 
 .credits {
   font-size: 0.85rem;
 }
 
-.wrap {
+.iframe-wrap {
   overflow: hidden;
-
+  margin-top: 2rem;
+  margin-bottom: -6rem;
+  @media(max-width: 992px) {
+    margin-bottom: -22rem;
+  }
 }
 
 .iframe {
-  width: 100%;
-  padding: 1rem;
-  min-height: 50rem;
-  margin-top: -4.75rem;
+  margin: auto;
+  -moz-transform-origin: 0 0;
+  -o-transform-origin: 0 0;
+  -webkit-transform-origin: 0 0;
+
+  @media(min-width: 400px) {
+    margin-top: -9rem;
+    margin-left: -35rem;
+    width: 175rem;
+    height: 50rem;
+    -moz-transform: scale(0.57);
+    -o-transform: scale(0.57);
+    -webkit-transform: scale(0.57);
+  }
+
+  @media(min-width: 768px) {
+    margin-top: -2rem;
+    margin-left: 0;
+    width: 85rem;
+    height: 50rem;
+    -moz-transform: scale(0.5);
+    -o-transform: scale(0.5);
+    -webkit-transform: scale(0.5);
+  }
+
+  @media(min-width: 768px) {
+    margin-top: -2rem;
+    margin-left: 0;
+    width: 85rem;
+    height: 50rem;
+    -moz-transform: scale(0.5);
+    -o-transform: scale(0.5);
+    -webkit-transform: scale(0.5);
+  }
+
+  @media(min-width: 992px) {
+    margin-top: -3rem;
+    margin-left: 0;
+    width: 70rem;
+    height: 40rem;
+    -moz-transform: scale(0.8);
+    -o-transform: scale(0.8);
+    -webkit-transform: scale(0.8);
+  }
+
+  @media(min-width: 1200px) {
+    margin-top: -3rem;
+    margin-left: 0;
+    width: 87rem;
+    height: 50rem;
+  }
 }
