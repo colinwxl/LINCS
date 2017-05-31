@@ -16,19 +16,18 @@ export default class DMOA extends Component {
         />
         <div className="container">
           <div className="row">
+            <iframe
+              ref={instance => { this.iframe = instance; }}
+              scrolling="no"
+              frameBorder="0"
+              style={{
+                width: '100%',
+                minHeight: '50rem',
+                marginTop: '1rem',
+              }}
+              src="https://amp.pharm.mssm.edu/dmoa-embed1/"
+            />
             <div className="col-xs-12">
-              <iframe
-                ref={instance => { this.iframe = instance; }}
-                scrolling="no"
-                frameBorder="0"
-                style={{
-                  width: '100%',
-                  padding: '1rem',
-                  minHeight: '50rem',
-                  marginTop: '1rem',
-                }}
-                src="https://amp.pharm.mssm.edu/dmoa-embed1/"
-              />
               <div className={styles['viz-description']}>
                 <h4>Overview:</h4>
                 <p>
@@ -47,7 +46,7 @@ export default class DMOA extends Component {
                     to={'centers/data-and-signature-generating'
                       + '-centers/lincs-transcriptomics'}
                   >
-                    Broad Center for Transcriptomics
+                    LINCS Center for Transcriptomics
                   </Link> recently published a paper describing the project
                   (<a href="http://biorxiv.org/content/early/2017/05/10/136168" target="_blank">
                     bioRxiv
@@ -92,7 +91,10 @@ export default class DMOA extends Component {
 
                 <p className={styles.credits}>
                   This interactive visualization was implemented by
-                  the BD2K-LINCS DCIC (Dr. Zichen Wang, Dr. Avi Ma’ayan,
+                  the&nbsp;
+                  <a href="http://lincs-dcic.org" target="_blank">
+                    BD2K-LINCS DCIC
+                  </a> (Dr. Zichen Wang, Dr. Avi Ma’ayan,
                   and Edward He, Ma’ayan Lab, Icahn School of Medicine
                   at Mount Sinai).
                 </p>
