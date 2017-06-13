@@ -208,6 +208,15 @@ webpackConfig.module.loaders.push({
   ],
 });
 
+webpackConfig.module.loaders.push({
+  test: /\.gif$/i,
+    loaders: [
+      'file-loader?hash=sha512&digest=hex&name=[hash].[ext]',
+      'image-webpack-loader?bypassOnDebug&optimizationLevel=7&interlaced=false'
+    ],
+});
+
+
 webpackConfig.sassLoader = {
   includePaths: paths.client('styles'),
 };

@@ -16,8 +16,10 @@ import { loadTools } from 'actions/toolsWorkflows';
 import { initialCategories as categories } from '../PublicationsView';
 import styles from './HomeView.scss';
 
-import dmoa from 'static/files/dmoa-firework.png';
-import mema from 'static/files/MEMA_screenshot.png';
+// import dmoa from 'static/files/dmoa-firework.png';
+// import mema from 'static/files/MEMA_screenshot.png';
+import dmoaGif from 'static/files/dmoaGif.gif';
+import memaGif from 'static/files/memaGif.gif';
 
 const mapStateToProps = (state) => ({
   // isFetching: state.cannedAnalyses.isFetching ||
@@ -184,7 +186,7 @@ export class HomeView extends Component {
                             </h5>
                             <div className={styles['carousel-img-wrap']}>
                               <img
-                                src={dmoa}
+                                src={dmoaGif}
                                 className={`${styles['carousel-img']} ${styles.swg}`}
                                 alt="presentation"
                               />
@@ -240,7 +242,7 @@ export class HomeView extends Component {
                             </h5>
                             <div className={styles['carousel-img-wrap']}>
                               <img
-                                src={mema}
+                                src={memaGif}
                                 className={`${styles['carousel-img']} ${styles.swg}`}
                                 alt="presentation"
                               />
