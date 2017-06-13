@@ -69,7 +69,7 @@ export default class Workflow extends Component {
                 </div>
               </div>
               <p>
-                <a href="http://eh3.uc.edu/GenomicsPortals/Lincs.jsp" target="_blank">
+                <a href="http://www.ilincs.org" target="_blank">
                   iLINCS
                 </a> provides various&nbsp;
                 <a href="http://www.eh3.uc.edu/GenomicsPortals/DatasetLandingPage.do?data_set=p100Foundation156x1267" target="_blank">
