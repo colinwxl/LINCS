@@ -4,9 +4,6 @@ import { Link } from 'react-router';
 import styles from './dmoa.scss';
 
 export default class DMOA extends Component {
-  removeBar() {
-  }
-
   render() {
     return (
       <div className={styles.wrapper}>
@@ -16,17 +13,18 @@ export default class DMOA extends Component {
         />
         <div className="container">
           <div className="row">
-            <iframe
-              ref={instance => { this.iframe = instance; }}
-              scrolling="no"
-              frameBorder="0"
-              style={{
-                width: '100%',
-                minHeight: '50rem',
-                marginTop: '1rem',
-              }}
-              src="https://amp.pharm.mssm.edu/dmoa-embed1/"
-            />
+            <div className={`col-xs-12 ${styles['iframe-wrap']}`}>
+              <iframe
+                ref={instance => { this.iframe = instance; }}
+                className={styles.iframe}
+                scrolling="no"
+                frameBorder="0"
+                style={{
+                  width: '100%',
+                }}
+                src="https://amp.pharm.mssm.edu/l1000fwd/"
+              />
+            </div>
             <div className="col-xs-12">
               <div className={styles['viz-description']}>
                 <h4>Overview:</h4>
