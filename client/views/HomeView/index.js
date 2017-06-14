@@ -15,7 +15,7 @@ import { loadTools } from 'actions/toolsWorkflows';
 import { initialCategories as categories } from '../PublicationsView';
 import styles from './HomeView.scss';
 
-import sbdss from 'static/files/SBDSS.jpg';
+import sbdss from 'static/files/dcic-2017.jpg';
 
 const mapStateToProps = (state) => ({
   // isFetching: state.cannedAnalyses.isFetching ||
@@ -201,8 +201,7 @@ export class HomeView extends Component {
                             target="_blank"
                           >
                             BD2K-LINCS Data Coordination and Integration Center (DCIC)
-                          </a> and the University of Cincinnati Medical Center
-                          will host the second annual BD2K-LINCS Data Science
+                          </a> hosted the second annual BD2K-LINCS Data Science
                           Symposium: Systems Biology of Cellular Perturbations
                           on <strong>May 16-18, 2017</strong> in Cincinnati, OH.&nbsp;
                           <a
