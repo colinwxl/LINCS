@@ -16,8 +16,6 @@ import { loadTools } from 'actions/toolsWorkflows';
 import { initialCategories as categories } from '../PublicationsView';
 import styles from './HomeView.scss';
 
-// import dmoa from 'static/files/dmoa-firework.png';
-// import mema from 'static/files/MEMA_screenshot.png';
 import dmoaGif from 'static/files/dmoaGif.gif';
 import memaGif from 'static/files/memaGif.gif';
 
