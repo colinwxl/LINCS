@@ -65,7 +65,7 @@ export class HomeView extends Component {
         <div className={styles.homeBannerWrap}>
           <div className={`container ${styles.homeBanner}`}>
             <div className={styles.intro_Home}>
-              The Library of Network-Based Cellular Signatures (LINCS) Program aims to create a
+              The Library of Integrated Network-Based Cellular Signatures (LINCS) Program aims to create a
               network-based understanding of biology by cataloging changes in gene expression
               and other cellular processes that occur when cells are exposed to a variety of
               perturbing agents.
