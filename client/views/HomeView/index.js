@@ -202,7 +202,7 @@ export class HomeView extends Component {
                             target="_blank"
                           >
                             BD2K-LINCS Data Coordination and Integration Center (DCIC)
-                          </a>hosted the second annual BD2K-LINCS Data Science
+                          </a> hosted the second annual BD2K-LINCS Data Science
                           Symposium: Systems Biology of Cellular Perturbations
                           on <strong>May 16-18, 2017</strong> in Cincinnati, OH.&nbsp;
                           <a
