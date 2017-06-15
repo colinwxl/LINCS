@@ -22,7 +22,7 @@ export default function EventCourseraMOOC(props) {
           Big Data Science with the BD2K-LINCS Data Coordination and Integration Center
         </h4>
         <div>
-          <a href="http://lincs-dcic.org/#/summer-research-app#nav">
+          <a href="https://www.coursera.org/learn/bd2k-lincs" target="_blank">
             <img
               className={styles['inline-img-left']}
               src={dcicImg}
@@ -39,7 +39,9 @@ export default function EventCourseraMOOC(props) {
           applications to LINCS data. This course also covers
           basic data processing and data normalization methods to
           clean and harmonize LINCS data and other relevant data.&nbsp;
-          <a href="https://www.coursera.org/course/bd2klincs">Enroll Now</a>
+          <a href="https://www.coursera.org/course/bd2klincs" target="_blank">
+            Enroll Now
+          </a>
         </p>
       </div>
     </div>
