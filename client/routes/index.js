@@ -15,6 +15,7 @@ import AboutView from 'views/AboutView';
 import MobileDownloadView from 'views/MobileDownloadView';
 import DMOA from 'views/DMOA';
 import MEMA from 'views/MEMA';
+import LJP from 'views/LJP'
 
 // Centers
 import CentersOverview from 'views/CentersView/Overview';
@@ -131,6 +132,7 @@ export default (/* store */) => (
     <Route path="mobile" component={MobileDownloadView} />
     <Route path="dmoa" component={DMOA} />
     <Route path="mema" component={MEMA} />
+    <Route path="ljp" component={LJP} />
 
     {/* Centers Routes */}
     <Redirect from={centersBase} to={`${centersBase}/overview`} />
