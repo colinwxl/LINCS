@@ -20,6 +20,7 @@ export class ExpWorkflows extends Component {
   }
 
   handleSubmit = (form) => {
+    debugger;
     this.props.addWorkflow({
       ...form,
       type: 'experimentalist',

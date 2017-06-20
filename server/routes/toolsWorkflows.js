@@ -101,7 +101,6 @@ router.post('/workflows/add', async (ctx) => {
   if (!workflow.type) {
     ctx.throw(400, 'Workflow requires a type');
   }
-  debugger;
   try {
     const wf = await Workflow.forge(workflow).save().then(wfModel => wfModel.toJSON());
     const transporter = nodemailer

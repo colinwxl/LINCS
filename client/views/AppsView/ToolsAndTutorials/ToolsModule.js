@@ -58,7 +58,6 @@ const multiSelectFeatures = [
 export default class ToolsModule extends Component {
   constructor(props) {
     super(props);
-    // debugger;
     this.state = {
       sortBy: '',
       centerFilters: this.props.initialCenter || '',
