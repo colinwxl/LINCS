@@ -15,7 +15,7 @@ import AboutView from 'views/AboutView';
 import MobileDownloadView from 'views/MobileDownloadView';
 import DMOA from 'views/DMOA';
 import MEMA from 'views/MEMA';
-import LJP from 'views/LJP'
+import LJP from 'views/LJP';
 
 // Centers
 import CentersOverview from 'views/CentersView/Overview';
