@@ -7,8 +7,8 @@ export default class DMOA extends Component {
     return (
       <div className={styles.wrapper}>
         <PageBanner
-          title=""
-          subTitle={''}
+          title="Featured Interactive Data Visualization"
+          subTitle={'LINCS Joint Project (LJP) - Breast Cancer Network Browser (BCNB)'}
         />
         <div className="container">
           <div className="row">
@@ -28,16 +28,16 @@ export default class DMOA extends Component {
               <div className={styles['viz-description']}>
                 <h4>Overview:</h4>
                 <p>
-                  LJP-BCNB visualizes thousands of signatures from six breast
-                  cancer cell lines treated with ~100 single molecule
+                  LJP-BCNB visualizes 2344 signatures from 6 breast
+                  cancer cell lines treated with 105 single molecule
                   perturbations, mostly kinase inhibitors. These perturbations
                   were applied in different concentrations while gene expression
                   was measured at different time points using the L1000
                   technology. Under the same conditions, the cells were imaged
                   for cell viability. The distance between nodes represents
                   response similarity computed using the cosine distance between
-                   the Characteristic Direction vectors of perturbations
-                   compared with their appropriate controls.
+                  the Characteristic Direction vectors of perturbations
+                  compared with their appropriate controls.
                 </p>
                 <h4>Instructions:</h4>
                 <p>
@@ -47,13 +47,6 @@ export default class DMOA extends Component {
                 </p>
 
                 <p className={styles.credits}>
-                  This interactive visualization was implemented by
-                  the&nbsp;
-                  <a href="http://lincs-dcic.org" target="_blank">
-                    BD2K-LINCS DCIC
-                  </a> (Dr. Zichen Wang, Dr. Avi Ma’ayan,
-                  and Edward He, Ma’ayan Lab, Icahn School of Medicine
-                  at Mount Sinai).
                 </p>
               </div>
             </div>

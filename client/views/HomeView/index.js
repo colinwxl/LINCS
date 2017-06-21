@@ -284,25 +284,25 @@ export class HomeView extends Component {
                             <div className={styles['carousel-img-wrap']}>
                               <img
                                 src={ljpGif}
-                                className={`${styles['carousel-img']} ${styles.swg}`}
+                                className={`${styles['carousel-img']} ${styles.swg} ${styles.ljp}`}
                                 alt="presentation"
                               />
                             </div>
                           </Link>
                           <p className={styles.meeting}>
-                            LINCS Joint Project-Breast Cancer Network Browser
-                            (LJP-BCNB) is an interactive visualizes xxxx
-                            thousands of signatures across six
-                            breast cancer cell lines treated with xxxx single
-                            molecule perturbations, mostly kinase inhibitors.
-                            These perturbations were applied in different
-                            concentrations while gene expression was measured at
-                            different time points using the L1000 technology.
-                            Under the same conditions, the cells were imaged for
-                            cell viability. The distance between nodes represents
-                            response similarity computed using the cosine distance
-                            between the Characteristic Direction vectors of
-                            perturbations compared with their appropriate controls.
+                            The LINCS Joint Project-Breast Cancer Network Browser
+                            (LJP-BCNB) is an interactive visualization of 2344
+                            signatures across 6 breast cancer cell
+                            lines treated with 105 single molecule perturbations,
+                            mostly kinase inhibitors. These perturbations were
+                            applied in different concentrations while gene
+                            expression was measured at different time points using
+                            the L1000 technology. Under the same conditions, the
+                            cells were imaged for cell viability. The distance
+                            between nodes represents response similarity computed
+                            using the cosine distance between the Characteristic
+                            Direction vectors of perturbations compared with
+                            their appropriate controls.
                           </p>
                         </div>
 
