@@ -37,7 +37,10 @@ export default class DMOA extends Component {
                   for cell viability. The distance between nodes represents
                   response similarity computed using the cosine distance between
                   the Characteristic Direction vectors of perturbations
-                  compared with their appropriate controls.
+                  compared with their appropriate controls. For cluster annotation
+                  and/or drug annotation of this visualization, or to learn more
+                  about this network view, you can visit&nbsp;
+                  <a href="http://amp.pharm.mssm.edu/LJP/" target="_blank">here</a>.
                 </p>
                 <h4>Instructions:</h4>
                 <p>
