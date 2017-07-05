@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router';
-import { reduxForm } from 'redux-form';
+import { reduxForm, Field } from 'redux-form';
 
 import FindKnowledgeAboutASpecificGeneOrProtein from
 'views/AppsView/Workflows/ExpWorkflows/FindKnowledgeAboutASpecificGeneOrProtein';
@@ -153,8 +153,7 @@ class WorkflowInputForm extends Component {
   }
 
   render() {
-    const { handleSubmit, submitting, isCompBio } = this.props;
-    const { question, email } = this.props.fields;
+    const { handleSubmit, isCompBio } = this.props;
     const examples = isCompBio ? this.compBioWorkflows : this.expWorkflows;
     return (
       <div className="row">
@@ -196,13 +195,11 @@ class WorkflowInputForm extends Component {
               <div className={`row ${styles['form-row']}`}>
                 <label htmlFor="question" className="col-md-3">Your Question/Aim</label>
                 <div className={`col-md-9 ${styles['form-box']}`}>
-                  <input
-                    id="question"
-                    ref="question"
-                    type="text"
-                    placeholder=""
+                  <Field
+                    name="question"
                     className={styles['workflow-input']}
-                    {...question}
+                    component="input"
+                    type="text"
                   />
                 </div>
               </div>
@@ -217,17 +214,16 @@ class WorkflowInputForm extends Component {
               <div className={`row ${styles['form-row']}`}>
                 <label htmlFor="email" className="col-md-3">Email</label>
                 <div className="col-md-6 col-xl-7">
-                  <input
-                    id="email"
-                    type="text"
+                  <Field
+                    name="email"
                     className={styles['workflow-input']}
-                    {...email}
+                    component="input"
+                    type="text"
                   />
                 </div>
                 <div className="col-md-3 col-xl-2">
                   <button
                     type="submit"
-                    disabled={submitting}
                     className={`btn ${styles['workflow-submit']}`}
                   >
                     Submit

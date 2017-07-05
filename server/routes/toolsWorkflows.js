@@ -107,7 +107,7 @@ router.post('/workflows/add', async (ctx) => {
       .createTransport(EMAIL_STR);
     const mailOptions = {
       from: 'LINCS@amp.pharm.mssm.edu',
-      to: 'edward.he@mssm.edu',
+      to: 'sherry.jenkins@mssm.edu, avi.maayan@mssm.edu, edward.he@mssm.edu, moshe.silverstein@mssm.edu, denis.torre@mssm.edu',
       subject: 'A new workflow has been submitted',
       text: 'Hello,\n\n' +
         'This is a notification from http://amp.pharm.mssm.edu/LINCS that a ' +
