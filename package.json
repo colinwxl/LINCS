@@ -171,7 +171,7 @@
     "react-slick": "^0.14.11",
     "react-tooltip": "^3.3.0",
     "redux": "^3.3.1",
-    "redux-form": "6.6.3",
+    "redux-form": "6.7.0",
     "redux-thunk": "^2.0.1",
     "tether": "^1.2.2",
     "twit": "^2.2.3",
