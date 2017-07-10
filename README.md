@@ -88,5 +88,5 @@ If for any reason you need to revert to an older version on the live site, you c
 
 - [Sherry Jenkins](https://github.com/sherry-jenkins) (content)
 - [Moshe Silverstein](https://github.com/MosheSilverstein) and [Sherry Jenkins](https://github.com/sherry-jenkins) (current developers)
-- [Michael McDermott](https://github.com/mgmcdermott) (original developer)
-- [Gregory Gundersen](https://github.com/gwgundersen) and [Ned He](https://github.com/NedYork) (previous developers)
+- [Michael McDermott](https://github.com/michaelgmcd) (original developer)
+- [Gregory Gundersen](https://github.com/gwgundersen) and [Ned He](https://github.com/NedYork)  (previous developers)
