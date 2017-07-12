@@ -62,7 +62,7 @@ export class Announcements extends Component {
   latestInQuartets(anns) {
     const latestAnns = this.latestAnns(anns);
     if (latestAnns.length <= 4) {
-      return [this.sortAnns(anns).slice(0, 4)];
+      return [this.sortAnns(anns).slice(0, 4).reverse()];
     }
     const quartets = [];
     for (let i = 0; i < latestAnns.length; i += 4) {
