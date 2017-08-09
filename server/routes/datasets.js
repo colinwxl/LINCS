@@ -85,91 +85,92 @@ router.get('/recent', async (ctx) => {
   }
 });
 
-/**
- * Fetch all of the information needed for the DataTree. Speeds up initial load of
- * the tree on the front end.
- */
-router.get('/tree', async (ctx) => {
-  const assays = await Dataset
-    .query(qb => qb.distinct('assay').select().orderBy('assay', 'asc'))
-    .fetchAll()
-    .then(models => models.toJSON().map(obj => obj.assay));
-  const classes = await Dataset
-    .query(qb => qb.distinct('classification').select().orderBy('classification', 'asc'))
-    .fetchAll()
-    .then(models => models.toJSON().map(obj => obj.classification));
-  const methods = await Dataset
-    .query(qb => qb.distinct('method').select().orderBy('method', 'asc'))
-    .fetchAll()
-    .then(models => models.toJSON().map(obj => obj.method));
-  // Find all centers. Return a sorted array with centerNames and
-  // remove centers without any datasets (DCIC)
-  const centers = await Center
-    .fetchAll({ withRelated: ['datasets'] })
-    .then(centerModels => centerModels.toJSON({ omitPivot: true }))
-    .then(centerArr =>
-      centerArr
-        .filter(centerObj => !!centerObj.datasets.length)
-        .map(center => center.name)
-        .sort()
-    );
-
-  const alphabetical = await Dataset
-    .query(qb => qb.select('id').orderBy('method', 'asc'))
-    .fetchAll()
-    .then(models => models.toJSON().map(obj => obj.id));
-
-  const datasets = await Dataset.fetchAll().then(models => models.toJSON());
-  // So here we have a date dataset map and an array of dates.
-  // dateDatasetMap is structured like { 2016: { 1 (month index): [datasets] } }
-  const dateDatasetMap = {};
-  // dates is structured like [{ year: 2016, months: [1, 2, 3 (month indicies)] }]
-  let dates = [];
-
-  // Dates only contains years and months that exist in the dateDatasetMap so this is essentially
-  // a way to sort the keys of dateDatasetMap to ensure that we can sort the years and
-  // months in the proper order in the tree.
-  datasets.forEach((ds) => {
-    const date = moment(ds.dateReleased);
-    const month = date.month();
-    const year = date.year();
-    // Check if an object exists in dates with the year of the current dataset
-    if (dates.filter(obj => obj.year === year).length === 0) {
-      dates.push({ year, months: [month] });
-    } else {
-      // Find the object with the correct year and add the month of the current dataset if it does
-      // not exist there already
-      dates.forEach(obj => {
-        if (obj.year === year && obj.months.indexOf(month) === -1) {
-          obj.months.push(month);
-        }
-      });
-    }
-    // Build the dateDatasetMap
-    if (dateDatasetMap[year]) {
-      if (dateDatasetMap[year][month]) {
-        dateDatasetMap[year][month].push(ds.id);
-      } else {
-        dateDatasetMap[year][month] = [ds.id];
-      }
-    } else {
-      dateDatasetMap[year] = {
-        [month]: [ds.id],
-      };
-    }
-  });
-  // Sort the objects in the dates array by their year
-  dates = dates.sort((a, b) => {
-    const result = a.year < b.year;
-    return result ? 1 : -1;
-  });
-  // Sort the months array in each object in the dates array
-  dates.forEach(dateObj => {
-    dateObj.months.sort((a, b) => b - a);
-  });
-  ctx.body = { assays, classes, methods, centers, alphabetical, dates, dateDatasetMap };
-});
-
+// Need to be removed since data tree is no longer needed.
+// /**
+//  * Fetch all of the information needed for the DataTree. Speeds up initial load of
+//  * the tree on the front end.
+//  */
+// router.get('/tree', async (ctx) => {
+//   const assays = await Dataset
+//     .query(qb => qb.distinct('assay').select().orderBy('assay', 'asc'))
+//     .fetchAll()
+//     .then(models => models.toJSON().map(obj => obj.assay));
+//   const classes = await Dataset
+//     .query(qb => qb.distinct('classification').select().orderBy('classification', 'asc'))
+//     .fetchAll()
+//     .then(models => models.toJSON().map(obj => obj.classification));
+//   const methods = await Dataset
+//     .query(qb => qb.distinct('method').select().orderBy('method', 'asc'))
+//     .fetchAll()
+//     .then(models => models.toJSON().map(obj => obj.method));
+//   // Find all centers. Return a sorted array with centerNames and
+//   // remove centers without any datasets (DCIC)
+//   const centers = await Center
+//     .fetchAll({ withRelated: ['datasets'] })
+//     .then(centerModels => centerModels.toJSON({ omitPivot: true }))
+//     .then(centerArr =>
+//       centerArr
+//         .filter(centerObj => !!centerObj.datasets.length)
+//         .map(center => center.name)
+//         .sort()
+//     );
+//
+//   const alphabetical = await Dataset
+//     .query(qb => qb.select('id').orderBy('method', 'asc'))
+//     .fetchAll()
+//     .then(models => models.toJSON().map(obj => obj.id));
+//
+//   const datasets = await Dataset.fetchAll().then(models => models.toJSON());
+//   // So here we have a date dataset map and an array of dates.
+//   // dateDatasetMap is structured like { 2016: { 1 (month index): [datasets] } }
+//   const dateDatasetMap = {};
+//   // dates is structured like [{ year: 2016, months: [1, 2, 3 (month indicies)] }]
+//   let dates = [];
+//
+//   // Dates only contains years and months that exist in the dateDatasetMap so this is essentially
+//   // a way to sort the keys of dateDatasetMap to ensure that we can sort the years and
+//   // months in the proper order in the tree.
+//   datasets.forEach((ds) => {
+//     const date = moment(ds.dateReleased);
+//     const month = date.month();
+//     const year = date.year();
+//     // Check if an object exists in dates with the year of the current dataset
+//     if (dates.filter(obj => obj.year === year).length === 0) {
+//       dates.push({ year, months: [month] });
+//     } else {
+//       // Find the object with the correct year and add the month of the current dataset if it does
+//       // not exist there already
+//       dates.forEach(obj => {
+//         if (obj.year === year && obj.months.indexOf(month) === -1) {
+//           obj.months.push(month);
+//         }
+//       });
+//     }
+//     // Build the dateDatasetMap
+//     if (dateDatasetMap[year]) {
+//       if (dateDatasetMap[year][month]) {
+//         dateDatasetMap[year][month].push(ds.id);
+//       } else {
+//         dateDatasetMap[year][month] = [ds.id];
+//       }
+//     } else {
+//       dateDatasetMap[year] = {
+//         [month]: [ds.id],
+//       };
+//     }
+//   });
+//   // Sort the objects in the dates array by their year
+//   dates = dates.sort((a, b) => {
+//     const result = a.year < b.year;
+//     return result ? 1 : -1;
+//   });
+//   // Sort the months array in each object in the dates array
+//   dates.forEach(dateObj => {
+//     dateObj.months.sort((a, b) => b - a);
+//   });
+//   ctx.body = { assays, classes, methods, centers, alphabetical, dates, dateDatasetMap };
+// });
+//
 /**
  * Search the datasets based on the query given in the `q` query parameter.
  */

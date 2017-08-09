@@ -62,7 +62,7 @@ Execute
 npm run dev
 ```
 
-### Building the Application for Production
+### Building the Application for Development
 
 With docker-machine installed, you'll need to create a new machine. I would delete the current 'default' machine by running `docker-machine rm default`. Following the answer from [this StackOverflow answer](http://stackoverflow.com/questions/30654306/allow-insecure-registry-in-host-provisioned-with-docker-machine),
 run the following command to create a machine with our insecure registry:
@@ -76,8 +76,17 @@ Now that you have docker-machine configured, you are ready to run this in produc
 
 If the deployment process finishes without errors, visit http://amp.pharm.mssm.edu/LINCS to view the updated product.
 
+### Launching App on production
+
+Once the dev version on http://amp.pharm.mssm.edu/LINCS looks fine, we can launch our application onto production. To do so,
+ssh into the LINCS AWS server. For credentials/key, ask Alex or Sherry using `ssh -i ~/path/to/key.pem ubuntu@ip_address_of_server`. Pull the Docker image from Docker hub with the newest version tag such as `sudo docker run -p 80:3000 --name="lincs" -d -e "NODE_ENV=production" --net="host" -v /data/serverconf/serverConf.js:/usr/src/serverConf.js -v /data/datasets:/usr/src/dist/files/datasets maayanlab/lincs:8.18.25`. Then kill and remove old image `sudo docker kill lincs && sudo docker rm lincs`. Run the `sudo docker run -p 80:3000 --name="lincs" -d -e "NODE_ENV=production" --net="host" -v /data/serverconf/serverConf.js:/usr/src/serverConf.js -v /data/datasets:/usr/src/dist/files/datasets maayanlab/lincs:8.18.25
+` command once again and check if the development site is deployed onto the live site.
+
+If for any reason you need to revert to an older version on the live site, you can simply run the command above with an older version tag such as `maayanlab/lincs:8.18.24`.
+
 ## Developers and maintainers
 
-- [Michael McDermott](https://github.com/mgmcdermott) (original developer)
-- [Gregory Gundersen](https://github.com/gwgundersen) (current maintainer)
 - [Sherry Jenkins](https://github.com/sherry-jenkins) (content)
+- [Moshe Silverstein](https://github.com/MosheSilverstein) and [Sherry Jenkins](https://github.com/sherry-jenkins) (current developers)
+- [Michael McDermott](https://github.com/michaelgmcd) (original developer)
+- [Gregory Gundersen](https://github.com/gwgundersen) and [Ned He](https://github.com/NedYork)  (previous developers)

@@ -8,7 +8,7 @@ import styles from './ReleasePolicy.scss';
 export default function ReleasePolicy(/* props */) {
   return (
     <div className={styles.wrapper}>
-      <PageBanner title="Data Release Policy" includeSearchBar />
+      <PageBanner title="Data Release Policy" />
       <div className="container">
         <div className="row">
           <PageNav mainPage="Release Policy" isDataPage />
@@ -61,7 +61,7 @@ export default function ReleasePolicy(/* props */) {
             <ol>
               <li>
                 LINCS Centers will release primary and processed data on a quarterly basis as
-                described on the <Link to="/data/releases">data release</Link> page. LINCS data
+                described on the data release page. LINCS data
                 will be released as soon as logistically possible after QA/QC has been completed
                 but not later than 3 months after QA/QC and no more than 6 months after data
                 generation. It is anticipated however, that for a subset of LINCS data with

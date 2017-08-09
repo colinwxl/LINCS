@@ -1,14 +1,15 @@
 import React from 'react';
-
+import { Link } from 'react-router';
 import PageBanner from 'components/PageBanner';
 import PageNav from 'components/PageNav';
 import styles from './Standards.scss';
+import bioSharing from './biosharing_icon.png';
 
 export default function Standards(/* props */) {
   const d = '/LINCS/files/';
   return (
     <div className={styles.wrapper}>
-      <PageBanner title="Data Standards" includeSearchBar />
+      <PageBanner title="Data Standards" />
 
       <div className="container">
         <div className="row">
@@ -26,6 +27,15 @@ export default function Standards(/* props */) {
               This will facilitate development of data analysis, formatting, and visualization
               strategies by LINCS investigators, and also the development of databases and data
               repositories in which to store and share LINCS data.
+            </p>
+            <p>
+              All the LINCS standards are curated into
+              <a
+                href="https://biosharing.org/collection/LINCSProject?q=&selected_facets=status:Ready"
+                target="_blank"
+              >
+                <img src={bioSharing} className={styles.biosharing} role="presentation" />
+              </a>.
             </p>
 
             <p><strong>Current Versions of Standards Released: 5-13-2016</strong></p>
@@ -56,8 +66,8 @@ export default function Standards(/* props */) {
                 </a>
               </li>
               <li>
-                <a href={`${d} Nucleic_Acid_Metadata_2016.pdf`}>
-                  Nucleic acids
+                <a href={`${d}Nucleic_Acid_Metadata_2016.pdf`}>
+                  Nucleic acid reagents
                 </a>
               </li>
 
@@ -86,97 +96,11 @@ export default function Standards(/* props */) {
             <p>
               <a href={`${d}Standards5132016.zip`}>Download pdf and xlsx formats</a>
             </p>
-
-            <p><strong>Previous Versions of Standards Released: 8-14-15</strong></p>
-            <ul>
-              <li>
-                <a href={`${d}cell-line-standards.pdf`}>
-                  Cell lines
-                </a>
-              </li>
-              <li>
-                <a href={`${d}primary-cell-standards.pdf`}>
-                  Primary cells
-                </a>
-              </li>
-              <li>
-                <a href={`${d}iPSC-standards.pdf`}>
-                  iPSCs
-                </a>
-              </li>
-              <li>
-                <a href={`${d}differentiated-iPSC-standards.pdf`}>
-                  Differentiated iPSCs
-                </a>
-              </li>
-              <li>
-                <a href={`${d}small-molecule-standards.pdf`}>
-                  Small molecules
-                </a>
-              </li>
-              <li>
-                <a href={`${d}RNAi-standards.pdf`}>
-                  RNAi reagents
-                </a>
-              </li>
-              <li>
-                <a href={`${d}antibody-standards.pdf`}>
-                  Antibody reagents
-                </a>
-              </li>
-              <li>
-                <a href={`${d}other-reagent-standards.pdf`}>
-                  Other reagents
-                </a>
-              </li>
-            </ul>
-            <h2>LINCS Pilot Phase I Metadata Standards</h2>
-
             <p>
-              The documents below annotate reagents outside the context of the experiments in
-              which they were used. For example, the small molecules standards do not include
-              solvent information as that is usually specific to the experimental context in
-              which the reagent is used. Please note that the <em>Unique ID</em> field in these
-              documents is used by the LINCS DWG to track fields and is not meant for any
-              other purpose.
+              <Link to="/data/previous-standards">
+                <strong>Previous Versions of Standards</strong>
+              </Link>
             </p>
-            <ul>
-              <li>
-                <a href={`${d}LINCS_DWG_CellLine_Metadata_Release_Apr-11-2012.pdf`}>
-                  Cell lines
-                </a> (Released 4-11-12)
-              </li>
-              <li>
-                <a href={`${d}LINCS_DWG_PrimaryCell_Metadata_Release_Apr-11-2012.pdf`}>
-                  Primary cells
-                </a> (Released 4-11-12)
-              </li>
-              <li>
-                <a href={`${d}LINCS_DWG_SmallMolecule_Metadata_Released_May-04-2012.pdf`}>
-                  Small molecules
-                </a> (Released 5-4-12)
-              </li>
-              <li>
-                <a href={`${d}LINCS_DWG_siRNAshRNAReagents_Metadata_Release_Jul-31-2012.pdf`}>
-                  RNAi reagents
-                </a> (Released 7-31-12)
-              </li>
-              <li>
-                <a href={`${d}LINCS_DWG_ProteinReagents_Metadata_Release_Jul-31-2012.pdf`}>
-                  Protein reagents
-                </a> (Released 7-31-12)
-              </li>
-              <li>
-                <a href={`${d}LINCS_DWG_AntibodyReagents_Metadata_Release_Oct-12-2012.pdf`}>
-                  Antibody reagents
-                </a> (Released 10-12-12)
-              </li>
-              <li>
-                <a href={`${d}LINCS_DWG_OtherReagents_Metadata_Release_Nov-07-12.pdf`}>
-                  Other reagents
-                </a> (Released 11-7-12)
-              </li>
-            </ul>
             <h2>Experiment Metadata</h2>
 
             <p>

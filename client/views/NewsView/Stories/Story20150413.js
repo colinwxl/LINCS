@@ -42,7 +42,7 @@ export default function Story20150413() {
         Session Leaders: Avi Ma’ayan
         PhD, <a href="http://lincs-dcic.org/#/" target="_blank">BD2K-LINCS Data
         Coordination and Integration Center</a> and Aravind Subramanian
-        PhD, <a href="http://www.lincscloud.org/" target="_blank">LINCS Center
+        PhD, <a href="http://clue.io/" target="_blank">LINCS Center
         for Transcriptomics</a>
       </p>
       <p>

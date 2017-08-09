@@ -1,7 +1,8 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import extend from 'extend';
-// import { Link } from 'react-router';
+import Collapsible from 'react-collapsible';
 
 import { fetchWebinars } from 'actions/community';
 import formatDate from 'utils/formatDate';
@@ -22,17 +23,18 @@ export class Webinars extends Component {
     const { webinars } = this.props;
     const upcomingWebinars = [];
     const pastWebinars = [];
+    const yesterday = new Date();
+    yesterday.setDate(yesterday.getDate() - 1);
     webinars.forEach((webinar) => {
       const web = extend(true, {}, webinar);
-      const now = new Date();
       if (web.date) {
         // Ensure web.date is a date object so that it can be compared to Date.now() to check
         // if in past or future
         web.date = new Date(web.date);
-        if (web.date < now) {
+        if (web.date < yesterday) {
           pastWebinars.push(web);
         } else {
-          upcomingWebinars.push(web);
+          upcomingWebinars.unshift(web);
         }
       }
     });
@@ -61,6 +63,12 @@ export class Webinars extends Component {
             web.presenterAffiliation && !!web.presenterAffiliation.length
               ? <p>{web.presenterAffiliation}</p>
               : <p></p>
+          }
+          {
+            web.abstract && web.abstract.length
+            ? <Collapsible trigger="▸ Abstract" triggerWhenOpen="▾ Abstract">
+              <p>{web.abstract}</p></Collapsible>
+            : <p>{}</p>
           }
           {
             hasVideo

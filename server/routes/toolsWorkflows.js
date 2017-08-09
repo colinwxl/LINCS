@@ -4,6 +4,7 @@ import nodemailer from 'nodemailer';
 import { Tools } from '../models/Tool';
 import { Workflow } from '../models/Workflow';
 import _debug from 'debug';
+import EMAIL_STR from '../serverConf';
 const debug = _debug('app:server:routes:health');
 
 const router = new Router({
@@ -16,9 +17,34 @@ const router = new Router({
 router.get('/tools', async (ctx) => {
   try {
     const tools = await Tools
-      .query(qb => qb.select().orderBy('order', 'asc'))
-      .fetch({ withRelated: ['center'] });
+      .query(qb => qb.select())
+      .fetch({ withRelated: ['centers'] });
     ctx.body = tools.toJSON({ omitPivot: true });
+  } catch (e) {
+    debug(e);
+    ctx.throw(500, 'An error occurred obtaining tools.');
+  }
+});
+
+router.post('/tools/clicks/increment', async (ctx) => {
+  const toolIds = ctx.request.body.toolIds;
+  if (!toolIds || !toolIds.length) {
+    ctx.throw(400, 'Tool Id required with request.');
+    return;
+  }
+  try {
+    const toolModels = await Tools
+      .query(qb => qb.whereIn('id', toolIds))
+      .fetch();
+
+      ctx.body = await Promise.all(
+        toolModels.map(model => {
+          let clicks = model.get('clicks');
+          return model
+            .save({ clicks: ++clicks }, { patch: true, required: true })
+            .then(newModel => newModel.toJSON());
+        })
+      );
   } catch (e) {
     debug(e);
     ctx.throw(500, 'An error occurred obtaining tools.');
@@ -78,10 +104,10 @@ router.post('/workflows/add', async (ctx) => {
   try {
     const wf = await Workflow.forge(workflow).save().then(wfModel => wfModel.toJSON());
     const transporter = nodemailer
-      .createTransport('smtps://maayanlabapps%40gmail.com:systemsbiology@smtp.gmail.com');
+      .createTransport(EMAIL_STR);
     const mailOptions = {
       from: 'LINCS@amp.pharm.mssm.edu',
-      to: 'sherry.jenkins@mssm.edu',
+      to: 'sherry.jenkins@mssm.edu, avi.maayan@mssm.edu, edward.he@mssm.edu, moshe.silverstein@mssm.edu, denis.torre@mssm.edu',
       subject: 'A new workflow has been submitted',
       text: 'Hello,\n\n' +
         'This is a notification from http://amp.pharm.mssm.edu/LINCS that a ' +

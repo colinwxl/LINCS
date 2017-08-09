@@ -75,7 +75,6 @@
   }
 
   .view-container {
-    margin-bottom: 2rem;
   }
 
   .btn-primary {
@@ -120,5 +119,12 @@
   .slick-prev::before,
   .slick-next::before {
     color: $brand-primary;
+    font-size: 27px;
+  }
+
+  .react-bs-table table td,
+  .react-bs-table table th {
+    white-space: normal;
+    overflow-x: auto;
   }
 }

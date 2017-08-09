@@ -1,0 +1,2 @@
+ALTER TABLE news
+ADD category VARCHAR(255) NOT NULL;

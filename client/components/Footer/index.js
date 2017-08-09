@@ -5,10 +5,11 @@ import styles from './Footer.scss';
 
 const base = '/LINCS';
 const dataRoute = `${base}/data`;
-const applicationsRoute = `${base}/applications`;
+const toolsRoute = `${base}/tools`;
 const commRoute = `${base}/community`;
 const centersRoute = `${base}/centers`;
 const dsgcRoute = `${centersRoute}/data-and-signature-generating-centers`;
+const mobileRoute = `${base}/mobile`;
 
 const sherry = 'sherry.jenkins@mssm.edu';
 const subject = 'Questions/Comments regarding lincsproject.org';
@@ -62,8 +63,8 @@ export default class Footer extends Component {
               <ul>
                 <li><a href={`${centersRoute}/overview`}>Overview</a></li>
                 <li><a href={`${centersRoute}/dcic`}>BD2K-LINCS DCIC</a></li>
-                <li><a href={`${dsgcRoute}/hms-lincs`}>HMS LINCS</a></li>
                 <li><a href={`${dsgcRoute}/dtoxs`}>DToxS</a></li>
+                <li><a href={`${dsgcRoute}/hms-lincs`}>HMS LINCS</a></li>
                 <li><a href={`${dsgcRoute}/lincs-pccse`}>LINCS Proteomics</a></li>
                 <li><a href={`${dsgcRoute}/lincs-transcriptomics`}>LINCS Transcriptomics</a></li>
                 <li><a href={`${dsgcRoute}/mep-lincs`}>MEP LINCS</a></li>
@@ -76,7 +77,7 @@ export default class Footer extends Component {
               onClick={() => { this.handleClick('dataCollapsed'); }}
             >
               <ul>
-                <li><a href={`${dataRoute}/releases`}>Releases</a></li>
+                <li><a href="http://lincsportal.ccs.miami.edu/dcic-portal/">Releases</a></li>
                 <li><a href={`${dataRoute}/release-policy`}>Release Policy</a></li>
                 <li><a href={`${dataRoute}/standards`}>Standards</a></li>
               </ul>
@@ -88,8 +89,8 @@ export default class Footer extends Component {
             >
               <ul>
                 <li><a href={`${base}/publications`}>Publications</a></li>
-                <li><a href={`${applicationsRoute}`}>Workflows</a></li>
-                <li><a href={`${applicationsRoute}`}>Applications</a></li>
+                <li><a href={`${toolsRoute}`}>Workflows</a></li>
+                <li><a href={`${toolsRoute}`}>Tools</a></li>
               </ul>
             </FooterDropDown>
             <FooterDropDown
@@ -100,36 +101,41 @@ export default class Footer extends Component {
               <ul>
                 <li><a href={`${base}/news`}>News</a></li>
                 <li><a href={`${commRoute}/webinars`}>Webinars</a></li>
-                <li>
-                  <a href={`${commRoute}/workshops-and-symposia`}>Workshops &amp; Symposia</a>
-                </li>
+                <li><a href={`${commRoute}/workshops`}>Workshops</a></li>
+                <li><a href={`${commRoute}/symposia`}>Symposia</a></li>
               </ul>
             </FooterDropDown>
-            <div className={`col-xs-12 col-md-3 ${styles.contact}`}>
-              <h5>Contact</h5>
-              <ul className={styles.icons}>
-                <li>
-                  <a href="https://twitter.com/LINCSProgram" target="_blank">
-                    <i className="fa fa-twitter" />
-                  </a>
-                  <a
-                    href="https://www.youtube.com/channel/UCNcDd4x8PsUZpt4U2Xa8sfg"
-                    target="_blank"
-                  >
-                    <i className="fa fa-youtube-square" />
-                  </a>
-                  <a href={mailLink}>
-                    <i className="fa fa-envelope-o" />
-                  </a>
-                </li>
-              </ul>
+            <div className={`col-xs-12 col-md-2 ${styles.mobileAndContact}`}>
+              <a href={`${mobileRoute}`}>
+                <h5>LINCS Mobile App</h5>
+              </a>
+              <hr />
+              <div className={styles.contact}>
+                <h5>Contact</h5>
+                <ul className={styles.icons}>
+                  <li>
+                    <a href="https://twitter.com/LINCSProgram" target="_blank">
+                      <i className="fa fa-twitter" />
+                    </a>
+                    <a
+                      href="https://www.youtube.com/channel/UCNcDd4x8PsUZpt4U2Xa8sfg"
+                      target="_blank"
+                    >
+                      <i className="fa fa-youtube-square" />
+                    </a>
+                    <a href={mailLink}>
+                      <i className="fa fa-envelope-o" />
+                    </a>
+                  </li>
+                </ul>
+              </div>
             </div>
           </div>
           <hr />
           <div className="row">
             <div className="col-xs-12">
               <div className={`col-xs-12 col-md-6 col-lg-5 ${styles.copy}`}>
-                <p>© 2016, LINCS Program. All rights reserved.</p>
+                <p>© 2017, LINCS Program. All rights reserved.</p>
               </div>
               <div className={`col-xs-12 col-md-6 col-lg-7 text-xl-right ${styles.credit}`}>
                 <p>

@@ -1,0 +1,29 @@
+.styles {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.viz-description {
+  margin-bottom: 2rem;
+}
+
+.credits {
+  font-size: 0.85rem;
+}
+
+.iframe-wrap {
+  overflow: hidden;
+}
+
+.iframe {
+  width: 50rem;
+  margin-top: -6rem;
+  min-height: 50rem;
+  @media(max-width: 767px) {
+    margin-top: -7.2rem;
+  }
+
+  @media(max-width: 430px) {
+    margin-top: -8.4rem;
+  }
+}

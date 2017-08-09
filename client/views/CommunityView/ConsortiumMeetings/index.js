@@ -5,6 +5,7 @@ import PageBanner from 'components/PageBanner';
 import PageNav from 'components/PageNav';
 import styles from './ConsortiumMeetings.scss';
 
+import meeting2016Img from './2016-consortium-meeting.jpg';
 import meeting2015Img from './2015-consortium-meeting.png';
 import cover2014Img from './2014-cover.png';
 
@@ -35,20 +36,70 @@ export default function ConsortiumMeetings() {
               continue to develop a successful LINCS program.
             </p>
 
+            {/* 2017 meeting
+             * ------------------------------------------------------------------------------- */}
+
+            <h2>2017 Consortium Meeting</h2>
+            <em>October 23-24</em>
+            <p>
+              Details will be posted soon!
+            </p>
+
             {/* 2016 meeting
              * ------------------------------------------------------------------------------- */}
 
             <h2>2016 Consortium Meetings</h2>
             <div className={styles.header}>
+              <a href="http://lincsproject.org/LINCS/files/2016-consortium-meeting.jpg">
+                <img
+                  className={styles['pull-left']}
+                  style={{ width: '315px' }}
+                  src={meeting2016Img}
+                  alt="2016 Consortium Meeting"
+                />
+              </a>
               <h5>NIH Campus in Bethesda</h5>
               <em>September 19-20</em>
+              <br />
+              <br />
+              <div>
+                The annual LINCS Consortium Face-to-Face Meeting brought together the six
+                LINCS Data and Signature Generation Centers, the BD2K-LINCS DCIC, NIH
+                extramural staff, and external LINCS collaborators.
+                <br />
+                <a
+                  href="/LINCS/files/f2f_2016/LINCS_Sept%202016_F2F%20Agenda%20-%20Final.pdf"
+                  target="_blank"
+                >
+                  Agenda
+                </a>
+                &nbsp;|&nbsp;
+                <a
+                  href="/LINCS/files/f2f_2016/LINCS%20Annual%20Meeting%20-%20Flyer.pdf"
+                  target="_blank"
+                >
+                  Meeting Flyer
+                </a>
+                <br />
+                <br />
+                <br />
+                This two-day meeting was organized into the following sessions:
+                <br />
+                <ul>
+                  <li>Data Challenges Facing Large Projects</li>
+                  <li>Introduction to LINCS</li>
+                  <li>Community Outreach - Accessing LINCS Data</li>
+                  <li>MCF10A Biology</li>
+                  <li>Working Group Meetings (Proteomics, Transcriptomics and Imaging)</li>
+                </ul>
+              </div>
             </div>
             <div className={styles.header}>
               <h5>University of California, Irvine</h5>
               <em>March 10-11</em>
             </div>
             <p>
-              The first day of the meeting brought together the
+              The first day of the meeting brought together the&nbsp;
               <Link to="/centers/data-and-signature-generating-centers">LINCS Data and Signature
               Generation Centers</Link> and the <Link to="/centers/dcic">
               BD2K-LINCS Data Coordination and Integration Center</Link> to review progress to date
@@ -147,9 +198,9 @@ export default function ConsortiumMeetings() {
                   <p>October 27, NCI, Rockville, MD</p>
                 </div>
                 <div className={styles['info-block']}>
-                  <a href="/LINCS">
+                  <p>
                     2013 Consortium Meeting
-                  </a>
+                  </p>
                   <p>November 18-19, Broad Institute, Cambridge, MA</p>
                 </div>
                 <div className={styles['info-block']}>

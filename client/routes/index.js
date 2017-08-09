@@ -12,6 +12,10 @@ import { Route, IndexRoute, Redirect } from 'react-router';
 import CoreLayout from 'layouts/CoreLayout';
 import HomeView from 'views/HomeView';
 import AboutView from 'views/AboutView';
+import MobileDownloadView from 'views/MobileDownloadView';
+import DMOA from 'views/DMOA';
+import MEMA from 'views/MEMA';
+import LJP from 'views/LJP';
 
 // Centers
 import CentersOverview from 'views/CentersView/Overview';
@@ -30,18 +34,24 @@ import PhaseOne from 'views/CentersView/PhaseOne';
 
 // Community
 import CommunityOverview from 'views/CommunityView/Overview';
+import CrowdsourcingChallenges from 'views/CommunityView/CrowdsourcingChallenges';
 import FundingOpportunities from 'views/CommunityView/FundingOpportunities';
 import ConsortiumMeetings from 'views/CommunityView/ConsortiumMeetings';
 import Webinars from 'views/CommunityView/Webinars';
-import WorkshopsAndSymposia from 'views/CommunityView/WorkshopsAndSymposia';
+import Workshops from 'views/CommunityView/Workshops';
+import Symposia from 'views/CommunityView/Symposia';
+import PreviousEvents from 'views/CommunityView/PreviousEvents';
+import Aacr2017 from 'views/CommunityView/AACRPage2017';
 
 // Data
 import DataOverview from 'views/DataView/Overview';
-import DataReleases from 'views/DataView/Releases';
+// import DataReleases from 'views/DataView/Releases';
 import DataStandards from 'views/DataView/Standards';
+import DataPreviousStandards from 'views/DataView/PreviousStandards';
 import DataReleasePolicy from 'views/DataView/ReleasePolicy';
+import PageHasBeenMovedView from 'views/PageHasBeenMovedView';
 
-import DatasetView from 'views/DataView/DatasetView';
+// import DatasetView from 'views/DataView/DatasetView';
 
 // PubsNews
 import PublicationsView from 'views/PublicationsView';
@@ -51,34 +61,44 @@ import NewsView from 'views/NewsView';
 import AppsView from 'views/AppsView';
 
 // Workflows
-import FindKnowledgeAboutASpecificGeneOrProtein
-  from 'views/AppsView/Workflows/FindKnowledgeAboutASpecificGeneOrProtein';
-import ExploreMicroscopyImagingData from 'views/AppsView/Workflows/ExploreMicroscopyImagingData';
-import FindOutIfLINCSHasCollectedDataFromASpecificCellLine
-  from 'views/AppsView/Workflows/FindOutIfLINCSHasCollectedDataFromASpecificCellLine';
-import CheckIfASmallMoleculeHasBeenProfiled
-  from 'views/AppsView/Workflows/CheckIfASmallMoleculeHasBeenProfiled';
-import QueryAGeneExpressionSignatureAgainst
-  from 'views/AppsView/Workflows/QueryAGeneExpressionSignatureAgainst';
-import FindNovelCompoundsThatMimicOrReverseADiseaseSignature
-  from 'views/AppsView/Workflows/FindNovelCompoundsThatMimicOrReverseADiseaseSignature';
-import FindTheBestPlaceToObtainTheLINCSL1000Data
-  from 'views/AppsView/Workflows/FindTheBestPlaceToObtainTheLINCSL1000Data';
-import DownloadRNASeqDataFromLINCS from 'views/AppsView/Workflows/DownloadRNASeqDataFromLINCS';
-import SearchLINCSMetadataThroughAPIs
-  from 'views/AppsView/Workflows/SearchLINCSMetadataThroughAPIs';
-import FindAttributesAboutGenesAndProteinsForMachineLearning
-  from 'views/AppsView/Workflows/FindAttributesAboutGenesAndProteinsForMachineLearning';
-import FindProteomicAndEpigenomicDataFromTheSameConditions
-  from 'views/AppsView/Workflows/FindProteomicAndEpigenomicDataFromTheSameConditions';
-import FindDataAboutCellViabilityAndOther
-  from 'views/AppsView/Workflows/FindDataAboutCellViabilityAndOther';
-import AnalyzeMyGenesAgainstLINCSData
-  from 'views/AppsView/Workflows/AnalyzeMyGenesAgainstLINCSData';
-import AnalyzeLINCSTranscriptomicAndProteomicDatasets
-  from 'views/AppsView/Workflows/AnalyzeLINCSTranscriptomicAndProteomicDatasets';
-import AnalyzeADrugSignatureAndFindOtherDrugs
-  from 'views/AppsView/Workflows/AnalyzeADrugSignatureAndFindOtherDrugs';
+import FindKnowledgeAboutASpecificGeneOrProtein from
+'views/AppsView/Workflows/ExpWorkflows/FindKnowledgeAboutASpecificGeneOrProtein';
+import ExploreMicroscopyImagingData from
+'views/AppsView/Workflows/ExpWorkflows/ExploreMicroscopyImagingData';
+import DetermineWhetherLINCSHasCollectedDataFromASpecificCellLine from
+'views/AppsView/Workflows/ExpWorkflows/DetermineWhetherLINCSHasCollectedDataFromASpecificCellLine';
+import CheckIfASmallMoleculeHasBeenProfiled from
+'views/AppsView/Workflows/ExpWorkflows/CheckIfASmallMoleculeHasBeenProfiled';
+import QueryAGeneExpressionSignatureAgainst from
+  'views/AppsView/Workflows/ExpWorkflows/QueryAGeneExpressionSignatureAgainst';
+import FindNovelCompoundsThatMimicOrReverseADiseaseSignature from
+'views/AppsView/Workflows/ExpWorkflows/FindNovelCompoundsThatMimicOrReverseADiseaseSignature';
+import IdentifyMicroenvironmentsThatPromoteProliferation from
+'views/AppsView/Workflows/ExpWorkflows/IdentifyMicroenvironmentsThatPromoteProliferation';
+import ExploreMicroenvironmentsThatAlterLineagesInHMECCellLines from
+'views/AppsView/Workflows/ExpWorkflows/ExploreMicroenvironmentsThatAlterLineagesInHMECCellLines';
+
+import FindTheBestPlaceToObtainTheLINCSL1000Data from
+'views/AppsView/Workflows/CompBioWorkflows/FindTheBestPlaceToObtainTheLINCSL1000Data';
+import DownloadRNASeqDataFromLINCS from
+'views/AppsView/Workflows/CompBioWorkflows/DownloadRNASeqDataFromLINCS';
+import SearchLINCSMetadataThroughAPIs from
+'views/AppsView/Workflows/CompBioWorkflows/SearchLINCSMetadataThroughAPIs';
+import FindAttributesAboutGenesAndProteinsForMachineLearning from
+'views/AppsView/Workflows/CompBioWorkflows/FindAttributesAboutGenesAndProteinsForMachineLearning';
+import FindProteomicAndEpigenomicDataFromTheSameConditions from
+'views/AppsView/Workflows/CompBioWorkflows/FindProteomicAndEpigenomicDataFromTheSameConditions';
+import FindDataAboutCellViabilityAndOther from
+'views/AppsView/Workflows/CompBioWorkflows/FindDataAboutCellViabilityAndOther';
+import AnalyzeMyGenesAgainstLINCSData from
+'views/AppsView/Workflows/CompBioWorkflows/AnalyzeMyGenesAgainstLINCSData';
+import AnalyzeLINCSTranscriptomicAndProteomicDatasets from
+'views/AppsView/Workflows/CompBioWorkflows/AnalyzeLINCSTranscriptomicAndProteomicDatasets';
+import AnalyzeADrugSignatureAndFindOtherDrugs from
+'views/AppsView/Workflows/CompBioWorkflows/AnalyzeADrugSignatureAndFindOtherDrugs';
+import DownloadDataFromMEPLINCS from
+'views/AppsView/Workflows/CompBioWorkflows/DownloadDataFromMEPLINCS/DownloadDataFromMEPLINCS';
+
 
 import NotFoundView from 'views/NotFoundView';
 
@@ -86,7 +106,7 @@ const centersBase = 'centers';
 const dsgcBase = `${centersBase}/data-and-signature-generating-centers`;
 const communityBase = 'community';
 const dataBase = 'data';
-const wf = 'applications/workflows';
+const wf = 'tools/workflows';
 
 export default (/* store */) => (
   <Route path="/" component={CoreLayout}>
@@ -109,6 +129,10 @@ export default (/* store */) => (
     <IndexRoute component={HomeView} />
 
     <Route path="about" component={AboutView} />
+    <Route path="mobile" component={MobileDownloadView} />
+    <Route path="dmoa" component={DMOA} />
+    <Route path="mema" component={MEMA} />
+    <Route path="ljp" component={LJP} />
 
     {/* Centers Routes */}
     <Redirect from={centersBase} to={`${centersBase}/overview`} />
@@ -126,17 +150,23 @@ export default (/* store */) => (
     {/* Community Routes */}
     <Redirect from={communityBase} to={`${communityBase}/overview`} />
     <Route path={`${communityBase}/overview`} component={CommunityOverview} />
+    <Route path={`${communityBase}/crowdsourcing-challenges`} component={CrowdsourcingChallenges} />
     <Route path={`${communityBase}/funding-opportunities`} component={FundingOpportunities} />
     <Route path={`${communityBase}/consortium-meetings`} component={ConsortiumMeetings} />
     <Route path={`${communityBase}/webinars`} component={Webinars} />
-    <Route path={`${communityBase}/workshops-and-symposia`} component={WorkshopsAndSymposia} />
+    <Route path={`${communityBase}/workshops`} component={Workshops} />
+    <Route path={`${communityBase}/symposia`} component={Symposia} />
+    <Route path={`${communityBase}/previous-events`} component={PreviousEvents} />
+    <Route path={`${communityBase}/aacr-2017`} component={Aacr2017} />
 
     {/* Data Routes */}
-    <Redirect from={dataBase} to={`${dataBase}/releases`} />
+    <Redirect from={dataBase} to={`${dataBase}/overview`} />
     <Route path={`${dataBase}/overview`} component={DataOverview} />
-    <Route path={`${dataBase}/releases`} component={DataReleases} />
-    <Route path={`${dataBase}/releases/:datasetId`} component={DatasetView} />
+    <Route path={`${dataBase}/releases`} component={PageHasBeenMovedView} />
+    <Route path={`${dataBase}/releases/*`} component={PageHasBeenMovedView} />
     <Route path={`${dataBase}/standards`} component={DataStandards} />
+    <Route path={`${dataBase}/data-standards`} component={DataStandards} />
+    <Route path={`${dataBase}/previous-standards`} component={DataPreviousStandards} />
     <Route path={`${dataBase}/release-policy`} component={DataReleasePolicy} />
 
     {/* Publications/News Routes */}
@@ -144,9 +174,21 @@ export default (/* store */) => (
     <Route path="news" component={NewsView} />
 
     {/* Apps & Workflows Route */}
-    <Route path="applications" component={AppsView} />
+    <Route path="tools" component={AppsView} />
 
-    {/* Experimentalist Workflow Routes */}
+    {/* Experimentalist Workflows Routes */}
+    <Route
+      path={`${wf}/${DownloadDataFromMEPLINCS.path}`}
+      component={DownloadDataFromMEPLINCS}
+    />
+    <Route
+      path={`${wf}/${ExploreMicroenvironmentsThatAlterLineagesInHMECCellLines.path}`}
+      component={ExploreMicroenvironmentsThatAlterLineagesInHMECCellLines}
+    />
+    <Route
+      path={`${wf}/${IdentifyMicroenvironmentsThatPromoteProliferation.path}`}
+      component={IdentifyMicroenvironmentsThatPromoteProliferation}
+    />
     <Route
       path={`${wf}/${FindKnowledgeAboutASpecificGeneOrProtein.path}`}
       component={FindKnowledgeAboutASpecificGeneOrProtein}
@@ -156,8 +198,8 @@ export default (/* store */) => (
       component={ExploreMicroscopyImagingData}
     />
     <Route
-      path={`${wf}/${FindOutIfLINCSHasCollectedDataFromASpecificCellLine.path}`}
-      component={FindOutIfLINCSHasCollectedDataFromASpecificCellLine}
+      path={`${wf}/${DetermineWhetherLINCSHasCollectedDataFromASpecificCellLine.path}`}
+      component={DetermineWhetherLINCSHasCollectedDataFromASpecificCellLine}
     />
     <Route
       path={`${wf}/${CheckIfASmallMoleculeHasBeenProfiled.path}`}
@@ -209,6 +251,31 @@ export default (/* store */) => (
       path={`${wf}/${AnalyzeADrugSignatureAndFindOtherDrugs.path}`}
       component={AnalyzeADrugSignatureAndFindOtherDrugs}
     />
+
+  {/*
+    Other websites have legacy links that existed on the old
+    lincsproject.org. This is a list of paths that we are
+    creating to fix those broken links.
+  */}
+    <Redirect from={'lincs'} to={'/'} />
+    <Redirect from={'lincs/*'} to={'/*'} />
+    <Redirect from={`${dataBase}/data-release-policy`} to={`${dataBase}/release-policy`} />
+    <Redirect from={`${dataBase}/tools-and-databases`} to={"/tools"} />
+    <Redirect from={`${dsgcBase}/hms-lincs-u54`} to={`${dsgcBase}/hms-lincs`} />
+    <Redirect from={`${dsgcBase}/broad-prx`} to={`${dsgcBase}/lincs-pccse`} />
+    <Redirect from={`${dsgcBase}/broad-trx`} to={`${dsgcBase}/lincs-transcriptomics`} />
+    <Redirect from={`${dsgcBase}/oregon-u`} to={`${dsgcBase}/mep-lincs`} />
+    <Redirect from={`${centersBase}/bd2k-lincs-dcic`} to={`${centersBase}/dcic`} />
+    <Redirect from={`${centersBase}/lincs-pilot-phase-centers`} to={`${centersBase}/phase-one`} />
+    <Redirect from={`${communityBase}/workshops-and-symposia`} to={`${communityBase}/workshops`} />
+    // /LINCS/applications/* was updated to /LINCS/tools/*
+    <Redirect from={'applications'} to={'tools'} />
+    <Redirect from={'applications/*'} to={'tools/*'} />
+    <Redirect
+      from={`${communityBase}/lincs-consortium-meetings`}
+      to={`${communityBase}/consortium-meetings`}
+    />
+    <Route path={`${dataBase}/data-releases`} component={PageHasBeenMovedView} />
 
     {/* Not Found Route */}
     <Route path="*" component={NotFoundView} />

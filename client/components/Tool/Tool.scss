@@ -9,7 +9,7 @@ $shadow: rgba(0, 0, 0, .1);
   border-color: $gray-border-top $gray-border-side $gray-border-bottom;
   border-radius: .2rem;
   margin: 0 auto 1rem;
-  width: $tool-width;
+  min-width: $tool-width;
 }
 
 .tool-inner {
@@ -78,67 +78,83 @@ $img-width: 9rem;
 }
 
 .tool-details {
-  max-height: 7rem;
+  max-height: 9rem;
   overflow: hidden;
   padding: .5rem .75rem 0;
+}
+
+.tooltip {
+  position: absolute;
+  bottom: 0.5rem;
+  right: 0.5rem;
+  height: 1rem;
+  width: 1rem;
+  &:hover {
+    opacity: 0.9;
+  }
+}
+
+.category-column {
+  vertical-align: top;
+  max-width: 9rem;
+  display: inline-block;
+  margin-left: 0.5rem;
+  margin-right: 0.75rem;
+}
+
+.category-label {
+  font-size: 1rem;
+  weight: 500;
+}
+
+.category-ul {
+  padding-left: 1rem;
+}
+
+.category-li {
+
 }
 
 $title-line-height: 1.5rem;
 
 .tool-title {
   color: $off-black;
-  display: block;
-  font-size: 1.25rem;
-  font-weight: 400;
-  line-height: $title-line-height;
-  margin: 0;
+  display: inline-block;
+  font-weight: 600;
+  margin-top: 0.6rem;
   max-height: 2rem;
-  min-height: 1.1rem;
+  min-height: 1.0rem;
   overflow: hidden;
   position: relative;
-  text-decoration: none;
+  text-decoration: none !important;
   white-space: nowrap;
-
-  .end {
-    height: $title-line-height;
-  }
-}
-
-.end {
-  background: linear-gradient(to right, transparent, $white);
-  bottom: 0;
-  max-height: 100%;
-  position: absolute;
-  right: 0;
-  width: 45px;
+  line-height: $title-line-height;
 }
 
 .tool-creator {
   color: $dark-gray;
-  font-size: .9rem;
   font-weight: 400;
-  line-height: 1rem;
-  margin: 1px 0;
+  margin: 0;
   overflow: hidden;
   white-space: nowrap;
+  text-decoration: none !important;
   width: 10rem;
+  padding: 0;
+  list-style-type: none;
 }
 
 $desc-line-height: 1.125rem; // 18px
 
 .tool-description {
-  display: block;
-  font-size: .8rem; // ~13px
-  line-height: $desc-line-height;
-  margin-top: .625rem; // 10px
+  display: inline-block;
   max-height: $desc-line-height * 3;
   min-height: 1.25rem;
   position: relative;
   word-wrap: break-word;
+}
 
-  .end {
-    height: $desc-line-height;
-  }
+.tool-multi-center {
+  line-height: 1.1rem !important;
 }
 
 .tool-ranking {

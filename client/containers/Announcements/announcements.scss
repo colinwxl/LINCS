@@ -1,0 +1,65 @@
+@import 'variables';
+
+
+.ann {
+  background-color: $light-gray;
+  border-bottom: 1px solid $gray;
+}
+
+.ann-section {
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+.group {
+  margin-bottom: 1rem;
+  padding: 0.5rem 1rem;
+
+  h6,
+  h5,
+  p,
+  a {
+    margin-bottom: 0;
+  }
+}
+
+.title {
+  margin-bottom: 1.5rem;
+  margin-right: 2rem;
+  font-weight: 400;
+  text-align: center;
+
+  @media (min-width: 544px) {
+    text-align: left;
+  }
+}
+
+.logo {
+  max-width: 100%;
+  width: auto;
+}
+
+.announcementOptions {
+  display: inline-block;
+  margin-bottom: 1rem;
+}
+
+.announcementOption {
+  margin: 0 1rem;
+  cursor: pointer;
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Non-prefixed version, currently
+                        supported by Chrome and Opera */
+  &:hover {
+    color: $brand-primary;
+  }
+}
+
+.date {
+  font-size: 0.8rem;
+  font-weight: 900;
+  color: #989898;
+}

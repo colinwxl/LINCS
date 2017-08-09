@@ -5,9 +5,9 @@ import PageNav from 'components/PageNav';
 import styles from '../DSGCs.scss';
 
 const bmeLink =
-  'http://www.ohsu.edu/xd/education/schools/school-of-medicine/departments/basic-science-departments';
+  'http://www.ohsu.edu/xd/education/schools/school-of-medicine/departments/basic-science-departments/biomedical-engineering';
 
-const bmeStaffLink = `${bmeLink}/biomedical-engineering/people`;
+const bmeStaffLink = `${bmeLink}/people`;
 
 export default function MEPLINCS() {
   return (
@@ -20,7 +20,7 @@ export default function MEPLINCS() {
           'profile the effects of different microenvironments on the response ' +
           'of human cell lines to many perturbations'
         }
-        imgSrc="/LINCS/files/mep-lincs-logo.png"
+        imgSrc="/LINCS/files/centers_logos/mep-lincs-logo.png"
         imgAlt="MEP LINCS Logo"
       />
       <div className="container">
@@ -37,10 +37,16 @@ export default function MEPLINCS() {
                 Networks (1U54HG008100)</a>
               </li>
               <li>
-                Principal Investigators: <a href={`${bmeStaffLink}/joe-gray.cfm`} target="_blank">
-                Joe Gray PhD</a>, <a href={`${bmeStaffLink}/laura-heiser.cfm`} target="_blank">
-                Laura Heiser PhD</a>, <a href={`${bmeStaffLink}/james-korkola.cfm`} target="_blank">
-                James Korkola PhD</a>
+                Principal Investigators:&nbsp;
+                <a href={`${bmeStaffLink}/joe-gray.cfm`} target="_blank">
+                  Joe Gray PhD
+                </a>,&nbsp;
+                <a href={`${bmeStaffLink}/laura-heiser.cfm`} target="_blank">
+                  Laura Heiser PhD
+                </a>,&nbsp;
+                <a href={`${bmeStaffLink}/james-korkola.cfm`} target="_blank">
+                  James Korkola PhD
+                </a>
               </li>
               <li>
                 Awardee Institution: <a title="OHSU" href="http://www.ohsu.edu/xd/" target="_blank">
@@ -84,12 +90,18 @@ export default function MEPLINCS() {
             <h2>Resources</h2>
             <ul>
               <li>
-                <a href="https://www.synapse.org/#!Synapse:syn2862345/wiki/72486">
+                <a
+                  href="https://www.synapse.org/#!Synapse:syn2862345/wiki/72486"
+                  target="_blank"
+                >
                   MEP LINCS Synapse Website
                 </a>
               </li>
               <li>
-                <a href="https://www.synapse.org/#!Synapse:syn2346643/wiki/">
+                <a
+                  href="https://www.synapse.org/#!Synapse:syn2346643/wiki/"
+                  target="_blank"
+                >
                   Breast Cancer Cell Line Panel
                 </a>
               </li>

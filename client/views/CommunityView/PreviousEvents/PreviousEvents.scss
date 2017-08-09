@@ -1,0 +1,113 @@
+@import 'variables';
+
+.wrapper {
+
+  h2 {
+    margin-top: 2rem;
+  }
+
+  h2:first-child {
+    margin-top: 0;
+  }
+}
+
+.previous-events {
+  border-bottom: 1px solid $gray;
+  margin-bottom: 2rem;
+  padding-bottom: 2rem;
+
+  p,
+  ul {
+    margin-bottom: 0;
+  }
+}
+
+
+.filter-and-calendar {
+  border-bottom: 1px solid $gray;
+}
+
+
+// ======================
+
+.card {
+  background-color: $white;
+  border-radius: .25rem;
+  height: 14.5rem; //usually 18rem
+  min-width: 10rem; //usually 18rem
+  margin-bottom: 1rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  p,
+  a {
+    font-size: .9rem;
+  }
+  // @media (max-width: 1200px) {
+  //   height: 13.5rem; //usually 18rem
+  // }
+  @media (min-width: 991px) {
+    height: 12.5rem; //usually 18rem
+  }
+}
+
+.headerWrapper {
+  display: block;
+}
+
+.card-title {
+  padding: 0.5rem;
+  padding-bottom: 0;
+  color: $white;
+  display: inline-block;
+  font-family: "Narrow", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+  font-size: 0.8rem;
+  letter-spacing: 0.1rem;
+}
+
+.inner-wrap {
+  margin-top: 1rem;
+}
+
+.date {
+  font-size: 0.8rem;
+  font-weight: 900;
+  color: #989898;
+  margin: 0.5rem 1rem;
+}
+
+.title {
+  display: block;
+}
+
+.description {
+  // display: block;
+}
+
+.group {
+  margin-bottom: 1rem;
+  padding: 0 0.5rem 0 1rem;
+
+  h6,
+  h5,
+  p,
+  a {
+    margin-bottom: 0;
+  }
+}
+
+.course {
+  background-color: '#283f62';
+}
+
+.webinar {
+  background-color: '#007CBE';
+}
+
+.training {
+  background-color: '#058488';
+}
+
+.update {
+  background-color: '#e1447e';
+}

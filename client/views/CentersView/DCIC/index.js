@@ -14,7 +14,7 @@ export default function DCIC() {
           'The BD2K-LINCS Data Coordination and Integration Center is ' +
           'responsible for harmonizing LINCS data with other available resources'
         }
-        imgSrc="/LINCS/files/DCIC.svg"
+        imgSrc="/LINCS/files/centers_logos/DCIC.svg"
         imgAlt="BD2K-LINCS DCIC Logo"
       />
       <div className="container">
@@ -44,6 +44,15 @@ export default function DCIC() {
                 Center Website: <a href="http://lincs-dcic.org/#/">lincs-dcic.org</a>
               </li>
             </ul>
+            <div className={styles.playlist}>
+              <iframe
+                width="560"
+                height="315"
+                src="https://www.youtube.com/embed/wpx3sHd-5fo"
+                frameBorder="0"
+                allowFullScreen
+              />
+            </div>
             <p>
               The Big Data to Knowledge (BD2K) Data Coordination and Integration Center (DCIC)
               for the Library of Integrated Network-based Signatures (LINCS) program consists
@@ -84,7 +93,7 @@ export default function DCIC() {
               The organizational structure of the Center includes a strong CCA that supports and
               manages the Center’s goals and deliverables, and coordinates activities across
               the <a title="LINCS" href="https://commonfund.nih.gov/LINCS/index" target="_blank">
-              LINCS</a> and <a title="BD2K" href="http://bd2k.nih.gov/#sthash.KvwCAGCP.dpbs" target="_blank">
+              LINCS</a> and <a title="BD2K" href="https://datascience.nih.gov/bd2k" target="_blank">
               BD2K</a> programs.
             </p>
             <p>

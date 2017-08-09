@@ -1,7 +1,9 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 import { openCitationsModal, closeCitationsModal } from 'actions/modals';
+import PublicationCategory from 'components/PublicationCategory';
 import styles from './Publication.scss';
 
 export class Publication extends Component {
@@ -64,15 +66,16 @@ export class Publication extends Component {
             const categoryName = this.categoryKeyToName(category);
             if (pub[category]) {
               return (
-                <span
+                <PublicationCategory
+                  redirect={this.props.redirect}
                   key={i}
                   onClick={() => this.props.onCatClicked(category)}
                   className={`${styles.cat} ${styles[cssClass]}`}
-                >
-                  {categoryName}
-                </span>
+                  categoryName={categoryName}
+                />
               );
             }
+
             return null;
           })}
           <span
@@ -110,6 +113,7 @@ export class Publication extends Component {
 
 Publication.propTypes = {
   pub: PropTypes.object,
+  redirect: PropTypes.bool,
   categories: PropTypes.array,
   onCatClicked: PropTypes.func,
   openCitationsModal: PropTypes.func,

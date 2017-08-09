@@ -1,0 +1,79 @@
+@import 'variables';
+
+$widget-height: 8.5rem;
+$widget-width: 15.75rem;
+$shadow: rgba(0, 0, 0, .1);
+
+.widget {
+  position: relative;
+  border: 1px solid;
+  border-color: $gray-border-top $gray-border-side $gray-border-bottom;
+  border-radius: .2rem;
+  display: block;
+  overflow: hidden;
+  min-width: $widget-width;
+  width: auto;
+  @media (min-width: 992px) {
+    display: inline-block;
+    width: $widget-width + 2.5rem;
+    margin: 0.25rem 0.7rem;
+  }
+  @media (min-width: 1200px) {
+    display: inline-block;
+    width: $widget-width;
+    margin: 0.25rem 0.175rem;
+  }
+}
+
+.widget-inner {
+  background: $white;
+  border-radius: .2rem;
+  box-shadow: 0 2px 4px $shadow;
+  height: $widget-height;
+  position: relative;
+  text-decoration: none;
+  vertical-align: top;
+  padding: 0.7rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.desc-limit {
+  max-height: 3.5rem;
+  max-width: 100%;
+  @media (min-width: 1200px) {
+    overflow: hidden;
+    max-width: 9rem;
+  }
+}
+
+.thumbnail {
+  display: block;
+  margin-top: 0.3rem;
+  width: 100%;
+}
+
+.presenter {
+  width: 5.25rem;
+}
+
+.inline-img-left {
+  float: left;
+  margin-right: 0.8rem;
+}
+
+$desc-line-height: 1.125rem;
+
+.widget-description {
+  font-size: 0.75rem;
+}
+
+.resource {
+  position: absolute;
+  bottom: 0.825rem;
+  // color: #1f4a8d;
+}
+
+.no-style-link {
+  text-decoration: none !important;
+}

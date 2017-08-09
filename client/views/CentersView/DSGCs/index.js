@@ -40,7 +40,7 @@ export default function DSGCs() {
                       Drug Toxicity Signature Generation Center
                     </h5>
                     <p>Icahn School of Medicine at Mount Sinai</p>
-                    <a href="http://dtoxs.org">Visit Center website</a>
+                    <a href="https://martip03.u.hpc.mssm.edu/index.php">Visit Center website</a>
                   </div>
                   <p>
                     The Drug Toxicity Signature Generation Center aims to develop cell signatures
@@ -61,10 +61,11 @@ export default function DSGCs() {
                     <a href="http://lincs.hms.harvard.edu">Visit Center website</a>
                   </div>
                   <p>
-                    The HMS LINCS Center develops new measurement methods and computer
-                    algorithms to detect and analyze perturbations induced by therapeutic drugs
-                    in healthy and diseased human
-                    cells. <Link title="HMS LINCS Center" to={`${dsgcRoute}/hms-lincs`}>
+                    The HMS LINCS Center studies how normal and diseased human cells
+                    respond at the molecular level to perturbation by drugs, mutations,
+                    and the local environment as a means to develop improved predictive
+                    models of drug toxicity and response.&nbsp;
+                    <Link title="HMS LINCS Center" to={`${dsgcRoute}/hms-lincs`}>
                     Learn More</Link>
                   </p>
                 </div>
@@ -74,7 +75,7 @@ export default function DSGCs() {
                       LINCS Center for Transcriptomics
                     </h5>
                     <p>Broad Institute</p>
-                    <a href="http://www.lincscloud.org">Visit Center website</a>
+                    <a href="https://clue.io/lincs">Visit Center website</a>
                   </div>
                   <p>
                     The LINCS Center for Transcriptomics is studying up to 50 cell types
@@ -83,8 +84,10 @@ export default function DSGCs() {
                     gene-expression readouts. By the project’s end, the center expects to have
                     generated more than 1 million profiles of how genes are expressed in
                     different
-                    cells. <Link title="BroadT LINCS" to={`${dsgcRoute}/lincs-transcriptomics`}>
-                    Learn More</Link>
+                    cells.&nbsp;
+                    <Link title="LINCS Transcriptomics" to={`${dsgcRoute}/lincs-transcriptomics`}>
+                      Learn More
+                    </Link>
                   </p>
                 </div>
                 <div className={styles['center-info']}>

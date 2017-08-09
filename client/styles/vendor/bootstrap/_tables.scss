@@ -5,13 +5,13 @@
 .table {
   width: 100%;
   max-width: 100%;
-  margin-bottom: $spacer;
+  // margin-bottom: $spacer;
 
   th,
   td {
     padding: $table-cell-padding;
     line-height: $line-height;
-    vertical-align: top;
+    // vertical-align: top;
     border-top: $table-border-width solid $table-border-color;
   }
 

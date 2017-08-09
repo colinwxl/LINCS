@@ -3,6 +3,18 @@ import React from 'react';
 import PageBanner from 'components/PageBanner';
 import styles from './NewsView.scss';
 
+import Story20161209 from './Stories/Story20161209.js';
+import Story20161208 from './Stories/Story20161208.js';
+import Story20161207 from './Stories/Story20161207.js';
+import Story201610202 from './Stories/Story201610202.js';
+import Story20161020 from './Stories/Story20161020.js';
+import Story20160929 from './Stories/Story20160929.js';
+import Story20160923 from './Stories/Story20160923.js';
+import Story20160916 from './Stories/Story20160916.js';
+import Story20160831 from './Stories/Story20160831.js';
+import Story20160812 from './Stories/Story20160812.js';
+import Story20160808 from './Stories/Story20160808.js';
+import Story20160720 from './Stories/Story20160720.js';
 import Story20160616 from './Stories/Story20160616.js';
 import Story20160602 from './Stories/Story20160602.js';
 import Story20160523 from './Stories/Story20160523.js';
@@ -33,7 +45,10 @@ import Story20150228 from './Stories/Story20150228.js';
 import Story20150224 from './Stories/Story20150224.js';
 import Story20150220 from './Stories/Story20150220.js';
 import Story20150208 from './Stories/Story20150208.js';
-
+import Story20170124 from './Stories/Story20170124.js';
+import Story20170214 from './Stories/Story20170214.js';
+import Story20170404 from './Stories/Story20170404.js';
+import Story20170515 from './Stories/Story20170515.js';
 
 export default function NewsView() {
   return (
@@ -45,6 +60,22 @@ export default function NewsView() {
       <div className="container">
         <div className="row">
           <div className={`col-xs-12 col-xl-9 ${styles.news}`}>
+            <Story20170515 />
+            <Story20170404 />
+            <Story20170214 />
+            <Story20170124 />
+            <Story20161209 />
+            <Story20161208 />
+            <Story20161207 />
+            <Story201610202 />
+            <Story20161020 />
+            <Story20160929 />
+            <Story20160923 />
+            <Story20160916 />
+            <Story20160831 />
+            <Story20160812 />
+            <Story20160808 />
+            <Story20160720 />
             <Story20160616 />
             <Story20160602 />
             <Story20160523 />

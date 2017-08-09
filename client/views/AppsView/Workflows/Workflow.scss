@@ -1,6 +1,14 @@
 // scss-lint:disable ColorVariable
 @import 'variables';
 
+iframe {
+  display: block;
+  height: 372px;
+  margin: auto;
+  margin-bottom: 2rem;
+  width: 660px;
+}
+
 .wrapper {
   margin-bottom: 1rem;
 
@@ -11,7 +19,8 @@
 }
 
 .harmonizome,
-.lincscloud {
+.lincscloud,
+.creeds {
   margin: 2rem 0;
   text-align: center;
 
@@ -39,6 +48,10 @@
     border: 1px solid #ccc;
     border-radius: 0;
     float: left;
+  }
+
+  .cmapLogo {
+    margin-bottom: 0;
   }
 
   .input {
@@ -95,6 +108,14 @@
   img {
     margin-bottom: 1rem;
     width: 250px;
+  }
+}
+
+.creeds-link {
+  text-decoration: none;
+  .creedsLogo {
+    width: 6rem;
+    margin: 0;
   }
 }
 
@@ -266,7 +287,7 @@
     border: 1px solid $gray-border-bottom;
   }
   .section {
-    border-bottom: 1px solid $gray-border-bottom;
+    // border-bottom: 1px solid $gray-border-bottom;
     padding-bottom: 30px;
     margin-bottom: 30px;
   }

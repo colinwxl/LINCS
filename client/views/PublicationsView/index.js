@@ -1,5 +1,6 @@
 import React, { PropTypes, Component } from 'react';
 import { connect } from 'react-redux';
+import ReactTooltip from 'react-tooltip';
 import extend from 'extend';
 import isEqual from 'lodash/isEqual';
 
@@ -7,6 +8,7 @@ import styles from './PublicationsView.scss';
 import PageBanner from 'components/PageBanner';
 import Publication from 'containers/Publication';
 import PubCheckBox from './PubCheckBox';
+import Toggle from 'components/Toggle';
 import { loadPublications } from 'actions/pubsNews';
 
 const mapStateToProps = (state) => ({
@@ -27,14 +29,22 @@ export const initialCategories = {
 };
 
 export class PublicationsView extends Component {
-
+  // need to consider when user clicks on category of publication from home page
+  // the source needs to be adjusted to the source of the publication
+  // this is only necessary when a featured publication is from community.
   constructor(props) {
     super(props);
+    this.homePageInitialCat = props.location.state;
     this.initialState = {
       categories: initialCategories,
       sortOrder: 'descending',
+      pubSource: 'centerPub',
     };
-    this.state = this.initialState;
+    const mergedCategories = this.falseAllCategoriesExcept(
+      initialCategories,
+      this.homePageInitialCat
+    );
+    this.state = { ...this.initialState, categories: mergedCategories };
   }
 
   componentWillMount() {
@@ -47,7 +57,22 @@ export class PublicationsView extends Component {
     // This prevents the publications from swapping everytime you click 'Select All'
     return !this.props.publications.length
       || !isEqual(this.state.categories, nextState.categories)
-      || this.state.sortOrder !== nextState.sortOrder;
+      || this.state.sortOrder !== nextState.sortOrder
+      || this.state.pubSource !== nextState.pubSource;
+  }
+
+  // Used when clicking a publication category from Home View.
+  // Makes all values of initialCategories false except the one clicked
+  // from Home View.
+  falseAllCategoriesExcept(initCategories, passedCategory) {
+    if (!passedCategory) return initCategories;
+    const initCatDup = Object.assign({}, initCategories);
+    Object.keys(initCatDup).forEach((key) => {
+      if (key !== Object.keys(passedCategory)[0]) {
+        initCatDup[key] = false;
+      }
+    });
+    return initCatDup;
   }
 
   // Check if category is wanted (this.state.categories[category] is true) and that
@@ -63,6 +88,17 @@ export class PublicationsView extends Component {
     }
     return false;
   };
+
+  filterSources = (p) => {
+    const currStateSource = this.state.pubSource;
+    const currPubSource = p.centerPub;
+    if (
+        currStateSource === 'centerPub' && !!currPubSource ||
+        currStateSource === 'community' && !currPubSource) {
+      return true;
+    }
+    return false;
+  }
 
   sortPublications = (a, b) => {
     let result = a.yearPublished > b.yearPublished;
@@ -80,6 +116,16 @@ export class PublicationsView extends Component {
 
   handleSortOrderChanged = (event) => {
     this.setState({ sortOrder: event.target.value });
+  }
+
+  // handleSourceChanged = (event) => {
+  //   this.setState({ pubSource: event.target.value });
+  // }
+
+  handleSourceChanged = () => {
+    const otherSource = this.state.pubSource === 'centerPub' ?
+    'community' : 'centerPub';
+    this.setState({ pubSource: otherSource });
   }
 
   handleCategoryChecked = (name, checked) => {
@@ -109,25 +155,97 @@ export class PublicationsView extends Component {
     .replace(/^./, (str) => str.toUpperCase());
 
   selectAll = () => {
+    this.setState({ ...this.state, categories: initialCategories });
+  }
+
+  resetAllFields = () => {
     this.setState(this.initialState);
   }
 
   render() {
     const { categories } = this.state;
     let publications = this.props.publications;
-    publications = publications.sort(this.sortPublications).filter(this.filterCategories);
+    publications = publications.sort(this.sortPublications)
+                               .filter(this.filterCategories)
+                               .filter(this.filterSources);
+    const lincsFundedLabelwToolTip = (
+      <label
+        className={`${styles.label}
+        ${styles.toggleLabel}`}
+      >
+        LINCS-funded&nbsp;
+        <i
+          className="fa fa-question-circle-o"
+          aria-hidden="true"
+          data-tip="Information is not available at this time."
+          data-for="lincs-funded-tool-tip"
+        />
+        <ReactTooltip
+          id="lincs-funded-tool-tip"
+          place="top"
+          type="dark"
+          effect="float"
+        >
+          <p className={styles['label-tooltip-desc']}>
+            Publications by members of the LINCS Consortium
+          </p>
+        </ReactTooltip>
+      </label>
+    );
+    const communityLabelwToolTip = (
+      <label
+        className={`${styles.label}
+        ${styles.toggleLabel}`}
+      >
+        Community&nbsp;
+        <i
+          className="fa fa-question-circle-o"
+          aria-hidden="true"
+          data-tip="Information is not available at this time."
+          data-for="community-tool-tip"
+        />
+        <ReactTooltip
+          id="community-tool-tip"
+          place="top"
+          type="dark"
+          effect="float"
+        >
+          <p className={styles['label-tooltip-desc']}>
+            Publications that use LINCS data and/or tools, published
+            by authors not funded by LINCS
+          </p>
+        </ReactTooltip>
+      </label>
+    );
+
     return (
       <div className={styles.wrapper}>
         <PageBanner
           title="LINCS Publications"
-          subTitle="Discover and cite publications from members of the LINCS Consortium"
+          subTitle="Discover and cite publications from the LINCS Consortium and community"
         />
         <div className="container">
           <div className="row">
             <div className={`col-md-3 col-md-push-9 ${styles.filter}`}>
               <h5 className="text-xs-center">Filter Publications</h5>
+              {/* ---------------------Source-------------------- */}
               <div className="form-group">
-                <label className={styles.label} htmlFor="sort-order">Sort Order</label>
+                <div className={`${styles['source-toggle']}`}>
+                  {lincsFundedLabelwToolTip}
+                  <Toggle
+                    handleSourceChanged={this.handleSourceChanged}
+                    leftColor={"#e74c3c"}
+                    rightColor={"#0275d8"}
+                    borderMatch
+                  />
+                  {communityLabelwToolTip}
+                </div>
+              </div>
+              {/* ----------------Sort Order----------------- */}
+              <div className="form-group">
+                <label className={styles.label} htmlFor="sort-order">
+                  Sort By Publication Year
+                </label>
                 <select
                   id="sort-order"
                   className="form-control"
@@ -138,6 +256,7 @@ export class PublicationsView extends Component {
                   <option value="ascending">Ascending</option>
                 </select>
               </div>
+              {/* ------------------Categories-------------------- */}
               <div className="form-group">
                 <label className={styles.label} htmlFor="">Categories</label>
                 {Object.keys(categories).map((category, i) =>
@@ -155,12 +274,19 @@ export class PublicationsView extends Component {
                 >
                   Select All
                 </button>
+                <button
+                  className={`btn btn-secondary ${styles['select-all-btn']}`}
+                  onClick={this.resetAllFields}
+                >
+                  Reset All
+                </button>
               </div>
             </div>
             <div className="col-md-9 col-md-pull-3">
               {
                 publications.map(p =>
                   <Publication
+                    redirect={false}
                     key={p.id}
                     pub={p}
                     categories={Object.keys(categories)}
@@ -181,6 +307,7 @@ export class PublicationsView extends Component {
 }
 
 PublicationsView.propTypes = {
+  location: PropTypes.object,
   loadPublications: PropTypes.func,
   publications: PropTypes.array,
   isFetchingPubs: PropTypes.bool,

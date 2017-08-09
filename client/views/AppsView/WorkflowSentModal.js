@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import Modal from 'react-modal';
 
 import styles from './AppsView.scss';
@@ -37,18 +38,19 @@ export default function WorkflowSentModal(props) {
       isOpen={isOpen}
       onRequestClose={onModalClose}
       style={modalStyles}
+      contentLabel=""
     >
       <div className={`modal-content ${styles['wf-modal-content']}`}>
         <div className={`modal-body ${styles['wf-modal-body']}`}>
           <h4>Thanks for submitting your request!</h4>
           <p>
-            We will read it carefully. If you provided us with an email, we will contact
-            you if we have any additional questions. Once we complete assembling a new
-            workflow that answers your query, we will post it here and notify you.
-            In the meantime, please examine the existing workflows to see if any of
-            them match your needs.
+            We will review it carefully. A member of the BD2K-LINCS DCIC will
+            contact you if we have any additional questions. Once we complete
+            assembling a new workflow that answers your query, we will post it
+            here and notify you. In the meantime, please examine the existing
+            workflows to see if any of them match your needs.
           </p>
-          <button className="btn" onClick={onModalClose}>Ok</button>
+          <button className="btn" onClick={onModalClose}>OK</button>
         </div>
       </div>
     </Modal>

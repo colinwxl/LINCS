@@ -1,0 +1,52 @@
+.center {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.bordered {
+  border-bottom: 1px solid #aaa;
+}
+
+.store-list {
+  width: 100%;
+}
+
+.store {
+  width: 10rem;
+  margin: auto;
+
+}
+
+.mobile-page {
+  border-bottom: 1px solid #eeeeee;
+  margin: 1rem;
+}
+.mobile-page ul.icons {
+  /* Approximately even with the top of the mobile device. */
+  margin-top: 64px;
+  li {
+    display: inline-block;
+    padding: 0.5rem;
+  }
+}
+.mobile-page i {
+  color: #555c6f;
+}
+.screenshot {
+  height: 600px;
+}
+.mobile-page h5 {
+  margin-top: 40px;
+}
+.mobile-page h5 a {
+  font-size: 24px;
+  font-weight: 300;
+}
+.mobile-page .app-store-links a {
+  font-family: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 30px;
+  font-weight: 300;
+  padding-left: 10px;
+}

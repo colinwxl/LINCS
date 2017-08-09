@@ -1,5 +1,11 @@
 import handleResponse from 'utils/handleResponse';
 
+// Symposia action types
+export const CHALLENGES_REQUEST = 'CHALLENGES_REQUEST';
+export const CHALLENGES_SUCCESS = 'CHALLENGES_SUCCESS';
+export const CHALLENGES_FAILURE = 'CHALLENGES_FAILURE';
+
+
 // Funding Opportunity action types
 export const FUNDING_OPPS_REQUEST = 'FUNDING_OPPS_REQUEST';
 export const FUNDING_OPPS_SUCCESS = 'FUNDING_OPPS_SUCCESS';
@@ -300,5 +306,36 @@ export function fetchSymposia() {
     .then(response => dispatch(symposiaSuccess(response)))
     // Loading the symposia was unsuccessful. Dispatch a failure action with the error.
     .catch(error => dispatch(symposiaFailure(error)));
+  };
+}
+
+
+export function challengesRequest() {
+  return { type: CHALLENGES_REQUEST };
+}
+
+export function challengesSuccess(payload) {
+  return { type: CHALLENGES_SUCCESS, payload };
+}
+
+export function challengesFailure(error) {
+  return {
+    type: CHALLENGES_FAILURE,
+    error,
+  };
+}
+
+export function fetchChallenges() {
+  return (dispatch, getState) => {
+    const community = getState().community;
+    if (community.challenges.length) {
+      return null;
+    }
+    dispatch(challengesRequest());
+    return fetch('/LINCS/api/v1/community/challenges')
+    .then(response => handleResponse(response))
+    .then(response => response.json())
+    .then(response => dispatch(challengesSuccess(response)))
+    .catch(error => dispatch(challengesFailure(error)));
   };
 }

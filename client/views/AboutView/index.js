@@ -26,15 +26,20 @@ export default function AboutView() {
             </p>
             <p>
               LINCS data are being made openly available as a community resource through a
-              series of <Link to="/data/releases">data releases</Link>, so as to enable
-              scientists to address a broad range of basic research questions and to
-              facilitate the identification of biological targets for new disease
-              therapies. LINCS datasets consist of assay results from cultured and primary
-              human cells treated with bioactive small molecules, ligands such as growth
-              factors and cytokines, or genetic perturbations. Many different assays are
-              used to monitor cell responses, including assays measuring transcript and
-              protein expression; cell phenotype data are captured by biochemical and
-              imaging readouts. Assays are typically carried out on multiple cell types,
+              series of <a
+                href="http://lincsportal.ccs.miami.edu/dcic-portal/"
+                target="_blank"
+              >
+                data releases
+              </a>
+              , so as to enable scientists to address a broad range
+              of basic research questions and to facilitate the identification of biological
+              targets for new disease therapies. LINCS datasets consist of assay results
+              from cultured and primary human cells treated with bioactive small molecules,
+              ligands such as growth factors and cytokines, or genetic perturbations. Many
+              different assays are used to monitor cell responses, including assays measuring
+              transcript and protein expression; cell phenotype data are captured by biochemical
+              and imaging readouts. Assays are typically carried out on multiple cell types,
               and at multiple timepoints; perturbagen activity is monitored at multiple
               doses.
             </p>
@@ -183,8 +188,7 @@ export default function AboutView() {
                   <li>
                     The <Link to={`${dsgcRoute}/lincs-transcriptomics`}>
                     LINCS Center for Transcriptomics</Link> uses
-                    the <a href="http://www.lincscloud.org/l1000/" target="_blank">
-                    L1000 assay</a> which is a gene-expression profiling assay based on the
+                    the L1000 assay which is a gene-expression profiling assay based on the
                     direct measurement of a reduced representation of the transcriptome and
                     computational inference of the portion of the transcriptome not explicitly
                     measured. Measurements are (a) of endogenous mRNA (i.e. not reporter-based
@@ -254,8 +258,6 @@ export default function AboutView() {
                     the <Link to={`${dsgcRoute}/lincs-pccse`}>LINCS Proteomic Characterization
                     Center for Signaling and Epigenetics</Link> profile over 20,000
                     small molecules and 5,000 human genes.
-                    See <a href="http://lincscloud.org/" target="_blank">lincscloud.org</a> for
-                    more details.
                   </li>
                   <li>
                     The <Link to={`${dsgcRoute}/mep-lincs`}>MEP LINCS Center’s</Link> perturbations
@@ -275,7 +277,13 @@ export default function AboutView() {
             <ul>
               <li>
                 New releases of data will become available every quarter, and the release
-                schedule is summarized <Link to="/data/releases">here</Link>.
+                schedule is summarized&nbsp;
+                <a
+                  href="http://lincsportal.ccs.miami.edu/dcic-portal/"
+                  target="_blank"
+                >
+                  here
+                </a>.
               </li>
               <li>
                 Metadata annotations of LINCS data will be available along with each data
@@ -297,7 +305,7 @@ export default function AboutView() {
               <li>
                 The signatures are available via multiple methods: (a) APIs to
                 programmatically search and download the signatures;
-                (b) <Link to="/applications">Tools</Link> that display the signatures and
+                (b) <Link to="/tools">Tools</Link> that display the signatures and
                 provide integrative analyses.
               </li>
             </ul>

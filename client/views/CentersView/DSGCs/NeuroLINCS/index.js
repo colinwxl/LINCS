@@ -15,7 +15,7 @@ export default function NeuroLINCS() {
           'networks within patient-derived iPSCs, and their differentiated progeny, ' +
           'across many regulatory layers'
         }
-        imgSrc="/LINCS/files/NeuroLINCS.png"
+        imgSrc="/LINCS/files/centers_logos/NeuroLINCS.png"
         imgAlt="NeuroLINCS logo"
       />
       <div className="container">
@@ -33,9 +33,9 @@ export default function NeuroLINCS() {
               </li>
               <li>
                 Principal Investigators: <a href="http://www.faculty.uci.edu/profile.cfm?faculty_id=4708" target="_blank">
-                Leslie Thompson PhD</a>, <a href="http://gladstoneinstitutes.org/scientist/finkbeiner" target="_blank">
+                Leslie Thompson PhD</a>, <a href="https://gladstone.org/our-science/people/steve-finkbeiner" target="_blank">
                 Steven Finkbeiner MD/PhD</a>, <a href="https://be.mit.edu/directory/ernest-fraenkel" target="_blank">
-                Ernest Fraenkel PhD</a>, <a href="http://neuroscience.jhu.edu/resources/directory/faculty/Jeffrey-Rothstein" target="_blank">
+                Ernest Fraenkel PhD</a>, <a href="http://neuroscience.jhu.edu/research/faculty/75" target="_blank">
                 Jeffrey Rothstein MD/PhD</a>, <a href="https://www.cedars-sinai.edu/Research/Faculty-Directory/Bios/Clive-Svendsen-PhD.aspx" target="_blank">
                 Clive Svendsen PhD</a>
               </li>
@@ -85,7 +85,7 @@ export default function NeuroLINCS() {
               community outreach programs. These will involve specific and detailed plans to
               make the data and tools that NeuroLINCS generates available to the community,
               to interact with other LINCS sites, and to prepare for
-              the <Link to="/centers/bd2k-lincs-dcic/">DCIC</Link> and the prospect of
+              the <Link to="/centers/dcic/">DCIC</Link> and the prospect of
               disseminating knowledge and resources at scale.
             </p>
           </div>

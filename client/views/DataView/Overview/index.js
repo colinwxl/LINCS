@@ -4,12 +4,11 @@ import { Link } from 'react-router';
 import PageBanner from 'components/PageBanner';
 import PageNav from 'components/PageNav';
 import styles from './Overview.scss';
-import dataLevelsImg from './data-levels.png';
 
 export default function Overview(/* props */) {
   return (
     <div className={styles.wrapper}>
-      <PageBanner title="LINCS Datasets" includeSearchBar />
+      <PageBanner title="LINCS Datasets" />
       <div className="container">
         <div className="row">
           <PageNav mainPage="Overview" isDataPage />
@@ -33,19 +32,8 @@ export default function Overview(/* props */) {
               The <Link to="/data/standards">data standards</Link> page describes the data
               structures that are being developed by the LINCS Data Working Group.
             </p>
-            <p>
-              The <Link to="/data/releases">data releases</Link> page describes the
-              collections of data released and planned to be released to the public
-              by the LINCS consortia with instruction on how to access, download
-              and cite it.
-            </p>
             <h3>Data Levels</h3>
             <p className="clearfix">
-              <img
-                className={styles['data-levels']}
-                src={dataLevelsImg}
-                alt="LINCS Data Levels"
-              />
               The LINCS project embraces and aims to further develop the concept of data
               levels for results from the various assays employed within the LINCS consortia.
               During the first phase of the LINCS project the Broad and HMS teams defined
@@ -56,12 +44,13 @@ export default function Overview(/* props */) {
               LINCS DSGCs and will be posted here soon.
             </p>
             <p>
-              The L1000 data-levels definitions can be found
-              at: <a href="http://www.lincscloud.org/l1000/">http://www.lincscloud.org/l1000/</a>.
-            </p>
-            <p>
-              The TCGA data-level definitions can be found
-              at: <a href="https://tcga-data.nci.nih.gov/tcga/tcgaDataType.jsp">https://tcga-data.nci.nih.gov/tcga/tcgaDataType.jsp</a>
+              The TCGA data-level definitions can be found&nbsp;
+              <a
+                target="_blank"
+                href="https://gdc.cancer.gov/"
+              >
+                here
+              </a>.
             </p>
           </div>
         </div>

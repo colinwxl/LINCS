@@ -1,0 +1,142 @@
+@import 'variables';
+
+$widget-height: 15rem;
+$widget-width: 15rem;
+$shadow: rgba(0, 0, 0, .1);
+
+.widget {
+  border: 1px solid;
+  border-color: $gray-border-top $gray-border-side $gray-border-bottom;
+  border-radius: .2rem;
+  display: inline-block;
+  overflow: hidden;
+  @media (min-width: 992px) {
+    width: $widget-width;
+  }
+}
+
+.widget-inner {
+  background: $white;
+  border-radius: .2rem;
+  box-shadow: 0 2px 4px $shadow;
+  height: $widget-height;
+  position: relative;
+  text-decoration: none;
+  vertical-align: top;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+@-webkit-keyframes yellow-fade {
+   0% {background: #ffffc8;}
+   100% {background: none;}
+}
+
+@keyframes yellow-fade {
+   0% {background: #ffffc8;}
+   100% {background: none;}
+}
+
+.selected {
+   -webkit-animation: yellow-fade 3s ease-out 1;
+   animation: yellow-fade 3s ease-out 1;
+}
+
+.widget-link {
+  text-decoration: none !important;
+  color: $brand-primary;
+  &:hover {
+    color: #2874b7;
+  }
+}
+
+.widget-logo {
+  display: flex;
+  flex: 1;
+
+  .thumbnail {
+    align-self: center;
+    margin: auto !important;
+    max-height: $widget-height / 3 - 2rem;
+  }
+}
+
+.widget-details {
+  flex: 3;
+  max-height: 9.5rem;
+  overflow: hidden;
+}
+
+// $title-line-height: 1.5rem;
+
+.widget-title {
+  margin-bottom: 0;
+  display: inline-block;
+  line-height: normal;
+  font-weight: 600;
+  margin-top: 0.3rem;
+  max-height: 2rem;
+  position: relative;
+  text-decoration: none !important;
+  color: $brand-primary;
+  &:hover {
+    color: #2874b7;
+  }
+}
+
+$desc-line-height: 1.125rem; // 18px
+
+.widget-description {
+  font-size: 0.75rem;
+  color: $off-black;
+  display: inline-block;
+  max-height: $desc-line-height * 3;
+  min-height: 1.25rem;
+  position: relative;
+  word-wrap: break-word;
+}
+
+.news-title {
+  font-size: 0.85rem;
+  color: $brand-primary;
+  font-weight: 600;
+  text-decoration: none !important;
+}
+
+
+.glyphicons {
+  .info-icon, .glyphicon1, .glyphicon2, .glyphicon3 {
+    color: $brand-primary;
+    position: absolute;
+    height: 1rem;
+    &:hover {
+      opacity: 0.9;
+    }
+  }
+  .info-icon {
+    right: 0.5rem;
+    top: 0.5rem;
+  }
+  .glyphicon1 {
+    bottom: 0.5rem;
+    right: 0.5rem;
+  }
+  .glyphicon2 {
+    bottom: 0.5rem;
+    right: 2rem;
+  }
+  .glyphicon3 {
+    bottom: 0.5rem;
+    right: 3.5rem;
+  }
+}
+
+.centerInfoTooltip {
+  .awardee {
+    display: block;
+  }
+  .label {
+    font-weight: 600;
+  }
+}

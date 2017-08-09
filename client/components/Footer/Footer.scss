@@ -80,9 +80,15 @@ $hover-color: #cacaca;
   }
 }
 
-.contact {
+.mobileAndContact {
   padding-top: 1rem;
 
+  @media (min-width: 990px) {
+    padding-top: 0;
+  }
+}
+
+.contact {
   h5 {
     float: left;
     margin-bottom: 0;
