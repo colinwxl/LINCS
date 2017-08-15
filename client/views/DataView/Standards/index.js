@@ -38,13 +38,12 @@ export default function Standards(/* props */) {
               </a>.
             </p>
 
+            <p>
+              <a href={`${d}LINCS Reagent Definitions.pdf`}>Reagent Definitions</a>
+            </p>
+            
             <p><strong>Current Versions of Standards Released: 5-13-2016</strong></p>
             <ul>
-              <li type="circle">
-                <a href={`${d}LINCS Reagent Definitions.pdf`}>
-                  Reagent Definitions
-                </a>
-              </li>
               <li>
                 <a href={`${d}Antibody_Metadata_2016_General.pdf`}>
                   Antibody reagents
