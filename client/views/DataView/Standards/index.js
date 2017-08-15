@@ -38,10 +38,8 @@ export default function Standards(/* props */) {
               </a>.
             </p>
 
-            <p>
-              <a href={`${d}LINCS Reagent Definitions.pdf`}>Reagent Definitions</a>
-            </p>
-            
+            <p><a href={`${d}LINCS Reagent Definitions.pdf`}>Reagent Definitions</a></p>
+
             <p><strong>Current Versions of Standards Released: 5-13-2016</strong></p>
             <ul>
               <li>
