@@ -1,6 +1,6 @@
 {
   "name": "lincs",
-  "version": "8.18.40",
+  "version": "8.18.41",
   "description": "A home for the LINCS project.",
   "main": "client/main.js",
   "engines": {
@@ -11,7 +11,7 @@
     "docker-clean": "docker images | grep 'weeks ago' | awk '{print $3}' | xargs docker rmi",
     "preversion": "docker-machine active",
     "version": "npm run deploy:docker && git add -A .",
-    "postversion": "git push origin master && git push origin master --tags && npm run clean",
+    
     "deploy:docker": "npm run build:prod && npm run server-es5 && npm version | tee build.log || exit 1 && VERSION=$(head -1 build.log | awk '{print substr($3, 2, length($3) - 3);}') && docker build -t maayanlab/lincs:$VERSION . && docker push maayanlab/lincs:$VERSION && curl -H \"Content-Type: application/json\" -X PUT -d '{ \"instances\": 1, \"cpus\": 1, \"mem\": 2048, \"env\": { \"NODE_ENV\": \"production\" }, \"container\": { \"type\": \"DOCKER\", \"docker\": { \"image\": \"maayanlab/lincs:'\"$VERSION\"'\", \"forcePullImage\": false, \"network\": \"BRIDGE\", \"portMappings\": [ { \"containerPort\": 3000, \"hostPort\": 0, \"protocol\": \"tcp\" } ] }, \"volumes\": [ {\"containerPath\": \"/usr/src/dist/files/datasets\", \"hostPath\": \"/hadoop/hdfs-mount/apps/lincs/datasets\", \"mode\": \"RO\"} ] }, \"healthChecks\": [ { \"protocol\": \"HTTP\", \"path\": \"/LINCS/api/v1/health\", \"gracePeriodSeconds\": 10, \"intervalSeconds\": 60, \"portIndex\": 0, \"timeoutSeconds\": 10, \"maxConsecutiveFailures\": 3 }], \"labels\": { \"public\": \"true\" } }' maayanlab:systemsbiology@146.203.54.165:8080/v2/apps/lincs && rm build.log",
     "clean": "rm -rf dist server-es5",
     "compile": "babel-node bin/compile",
