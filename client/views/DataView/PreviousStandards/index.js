@@ -18,6 +18,61 @@ export default function previousStandards(/* props */) {
             <h2>LINCS Phase II Extended Metadata Standards</h2>
 
 
+            <p><strong>Previous Versions of Standards Released: <em> 5-13-2016 </em></strong></p>
+            <ul>
+              <li>
+                <a href={`${d}Antibody_Metadata_2016_General.pdf`}>
+                  Antibody reagents
+                </a>
+              </li>
+              <li>
+                <a href={`${d}Cell_Line_Metadata_2016_General.pdf`}>
+                  Cell lines
+                </a>
+              </li>
+              <li>
+                <a href={`${d}Differentiated_Cell_Metadata_2016_General.pdf`}>
+                  Differentiated cells
+                </a>
+              </li>
+              <li>
+                <a href={`${d}Embryonic_Stem_Cell_Metadata_2016_General.pdf`}>
+                  Embryonic stem cells
+                </a>
+              </li>
+              <li>
+                <a href={`${d}iPSC_Metadata_2016_General.pdf`}>
+                  iPSCs
+                </a>
+              </li>
+              <li>
+                <a href={`${d}Nucleic_Acid_Metadata_2016.pdf`}>
+                  Nucleic acid reagents
+                </a>
+              </li>
+
+              <li>
+                <a href={`${d}Other_Reagent_Metadata_2016_General.pdf`}>
+                  Other reagents
+                </a>
+              </li>
+              <li>
+                <a href={`${d}Primary_Cell_Metadata_2016_General.pdf`}>
+                  Primary cells
+                </a>
+              </li>
+              <li>
+                <a href={`${d}Protein_Metadata_2016_General.pdf`}>
+                  Proteins
+                </a>
+              </li>
+              <li>
+                <a href={`${d}Small_Molecule_Metadata_2016_General.pdf`}>
+                  Small molecules
+                </a>
+              </li>
+            </ul>
+
             <p><strong>Previous Versions of Standards Released: <em> 8-14-15 </em></strong></p>
             <ul>
               <li>
