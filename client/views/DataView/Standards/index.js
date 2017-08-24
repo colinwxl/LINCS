@@ -95,7 +95,7 @@ export default function Standards(/* props */) {
               </li>
               <li>
                 <a href={`${d}Unclassified_Perturbagen_Metadata_2017.pdf`}>
-                  Unclassified perturbagen
+                  Unclassified perturbagens
                 </a>
               </li>
 
