@@ -17,37 +17,37 @@ export default function Story20170828() {
       Current Versions of Standards Released: 8-22-17
       <ul>
         <li>
-          <a href = '/LINCS/files/Antibody_Metadata_2017.pdf'>Antibody reagents</a>
+          <a href='/LINCS/files/Antibody_Metadata_2017.pdf'>Antibody reagents</a>
         </li>
         <li>
-          <a href = '/LINCS/files/Cell_Line_Metadata_2017.pdf'>Cell lines</a>
+          <a href='/LINCS/files/Cell_Line_Metadata_2017.pdf'>Cell lines</a>
         </li>
         <li>
-          <a href = '/LINCS/files/Differentiated_Cell_Metadata_2017.pdf'>Differentiated cells</a>
+          <a href='/LINCS/files/Differentiated_Cell_Metadata_2017.pdf'>Differentiated cells</a>
         </li>
         <li>
-          <a href = '/LINCS/files/Embryonic_Stem_Cell_Metadata_2017.pdf'>Embryonic stem cells</a>
+          <a href='/LINCS/files/Embryonic_Stem_Cell_Metadata_2017.pdf'>Embryonic stem cells</a>
         </li>
         <li>
-          <a href = '/LINCS/files/iPSC_Metadata_2017.pdf'>iPSCs</a>
+          <a href='/LINCS/files/iPSC_Metadata_2017.pdf'>iPSCs</a>
         </li>
         <li>
-          <a href = '/LINCS/files/Nucleic_Acid_Metadata_2017.pdf'>Nucleic acid reagents</a>
+          <a href='/LINCS/files/Nucleic_Acid_Metadata_2017.pdf'>Nucleic acid reagents</a>
         </li>
         <li>
-          <a href = '/LINCS/files/Other_Reagent_Metadata_2017.pdf'>Other reagents</a>
+          <a href='/LINCS/files/Other_Reagent_Metadata_2017.pdf'>Other reagents</a>
         </li>
         <li>
-          <a href = '/LINCS/files/Primary_Cell_Metadata_2017.pdf'>Primary cells</a>
+          <a href='/LINCS/files/Primary_Cell_Metadata_2017.pdf'>Primary cells</a>
         </li>
         <li>
-          <a href = '/LINCS/files/Protein_Metadata_2017.pdf'>Proteins</a>
+          <a href='/LINCS/files/Protein_Metadata_2017.pdf'>Proteins</a>
         </li>
         <li>
-          <a href = '/LINCS/files/Small_Molecule_Metadata_2017.pdf'>Small molecules</a>
+          <a href='/LINCS/files/Small_Molecule_Metadata_2017.pdf'>Small molecules</a>
         </li>
         <li>
-          <a href = '/LINCS/files/Unclassified_Perturbagen_Metadata_2017.pdf'>Unclassified perturbagens</a>
+          <a href='/LINCS/files/Unclassified_Perturbagen_Metadata_2017.pdf'>Unclassified perturbagens</a>
         </li>
       </ul>
 
