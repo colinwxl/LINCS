@@ -52,7 +52,7 @@ export default function Story20170828() {
           </li>
         </ul>
 
-        Download pdf and xlsx formats <br />
+        <a href={"/LINCS/files/Standards08222017.zip"}>Download pdf and xlsx formats</a> <br />
         Please visit the <a href="http://lincsproject.org/LINCS/data/standards"> data standards </a>  page for more details.
       </p>
 
