@@ -10,7 +10,7 @@ export default function Story20170828() {
       date="August 28th, 2017"
     >
       <p>
-        <strong>Metadata Standards – New Versions Released</strong>
+        <h5>Metadata Standards – New Versions Released</h5>
       </p>
       <p>
         Current Versions of Standards Released: 8-22-17
