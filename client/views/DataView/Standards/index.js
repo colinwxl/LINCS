@@ -38,63 +38,70 @@ export default function Standards(/* props */) {
               </a>.
             </p>
 
-            <p><strong>Current Versions of Standards Released: 5-13-2016</strong></p>
+            <p><a href={`${d}LINCS Reagent Definitions.pdf`}>Reagent Definitions</a></p>
+
+            <p><strong>Current Versions of Standards Released: 8-22-2017</strong></p>
             <ul>
               <li>
-                <a href={`${d}Antibody_Metadata_2016_General.pdf`}>
+                <a href={`${d}Antibody_Metadata_2017.pdf`}>
                   Antibody reagents
                 </a>
               </li>
               <li>
-                <a href={`${d}Cell_Line_Metadata_2016_General.pdf`}>
+                <a href={`${d}Cell_Line_Metadata_2017.pdf`}>
                   Cell lines
                 </a>
               </li>
               <li>
-                <a href={`${d}Differentiated_Cell_Metadata_2016_General.pdf`}>
+                <a href={`${d}Differentiated_Cell_Metadata_2017.pdf`}>
                   Differentiated cells
                 </a>
               </li>
               <li>
-                <a href={`${d}Embryonic_Stem_Cell_Metadata_2016_General.pdf`}>
+                <a href={`${d}Embryonic_Stem_Cell_Metadata_2017.pdf`}>
                   Embryonic stem cells
                 </a>
               </li>
               <li>
-                <a href={`${d}iPSC_Metadata_2016_General.pdf`}>
+                <a href={`${d}iPSC_Metadata_2017.pdf`}>
                   iPSCs
                 </a>
               </li>
               <li>
-                <a href={`${d}Nucleic_Acid_Metadata_2016.pdf`}>
+                <a href={`${d}Nucleic_Acid_Metadata_2017.pdf`}>
                   Nucleic acid reagents
                 </a>
               </li>
 
               <li>
-                <a href={`${d}Other_Reagent_Metadata_2016_General.pdf`}>
+                <a href={`${d}Other_Reagent_Metadata_2017.pdf`}>
                   Other reagents
                 </a>
               </li>
               <li>
-                <a href={`${d}Primary_Cell_Metadata_2016_General.pdf`}>
+                <a href={`${d}Primary_Cell_Metadata_2017.pdf`}>
                   Primary cells
                 </a>
               </li>
               <li>
-                <a href={`${d}Protein_Metadata_2016_General.pdf`}>
+                <a href={`${d}Protein_Metadata_2017.pdf`}>
                   Proteins
                 </a>
               </li>
               <li>
-                <a href={`${d}Small_Molecule_Metadata_2016_General.pdf`}>
+                <a href={`${d}Small_Molecule_Metadata_2017.pdf`}>
                   Small molecules
+                </a>
+              </li>
+              <li>
+                <a href={`${d}Unclassified_Perturbagen_Metadata_2017.pdf`}>
+                  Unclassified perturbagens
                 </a>
               </li>
 
             </ul>
             <p>
-              <a href={`${d}Standards5132016.zip`}>Download pdf and xlsx formats</a>
+              <a href={`${d}Standards08222017.zip`}>Download pdf and xlsx formats</a>
             </p>
             <p>
               <Link to="/data/previous-standards">
