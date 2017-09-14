@@ -30,7 +30,7 @@ export default function Citations(props) {
 }
 
 Citations.propTypes = {
-  cite: PropTypes.array,
+  cite: PropTypes.object,
   name: PropTypes.string,
   title: PropTypes.string,
   url: PropTypes.string,

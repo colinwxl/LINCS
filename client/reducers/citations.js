@@ -4,7 +4,7 @@
 import * as CitationsActionTypes from 'actions/citations';
 
 const initialState = {
-  citaions: [],
+  citation: [],
   isFetching: false,
   error: null,
 };

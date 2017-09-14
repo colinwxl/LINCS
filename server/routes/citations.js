@@ -11,7 +11,6 @@ const router = new Router({
 router.get('/citations', async (ctx) => {
   try {
     const citations = await Citations
-      .query(qb => qb.select().orderByRaw('year'))
       .fetchAll();
      ctx.body = citations.toJSON();
   } catch (e) {
