@@ -48,7 +48,7 @@ class CitationsView extends Component {
 }
 
 CitationsView.propTypes = {
-  cite: PropTypes.object ,
+  cite: PropTypes.object,
   loadCitations: PropTypes.func,
 };
 
