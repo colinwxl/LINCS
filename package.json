@@ -150,7 +150,7 @@
     "koa-sendfile": "2.0.0",
     "koa-static": "2.0.0",
     "lodash": "^4.11.1",
-    "moment": "^2.13.0",
+    "moment": "^2.18.1",
     "mysql": "^2.10.2",
     "nodemailer": "^2.3.2",
     "normalizr": "^2.0.0",

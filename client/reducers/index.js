@@ -13,6 +13,7 @@ import cannedAnalyses from './cannedAnalyses';
 import tree from './tree';
 import modals from './modals';
 import pendingRequests from './pendingRequests';
+import citations from './citations';
 
 
 export default combineReducers({
@@ -29,4 +30,5 @@ export default combineReducers({
   router,
   form: formReducer,
   pendingRequests,
+  citations,
 });

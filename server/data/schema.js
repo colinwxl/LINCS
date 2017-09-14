@@ -298,4 +298,11 @@ export default {
     updated_at: { type: 'dateTime', nullable: true },
     custom_color: { type: 'string', maxlength: 7, nullable: true },
   },
+  citations: {
+    id: { type: 'increments', nullable: false, primary: true},
+    name: { type: 'string', maxlength: 255, nullable: true},
+    title: { type: 'string', maxlength: 255, nullable: true},
+    year: { type: 'integer', nullable: true},
+    url: { type: 'string', maxlength: 255, nullable: true},
+  },
 };
