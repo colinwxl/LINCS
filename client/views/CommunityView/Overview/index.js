@@ -344,7 +344,7 @@ class Overview extends Component {
               {
                 featured && !!featured.length && (
                   <div>
-                    <h3>ONGOING EVENTS</h3>
+                    <h3>January 2018</h3>
                     {
                       featured.map((ev, idx) => {
                         if (this.state.cat === 'All' || this.state.cat === ev.category) {

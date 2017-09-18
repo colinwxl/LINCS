@@ -29,7 +29,7 @@ export default function Story20170404() {
          will host the second annual&nbsp;
         <a href="https://sites.google.com/view/sbdss2017" target="_blank">
           BD2K-LINCS Data Science
-        </a> Symposium (DSS 2017) on May 16-18, 2017.
+        Symposium (DSS 2017)</a> on May 16-18, 2017.
       </p>
       <p>
         The general theme of the symposium is the systems biology of
@@ -45,10 +45,10 @@ export default function Story20170404() {
       </p>
       <span className={styles['twitter-label']}>
         <a
-          title="Follow @LINCSProgram on Twitter"
-          href="https://twitter.com/LINCSProgram"
+          title="Follow @BD2KLINCSDCIC on Twitter"
+          href="https://twitter.com/BD2KLINCSDCIC"
         >
-          Follow <strong>@LINCSProgram</strong>
+          Follow <strong>@BD2KLINCSDCIC</strong>
         </a>
       </span>
     </Story>
