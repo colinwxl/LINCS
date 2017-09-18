@@ -44,7 +44,7 @@ export default function Event20180131() {
           NIH Big Data ecosystem. The program also provides
           a survey of data science
           research pertaining to <a href="https://commonfund.nih.gov/bd2k" target="_blank">
-          BD2K (Big Data to Knowledge)</a> and <a href="https://commonfund.nih.gov/LINCS" target="_blank">LINCS (Library of Network-Based Cellular Signatures)</a> consortia.
+          BD2K (Big Data to Knowledge)</a> and <a href="https://commonfund.nih.gov/LINCS" target="_blank">LINCS (Library of Integrated Network-Based Cellular Signatures)</a> consortia.
         </p>
         <p>
           <a href="http://lincs-dcic.org/2018-data-science-symposium" target="_blank">
