@@ -1,5 +1,6 @@
 import EventAACR from './EventAACR';
 import EventDSS2017 from './EventDSS2017';
+import EventDSS2018 from './EventDSS2018';
 import Event20160119 from './Event20160119';
 import EventSummerProgram2017 from './EventSummerProgram2017';
 import Event20160310 from './Event20160310';
@@ -8,13 +9,18 @@ import Event20170126 from './Event20170126';
 import Event20170302 from './Event20170302';
 import Event20170413 from './Event20170413';
 import Event20171023 from './Event20171023';
-import EventBD2KCrowdSourcing from './EventBD2KCrowdSourcing';
+// import EventBD2KCrowdSourcing from './EventBD2KCrowdSourcing';
 
 export const featuredEvents = [
+  // {
+    // eventItem: EventBD2KCrowdSourcing,
+    // category: 'Crowdsourcing Challenge',
+    // date: '2022-12-01 00:00:00',
+  // },
   {
-    eventItem: EventBD2KCrowdSourcing,
-    category: 'Crowdsourcing Challenge',
-    date: '2022-12-01 00:00:00',
+    eventItem: EventDSS2018,
+    category: 'Symposia',
+    date: '2018-01-31',
   },
 ];
 
