@@ -509,7 +509,7 @@ router.get('/:id/download/gctx', async (ctx) => {
  * @param  {String} refType The type of citation to download. Either ris, enw, or bib.
  */
 router.get('/:id/reference/:refType', async (ctx) => {
-  const dsModel = await Dataset.where('id', ctx.params.id).fetch({ withRelated: ['center'] });
+  const dsModel = await Dataset.where('datasetid', ctx.params.id).fetch();
   const dataset = dsModel.toJSON();
   let fileInfo;
   if (ctx.params.refType === 'ris') {
@@ -564,23 +564,23 @@ async function getIdsFromFullTextSearch(table, fields, searchTerm, limit) {
  */
 function generateRIS(ds) {
   return new Promise(resolve => {
-    const dateReleased = moment(ds.dateReleased);
-    const filename = `${ds.method.replace(/\s/g, '_')}-${ds.lincsId}.ris`;
+    const dateReleased = moment(ds.datereleased);
+    const filename = `${ds.assayformat.replace(/\s/g, '_')}-${ds.lincsid}.ris`;
     const filePath = path.join(__dirname, '/', filename);
     const stream = fs.createWriteStream(filePath);
     stream.write('TY  - DATA\n');
-    stream.write(`AU  - ${ds.center.name}\n`);
-    stream.write(`PY  - ${dateReleased.format('YYYY')}\n`);
-    stream.write(`DA  - ${dateReleased.format('YYYY/MM/DD')}\n`);
-    if (ds.method && ds.method.length && ds.description && ds.description.length) {
-      stream.write(`TI  - ${ds.method}\n`);
-      stream.write(`AB  - ${ds.description}\n`);
-    } else if (ds.description && ds.description.length) {
-      stream.write(`TI  - ${ds.description}\n`);
+    stream.write(`AU  - ${ds.centerfullname}\n`);
+    stream.write(`PY  - ${moment(ds.datereleased).format('YYYY')}\n`);
+    stream.write(`DA  - ${moment(ds.datereleased).format('YYYY/MM/DD')}\n`);
+    if (ds.assayformat && ds.assayformat.length && ds.assaoverview && ds.assaoverview.length) {
+      stream.write(`TI  - ${ds.assayformat}\n`);
+      stream.write(`AB  - ${ds.assaoverview}\n`);
+    } else if (ds.assaoverview && ds.assaoverview.length) {
+      stream.write(`TI  - ${ds.assaoverview}\n`);
     }
     stream.write('DP  - NIH LINCS Program\n');
-    stream.write(`KW  - ${ds.lincsId}\n`);
-    stream.write(`UR  - ${ds.sourceLink}\n`);
+    stream.write(`KW  - ${ds.lincsid}\n`);
+    stream.write(`UR  - ${ds.ldplink}\n`);
     stream.write(`ER  - \n`);
     stream.end();
     stream.on('finish', () => resolve({ filePath, filename }));
@@ -596,20 +596,20 @@ function generateRIS(ds) {
  */
 function generateENW(ds) {
   return new Promise(resolve => {
-    const dateReleased = moment(ds.dateReleased);
-    const filename = `${ds.method.replace(/\s/g, '_')}-${ds.lincsId}.enw`;
+    const dateReleased = moment(ds.datereleased).format('YYYY');
+    const filename = `${ds.assayformat.replace(/\s/g, '_')}-${ds.lincsid}.enw`;
     const filePath = path.join(__dirname, '/', filename);
     const stream = fs.createWriteStream(filePath);
     stream.write('%0 Dataset\n');
-    stream.write(`%A ${ds.center.name}\n`);
-    stream.write(`%D ${dateReleased.format('YYYY')}\n`);
-    if (ds.method && ds.method.length) {
-      stream.write(`%T ${ds.method}\n`);
-    } else if (ds.description && ds.description.length) {
-      stream.write(`%T ${ds.description}\n`);
+    stream.write(`%A ${ds.centerfullname}\n`);
+    stream.write(`%D ${moment(ds.datereleased).format('YYYY')}\n`);
+    if (ds.assayformat && ds.assayformat.length) {
+      stream.write(`%T ${ds.assayformat}\n`);
+    } else if (ds.assaoverview && ds.assaoverview.length) {
+      stream.write(`%T ${ds.assaoverview}\n`);
     }
-    stream.write(`%M ${ds.lincsId}\n`);
-    stream.write(`%U ${ds.sourceLink}\n`);
+    stream.write(`%M ${ds.lincsid}\n`);
+    stream.write(`%U ${ds.ldplink}\n`);
     stream.end();
     stream.on('finish', () => resolve({ filePath, filename }));
   });
@@ -624,22 +624,18 @@ function generateENW(ds) {
  */
 function generateBIB(ds) {
   return new Promise(resolve => {
-    const year = moment(ds.dateReleased).format('YYYY');
-    const filename = `${ds.method.replace(/\s/g, '_')}-${ds.lincsId}.bib`;
+    const year = moment(ds.datereleased).format('YYYY');
+    const filename = `${ds.datasetid}.bib`;
     const filePath = path.join(__dirname, '/', filename);
     const stream = fs.createWriteStream(filePath);
-    stream.write(`@unpublished{${ds.center.name.replace(/\s/g, '_')}${year},\n`);
-    stream.write(`author="${ds.center.name}",\n`);
-    stream.write(`year="${year}",\n`);
-    if (ds.method && ds.method.length && ds.description && ds.description.length) {
-      stream.write(`title="${ds.method}"\n`);
-      stream.write(`"${ds.description}"\n`);
-    } else if (ds.description && ds.description.length) {
-      stream.write(`title="${ds.description}"\n`);
-    }
-    stream.write(`url="${ds.sourceLink}"\n`);
-    stream.write(`note="Unpublished dataset, LINCS ID: ${ds.lincsId}"\n`);
-    stream.write(`}\n\n`);
+    stream.write(`@misc{_${year}, `);
+    stream.write(`title="${ds.datasetname}", `);
+    stream.write(`url="${ds.ldplink}", `);
+    stream.write(`abstractNote="${ds.assayoverview}", `);
+    stream.write(`puplisher="${ds.centerfullname}", `);
+    stream.write(`author="${ds.centerfullname}",` );
+    stream.write(`year="${year}",` );
+    stream.write(`}`);
     stream.end();
     stream.on('finish', () => resolve({ filePath, filename }));
   });

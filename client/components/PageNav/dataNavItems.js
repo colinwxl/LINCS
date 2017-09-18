@@ -21,4 +21,9 @@ export default [
     route: `${dataRoute}/standards`,
     children: [],
   },
+  {
+    title: 'Data Citations',
+    route: '/citations',
+    children: [],
+  },
 ];
