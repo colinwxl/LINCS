@@ -2,7 +2,7 @@ import React from 'react';
 
 import Story from './Story';
 import styles from '../NewsView.scss';
-import dss2017 from 'static/files/swg-img.png';
+import dcic from 'static/files/centers_logos/DCIC.svg';
 
 export default function Story20170404() {
   return (
@@ -17,9 +17,9 @@ export default function Story20170404() {
         </strong>
       </p>
       <img
-        src={dss2017}
-        alt="DSS 2017"
-        style={{ width: '20rem' }}
+        src={dcic}
+        alt="dcic"
+        style={{ width: '10rem' }}
         className={styles['inline-img-right']}
       />
       <p>
