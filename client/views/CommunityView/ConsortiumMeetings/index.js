@@ -40,6 +40,7 @@ export default function ConsortiumMeetings() {
              * ------------------------------------------------------------------------------- */}
 
             <h2>2017 Consortium Meeting</h2>
+            <h5>William F. Bolger Center, Potomac, MD</h5>
             <em>October 23-24</em>
             <p>
               Details will be posted soon!

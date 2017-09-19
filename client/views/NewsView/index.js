@@ -53,6 +53,7 @@ import Story20170828 from './Stories/Story20170828.js';
 import Story20170911 from './Stories/Story20170911.js';
 import Story201709112 from './Stories/Story201709112.js';
 import Story20170912 from './Stories/Story20170912.js';
+import Story20170807 from './Stories/Story20170807.js';
 
 export default function NewsView() {
   return (
@@ -68,6 +69,7 @@ export default function NewsView() {
             <Story201709112 />
             <Story20170911 />
             <Story20170828 />
+            <Story20170807 />
             <Story20170515 />
             <Story20170404 />
             <Story20170214 />
