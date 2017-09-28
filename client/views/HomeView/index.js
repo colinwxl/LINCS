@@ -16,7 +16,7 @@ import { initialCategories as categories } from '../PublicationsView';
 import styles from './HomeView.scss';
 
 // import sbdss from 'static/files/SBDSS.jpg';
-import dcic2017 from 'static/files/dcic2017.png';
+import dcic2018 from 'static/files/dss2018.jpg';
 
 const mapStateToProps = (state) => ({
   // isFetching: state.cannedAnalyses.isFetching ||
@@ -179,17 +179,17 @@ export class HomeView extends Component {
                         >
                           <h4 className={styles['carousel-item-title']}>
                             <strong>
-                              BD2K-LINCS Data Science Symposium 2017
+                              BD2K-LINCS Data Science Symposium 2018
                             </strong>
                           </h4>
                           <h5 className={styles['carousel-item-title']}>
                             <strong>
-                              Systems Biology of Cellular Perturbations
+                              Studying Systems Biology by Cellular Pertubations
                             </strong>
                           </h5>
                           <div className={styles['carousel-img-wrap']}>
                             <img
-                              src={dcic2017}
+                              src={dcic2018}
                               className={`${styles['carousel-img']} ${styles.swg}`}
                               alt="presentation"
                             />
@@ -202,11 +202,11 @@ export class HomeView extends Component {
                             target="_blank"
                           >
                             BD2K-LINCS Data Coordination and Integration Center (DCIC)
-                          </a> hosted the second annual BD2K-LINCS Data Science
-                          Symposium: Systems Biology of Cellular Perturbations
-                          on <strong>May 16-18, 2017</strong> in Cincinnati, OH.&nbsp;
+                          </a> will host the third annual BD2K-LINCS Data Science
+                          Symposium: Studying Systems Biology Cellular Perturbations
+                          on <strong>January 31 - Febuary2, 2018</strong> in Miami, FL.&nbsp;
                           <a
-                            href="https://sites.google.com/view/sbdss2017"
+                            href="http://lincs-dcic.org/2018-data-science-symposium"
                             target="_blank"
                           >Learn More</a>
                         </p>
