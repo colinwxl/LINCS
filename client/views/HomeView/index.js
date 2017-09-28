@@ -203,7 +203,7 @@ export class HomeView extends Component {
                           >
                             BD2K-LINCS Data Coordination and Integration Center (DCIC)
                           </a> will host the third annual BD2K-LINCS Data Science
-                          Symposium: Studying Systems Biology Cellular Perturbations
+                          Symposium: Studying Systems Biology by Cellular Perturbations
                           on <strong>January 31 - Febuary2, 2018</strong> in Miami, FL.&nbsp;
                           <a
                             href="http://lincs-dcic.org/2018-data-science-symposium"
