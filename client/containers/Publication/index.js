@@ -90,8 +90,14 @@ export class Publication extends Component {
           >
             Export citation
           </span>
+          <div
+            className="altmetric-embed"
+            data-badge-type="4"
+            data-doi={pub.doi}
+            data-pmid={pub.pmId}
+          >
+          </div>
         </p>
-        <div className="altmetric-embed" data-badge-type="4" data-doi={pub.doi}></div>
         {
           pub.resourceLinks &&
             <p className={styles.resources}>
