@@ -173,7 +173,7 @@ export class HomeView extends Component {
                     <div className={styles['carousel-pad']}>
                       <div className={styles['carousel-item-wrap']}>
                         <a
-                          href="https://sites.google.com/view/sbdss2017"
+                          href="http://lincs-dcic.org/2018-data-science-symposium"
                           className={styles['carousel-item-head']}
                           target="_blank"
                         >
@@ -184,7 +184,7 @@ export class HomeView extends Component {
                           </h4>
                           <h5 className={styles['carousel-item-title']}>
                             <strong>
-                              Studying Systems Biology by Cellular Pertubations
+                              Studying Systems Biology by Cellular Perturbations
                             </strong>
                           </h5>
                           <div className={styles['carousel-img-wrap']}>
@@ -204,7 +204,7 @@ export class HomeView extends Component {
                             BD2K-LINCS Data Coordination and Integration Center (DCIC)
                           </a> will host the third annual BD2K-LINCS Data Science
                           Symposium: Studying Systems Biology by Cellular Perturbations
-                          on <strong>January 31 - Febuary2, 2018</strong> in Miami, FL.&nbsp;
+                          on <strong>January 31 - February 2, 2018</strong> in Miami, FL.&nbsp;
                           <a
                             href="http://lincs-dcic.org/2018-data-science-symposium"
                             target="_blank"
