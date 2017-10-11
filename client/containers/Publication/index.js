@@ -11,7 +11,7 @@ export class Publication extends Component {
     const altMetricScript = document.createElement('script');
     altMetricScript.src = 'https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js';
     altMetricScript.async = true;
-    document.body.appendChild(altMetricScript);
+    document.body.append(altMetricScript);
   }
 
   openCitationsModal = () => {

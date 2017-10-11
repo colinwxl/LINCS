@@ -39,14 +39,16 @@ export class PublicationsView extends Component {
       categories: initialCategories,
       sortOrder: 'descending',
       pubSource: 'centerPub',
+      itemsToShow: 5,
     };
+    this.showMore = this.showMore.bind(this);
+    this.showLess = this.showLess.bind(this);
     const mergedCategories = this.falseAllCategoriesExcept(
       initialCategories,
       this.homePageInitialCat
     );
     this.state = { ...this.initialState, categories: mergedCategories };
   }
-
   componentWillMount() {
     this.props.loadPublications();
   }
@@ -58,7 +60,8 @@ export class PublicationsView extends Component {
     return !this.props.publications.length
       || !isEqual(this.state.categories, nextState.categories)
       || this.state.sortOrder !== nextState.sortOrder
-      || this.state.pubSource !== nextState.pubSource;
+      || this.state.pubSource !== nextState.pubSource
+      || this.state.itemsToShow !== nextState.itemsToShow;
   }
 
   // Used when clicking a publication category from Home View.
@@ -161,13 +164,26 @@ export class PublicationsView extends Component {
   resetAllFields = () => {
     this.setState(this.initialState);
   }
-
+  showMore() {
+    this.setState({ itemsToShow: this.state.itemsToShow + 5 });
+  }
+  showLess() {
+    this.setState({ itemsToShow: this.state.itemsToShow - 5 });
+  }
   render() {
     const { categories } = this.state;
     let publications = this.props.publications;
     publications = publications.sort(this.sortPublications)
                                .filter(this.filterCategories)
                                .filter(this.filterSources);
+
+    publications = publications.slice(0, this.state.itemsToShow);
+
+    let lessButton = null;
+    if (this.state.itemsToShow !== 5) {
+      lessButton = <a className="btn btn-secondary" onClick={this.showLess}>Show Less</a>;
+    }
+
     const lincsFundedLabelwToolTip = (
       <label
         className={`${styles.label}
@@ -219,6 +235,7 @@ export class PublicationsView extends Component {
     );
 
     return (
+
       <div className={styles.wrapper}>
         <PageBanner
           title="LINCS Publications"
@@ -294,6 +311,8 @@ export class PublicationsView extends Component {
                   />
                 )
               }
+              <a className="btn btn-secondary" onClick={this.showMore}>Show More</a>
+              {lessButton}<br /><br />
               {
                 !this.props.isFetchingPubs && !publications.length &&
                   <h2>Please select a category to view publications.</h2>
@@ -302,6 +321,7 @@ export class PublicationsView extends Component {
           </div>
         </div>
       </div>
+
     );
   }
 }
