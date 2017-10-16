@@ -39,10 +39,11 @@ export class PublicationsView extends Component {
       categories: initialCategories,
       sortOrder: 'descending',
       pubSource: 'centerPub',
-      itemsToShow: 5,
+      itemsToShow: 8,
     };
-    this.showMore = this.showMore.bind(this);
-    this.showLess = this.showLess.bind(this);
+    // this.showMore = this.showMore.bind(this);
+    // this.showLess = this.showLess.bind(this);
+    this.showAll = this.showAll.bind(this);
     const mergedCategories = this.falseAllCategoriesExcept(
       initialCategories,
       this.homePageInitialCat
@@ -129,6 +130,7 @@ export class PublicationsView extends Component {
     const otherSource = this.state.pubSource === 'centerPub' ?
     'community' : 'centerPub';
     this.setState({ pubSource: otherSource });
+    this.setState({ itemsToShow: 8 });
   }
 
   handleCategoryChecked = (name, checked) => {
@@ -164,11 +166,14 @@ export class PublicationsView extends Component {
   resetAllFields = () => {
     this.setState(this.initialState);
   }
-  showMore() {
-    this.setState({ itemsToShow: this.state.itemsToShow + 5 });
-  }
-  showLess() {
-    this.setState({ itemsToShow: this.state.itemsToShow - 5 });
+  // showMore() {
+  //   this.setState({ itemsToShow: this.state.itemsToShow + 5 });
+  // }
+  // showLess() {
+  //   this.setState({ itemsToShow: this.state.itemsToShow - 5 });
+  // }
+  showAll() {
+    this.setState({ itemsToShow: this.props.publications.length });
   }
   render() {
     const { categories } = this.state;
@@ -180,8 +185,12 @@ export class PublicationsView extends Component {
     publications = publications.slice(0, this.state.itemsToShow);
 
     let lessButton = null;
-    if (this.state.itemsToShow !== 5) {
+    if (this.state.itemsToShow === 5000) {
       lessButton = <a className="btn btn-secondary" onClick={this.showLess}>Show Less</a>;
+    }
+    let allButton = null;
+    if (this.state.itemsToShow !== this.props.publications.length) {
+      allButton = <a className="btn btn-secondary" onClick={this.showAll}>Show All</a>;
     }
 
     const lincsFundedLabelwToolTip = (
@@ -311,7 +320,7 @@ export class PublicationsView extends Component {
                   />
                 )
               }
-              <a className="btn btn-secondary" onClick={this.showMore}>Show More</a>
+              {allButton}
               {lessButton}<br /><br />
               {
                 !this.props.isFetchingPubs && !publications.length &&
