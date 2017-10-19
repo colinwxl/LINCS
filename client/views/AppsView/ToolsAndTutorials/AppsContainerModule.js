@@ -7,6 +7,7 @@ import { loadTools } from 'actions/toolsWorkflows';
 import ToolsModule from './ToolsModule';
 import TutorialsModule from './TutorialsModule';
 import CannedAnalysisModule from './CannedAnalysisModule';
+import DockerizedPipelineModule from './DockerizedPipelineModule';
 import styles from '../AppsView.scss';
 
 const mapStateToProps = (state) => ({
@@ -32,6 +33,7 @@ export class AppsContainerModule extends Component {
   handleMarketClicked = () => { this.setState({ marketAnalTutSelection: 'market' }); }
   handleTutClicked = () => { this.setState({ marketAnalTutSelection: 'tut' }); }
   handleAnalClicked = () => { this.setState({ marketAnalTutSelection: 'ca' }); }
+  handleDocClicked = () => { this.setState({ marketAnalTutSelection: 'doc' }); }
 
   render() {
     if (this.props.initialTab === 'ca') {
@@ -42,6 +44,7 @@ export class AppsContainerModule extends Component {
     const isMarket = marketAnalTutSelection === 'market';
     const isTut = marketAnalTutSelection === 'tut';
     const isAnal = marketAnalTutSelection === 'ca';
+    const isDoc = marketAnalTutSelection === 'doc';
     const toolsWithTuts = tools
                             .filter(tool => tool.tutorialUrl)
                             .sort((t1, t2) => {
@@ -63,6 +66,9 @@ export class AppsContainerModule extends Component {
     } else if (isAnal) {
       // Change this module next
       module = (<CannedAnalysisModule />);
+    } else if (isDoc) {
+      // Change this module next
+      module = (<DockerizedPipelineModule />);
     } else {
       module = (<ToolsModule initialCenter={initialCenter} tools={tools} key="market" />);
     }
@@ -95,7 +101,7 @@ export class AppsContainerModule extends Component {
             Video Tutorials
           </label>
 
-          <label
+          {/* <label
             onClick={this.handleAnalClicked}
             className={`btn ${styles['category-check']} ${isAnal ? styles.active : ''}`}
           >
@@ -105,6 +111,18 @@ export class AppsContainerModule extends Component {
               defaultChecked={isAnal}
             />
             Canned Analyses
+          </label> */}
+
+          <label
+            onClick={this.handleDocClicked}
+            className={`btn ${styles['category-check']} ${isDoc ? styles.active : ''}`}
+          >
+            <input
+              type="radio"
+              name="compBio"
+              defaultChecked={isDoc}
+            />
+            Dockerized Pipelines
           </label>
 
         </div>

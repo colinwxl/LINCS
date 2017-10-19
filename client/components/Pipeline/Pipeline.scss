@@ -1,0 +1,182 @@
+@import 'variables';
+
+$tool-height: 15rem;
+$tool-width: 30rem;
+$shadow: rgba(0, 0, 0, .1);
+
+.tool {
+  border: 1px solid;
+  border-color: $gray-border-top $gray-border-side $gray-border-bottom;
+  border-radius: .2rem;
+  margin: 0 auto 1rem;
+  min-width: $tool-width;
+}
+
+.tool-inner {
+  background: $white;
+  border-radius: .2rem;
+  box-shadow: 0 2px 4px $shadow;
+  height: $tool-height;
+  position: relative;
+  text-decoration: none;
+  vertical-align: top;
+}
+
+$img-width: 5rem;
+
+.cover {
+  position: relative;
+  float: left;
+  height: $tool-height;
+  overflow: hidden;
+  width: $img-width;
+}
+
+.cover-Top {
+  height: $tool-height/2;
+  position: absolute;
+  top:0;
+}
+
+.cover-Bottom {
+  height: $tool-height/2;
+  position: absolute;
+  top: $tool-height/2;
+}
+
+.tool-img-wrap {
+  display: table;
+  height: $tool-height/2;
+  width: $img-width;
+}
+
+.tool-img-inner {
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle;
+
+  img {
+    display: inline-block;
+    max-height: 100%;
+    width: 90%;
+  }
+}
+
+.tool-click-target {
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.overlay {
+  background: $overlay-black;
+  border-radius: .2rem;
+  cursor: pointer;
+  filter: alpha(opacity = 0);
+  height: 100%;
+  left: 0;
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  transition: all .25s ease;
+  width: 100%;
+
+  &:hover {
+    filter: alpha(opacity = 1);
+    opacity: 1;
+  }
+}
+
+.tool-details {
+  max-height: 20rem;
+  overflow: hidden;
+  padding: .5rem .75rem 0;
+}
+
+.tooltip {
+  position: absolute;
+  bottom: 0.5rem;
+  right: 0.5rem;
+  height: 1rem;
+  width: 1rem;
+  &:hover {
+    opacity: 0.9;
+  }
+}
+
+.category-column {
+  vertical-align: top;
+  max-width: 9rem;
+  display: inline-block;
+  margin-left: 0.5rem;
+  margin-right: 0.75rem;
+}
+
+.category-label {
+  font-size: 1rem;
+  weight: 500;
+}
+
+.category-ul {
+  padding-left: 1rem;
+}
+
+.category-li {
+
+}
+
+$title-line-height: 1.5rem;
+
+.tool-title {
+  color: $off-black;
+  display: inline-block;
+  font-weight: 600;
+  margin-top: 0.6rem;
+  max-height: 2rem;
+  min-height: 1.0rem;
+  overflow: hidden;
+  position: relative;
+  text-decoration: none !important;
+  white-space: nowrap;
+  line-height: $title-line-height;
+}
+
+$desc-line-height: 1.125rem; // 18px
+
+.tool-creator {
+  color:DarkBlue;
+  font-weight: 400;
+  margin: 0;
+  display: inline-block;
+  max-height: $desc-line-height * 3;
+  min-height: 1.25rem;
+  position: relative;
+  word-wrap: break-word;
+  text-decoration: none !important;
+  padding: 0;
+  overflow:hidden;
+}
+
+.tool-description {
+  display: inline-block;
+  max-height: $desc-line-height * 3;
+  min-height: 1.25rem;
+  position: relative;
+  word-wrap: break-word;
+}
+
+.tool-multi-center {
+  line-height: 1.1rem !important;
+}
+
+.tool-ranking {
+  background: $white;
+  border-radius: 2px;
+  bottom: 0;
+  display: block;
+  padding: 0 .75rem;
+  position: absolute;
+  width: 100%;
+}
