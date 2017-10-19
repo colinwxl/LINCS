@@ -4,13 +4,14 @@ import ReactTooltip from 'react-tooltip';
 
 import styles from './Pipeline.scss';
 
-import DocImage from 'static/files/dockerLogo.jpg';
-import GitImage from 'static/files/gitHub.png';
+import DocImage from 'static/files/docker_logo.png';
+import GitImage from 'static/files/Octocat.png';
 
 export default function PipelineCard(props) {
   let name = props.name;
   let title = props.title;
   let description = props.description;
+  let centerUrl = props.centerUrl;
   let gitHubUrl = props.githubUrl;
   let dockerHubUrl = props.dockerHubUrl;
   let toolTipItems = props.toolTipItems;
@@ -70,7 +71,7 @@ export default function PipelineCard(props) {
             {toolTipItems}
           </ReactTooltip>
           <a
-            href={gitHubUrl}
+            href={dockerHubUrl}
             className={styles['tool-title']}
             target="_blank"
             style={{ fontSize: '20px' }}
@@ -81,8 +82,10 @@ export default function PipelineCard(props) {
           <div className={styles['tool-creator']} style={{ fontSize: '13px' }}>
             {title}
           </div>
-          <div style={{ fontSize: '12px' }} className={styles['tool-description']}>
-            {description}
+          <div>
+            <div className={styles['tool-description']}>
+              {description}
+            </div>
           </div>
         </div>
         <div className={styles['tool-ranking']}></div>

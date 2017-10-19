@@ -1,6 +1,6 @@
 @import 'variables';
 
-$tool-height: 15rem;
+$tool-height: 10rem;
 $tool-width: 30rem;
 $shadow: rgba(0, 0, 0, .1);
 
@@ -33,12 +33,15 @@ $img-width: 5rem;
 }
 
 .cover-Top {
+  background: MintCream;
   height: $tool-height/2;
   position: absolute;
   top:0;
 }
 
 .cover-Bottom {
+  // background: #fcf8fc;
+  background: MintCream;
   height: $tool-height/2;
   position: absolute;
   top: $tool-height/2;
@@ -161,6 +164,7 @@ $desc-line-height: 1.125rem; // 18px
 
 .tool-description {
   display: inline-block;
+  font-size: 12px;
   max-height: $desc-line-height * 3;
   min-height: 1.25rem;
   position: relative;
