@@ -29,7 +29,6 @@ export default function PipelineCard(props) {
             <a
               href={dockerHubUrl}
               className={styles['tool-click-target']}
-              onClick={() => props.toolIncrementClick(['id'])}
               target="_blank"
             >
               <span className={styles.overlay} />
@@ -46,7 +45,6 @@ export default function PipelineCard(props) {
             <a
               href={gitHubUrl}
               className={styles['tool-click-target']}
-              onClick={() => props.toolIncrementClick(['id'])}
               target="_blank"
             >
               <span className={styles.overlay} />
@@ -73,7 +71,6 @@ export default function PipelineCard(props) {
           <a
             href={gitHubUrl}
             className={styles['tool-title']}
-            onClick={() => props.toolIncrementClick(['id'])}
             target="_blank"
             style={{ fontSize: '20px' }}
           >
