@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import ReactTooltip from 'react-tooltip';
 
 import styles from './Pipeline.scss';
@@ -89,3 +90,12 @@ export default function PipelineCard(props) {
     </div>
   );
 }
+
+PipelineCard.propTypes = {
+  name: PropTypes.string,
+  title: PropTypes.string,
+  description: PropTypes.string,
+  githubUrl: PropTypes.string,
+  dockerHubUrl: PropTypes.string,
+  toolTipItems: PropTypes.string,
+};
