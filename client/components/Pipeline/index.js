@@ -11,7 +11,7 @@ export default function PipelineCard(props) {
   let name = props.name;
   let title = props.title;
   let description = props.description;
-  let centerUrl = props.centerUrl;
+  // let centerUrl = props.centerUrl;
   let gitHubUrl = props.githubUrl;
   let dockerHubUrl = props.dockerHubUrl;
   let toolTipItems = props.toolTipItems;
