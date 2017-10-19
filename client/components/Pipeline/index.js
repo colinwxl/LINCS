@@ -6,13 +6,13 @@ import styles from './Pipeline.scss';
 import DocImage from 'static/files/dockerLogo.jpg';
 import GitImage from 'static/files/gitHub.png';
 
-export default function PipelineCard() {
-  let name = this.props.name;
-  let title = this.props.title;
-  let description = this.props.description;
-  let gitHubUrl = this.props.githubUrl;
-  let dockerHubUrl = this.props.dockerHubUrl;
-  let toolTipItems = this.props.toolTipItems;
+export default function PipelineCard(props) {
+  let name = props.name;
+  let title = props.title;
+  let description = props.description;
+  let gitHubUrl = props.githubUrl;
+  let dockerHubUrl = props.dockerHubUrl;
+  let toolTipItems = props.toolTipItems;
 
   return (
     <div className={styles.tool}>
@@ -29,7 +29,7 @@ export default function PipelineCard() {
             <a
               href={dockerHubUrl}
               className={styles['tool-click-target']}
-              onClick={() => this.props.toolIncrementClick(['id'])}
+              onClick={() => props.toolIncrementClick(['id'])}
               target="_blank"
             >
               <span className={styles.overlay} />
@@ -46,7 +46,7 @@ export default function PipelineCard() {
             <a
               href={gitHubUrl}
               className={styles['tool-click-target']}
-              onClick={() => this.props.toolIncrementClick(['id'])}
+              onClick={() => props.toolIncrementClick(['id'])}
               target="_blank"
             >
               <span className={styles.overlay} />
@@ -73,7 +73,7 @@ export default function PipelineCard() {
           <a
             href={gitHubUrl}
             className={styles['tool-title']}
-            onClick={() => this.props.toolIncrementClick(['id'])}
+            onClick={() => props.toolIncrementClick(['id'])}
             target="_blank"
             style={{ fontSize: '20px' }}
           >
