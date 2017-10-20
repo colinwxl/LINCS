@@ -101,4 +101,5 @@ PipelineCard.propTypes = {
   githubUrl: PropTypes.string,
   dockerHubUrl: PropTypes.string,
   toolTipItems: PropTypes.string,
+  centerUrl: PropTypes.string,
 };
