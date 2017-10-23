@@ -59,7 +59,8 @@ export default class DockerizedPipelineModule extends Component {
           <Pipeline
             center="NeuroLINCS"
             assayType="RNA-seq"
-            title="Docker container for generating RNA-seq signature (Step-2) processing pipelines in RStudio"
+            title="Docker container for generating RNA-seq signature (Step-2)
+            processing pipelines in RStudio"
             description="The processing pipeline starts with level 3 (raw counts) data
             and ultimately produces Level 4 data (differential expression
             profile)."
@@ -75,7 +76,8 @@ export default class DockerizedPipelineModule extends Component {
           <Pipeline
             center="HMS LINCS"
             assayType="Cell-Count"
-            title="Docker container for generating Growth-rate inhibition (GR) processing pipelines in RStudio"
+            title="Docker container for generating Growth-rate inhibition (GR)
+            processing pipelines in RStudio"
             description="The processing pipeline starts with Level 2 data
             (cell counts) and creates Level 3
             data (average cell counts) and Level 4 data (dose response curve

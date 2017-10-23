@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import ReactTooltip from 'react-tooltip';
+// import ReactTooltip from 'react-tooltip';
 
 import styles from './Pipeline.scss';
 
@@ -15,7 +15,7 @@ export default function PipelineCard(props) {
   let centerUrl = props.centerUrl;
   let gitHubUrl = props.githubUrl;
   let dockerHubUrl = props.dockerHubUrl;
-  let toolTipItems = props.toolTipItems;
+  // let toolTipItems = props.toolTipItems;
 
   return (
     <div className={styles.tool}>
