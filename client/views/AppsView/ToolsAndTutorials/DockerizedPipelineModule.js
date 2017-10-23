@@ -25,8 +25,9 @@ export default class DockerizedPipelineModule extends Component {
       {
         <div className="col-xs-12 col-md-12 col-xl-6">
           <Pipeline
-            name="MEP LINCS (microenvironment microarray)"
-            title="Docker container for using MEMA R package in RStudio"
+            center="MEP LINCS"
+            assayType="microenvironment microarray"
+            title="Docker container for generating MEMA processing pipelines in RStudio"
             description="The processing pipeline starts with Level 1 data and
             produces Level 2, Level 3 and Level 4,
             along with interactive visualization of the data."
@@ -40,8 +41,9 @@ export default class DockerizedPipelineModule extends Component {
       {
         <div className="col-xs-12 col-md-12 col-xl-6">
           <Pipeline
-            name="LINCS PCCSE (P100 and GCP)"
-            title="Docker container for running PCCSE processing pipelines in RStudio"
+            center="LINCS PCCSE"
+            assayType="P100 and GCP"
+            title="Docker container for generating P100 and GCP processing pipelines in RStudio"
             description="The processing pipeline starts with Level 2 data (
             raw numerical data, RPT) and ultimately produces Level 4 data
             (differential quantification, DIFF)."
@@ -55,8 +57,9 @@ export default class DockerizedPipelineModule extends Component {
       {
         <div className="col-xs-12 col-md-12 col-xl-6">
           <Pipeline
-            name="NeuroLINCS (RNA-seq)"
-            title="Docker container for generating NeuroLINCS RNA-seq signature (Step-2) in RStudio"
+            center="NeuroLINCS"
+            assayType="RNA-seq"
+            title="Docker container for generating RNA-seq signature (Step-2) processing pipelines in RStudio"
             description="The processing pipeline starts with level 3 (raw counts) data
             and ultimately produces Level 4 data (differential expression
             profile)."
@@ -70,9 +73,9 @@ export default class DockerizedPipelineModule extends Component {
       {
         <div className="col-xs-12 col-md-12 col-xl-6">
           <Pipeline
-            name="HMS LINCS (Cell-Count)"
-            title="Docker container for generating Growth-rate inhibition (GR)
-            values and fitted curve metrics in RStudio"
+            center="HMS LINCS"
+            assayType="Cell-Count"
+            title="Docker container for generating Growth-rate inhibition (GR) processing pipelines in RStudio"
             description="The processing pipeline starts with Level 2 data
             (cell counts) and creates Level 3
             data (average cell counts) and Level 4 data (dose response curve

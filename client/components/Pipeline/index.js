@@ -8,10 +8,11 @@ import DocImage from 'static/files/docker_logo.png';
 import GitImage from 'static/files/Octocat.png';
 
 export default function PipelineCard(props) {
-  let name = props.name;
+  let center = props.center;
+  let assayType = props.assayType;
   let title = props.title;
   let description = props.description;
-  // let centerUrl = props.centerUrl;
+  let centerUrl = props.centerUrl;
   let gitHubUrl = props.githubUrl;
   let dockerHubUrl = props.dockerHubUrl;
   let toolTipItems = props.toolTipItems;
@@ -56,7 +57,7 @@ export default function PipelineCard(props) {
         </div>
 
         <div className={styles['tool-details']}>
-          <i
+        {/*  <i
             className={`fa fa-info-circle ${styles.tooltip}`}
             aria-hidden="true"
             data-tip="Information is not available at this time."
@@ -70,17 +71,21 @@ export default function PipelineCard(props) {
           >
             {toolTipItems}
           </ReactTooltip>
+          */}
           <a
-            href={dockerHubUrl}
+            href={centerUrl}
             className={styles['tool-title']}
             target="_blank"
             style={{ fontSize: '20px' }}
           >
-            {name}
+            {center}
           </a>
+          <div className={styles['tool-title']}>
+            <span>&nbsp;&nbsp;({assayType})</span>
+          </div>
           <br />
           <div className={styles['tool-creator']} style={{ fontSize: '13px' }}>
-            {title}
+            <a href={dockerHubUrl} target="_blank">{title}</a>
           </div>
           <div>
             <div className={styles['tool-description']}>
@@ -95,7 +100,8 @@ export default function PipelineCard(props) {
 }
 
 PipelineCard.propTypes = {
-  name: PropTypes.string,
+  center: PropTypes.string,
+  assayType: PropTypes.string,
   title: PropTypes.string,
   description: PropTypes.string,
   githubUrl: PropTypes.string,
