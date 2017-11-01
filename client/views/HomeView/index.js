@@ -308,11 +308,7 @@ export class HomeView extends Component {
                           The <a href="https://mail.mssm.edu/owa/redir.aspx?C=x8e2PeNkhptwIXHnqymK_WrsZqBwM-zh2M9stAZiVlX7VQdYLSHVCA..&URL=http%3a%2f%2famp.pharm.mssm.edu%2fLJP%2f">
                           LINCS Joint Project-Breast Cancer Network Browser
                           (LJP-BCNB)</a> is an interactive visualization of 2344
-                          signatures created from this dataset. The distance
-                          between nodes represents response similarity computed
-                          using the cosine distance between the <a href="https://mail.mssm.edu/owa/redir.aspx?C=oPjQl0L9uwfFUT1CQXO8O8FDkG7ODvELGguBeOsnuaf7VQdYLSHVCA..&URL=https%3a%2f%2fbmcbioinformatics.biomedcentral.com%2farticles%2f10.1186%2f1471-2105-15-79">
-                          Characteristic Direction</a> vectors of perturbations compared with
-                          their appropriate controls.
+                          signatures created from this dataset.
                         </p>
                       </div>
 
