@@ -290,22 +290,22 @@ export class HomeView extends Component {
                           </div>
                         </Link>
                         <p className={styles.meeting}>
-                          In a recent study published in <a href="https://mail.mssm.edu/owa/redir.aspx?C=dRMQQ7Yy15ybku87pRoiXE7XMwN8Q9zdC8JSh3smOiT7VQdYLSHVCA..&URL=https%3a%2f%2fwww.nature.com%2farticles%2fs41467-017-01383-w">
+                          In a recent study published in <a href="https://www.nature.com/articles/s41467-017-01383-w" target="_blank">
                           Nature Communications</a>,
-                          the <a href="https://mail.mssm.edu/owa/redir.aspx?C=maxOHUG7Zh2So-I8b0LRXOFvrUt8sbr714xFgT5MiMj7VQdYLSHVCA..&URL=http%3a%2f%2flincsproject.org%2fLINCS%2fcenters%2fdata-and-signature-generating-centers%2fhms-lincs">
-                          HMS LINCS</a> center, in collaboration with the <a href="https://mail.mssm.edu/owa/redir.aspx?C=QRCyg_V4JuT9pdSTnIEWQ9CwPH1r-Cr5jQBqlmBZydD7VQdYLSHVCA..&URL=http%3a%2f%2flincsproject.org%2fLINCS%2fcenters%2fdata-and-signature-generating-centers%2flincs-transcriptomics">
-                          LINCS Transcriptomics</a> center and the <a href="https://mail.mssm.edu/owa/redir.aspx?C=AbvhITA_7wztPAmZxbg4wUpW4f-r97wRL64MSCA2SJX7VQdYLSHVCA..&URL=http%3a%2f%2flincsproject.org%2fLINCS%2fcenters%2fdcic">
+                          the <a href="http://lincsproject.org/LINCS/centers/data-and-signature-generating-centers/hms-lincs" target="_blank">
+                          HMS LINCS Center</a>, in collaboration with the <a href="http://lincsproject.org/LINCS/centers/data-and-signature-generating-centers/lincs-transcriptomics" target="_blank">
+                          LINCS Transcriptomics Center</a> and the <a href="http://lincsproject.org/LINCS/centers/dcic" target="_blank">
                           BD2K-LINCS DCIC</a>,
                           analyzed the gene expression and phenotypic response
                           of six breast cancer cell lines to over a hundred
                           drugs and pre-clinical small molecules. The
                           perturbations were applied in different concentrations
                           while gene expression was measured at different time
-                          points using the <a href="https://mail.mssm.edu/owa/redir.aspx?C=kLjcdGN4XuRm1x0CM_678M1_DSVR2OdcrZPS78e4lWH7VQdYLSHVCA..&URL=https%3a%2f%2fclue.io%2f">
+                          points using the <a href="https://clue.io/" target="_blank">
                           L1000 technology</a>. Under the same
-                          conditions, the cells were imaged for <a href="https://mail.mssm.edu/owa/redir.aspx?C=NjiGAUWxyh1LpdDbZDo6tsMPO96Gg21GvUa4n05BS777VQdYLSHVCA..&URL=http%3a%2f%2fwww.grcalculator.org%2fgrtutorial%2fHome.html">
+                          conditions, the cells were imaged for <a href="http://www.grcalculator.org/grtutorial/Home.html" target="_blank">
                           cell viability</a>.
-                          The <a href="https://mail.mssm.edu/owa/redir.aspx?C=x8e2PeNkhptwIXHnqymK_WrsZqBwM-zh2M9stAZiVlX7VQdYLSHVCA..&URL=http%3a%2f%2famp.pharm.mssm.edu%2fLJP%2f">
+                          The <a href="http://amp.pharm.mssm.edu/LJP/" target="_blank">
                           LINCS Joint Project-Breast Cancer Network Browser
                           (LJP-BCNB)</a> is an interactive visualization of 2344
                           signatures created from this dataset.
