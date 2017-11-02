@@ -55,6 +55,17 @@ export default function PageNav(props) {
                   </div>
                 );
               }
+              if (navObj.title === 'Dockerized Pipelines') {
+                return (
+
+                  <Link
+                    className={styles.link}
+                    to={{ pathname: '/tools', query: { initialTab: 'doc' } }}
+                  >
+                  Dockerized Pipelines
+                  </Link>
+                );
+              }
               return (
                 <div key={index} className={navClasses}>
                   <Link className={styles.link} to={navObj.route}>{navObj.title}</Link>

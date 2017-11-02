@@ -81,19 +81,10 @@ export default function PipelineCard(props) {
           >
             {assayType}
           </a>
-          <div className={styles['tool-title']}>
-            <span>&nbsp;&nbsp;
-              <a
-                href={centerUrl}
-                className={styles['tool-title']}
-                target="_blank"
-                style={{ fontSize: '10px' }}
-              >
-                {center}
-              </a>
-            </span>
-          </div>
           <br />
+          <div className={styles['tool-creator']} style={{ fontSize: '13px' }}>
+            <a href={centerUrl} target="_blank">{center}</a>
+          </div>
           <div className={styles['tool-creator']} style={{ fontSize: '13px' }}>
             <a href={dockerHubUrl} target="_blank">{title}</a>
           </div>

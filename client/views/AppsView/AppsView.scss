@@ -482,3 +482,12 @@ $disappear-size: 767px;
   }
   max-width: 17rem;
 }
+
+.doc-image {
+  @media (max-width: 767px) {
+    display: block;
+    // margin: 1rem auto;
+  }
+  padding-top: 12px;
+  max-width: 32rem;
+}

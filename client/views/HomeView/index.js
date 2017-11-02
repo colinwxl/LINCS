@@ -144,16 +144,16 @@ export class HomeView extends Component {
                             <h5 className={`${styles['datatype-title']}`}>Cells</h5>
                           </a>
                         </div>
-                      {/* <div className={`col-xs-3 col-sm-3 col-md-3 ${styles['datatype-link']}`}>
-                          <Link to={{ pathname: '/tools', query: { initialTab: 'ca' } }}>
+                        <div className={`col-xs-3 col-sm-3 col-md-3 ${styles['datatype-link']}`}>
+                          <Link to={{ pathname: '/tools', query: { initialTab: 'doc' } }}>
                             <img
                               src="/LINCS/files/datatype_logos/canned-analyses-logo.png"
                               className={`${styles['datatype-logo']}`}
                               alt="presentation"
                             />
-                            <h5 className={`${styles['datatype-title']}`}>Canned Analyses</h5>
+                            <h5 className={`${styles['datatype-title']}`}>Dockerized Pipelines</h5>
                           </Link>
-                        </div> */}
+                        </div>
                       </div>
                     </div>
                   </div>

@@ -21,9 +21,14 @@ export default [
     route: `${dataRoute}/standards`,
     children: [],
   },
+  // {
+  //   title: 'Data Citations',
+  //   route: '/citations',
+  //   children: [],
+  // },
   {
-    title: 'Data Citations',
-    route: '/citations',
+    title: 'Dockerized Pipelines',
+    route: '/tools',
     children: [],
   },
 ];
