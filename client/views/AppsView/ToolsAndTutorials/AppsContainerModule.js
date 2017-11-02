@@ -113,7 +113,7 @@ export class AppsContainerModule extends Component {
             Canned Analyses
           </label> */}
 
-         <label
+          <label
             onClick={this.handleDocClicked}
             className={`btn ${styles['category-check']} ${isDoc ? styles.active : ''}`}
           >

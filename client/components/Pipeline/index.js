@@ -83,14 +83,14 @@ export default function PipelineCard(props) {
           </a>
           <div className={styles['tool-title']}>
             <span>&nbsp;&nbsp;
-            <a
-              href={centerUrl}
-              className={styles['tool-title']}
-              target="_blank"
-              style={{ fontSize: '10px' }}
-            >
-              {center}
-            </a>
+              <a
+                href={centerUrl}
+                className={styles['tool-title']}
+                target="_blank"
+                style={{ fontSize: '10px' }}
+              >
+                {center}
+              </a>
             </span>
           </div>
           <br />
@@ -118,4 +118,5 @@ PipelineCard.propTypes = {
   dockerHubUrl: PropTypes.string,
   toolTipItems: PropTypes.string,
   centerUrl: PropTypes.string,
+  assayUrl: PropTypes.string,
 };
