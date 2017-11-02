@@ -1,6 +1,6 @@
 @import 'variables';
 
-$tool-height: 10rem;
+$tool-height: 10.7rem;
 $tool-width: 30rem;
 $shadow: rgba(0, 0, 0, .1);
 
@@ -10,6 +10,7 @@ $shadow: rgba(0, 0, 0, .1);
   border-radius: .2rem;
   margin: 0 auto 1rem;
   min-width: $tool-width;
+  // min-width: 97%;
   max-width: 97%;
 }
 
@@ -94,7 +95,7 @@ $img-width: 5rem;
 }
 
 .tool-details {
-  max-height: 20rem;
+  max-height: 100%;
   overflow: hidden;
   padding: .5rem .75rem 0;
 }
@@ -170,6 +171,7 @@ $desc-line-height: 1.125rem; // 18px
   min-height: 1.25rem;
   position: relative;
   word-wrap: break-word;
+  overflow:hidden;
 }
 
 .tool-multi-center {
