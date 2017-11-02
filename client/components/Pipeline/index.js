@@ -15,6 +15,7 @@ export default function PipelineCard(props) {
   let centerUrl = props.centerUrl;
   let gitHubUrl = props.githubUrl;
   let dockerHubUrl = props.dockerHubUrl;
+  let assayUrl = props.assayUrl;
   // let toolTipItems = props.toolTipItems;
 
   return (
@@ -73,15 +74,24 @@ export default function PipelineCard(props) {
           </ReactTooltip>
           */}
           <a
-            href={centerUrl}
+            href={assayUrl}
             className={styles['tool-title']}
             target="_blank"
             style={{ fontSize: '20px' }}
           >
-            {center}
+            {assayType}
           </a>
           <div className={styles['tool-title']}>
-            <span>&nbsp;&nbsp;({assayType})</span>
+            <span>&nbsp;&nbsp;
+            <a
+              href={centerUrl}
+              className={styles['tool-title']}
+              target="_blank"
+              style={{ fontSize: '10px' }}
+            >
+              {center}
+            </a>
+            </span>
           </div>
           <br />
           <div className={styles['tool-creator']} style={{ fontSize: '13px' }}>

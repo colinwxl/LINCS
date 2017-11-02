@@ -26,7 +26,7 @@ export default class DockerizedPipelineModule extends Component {
         <div className="col-xs-12 col-md-12 col-xl-6">
           <Pipeline
             center="MEP LINCS"
-            assayType="microenvironment microarray"
+            assayType="MEMA"
             title="Docker container for generating MEMA processing pipelines in RStudio"
             description="The processing pipeline starts with Level 1 data and
             produces Level 2, Level 3 and Level 4,
@@ -34,6 +34,7 @@ export default class DockerizedPipelineModule extends Component {
             centerUrl="http://www.lincsproject.org/LINCS/centers/data-and-signature-generating-centers/mep-lincs"
             githubUrl="https://github.com/uc-bd2k/mema"
             dockerHubUrl="https://hub.docker.com/r/ucbd2k/mema/"
+            assayUrl="https://www.synapse.org/#!Synapse:syn2862345/wiki/232002"
             toolTipItems=""
           />
         </div>
@@ -50,6 +51,7 @@ export default class DockerizedPipelineModule extends Component {
             centerUrl="http://www.lincsproject.org/LINCS/centers/data-and-signature-generating-centers/lincs-pccse"
             githubUrl="https://github.com/uc-bd2k/pccse"
             dockerHubUrl="https://hub.docker.com/r/ucbd2k/pccse/"
+            assayUrl="https://panoramaweb.org/labkey/wiki/LINCS/Overview%20Information/download.view?entityId=68f8506d-4b32-1033-b6e2-3013bb9bbdbe&name=LINCS_PCCSE-ePoster-2015.pdf"
             toolTipItems=""
           />
         </div>
@@ -67,6 +69,7 @@ export default class DockerizedPipelineModule extends Component {
             centerUrl="http://www.lincsproject.org/LINCS/centers/data-and-signature-generating-centers/neurolincs"
             githubUrl="https://github.com/uc-bd2k/Nl_rnaseq"
             dockerHubUrl="https://hub.docker.com/r/ucbd2k/nl_rnaseq/"
+            assayUrl="http://neurolincs.org/pdf/NeuroLINCS-RNAseq-protocol-26OCT2016.pdf"
             toolTipItems=""
           />
         </div>
@@ -75,7 +78,7 @@ export default class DockerizedPipelineModule extends Component {
         <div className="col-xs-12 col-md-12 col-xl-6">
           <Pipeline
             center="HMS LINCS"
-            assayType="Cell-Count"
+            assayType="Fluorescence Imaging Cell Count"
             title="Docker container for generating Growth-rate inhibition (GR)
             processing pipelines in RStudio"
             description="The processing pipeline starts with Level 2 data
@@ -85,6 +88,7 @@ export default class DockerizedPipelineModule extends Component {
             centerUrl="http://www.lincsproject.org/LINCS/centers/data-and-signature-generating-centers/hms-lincs"
             githubUrl="https://github.com/uc-bd2k/hms-cellcount/"
             dockerHubUrl="https://hub.docker.com/r/ucbd2k/hms-cellcount/"
+            assayUrl="http://lincs.hms.harvard.edu/db/datasets/20256/"
             toolTipItems=""
           />
         </div>
