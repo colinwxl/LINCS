@@ -42,9 +42,17 @@ export default function ConsortiumMeetings() {
             <h2>2017 Consortium Meeting</h2>
             <h5>William F. Bolger Center, Potomac, MD</h5>
             <em>October 23-24</em>
-            <p>
-              Details will be posted soon!
-            </p>
+            <div>
+                This two-day meeting was organized into the following major sessions:
+              <br />
+              <ul>
+                <li>LINCS Centers Deep Data Dive</li>
+                <li>Lightning Poster Presentations</li>
+                <li>MCF10A Joint Project</li>
+                <li>Stem Cell Biology and LINCS</li>
+                <li>Working Group Meetings (Single Cell Analyses, Data Integration, Proteomics)</li>
+              </ul>
+            </div>
 
             {/* 2016 meeting
              * ------------------------------------------------------------------------------- */}
