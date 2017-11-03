@@ -72,6 +72,7 @@ const diseaseSchema = new Schema('diseases', { idAttribute: 'id' });
 const smallMoleculeSchema = new Schema('smallMolecules', { idAttribute: 'id' });
 const datasetSchema = new Schema('datasets', { idAttribute: 'id' });
 
+
 // The `tissues` and `diseases` keys in the cell object are arrays of objects.
 // These objects all cohere to the tissue and disease schema respectively.
 cellSchema.define({

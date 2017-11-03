@@ -1,0 +1,42 @@
+@import 'variables';
+
+.filter {
+  color: $off-black;
+
+  h5 {
+    color: $off-black;
+    margin-bottom: 1rem;
+  }
+}
+
+.label {
+  font-size: 0.85rem;
+  font-weight: bold;
+  width: 100%;
+}
+
+.source-toggle {
+  text-align: center;
+}
+
+.select-all-btn {
+  margin-bottom: 2rem;
+  width: 100%;
+}
+
+.toggleLabel {
+  width: auto;
+  display: inline-block;
+  overflow: hidden;
+  transition: all .3s ease-in-out;
+  margin: auto 0.25rem 0 0.25rem;
+
+  @media (min-width: 767px) and (max-width: 1200px) {
+    display: block;
+  }
+}
+
+.label-tooltip-desc {
+  max-width: 10rem;
+  margin-bottom: 0;
+}

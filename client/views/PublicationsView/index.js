@@ -39,14 +39,17 @@ export class PublicationsView extends Component {
       categories: initialCategories,
       sortOrder: 'descending',
       pubSource: 'centerPub',
+      itemsToShow: 8,
     };
+    // this.showMore = this.showMore.bind(this);
+    // this.showLess = this.showLess.bind(this);
+    this.showAll = this.showAll.bind(this);
     const mergedCategories = this.falseAllCategoriesExcept(
       initialCategories,
       this.homePageInitialCat
     );
     this.state = { ...this.initialState, categories: mergedCategories };
   }
-
   componentWillMount() {
     this.props.loadPublications();
   }
@@ -58,7 +61,8 @@ export class PublicationsView extends Component {
     return !this.props.publications.length
       || !isEqual(this.state.categories, nextState.categories)
       || this.state.sortOrder !== nextState.sortOrder
-      || this.state.pubSource !== nextState.pubSource;
+      || this.state.pubSource !== nextState.pubSource
+      || this.state.itemsToShow !== nextState.itemsToShow;
   }
 
   // Used when clicking a publication category from Home View.
@@ -126,6 +130,7 @@ export class PublicationsView extends Component {
     const otherSource = this.state.pubSource === 'centerPub' ?
     'community' : 'centerPub';
     this.setState({ pubSource: otherSource });
+    this.setState({ itemsToShow: 8 });
   }
 
   handleCategoryChecked = (name, checked) => {
@@ -161,13 +166,33 @@ export class PublicationsView extends Component {
   resetAllFields = () => {
     this.setState(this.initialState);
   }
-
+  // showMore() {
+  //   this.setState({ itemsToShow: this.state.itemsToShow + 5 });
+  // }
+  // showLess() {
+  //   this.setState({ itemsToShow: this.state.itemsToShow - 5 });
+  // }
+  showAll() {
+    this.setState({ itemsToShow: this.props.publications.length });
+  }
   render() {
     const { categories } = this.state;
     let publications = this.props.publications;
     publications = publications.sort(this.sortPublications)
                                .filter(this.filterCategories)
                                .filter(this.filterSources);
+
+    publications = publications.slice(0, this.state.itemsToShow);
+
+    let lessButton = null;
+    if (this.state.itemsToShow === 5000) {
+      lessButton = <a className="btn btn-secondary" onClick={this.showLess}>Show Less</a>;
+    }
+    let allButton = null;
+    if (this.state.itemsToShow !== this.props.publications.length) {
+      allButton = <a className="btn btn-secondary" onClick={this.showAll}>Show All</a>;
+    }
+
     const lincsFundedLabelwToolTip = (
       <label
         className={`${styles.label}
@@ -219,6 +244,7 @@ export class PublicationsView extends Component {
     );
 
     return (
+
       <div className={styles.wrapper}>
         <PageBanner
           title="LINCS Publications"
@@ -294,6 +320,8 @@ export class PublicationsView extends Component {
                   />
                 )
               }
+              {allButton}
+              {lessButton}<br /><br />
               {
                 !this.props.isFetchingPubs && !publications.length &&
                   <h2>Please select a category to view publications.</h2>
@@ -302,6 +330,7 @@ export class PublicationsView extends Component {
           </div>
         </div>
       </div>
+
     );
   }
 }

@@ -56,6 +56,7 @@ import PageHasBeenMovedView from 'views/PageHasBeenMovedView';
 // PubsNews
 import PublicationsView from 'views/PublicationsView';
 import NewsView from 'views/NewsView';
+import CitationsView from 'views/CitationsView';
 
 // Applications
 import AppsView from 'views/AppsView';
@@ -169,9 +170,10 @@ export default (/* store */) => (
     <Route path={`${dataBase}/previous-standards`} component={DataPreviousStandards} />
     <Route path={`${dataBase}/release-policy`} component={DataReleasePolicy} />
 
-    {/* Publications/News Routes */}
+    {/* Publications/News/Citations Routes */}
     <Route path="publications" component={PublicationsView} />
     <Route path="news" component={NewsView} />
+    <Route path="citations" component={CitationsView} />
 
     {/* Apps & Workflows Route */}
     <Route path="tools" component={AppsView} />

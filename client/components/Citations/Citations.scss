@@ -1,0 +1,108 @@
+@import 'variables';
+
+.cite {
+  margin-bottom: 1rem;
+  padding-bottom: 7rem;
+
+
+  h6,
+  h5,
+  p,
+  a {
+    margin-bottom: 0;
+  }
+
+  a {
+
+    &:hover {
+      color: $brand-primary;
+      text-decoration: none;
+    }
+  }
+}
+
+.cat {
+  background-color: $gray;
+  border-radius: .25rem;
+  color: $white !important;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 75%;
+  font-weight: 700;
+  line-height: 1rem;
+  margin-right: .25rem;
+  margin-bottom: 0.50rem;
+  padding: .15rem .4rem;
+  text-align: center;
+  vertical-align: baseline;
+  white-space: nowrap;
+}
+
+.cat-assay-development {
+  background-color: $dark-red;
+}
+
+.cat-data-generation {
+  background-color: $green;
+}
+
+.cat-data-analysis {
+  background-color: darken($teal, 5);
+}
+
+.cat-data-integration {
+  background-color: darken($orange, 5);
+}
+
+.cat-signature-generation {
+  background-color: $brand-primary-light;
+}
+
+.cat-analytical-method-development {
+  background-color: darken($yellow, 30);
+}
+
+.cat-software-development {
+  background-color: $red;
+}
+
+.cat-data-standards {
+  background-color: $brand-secondary-dark;
+}
+
+.cat-review {
+  background-color: $dark-gray;
+}
+
+.cat-cite {
+  background-color: $brand-primary;
+  color: $white;
+  float: right;
+  cursor: pointer;
+  // Align button with publication labels.
+  margin-top: 4px;
+  width: 100%;
+
+  &:hover {
+    background-color: darken($brand-primary, 5);
+    cursor: pointer;
+    // border-color: darken($brand-primary, 10);
+    color: $white;
+  }
+
+  @media (min-width: 544px) {
+    width: auto;
+  }
+}
+
+.resources {
+  font-size: 90%;
+  margin-top: .5rem;
+}
+
+.resource {
+
+  a {
+    cursor: pointer;
+  }
+}

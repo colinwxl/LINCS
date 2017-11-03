@@ -7,6 +7,12 @@ import PublicationCategory from 'components/PublicationCategory';
 import styles from './Publication.scss';
 
 export class Publication extends Component {
+  componentWillMount() {
+    const altMetricScript = document.createElement('script');
+    altMetricScript.src = 'https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js';
+    altMetricScript.async = true;
+    document.body.append(altMetricScript);
+  }
 
   openCitationsModal = () => {
     this.props.openCitationsModal({
@@ -84,6 +90,13 @@ export class Publication extends Component {
           >
             Export citation
           </span>
+          <div
+            className="altmetric-embed"
+            data-badge-type="4"
+            data-doi={pub.doi}
+            data-pmid={pub.pmId}
+          >
+          </div>
         </p>
         {
           pub.resourceLinks &&
