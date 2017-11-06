@@ -313,9 +313,9 @@ class Overview extends Component {
               </p>
               <h3>Highlight</h3>
               <p>
-                The 2017 LINCS Consortium Meeting will be held October 23-24 at
+                The 2017 LINCS Consortium Meeting was held October 23-24 at
                 the William F. Bolger Center in Potomac, MD.
-                This two-day meeting will bring together the six&nbsp;
+                This two-day meeting brought together the six&nbsp;
                 <Link to="/LINCS/centers/data-and-signature-generating-centers">
                   LINCS Data and Signature Generation Centers
                 </Link>
