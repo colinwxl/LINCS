@@ -31,7 +31,7 @@ export default function Standards(/* props */) {
             <p>
               All the LINCS standards are curated into
               <a
-                href="https://biosharing.org/collection/LINCSProject?q=&selected_facets=status:Ready"
+                href="https://fairsharing.org/collection/LINCSProject?q=&selected_facets=status:Ready"
                 target="_blank"
               >
                 <img src={fairSharing} className={styles.biosharing} role="presentation" />
