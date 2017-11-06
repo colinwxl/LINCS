@@ -113,6 +113,7 @@ export class AppsContainerModule extends Component {
             Canned Analyses
           </label>
         */}
+        {/*
           <label
             onClick={this.handleDocClicked}
             className={`btn ${styles['category-check']} ${isDoc ? styles.active : ''}`}
@@ -124,6 +125,7 @@ export class AppsContainerModule extends Component {
             />
             Dockerized Pipelines
           </label>
+          */}
         </div>
 
         <div className={styles.workflow}>
