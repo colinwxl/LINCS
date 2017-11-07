@@ -3,7 +3,7 @@ import { Link } from 'react-router';
 import PageBanner from 'components/PageBanner';
 import PageNav from 'components/PageNav';
 import styles from './Standards.scss';
-import bioSharing from './biosharing_icon.png';
+import fairSharing from './FAIRsharing-sdp.svg';
 
 export default function Standards(/* props */) {
   const d = '/LINCS/files/';
@@ -31,14 +31,14 @@ export default function Standards(/* props */) {
             <p>
               All the LINCS standards are curated into
               <a
-                href="https://biosharing.org/collection/LINCSProject?q=&selected_facets=status:Ready"
+                href="https://fairsharing.org/collection/LINCSProject?q=&selected_facets=status:Ready"
                 target="_blank"
               >
-                <img src={bioSharing} className={styles.biosharing} role="presentation" />
+                <img src={fairSharing} className={styles.biosharing} role="presentation" />
               </a>.
             </p>
 
-            <p><a href={`${d}LINCS Reagent Definitions.pdf`}>Reagent Definitions</a></p>
+            <p><a href={`${d}LINCS_Reagent_Definitions.pdf`}>Reagent Definitions</a></p>
 
             <p><strong>Current Versions of Standards Released: 8-22-2017</strong></p>
             <ul>
