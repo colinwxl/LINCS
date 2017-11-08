@@ -152,7 +152,7 @@ export class HomeView extends Component {
                               alt="presentation"
                             />
                             <h5 className={`${styles['datatype-title']}`}>Dockerized Pipelines</h5>
-                         </Link>
+                          </Link>
                         </div>
                       </div>
                     </div>
