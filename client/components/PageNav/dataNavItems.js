@@ -26,9 +26,9 @@ export default [
   //   route: '/citations',
   //   children: [],
   // },
-  {
-    title: 'Dockerized Pipelines',
-    route: '/tools',
-    children: [],
-  },
+  // {
+  //   title: 'Dockerized Pipelines',
+  //   route: '/tools',
+  //   children: [],
+  // },
 ];
