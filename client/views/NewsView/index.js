@@ -70,10 +70,6 @@ export default function NewsView() {
       <div className="container">
         <div className="row">
           <div className={`col-xs-12 col-xl-9 ${styles.news}`}>
-            <Story201712204 />
-            <Story201712203 />
-            <Story201712202 />
-            <Story201712201 />
             <Story20171005 />
             <Story20170912 />
             <Story201709112 />
