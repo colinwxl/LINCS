@@ -27,7 +27,7 @@ export default function Story20150208() {
         Subramanian et al. (2017) in a recent publication in Cell describe a massive
         scaling up of the Connectivity Map (CMap) to 1.3 million gene expression profiles
         using the L1000 technology, a low-cost high-throughput hybridization assay that
-        is comparable microarrays and RNA-seq. The authors demonstrate that expression
+        is comparable to microarrays and RNA-seq. The authors demonstrate that expression
         signatures obtained from 19,811 small molecules and 5,075 genetic perturbations
         can be used to functionally annotate unknown small molecules and genetic variants
         of disease causing genes. Tools and signatures are available at <a href="https://clue.io">
@@ -38,7 +38,9 @@ export default function Story20150208() {
       <p>
         Subramanian, A. <i>et al.</i> A Next Generation Connectivity Map: L1000 Platform
         and the First 1,000,000 Profiles. <i>Cell</i> 171, 1437-1452 e1417,
-        doi:10.1016/j.cell.2017.10.049 (2017).
+        doi:10.1016/j.cell.2017.10.049 (2017). <a href="https://www.ncbi.nlm.nih.gov/pubmed/29195078" target="_blank">
+          PMID: 29195078
+        </a>
       </p>
 
       <span className={styles['twitter-label']} style={{ marginBottom: '2rem' }}>

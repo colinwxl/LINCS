@@ -24,7 +24,7 @@ export default function Story20150208() {
       </p>
 
       <p>
-        In a related study published recently in Nature Communications Niepel
+        In a related study published recently in Nature Communications, Niepel
         et al. (2017) combined L1000 expression signatures together with cell
         growth phenotypes for over 600 drug-cell line combinations. The study
         demonstrates that phenotypic responses and transcriptional changes
@@ -36,9 +36,16 @@ export default function Story20150208() {
         drug expression signatures combined with cell viability measures.
       </p>
       <p>
+        The <a href="http://amp.pharm.mssm.edu/LJP/">LINCS Joint Project-Breast
+        Cancer Network Browser (LJP-BCNB)</a> is
+        an interactive visualization of 2344 signatures created from this dataset.
+      </p>
+      <p>
         Niepel, M. et al. Common and cell-type specific responses to anti-cancer
         drugs revealed by high throughput transcript profiling. <i>Nat Commun</i> 8, 1186,
-        doi:10.1038/s41467-017-01383-w (2017).
+        doi:10.1038/s41467-017-01383-w (2017). <a href="https://www.ncbi.nlm.nih.gov/pubmed/29084964" target="_blank">
+          PMID: 29084964
+        </a>
       </p>
 
       <span className={styles['twitter-label']} style={{ marginBottom: '2rem' }}>
