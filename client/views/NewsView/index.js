@@ -55,10 +55,6 @@ import Story201709112 from './Stories/Story201709112.js';
 import Story20170912 from './Stories/Story20170912.js';
 import Story20170807 from './Stories/Story20170807.js';
 import Story20171005 from './Stories/Story20171005.js';
-import Story201712201 from './Stories/Story201712201.js';
-import Story201712202 from './Stories/Story201712202.js';
-import Story201712203 from './Stories/Story201712203.js';
-import Story201712204 from './Stories/Story201712204.js';
 
 export default function NewsView() {
   return (
