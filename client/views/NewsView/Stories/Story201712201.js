@@ -6,8 +6,8 @@ import styles from '../NewsView.scss';
 export default function Story20150208() {
   return (
     <Story
-      title="Publication Highlight | HMS LINCS Center"
-      date="December 20th, 2017"
+      title="Publication Highlight | Broad Transcriptomics"
+      date="December 21th, 2017"
       author="Alexandra B. Keenan"
     >
       <img
