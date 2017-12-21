@@ -7,6 +7,7 @@ export default function Story20150208() {
   return (
     <Story
       title="Publication Highlight | BD2K-LINCS Data Coordination and Integration Center"
+      subtitle="LINCS Data Portal and LINCS Data Registry"
       date="December 21th, 2017"
       author="Alexandra B. Keenan"
     >
@@ -16,12 +17,6 @@ export default function Story20150208() {
         className={styles['inline-img-left']}
         style={{ maxWidth: '25rem', maxHeight: '25rem' }}
       />
-
-      <p>
-        <strong>
-          LINCS Data Portal and LINCS Data Registry
-        </strong>
-      </p>
 
       <p>
         Koleti et al. (2017) highlight the features of the <a href="http://lincsportal.ccs.miami.edu/">

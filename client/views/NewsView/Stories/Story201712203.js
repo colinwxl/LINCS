@@ -7,6 +7,7 @@ export default function Story20150208() {
   return (
     <Story
       title="Publication Highlight | LINCS Consortium"
+      subtitle="A LINCS Program Review"
       date="December 21th, 2017"
       author="Alexandra B. Keenan"
     >
@@ -16,12 +17,6 @@ export default function Story20150208() {
         className={styles['inline-img-left']}
         style={{ maxWidth: '25rem', maxHeight: '25rem' }}
       />
-
-      <p>
-        <strong>
-          A LINCS Program Review
-        </strong>
-      </p>
 
       <p>
         The LINCS Consortium (Keenan et al., 2017) has published the first

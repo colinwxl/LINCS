@@ -7,6 +7,7 @@ export default function Story20150208() {
   return (
     <Story
       title="Publication Highlight | Broad Transcriptomics"
+      subtitle="A Next Generation Connectivity Map"
       date="December 21th, 2017"
       author="Alexandra B. Keenan"
     >
@@ -16,12 +17,6 @@ export default function Story20150208() {
         className={styles['inline-img-left']}
         style={{ maxWidth: '25rem', maxHeight: '25rem' }}
       />
-
-      <p>
-        <strong>
-          A Next Generation Connectivity Map
-        </strong>
-      </p>
 
       <p>
         Subramanian et al. (2017) in a recent publication in Cell describe a massive
