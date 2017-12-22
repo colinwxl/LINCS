@@ -3,6 +3,8 @@ import React from 'react';
 import Story from './Story';
 import styles from '../NewsView.scss';
 
+import photo from './images/consortiumPub2017.png';
+
 export default function Story20150208() {
   return (
     <Story
@@ -12,7 +14,7 @@ export default function Story20150208() {
       author="Alexandra B. Keenan"
     >
       <img
-        src="http://www.cell.com/cms/attachment/2116967899/2085247437/gr1_lrg.jpg"
+        src={photo}
         alt="dcic"
         className={styles['inline-img-left']}
         style={{ maxWidth: '25rem', maxHeight: '25rem' }}

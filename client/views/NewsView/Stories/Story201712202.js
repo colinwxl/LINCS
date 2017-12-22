@@ -3,6 +3,8 @@ import React from 'react';
 import Story from './Story';
 import styles from '../NewsView.scss';
 
+import photo from './images/jointProject.png';
+
 export default function Story20150208() {
   return (
     <Story
@@ -12,7 +14,7 @@ export default function Story20150208() {
       author="Alexandra B. Keenan"
     >
       <img
-        src="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5662764/bin/41467_2017_1383_Fig2_HTML.jpg"
+        src={photo}
         alt="dcic"
         className={styles['inline-img-left']}
         style={{ maxWidth: '25rem', maxHeight: '25rem' }}

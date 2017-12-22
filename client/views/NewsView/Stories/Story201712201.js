@@ -3,6 +3,8 @@ import React from 'react';
 import Story from './Story';
 import styles from '../NewsView.scss';
 
+import photo from './images/homepage-graphic_V3_lighter.svg';
+
 export default function Story20150208() {
   return (
     <Story
@@ -12,7 +14,7 @@ export default function Story20150208() {
       author="Alexandra B. Keenan"
     >
       <img
-        src="https://assets.clue.io/clue/public/img/home_datapage/homepage-graphic_V3_lighter.svg"
+        src={photo}
         alt="dcic"
         className={styles['inline-img-left']}
         style={{ maxWidth: '25rem', maxHeight: '25rem' }}
