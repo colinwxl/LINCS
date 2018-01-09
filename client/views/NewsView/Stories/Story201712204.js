@@ -5,6 +5,12 @@ import styles from '../NewsView.scss';
 
 import photo from './images/dsgcPubPhoto2017.png';
 
+function popitup(url) {
+  const newwindow = window.open(url, 'name', 'top=100, left=2500, width=535, height= 420');
+  if (window.focus) { newwindow.focus(); }
+  return false;
+}
+
 export default function Story20150208() {
   return (
     <Story
@@ -12,6 +18,7 @@ export default function Story20150208() {
       subtitle="LINCS Data Portal and LINCS Data Registry"
       date="December 21th, 2017"
       author="Alexandra B. Keenan"
+      id="LINCSDataPortal"
     >
       <img
         src={photo}
@@ -45,6 +52,16 @@ export default function Story20150208() {
           href="https://twitter.com/LINCSProgram"
         >
           Follow <strong>@LINCSProgram</strong>
+        </a>
+      </span>
+      <span
+        className={styles['twitter-label']}
+        style={{ marginBottom: '2rem', marginLeft: '2rem' }}
+      >
+        <a
+          onClick={() => popitup('https://twitter.com/intent/tweet?text=A LINCS Data Portal and LINCS Data Registry @LINCSProgram @BD2KLINCSDCIC&hashtags=LINCS&url=http://lincsproject.org/LINCS/news/%23LINCSDataPortal')}
+        >
+          <strong>Share on Twitter</strong>
         </a>
       </span>
     </Story>

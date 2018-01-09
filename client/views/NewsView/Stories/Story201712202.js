@@ -5,6 +5,12 @@ import styles from '../NewsView.scss';
 
 import photo from './images/jointProject.png';
 
+function popitup(url) {
+  const newwindow = window.open(url, 'name', 'top=100, left=2500, width=535, height= 420');
+  if (window.focus) { newwindow.focus(); }
+  return false;
+}
+
 export default function Story20150208() {
   return (
     <Story
@@ -18,8 +24,8 @@ export default function Story20150208() {
         alt="dcic"
         className={styles['inline-img-left']}
         style={{ maxWidth: '25rem', maxHeight: '25rem' }}
+        id="AntiCancerDrugs"
       />
-
       <p>
         In a related study published recently in Nature Communications, Niepel
         et al. (2017) combined L1000 expression signatures together with cell
@@ -51,6 +57,16 @@ export default function Story20150208() {
           href="https://twitter.com/LINCSProgram"
         >
           Follow <strong>@LINCSProgram</strong>
+        </a>
+      </span>
+      <span
+        className={styles['twitter-label']}
+        style={{ marginBottom: '2rem', marginLeft: '2rem' }}
+      >
+        <a
+          onClick={() => popitup('https://twitter.com/intent/tweet?text=Common and cell-type specific responses to anti-cancer drugs @LINCSProgram @BD2KLINCSDCIC&hashtags=LINCS&url=http://lincsproject.org/LINCS/news/%23AntiCancerDrugs')}
+        >
+          <strong>Share on Twitter</strong>
         </a>
       </span>
     </Story>

@@ -5,6 +5,12 @@ import styles from '../NewsView.scss';
 
 import photo from './images/consortiumPub2017.png';
 
+function popitup(url) {
+  const newwindow = window.open(url, 'name', 'top=100, left=2500, width=535, height= 420');
+  if (window.focus) { newwindow.focus(); }
+  return false;
+}
+
 export default function Story20150208() {
   return (
     <Story
@@ -18,6 +24,7 @@ export default function Story20150208() {
         alt="dcic"
         className={styles['inline-img-left']}
         style={{ maxWidth: '25rem', maxHeight: '25rem' }}
+        id="LINCSProgramReview"
       />
 
       <p>
@@ -47,6 +54,16 @@ export default function Story20150208() {
           href="https://twitter.com/LINCSProgram"
         >
           Follow <strong>@LINCSProgram</strong>
+        </a>
+      </span>
+      <span
+        className={styles['twitter-label']}
+        style={{ marginBottom: '2rem', marginLeft: '2rem' }}
+      >
+        <a
+          onClick={() => popitup('https://twitter.com/intent/tweet?text=A LINCS Program Review @LINCSProgram @BD2KLINCSDCIC&hashtags=LINCS&url=http://lincsproject.org/LINCS/news/%23LINCSProgramReview')}
+        >
+          <strong>Share on Twitter</strong>
         </a>
       </span>
     </Story>
