@@ -12,6 +12,11 @@ export class Publication extends Component {
     altMetricScript.src = 'https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js';
     altMetricScript.async = true;
     document.body.append(altMetricScript);
+
+    const twitterWidget = document.createElement('script');
+    twitterWidget.src = 'https://platform.twitter.com/widgets.js';
+    twitterWidget.async = true;
+    document.body.append(twitterWidget);
   }
 
   openCitationsModal = () => {
@@ -36,26 +41,31 @@ export class Publication extends Component {
     const { pub, categories } = this.props;
     const authorNames = pub.authors.map(author => author.name);
     let articleTitle = pub.articleName;
+    let link = null;
     if (pub.pmId) {
       articleTitle = (
         <a href={`http://www.ncbi.nlm.nih.gov/pubmed/${pub.pmId}`} target="_blank">
           {pub.articleName}
         </a>
       );
+      link = `http://www.ncbi.nlm.nih.gov/pubmed/${pub.pmId}`;
     } else if (pub.pmcId) {
       articleTitle = (
         <a href={`http://www.ncbi.nlm.nih.gov/pmc/articles/${pub.pmcId}`} target="_blank">
           {pub.articleName}
         </a>
       );
+      link = `http://www.ncbi.nlm.nih.gov/pmc/articles/${pub.pmcId}`;
     } else if (pub.doi) {
       articleTitle = (
         <a href={`http://dx.doi.org/${pub.doi}`} target="_blank">{pub.articleName}</a>
       );
+      link = `http://dx.doi.org/${pub.doi}`;
     } else if (pub.otherLink) {
       articleTitle = (
         <a href={pub.otherLink} target="_blank">{pub.articleName}</a>
       );
+      link = pub.otherLink;
     }
     return (
       <div key={pub.id} className={styles.pub}>
@@ -89,6 +99,20 @@ export class Publication extends Component {
             className={`${styles.cat} ${styles['cat-cite']}`}
           >
             Export citation
+          </span>
+          <span
+            className={`${styles['twitter-widget']}`}
+          >
+            <a
+              href="https://twitter.com/intent/tweet"
+              className="twitter-share-button"
+              data-show-count="false"
+              data-size="small"
+              data-text={pub.articleName}
+              data-via="LINCSProgram"
+              data-url={link}
+            >
+            </a>
           </span>
           <div
             className="altmetric-embed"
