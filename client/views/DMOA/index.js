@@ -9,7 +9,9 @@ export default class DMOA extends Component {
       <div className={styles.wrapper}>
         <PageBanner
           title="Featured Interactive Data Visualization"
-          subTitle={'Global Visualization of Drug-Induced L1000 Transcriptomic Signatures'}
+          subTitle={
+            'L1000FWD: Large-scale Visualization of Drug-induced Transcriptomics Signatures'
+          }
         />
         <div className="container">
           <div className="row">
@@ -22,7 +24,7 @@ export default class DMOA extends Component {
                 style={{
                   width: '100%',
                 }}
-                src="https://amp.pharm.mssm.edu/l1000fwd/"
+                src="http://amp.pharm.mssm.edu/L1000FWD/"
               />
             </div>
             <div className="col-xs-12">
@@ -65,21 +67,16 @@ export default class DMOA extends Component {
                 <p>
                   Zooming and panning is provided to explore different parts of
                   the map using the mouse wheel. Clicking on a data point will
-                  invoke a query to <a
-                    href="http://amp.pharm.mssm.edu/L1000CDS2/#/index"
-                    target="_blank"
-                  >
-                    L1000CDS<sup>2</sup>
-                  </a>, and direct the user to the search
-                  results of <a
-                    href="http://amp.pharm.mssm.edu/L1000CDS2/#/index"
-                    target="_blank"
-                  >
-                    L1000CDS<sup>2</sup>
-                  </a> for more details about the signature.
-                  Coloring and shape of data points (signatures) can be adjusted
-                  by cell type, dose, drug class, time point, and signature
-                  significance. Users can submit their own up and down gene sets
+                  invoke bring you to a signiture report page for more details
+                  about the signature.
+                  The shape of the data points can be adjusted
+                  to highlight signatures by Time, P-value or Dose. Coloring of
+                  data points (signatures) can be adjusted
+                  by DBSCAN-clustering, KMeans-clustering, Cell Line, Time, Poplar-Pertubation,
+                   Electric Health Record (EHR) Coprescribed Drugs,
+                   EHR Diagnoses, Phase, Mechanism of action (MOA), Rings, Scaffolds,
+                   n_rings, n_scaffolds, Predicted MOA, and Batch. Users can
+                   submit their own up and down gene sets
                   to project their signature onto the map. The results from such
                   search are also provided in a table format with the ability to
                   download a spreadsheet with detailed results. Users can also

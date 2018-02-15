@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 
 // import handleResponse from 'utils/handleResponse';
 import Tool from 'components/Tool';
-// import Carousel from 'components/Carousel';
+import Carousel from 'components/Carousel';
 import Twitter from 'containers/Twitter';
 import Publication from 'containers/Publication';
 import Announcements from 'containers/Announcements';
@@ -16,7 +16,7 @@ import { loadTools } from 'actions/toolsWorkflows';
 import { initialCategories as categories } from '../PublicationsView';
 import styles from './HomeView.scss';
 
-// import dmoaGif from 'static/files/dmoaGif.gif';
+import dmoaGif from 'static/files/dmoaGif3.gif';
 // import memaGif from 'static/files/memaGif.gif';
 import ljpGif from 'static/files/ljpGif.gif';
 
@@ -174,16 +174,16 @@ export class HomeView extends Component {
 
                     <h3 className={styles.title}>Featured Interactive Data Visualization</h3>
                     <div className={styles['carousel-pad']}>
-                    {/* <Carousel dots={false} autoplay infinite aps={12000}> */}
-                    {/*  <div className={styles['carousel-item-wrap']}>
+                      <Carousel dots={false} autoplay infinite aps={12000}>
+                        <div className={styles['carousel-item-wrap']}>
                           <Link
                             to="/dmoa"
                             className={styles['carousel-item-head']}
                           >
                             <h5 className={styles['carousel-item-title']}>
                               <strong>
-                                Global Visualization of Drug-Induced
-                                L1000 Transcriptomic Signatures
+                                L1000FWD: Large-scale Visualization of Drug-induced
+                                Transcriptomics Signatures
                               </strong>
                             </h5>
                             <div className={styles['carousel-img-wrap']}>
@@ -216,8 +216,8 @@ export class HomeView extends Component {
                             , as well as on the&nbsp;
                             <a href="http://lincsportal.ccs.miami.edu/dcic-portal/" target="_blank">
                               LINCS Data Portal
-                            </a> (LDP).
-                            More interactive visualizations of L1000 can be found at&nbsp;
+                            </a> (LDP). More
+                            interactive visualizations of L1000 can be found at&nbsp;
                             <a href="https://clue.io" target="_blank">clue.io</a>,&nbsp;
                             <a
                               href="http://amp.pharm.mssm.edu/L1000CDS2/#/index"
@@ -230,7 +230,7 @@ export class HomeView extends Component {
                             </a>.
                           </p>
                         </div>
-
+                        {/*
                         <div className={styles['carousel-item-wrap']}>
                           <Link
                             to="/mema"
@@ -271,50 +271,49 @@ export class HomeView extends Component {
                           </p>
                         </div>
                           */ }
-                      <div className={styles['carousel-item-wrap']}>
-                        <Link
-                          to="/ljp"
-                          className={styles['carousel-item-head']}
-                        >
-                          <h5 className={styles['carousel-item-title']}>
-                            <strong>
-                              LINCS Joint Project (LJP)
-                              <br />
-                              Breast Cancer Network Browser (BCNB)
-                            </strong>
-                          </h5>
-                          <div className={styles['carousel-img-wrap']}>
-                            <img
-                              src={ljpGif}
-                              className={`${styles['carousel-img']} ${styles.swg} ${styles.ljp}`}
-                              alt="presentation"
-                            />
-                          </div>
-                        </Link>
-                        <p className={styles.meeting}>
-                          In a recent study published in <a href="https://www.nature.com/articles/s41467-017-01383-w" target="_blank">
-                          Nature Communications</a>,
-                          the <a href="http://lincsproject.org/LINCS/centers/data-and-signature-generating-centers/hms-lincs" target="_blank">
-                          HMS LINCS Center</a>, in collaboration with the <a href="http://lincsproject.org/LINCS/centers/data-and-signature-generating-centers/lincs-transcriptomics" target="_blank">
-                          LINCS Transcriptomics Center</a> and the <a href="http://lincsproject.org/LINCS/centers/dcic" target="_blank">
-                          BD2K-LINCS DCIC</a>,
-                          analyzed the gene expression and phenotypic response
-                          of six breast cancer cell lines to over a hundred
-                          drugs and pre-clinical small molecules. The
-                          perturbations were applied in different concentrations
-                          while gene expression was measured at different time
-                          points using the <a href="https://clue.io/" target="_blank">
-                          L1000 technology</a>. Under the same
-                          conditions, the cells were imaged for <a href="http://www.grcalculator.org/grtutorial/Home.html" target="_blank">
-                          cell viability</a>.
-                          The <a href="http://amp.pharm.mssm.edu/LJP/" target="_blank">
-                          LINCS Joint Project-Breast Cancer Network Browser
-                          (LJP-BCNB)</a> is an interactive visualization of 2344
-                          signatures created from this dataset.
-                        </p>
-                      </div>
-
-                    {/* </Carousel> */}
+                        <div className={styles['carousel-item-wrap']}>
+                          <Link
+                            to="/ljp"
+                            className={styles['carousel-item-head']}
+                          >
+                            <h5 className={styles['carousel-item-title']}>
+                              <strong>
+                                LINCS Joint Project (LJP)
+                                <br />
+                                Breast Cancer Network Browser (BCNB)
+                              </strong>
+                            </h5>
+                            <div className={styles['carousel-img-wrap']}>
+                              <img
+                                src={ljpGif}
+                                className={`${styles['carousel-img']} ${styles.swg} ${styles.ljp}`}
+                                alt="presentation"
+                              />
+                            </div>
+                          </Link>
+                          <p className={styles.meeting}>
+                            In a recent study published in <a href="https://www.nature.com/articles/s41467-017-01383-w" target="_blank">
+                            Nature Communications</a>,
+                            the <a href="http://lincsproject.org/LINCS/centers/data-and-signature-generating-centers/hms-lincs" target="_blank">
+                            HMS LINCS Center</a>, in collaboration with the <a href="http://lincsproject.org/LINCS/centers/data-and-signature-generating-centers/lincs-transcriptomics" target="_blank">
+                            LINCS Transcriptomics Center</a> and the <a href="http://lincsproject.org/LINCS/centers/dcic" target="_blank">
+                            BD2K-LINCS DCIC</a>,
+                            analyzed the gene expression and phenotypic response
+                            of six breast cancer cell lines to over a hundred
+                            drugs and pre-clinical small molecules. The
+                            perturbations were applied in different concentrations
+                            while gene expression was measured at different time
+                            points using the <a href="https://clue.io/" target="_blank">
+                            L1000 technology</a>. Under the same
+                            conditions, the cells were imaged for <a href="http://www.grcalculator.org/grtutorial/Home.html" target="_blank">
+                            cell viability</a>.
+                            The <a href="http://amp.pharm.mssm.edu/LJP/" target="_blank">
+                            LINCS Joint Project-Breast Cancer Network Browser
+                            (LJP-BCNB)</a> is an interactive visualization of 2344
+                            signatures created from this dataset.
+                          </p>
+                        </div>
+                      </Carousel>
                     </div>
                   </div>
                 {/*
