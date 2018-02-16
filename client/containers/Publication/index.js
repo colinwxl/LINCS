@@ -109,7 +109,9 @@ export class Publication extends Component {
               data-show-count="false"
               data-size="small"
               data-text={pub.articleName}
-              data-via="LINCSProgram"
+              data-hashtags="LINCSPublication"
+              data-related="LINCSProgram"
+              // data-via="LINCSProgram"
               data-url={link}
             >
             </a>
