@@ -16,7 +16,7 @@ import { loadTools } from 'actions/toolsWorkflows';
 import { initialCategories as categories } from '../PublicationsView';
 import styles from './HomeView.scss';
 
-import dmoaGif from 'static/files/dmoaGif3.gif';
+import dmoaGif from 'static/files/L100FWD2.gif';
 // import memaGif from 'static/files/memaGif.gif';
 import ljpGif from 'static/files/ljpGif.gif';
 
