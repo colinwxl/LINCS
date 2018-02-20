@@ -311,18 +311,14 @@ class Overview extends Component {
                 courses, training seminars, challenges, workshops and symposia to foster
                 an active LINCS community.
               </p>
-              <h3>Highlight</h3>
+              <h3>BD2K-LINCS Data Science Symposium (DSS 2018)</h3>
               <p>
-                The 2017 LINCS Consortium Meeting was held October 23-24 at
-                the William F. Bolger Center in Potomac, MD.
-                This two-day meeting brought together the six&nbsp;
-                <Link to="/LINCS/centers/data-and-signature-generating-centers">
-                  LINCS Data and Signature Generation Centers
-                </Link>
-                , the&nbsp;
-                <Link to="LINCS/centers/dcic">
-                  BD2K-LINCS Data Coordination and Integration Center
-                </Link>, NIH extramural staff, and external LINCS collaborators.
+                The BD2K-LINCS Data Coordination and Integration Center
+                (DCIC) hosted the third annual <a href="http://lincs-dcic.org/2018-data-science-symposium">
+                BD2K-LINCS Data Science Symposium (DSS 2018)</a> on
+                January 31 - February 2, 2018. The symposium was organized by the BD2K-LINCS
+                DCIC with support from the Center for Computational Science and the Sylvester
+                Comprehensive Cancer Center at the University of Miami.
               </p>
             </div>
           </div>
@@ -345,7 +341,6 @@ class Overview extends Component {
               {
                 featured && !!featured.length && (
                   <div>
-                    <h3>January 2018</h3>
                     {
                       featured.map((ev, idx) => {
                         if (this.state.cat === 'All' || this.state.cat === ev.category) {
