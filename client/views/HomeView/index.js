@@ -16,7 +16,7 @@ import { loadTools } from 'actions/toolsWorkflows';
 import { initialCategories as categories } from '../PublicationsView';
 import styles from './HomeView.scss';
 
-import dmoaGif from 'static/files/L1000FWD3.gif';
+import dmoaGif from 'static/files/L1000FWD4.gif';
 // import memaGif from 'static/files/memaGif.gif';
 import ljpGif from 'static/files/ljpGif.gif';
 
@@ -210,11 +210,10 @@ export class HomeView extends Component {
                                 + '-centers/lincs-transcriptomics'}
                             >
                               LINCS Center for Transcriptomics
-                            </Link> recently published a paper describing the collection
-                            of the L1000 data used to create this plot (
-                            <a href="http://biorxiv.org/content/early/2017/05/10/136168" target="_blank">
-                              bioRxiv
-                            </a>). The data used to create the visualization is available
+                            </Link> recently published a paper in <a href="https://www.ncbi.nlm.nih.gov/pubmed/?term=A+Next+Generation+Connectivity+Map%3A+L1000+Platform+and+the+First+1%2C000%2C000+Profiles">CELL</a>
+                            &nbsp;describing the collection
+                            of the L1000 data used to create this plot. The data
+                            &nbsp;used to create the visualization is available
                             at the Gene-Expression Omnibus (GEO) accession number&nbsp;
                             <a
                               href="https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE92742"
@@ -224,7 +223,7 @@ export class HomeView extends Component {
                             <a href="http://lincsportal.ccs.miami.edu/dcic-portal/" target="_blank">
                               LINCS Data Portal
                             </a> (LDP). More
-                            interactive visualizations of L1000 can be found at&nbsp;
+                            interactive visualizations of L1000 data can be found at&nbsp;
                             <a href="https://clue.io" target="_blank">clue.io</a>,&nbsp;
                             <a
                               href="http://amp.pharm.mssm.edu/L1000CDS2/#/index"
