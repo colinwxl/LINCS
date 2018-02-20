@@ -31,9 +31,10 @@ export default class DMOA extends Component {
               <div className={styles['viz-description']}>
                 <h4>Overview:</h4>
                 <p>
-                  This is an interactive visualization of 17,041 L1000 drug-induced
-                  gene expression signatures, collected from 63 cell lines
-                  treated with 3,713 drugs/compounds. This data is available
+                  This is an interactive visualization of over 16,000 drug and
+                  small-molecule induced gene expression signatures.
+
+                  This data is available
                   at the Gene-Expression Omnibus (GEO) accession number <a
                     href="https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE92742"
                     target="_blank"
@@ -65,23 +66,20 @@ export default class DMOA extends Component {
                 </p>
                 <h4>Instructions:</h4>
                 <p>
-                  Zooming and panning is provided to explore different parts of
-                  the map using the mouse wheel. Clicking on a data point will
-                  invoke bring you to a signiture report page for more details
-                  about the signature.
-                  The shape of the data points can be adjusted
-                  to highlight signatures by Time, P-value or Dose. Coloring of
-                  data points (signatures) can be adjusted
-                  by DBSCAN-clustering, KMeans-clustering, Cell Line, Time, Poplar-Pertubation,
-                   Electric Health Record (EHR) Coprescribed Drugs,
-                   EHR Diagnoses, Phase, Mechanism of action (MOA), Rings, Scaffolds,
-                   n_rings, n_scaffolds, Predicted MOA, and Batch. Users can
-                   submit their own up and down gene sets
-                  to project their signature onto the map. The results from such
-                  search are also provided in a table format with the ability to
-                  download a spreadsheet with detailed results. Users can also
-                  submit a search by drug name, to highlight where the
-                  signatures for the drug fall on the map.
+                  L1000FWD enables coloring of signatures by different attributes
+                  such as cell type, time point, concentration, as well as drug
+                  attributes such as MOA and clinical phase. Signature similarity
+                  search is implemented to enable the search for mimicking or
+                  opposing signatures given as input of up and down gene sets.
+                  Each point on the L1000FWD interactive map is linked to a
+                  signature landing page, which provides multifaceted knowledge f
+                  rom various sources about the signature and the drug. Notably
+                  such information includes most frequent diagnoses, co-prescribed
+                  drugs and age distribution of prescriptions as extracted from
+                  the Mount Sinai Health System electronic medical records (EMR).
+                  Overall, L1000FWD serves as a platform for identifying functions
+                  for novel small molecules using unsupervised clustering, as well
+                  as for exploring drug MOA.
                 </p>
 
                 <p className={styles.credits}>

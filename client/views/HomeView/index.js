@@ -16,7 +16,7 @@ import { loadTools } from 'actions/toolsWorkflows';
 import { initialCategories as categories } from '../PublicationsView';
 import styles from './HomeView.scss';
 
-import dmoaGif from 'static/files/L100FWD2.gif';
+import dmoaGif from 'static/files/L1000FWD3.gif';
 // import memaGif from 'static/files/memaGif.gif';
 import ljpGif from 'static/files/ljpGif.gif';
 
@@ -195,9 +195,16 @@ export class HomeView extends Component {
                             </div>
                           </Link>
                           <p className={styles.meeting}>
-                            Interactive visualization of 17,041 L1000 drug-induced
-                            gene expression signatures, collected from 63 cell
-                            lines treated with 3,713 drugs/compounds. The&nbsp;
+                            The L1000 fireworks display (L1000FWD) has been introduced
+                            in a recent publication in <a href="https://www.ncbi.nlm.nih.gov/pubmed/?term=L1000FWD">Bioinformatics</a>.
+                            L1000FWD is
+                            as a <a href="http://amp.pharm.mssm.edu/l1000fwd/">web application</a>
+                            &nbsp; that provides interactive visualization of over 16,000
+                            drug and small-molecule induced gene expression signatures.
+                            L1000FWD enables coloring of signatures by different
+                            attributes such as cell type, time point, concentration,
+                            as well as drug attributes such as MOA and clinical phase.
+                            The&nbsp;
                             <Link
                               to={'centers/data-and-signature-generating'
                                 + '-centers/lincs-transcriptomics'}
