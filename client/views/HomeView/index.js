@@ -197,7 +197,7 @@ export class HomeView extends Component {
                           <p className={styles.meeting}>
                             L1000 fireworks display (<a href="http://amp.pharm.mssm.edu/l1000fwd/">L1000FWD</a>)
                             is as a web application
-                            &nbsp; that provides interactive visualization of over 16,000
+                            that provides interactive visualization of over 16,000
                             drug and small-molecule induced gene expression signatures.
                             L1000FWD enables coloring of signatures by different
                             attributes such as cell type, time point, concentration,
