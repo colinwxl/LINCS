@@ -16,7 +16,7 @@ import { loadTools } from 'actions/toolsWorkflows';
 import { initialCategories as categories } from '../PublicationsView';
 import styles from './HomeView.scss';
 
-import dmoaGif from 'static/files/L1000FWD4.gif';
+import dmoaGif from 'static/files/L1000FWD5.gif';
 // import memaGif from 'static/files/memaGif.gif';
 import ljpGif from 'static/files/ljpGif.gif';
 
@@ -195,23 +195,23 @@ export class HomeView extends Component {
                             </div>
                           </Link>
                           <p className={styles.meeting}>
-                            L1000 fireworks display (L1000FWD) is
-                            as a <a href="http://amp.pharm.mssm.edu/l1000fwd/">web application</a>
+                            L1000 fireworks display (<a href="http://amp.pharm.mssm.edu/l1000fwd/">L1000FWD</a>)
+                            is as a web application
                             &nbsp; that provides interactive visualization of over 16,000
                             drug and small-molecule induced gene expression signatures.
                             L1000FWD enables coloring of signatures by different
                             attributes such as cell type, time point, concentration,
                             as well as, drug attributes such as MOA and clinical phase.
                             The L1000FWD has been introduced
-                            in a recent publication in <a href="https://www.ncbi.nlm.nih.gov/pubmed/?term=L1000FWD">Bioinformatics</a>.
-                            The&nbsp;
+                            in a recent <a href="https://www.ncbi.nlm.nih.gov/pubmed/?term=L1000FWD">publication</a>
+                            &nbsp;in Bioinformatics. The&nbsp;
                             <Link
                               to={'centers/data-and-signature-generating'
                                 + '-centers/lincs-transcriptomics'}
                             >
                               LINCS Center for Transcriptomics
-                            </Link> recently published a paper in <a href="https://www.ncbi.nlm.nih.gov/pubmed/?term=A+Next+Generation+Connectivity+Map%3A+L1000+Platform+and+the+First+1%2C000%2C000+Profiles">Cell</a>
-                            &nbsp;describing the collection
+                            </Link> recently published a <a href="https://www.ncbi.nlm.nih.gov/pubmed/?term=A+Next+Generation+Connectivity+Map%3A+L1000+Platform+and+the+First+1%2C000%2C000+Profiles">paper</a>
+                            &nbsp;in Cell describing the collection
                             of this L1000 data. The data
                             &nbsp;used to create the visualization is available
                             at the Gene-Expression Omnibus (GEO) accession number&nbsp;
