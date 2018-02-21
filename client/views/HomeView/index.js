@@ -195,45 +195,34 @@ export class HomeView extends Component {
                             </div>
                           </Link>
                           <p className={styles.meeting}>
-                            The L1000 fireworks display (L1000FWD) has been introduced
-                            in a recent publication in <a href="https://www.ncbi.nlm.nih.gov/pubmed/?term=L1000FWD">Bioinformatics</a>.
-                            L1000FWD is
+                            L1000 fireworks display (L1000FWD) is
                             as a <a href="http://amp.pharm.mssm.edu/l1000fwd/">web application</a>
                             &nbsp; that provides interactive visualization of over 16,000
                             drug and small-molecule induced gene expression signatures.
                             L1000FWD enables coloring of signatures by different
                             attributes such as cell type, time point, concentration,
-                            as well as drug attributes such as MOA and clinical phase.
+                            as well as, drug attributes such as MOA and clinical phase.
+                            The L1000FWD has been introduced
+                            in a recent publication in <a href="https://www.ncbi.nlm.nih.gov/pubmed/?term=L1000FWD">Bioinformatics</a>.
                             The&nbsp;
                             <Link
                               to={'centers/data-and-signature-generating'
                                 + '-centers/lincs-transcriptomics'}
                             >
                               LINCS Center for Transcriptomics
-                            </Link> recently published a paper in <a href="https://www.ncbi.nlm.nih.gov/pubmed/?term=A+Next+Generation+Connectivity+Map%3A+L1000+Platform+and+the+First+1%2C000%2C000+Profiles">CELL</a>
+                            </Link> recently published a paper in <a href="https://www.ncbi.nlm.nih.gov/pubmed/?term=A+Next+Generation+Connectivity+Map%3A+L1000+Platform+and+the+First+1%2C000%2C000+Profiles">Cell</a>
                             &nbsp;describing the collection
-                            of the L1000 data used to create this plot. The data
+                            of this L1000 data. The data
                             &nbsp;used to create the visualization is available
                             at the Gene-Expression Omnibus (GEO) accession number&nbsp;
                             <a
                               href="https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE92742"
                               target="_blank"
                             >GSE92742</a>
-                            , as well as on the&nbsp;
+                            , as well as, on the&nbsp;
                             <a href="http://lincsportal.ccs.miami.edu/dcic-portal/" target="_blank">
                               LINCS Data Portal
-                            </a> (LDP). More
-                            interactive visualizations of L1000 data can be found at&nbsp;
-                            <a href="https://clue.io" target="_blank">clue.io</a>,&nbsp;
-                            <a
-                              href="http://amp.pharm.mssm.edu/L1000CDS2/#/index"
-                              target="_blank"
-                            >
-                              L1000CDS<sup>2</sup>
-                            </a>, and&nbsp;
-                            <a href="http://www.ilincs.org/ilincs/signaturesL1000/LDG-1188" target="_blank">
-                              iLINCS
-                            </a>.
+                            </a> (LDP).
                           </p>
                         </div>
                         {/*
