@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PageBanner from 'components/PageBanner';
+import { Link } from 'react-router';
 import styles from './dmoa.scss';
 
 export default class DMOA extends Component {
@@ -30,7 +31,34 @@ export default class DMOA extends Component {
               <div className={styles['viz-description']}>
                 <h4>Overview:</h4>
                 <p>
-
+                  L1000 fireworks display (<a href="http://amp.pharm.mssm.edu/l1000fwd/">L1000FWD</a>)
+                  is as a web application
+                  that provides interactive visualization of over 16,000
+                  drug and small-molecule induced gene expression signatures.
+                  L1000FWD enables coloring of signatures by different
+                  attributes such as cell type, time point, concentration,
+                  as well as, drug attributes such as MOA and clinical phase.
+                  The L1000FWD has been introduced
+                  in a recent <a href="https://www.ncbi.nlm.nih.gov/pubmed/?term=L1000FWD">publication</a>
+                  &nbsp;in Bioinformatics. The&nbsp;
+                  <Link
+                    to={'centers/data-and-signature-generating'
+                      + '-centers/lincs-transcriptomics'}
+                  >
+                    LINCS Center for Transcriptomics
+                  </Link> recently published a <a href="https://www.ncbi.nlm.nih.gov/pubmed/?term=A+Next+Generation+Connectivity+Map%3A+L1000+Platform+and+the+First+1%2C000%2C000+Profiles">paper</a>
+                  &nbsp;in Cell describing the collection
+                  of this L1000 data. The data
+                  &nbsp;used to create the visualization is available
+                  at the Gene-Expression Omnibus (GEO) accession number&nbsp;
+                  <a
+                    href="https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE92742"
+                    target="_blank"
+                  >GSE92742</a>
+                  , as well as, on the&nbsp;
+                  <a href="http://lincsportal.ccs.miami.edu/dcic-portal/" target="_blank">
+                    LINCS Data Portal
+                  </a> (LDP).
                 </p>
                 <h4>Instructions:</h4>
                 <p>
