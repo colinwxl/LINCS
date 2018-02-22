@@ -183,7 +183,7 @@ export class HomeView extends Component {
                             <h5 className={styles['carousel-item-title']}>
                               <strong>
                                 L1000FWD: Large-scale Visualization of Drug-induced
-                                Transcriptomics Signatures
+                                Transcriptomic Signatures
                               </strong>
                             </h5>
                             <div className={styles['carousel-img-wrap']}>
