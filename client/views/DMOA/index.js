@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import PageBanner from 'components/PageBanner';
-import { Link } from 'react-router';
 import styles from './dmoa.scss';
 
 export default class DMOA extends Component {
