@@ -6,7 +6,7 @@ import AppsContainerModule from './ToolsAndTutorials/AppsContainerModule';
 import PageBanner from 'components/PageBanner';
 import styles from './AppsView.scss';
 
-const sub = 'Tutorials, walkthroughs, and tools to help you be more productive with LINCS datasets';
+const sub = 'Tools and tutorials to help you be more productive with LINCS datasets';
 
 export default function AppsView(props) {
   return (
