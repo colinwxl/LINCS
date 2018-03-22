@@ -11,7 +11,7 @@ const sub = 'Tutorials, walkthroughs, and tools to help you be more productive w
 export default function AppsView(props) {
   return (
     <div className={styles.wrapper}>
-      <PageBanner title="LINCS tools Marketplace" subTitle={sub} />
+      <PageBanner title="LINCS Tools Marketplace" subTitle={sub} />
       <div className="container">
         <div className="row">
           <div className="col-xs-12">
