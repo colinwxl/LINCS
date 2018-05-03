@@ -24,7 +24,7 @@ export default class DMOA extends Component {
                 style={{
                   width: '100%',
                 }}
-                src="http://amp.pharm.mssm.edu/L1000FWD/"
+                src="http://amp.pharm.mssm.edu/l1000fwd/vanilla/main"
               />
             </div>
             <div className="col-xs-12">
